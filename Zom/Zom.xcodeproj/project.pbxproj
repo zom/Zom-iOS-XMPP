@@ -1,0 +1,764 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; settings = {ASSET_TAGS = (); }; };
+		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		D978BCA31BABE886009246CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA21BABE886009246CF /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; settings = {ASSET_TAGS = (); }; };
+		D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA71BABEB83009246CF /* xmpp-server-list */; settings = {ASSET_TAGS = (); }; };
+		D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */; settings = {ASSET_TAGS = (); }; };
+		D978BCAC1BABEC13009246CF /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = D978BCAB1BABEC13009246CF /* torrc */; settings = {ASSET_TAGS = (); }; };
+		D99DEB731BABD1F300875194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99DEB721BABD1F300875194 /* main.m */; };
+		D99DEBA21BABD4A300875194 /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */; };
+		D99DEBA31BABD4AC00875194 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBF81BABDD7700875194 /* Branding.plist */; settings = {ASSET_TAGS = (); }; };
+		D99DEBFD1BABDD7700875194 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBFA1BABDD7700875194 /* Secrets.plist */; settings = {ASSET_TAGS = (); }; };
+		D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC091BABDDAE00875194 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
+		D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */; settings = {ASSET_TAGS = (); }; };
+		D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; settings = {ASSET_TAGS = (); }; };
+		D99DEC331BABDEF000875194 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */; settings = {ASSET_TAGS = (); }; };
+		D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */; settings = {ASSET_TAGS = (); }; };
+		D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */; settings = {ASSET_TAGS = (); }; };
+		D99DEC391BABDF2400875194 /* OTRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D99DEB961BABD48F00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6396AF9A1A169D54009F3E6C;
+			remoteInfo = ChatSecure;
+		};
+		D99DEB981BABD48F00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6396AFB31A169D54009F3E6C;
+			remoteInfo = ChatSecureTests;
+		};
+		D99DEB9A1BABD48F00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9227C2A1BA7952100B5E1D0;
+			remoteInfo = ChatSecureCore;
+		};
+		D99DEB9C1BABD48F00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D9AE3A0E1BA8CBFA00255537;
+			remoteInfo = OTRAssets;
+		};
+		D99DEB9E1BABD48F00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D93027561BAA381F000CC975;
+			remoteInfo = OTRResources;
+		};
+		D99DEBA01BABD49C00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D9227C291BA7952100B5E1D0;
+			remoteInfo = ChatSecureCore;
+		};
+		D99DEC371BABDF1A00875194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB641BABCEF700875194 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D99DEBAE1BABD5DF00875194;
+			remoteInfo = OTRResources;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D99DEB8D1BABD3E100875194 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D99DEBA31BABD4AC00875194 /* ChatSecureCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
+		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
+		D978BC961BABE200009246CF /* ZomTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomTheme.h; path = Classes/ZomTheme.h; sourceTree = "<group>"; };
+		D978BC971BABE200009246CF /* ZomTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomTheme.m; path = Classes/ZomTheme.m; sourceTree = "<group>"; };
+		D978BC9C1BABE6DA009246CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D978BCA21BABE886009246CF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../../ChatSecure/ChatSecure/Resources/LaunchScreen.xib; sourceTree = "<group>"; };
+		D978BCA51BABEB6F009246CF /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../../ChatSecure/ChatSecure/FontAwesome.ttf; sourceTree = "<group>"; };
+		D978BCA71BABEB83009246CF /* xmpp-server-list */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xmpp-server-list"; path = "../../ChatSecure/Submodules/xmpp-server-list"; sourceTree = "<group>"; };
+		D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods/Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		D978BCAB1BABEC13009246CF /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../../ChatSecure/ChatSecure/Resources/torrc; sourceTree = "<group>"; };
+		D99DEB6E1BABD1F300875194 /* Zom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D99DEB721BABD1F300875194 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
+		D99DEB821BABD1F300875194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ChatSecure.xcodeproj; path = ../../ChatSecure/ChatSecure.xcodeproj; sourceTree = "<group>"; };
+		D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OTRResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		D99DEBB11BABD5DF00875194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D99DEBF81BABDD7700875194 /* Branding.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Branding.plist; sourceTree = "<group>"; };
+		D99DEBFA1BABDD7700875194 /* Secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		D99DEC0A1BABDDAE00875194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Localizations/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC0C1BABDDB600875194 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = Localizations/ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC0D1BABDDBE00875194 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = Localizations/bo.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC0E1BABDDD300875194 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = Localizations/ca.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC0F1BABDDE500875194 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "Localizations/da-DK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC101BABDDEE00875194 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizations/de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC111BABDDF600875194 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = Localizations/el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC121BABDDFD00875194 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizations/es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC131BABDE0400875194 /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "Localizations/fa-IR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC141BABDE0B00875194 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizations/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC151BABDE1200875194 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = Localizations/he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC161BABDE1900875194 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = Localizations/hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC171BABDE2100875194 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = Localizations/id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC181BABDE2900875194 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizations/it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC191BABDE3000875194 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = Localizations/ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC1A1BABDE3700875194 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "Localizations/nb-NO.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC1B1BABDE4000875194 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "Localizations/nl-NL.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC1C1BABDE4800875194 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = Localizations/pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC1D1BABDE4E00875194 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "Localizations/pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC1E1BABDE5600875194 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "Localizations/pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC1F1BABDE5E00875194 /* ro-RO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ro-RO"; path = "Localizations/ro-RO.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC201BABDE6500875194 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizations/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC211BABDE6D00875194 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = Localizations/sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC221BABDE7500875194 /* sl-SI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sl-SI"; path = "Localizations/sl-SI.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC231BABDE7F00875194 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = Localizations/sl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC241BABDE8700875194 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = Localizations/sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC251BABDE9000875194 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localizations/tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC261BABDE9900875194 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = Localizations/uz.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC271BABDEA100875194 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = Localizations/vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D99DEC281BABDEAF00875194 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "Localizations/zh-Hans-CN.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC291BABDEB600875194 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "Localizations/zh-Hant-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OTRCountryImages.xcassets; sourceTree = "<group>"; };
+		D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OTRImages.xcassets; sourceTree = "<group>"; };
+		D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTRUsernameCell.xib; sourceTree = "<group>"; };
+		D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMPPServerInfoCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D99DEB6B1BABD1F300875194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D99DEBA21BABD4A300875194 /* ChatSecureCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D99DEBAC1BABD5DF00875194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D978BC9A1BABE205009246CF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D978BC941BABE200009246CF /* ZomAppDelegate.h */,
+				D978BC951BABE200009246CF /* ZomAppDelegate.m */,
+				D978BC961BABE200009246CF /* ZomTheme.h */,
+				D978BC971BABE200009246CF /* ZomTheme.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		D978BCA41BABE88C009246CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */,
+				D978BCA21BABE886009246CF /* LaunchScreen.xib */,
+				D978BCA51BABEB6F009246CF /* FontAwesome.ttf */,
+				D978BCA71BABEB83009246CF /* xmpp-server-list */,
+				D978BC9C1BABE6DA009246CF /* Images.xcassets */,
+				D978BCAB1BABEC13009246CF /* torrc */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D99DEB631BABCEF700875194 = {
+			isa = PBXGroup;
+			children = (
+				D99DEB701BABD1F300875194 /* Zom */,
+				D99DEBB01BABD5DF00875194 /* OTRResources */,
+				D99DEB6F1BABD1F300875194 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D99DEB6F1BABD1F300875194 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEB6E1BABD1F300875194 /* Zom.app */,
+				D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D99DEB701BABD1F300875194 /* Zom */ = {
+			isa = PBXGroup;
+			children = (
+				D978BCA41BABE88C009246CF /* Resources */,
+				D978BC9A1BABE205009246CF /* Classes */,
+				D99DEB821BABD1F300875194 /* Info.plist */,
+				D99DEB711BABD1F300875194 /* Supporting Files */,
+			);
+			path = Zom;
+			sourceTree = "<group>";
+		};
+		D99DEB711BABD1F300875194 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */,
+				D99DEB721BABD1F300875194 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D99DEB8F1BABD48E00875194 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEB971BABD48F00875194 /* ChatSecure.app */,
+				D99DEB991BABD48F00875194 /* ChatSecureTests.xctest */,
+				D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */,
+				D99DEB9D1BABD48F00875194 /* OTRAssets.framework */,
+				D99DEB9F1BABD48F00875194 /* OTRResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D99DEBB01BABD5DF00875194 /* OTRResources */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEC2A1BABDEF000875194 /* Images */,
+				D99DEC2D1BABDEF000875194 /* Interface */,
+				D99DEC091BABDDAE00875194 /* Localizable.strings */,
+				D99DEBF81BABDD7700875194 /* Branding.plist */,
+				D99DEBFA1BABDD7700875194 /* Secrets.plist */,
+				D99DEBB11BABD5DF00875194 /* Info.plist */,
+			);
+			path = OTRResources;
+			sourceTree = "<group>";
+		};
+		D99DEC2A1BABDEF000875194 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */,
+				D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		D99DEC2D1BABDEF000875194 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */,
+				D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */,
+				D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D99DEB6D1BABD1F300875194 /* Zom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D99DEB831BABD1F300875194 /* Build configuration list for PBXNativeTarget "Zom" */;
+			buildPhases = (
+				D99DEB6A1BABD1F300875194 /* Sources */,
+				D99DEB6B1BABD1F300875194 /* Frameworks */,
+				D99DEB6C1BABD1F300875194 /* Resources */,
+				D99DEB8D1BABD3E100875194 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D99DEC381BABDF1A00875194 /* PBXTargetDependency */,
+				D99DEBA11BABD49C00875194 /* PBXTargetDependency */,
+			);
+			name = Zom;
+			productName = Zom;
+			productReference = D99DEB6E1BABD1F300875194 /* Zom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D99DEBAE1BABD5DF00875194 /* OTRResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D99DEBB21BABD5DF00875194 /* Build configuration list for PBXNativeTarget "OTRResources" */;
+			buildPhases = (
+				D99DEBAB1BABD5DF00875194 /* Sources */,
+				D99DEBAC1BABD5DF00875194 /* Frameworks */,
+				D99DEBAD1BABD5DF00875194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OTRResources;
+			productName = OTRResources;
+			productReference = D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D99DEB641BABCEF700875194 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					D99DEB6D1BABD1F300875194 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					D99DEBAE1BABD5DF00875194 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = D99DEB671BABCEF700875194 /* Build configuration list for PBXProject "Zom" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ar,
+				bo,
+				ca,
+				"da-DK",
+				de,
+				el,
+				es,
+				"fa-IR",
+				fr,
+				he,
+				hu,
+				id,
+				it,
+				ja,
+				"nb-NO",
+				"nl-NL",
+				pl,
+				"pt-BR",
+				"pt-PT",
+				"ro-RO",
+				ru,
+				sk,
+				"sl-SI",
+				sl,
+				sv,
+				tr,
+				uz,
+				vi,
+				"zh-Hans-CN",
+				"zh-Hant-TW",
+			);
+			mainGroup = D99DEB631BABCEF700875194;
+			productRefGroup = D99DEB6F1BABD1F300875194 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D99DEB8F1BABD48E00875194 /* Products */;
+					ProjectRef = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D99DEB6D1BABD1F300875194 /* Zom */,
+				D99DEBAE1BABD5DF00875194 /* OTRResources */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D99DEB971BABD48F00875194 /* ChatSecure.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ChatSecure.app;
+			remoteRef = D99DEB961BABD48F00875194 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D99DEB991BABD48F00875194 /* ChatSecureTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChatSecureTests.xctest;
+			remoteRef = D99DEB981BABD48F00875194 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChatSecureCore.framework;
+			remoteRef = D99DEB9A1BABD48F00875194 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D99DEB9D1BABD48F00875194 /* OTRAssets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OTRAssets.framework;
+			remoteRef = D99DEB9C1BABD48F00875194 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D99DEB9F1BABD48F00875194 /* OTRResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OTRResources.bundle;
+			remoteRef = D99DEB9E1BABD48F00875194 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D99DEB6C1BABD1F300875194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D99DEC391BABDF2400875194 /* OTRResources.bundle in Resources */,
+				D978BCA31BABE886009246CF /* LaunchScreen.xib in Resources */,
+				D978BCAC1BABEC13009246CF /* torrc in Resources */,
+				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
+				D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */,
+				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
+				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D99DEBAD1BABD5DF00875194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */,
+				D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */,
+				D99DEBFD1BABDD7700875194 /* Secrets.plist in Resources */,
+				D99DEC331BABDEF000875194 /* Onboarding.storyboard in Resources */,
+				D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */,
+				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
+				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
+				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D99DEB6A1BABD1F300875194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D99DEB731BABD1F300875194 /* main.m in Sources */,
+				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
+				D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D99DEBAB1BABD5DF00875194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D99DEBA11BABD49C00875194 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChatSecureCore;
+			targetProxy = D99DEBA01BABD49C00875194 /* PBXContainerItemProxy */;
+		};
+		D99DEC381BABDF1A00875194 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D99DEBAE1BABD5DF00875194 /* OTRResources */;
+			targetProxy = D99DEC371BABDF1A00875194 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D99DEC091BABDDAE00875194 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D99DEC0A1BABDDAE00875194 /* Base */,
+				D99DEC0C1BABDDB600875194 /* ar */,
+				D99DEC0D1BABDDBE00875194 /* bo */,
+				D99DEC0E1BABDDD300875194 /* ca */,
+				D99DEC0F1BABDDE500875194 /* da-DK */,
+				D99DEC101BABDDEE00875194 /* de */,
+				D99DEC111BABDDF600875194 /* el */,
+				D99DEC121BABDDFD00875194 /* es */,
+				D99DEC131BABDE0400875194 /* fa-IR */,
+				D99DEC141BABDE0B00875194 /* fr */,
+				D99DEC151BABDE1200875194 /* he */,
+				D99DEC161BABDE1900875194 /* hu */,
+				D99DEC171BABDE2100875194 /* id */,
+				D99DEC181BABDE2900875194 /* it */,
+				D99DEC191BABDE3000875194 /* ja */,
+				D99DEC1A1BABDE3700875194 /* nb-NO */,
+				D99DEC1B1BABDE4000875194 /* nl-NL */,
+				D99DEC1C1BABDE4800875194 /* pl */,
+				D99DEC1D1BABDE4E00875194 /* pt-BR */,
+				D99DEC1E1BABDE5600875194 /* pt-PT */,
+				D99DEC1F1BABDE5E00875194 /* ro-RO */,
+				D99DEC201BABDE6500875194 /* ru */,
+				D99DEC211BABDE6D00875194 /* sk */,
+				D99DEC221BABDE7500875194 /* sl-SI */,
+				D99DEC231BABDE7F00875194 /* sl */,
+				D99DEC241BABDE8700875194 /* sv */,
+				D99DEC251BABDE9000875194 /* tr */,
+				D99DEC261BABDE9900875194 /* uz */,
+				D99DEC271BABDEA100875194 /* vi */,
+				D99DEC281BABDEAF00875194 /* zh-Hans-CN */,
+				D99DEC291BABDEB600875194 /* zh-Hant-TW */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D99DEB681BABCEF700875194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D99DEB691BABCEF700875194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		D99DEB841BABD1F300875194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Zom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = im.zom.Zom;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D99DEB851BABD1F300875194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Zom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = im.zom.Zom;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D99DEBB31BABD5DF00875194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OTRResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.chatsecure.OTRResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		D99DEBB41BABD5DF00875194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = OTRResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.chatsecure.OTRResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D99DEB671BABCEF700875194 /* Build configuration list for PBXProject "Zom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99DEB681BABCEF700875194 /* Debug */,
+				D99DEB691BABCEF700875194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D99DEB831BABD1F300875194 /* Build configuration list for PBXNativeTarget "Zom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99DEB841BABD1F300875194 /* Debug */,
+				D99DEB851BABD1F300875194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D99DEBB21BABD5DF00875194 /* Build configuration list for PBXNativeTarget "OTRResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99DEBB31BABD5DF00875194 /* Debug */,
+				D99DEBB41BABD5DF00875194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D99DEB641BABCEF700875194 /* Project object */;
+}

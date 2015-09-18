@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A9950D8C7A488A3339E7426A4D08917C04DE7033",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "65A79C2919A5538250064F3C245A290D7BFC656E" : 0,
+    "6629762BA356A4C56436558F8BA2A9102478B1C6" : 0,
+    "A9950D8C7A488A3339E7426A4D08917C04DE7033" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C81AA4D9-4C17-4A93-810E-85D3651B54FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "65A79C2919A5538250064F3C245A290D7BFC656E" : "Zom-iOS\/ChatSecure\/",
+    "6629762BA356A4C56436558F8BA2A9102478B1C6" : "Zom-iOS\/ChatSecure\/Submodules\/xmpp-server-list\/",
+    "A9950D8C7A488A3339E7426A4D08917C04DE7033" : "Zom-iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Zom",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Zom\/Zom.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ChatSecure\/ChatSecure-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "65A79C2919A5538250064F3C245A290D7BFC656E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ChatSecure\/xmpp-server-list.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6629762BA356A4C56436558F8BA2A9102478B1C6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:zom\/Zom-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A9950D8C7A488A3339E7426A4D08917C04DE7033"
+    }
+  ]
+}

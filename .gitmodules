@@ -1,0 +1,3 @@
+[submodule "ChatSecure"]
+	path = ChatSecure
+	url = git@github.com:ChatSecure/ChatSecure-iOS.git
