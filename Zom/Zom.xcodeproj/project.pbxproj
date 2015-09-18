@@ -29,6 +29,7 @@
 		D9BA75CD1BABFF0100B38AFD /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9D1BABD48F00875194 /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9BA75D71BAC080C00B38AFD /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */; };
 		D9BA75D81BAC080C00B38AFD /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9C93AD01BACAF52006B0620 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C93ACF1BACAF52006B0620 /* Dummy.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,8 @@
 		D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTRUsernameCell.xib; sourceTree = "<group>"; };
 		D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMPPServerInfoCell.xib; sourceTree = "<group>"; };
+		D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zom-Bridging-Header.h"; sourceTree = "<group>"; };
+		D9C93ACF1BACAF52006B0620 /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = Classes/Dummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,10 +200,12 @@
 		D978BC9A1BABE205009246CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D9C93ACF1BACAF52006B0620 /* Dummy.swift */,
 				D978BC941BABE200009246CF /* ZomAppDelegate.h */,
 				D978BC951BABE200009246CF /* ZomAppDelegate.m */,
 				D978BC961BABE200009246CF /* ZomTheme.h */,
 				D978BC971BABE200009246CF /* ZomTheme.m */,
+				D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 		D99DEB641BABCEF700875194 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					D99DEB6D1BABD1F300875194 = {
@@ -551,6 +557,7 @@
 			files = (
 				D99DEB731BABD1F300875194 /* main.m in Sources */,
 				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
+				D9C93AD01BACAF52006B0620 /* Dummy.swift in Sources */,
 				D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,7 +670,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -688,6 +695,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = im.zom.Zom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Zom/Zom-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -715,7 +724,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -734,6 +743,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = im.zom.Zom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0d6bb5ba-2400-4c59-ae7e-6d486ebb297c";
+				SWIFT_OBJC_BRIDGING_HEADER = "Zom/Zom-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
