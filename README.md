@@ -11,6 +11,10 @@ You'll need the Zom whitelabeling, ChatSecure source code, and dependencies. You
      $ git submodule update --init --recursive
      $ cd ChatSecure
      $ pod install
+     $ cd ..
+     $ cd Zom
+     $ pod install
+     $ cd ..
      
 Copy over the `Secrets.plist` template:
 
@@ -18,9 +22,6 @@ Copy over the `Secrets.plist` template:
      
 Now open up the workspace:
 
-     $ cd ..
-     $ open ChatSecure/ChatSecure.xcworkspace
-     
-After the workspace is open, drag `Zom/Zom.xcodeproj` into your workspace.
+     $ open Zom/Zom.xcworkspace
      
 Run the Zom target inside Xcode on the simulator or on your device.
