@@ -1,3 +1,6 @@
+# Disable CocoaPods deterministic UUIDs as Pods are not checked in
+ENV["COCOAPODS_DISABLE_DETERMINISTIC_UUIDS"] = "true"
+
 platform :ios, "8.0"
 
 use_frameworks!
@@ -45,7 +48,7 @@ pod 'QRCodeReaderViewController', '~> 3.5.0'
 pod 'ZXingObjC', '~> 3.0'
 
 
-# Local Podspecs
+# Local ../ChatSecure/Podspecs
 pod 'gtm-http-fetcher', :podspec => '../ChatSecure/Podspecs/gtm-http-fetcher.podspec'
 pod 'gtm-oauth2', :podspec => '../ChatSecure/Podspecs/gtm-oauth2.podspec'
 pod 'SQLCipher/fts', :podspec => '../ChatSecure/Podspecs/SQLCipher.podspec.json'
@@ -55,7 +58,7 @@ pod 'SQLCipher/fts', :podspec => '../ChatSecure/Podspecs/SQLCipher.podspec.json'
 pod 'SIAlertView', :git => 'https://github.com/ChatSecure/SIAlertView.git', :branch => 'attributedText'
 pod 'JSQMessagesViewController', :git => 'https://github.com/ChatSecure/JSQMessagesViewController', :branch => '7.1.0-send_button'
 
-# Submodules
+# ../ChatSecure/Submodules
 pod 'ProxyKit/Client', :path => '../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec'
 pod 'OTRKit', :path => '../ChatSecure/Submodules/OTRKit/OTRKit.podspec'
 pod 'CPAProxy', :path => '../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec'

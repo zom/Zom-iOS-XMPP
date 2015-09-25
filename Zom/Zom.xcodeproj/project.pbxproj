@@ -26,42 +26,38 @@
 		D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */; settings = {ASSET_TAGS = (); }; };
 		D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */; settings = {ASSET_TAGS = (); }; };
 		D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */; };
-		D9BA75CD1BABFF0100B38AFD /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9D1BABD48F00875194 /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D9BA75D71BAC080C00B38AFD /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */; };
-		D9BA75D81BAC080C00B38AFD /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D9C93AD01BACAF52006B0620 /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C93ACF1BACAF52006B0620 /* Dummy.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D99DEB961BABD48F00875194 /* PBXContainerItemProxy */ = {
+		D9315C9F1BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6396AF9A1A169D54009F3E6C;
 			remoteInfo = ChatSecure;
 		};
-		D99DEB981BABD48F00875194 /* PBXContainerItemProxy */ = {
+		D9315CA11BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6396AFB31A169D54009F3E6C;
 			remoteInfo = ChatSecureTests;
 		};
-		D99DEB9A1BABD48F00875194 /* PBXContainerItemProxy */ = {
+		D9315CA31BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D9227C2A1BA7952100B5E1D0;
 			remoteInfo = ChatSecureCore;
 		};
-		D99DEB9C1BABD48F00875194 /* PBXContainerItemProxy */ = {
+		D9315CA51BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D9AE3A0E1BA8CBFA00255537;
 			remoteInfo = OTRAssets;
 		};
-		D99DEB9E1BABD48F00875194 /* PBXContainerItemProxy */ = {
+		D9315CA71BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 			proxyType = 2;
@@ -75,20 +71,6 @@
 			remoteGlobalIDString = D99DEBAE1BABD5DF00875194;
 			remoteInfo = OTRResources;
 		};
-		D9BA75CE1BABFF0100B38AFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D9AE3A0D1BA8CBFA00255537;
-			remoteInfo = OTRAssets;
-		};
-		D9BA75D91BAC080C00B38AFD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D9227C291BA7952100B5E1D0;
-			remoteInfo = ChatSecureCore;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,8 +80,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D9BA75D81BAC080C00B38AFD /* ChatSecureCore.framework in Embed Frameworks */,
-				D9BA75CD1BABFF0100B38AFD /* OTRAssets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +103,7 @@
 		D99DEB6E1BABD1F300875194 /* Zom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99DEB721BABD1F300875194 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
 		D99DEB821BABD1F300875194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ChatSecure.xcodeproj; path = ../../ChatSecure/ChatSecure.xcodeproj; sourceTree = "<group>"; };
+		D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ChatSecure.xcodeproj; path = ../ChatSecure/ChatSecure.xcodeproj; sourceTree = "<group>"; };
 		D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OTRResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99DEBB11BABD5DF00875194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D99DEBF81BABDD7700875194 /* Branding.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Branding.plist; sourceTree = "<group>"; };
@@ -165,7 +145,6 @@
 		D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTRUsernameCell.xib; sourceTree = "<group>"; };
 		D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMPPServerInfoCell.xib; sourceTree = "<group>"; };
 		D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zom-Bridging-Header.h"; sourceTree = "<group>"; };
-		D9C93ACF1BACAF52006B0620 /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dummy.swift; path = Classes/Dummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +152,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9BA75D71BAC080C00B38AFD /* ChatSecureCore.framework in Frameworks */,
 				287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,10 +175,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D9315C981BB5DC190077D2EE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9315CA01BB5DC190077D2EE /* ChatSecure.app */,
+				D9315CA21BB5DC190077D2EE /* ChatSecureTests.xctest */,
+				D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */,
+				D9315CA61BB5DC190077D2EE /* OTRAssets.framework */,
+				D9315CA81BB5DC190077D2EE /* OTRResources.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9315CA91BB5DC200077D2EE /* ChatSecure Upstream */ = {
+			isa = PBXGroup;
+			children = (
+				D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */,
+			);
+			name = "ChatSecure Upstream";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D978BC9A1BABE205009246CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D9C93ACF1BACAF52006B0620 /* Dummy.swift */,
 				D978BC941BABE200009246CF /* ZomAppDelegate.h */,
 				D978BC951BABE200009246CF /* ZomAppDelegate.m */,
 				D978BC961BABE200009246CF /* ZomTheme.h */,
@@ -213,6 +211,7 @@
 		D978BCA41BABE88C009246CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
 				D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */,
 				D978BCA21BABE886009246CF /* LaunchScreen.xib */,
 				D978BCA51BABEB6F009246CF /* FontAwesome.ttf */,
@@ -227,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				D99DEB701BABD1F300875194 /* Zom */,
-				D99DEBB01BABD5DF00875194 /* OTRResources */,
 				D99DEB6F1BABD1F300875194 /* Products */,
 				6DB3BCD1FB7CFDB0AB309D9E /* Pods */,
 				E6C4F2998CB86DBC0FDCD035 /* Frameworks */,
@@ -246,6 +244,7 @@
 		D99DEB701BABD1F300875194 /* Zom */ = {
 			isa = PBXGroup;
 			children = (
+				D9315CA91BB5DC200077D2EE /* ChatSecure Upstream */,
 				D978BCA41BABE88C009246CF /* Resources */,
 				D978BC9A1BABE205009246CF /* Classes */,
 				D99DEB821BABD1F300875194 /* Info.plist */,
@@ -257,25 +256,12 @@
 		D99DEB711BABD1F300875194 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */,
 				D99DEB721BABD1F300875194 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D99DEB8F1BABD48E00875194 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D99DEB971BABD48F00875194 /* ChatSecure.app */,
-				D99DEB991BABD48F00875194 /* ChatSecureTests.xctest */,
-				D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */,
-				D99DEB9D1BABD48F00875194 /* OTRAssets.framework */,
-				D99DEB9F1BABD48F00875194 /* OTRResources.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		D99DEBB01BABD5DF00875194 /* OTRResources */ = {
+		D99DEBB01BABD5DF00875194 /* OTRResources.bundle */ = {
 			isa = PBXGroup;
 			children = (
 				D99DEC2A1BABDEF000875194 /* Images */,
@@ -285,7 +271,8 @@
 				D99DEBFA1BABDD7700875194 /* Secrets.plist */,
 				D99DEBB11BABD5DF00875194 /* Info.plist */,
 			);
-			path = OTRResources;
+			name = OTRResources.bundle;
+			path = ../OTRResources;
 			sourceTree = "<group>";
 		};
 		D99DEC2A1BABDEF000875194 /* Images */ = {
@@ -334,8 +321,6 @@
 			);
 			dependencies = (
 				D99DEC381BABDF1A00875194 /* PBXTargetDependency */,
-				D9BA75CF1BABFF0100B38AFD /* PBXTargetDependency */,
-				D9BA75DA1BAC080C00B38AFD /* PBXTargetDependency */,
 			);
 			name = Zom;
 			productName = Zom;
@@ -420,7 +405,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D99DEB8F1BABD48E00875194 /* Products */;
+					ProductGroup = D9315C981BB5DC190077D2EE /* Products */;
 					ProjectRef = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 				},
 			);
@@ -433,39 +418,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D99DEB971BABD48F00875194 /* ChatSecure.app */ = {
+		D9315CA01BB5DC190077D2EE /* ChatSecure.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = ChatSecure.app;
-			remoteRef = D99DEB961BABD48F00875194 /* PBXContainerItemProxy */;
+			remoteRef = D9315C9F1BB5DC190077D2EE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D99DEB991BABD48F00875194 /* ChatSecureTests.xctest */ = {
+		D9315CA21BB5DC190077D2EE /* ChatSecureTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChatSecureTests.xctest;
-			remoteRef = D99DEB981BABD48F00875194 /* PBXContainerItemProxy */;
+			remoteRef = D9315CA11BB5DC190077D2EE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D99DEB9B1BABD48F00875194 /* ChatSecureCore.framework */ = {
+		D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ChatSecureCore.framework;
-			remoteRef = D99DEB9A1BABD48F00875194 /* PBXContainerItemProxy */;
+			remoteRef = D9315CA31BB5DC190077D2EE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D99DEB9D1BABD48F00875194 /* OTRAssets.framework */ = {
+		D9315CA61BB5DC190077D2EE /* OTRAssets.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = OTRAssets.framework;
-			remoteRef = D99DEB9C1BABD48F00875194 /* PBXContainerItemProxy */;
+			remoteRef = D9315CA51BB5DC190077D2EE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D99DEB9F1BABD48F00875194 /* OTRResources.bundle */ = {
+		D9315CA81BB5DC190077D2EE /* OTRResources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = OTRResources.bundle;
-			remoteRef = D99DEB9E1BABD48F00875194 /* PBXContainerItemProxy */;
+			remoteRef = D9315CA71BB5DC190077D2EE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -557,7 +542,6 @@
 			files = (
 				D99DEB731BABD1F300875194 /* main.m in Sources */,
 				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
-				D9C93AD01BACAF52006B0620 /* Dummy.swift in Sources */,
 				D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,16 +560,6 @@
 			isa = PBXTargetDependency;
 			target = D99DEBAE1BABD5DF00875194 /* OTRResources */;
 			targetProxy = D99DEC371BABDF1A00875194 /* PBXContainerItemProxy */;
-		};
-		D9BA75CF1BABFF0100B38AFD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OTRAssets;
-			targetProxy = D9BA75CE1BABFF0100B38AFD /* PBXContainerItemProxy */;
-		};
-		D9BA75DA1BAC080C00B38AFD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ChatSecureCore;
-			targetProxy = D9BA75D91BAC080C00B38AFD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

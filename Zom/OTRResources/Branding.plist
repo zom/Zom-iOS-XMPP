@@ -17,9 +17,9 @@
 	<key>FacebookWebURL</key>
 	<string>https://www.facebook.com/chatsecure</string>
 	<key>TwitterAppURL</key>
-	<string>twitter://user?screen_name=ChatSecure</string>
+	<string>twitter://user?screen_name=ZomApp</string>
 	<key>TwitterWebURL</key>
-	<string>https://twitter.com/ChatSecure</string>
+	<string>https://twitter.com/ZomApp</string>
 	<key>TransifexURL</key>
 	<string>https://www.transifex.com/projects/p/chatsecure</string>
 	<key>ProjectURL</key>

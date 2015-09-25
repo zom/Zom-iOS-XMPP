@@ -1,20 +1,18 @@
 # [Zom-iOS](https://github.com/zom/zom-iOS)
 
+[![Build Status](https://travis-ci.org/zom/Zom-iOS.svg)](https://travis-ci.org/zom/Zom-iOS)
+
 Zom is a whitelabel fork of [ChatSecure](https://github.com/chatsecure/chatsecure-ios) for the Tibetan community
 
 ## Getting Started
 
-You'll need the Zom whitelabeling, ChatSecure source code, and dependencies. You'll also need CocoaPods if you don't have it already.
+You'll need the most recent version of Xcode, CocoaPods, Zom whitelabeling, ChatSecure source code, and dependencies. Also don't forget to add your SSH public key to GitHub or you'll get errors during the submodule step.
 
      $ git clone https://github.com/zom/Zom-iOS.git
      $ cd Zom-iOS
      $ git submodule update --init --recursive
-     $ cd ChatSecure
-     $ pod install
-     $ cd ..
-     $ cd Zom
-     $ pod install
-     $ cd ..
+     $ pod install --project-directory=ChatSecure
+     $ pod install --project-directory=Zom
      
 Copy over the `Secrets.plist` template:
 

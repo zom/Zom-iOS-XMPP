@@ -21,7 +21,7 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Appirater (2.0.5)
-  - ARChromeActivity (1.0.4)
+  - ARChromeActivity (1.0.5)
   - BBlock (1.2.1):
     - BBlock/AppKit (= 1.2.1)
     - BBlock/Foundation (= 1.2.1)
@@ -46,7 +46,7 @@ PODS:
   - gtm-http-fetcher (1.1)
   - gtm-oauth2 (1.1):
     - gtm-http-fetcher (~> 1.1)
-  - HockeySDK-Source (3.8.1)
+  - HockeySDK-Source (3.8.2)
   - IOCipher/common (0.1.0):
     - libsqlfs/SQLCipher
   - IOCipher/GCDWebServer (0.1.0):
@@ -293,33 +293,33 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   CPAProxy:
-    :path: ../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec
+    :path: "../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec"
   gtm-http-fetcher:
-    :podspec: ../ChatSecure/Podspecs/gtm-http-fetcher.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-http-fetcher.podspec"
   gtm-oauth2:
-    :podspec: ../ChatSecure/Podspecs/gtm-oauth2.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-oauth2.podspec"
   IOCipher:
-    :path: ../ChatSecure/Submodules/IOCipher/IOCipher.podspec
+    :path: "../ChatSecure/Submodules/IOCipher/IOCipher.podspec"
   JSQMessagesViewController:
     :branch: 7.1.0-send_button
     :git: https://github.com/ChatSecure/JSQMessagesViewController
   OTRKit:
-    :path: ../ChatSecure/Submodules/OTRKit/OTRKit.podspec
+    :path: "../ChatSecure/Submodules/OTRKit/OTRKit.podspec"
   ParkedTextField:
-    :path: ../ChatSecure/Submodules/ParkedTextField/ParkedTextField.podspec
+    :path: "../ChatSecure/Submodules/ParkedTextField/ParkedTextField.podspec"
   ProxyKit:
-    :path: ../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec
+    :path: "../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec"
   SIAlertView:
     :branch: attributedText
     :git: https://github.com/ChatSecure/SIAlertView.git
   SQLCipher:
-    :podspec: ../ChatSecure/Podspecs/SQLCipher.podspec.json
+    :podspec: "../ChatSecure/Podspecs/SQLCipher.podspec.json"
   XLForm:
-    :path: ../ChatSecure/Submodules/XLForm/XLForm.podspec
+    :path: "../ChatSecure/Submodules/XLForm/XLForm.podspec"
   XMPPFramework:
-    :path: ../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec
+    :path: "../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec"
   YapDatabase:
-    :path: ../ChatSecure/Submodules/YapDatabase/YapDatabase.podspec
+    :path: "../ChatSecure/Submodules/YapDatabase/YapDatabase.podspec"
 
 CHECKOUT OPTIONS:
   JSQMessagesViewController:
@@ -332,7 +332,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   Appirater: e7c0a47fb67ee5041ce8479e6ba960927fb40264
-  ARChromeActivity: 9064d94803338d3377f3e1013a8e8f4821d7daf1
+  ARChromeActivity: 821c7849b566f49583987468733a896fee35aa4d
   BBlock: c56d7f72597ffe1634fcdc73836c5c0fed3271be
   BButton: ab0f2ed3b998ae73c5188b57d270d81e4a1eeb27
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
@@ -342,7 +342,7 @@ SPEC CHECKSUMS:
   GCDWebServer: 76a9540371d5f12f850b32ec7f555dd2d266e543
   gtm-http-fetcher: 4e7de79fc9e774b291eae66a240f17b3a5277ec7
   gtm-oauth2: b31c9d7c82f773f7b7094cbb7da8dc7b5968ce16
-  HockeySDK-Source: d03f7d267d78980af33fb63ddea5199f5bf84049
+  HockeySDK-Source: 42b2ead932f97de6b88bed9d1aa2a13b2e6e21ad
   IOCipher: 2bcc56103fbdd9cd9139a5b030ebb97ed6fbc4b9
   JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
