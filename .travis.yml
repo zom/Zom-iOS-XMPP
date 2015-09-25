@@ -9,6 +9,7 @@ git:
 # Use regex to replace the SSH URL with the public URL, then initialize submodules
 before_install:
     - perl -pi -e 's/git@github.com:/git:\/\/github.com\//' .gitmodules
+    - git submodule update --init
     - perl -pi -e 's/git@github.com:/git:\/\/github.com\//' ChatSecure/.gitmodules
     - perl -pi -e 's/git@github.com:/git:\/\/github.com\//' ChatSecure/Podfile
     - git submodule update --init --recursive
