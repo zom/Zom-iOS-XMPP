@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B5F63F8FC6924BC02033C7 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; settings = {ASSET_TAGS = (); }; };
 		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
@@ -63,6 +64,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = D93027561BAA381F000CC975;
 			remoteInfo = OTRResources;
+		};
+		D933EA3B1BB6170A00B5EE0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D9227C291BA7952100B5E1D0;
+			remoteInfo = ChatSecureCore;
 		};
 		D99DEC371BABDF1A00875194 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -152,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */,
 				287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +329,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */,
 				D99DEC381BABDF1A00875194 /* PBXTargetDependency */,
 			);
 			name = Zom;
@@ -556,6 +566,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChatSecureCore;
+			targetProxy = D933EA3B1BB6170A00B5EE0F /* PBXContainerItemProxy */;
+		};
 		D99DEC381BABDF1A00875194 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D99DEBAE1BABD5DF00875194 /* OTRResources */;
@@ -644,7 +659,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -698,7 +713,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
