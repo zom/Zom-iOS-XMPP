@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B5F63F8FC6924BC02033C7 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B5F63F8FC6924BC02033C7 /* Pods.framework */; };
 		D92DF7111BBDF7B000CFD706 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D92DF7121BBDF89800CFD706 /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
@@ -663,7 +663,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -717,7 +716,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
