@@ -8,6 +8,7 @@
 
 #import "ZomAppDelegate.h"
 #import "ZomTheme.h"
+#import "Zom-Swift.h"
 
 @implementation ZomAppDelegate
 
@@ -16,5 +17,13 @@
 - (Class) themeClass {
     return [ZomTheme class];
 }
+
+#pragma mark - Overrides
+
+- (Class) messagesViewControllerClass
+{
+    return [ZomMessagesViewController class];
+}
+
 
 @end

@@ -8,26 +8,37 @@
 
 /* Begin PBXBuildFile section */
 		287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B5F63F8FC6924BC02033C7 /* Pods.framework */; };
+		9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */; };
+		9278C3961BF36A59003AC533 /* ZomIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C3951BF36A59003AC533 /* ZomIntroViewController.swift */; };
+		9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */; };
+		9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */; };
+		9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */; };
+		9278C3A01BF4D2AE003AC533 /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39F1BF4D2AE003AC533 /* Stickers */; };
+		9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */; };
+		929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */; };
+		929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */; };
+		929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */; };
+		92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */; };
 		D92DF7111BBDF7B000CFD706 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D92DF7121BBDF89800CFD706 /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
-		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
-		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; settings = {ASSET_TAGS = (); }; };
-		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
-		D978BCA31BABE886009246CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA21BABE886009246CF /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
-		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; settings = {ASSET_TAGS = (); }; };
-		D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA71BABEB83009246CF /* xmpp-server-list */; settings = {ASSET_TAGS = (); }; };
-		D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */; settings = {ASSET_TAGS = (); }; };
-		D978BCAC1BABEC13009246CF /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = D978BCAB1BABEC13009246CF /* torrc */; settings = {ASSET_TAGS = (); }; };
+		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
+		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
+		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
+		D978BCA31BABE886009246CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA21BABE886009246CF /* LaunchScreen.xib */; };
+		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; };
+		D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA71BABEB83009246CF /* xmpp-server-list */; };
+		D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */; };
+		D978BCAC1BABEC13009246CF /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = D978BCAB1BABEC13009246CF /* torrc */; };
 		D99DEB731BABD1F300875194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99DEB721BABD1F300875194 /* main.m */; };
-		D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBF81BABDD7700875194 /* Branding.plist */; settings = {ASSET_TAGS = (); }; };
-		D99DEBFD1BABDD7700875194 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBFA1BABDD7700875194 /* Secrets.plist */; settings = {ASSET_TAGS = (); }; };
-		D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC091BABDDAE00875194 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
-		D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */; settings = {ASSET_TAGS = (); }; };
-		D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; settings = {ASSET_TAGS = (); }; };
-		D99DEC331BABDEF000875194 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */; settings = {ASSET_TAGS = (); }; };
-		D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */; settings = {ASSET_TAGS = (); }; };
-		D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */; settings = {ASSET_TAGS = (); }; };
+		D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBF81BABDD7700875194 /* Branding.plist */; };
+		D99DEBFD1BABDD7700875194 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBFA1BABDD7700875194 /* Secrets.plist */; };
+		D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC091BABDDAE00875194 /* Localizable.strings */; };
+		D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */; };
+		D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; };
+		D99DEC331BABDEF000875194 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */; };
+		D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */; };
+		D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */; };
 		D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +110,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZomTableViewSectionHeader.xib; sourceTree = "<group>"; };
+		9278C3951BF36A59003AC533 /* ZomIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomIntroViewController.swift; path = "Classes/View Controllers/Onboarding/ZomIntroViewController.swift"; sourceTree = "<group>"; };
+		9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMessagesViewController.swift; path = "Classes/View Controllers/Messages View Controller/ZomMessagesViewController.swift"; sourceTree = "<group>"; };
+		9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomStickerPackTableViewController.swift; path = "Classes/View Controllers/ZomStickerPackTableViewController.swift"; sourceTree = "<group>"; };
+		9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickerShare.storyboard; sourceTree = "<group>"; };
+		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
+		9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickStickerViewController.swift; path = "Classes/View Controllers/ZomPickStickerViewController.swift"; sourceTree = "<group>"; };
+		929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickStickerCell.swift; path = Classes/Views/ZomPickStickerCell.swift; sourceTree = "<group>"; };
+		929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomTableViewSectionHeader.swift; path = Classes/Views/ZomTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBaseLoginViewController.swift; path = "Classes/View Controllers/Login View Controllers/ZomBaseLoginViewController.swift"; sourceTree = "<group>"; };
+		92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomWelcomeViewController.swift; path = "Classes/View Controllers/Onboarding/ZomWelcomeViewController.swift"; sourceTree = "<group>"; };
 		B5FA261E2626AE9AAED10C80 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E40F5B297BC854372EA680 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +210,52 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9278C3871BF33C10003AC533 /* Login View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */,
+			);
+			name = "Login View Controllers";
+			sourceTree = "<group>";
+		};
+		9278C3911BF34358003AC533 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */,
+				929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9278C3971BF3F82A003AC533 /* Messages View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */,
+			);
+			name = "Messages View Controller";
+			sourceTree = "<group>";
+		};
+		92D378161BF1EF9300E014EF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */,
+				9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */,
+				9278C3971BF3F82A003AC533 /* Messages View Controller */,
+				9278C3871BF33C10003AC533 /* Login View Controllers */,
+				92D378171BF1EF9D00E014EF /* Onboarding */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		92D378171BF1EF9D00E014EF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */,
+				9278C3951BF36A59003AC533 /* ZomIntroViewController.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		D9315C981BB5DC190077D2EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +280,8 @@
 		D978BC9A1BABE205009246CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9278C3911BF34358003AC533 /* Views */,
+				92D378161BF1EF9300E014EF /* View Controllers */,
 				D978BC941BABE200009246CF /* ZomAppDelegate.h */,
 				D978BC951BABE200009246CF /* ZomAppDelegate.m */,
 				D978BC961BABE200009246CF /* ZomTheme.h */,
@@ -224,6 +294,7 @@
 		D978BCA41BABE88C009246CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9278C39F1BF4D2AE003AC533 /* Stickers */,
 				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
 				D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */,
 				D978BCA21BABE886009246CF /* LaunchScreen.xib */,
@@ -303,6 +374,8 @@
 				D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */,
 				D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */,
 				D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */,
+				9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */,
+				9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -474,8 +547,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
+				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				D978BCA31BABE886009246CF /* LaunchScreen.xib in Resources */,
+				9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */,
 				D978BCAC1BABEC13009246CF /* torrc in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
 				D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */,
@@ -554,9 +630,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9278C3961BF36A59003AC533 /* ZomIntroViewController.swift in Sources */,
 				D99DEB731BABD1F300875194 /* main.m in Sources */,
+				929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */,
+				9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */,
+				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
 				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
+				9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */,
+				929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */,
+				92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */,
 				D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */,
+				9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
