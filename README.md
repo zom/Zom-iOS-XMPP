@@ -11,6 +11,8 @@ You'll need the most recent version of Xcode, CocoaPods, Zom whitelabeling, Chat
      $ git clone https://github.com/zom/Zom-iOS.git
      $ cd Zom-iOS
      $ git submodule update --init --recursive
+     $ bash ./ChatSecure/Submodules/CPAProxy/scripts/build-all.sh
+     $ bash ./ChatSecure/Submodules/OTRKit/scripts/build-all.sh
      $ pod install --project-directory=ChatSecure
      $ pod install --project-directory=Zom
      
