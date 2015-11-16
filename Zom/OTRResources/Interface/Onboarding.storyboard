@@ -43,8 +43,8 @@
                                     <constraint firstAttribute="height" constant="249" id="a9S-9w-qFB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
-                                <rect key="frame" x="209" y="444" width="183" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
+                                <rect key="frame" x="215" y="444" width="171" height="24"/>
                                 <animations/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Choose Language" image="ic_language_white">
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2V5-xZ-0Rv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="516"/>
+            <point key="canvasLocation" x="1279" y="1371"/>
         </scene>
         <!--Select Language-->
         <scene sceneID="Qtm-mY-8iJ">
@@ -140,90 +140,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0S-RX-Pvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="1371"/>
-        </scene>
-        <!--Zom Welcome View Controller-->
-        <scene sceneID="aIa-4h-UAG">
-            <objects>
-                <viewController id="VGW-NL-Il9" customClass="ZomWelcomeViewController" customModule="Zom" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fjf-w1-eNs"/>
-                        <viewControllerLayoutGuide type="bottom" id="lxA-5I-TNm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="56z-6Y-x53">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatsecure_logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="48T-Ij-Dlz">
-                                <rect key="frame" x="200" y="95" width="200" height="249"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="249" id="2bI-D9-nhN"/>
-                                    <constraint firstAttribute="width" constant="200" id="zqS-6G-IFS"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKG-0S-3Nt">
-                                <rect key="frame" x="203" y="413" width="194" height="38"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Create New Account">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3l-cn-OM4">
-                                <rect key="frame" x="202" y="550" width="197" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Sign into an existing account">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5o-sm-Qly">
-                                <rect key="frame" x="527" y="550" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Skip">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="skipButtonPressed:" destination="VGW-NL-Il9" eventType="touchUpInside" id="tgO-se-5MA"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="DKG-0S-3Nt" secondAttribute="centerX" id="1Hy-gt-nDc"/>
-                            <constraint firstAttribute="centerX" secondItem="48T-Ij-Dlz" secondAttribute="centerX" id="9xn-si-4eW"/>
-                            <constraint firstAttribute="centerX" secondItem="o3l-cn-OM4" secondAttribute="centerX" id="FgW-Uz-3XM"/>
-                            <constraint firstItem="lxA-5I-TNm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DKG-0S-3Nt" secondAttribute="bottom" constant="20" id="MIZ-xG-jh6"/>
-                            <constraint firstItem="W5o-sm-Qly" firstAttribute="centerY" secondItem="o3l-cn-OM4" secondAttribute="centerY" id="NmT-u3-W7e"/>
-                            <constraint firstItem="o3l-cn-OM4" firstAttribute="leading" secondItem="56z-6Y-x53" secondAttribute="leadingMargin" constant="23" id="QfK-ic-5Pr"/>
-                            <constraint firstItem="48T-Ij-Dlz" firstAttribute="top" secondItem="fjf-w1-eNs" secondAttribute="bottom" constant="75" id="cWI-yD-zfH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="W5o-sm-Qly" secondAttribute="trailing" constant="23" id="icG-Tw-5QL"/>
-                            <constraint firstItem="lxA-5I-TNm" firstAttribute="top" secondItem="W5o-sm-Qly" secondAttribute="bottom" constant="20" id="len-kx-RNn"/>
-                            <constraint firstItem="DKG-0S-3Nt" firstAttribute="top" secondItem="48T-Ij-Dlz" secondAttribute="bottom" constant="69" id="m31-6y-spL"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="QfK-ic-5Pr"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <navigationItem key="navigationItem" id="f4N-rO-FJV">
-                        <barButtonItem key="rightBarButtonItem" image="globe" style="plain" id="Pqi-vd-r1z"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="createAccountButton" destination="DKG-0S-3Nt" id="wBh-1u-qsf"/>
-                        <outlet property="existingAccountButton" destination="o3l-cn-OM4" id="65V-j5-Vdb"/>
-                        <outlet property="logoImageView" destination="48T-Ij-Dlz" id="kL2-Ag-ram"/>
-                        <outlet property="skipButton" destination="W5o-sm-Qly" id="OcE-hU-lGx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S6y-ya-MaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1743" y="-28"/>
+            <point key="canvasLocation" x="565" y="1371"/>
         </scene>
         <!--Zom Intro View Controller-->
         <scene sceneID="fJn-Vt-ZKz">
@@ -279,7 +196,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="kXx-ta-MsF" kind="show" id="2jm-Au-RyS"/>
+                                    <segue destination="kXx-ta-MsF" kind="show" identifier="useExistingAccountSegue" id="2jm-Au-RyS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -307,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-yu-ETl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="553" y="516"/>
+            <point key="canvasLocation" x="877" y="516"/>
         </scene>
     </scenes>
     <resources>
