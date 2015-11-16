@@ -25,7 +25,8 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
     }
     
     public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (self.tableView(tableView, titleForHeaderInSection: section)!.isEmpty) {
+        let title:String? = self.tableView(tableView, titleForHeaderInSection: section)
+        if (title == nil || title!.isEmpty) {
             return 0
         }
         return 50

@@ -80,7 +80,7 @@
         <!--Zom Base Login View Controller-->
         <scene sceneID="QUf-a6-hQn">
             <objects>
-                <viewController id="ZvQ-dC-bHm" customClass="ZomBaseLoginViewController" sceneMemberID="viewController">
+                <viewController id="ZvQ-dC-bHm" customClass="ZomBaseLoginViewController" customModule="Zom" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hBA-dq-abq"/>
                         <viewControllerLayoutGuide type="bottom" id="y6G-2m-Hxb"/>
