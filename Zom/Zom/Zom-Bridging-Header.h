@@ -10,3 +10,4 @@
 #import <ChatSecureCore/OTRAttachmentPicker.h>
 #import <ChatSecureCore/OTRExistingAccountViewController.h>
 #import <ChatSecureCore/OTRInviteViewController.h>
+#import <ChatSecureCore/OTRConversationViewController.h>
