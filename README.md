@@ -16,7 +16,7 @@ You'll need the most recent version of Xcode, CocoaPods, Zom whitelabeling, Chat
      
 Copy over the `Secrets.plist` template:
 
-     $ cp /Zom/OTRResources/Secrets-template.plist /Zom/OTRResources/Secrets.plist
+     $ cp ./Zom/OTRResources/Secrets-template.plist ./Zom/OTRResources/Secrets.plist
      
 Now open up the workspace:
 
