@@ -26,6 +26,11 @@
 
 #pragma mark - Overrides
 
+- (Class) conversationViewControllerClass
+{
+    return [ZomConversationViewController class];
+}
+
 - (Class) messagesViewControllerClass
 {
     return [ZomMessagesViewController class];
@@ -35,10 +40,8 @@
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
 {
-    if (userActivity.activityType == NSUserActivityTypeBrowsingWeb) {
-        if (![self handleUniversalLink:userActivity.webpageURL]) {
-            [[UIApplication sharedApplication] openURL:userActivity.webpageURL];
-        }
+    if (![self handleUniversalLink:userActivity.webpageURL]) {
+        [[UIApplication sharedApplication] openURL:userActivity.webpageURL];
     }
     return TRUE;
 }
