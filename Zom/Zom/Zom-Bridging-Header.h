@@ -11,3 +11,8 @@
 #import <ChatSecureCore/OTRExistingAccountViewController.h>
 #import <ChatSecureCore/OTRInviteViewController.h>
 #import <ChatSecureCore/OTRConversationViewController.h>
+#import <ChatSecureCore/OTRDatabaseManager.h>
+#import <ChatSecureCore/OTRDatabaseView.h>
+#import <ChatSecureCore/OTRChooseAccountViewController.h>
+#import <ChatSecureCore/OTRNewBuddyViewController.h>
+#import <QRCodeReaderViewController/QRCodeReaderViewController-umbrella.h>
