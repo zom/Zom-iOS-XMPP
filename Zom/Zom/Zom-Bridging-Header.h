@@ -16,3 +16,5 @@
 #import <ChatSecureCore/OTRChooseAccountViewController.h>
 #import <ChatSecureCore/OTRNewBuddyViewController.h>
 #import <QRCodeReaderViewController/QRCodeReaderViewController-umbrella.h>
+#import <ChatSecureCore/OTRTheme.h>
+#import "ZomTheme.h"

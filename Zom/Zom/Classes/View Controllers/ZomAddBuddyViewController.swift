@@ -9,7 +9,7 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomAddBuddyViewController: UIViewController {
+public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, OTRNewBuddyViewControllerDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     public var account:OTRAccount? = nil
@@ -34,6 +34,7 @@ public class ZomAddBuddyViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = ZomTheme().lightThemeColor
         //[self createContentPages];
         
         
@@ -47,14 +48,16 @@ public class ZomAddBuddyViewController: UIViewController {
         //pageController!.view.addConstraints(self.containerView.constraints)
         
         vcAdd = OTRNewBuddyViewController(accountId: account!.uniqueId)
+        vcAdd!.delegate = self
         vcQR = QRCodeReaderViewController()
-        vcQR!.delegate = vcAdd as! QRCodeReaderDelegate
+        vcQR!.delegate = self
         
         var types = Set<NSNumber>()
         types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
         self.account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
             if (url != nil && error == nil) {
                 self.vcMyQR = OTRQRCodeViewController(QRString: url.absoluteString)
+                self.vcMyQR?.view.backgroundColor = ZomTheme().lightThemeColor
             } else {
                 self.segmentedControl.removeSegmentAtIndex(2, animated: false)
             }
@@ -102,5 +105,21 @@ public class ZomAddBuddyViewController: UIViewController {
             pageController?.setViewControllers([vcMyQR!], direction: direction, animated: true, completion: nil)
             self.addButton.hidden = true
         }
+    }
+
+    public func readerDidCancel(reader:QRCodeReaderViewController) {
+        self.segmentedControl.selectedSegmentIndex = 0
+        self.segmentedControlValueChanged(self.segmentedControl)
+    }
+    
+    public func reader(reader:QRCodeReaderViewController, didScanResult result:String) {
+        vcAdd!.populateFromQRResult(result)
+        self.segmentedControl.selectedSegmentIndex = 0
+        self.segmentedControlValueChanged(self.segmentedControl)
+    }
+    
+    public func shouldDismissViewController(viewController: OTRNewBuddyViewController!) -> Bool {
+        self.cancelButtonPressed(self) // Close
+        return false
     }
 }

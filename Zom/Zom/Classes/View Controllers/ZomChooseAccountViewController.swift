@@ -11,6 +11,7 @@ import ChatSecureCore
 
 public class ZomChooseAccountViewController: OTRChooseAccountViewController, UITableViewDelegate {
 
+    @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
     var selectedAccount:OTRAccount? = nil
     
     public override func viewDidLoad() {
@@ -22,6 +23,9 @@ public class ZomChooseAccountViewController: OTRChooseAccountViewController, UIT
             self.selectedAccount = accounts[0] as! OTRAccount
             self.performSegueWithIdentifier("addNewBuddySegue", sender: self)
         }
+        
+        //Super view changed our bar button item, so get our cancel button back!
+        self.navigationItem.rightBarButtonItems = [self.cancelBarButtonItem]
     }
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -42,6 +46,6 @@ public class ZomChooseAccountViewController: OTRChooseAccountViewController, UIT
     }
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

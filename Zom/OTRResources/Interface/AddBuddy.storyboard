@@ -39,6 +39,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="rBt-4g-aGz"/>
                     <connections>
+                        <outlet property="cancelBarButtonItem" destination="DMr-B4-2yb" id="Hwe-tc-Atw"/>
                         <segue destination="Qvi-uT-RBx" kind="show" identifier="addNewBuddySegue" id="Qg9-Or-G7n"/>
                     </connections>
                 </viewController>
@@ -83,7 +84,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4Z-P4-oAh">
                                 <rect key="frame" x="40" y="88" width="520" height="432"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.37069954128440369" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="fnf-Wr-PC6" kind="embed" id="l3T-wd-FyH"/>
                                 </connections>
@@ -104,7 +104,6 @@
                             </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JRg-OE-3kW" firstAttribute="trailing" secondItem="Pgc-B9-aD5" secondAttribute="trailingMargin" id="Hng-2U-kGo"/>
                             <constraint firstItem="fQf-7J-CKJ" firstAttribute="leading" secondItem="Pgc-B9-aD5" secondAttribute="leadingMargin" constant="20" id="UJC-2M-gDf"/>
@@ -139,6 +138,10 @@
         <scene sceneID="Kqz-qr-zBz">
             <objects>
                 <viewController id="fnf-Wr-PC6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fgx-UY-Dz7"/>
+                        <viewControllerLayoutGuide type="bottom" id="zBN-Je-DO5"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LHr-vG-1gT">
                         <rect key="frame" x="0.0" y="0.0" width="520" height="432"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
