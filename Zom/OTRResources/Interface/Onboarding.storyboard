@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -43,7 +43,7 @@
                                     <constraint firstAttribute="height" constant="249" id="a9S-9w-qFB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
                                 <rect key="frame" x="215" y="444" width="171" height="24"/>
                                 <animations/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,15 +169,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatsecure_logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-fA-VC3">
-                                <rect key="frame" x="200" y="168" width="200" height="249"/>
+                                <rect key="frame" x="200" y="168" width="200" height="245"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="249" id="4Rl-OH-ykG"/>
+                                    <constraint firstAttribute="height" priority="900" constant="249" id="4Rl-OH-ykG"/>
                                     <constraint firstAttribute="width" constant="200" id="Ubb-VS-iBS"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-ao-iyd">
-                                <rect key="frame" x="213" y="486" width="174" height="38"/>
+                                <rect key="frame" x="213" y="482" width="174" height="38"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Create an Account">
@@ -188,8 +188,8 @@
                                     <segue destination="ZvQ-dC-bHm" kind="show" identifier="createNewAccountSegue" id="fjA-8l-CO3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-gZ-Dp1">
-                                <rect key="frame" x="201" y="554" width="199" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-gZ-Dp1">
+                                <rect key="frame" x="201" y="550" width="199" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Sign into an Existing Account">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,7 +211,7 @@
                             <constraint firstAttribute="centerX" secondItem="cwB-fA-VC3" secondAttribute="centerX" id="Vbo-Vc-2ub"/>
                             <constraint firstAttribute="centerX" secondItem="xHH-ao-iyd" secondAttribute="centerX" id="YsX-BC-z2T"/>
                             <constraint firstItem="f7Z-A1-2Dh" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="ZLz-lj-seE"/>
-                            <constraint firstItem="KMo-gZ-Dp1" firstAttribute="top" secondItem="xHH-ao-iyd" secondAttribute="bottom" priority="900" constant="30" id="f9a-Kj-R5S"/>
+                            <constraint firstItem="KMo-gZ-Dp1" firstAttribute="top" secondItem="xHH-ao-iyd" secondAttribute="bottom" priority="950" constant="30" id="f9a-Kj-R5S"/>
                             <constraint firstItem="f7Z-A1-2Dh" firstAttribute="top" secondItem="gGq-hu-BR8" secondAttribute="bottom" constant="30" id="g7g-zF-Xb0"/>
                             <constraint firstAttribute="centerX" secondItem="KMo-gZ-Dp1" secondAttribute="centerX" id="lCy-c9-9jd"/>
                             <constraint firstItem="SLr-hm-vgk" firstAttribute="top" secondItem="f7Z-A1-2Dh" secondAttribute="bottom" constant="10" id="lr1-d1-HpG"/>
