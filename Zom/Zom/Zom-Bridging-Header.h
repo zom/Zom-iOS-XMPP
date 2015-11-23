@@ -15,6 +15,10 @@
 #import <ChatSecureCore/OTRDatabaseView.h>
 #import <ChatSecureCore/OTRChooseAccountViewController.h>
 #import <ChatSecureCore/OTRNewBuddyViewController.h>
+#import <ChatSecureCore/OTRDatabaseUnlockViewController.h>
 #import <QRCodeReaderViewController/QRCodeReaderViewController-umbrella.h>
 #import <ChatSecureCore/OTRTheme.h>
+#import <OTRAssets/OTRStrings.h>
+#import <ZXingObjC/ZXingObjC-umbrella.h>
 #import "ZomTheme.h"
+#import <MessageUI/MessageUI.h>

@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-1255" y="253"/>
         </scene>
-        <!--Zom Choose Account View Controller-->
+        <!--Choose account-->
         <scene sceneID="G2C-vi-Jx7">
             <objects>
-                <viewController id="o4G-Cg-UOP" customClass="ZomChooseAccountViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Choose account" id="o4G-Cg-UOP" customClass="ZomChooseAccountViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UZt-99-5o7"/>
                         <viewControllerLayoutGuide type="bottom" id="CDh-NE-f8v"/>
@@ -117,7 +117,7 @@
                             <constraint firstAttribute="bottomMargin" secondItem="fQf-7J-CKJ" secondAttribute="bottom" constant="20" id="z9z-Zs-K1D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="ywi-Av-Esj">
+                    <navigationItem key="navigationItem" title="Add friend" id="ywi-Av-Esj">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="2lA-Dm-E7X">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="Qvi-uT-RBx" id="M6d-UB-F2Y"/>
@@ -151,6 +151,87 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRm-mP-qJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="947" y="253"/>
+        </scene>
+        <!--Zom MyQR View Controller-->
+        <scene sceneID="Tce-g2-7eH">
+            <objects>
+                <viewController storyboardIdentifier="myQR" id="n06-Np-qGy" customClass="ZomMyQRViewController" customModule="Zom" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZKj-SS-yi7"/>
+                        <viewControllerLayoutGuide type="bottom" id="tck-06-fKw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2ai-UK-EP2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gsu-wE-Nyw">
+                                <rect key="frame" x="20" y="40" width="560" height="379"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcX-QQ-v80">
+                                <rect key="frame" x="20" y="439" width="560" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kn5-Nf-bFS">
+                                <rect key="frame" x="20" y="480" width="560" height="40"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.74901960779999999" green="0.12549019610000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ukS-7Y-B48"/>
+                                </constraints>
+                                <state key="normal" title="Share via SMS">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareSmsButtonPressed:" destination="RAt-Zn-PN7" eventType="touchUpInside" id="81l-CT-XUu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wW-O0-ATh">
+                                <rect key="frame" x="20" y="540" width="560" height="40"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.74901960779999999" green="0.12549019610000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dkZ-ey-Scc"/>
+                                </constraints>
+                                <state key="normal" title="Share link">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="RAt-Zn-PN7" eventType="touchUpInside" id="ZmA-F5-8vi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <constraints>
+                            <constraint firstItem="KcX-QQ-v80" firstAttribute="top" secondItem="gsu-wE-Nyw" secondAttribute="bottom" constant="20" id="64i-Zp-hek"/>
+                            <constraint firstItem="Kn5-Nf-bFS" firstAttribute="leading" secondItem="2ai-UK-EP2" secondAttribute="leadingMargin" id="7aS-qv-97A"/>
+                            <constraint firstItem="gsu-wE-Nyw" firstAttribute="leading" secondItem="2ai-UK-EP2" secondAttribute="leadingMargin" id="7qi-nz-QeX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gsu-wE-Nyw" secondAttribute="trailing" id="E7U-Oa-bdG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kn5-Nf-bFS" secondAttribute="trailing" id="RjO-yu-cfI"/>
+                            <constraint firstItem="gsu-wE-Nyw" firstAttribute="top" secondItem="ZKj-SS-yi7" secondAttribute="bottom" constant="20" id="SKQ-nI-H6c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2wW-O0-ATh" secondAttribute="trailing" id="X7p-K8-Om7"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2wW-O0-ATh" secondAttribute="bottom" constant="20" id="ekR-8R-Pee"/>
+                            <constraint firstItem="2wW-O0-ATh" firstAttribute="leading" secondItem="2ai-UK-EP2" secondAttribute="leadingMargin" id="fvq-oQ-aMF"/>
+                            <constraint firstItem="2wW-O0-ATh" firstAttribute="top" secondItem="Kn5-Nf-bFS" secondAttribute="bottom" constant="20" id="gX6-ln-l6E"/>
+                            <constraint firstItem="Kn5-Nf-bFS" firstAttribute="top" secondItem="KcX-QQ-v80" secondAttribute="bottom" constant="20" id="lxt-sl-m37"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KcX-QQ-v80" secondAttribute="trailing" id="ox0-Fj-gq6"/>
+                            <constraint firstItem="KcX-QQ-v80" firstAttribute="leading" secondItem="2ai-UK-EP2" secondAttribute="leadingMargin" id="rZ0-4C-K9K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inviteLinkLabel" destination="KcX-QQ-v80" id="oQs-bG-Tjc"/>
+                        <outlet property="qrImageView" destination="gsu-wE-Nyw" id="aEZ-1f-YaR"/>
+                        <outlet property="shareLinkButton" destination="2wW-O0-ATh" id="gFo-7A-BtI"/>
+                        <outlet property="shareSMSButton" destination="Kn5-Nf-bFS" id="JPo-sJ-mgP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RAt-Zn-PN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949" y="924"/>
         </scene>
     </scenes>
 </document>

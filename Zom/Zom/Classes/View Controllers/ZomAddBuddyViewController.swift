@@ -9,19 +9,20 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, OTRNewBuddyViewControllerDelegate {
+public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, OTRNewBuddyViewControllerDelegate, MFMessageComposeViewControllerDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     public var account:OTRAccount? = nil
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var addButton: UIButton!
     
+    var shareLink:String? = nil
     var pageController:UIPageViewController?
 
     var previousSegmentedControlIndex:Int = 0
     var vcAdd:OTRNewBuddyViewController? = nil
     var vcQR:QRCodeReaderViewController? = nil
-    var vcMyQR:OTRQRCodeViewController? = nil
+    var vcMyQR:ZomMyQRViewController? = nil
     
     init(accountId : String) {
         super.init(nibName: nil, bundle: nil)
@@ -56,8 +57,9 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
         self.account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
             if (url != nil && error == nil) {
-                self.vcMyQR = OTRQRCodeViewController(QRString: url.absoluteString)
-                self.vcMyQR?.view.backgroundColor = ZomTheme().lightThemeColor
+                self.shareLink = url.absoluteString
+                self.vcMyQR = self.storyboard!.instantiateViewControllerWithIdentifier("myQR") as? ZomMyQRViewController
+                self.vcMyQR!.qrString = self.shareLink
             } else {
                 self.segmentedControl.removeSegmentAtIndex(2, animated: false)
             }
@@ -85,6 +87,19 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
             let vc:OTRNewBuddyViewController = pageController!.viewControllers![0] as! OTRNewBuddyViewController
             vc.performSelector(Selector("doneButtonPressed:"), withObject: self)
         }
+    }
+
+    @IBAction func shareSmsButtonPressed(sender: AnyObject) {
+        if (self.shareLink != nil) {
+            let messageComposeViewController:MFMessageComposeViewController = MFMessageComposeViewController()
+            messageComposeViewController.body = self.shareLink
+            messageComposeViewController.messageComposeDelegate = self
+            self.navigationController!.presentViewController(messageComposeViewController, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func shareButtonPressed(sender: AnyObject) {
+        ShareController.shareAccount(self.account!, sender: self, viewController: self)
     }
     
     @IBAction func segmentedControlValueChanged(sender: AnyObject) {
@@ -121,5 +136,9 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     public func shouldDismissViewController(viewController: OTRNewBuddyViewController!) -> Bool {
         self.cancelButtonPressed(self) // Close
         return false
+    }
+    
+    public func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }
