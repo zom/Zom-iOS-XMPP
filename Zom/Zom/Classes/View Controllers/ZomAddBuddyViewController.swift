@@ -52,14 +52,14 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         vcAdd!.delegate = self
         vcQR = QRCodeReaderViewController()
         vcQR!.delegate = self
+        vcMyQR = self.storyboard!.instantiateViewControllerWithIdentifier("myQR") as? ZomMyQRViewController
         
         var types = Set<NSNumber>()
         types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
         self.account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
             if (url != nil && error == nil) {
                 self.shareLink = url.absoluteString
-                self.vcMyQR = self.storyboard!.instantiateViewControllerWithIdentifier("myQR") as? ZomMyQRViewController
-                self.vcMyQR!.qrString = self.shareLink
+                self.vcMyQR!.setQRString(self.shareLink)
             } else {
                 self.segmentedControl.removeSegmentAtIndex(2, animated: false)
             }
@@ -108,8 +108,9 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         if (self.segmentedControl.selectedSegmentIndex < self.previousSegmentedControlIndex) {
             direction = UIPageViewControllerNavigationDirection.Reverse
         }
-        self.previousSegmentedControlIndex = self.segmentedControl.selectedSegmentIndex
         
+        self.previousSegmentedControlIndex = self.segmentedControl.selectedSegmentIndex
+
         if (self.segmentedControl.selectedSegmentIndex == 0) {
             pageController?.setViewControllers([vcAdd!], direction: direction, animated: true, completion: nil)
             self.addButton.hidden = false

@@ -169,6 +169,10 @@
                                 <rect key="frame" x="20" y="40" width="560" height="379"/>
                                 <animations/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6yt-hq-dPU">
+                                <rect key="frame" x="290" y="220" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcX-QQ-v80">
                                 <rect key="frame" x="20" y="439" width="560" height="21"/>
                                 <animations/>
@@ -220,9 +224,12 @@
                             <constraint firstItem="Kn5-Nf-bFS" firstAttribute="top" secondItem="KcX-QQ-v80" secondAttribute="bottom" constant="20" id="lxt-sl-m37"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KcX-QQ-v80" secondAttribute="trailing" id="ox0-Fj-gq6"/>
                             <constraint firstItem="KcX-QQ-v80" firstAttribute="leading" secondItem="2ai-UK-EP2" secondAttribute="leadingMargin" id="rZ0-4C-K9K"/>
+                            <constraint firstItem="6yt-hq-dPU" firstAttribute="centerY" secondItem="gsu-wE-Nyw" secondAttribute="centerY" id="vc6-gd-9CP"/>
+                            <constraint firstItem="6yt-hq-dPU" firstAttribute="centerX" secondItem="gsu-wE-Nyw" secondAttribute="centerX" id="wgA-uE-sdZ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="6yt-hq-dPU" id="6kJ-uU-Pss"/>
                         <outlet property="inviteLinkLabel" destination="KcX-QQ-v80" id="oQs-bG-Tjc"/>
                         <outlet property="qrImageView" destination="gsu-wE-Nyw" id="aEZ-1f-YaR"/>
                         <outlet property="shareLinkButton" destination="2wW-O0-ATh" id="gFo-7A-BtI"/>

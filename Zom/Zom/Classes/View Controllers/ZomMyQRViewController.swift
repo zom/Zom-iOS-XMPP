@@ -11,30 +11,57 @@ import ChatSecureCore
 
 public class ZomMyQRViewController: UIViewController {
 
-    public var qrString: String? = nil
+    var qrString: String? = nil
 
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var inviteLinkLabel: UILabel!
     @IBOutlet weak var shareLinkButton: UIButton!
     @IBOutlet weak var shareSMSButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.qrImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.qrImageView.layer.magnificationFilter = kCAFilterNearest
         self.qrImageView.layer.shouldRasterize = true
         self.view.backgroundColor = ZomTheme().lightThemeColor
-        self.inviteLinkLabel.text = self.qrString
         self.shareSMSButton.setTitle(OTRLanguageManager.translatedString("Invite SMS"), forState: UIControlState.Normal)
         self.shareLinkButton.setTitle(OTRLanguageManager.translatedString("Share Invite Link"), forState: UIControlState.Normal)
         if (!MFMessageComposeViewController.canSendText()) {
             self.shareSMSButton.hidden = true
         }
+        updateUI()
+    }
+    
+    public func setQRString(qrString:String?) {
+        self.qrString = qrString
+        if (self.isViewLoaded()) {
+            updateUI()
+        }
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        updateUI()
+    }
+    
+    func updateUI() {
+        if (self.qrString != nil) {
+            self.inviteLinkLabel.text = self.qrString
+            self.shareLinkButton.enabled = true
+            self.shareSMSButton.enabled = true
+            self.activityIndicator.stopAnimating()
+            self.qrImageView.image = self.imageForQRString(self.qrString, size:self.qrImageView.frame.size)
+        } else {
+            self.inviteLinkLabel.text = ""
+            self.shareLinkButton.enabled = false
+            self.shareSMSButton.enabled = false
+            self.activityIndicator.startAnimating()
+        }
     }
     
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.qrImageView.image = self.imageForQRString(self.qrString, size:self.qrImageView.frame.size)
+        updateUI()
     }
     
     func imageForQRString(qrString:String?, size:CGSize) -> UIImage? {
