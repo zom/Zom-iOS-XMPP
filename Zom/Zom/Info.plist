@@ -33,6 +33,16 @@
 				<string>xmpp</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>im.zom.messenger</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>zom</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>16</string>

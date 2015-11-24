@@ -44,6 +44,16 @@
     return ret;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL ret = [super application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    if (ret == NO) {
+        ret = ([self handleUniversalLink:url] == true);
+    }
+    return ret;
+}
+
 #pragma mark - Theming
 
 - (Class) themeClass {
