@@ -50,18 +50,6 @@
     return [ZomTheme class];
 }
 
-#pragma mark - Overrides
-
-- (Class) conversationViewControllerClass
-{
-    return [ZomConversationViewController class];
-}
-
-- (Class) messagesViewControllerClass
-{
-    return [ZomMessagesViewController class];
-}
-
 #pragma mark - Universal Links
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler

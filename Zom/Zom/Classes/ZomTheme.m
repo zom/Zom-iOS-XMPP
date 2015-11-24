@@ -53,4 +53,21 @@
     return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:a / 255.0f];
 }
 
+#pragma mark - Overrides
+
+- (Class) conversationViewControllerClass
+{
+    return [ZomConversationViewController class];
+}
+
+- (Class) messagesViewControllerClass
+{
+    return [ZomMessagesViewController class];
+}
+
+- (Class) composeViewControllerClass
+{
+    return [ZomComposeViewController class];
+}
+
 @end
