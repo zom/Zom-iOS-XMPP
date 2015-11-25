@@ -55,14 +55,28 @@
                                     <segue destination="ls3-ll-Zye" kind="show" identifier="pickLanguageSegue" id="n7Z-Nt-bHR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77z-hp-gqK" userLabel="Skip Button">
+                                <rect key="frame" x="283" y="488" width="35" height="34"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="raD-fT-xSG" kind="show" id="HdL-fa-dMd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="77z-hp-gqK" firstAttribute="top" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="1D1-u9-hDk"/>
                             <constraint firstAttribute="centerX" secondItem="RzG-Jv-y0g" secondAttribute="centerX" id="UcI-hU-JiB"/>
+                            <constraint firstItem="77z-hp-gqK" firstAttribute="centerX" secondItem="A06-Di-CeT" secondAttribute="centerX" id="XzS-lF-zGY"/>
                             <constraint firstAttribute="centerX" secondItem="7Yv-8V-PyJ" secondAttribute="centerX" id="aQX-Dz-xgb"/>
+                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" relation="greaterThanOrEqual" secondItem="77z-hp-gqK" secondAttribute="bottom" constant="20" id="c3Y-lf-WdV"/>
                             <constraint firstItem="7Yv-8V-PyJ" firstAttribute="top" secondItem="kXQ-5q-U2m" secondAttribute="bottom" constant="75" id="dWQ-VZ-KhH"/>
-                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="h2Y-XK-QB0"/>
                             <constraint firstItem="RzG-Jv-y0g" firstAttribute="top" secondItem="7Yv-8V-PyJ" secondAttribute="bottom" priority="900" constant="100" id="rEr-fy-oTE"/>
                         </constraints>
                     </view>
@@ -248,4 +262,7 @@
         <image name="globe" width="25" height="25"/>
         <image name="ic_language_white" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="x6R-hh-p36"/>
+    </inferredMetricsTieBreakers>
 </document>
