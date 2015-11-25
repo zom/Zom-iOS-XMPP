@@ -15,6 +15,7 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     public var account:OTRAccount? = nil
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
     var shareLink:String? = nil
     var pageController:UIPageViewController?
@@ -114,12 +115,21 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         if (self.segmentedControl.selectedSegmentIndex == 0) {
             pageController?.setViewControllers([vcAdd!], direction: direction, animated: true, completion: nil)
             self.addButton.hidden = false
+            self.containerViewBottomConstraint.priority = 900
+            pageController!.view.frame = self.containerView.frame
+            vcAdd!.view.frame = pageController!.view.bounds
         } else if (self.segmentedControl.selectedSegmentIndex == 1) {
             pageController?.setViewControllers([vcQR!], direction: direction, animated: true, completion: nil)
             self.addButton.hidden = true
+            self.containerViewBottomConstraint.priority = 999
+            pageController!.view.frame = self.containerView.frame
+            vcQR!.view.frame = pageController!.view.bounds
         } else if (self.segmentedControl.selectedSegmentIndex == 2) {
             pageController?.setViewControllers([vcMyQR!], direction: direction, animated: true, completion: nil)
             self.addButton.hidden = true
+            self.containerViewBottomConstraint.priority = 999
+            pageController!.view.frame = self.containerView.frame
+            vcMyQR!.view.frame = pageController!.view.bounds
         }
     }
 

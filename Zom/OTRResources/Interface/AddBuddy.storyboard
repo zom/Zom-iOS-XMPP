@@ -109,9 +109,10 @@
                             <constraint firstItem="fQf-7J-CKJ" firstAttribute="leading" secondItem="Pgc-B9-aD5" secondAttribute="leadingMargin" constant="20" id="UJC-2M-gDf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o4Z-P4-oAh" secondAttribute="trailing" constant="20" id="YW5-Pi-X1c"/>
                             <constraint firstItem="JRg-OE-3kW" firstAttribute="top" secondItem="Pgc-B9-aD5" secondAttribute="topMargin" constant="20" id="Yts-FA-pbY"/>
-                            <constraint firstItem="fQf-7J-CKJ" firstAttribute="top" secondItem="o4Z-P4-oAh" secondAttribute="bottom" constant="20" id="bLF-dd-EGq"/>
+                            <constraint firstItem="fQf-7J-CKJ" firstAttribute="top" secondItem="o4Z-P4-oAh" secondAttribute="bottom" priority="950" constant="20" id="bLF-dd-EGq"/>
                             <constraint firstItem="o4Z-P4-oAh" firstAttribute="leading" secondItem="Pgc-B9-aD5" secondAttribute="leadingMargin" constant="20" id="ewg-jf-c5P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fQf-7J-CKJ" secondAttribute="trailing" constant="20" id="ja7-yU-gga"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="o4Z-P4-oAh" secondAttribute="bottom" priority="900" constant="20" id="pSl-ce-PB1"/>
                             <constraint firstItem="o4Z-P4-oAh" firstAttribute="top" secondItem="JRg-OE-3kW" secondAttribute="bottom" constant="40" id="rle-ik-lSN"/>
                             <constraint firstItem="JRg-OE-3kW" firstAttribute="leading" secondItem="Pgc-B9-aD5" secondAttribute="leadingMargin" id="s60-iu-NWV"/>
                             <constraint firstAttribute="bottomMargin" secondItem="fQf-7J-CKJ" secondAttribute="bottom" constant="20" id="z9z-Zs-K1D"/>
@@ -127,6 +128,7 @@
                     <connections>
                         <outlet property="addButton" destination="fQf-7J-CKJ" id="Seq-Q8-fJg"/>
                         <outlet property="containerView" destination="o4Z-P4-oAh" id="iHT-kx-tNL"/>
+                        <outlet property="containerViewBottomConstraint" destination="pSl-ce-PB1" id="gPm-0r-usO"/>
                         <outlet property="segmentedControl" destination="JRg-OE-3kW" id="as8-5w-1h1"/>
                     </connections>
                 </viewController>
