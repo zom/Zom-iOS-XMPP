@@ -70,7 +70,9 @@ public class ZomMyQRViewController: UIViewController {
         }
         
         let writer:ZXMultiFormatWriter = ZXMultiFormatWriter()
-        let result:ZXBitMatrix? = try? writer.encode(qrString, format: kBarcodeFormatQRCode, width: Int32(size.width), height: Int32(size.height))
+        let hints:ZXEncodeHints = ZXEncodeHints()
+        hints.margin = 0
+        let result:ZXBitMatrix? = try? writer.encode(qrString, format: kBarcodeFormatQRCode, width: Int32(size.width), height: Int32(size.height), hints: hints)
         if (result != nil) {
             return UIImage(CGImage: ZXImage(matrix: result, onColor: UIColor.blackColor().CGColor, offColor: ZomTheme().lightThemeColor.CGColor).cgimage)
         }
