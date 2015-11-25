@@ -26,7 +26,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
     }
     
     public func selectSticker(filePath: String) {
-        super.sendImageFilePath(filePath)
+        super.sendImageFilePath(filePath, asJPEG: false, shouldResize: false)
     }
 }
 
