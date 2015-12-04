@@ -9,17 +9,17 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomConversationViewController: OTRConversationViewController, OTRConversationViewControllerDelegate {
+public class ZomConversationViewController: OTRConversationViewController {
     
-    //Make: Properties
-    
+    //Mark: Properties
     
     var showPitchInvite:Bool = false
     var pitchInviteView:UIView? = nil
+    var kvoobject:ZomConversationViewControllerKVOObject? = nil
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        super.delegate = self
+        self.kvoobject = ZomConversationViewControllerKVOObject(viewController:self)
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -80,8 +80,17 @@ public class ZomConversationViewController: OTRConversationViewController, OTRCo
             }
         }
     }
-    
-    public func controller(viewController: OTRConversationViewController!, didChangeNumberOfConnectedAccounts connectedAccounts: Int) {
-        self.updatePitchView()
+}
+
+public class ZomConversationViewControllerKVOObject : NSObject {
+    var viewController:ZomConversationViewController? = nil
+    public init(viewController:ZomConversationViewController) {
+        super.init()
+        self.viewController = viewController
+        self.KVOController.observe(OTRProtocolManager.sharedInstance(), keyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.New, block: { (observer, object, change) -> Void in
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.viewController?.updatePitchView()
+            }
+        });
     }
 }
