@@ -48,6 +48,6 @@
         </view>
     </objects>
     <resources>
-        <image name="PitchInvite" width="370" height="320"/>
+        <image name="PitchInvite" width="1200" height="1200"/>
     </resources>
 </document>
