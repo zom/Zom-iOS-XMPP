@@ -33,9 +33,19 @@
 				<string>xmpp</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>im.zom.messenger</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>zom</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>14</string>
+	<string>18</string>
 	<key>FacebookAppID</key>
 	<string>447241325394334</string>
 	<key>FacebookDisplayName</key>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PitchInvite" translatesAutoresizingMaskIntoConstraints="NO" id="gp4-gQ-zBY">
+                    <rect key="frame" x="20" y="10" width="560" height="120"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kz7-M4-oQD">
+                    <rect key="frame" x="224" y="140" width="152" height="40"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.74901960784313726" green="0.12549019607843137" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="eJJ-7u-mWL"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                    <state key="normal" title="Add friends to Zom">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addFriendsButtonPressed:" destination="-2" eventType="touchUpInside" id="aun-7E-NTN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <constraints>
+                <constraint firstItem="Kz7-M4-oQD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="BMK-wG-jpT"/>
+                <constraint firstItem="gp4-gQ-zBY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="UTq-2Q-FEY"/>
+                <constraint firstItem="gp4-gQ-zBY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="deg-8d-iky"/>
+                <constraint firstItem="Kz7-M4-oQD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iTa-uh-aqf"/>
+                <constraint firstItem="Kz7-M4-oQD" firstAttribute="top" secondItem="gp4-gQ-zBY" secondAttribute="bottom" constant="10" id="jOE-LH-njk"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kz7-M4-oQD" secondAttribute="trailing" constant="20" id="mfK-fi-wSf"/>
+                <constraint firstAttribute="trailing" secondItem="gp4-gQ-zBY" secondAttribute="trailing" constant="20" id="wsx-Sk-UPR"/>
+                <constraint firstItem="gp4-gQ-zBY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ydd-t0-S2r"/>
+                <constraint firstAttribute="bottom" secondItem="Kz7-M4-oQD" secondAttribute="bottom" constant="20" id="z1w-xe-2Vg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PitchInvite" width="370" height="320"/>
+    </resources>
+</document>

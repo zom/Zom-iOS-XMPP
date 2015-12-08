@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8wD-LW-vkh">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="8xo-3W-Zrz">
+            <objects>
+                <navigationController id="8wD-LW-vkh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GAC-A1-Zxm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YMb-Su-NTh" kind="relationship" relationship="rootViewController" id="ZCp-Nx-gCf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kG-CV-QsO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-30" y="350"/>
+        </scene>
+        <!--Sticker Packs-->
+        <scene sceneID="Gwr-hH-Lyg">
+            <objects>
+                <tableViewController id="YMb-Su-NTh" customClass="ZomStickerPackTableViewController" customModule="Zom" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yy8-MZ-mah">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="stickerPackCell" textLabel="tFT-mf-mHS" style="IBUITableViewCellStyleDefault" id="Uqu-us-FRH">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uqu-us-FRH" id="ZKf-8J-m5T">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tFT-mf-mHS">
+                                            <rect key="frame" x="15" y="0.0" width="550" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <segue destination="7m1-7C-RwY" kind="show" id="QTy-qR-bTM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YMb-Su-NTh" id="fmD-4r-mZF"/>
+                            <outlet property="delegate" destination="YMb-Su-NTh" id="0aq-F8-Nic"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Sticker Packs" id="itL-az-yIq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="lPt-t4-zpr">
+                            <connections>
+                                <segue destination="9HO-Yv-qu7" kind="unwind" unwindAction="unwindPickSticker:" id="Cuu-Nk-J2a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0a0-Tr-uHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9HO-Yv-qu7" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="688" y="350"/>
+        </scene>
+        <!--Zom Pick Sticker View Controller-->
+        <scene sceneID="e95-PQ-4FP">
+            <objects>
+                <collectionViewController id="7m1-7C-RwY" customClass="ZomPickStickerViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UsR-Mx-X43">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="WsM-1o-GoK">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="4zB-QI-WTj" customClass="ZomPickStickerCell" customModule="Zom" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HKL-bJ-0aE">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HKL-bJ-0aE" secondAttribute="bottom" id="GHt-fB-iYM"/>
+                                    <constraint firstItem="HKL-bJ-0aE" firstAttribute="top" secondItem="4zB-QI-WTj" secondAttribute="top" id="cmQ-Er-j1g"/>
+                                    <constraint firstItem="HKL-bJ-0aE" firstAttribute="leading" secondItem="4zB-QI-WTj" secondAttribute="leading" id="jgD-nz-kLP"/>
+                                    <constraint firstAttribute="trailing" secondItem="HKL-bJ-0aE" secondAttribute="trailing" id="nK0-gO-hWu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="HKL-bJ-0aE" id="KFw-lE-OQf"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="7m1-7C-RwY" id="vj8-EV-U9H"/>
+                            <outlet property="delegate" destination="7m1-7C-RwY" id="FV3-fe-svE"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="WSP-lF-o7i">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="uIz-S5-C3I">
+                            <connections>
+                                <segue destination="6bw-6V-T2X" kind="unwind" identifier="unwindPickStickerSegue" unwindAction="unwindPickSticker:" id="bK0-7Z-Pug"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xar-ft-6Aq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6bw-6V-T2X" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1402" y="350"/>
+        </scene>
+    </scenes>
+</document>

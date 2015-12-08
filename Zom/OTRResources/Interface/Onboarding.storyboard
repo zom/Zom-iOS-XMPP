@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="BGr-uq-PcD">
             <objects>
-                <navigationController navigationBarHidden="YES" id="u63-jC-sYl" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="u63-jC-sYl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="StA-Hd-yQZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-895" y="516"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--Zom Welcome View Controller-->
         <scene sceneID="Hlq-Ux-DTm">
             <objects>
-                <viewController id="3qI-wK-O4t" customClass="OTRWelcomeViewController" customModule="ChatSecureCore" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="3qI-wK-O4t" customClass="ZomWelcomeViewController" customModule="Zom" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kXQ-5q-U2m"/>
                         <viewControllerLayoutGuide type="bottom" id="3ZM-WP-oof"/>
@@ -42,77 +43,58 @@
                                     <constraint firstAttribute="height" constant="249" id="a9S-9w-qFB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g">
-                                <rect key="frame" x="205" y="413" width="191" height="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
+                                <rect key="frame" x="215" y="444" width="171" height="24"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Create New Account">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Choose Language" image="ic_language_white">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ZvQ-dC-bHm" kind="show" identifier="createNewAccountSegue" id="BF6-Uh-6zt"/>
+                                    <segue destination="ls3-ll-Zye" kind="show" identifier="pickLanguageSegue" id="n7Z-Nt-bHR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VS9-AF-nlm">
-                                <rect key="frame" x="39" y="550" width="148" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77z-hp-gqK" userLabel="Skip Button">
+                                <rect key="frame" x="283" y="488" width="35" height="34"/>
                                 <animations/>
-                                <state key="normal" title="Add Existing Account">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="kXx-ta-MsF" kind="show" id="1BI-0V-RC1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXC-AD-yXL">
-                                <rect key="frame" x="530" y="550" width="31" height="30"/>
-                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="skipButtonPressed:" destination="3qI-wK-O4t" eventType="touchUpInside" id="Ef6-UO-IUu"/>
+                                    <segue destination="raD-fT-xSG" kind="show" id="HdL-fa-dMd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" secondItem="KXC-AD-yXL" secondAttribute="bottom" constant="20" id="2qT-0B-MgI"/>
-                            <constraint firstAttribute="centerX" secondItem="VS9-AF-nlm" secondAttribute="centerX" id="6zQ-bP-fnL"/>
-                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="BfB-EY-odo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KXC-AD-yXL" secondAttribute="trailing" constant="23" id="Huk-V0-TZq"/>
+                            <constraint firstItem="77z-hp-gqK" firstAttribute="top" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="1D1-u9-hDk"/>
                             <constraint firstAttribute="centerX" secondItem="RzG-Jv-y0g" secondAttribute="centerX" id="UcI-hU-JiB"/>
-                            <constraint firstItem="VS9-AF-nlm" firstAttribute="leading" secondItem="A06-Di-CeT" secondAttribute="leadingMargin" constant="23" id="Ucn-NO-j1Z"/>
+                            <constraint firstItem="77z-hp-gqK" firstAttribute="centerX" secondItem="A06-Di-CeT" secondAttribute="centerX" id="XzS-lF-zGY"/>
                             <constraint firstAttribute="centerX" secondItem="7Yv-8V-PyJ" secondAttribute="centerX" id="aQX-Dz-xgb"/>
-                            <constraint firstItem="7Yv-8V-PyJ" firstAttribute="top" secondItem="kXQ-5q-U2m" secondAttribute="bottom" constant="75" id="gYI-RN-w5O"/>
-                            <constraint firstItem="KXC-AD-yXL" firstAttribute="centerY" secondItem="VS9-AF-nlm" secondAttribute="centerY" id="lEu-Z3-PAo"/>
-                            <constraint firstItem="RzG-Jv-y0g" firstAttribute="top" secondItem="7Yv-8V-PyJ" secondAttribute="bottom" constant="69" id="rEr-fy-oTE"/>
+                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" relation="greaterThanOrEqual" secondItem="77z-hp-gqK" secondAttribute="bottom" constant="20" id="c3Y-lf-WdV"/>
+                            <constraint firstItem="7Yv-8V-PyJ" firstAttribute="top" secondItem="kXQ-5q-U2m" secondAttribute="bottom" constant="75" id="dWQ-VZ-KhH"/>
+                            <constraint firstItem="RzG-Jv-y0g" firstAttribute="top" secondItem="7Yv-8V-PyJ" secondAttribute="bottom" priority="900" constant="100" id="rEr-fy-oTE"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="6zQ-bP-fnL"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="r4e-3l-g8t"/>
                     <connections>
                         <outlet property="createAccountButton" destination="RzG-Jv-y0g" id="4vl-4J-veI"/>
-                        <outlet property="existingAccountButton" destination="VS9-AF-nlm" id="w7q-jY-DI4"/>
                         <outlet property="logoImageView" destination="7Yv-8V-PyJ" id="WeH-vR-Fi0"/>
-                        <outlet property="skipButton" destination="KXC-AD-yXL" id="5at-su-IMc"/>
+                        <segue destination="raD-fT-xSG" kind="show" identifier="introSegue" id="x6R-hh-p36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yG0-S0-nax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-215" y="516"/>
+            <point key="canvasLocation" x="-159" y="516"/>
         </scene>
-        <!--Base Login View Controller-->
+        <!--Zom Base Login View Controller-->
         <scene sceneID="QUf-a6-hQn">
             <objects>
-                <viewController id="ZvQ-dC-bHm" customClass="OTRBaseLoginViewController" sceneMemberID="viewController">
+                <viewController id="ZvQ-dC-bHm" customClass="ZomBaseLoginViewController" customModule="Zom" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hBA-dq-abq"/>
                         <viewControllerLayoutGuide type="bottom" id="y6G-2m-Hxb"/>
@@ -126,7 +108,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2V5-xZ-0Rv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="469" y="516"/>
+            <point key="canvasLocation" x="1279" y="1371"/>
+        </scene>
+        <!--Language-->
+        <scene sceneID="Vfx-V7-5xm">
+            <objects>
+                <viewController title="Language" id="ls3-ll-Zye" customClass="ZomPickLanguageViewController" customModule="Zom" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yU6-hF-0er"/>
+                        <viewControllerLayoutGuide type="bottom" id="cLM-jW-p8M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OcH-U6-hYq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Thf-PT-2uQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OvV-MC-f6Y">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="ls3-ll-Zye" id="WAh-RD-sGj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lYS-Vr-nUc">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="ls3-ll-Zye" id="blD-L5-bfR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PXM-Bj-Buy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="1275"/>
         </scene>
         <!--Existing Account-->
         <scene sceneID="Jmc-QW-jvy">
@@ -157,10 +170,99 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s0S-RX-Pvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-667" y="1243"/>
+            <point key="canvasLocation" x="565" y="1371"/>
+        </scene>
+        <!--Zom Intro View Controller-->
+        <scene sceneID="fJn-Vt-ZKz">
+            <objects>
+                <viewController storyboardIdentifier="introViewController" id="raD-fT-xSG" customClass="ZomIntroViewController" customModule="Zom" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gGq-hu-BR8"/>
+                        <viewControllerLayoutGuide type="bottom" id="x2Z-j4-h7a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="19j-qd-DAG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Free Text &amp; Voice Messaging + Exciting Stickers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7Z-A1-2Dh">
+                                <rect key="frame" x="60" y="50" width="480" height="24"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.90196078431372551" green="0.15294117647058825" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Use ZOM to send and receive free text and voice messages anytime, anywhere" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLr-hm-vgk">
+                                <rect key="frame" x="60" y="84" width="480" height="34"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatsecure_logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-fA-VC3">
+                                <rect key="frame" x="200" y="168" width="200" height="245"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="900" constant="249" id="4Rl-OH-ykG"/>
+                                    <constraint firstAttribute="width" constant="200" id="Ubb-VS-iBS"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-ao-iyd">
+                                <rect key="frame" x="213" y="482" width="174" height="38"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Create an Account">
+                                    <color key="titleColor" red="0.90196078431372551" green="0.15294117647058825" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZvQ-dC-bHm" kind="show" identifier="createNewAccountSegue" id="fjA-8l-CO3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-gZ-Dp1">
+                                <rect key="frame" x="201" y="550" width="199" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Sign into an Existing Account">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kXx-ta-MsF" kind="show" identifier="useExistingAccountSegue" id="2jm-Au-RyS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SLr-hm-vgk" secondAttribute="trailing" constant="40" id="17z-Oh-Rcr"/>
+                            <constraint firstItem="SLr-hm-vgk" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="8Cm-hg-Ude"/>
+                            <constraint firstItem="x2Z-j4-h7a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KMo-gZ-Dp1" secondAttribute="bottom" constant="20" id="HZR-Qc-Dul"/>
+                            <constraint firstItem="xHH-ao-iyd" firstAttribute="top" secondItem="cwB-fA-VC3" secondAttribute="bottom" constant="69" id="OQH-Iu-avw"/>
+                            <constraint firstItem="cwB-fA-VC3" firstAttribute="top" secondItem="SLr-hm-vgk" secondAttribute="bottom" constant="50" id="S4O-XT-Osr"/>
+                            <constraint firstAttribute="centerX" secondItem="cwB-fA-VC3" secondAttribute="centerX" id="Vbo-Vc-2ub"/>
+                            <constraint firstAttribute="centerX" secondItem="xHH-ao-iyd" secondAttribute="centerX" id="YsX-BC-z2T"/>
+                            <constraint firstItem="f7Z-A1-2Dh" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="ZLz-lj-seE"/>
+                            <constraint firstItem="KMo-gZ-Dp1" firstAttribute="top" secondItem="xHH-ao-iyd" secondAttribute="bottom" priority="950" constant="30" id="f9a-Kj-R5S"/>
+                            <constraint firstItem="f7Z-A1-2Dh" firstAttribute="top" secondItem="gGq-hu-BR8" secondAttribute="bottom" constant="30" id="g7g-zF-Xb0"/>
+                            <constraint firstAttribute="centerX" secondItem="KMo-gZ-Dp1" secondAttribute="centerX" id="lCy-c9-9jd"/>
+                            <constraint firstItem="SLr-hm-vgk" firstAttribute="top" secondItem="f7Z-A1-2Dh" secondAttribute="bottom" constant="10" id="lr1-d1-HpG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f7Z-A1-2Dh" secondAttribute="trailing" constant="40" id="uNH-eK-7Ic"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sY6-74-OTL">
+                        <barButtonItem key="rightBarButtonItem" image="globe" style="plain" id="Wn7-oS-4OC"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-yu-ETl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="516"/>
         </scene>
     </scenes>
     <resources>
         <image name="chatsecure_logo_transparent" width="132" height="175"/>
+        <image name="globe" width="25" height="25"/>
+        <image name="ic_language_white" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="x6R-hh-p36"/>
+    </inferredMetricsTieBreakers>
 </document>
