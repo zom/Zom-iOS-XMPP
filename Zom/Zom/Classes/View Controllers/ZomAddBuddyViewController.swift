@@ -14,14 +14,12 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     public var account:OTRAccount? = nil
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
     
     var shareLink:String? = nil
     var pageController:UIPageViewController?
 
     var previousSegmentedControlIndex:Int = 0
-    var vcAdd:OTRNewBuddyViewController? = nil
+    var vcAdd:ZomNewBuddyViewController? = nil
     var vcQR:QRCodeReaderViewController? = nil
     var vcMyQR:ZomMyQRViewController? = nil
     
@@ -49,8 +47,10 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         //pageController!.view.removeConstraints(pageController!.view.constraints)
         //pageController!.view.addConstraints(self.containerView.constraints)
         
-        vcAdd = OTRNewBuddyViewController(accountId: account!.uniqueId)
+        vcAdd = self.storyboard?.instantiateViewControllerWithIdentifier("newBuddyViewController") as? ZomNewBuddyViewController
+        vcAdd?.account = account!
         vcAdd!.delegate = self
+        vcAdd!.showSmsButton(MFMessageComposeViewController.canSendText())
         vcQR = QRCodeReaderViewController()
         vcQR!.delegate = self
         vcMyQR = self.storyboard!.instantiateViewControllerWithIdentifier("myQR") as? ZomMyQRViewController
@@ -114,20 +114,14 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
 
         if (self.segmentedControl.selectedSegmentIndex == 0) {
             pageController?.setViewControllers([vcAdd!], direction: direction, animated: true, completion: nil)
-            self.addButton.hidden = false
-            self.containerViewBottomConstraint.priority = 900
             pageController!.view.frame = self.containerView.frame
             vcAdd!.view.frame = pageController!.view.bounds
         } else if (self.segmentedControl.selectedSegmentIndex == 1) {
             pageController?.setViewControllers([vcQR!], direction: direction, animated: true, completion: nil)
-            self.addButton.hidden = true
-            self.containerViewBottomConstraint.priority = 999
             pageController!.view.frame = self.containerView.frame
             vcQR!.view.frame = pageController!.view.bounds
         } else if (self.segmentedControl.selectedSegmentIndex == 2) {
             pageController?.setViewControllers([vcMyQR!], direction: direction, animated: true, completion: nil)
-            self.addButton.hidden = true
-            self.containerViewBottomConstraint.priority = 999
             pageController!.view.frame = self.containerView.frame
             vcMyQR!.view.frame = pageController!.view.bounds
         }
