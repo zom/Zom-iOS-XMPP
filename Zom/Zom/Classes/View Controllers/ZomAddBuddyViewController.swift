@@ -22,6 +22,7 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     var vcAdd:ZomNewBuddyViewController? = nil
     var vcQR:QRCodeReaderViewController? = nil
     var vcMyQR:ZomMyQRViewController? = nil
+    var lastScannedQR:String? = nil
     
     init(accountId : String) {
         super.init(nibName: nil, bundle: nil)
@@ -133,9 +134,16 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     }
     
     public func reader(reader:QRCodeReaderViewController, didScanResult result:String) {
-        vcAdd!.populateFromQRResult(result)
-        self.segmentedControl.selectedSegmentIndex = 0
-        self.segmentedControlValueChanged(self.segmentedControl)
+        if (self.lastScannedQR == nil || result.compare(self.lastScannedQR!) != NSComparisonResult.OrderedSame) {
+            self.lastScannedQR = result
+            vcAdd!.populateFromQRResult(result)
+            vcAdd!.performSelector(Selector("doneButtonPressed:"), withObject: self)
+        }
+    }
+    
+    public func controller(viewController: OTRNewBuddyViewController!, didAddBuddy buddy: OTRBuddy!) {
+        // TODO - enter conversation with newly added buddy
+        self.cancelButtonPressed(self) // Close
     }
     
     public func shouldDismissViewController(viewController: OTRNewBuddyViewController!) -> Bool {
