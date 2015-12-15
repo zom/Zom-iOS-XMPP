@@ -13,7 +13,6 @@ public class ZomConversationViewController: OTRConversationViewController {
     
     //Mark: Properties
     
-    var showPitchInvite:Bool = false
     var pitchInviteView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
     
@@ -32,13 +31,12 @@ public class ZomConversationViewController: OTRConversationViewController {
         dataBaseConnection.readWithBlock { (transaction) -> Void in
             let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as! YapDatabaseViewTransaction
             let numBuddies = view.numberOfItemsInAllGroups()
-            if (numBuddies < 50 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0) {
-                self.showPitchInvite = true
+            if (numBuddies < 5 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0) {
+                self.tableView.tableHeaderView = self.getPitchInviteView()
             }
             else {
-                self.showPitchInvite = false;
+                self.tableView.tableHeaderView = nil
             }
-            self.tableView.reloadData()
         }
     }
     
@@ -47,20 +45,6 @@ public class ZomConversationViewController: OTRConversationViewController {
             self.pitchInviteView = UINib(nibName: "PitchInviteView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
         }
         return self.pitchInviteView!
-    }
-    
-    public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if (self.showPitchInvite && section == 0) {
-            return getPitchInviteView().sizeThatFits(UILayoutFittingCompressedSize).height + 1
-        }
-        return 0
-    }
-    
-    public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (self.showPitchInvite && section == 0) {
-            return getPitchInviteView()
-        }
-        return nil
     }
     
     @IBAction func addFriendsButtonPressed(sender: AnyObject) {
