@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/zom/Zom-iOS.svg)](https://travis-ci.org/zom/Zom-iOS)
 
-Zom is a whitelabel fork of [ChatSecure](https://github.com/chatsecure/chatsecure-ios) for the Tibetan community
+Zom is a whitelabel fork of [ChatSecure](https://github.com/chatsecure/chatsecure-ios)
 
 ## Getting Started
 
