@@ -152,10 +152,10 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kExistingAccountCellIdentifier" id="Bgx-jG-Lpl">
-                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bgx-jG-Lpl" id="lIU-bq-W3j">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -192,19 +192,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Use ZOM to send and receive free text and voice messages anytime, anywhere" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLr-hm-vgk">
-                                <rect key="frame" x="60" y="84" width="480" height="34"/>
+                                <rect key="frame" x="60" y="84" width="480" height="33.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatsecure_logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-fA-VC3">
-                                <rect key="frame" x="200" y="168" width="200" height="245"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_main" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-fA-VC3">
+                                <rect key="frame" x="20" y="137.5" width="560" height="324.5"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="900" constant="249" id="4Rl-OH-ykG"/>
-                                    <constraint firstAttribute="width" constant="200" id="Ubb-VS-iBS"/>
-                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-ao-iyd">
                                 <rect key="frame" x="213" y="482" width="174" height="38"/>
@@ -235,17 +231,19 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SLr-hm-vgk" secondAttribute="trailing" constant="40" id="17z-Oh-Rcr"/>
                             <constraint firstItem="SLr-hm-vgk" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="8Cm-hg-Ude"/>
-                            <constraint firstItem="x2Z-j4-h7a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="KMo-gZ-Dp1" secondAttribute="bottom" constant="20" id="HZR-Qc-Dul"/>
-                            <constraint firstItem="xHH-ao-iyd" firstAttribute="top" secondItem="cwB-fA-VC3" secondAttribute="bottom" constant="69" id="OQH-Iu-avw"/>
-                            <constraint firstItem="cwB-fA-VC3" firstAttribute="top" secondItem="SLr-hm-vgk" secondAttribute="bottom" constant="50" id="S4O-XT-Osr"/>
+                            <constraint firstItem="x2Z-j4-h7a" firstAttribute="top" secondItem="KMo-gZ-Dp1" secondAttribute="bottom" constant="20" id="HZR-Qc-Dul"/>
+                            <constraint firstItem="xHH-ao-iyd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cwB-fA-VC3" secondAttribute="bottom" constant="20" id="OQH-Iu-avw"/>
+                            <constraint firstItem="cwB-fA-VC3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SLr-hm-vgk" secondAttribute="bottom" constant="20" id="S4O-XT-Osr"/>
                             <constraint firstAttribute="centerX" secondItem="cwB-fA-VC3" secondAttribute="centerX" id="Vbo-Vc-2ub"/>
                             <constraint firstAttribute="centerX" secondItem="xHH-ao-iyd" secondAttribute="centerX" id="YsX-BC-z2T"/>
                             <constraint firstItem="f7Z-A1-2Dh" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="ZLz-lj-seE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cwB-fA-VC3" secondAttribute="trailing" id="aEs-Pg-pAO"/>
                             <constraint firstItem="KMo-gZ-Dp1" firstAttribute="top" secondItem="xHH-ao-iyd" secondAttribute="bottom" priority="950" constant="30" id="f9a-Kj-R5S"/>
                             <constraint firstItem="f7Z-A1-2Dh" firstAttribute="top" secondItem="gGq-hu-BR8" secondAttribute="bottom" constant="30" id="g7g-zF-Xb0"/>
                             <constraint firstAttribute="centerX" secondItem="KMo-gZ-Dp1" secondAttribute="centerX" id="lCy-c9-9jd"/>
                             <constraint firstItem="SLr-hm-vgk" firstAttribute="top" secondItem="f7Z-A1-2Dh" secondAttribute="bottom" constant="10" id="lr1-d1-HpG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f7Z-A1-2Dh" secondAttribute="trailing" constant="40" id="uNH-eK-7Ic"/>
+                            <constraint firstItem="cwB-fA-VC3" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" id="zeU-Yc-F8j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sY6-74-OTL">
@@ -261,6 +259,7 @@
         <image name="chatsecure_logo_transparent" width="132" height="175"/>
         <image name="globe" width="25" height="25"/>
         <image name="ic_language_white" width="24" height="24"/>
+        <image name="onboarding_main" width="750" height="750"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="x6R-hh-p36"/>
