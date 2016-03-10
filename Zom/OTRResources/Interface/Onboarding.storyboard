@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="StA-Hd-yQZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="3qI-wK-O4t" kind="relationship" relationship="rootViewController" id="J38-xe-BGe"/>
@@ -37,7 +36,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatsecure_logo_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-8V-PyJ">
                                 <rect key="frame" x="200" y="95" width="200" height="249"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="2dD-bn-1ed"/>
                                     <constraint firstAttribute="height" constant="249" id="a9S-9w-qFB"/>
@@ -45,7 +43,6 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
                                 <rect key="frame" x="215" y="444" width="171" height="24"/>
-                                <animations/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Choose Language" image="ic_language_white">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,7 +54,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77z-hp-gqK" userLabel="Skip Button">
                                 <rect key="frame" x="283" y="488" width="35" height="34"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Skip">
@@ -68,7 +64,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="77z-hp-gqK" firstAttribute="top" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="1D1-u9-hDk"/>
@@ -102,7 +97,6 @@
                     <view key="view" contentMode="scaleToFill" id="D8d-Eu-lEU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -121,7 +115,6 @@
                     <view key="view" contentMode="scaleToFill" id="OcH-U6-hYq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Thf-PT-2uQ">
@@ -148,18 +141,15 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="p5H-hh-Nyy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kExistingAccountCellIdentifier" id="Bgx-jG-Lpl">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bgx-jG-Lpl" id="lIU-bq-W3j">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </tableViewCellContentView>
-                                <animations/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -186,25 +176,21 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Free Text &amp; Voice Messaging + Exciting Stickers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7Z-A1-2Dh">
                                 <rect key="frame" x="60" y="50" width="480" height="24"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.90196078431372551" green="0.15294117647058825" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Use ZOM to send and receive free text and voice messages anytime, anywhere" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLr-hm-vgk">
-                                <rect key="frame" x="60" y="84" width="480" height="33.5"/>
-                                <animations/>
+                                <rect key="frame" x="60" y="84" width="480" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_main" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-fA-VC3">
-                                <rect key="frame" x="20" y="137.5" width="560" height="324.5"/>
-                                <animations/>
+                                <rect key="frame" x="20" y="138" width="560" height="324"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-ao-iyd">
                                 <rect key="frame" x="213" y="482" width="174" height="38"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Create an Account">
                                     <color key="titleColor" red="0.90196078431372551" green="0.15294117647058825" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,7 +202,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-gZ-Dp1">
                                 <rect key="frame" x="201" y="550" width="199" height="30"/>
-                                <animations/>
                                 <state key="normal" title="Sign into an Existing Account">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -226,7 +211,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SLr-hm-vgk" secondAttribute="trailing" constant="40" id="17z-Oh-Rcr"/>
@@ -254,8 +238,84 @@
             </objects>
             <point key="canvasLocation" x="877" y="516"/>
         </scene>
+        <!--Enable Push-->
+        <scene sceneID="Ypd-cy-CA7">
+            <objects>
+                <viewController storyboardIdentifier="enablePush" title="Enable Push" id="SVg-zE-e0I" customClass="EnablePushViewController" customModule="ChatSecureCore" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bjK-Rm-6Oq"/>
+                        <viewControllerLayoutGuide type="bottom" id="o73-Nt-0eC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lSW-1n-JHT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilB-OW-Ojc">
+                                <rect key="frame" x="250" y="493" width="101" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Enable Push"/>
+                                <connections>
+                                    <action selector="enablePushPressed:" destination="SVg-zE-e0I" eventType="touchUpInside" id="opr-S0-MEE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHd-eh-dlb">
+                                <rect key="frame" x="550" y="550" width="30" height="30"/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipButtonPressed:" destination="SVg-zE-e0I" eventType="touchUpInside" id="8SV-3v-ELb"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PushOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="ee5-IC-Exy">
+                                <rect key="frame" x="164" y="42" width="230" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="c7g-FT-FJg"/>
+                                    <constraint firstAttribute="width" constant="230" id="ja1-tf-f6X"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6D-2V-YZv">
+                                <rect key="frame" x="169" y="287" width="283" height="198"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="283" id="37t-PC-bOM"/>
+                                    <constraint firstAttribute="height" constant="198" id="9iH-RE-VfL"/>
+                                </constraints>
+                                <string key="text">Zom can now automatically notify compatible offline contacts that you'd like to establish a secure conversation with. To protect your privacy, these notifications currently do not contain any content.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z6D-2V-YZv" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" constant="10" id="71T-2o-VrR"/>
+                            <constraint firstItem="z6D-2V-YZv" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" id="Ba2-FA-RIb"/>
+                            <constraint firstItem="o73-Nt-0eC" firstAttribute="top" secondItem="cHd-eh-dlb" secondAttribute="bottom" constant="20" id="Be1-IK-Mpa"/>
+                            <constraint firstItem="ilB-OW-Ojc" firstAttribute="top" secondItem="z6D-2V-YZv" secondAttribute="bottom" constant="8" id="CEW-pa-eLp"/>
+                            <constraint firstItem="cHd-eh-dlb" firstAttribute="trailing" secondItem="lSW-1n-JHT" secondAttribute="trailingMargin" id="DaN-lN-zJl"/>
+                            <constraint firstItem="ee5-IC-Exy" firstAttribute="top" secondItem="bjK-Rm-6Oq" secondAttribute="bottom" constant="22" id="GfH-5m-CeX"/>
+                            <constraint firstItem="ee5-IC-Exy" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" constant="-21" id="OeV-Np-1VY"/>
+                            <constraint firstItem="ee5-IC-Exy" firstAttribute="centerY" secondItem="lSW-1n-JHT" secondAttribute="centerY" id="acY-0B-5t7"/>
+                            <constraint firstItem="z6D-2V-YZv" firstAttribute="top" secondItem="ee5-IC-Exy" secondAttribute="bottom" constant="15" id="j0f-r6-2QK"/>
+                            <constraint firstItem="ilB-OW-Ojc" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" id="jBQ-JA-exu"/>
+                            <constraint firstItem="o73-Nt-0eC" firstAttribute="top" relation="lessThanOrEqual" secondItem="ilB-OW-Ojc" secondAttribute="bottom" constant="81" id="v1O-8r-d58"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="acY-0B-5t7"/>
+                                <exclude reference="Ba2-FA-RIb"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="enablePushButton" destination="ilB-OW-Ojc" id="vAT-ud-CYh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEX-Hk-B44" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1793" y="516"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="PushOnboarding" width="293" height="293"/>
         <image name="chatsecure_logo_transparent" width="132" height="175"/>
         <image name="globe" width="25" height="25"/>
         <image name="ic_language_white" width="24" height="24"/>
