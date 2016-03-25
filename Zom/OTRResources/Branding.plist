@@ -26,5 +26,7 @@
 	<string>https://zom.im</string>
 	<key>ShareBaseURL</key>
 	<string>https://zom.im/i/#</string>
+	<key>pushAPIURL</key>
+	<string>https://push.zom.im/</string>
 </dict>
 </plist>
