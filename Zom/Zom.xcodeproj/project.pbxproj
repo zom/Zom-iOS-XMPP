@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B5F63F8FC6924BC02033C7 /* Pods.framework */; };
+		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926741E51BFC88AB0044C059 /* AddBuddy.storyboard */; };
 		926741E81BFC89140044C059 /* ZomAddBuddyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741E71BFC89140044C059 /* ZomAddBuddyViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
+		92757B8C1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */; };
 		9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */; };
 		9278C3961BF36A59003AC533 /* ZomIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C3951BF36A59003AC533 /* ZomIntroViewController.swift */; };
 		9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */; };
@@ -27,6 +29,7 @@
 		92B248C51CC0F31200A84F07 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */; };
 		92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */; };
 		92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */; };
+		92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; };
 		92DB70181C124BAD009B5684 /* ZomNewBuddyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB70171C124BAD009B5684 /* ZomNewBuddyViewController.swift */; };
 		92DD3E331BFB1278000811C1 /* ZomConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD3E321BFB1278000811C1 /* ZomConversationViewController.swift */; };
 		92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 92DD3E341BFB188D000811C1 /* Zom.entitlements */; };
@@ -46,7 +49,6 @@
 		D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC091BABDDAE00875194 /* Localizable.strings */; };
 		D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */; };
 		D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; };
-		D99DEC331BABDEF000875194 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */; };
 		D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */; };
 		D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */; };
 		D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */; };
@@ -120,10 +122,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		926741E51BFC88AB0044C059 /* AddBuddy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBuddy.storyboard; sourceTree = "<group>"; };
 		926741E71BFC89140044C059 /* ZomAddBuddyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomAddBuddyViewController.swift; path = "Classes/View Controllers/ZomAddBuddyViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		92757B8A1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OTRAssets+ZomLanguageHandling.h"; path = "Classes/OTRAssets+ZomLanguageHandling.h"; sourceTree = "<group>"; };
+		92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OTRAssets+ZomLanguageHandling.m"; path = "Classes/OTRAssets+ZomLanguageHandling.m"; sourceTree = "<group>"; };
+		92757B8E1CC57B4F000E3513 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757B901CC57B55000E3513 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757B921CC57B59000E3513 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757B941CC57B5D000E3513 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757B961CC57B5E000E3513 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757B981CC57B5F000E3513 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757B9A1CC57B61000E3513 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757B9C1CC57B63000E3513 /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "fa-IR.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757B9E1CC57B65000E3513 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BA01CC57B66000E3513 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BA21CC57B69000E3513 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BA41CC57B6A000E3513 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BA61CC57B6C000E3513 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BA81CC57B6D000E3513 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BAA1CC57B6F000E3513 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BAC1CC57B71000E3513 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BAE1CC57B75000E3513 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BB01CC57B76000E3513 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BB21CC57B77000E3513 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BB41CC57B79000E3513 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BB61CC57B7A000E3513 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BB81CC57B7B000E3513 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BBA1CC57B7D000E3513 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BBC1CC57B88000E3513 /* sl-SI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sl-SI"; path = "sl-SI.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BBE1CC57B8C000E3513 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BC01CC57B8E000E3513 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		92757BC21CC57B91000E3513 /* ro-RO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ro-RO"; path = "ro-RO.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BC41CC57B93000E3513 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BC61CC57B95000E3513 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		92757BC81CC57B98000E3513 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZomTableViewSectionHeader.xib; sourceTree = "<group>"; };
 		9278C3951BF36A59003AC533 /* ZomIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomIntroViewController.swift; path = "Classes/View Controllers/Onboarding/ZomIntroViewController.swift"; sourceTree = "<group>"; };
 		9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMessagesViewController.swift; path = "Classes/View Controllers/Messages View Controller/ZomMessagesViewController.swift"; sourceTree = "<group>"; };
@@ -139,6 +174,7 @@
 		92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Target Support Files/Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomWelcomeViewController.swift; path = "Classes/View Controllers/Onboarding/ZomWelcomeViewController.swift"; sourceTree = "<group>"; };
 		92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMyQRViewController.swift; path = "Classes/View Controllers/ZomMyQRViewController.swift"; sourceTree = "<group>"; };
+		92D688A41CC5653700B27EBC /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		92DB70171C124BAD009B5684 /* ZomNewBuddyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomNewBuddyViewController.swift; path = "Classes/View Controllers/ZomNewBuddyViewController.swift"; sourceTree = "<group>"; };
 		92DD3E321BFB1278000811C1 /* ZomConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomConversationViewController.swift; path = "Classes/View Controllers/ZomConversationViewController.swift"; sourceTree = "<group>"; };
 		92DD3E341BFB188D000811C1 /* Zom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Zom.entitlements; sourceTree = "<group>"; };
@@ -195,7 +231,6 @@
 		D99DEC291BABDEB600875194 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "Localizations/zh-Hant-TW.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OTRCountryImages.xcassets; sourceTree = "<group>"; };
 		D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OTRImages.xcassets; sourceTree = "<group>"; };
-		D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTRUsernameCell.xib; sourceTree = "<group>"; };
 		D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMPPServerInfoCell.xib; sourceTree = "<group>"; };
 		D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zom-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -314,6 +349,8 @@
 				D978BC961BABE200009246CF /* ZomTheme.h */,
 				D978BC971BABE200009246CF /* ZomTheme.m */,
 				D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */,
+				92757B8A1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.h */,
+				92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -399,7 +436,7 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				D99DEC2E1BABDEF000875194 /* Onboarding.storyboard */,
+				924D01401CC4E5B400398A4F /* Onboarding.storyboard */,
 				D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */,
 				D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */,
 				9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */,
@@ -585,6 +622,7 @@
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				92B248C51CC0F31200A84F07 /* Pods-acknowledgements.plist in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
+				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */,
 				D978BCAC1BABEC13009246CF /* torrc in Resources */,
@@ -605,7 +643,7 @@
 				D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */,
 				D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */,
 				D99DEBFD1BABDD7700875194 /* Secrets.plist in Resources */,
-				D99DEC331BABDEF000875194 /* Onboarding.storyboard in Resources */,
+				924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */,
 				D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */,
 				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
@@ -676,6 +714,7 @@
 				928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */,
 				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
 				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
+				92757B8C1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m in Sources */,
 				92DD3E331BFB1278000811C1 /* ZomConversationViewController.swift in Sources */,
 				9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */,
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
@@ -712,6 +751,45 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		924D01401CC4E5B400398A4F /* Onboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924D01411CC4E60400398A4F /* Base */,
+				92D688A41CC5653700B27EBC /* bo */,
+				92757B8E1CC57B4F000E3513 /* ar */,
+				92757B901CC57B55000E3513 /* en */,
+				92757B921CC57B59000E3513 /* ca */,
+				92757B941CC57B5D000E3513 /* da-DK */,
+				92757B961CC57B5E000E3513 /* de */,
+				92757B981CC57B5F000E3513 /* el */,
+				92757B9A1CC57B61000E3513 /* es */,
+				92757B9C1CC57B63000E3513 /* fa-IR */,
+				92757B9E1CC57B65000E3513 /* fr */,
+				92757BA01CC57B66000E3513 /* he */,
+				92757BA21CC57B69000E3513 /* hu */,
+				92757BA41CC57B6A000E3513 /* id */,
+				92757BA61CC57B6C000E3513 /* it */,
+				92757BA81CC57B6D000E3513 /* ja */,
+				92757BAA1CC57B6F000E3513 /* nb-NO */,
+				92757BAC1CC57B71000E3513 /* nl-NL */,
+				92757BAE1CC57B75000E3513 /* zh-Hant-TW */,
+				92757BB01CC57B76000E3513 /* zh-Hans-CN */,
+				92757BB21CC57B77000E3513 /* vi */,
+				92757BB41CC57B79000E3513 /* uz */,
+				92757BB61CC57B7A000E3513 /* tr */,
+				92757BB81CC57B7B000E3513 /* sv */,
+				92757BBA1CC57B7D000E3513 /* sl */,
+				92757BBC1CC57B88000E3513 /* sl-SI */,
+				92757BBE1CC57B8C000E3513 /* sk */,
+				92757BC01CC57B8E000E3513 /* ru */,
+				92757BC21CC57B91000E3513 /* ro-RO */,
+				92757BC41CC57B93000E3513 /* pt-PT */,
+				92757BC61CC57B95000E3513 /* pt-BR */,
+				92757BC81CC57B98000E3513 /* pl */,
+			);
+			name = Onboarding.storyboard;
+			sourceTree = "<group>";
+		};
 		D99DEC091BABDDAE00875194 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

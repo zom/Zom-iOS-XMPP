@@ -33,7 +33,17 @@ public class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguage
 
     public func dismissViewController(wasSaved: Bool) {
         if (wasSaved) {
-            self.performSegueWithIdentifier("introSegue", sender: self)
+            if let sb:UIStoryboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle()) {
+                // Recreate the storyboard with the new language
+                let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate
+                let vc:UINavigationController = sb.instantiateInitialViewController() as! UINavigationController
+                appDelegate!.window.rootViewController = vc
+                appDelegate!.window.makeKeyAndVisible()
+                vc.viewControllers.first!.performSegueWithIdentifier("introSegue", sender: self)
+            }
+            else {
+                self.performSegueWithIdentifier("introSegue", sender: self)
+            }
         } else {
             self.navigationController?.popViewControllerAnimated(true)
         }

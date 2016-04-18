@@ -20,9 +20,11 @@
 #import <ChatSecureCore/OTRComposeViewController.h>
 #import <QRCodeReaderViewController/QRCodeReaderViewController-umbrella.h>
 #import <ChatSecureCore/OTRTheme.h>
+#import <OTRAssets/OTRAssets.h>
 #import <OTRAssets/OTRStrings.h>
 #import <ZXingObjC/ZXingObjC-umbrella.h>
 #import <KVOController/FBKVOController.h>
 #import "ZomTheme.h"
+#import "ZomAppDelegate.h"
 #import <MessageUI/MessageUI.h>
 #import <BButton/NSString+FontAwesome.h>
