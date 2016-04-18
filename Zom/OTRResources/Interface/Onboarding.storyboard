@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -250,8 +250,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilB-OW-Ojc">
-                                <rect key="frame" x="250" y="493" width="101" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilB-OW-Ojc">
+                                <rect key="frame" x="250" y="487" width="101" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Enable Push"/>
                                 <connections>
@@ -265,45 +265,35 @@
                                     <action selector="skipButtonPressed:" destination="SVg-zE-e0I" eventType="touchUpInside" id="8SV-3v-ELb"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PushOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="ee5-IC-Exy">
-                                <rect key="frame" x="164" y="42" width="230" height="230"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="c7g-FT-FJg"/>
-                                    <constraint firstAttribute="width" constant="230" id="ja1-tf-f6X"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6D-2V-YZv">
-                                <rect key="frame" x="169" y="287" width="283" height="198"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6D-2V-YZv">
+                                <rect key="frame" x="159" y="336" width="283" height="131"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="283" id="37t-PC-bOM"/>
-                                    <constraint firstAttribute="height" constant="198" id="9iH-RE-VfL"/>
                                 </constraints>
                                 <string key="text">Zom can now automatically notify compatible offline contacts that you'd like to establish a secure conversation with. To protect your privacy, these notifications currently do not contain any content.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PushOnboarding" translatesAutoresizingMaskIntoConstraints="NO" id="ee5-IC-Exy">
+                                <rect key="frame" x="164" y="40" width="230" height="281"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="ja1-tf-f6X"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="z6D-2V-YZv" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" constant="10" id="71T-2o-VrR"/>
-                            <constraint firstItem="z6D-2V-YZv" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" id="Ba2-FA-RIb"/>
                             <constraint firstItem="o73-Nt-0eC" firstAttribute="top" secondItem="cHd-eh-dlb" secondAttribute="bottom" constant="20" id="Be1-IK-Mpa"/>
-                            <constraint firstItem="ilB-OW-Ojc" firstAttribute="top" secondItem="z6D-2V-YZv" secondAttribute="bottom" constant="8" id="CEW-pa-eLp"/>
+                            <constraint firstItem="ilB-OW-Ojc" firstAttribute="top" secondItem="z6D-2V-YZv" secondAttribute="bottom" constant="20" id="CEW-pa-eLp"/>
                             <constraint firstItem="cHd-eh-dlb" firstAttribute="trailing" secondItem="lSW-1n-JHT" secondAttribute="trailingMargin" id="DaN-lN-zJl"/>
-                            <constraint firstItem="ee5-IC-Exy" firstAttribute="top" secondItem="bjK-Rm-6Oq" secondAttribute="bottom" constant="22" id="GfH-5m-CeX"/>
+                            <constraint firstItem="ee5-IC-Exy" firstAttribute="top" secondItem="bjK-Rm-6Oq" secondAttribute="bottom" constant="20" id="GfH-5m-CeX"/>
                             <constraint firstItem="ee5-IC-Exy" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" constant="-21" id="OeV-Np-1VY"/>
-                            <constraint firstItem="ee5-IC-Exy" firstAttribute="centerY" secondItem="lSW-1n-JHT" secondAttribute="centerY" id="acY-0B-5t7"/>
-                            <constraint firstItem="z6D-2V-YZv" firstAttribute="top" secondItem="ee5-IC-Exy" secondAttribute="bottom" constant="15" id="j0f-r6-2QK"/>
                             <constraint firstItem="ilB-OW-Ojc" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" id="jBQ-JA-exu"/>
-                            <constraint firstItem="o73-Nt-0eC" firstAttribute="top" relation="lessThanOrEqual" secondItem="ilB-OW-Ojc" secondAttribute="bottom" constant="81" id="v1O-8r-d58"/>
+                            <constraint firstItem="z6D-2V-YZv" firstAttribute="centerX" secondItem="lSW-1n-JHT" secondAttribute="centerX" id="riX-8S-v4a"/>
+                            <constraint firstItem="z6D-2V-YZv" firstAttribute="top" secondItem="ee5-IC-Exy" secondAttribute="bottom" constant="15" id="spD-Dp-C27"/>
+                            <constraint firstItem="o73-Nt-0eC" firstAttribute="top" secondItem="ilB-OW-Ojc" secondAttribute="bottom" constant="80" id="v1O-8r-d58"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="acY-0B-5t7"/>
-                                <exclude reference="Ba2-FA-RIb"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="enablePushButton" destination="ilB-OW-Ojc" id="vAT-ud-CYh"/>

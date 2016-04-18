@@ -25,3 +25,4 @@
 #import <KVOController/FBKVOController.h>
 #import "ZomTheme.h"
 #import <MessageUI/MessageUI.h>
+#import <BButton/NSString+FontAwesome.h>
