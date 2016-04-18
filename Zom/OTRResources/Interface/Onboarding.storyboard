@@ -42,9 +42,9 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzG-Jv-y0g" userLabel="Choose Language Button">
-                                <rect key="frame" x="215" y="444" width="171" height="24"/>
+                                <rect key="frame" x="219" y="534" width="163" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Choose Language" image="ic_language_white">
+                                <state key="normal" title="Switch Language" image="ic_language_white">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -52,27 +52,40 @@
                                     <segue destination="ls3-ll-Zye" kind="show" identifier="pickLanguageSegue" id="n7Z-Nt-bHR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77z-hp-gqK" userLabel="Skip Button">
-                                <rect key="frame" x="283" y="488" width="35" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77z-hp-gqK" userLabel="Skip Button">
+                                <rect key="frame" x="285" y="404" width="30" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Skip">
+                                <state key="normal" title="&gt;&gt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="raD-fT-xSG" kind="show" id="HdL-fa-dMd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REE-vf-IHA">
+                                <rect key="frame" x="232" y="364" width="136" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="WELCOME TO ZOM">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="raD-fT-xSG" kind="show" id="muI-Tk-jlc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="77z-hp-gqK" firstAttribute="top" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="1D1-u9-hDk"/>
+                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RzG-Jv-y0g" secondAttribute="bottom" constant="20" id="5Zf-60-nQL"/>
+                            <constraint firstItem="77z-hp-gqK" firstAttribute="top" secondItem="REE-vf-IHA" secondAttribute="bottom" constant="10" id="8hJ-bT-fsz"/>
+                            <constraint firstItem="REE-vf-IHA" firstAttribute="top" secondItem="7Yv-8V-PyJ" secondAttribute="bottom" constant="20" id="NRc-B6-pTG"/>
+                            <constraint firstItem="REE-vf-IHA" firstAttribute="centerX" secondItem="A06-Di-CeT" secondAttribute="centerX" id="R1e-d5-Q9Y"/>
                             <constraint firstAttribute="centerX" secondItem="RzG-Jv-y0g" secondAttribute="centerX" id="UcI-hU-JiB"/>
                             <constraint firstItem="77z-hp-gqK" firstAttribute="centerX" secondItem="A06-Di-CeT" secondAttribute="centerX" id="XzS-lF-zGY"/>
                             <constraint firstAttribute="centerX" secondItem="7Yv-8V-PyJ" secondAttribute="centerX" id="aQX-Dz-xgb"/>
-                            <constraint firstItem="3ZM-WP-oof" firstAttribute="top" relation="greaterThanOrEqual" secondItem="77z-hp-gqK" secondAttribute="bottom" constant="20" id="c3Y-lf-WdV"/>
                             <constraint firstItem="7Yv-8V-PyJ" firstAttribute="top" secondItem="kXQ-5q-U2m" secondAttribute="bottom" constant="75" id="dWQ-VZ-KhH"/>
-                            <constraint firstItem="RzG-Jv-y0g" firstAttribute="top" secondItem="7Yv-8V-PyJ" secondAttribute="bottom" priority="900" constant="100" id="rEr-fy-oTE"/>
+                            <constraint firstItem="RzG-Jv-y0g" firstAttribute="top" secondItem="77z-hp-gqK" secondAttribute="bottom" priority="100" constant="100" id="uvP-Yh-Pdu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="r4e-3l-g8t"/>
@@ -104,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="1279" y="1371"/>
         </scene>
-        <!--Language-->
+        <!--Switch Language-->
         <scene sceneID="Vfx-V7-5xm">
             <objects>
-                <viewController title="Language" id="ls3-ll-Zye" customClass="ZomPickLanguageViewController" customModule="Zom" sceneMemberID="viewController">
+                <viewController title="Switch Language" id="ls3-ll-Zye" customClass="ZomPickLanguageViewController" customModule="Zom" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yU6-hF-0er"/>
                         <viewControllerLayoutGuide type="bottom" id="cLM-jW-p8M"/>
@@ -117,7 +130,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Thf-PT-2uQ">
+                    <navigationItem key="navigationItem" id="Thf-PT-2uQ">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OvV-MC-f6Y">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="ls3-ll-Zye" id="WAh-RD-sGj"/>
@@ -134,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="-159" y="1275"/>
         </scene>
-        <!--Existing Account-->
+        <!--Sign into an existing account-->
         <scene sceneID="Jmc-QW-jvy">
             <objects>
-                <tableViewController title="Existing Account" id="kXx-ta-MsF" customClass="OTRExistingAccountViewController" sceneMemberID="viewController">
+                <tableViewController title="Sign into an existing account" id="kXx-ta-MsF" customClass="OTRExistingAccountViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="p5H-hh-Nyy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,8 +214,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-gZ-Dp1">
-                                <rect key="frame" x="201" y="550" width="199" height="30"/>
-                                <state key="normal" title="Sign into an Existing Account">
+                                <rect key="frame" x="202" y="550" width="197" height="30"/>
+                                <state key="normal" title="Sign into an existing account">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
