@@ -24,6 +24,7 @@
 		929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */; };
 		929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */; };
 		929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */; };
+		92B248C51CC0F31200A84F07 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */; };
 		92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */; };
 		92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */; };
 		92DB70181C124BAD009B5684 /* ZomNewBuddyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB70171C124BAD009B5684 /* ZomNewBuddyViewController.swift */; };
@@ -38,7 +39,6 @@
 		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
 		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; };
 		D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA71BABEB83009246CF /* xmpp-server-list */; };
-		D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */; };
 		D978BCAC1BABEC13009246CF /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = D978BCAB1BABEC13009246CF /* torrc */; };
 		D99DEB731BABD1F300875194 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D99DEB721BABD1F300875194 /* main.m */; };
 		D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */ = {isa = PBXBuildFile; fileRef = D99DEBF81BABDD7700875194 /* Branding.plist */; };
@@ -136,6 +136,7 @@
 		929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickStickerCell.swift; path = Classes/Views/ZomPickStickerCell.swift; sourceTree = "<group>"; };
 		929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomTableViewSectionHeader.swift; path = Classes/Views/ZomTableViewSectionHeader.swift; sourceTree = "<group>"; };
 		929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBaseLoginViewController.swift; path = "Classes/View Controllers/Login View Controllers/ZomBaseLoginViewController.swift"; sourceTree = "<group>"; };
+		92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Target Support Files/Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomWelcomeViewController.swift; path = "Classes/View Controllers/Onboarding/ZomWelcomeViewController.swift"; sourceTree = "<group>"; };
 		92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMyQRViewController.swift; path = "Classes/View Controllers/ZomMyQRViewController.swift"; sourceTree = "<group>"; };
 		92DB70171C124BAD009B5684 /* ZomNewBuddyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomNewBuddyViewController.swift; path = "Classes/View Controllers/ZomNewBuddyViewController.swift"; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 		D978BC9C1BABE6DA009246CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D978BCA51BABEB6F009246CF /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../../ChatSecure/ChatSecure/FontAwesome.ttf; sourceTree = "<group>"; };
 		D978BCA71BABEB83009246CF /* xmpp-server-list */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xmpp-server-list"; path = "../../ChatSecure/Submodules/xmpp-server-list"; sourceTree = "<group>"; };
-		D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods/Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		D978BCAB1BABEC13009246CF /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../../ChatSecure/ChatSecure/Resources/torrc; sourceTree = "<group>"; };
 		D99DEB6E1BABD1F300875194 /* Zom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99DEB721BABD1F300875194 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
@@ -321,9 +321,9 @@
 		D978BCA41BABE88C009246CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */,
 				9278C39F1BF4D2AE003AC533 /* Stickers */,
 				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
-				D978BCA91BABEBD3009246CF /* Pods-acknowledgements.plist */,
 				D978BCA51BABEB6F009246CF /* FontAwesome.ttf */,
 				D978BCA71BABEB83009246CF /* xmpp-server-list */,
 				D978BC9C1BABE6DA009246CF /* Images.xcassets */,
@@ -583,13 +583,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
+				92B248C51CC0F31200A84F07 /* Pods-acknowledgements.plist in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */,
 				D978BCAC1BABEC13009246CF /* torrc in Resources */,
 				92DD3E371BFB2271000811C1 /* PitchInviteView.xib in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
-				D978BCAA1BABEBD3009246CF /* Pods-acknowledgements.plist in Resources */,
 				926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
