@@ -1,5 +1,18 @@
 #!/bin/bash
 
+#######
+# A Script to sync strings between Android and iOS projects, or rather: use Android strings in iOS storyboards
+# Created 2016 by N-Pex
+#
+# The process is the following:
+#
+# Step 1 - Search through all lproj directories, finding all localized strings files matching the given storyboard.
+# Step 2 - Make sure corresponding Android strings file exists.
+# Step 3 - Extract strings from base storyboard and convert to utf-8. Split them into key-value pairs.
+# Step 4 - Extract strings from base android strings file, split into key-value pairs.
+# Step 5 - Match translated strings iOS<->Android. If they match, store the id mapping between them.
+# Step 6 - Go through the iOS strings files, get the corresponding Android strings file and use the id mapping built in Step 5 to update the strings.
+
 if [ "$#" != "2" ]; then
     echo "Usage: $0 <storyboardfile> <android-base-strings-file>"
     echo "example: $0 ./OTRResources/Interface/Base.lproj/Onboarding.storyboard ../../Zom-Android/app/src/main/res/values/zomstrings.xml"
@@ -17,13 +30,35 @@ if [ ! -f $2 ]; then
     exit 1
 fi
 
-# Check for languages
+
+# Helper to translate from iOS language codes into corresponding Android language codes
+# ios_language_codes=("en" "da-DK" "fa-IR" "nb-NO" "nl-NL" "pt-BR" "pt-PT" "ro-RO" "sl-SI" "zh-Hans-CN" "zh-Hant-TW")
+android_language_codes=("" "-da" "-fa" "-nb" "-nl" "-pt-rBR" "-pt" "-ro" "-sl-rSI" "-zh-rCN" "-zh-rTW")
+
+function getAndroidLanguageCodeFromiOSLanguageCode {
+    local id="$1"
+    local count=0
+    while [ "x${ios_language_codes[count]}" != "x" ]
+    do
+	thisid="${ios_language_codes[count]}"
+	if [ "$thisid" == "$id" ]; then
+	    echo "${android_language_codes[count]}"
+	    return 1
+	fi
+	((count++))
+    done
+    echo "-$id"
+}
+
+# Step 1 - Search through all lproj directories, finding all localized strings files matching the given storyboard.
+#
 #
 languages=()
 ios_files=()
 languages_index=0
 base_file_ios="$1"
 base_dir_ios="${1%%/Base.lproj*}"
+
 for languageDir in $(find $base_dir_ios -depth 1 -name "*.lproj" -print)
 do
     languageDir="${languageDir%%.lproj}" # strip .lproj
@@ -45,20 +80,23 @@ do
     ((languages_index++))
 done
 
-# Make sure corresponding Android file exists
+# Step 2 - Make sure corresponding Android strings file exists
+#
 #
 languages_index=0
 while [ "x${languages[languages_index]}" != "x" ]
 do
     language="${languages[languages_index]}"
+    language=$(getAndroidLanguageCodeFromiOSLanguageCode "$language")
     ((languages_index++))
-    android_path="${2/values/values-$language}"
+    android_path="${2/values/values$language}"
     if [ ! -f $android_path ]; then
 	echo "Warning: no matching strings file found at: $android_path!"
     fi
 done
 
-# Extract strings from storyboard and convert to utf-8
+# Step 3 - Extract strings from base storyboard and convert to utf-8. Split them into key-value pairs.
+#
 #
 ibtool --export-strings-file /tmp/storyboard.strings $1 >/dev/null || { 
     echo "Error extracting strings from $1!"
@@ -80,6 +118,7 @@ android_values=()
 
 ios_keys=()
 ios_values=()
+
 
 function addBaseMapping {
     count=0
@@ -165,9 +204,14 @@ while read line ; do
     addBaseMapping "$key" "$val"
 done < <(awk -F'\ =\ |"' '{ if (NF==6) print $2,$5 }' $default_strings_file)
 
+
+# Step 4 - Extract strings from base android strings file, split into key-value pairs.
+#
+#
 parseAndroidStringsFile "$android_base_strings_file"
 
-# Try to find all translations and their corresponding ids
+# Step 5 - Match translated strings iOS<->Android. If they match, store the id mapping between them.
+#
 #
 i_translation=0
 while [ "x${base_translations[i_translation]}" != "x" ]
@@ -196,7 +240,8 @@ do
 done
 
 
-# Get Android language file
+# Step 6 - Go through the iOS strings files, get the corresponding Android strings file and use the id mapping built in Step 5 to update the strings.
+#
 #
 languages_index=0
 while [ "x${languages[languages_index]}" != "x" ]
@@ -205,7 +250,8 @@ do
     ios_file="${ios_files[languages_index]}"
     echo "Processing language: $language"
     ((languages_index++))
-    android_file="${android_base_strings_file/values/values-$language}"
+    language_suffix=$(getAndroidLanguageCodeFromiOSLanguageCode "$language")
+    android_file="${android_base_strings_file/values/values$language_suffix}"
     if [ -f $android_file ]; then
 
 	# Copy a fresh strings file to our target ios language file
@@ -246,4 +292,3 @@ do
 	done
     fi
 done
-
