@@ -844,6 +844,7 @@
 				D99DEB6A1BABD1F300875194 /* Sources */,
 				D99DEB6B1BABD1F300875194 /* Frameworks */,
 				D99DEB6C1BABD1F300875194 /* Resources */,
+				928BC2111CD2AF80001C4BA6 /* Copy Pods Resources */,
 				9208301C1CD2943F00761E39 /* Embed Pods Frameworks */,
 				D99DEB8D1BABD3E100875194 /* Embed Frameworks */,
 			);
@@ -1385,6 +1386,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-frameworks.sh\"";
 			showEnvVarsInLog = 0;
+		};
+		928BC2111CD2AF80001C4BA6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PODS_ROOT=\"${SRCROOT}/../ChatSecure/Pods\"\n\"${SRCROOT}/../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
