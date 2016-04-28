@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1B5F63F8FC6924BC02033C7 /* Pods.framework */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926741E51BFC88AB0044C059 /* AddBuddy.storyboard */; };
@@ -20,13 +19,13 @@
 		9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */; };
 		9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */; };
 		9278C3A01BF4D2AE003AC533 /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39F1BF4D2AE003AC533 /* Stickers */; };
+		928A380D1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
 		9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */; };
 		929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */; };
 		929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */; };
 		929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */; };
-		92B248C51CC0F31200A84F07 /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */; };
 		92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */; };
 		92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */; };
 		92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; };
@@ -55,6 +54,342 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		928A37AC1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8F867195ED87C31C366172914F4D62F1;
+			remoteInfo = AFNetworking;
+		};
+		928A37AE1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 23F01BC84EF91BBEC234C03B2D2167DF;
+			remoteInfo = Appirater;
+		};
+		928A37B01CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BE01ACFC27CF19C5B5D644B6EF46922;
+			remoteInfo = "Appirater-Appirater";
+		};
+		928A37B21CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D461D32C9E2FF8B4A7CF01FDF6574E79;
+			remoteInfo = ARChromeActivity;
+		};
+		928A37B41CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 85D4441873A0AB8C104AFF78E4C11F19;
+			remoteInfo = BBlock;
+		};
+		928A37B61CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CBC00E4AA85205318A7FA8BF69E58B1C;
+			remoteInfo = BButton;
+		};
+		928A37B81CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83E1A5B14B4CD5A5E6367D229F6844A9;
+			remoteInfo = "ChatSecure-Push-iOS";
+		};
+		928A37BA1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4139F9C6FE947181904206F8DAF5C5CB;
+			remoteInfo = CocoaAsyncSocket;
+		};
+		928A37BC1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E37EE84F530F6E28001F5E0348443935;
+			remoteInfo = CocoaLumberjack;
+		};
+		928A37BE1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F283114C8FDD899D785B070E0DC302A;
+			remoteInfo = CPAProxy;
+		};
+		928A37C01CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F81DA68C0E54B9ECB613EC07206F5673;
+			remoteInfo = "CPAProxy-CPAProxy";
+		};
+		928A37C21CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C84699E2BFA8591A641801597C970F90;
+			remoteInfo = GCDWebServer;
+		};
+		928A37C41CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 78BA2B449C082371452AAE8E9D800E4D;
+			remoteInfo = "gtm-http-fetcher";
+		};
+		928A37C61CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C46607FA715E32F06E4EE6AB7F6B7D05;
+			remoteInfo = "gtm-oauth2";
+		};
+		928A37C81CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DC9E6D856E0EDB33B44DAF2699CE0A0;
+			remoteInfo = "HockeySDK-Source";
+		};
+		928A37CA1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5FA2C0F72F456D8F379F83DADEEECD51;
+			remoteInfo = "HockeySDK-Source-HockeySDKResources";
+		};
+		928A37CC1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6AD537D8CFB998835CD66D6A007C891;
+			remoteInfo = IOCipher;
+		};
+		928A37CE1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D97C74CF066F70B0424879197E86BCE;
+			remoteInfo = JSQMessagesViewController;
+		};
+		928A37D01CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8AA5D97617D1F50A3BAC9ADEE33F5556;
+			remoteInfo = JSQSystemSoundPlayer;
+		};
+		928A37D21CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D1F7B62DD0D1D8C5EC3FDFC08EE63A2;
+			remoteInfo = JTSImageViewController;
+		};
+		928A37D41CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D93D41AC1D19060303E56758EF4958CD;
+			remoteInfo = JVFloatLabeledTextField;
+		};
+		928A37D61CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21359E1072BCDF73BF5D194F4BB31E17;
+			remoteInfo = KissXML;
+		};
+		928A37D81CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C8408CBD27E1015E22409905841B1CBB;
+			remoteInfo = KVOController;
+		};
+		928A37DA1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 60B492F911435EC84DAA99C47D40C7C4;
+			remoteInfo = libsqlfs;
+		};
+		928A37DC1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC5AF1933F790159715E896F69120A2F;
+			remoteInfo = Mantle;
+		};
+		928A37DE1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2EC6DAFC2701F4407F2A2F66917DAB7;
+			remoteInfo = MBProgressHUD;
+		};
+		928A37E01CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 29FF28F174E0DE682A604902C8E9DAA8;
+			remoteInfo = MWFeedParser;
+		};
+		928A37E21CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 14ACAFCDB35D1FB9369F925843BB84E0;
+			remoteInfo = Navajo;
+		};
+		928A37E41CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 26E34751A79A48CDAAF7FE5B79DE514B;
+			remoteInfo = OpenInChrome;
+		};
+		928A37E61CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BA016CD4C7D46BA8465AF83937CF178F;
+			remoteInfo = OTRKit;
+		};
+		928A37E81CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A85A48783BC5873CF524808E2159F67;
+			remoteInfo = ParkedTextField;
+		};
+		928A37EA1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4BDCA9B2F4C21A05886F029B7DC92962;
+			remoteInfo = "Pods-ChatSecureCore";
+		};
+		928A37EC1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 957B045B51BCE75DFD06D1319FC501C3;
+			remoteInfo = ProxyKit;
+		};
+		928A37EE1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 89613CB9B61BE0047F1A6CEA1BB630B2;
+			remoteInfo = PureLayout;
+		};
+		928A37F01CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F746E9F585FED226834D6351266D478C;
+			remoteInfo = QRCodeReaderViewController;
+		};
+		928A37F21CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2F6A7425328CF0B511A59AD7C1774A4C;
+			remoteInfo = Reachability;
+		};
+		928A37F41CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 228ED3747DBCB4370E3D9E79D78BC04C;
+			remoteInfo = SQLCipher;
+		};
+		928A37F61CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4426508B26DD64D889292E9E27DC8521;
+			remoteInfo = SSKeychain;
+		};
+		928A37F81CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AC648BF085AFA0681F8FDEDD9A8B2FB;
+			remoteInfo = TTTAttributedLabel;
+		};
+		928A37FA1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EF4B1DEAE3D031A864CD4DE264A895C0;
+			remoteInfo = TUSafariActivity;
+		};
+		928A37FC1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 281441E048E86B0E087BC1EF6DF84E84;
+			remoteInfo = "TUSafariActivity-TUSafariActivity";
+		};
+		928A37FE1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2F651F75181D4B9331A15E8203D5EF3;
+			remoteInfo = "uservoice-iphone-sdk";
+		};
+		928A38001CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2D32D8D427F1F71880B76435953A613C;
+			remoteInfo = "uservoice-iphone-sdk-UserVoice";
+		};
+		928A38021CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0220E05F64E43E49E3FBB34A7843579;
+			remoteInfo = VTAcknowledgementsViewController;
+		};
+		928A38041CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B07BE7FD7238D895C3CF476480A0552;
+			remoteInfo = XLForm;
+		};
+		928A38061CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB94329A4C0CCB574B2AE4520C1100A2;
+			remoteInfo = XMPPFramework;
+		};
+		928A38081CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FDA1D763C86B5DCF07934FF2F6AA0197;
+			remoteInfo = YapDatabase;
+		};
+		928A380A1CD209120095366C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 262741156269D5229B69A19E4B31723F;
+			remoteInfo = ZXingObjC;
+		};
 		D9315C9F1BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
@@ -165,13 +500,14 @@
 		9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomStickerPackTableViewController.swift; path = "Classes/View Controllers/ZomStickerPackTableViewController.swift"; sourceTree = "<group>"; };
 		9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickerShare.storyboard; sourceTree = "<group>"; };
 		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
+		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		928C99181C047B4E009FF66A /* ZomComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeViewController.swift; path = "Classes/View Controllers/ZomComposeViewController.swift"; sourceTree = "<group>"; };
 		928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickLanguageViewController.swift; path = "Classes/View Controllers/Onboarding/ZomPickLanguageViewController.swift"; sourceTree = "<group>"; };
 		9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickStickerViewController.swift; path = "Classes/View Controllers/ZomPickStickerViewController.swift"; sourceTree = "<group>"; };
 		929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickStickerCell.swift; path = Classes/Views/ZomPickStickerCell.swift; sourceTree = "<group>"; };
 		929545851BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomTableViewSectionHeader.swift; path = Classes/Views/ZomTableViewSectionHeader.swift; sourceTree = "<group>"; };
 		929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBaseLoginViewController.swift; path = "Classes/View Controllers/Login View Controllers/ZomBaseLoginViewController.swift"; sourceTree = "<group>"; };
-		92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-acknowledgements.plist"; path = "Pods/Target Support Files/Pods/Pods-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomWelcomeViewController.swift; path = "Classes/View Controllers/Onboarding/ZomWelcomeViewController.swift"; sourceTree = "<group>"; };
 		92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMyQRViewController.swift; path = "Classes/View Controllers/ZomMyQRViewController.swift"; sourceTree = "<group>"; };
 		92D688A41CC5653700B27EBC /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/Onboarding.strings; sourceTree = "<group>"; };
@@ -179,9 +515,7 @@
 		92DD3E321BFB1278000811C1 /* ZomConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomConversationViewController.swift; path = "Classes/View Controllers/ZomConversationViewController.swift"; sourceTree = "<group>"; };
 		92DD3E341BFB188D000811C1 /* Zom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Zom.entitlements; sourceTree = "<group>"; };
 		92DD3E361BFB2271000811C1 /* PitchInviteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchInviteView.xib; sourceTree = "<group>"; };
-		B5FA261E2626AE9AAED10C80 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5E40F5B297BC854372EA680 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
 		D978BC961BABE200009246CF /* ZomTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomTheme.h; path = Classes/ZomTheme.h; sourceTree = "<group>"; };
@@ -242,7 +576,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */,
-				287FD7F28E9B0D092FEDA812 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,15 +589,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DB3BCD1FB7CFDB0AB309D9E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B5FA261E2626AE9AAED10C80 /* Pods.debug.xcconfig */,
-				D5E40F5B297BC854372EA680 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		9278C3871BF33C10003AC533 /* Login View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +612,61 @@
 				9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */,
 			);
 			name = "Messages View Controller";
+			sourceTree = "<group>";
+		};
+		928A37761CD209110095366C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				928A37AD1CD209120095366C /* AFNetworking.framework */,
+				928A37AF1CD209120095366C /* Appirater.framework */,
+				928A37B11CD209120095366C /* Appirater.bundle */,
+				928A37B31CD209120095366C /* ARChromeActivity.framework */,
+				928A37B51CD209120095366C /* BBlock.framework */,
+				928A37B71CD209120095366C /* BButton.framework */,
+				928A37B91CD209120095366C /* ChatSecure_Push_iOS.framework */,
+				928A37BB1CD209120095366C /* CocoaAsyncSocket.framework */,
+				928A37BD1CD209120095366C /* CocoaLumberjack.framework */,
+				928A37BF1CD209120095366C /* CPAProxy.framework */,
+				928A37C11CD209120095366C /* CPAProxy.bundle */,
+				928A37C31CD209120095366C /* GCDWebServer.framework */,
+				928A37C51CD209120095366C /* gtm_http_fetcher.framework */,
+				928A37C71CD209120095366C /* gtm_oauth2.framework */,
+				928A37C91CD209120095366C /* HockeySDK_Source.framework */,
+				928A37CB1CD209120095366C /* HockeySDKResources.bundle */,
+				928A37CD1CD209120095366C /* IOCipher.framework */,
+				928A37CF1CD209120095366C /* JSQMessagesViewController.framework */,
+				928A37D11CD209120095366C /* JSQSystemSoundPlayer.framework */,
+				928A37D31CD209120095366C /* JTSImageViewController.framework */,
+				928A37D51CD209120095366C /* JVFloatLabeledTextField.framework */,
+				928A37D71CD209120095366C /* KissXML.framework */,
+				928A37D91CD209120095366C /* KVOController.framework */,
+				928A37DB1CD209120095366C /* libsqlfs.framework */,
+				928A37DD1CD209120095366C /* Mantle.framework */,
+				928A37DF1CD209120095366C /* MBProgressHUD.framework */,
+				928A37E11CD209120095366C /* MWFeedParser.framework */,
+				928A37E31CD209120095366C /* Navajo.framework */,
+				928A37E51CD209120095366C /* OpenInChrome.framework */,
+				928A37E71CD209120095366C /* OTRKit.framework */,
+				928A37E91CD209120095366C /* ParkedTextField.framework */,
+				928A37EB1CD209120095366C /* Pods_ChatSecureCore.framework */,
+				928A37ED1CD209120095366C /* ProxyKit.framework */,
+				928A37EF1CD209120095366C /* PureLayout.framework */,
+				928A37F11CD209120095366C /* QRCodeReaderViewController.framework */,
+				928A37F31CD209120095366C /* Reachability.framework */,
+				928A37F51CD209120095366C /* SQLCipher.framework */,
+				928A37F71CD209120095366C /* SSKeychain.framework */,
+				928A37F91CD209120095366C /* TTTAttributedLabel.framework */,
+				928A37FB1CD209120095366C /* TUSafariActivity.framework */,
+				928A37FD1CD209120095366C /* TUSafariActivity.bundle */,
+				928A37FF1CD209120095366C /* uservoice_iphone_sdk.framework */,
+				928A38011CD209120095366C /* UserVoice.bundle */,
+				928A38031CD209120095366C /* VTAcknowledgementsViewController.framework */,
+				928A38051CD209120095366C /* XLForm.framework */,
+				928A38071CD209120095366C /* XMPPFramework.framework */,
+				928A38091CD209120095366C /* YapDatabase.framework */,
+				928A380B1CD209120095366C /* ZXingObjC.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		92D378161BF1EF9300E014EF /* View Controllers */ = {
@@ -334,6 +713,7 @@
 			isa = PBXGroup;
 			children = (
 				D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */,
+				928A37751CD209110095366C /* Pods.xcodeproj */,
 			);
 			name = "ChatSecure Upstream";
 			path = ..;
@@ -358,7 +738,7 @@
 		D978BCA41BABE88C009246CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				92B248C41CC0F31200A84F07 /* Pods-acknowledgements.plist */,
+				928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */,
 				9278C39F1BF4D2AE003AC533 /* Stickers */,
 				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
 				D978BCA51BABEB6F009246CF /* FontAwesome.ttf */,
@@ -375,7 +755,6 @@
 			children = (
 				D99DEB701BABD1F300875194 /* Zom */,
 				D99DEB6F1BABD1F300875194 /* Products */,
-				6DB3BCD1FB7CFDB0AB309D9E /* Pods */,
 				E6C4F2998CB86DBC0FDCD035 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -462,13 +841,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D99DEB831BABD1F300875194 /* Build configuration list for PBXNativeTarget "Zom" */;
 			buildPhases = (
-				31D61E312A0F51904F3F9C31 /* Check Pods Manifest.lock */,
 				D99DEB6A1BABD1F300875194 /* Sources */,
 				D99DEB6B1BABD1F300875194 /* Frameworks */,
 				D99DEB6C1BABD1F300875194 /* Resources */,
 				D99DEB8D1BABD3E100875194 /* Embed Frameworks */,
-				3661D6589C157A3422263E64 /* Embed Pods Frameworks */,
-				89B6A889725B39D90C990793 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -567,6 +943,10 @@
 					ProductGroup = D9315C981BB5DC190077D2EE /* Products */;
 					ProjectRef = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
 				},
+				{
+					ProductGroup = 928A37761CD209110095366C /* Products */;
+					ProjectRef = 928A37751CD209110095366C /* Pods.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -577,6 +957,342 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		928A37AD1CD209120095366C /* AFNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AFNetworking.framework;
+			remoteRef = 928A37AC1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37AF1CD209120095366C /* Appirater.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Appirater.framework;
+			remoteRef = 928A37AE1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37B11CD209120095366C /* Appirater.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Appirater.bundle;
+			remoteRef = 928A37B01CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37B31CD209120095366C /* ARChromeActivity.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ARChromeActivity.framework;
+			remoteRef = 928A37B21CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37B51CD209120095366C /* BBlock.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BBlock.framework;
+			remoteRef = 928A37B41CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37B71CD209120095366C /* BButton.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = BButton.framework;
+			remoteRef = 928A37B61CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37B91CD209120095366C /* ChatSecure_Push_iOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChatSecure_Push_iOS.framework;
+			remoteRef = 928A37B81CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37BB1CD209120095366C /* CocoaAsyncSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaAsyncSocket.framework;
+			remoteRef = 928A37BA1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37BD1CD209120095366C /* CocoaLumberjack.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CocoaLumberjack.framework;
+			remoteRef = 928A37BC1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37BF1CD209120095366C /* CPAProxy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CPAProxy.framework;
+			remoteRef = 928A37BE1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37C11CD209120095366C /* CPAProxy.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CPAProxy.bundle;
+			remoteRef = 928A37C01CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37C31CD209120095366C /* GCDWebServer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GCDWebServer.framework;
+			remoteRef = 928A37C21CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37C51CD209120095366C /* gtm_http_fetcher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = gtm_http_fetcher.framework;
+			remoteRef = 928A37C41CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37C71CD209120095366C /* gtm_oauth2.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = gtm_oauth2.framework;
+			remoteRef = 928A37C61CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37C91CD209120095366C /* HockeySDK_Source.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HockeySDK_Source.framework;
+			remoteRef = 928A37C81CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37CB1CD209120095366C /* HockeySDKResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = HockeySDKResources.bundle;
+			remoteRef = 928A37CA1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37CD1CD209120095366C /* IOCipher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IOCipher.framework;
+			remoteRef = 928A37CC1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37CF1CD209120095366C /* JSQMessagesViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSQMessagesViewController.framework;
+			remoteRef = 928A37CE1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37D11CD209120095366C /* JSQSystemSoundPlayer.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSQSystemSoundPlayer.framework;
+			remoteRef = 928A37D01CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37D31CD209120095366C /* JTSImageViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JTSImageViewController.framework;
+			remoteRef = 928A37D21CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37D51CD209120095366C /* JVFloatLabeledTextField.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JVFloatLabeledTextField.framework;
+			remoteRef = 928A37D41CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37D71CD209120095366C /* KissXML.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KissXML.framework;
+			remoteRef = 928A37D61CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37D91CD209120095366C /* KVOController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KVOController.framework;
+			remoteRef = 928A37D81CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37DB1CD209120095366C /* libsqlfs.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = libsqlfs.framework;
+			remoteRef = 928A37DA1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37DD1CD209120095366C /* Mantle.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Mantle.framework;
+			remoteRef = 928A37DC1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37DF1CD209120095366C /* MBProgressHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MBProgressHUD.framework;
+			remoteRef = 928A37DE1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37E11CD209120095366C /* MWFeedParser.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MWFeedParser.framework;
+			remoteRef = 928A37E01CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37E31CD209120095366C /* Navajo.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Navajo.framework;
+			remoteRef = 928A37E21CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37E51CD209120095366C /* OpenInChrome.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OpenInChrome.framework;
+			remoteRef = 928A37E41CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37E71CD209120095366C /* OTRKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OTRKit.framework;
+			remoteRef = 928A37E61CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37E91CD209120095366C /* ParkedTextField.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ParkedTextField.framework;
+			remoteRef = 928A37E81CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37EB1CD209120095366C /* Pods_ChatSecureCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_ChatSecureCore.framework;
+			remoteRef = 928A37EA1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37ED1CD209120095366C /* ProxyKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ProxyKit.framework;
+			remoteRef = 928A37EC1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37EF1CD209120095366C /* PureLayout.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PureLayout.framework;
+			remoteRef = 928A37EE1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37F11CD209120095366C /* QRCodeReaderViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = QRCodeReaderViewController.framework;
+			remoteRef = 928A37F01CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37F31CD209120095366C /* Reachability.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Reachability.framework;
+			remoteRef = 928A37F21CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37F51CD209120095366C /* SQLCipher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLCipher.framework;
+			remoteRef = 928A37F41CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37F71CD209120095366C /* SSKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SSKeychain.framework;
+			remoteRef = 928A37F61CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37F91CD209120095366C /* TTTAttributedLabel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TTTAttributedLabel.framework;
+			remoteRef = 928A37F81CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37FB1CD209120095366C /* TUSafariActivity.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TUSafariActivity.framework;
+			remoteRef = 928A37FA1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37FD1CD209120095366C /* TUSafariActivity.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TUSafariActivity.bundle;
+			remoteRef = 928A37FC1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A37FF1CD209120095366C /* uservoice_iphone_sdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = uservoice_iphone_sdk.framework;
+			remoteRef = 928A37FE1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A38011CD209120095366C /* UserVoice.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UserVoice.bundle;
+			remoteRef = 928A38001CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A38031CD209120095366C /* VTAcknowledgementsViewController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VTAcknowledgementsViewController.framework;
+			remoteRef = 928A38021CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A38051CD209120095366C /* XLForm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XLForm.framework;
+			remoteRef = 928A38041CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A38071CD209120095366C /* XMPPFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XMPPFramework.framework;
+			remoteRef = 928A38061CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A38091CD209120095366C /* YapDatabase.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YapDatabase.framework;
+			remoteRef = 928A38081CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		928A380B1CD209120095366C /* ZXingObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZXingObjC.framework;
+			remoteRef = 928A380A1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D9315CA01BB5DC190077D2EE /* ChatSecure.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
@@ -620,7 +1336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
-				92B248C51CC0F31200A84F07 /* Pods-acknowledgements.plist in Resources */,
+				928A380D1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
 				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
@@ -652,54 +1368,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		31D61E312A0F51904F3F9C31 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3661D6589C157A3422263E64 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89B6A889725B39D90C990793 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D99DEB6A1BABD1F300875194 /* Sources */ = {
@@ -849,7 +1517,6 @@
 		};
 		D99DEB841BABD1F300875194 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5FA261E2626AE9AAED10C80 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -904,7 +1571,6 @@
 		};
 		D99DEB851BABD1F300875194 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E40F5B297BC854372EA680 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

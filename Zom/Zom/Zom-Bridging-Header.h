@@ -1,6 +1,7 @@
 //
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
+#import <ChatSecureCore/ChatSecureCore.h>
 #import <ChatSecureCore/OTRLanguageListSettingViewController.h>
 #import <ChatSecureCore/OTRSettingsManager.h>
 #import <ChatSecureCore/OTRAccountsManager.h>
