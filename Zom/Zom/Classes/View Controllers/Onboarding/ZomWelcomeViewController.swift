@@ -35,10 +35,11 @@ public class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguage
         if (wasSaved) {
             if let sb:UIStoryboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle()) {
                 // Recreate the storyboard with the new language
-                let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate
                 let vc:UINavigationController = sb.instantiateInitialViewController() as! UINavigationController
-                appDelegate!.window.rootViewController = vc
-                appDelegate!.window.makeKeyAndVisible()
+                vc.modalPresentationStyle = UIModalPresentationStyle.FormSheet;
+                let presenting = self.navigationController!.presentingViewController
+                self.navigationController?.dismissViewControllerAnimated(false, completion: nil)
+                presenting?.presentViewController(vc, animated: true, completion: nil)
                 vc.viewControllers.first!.performSegueWithIdentifier("introSegue", sender: self)
             }
             else {
