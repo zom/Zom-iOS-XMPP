@@ -101,7 +101,7 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     }
     
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        ShareController.shareAccount(self.account!, sender: self, viewController: self)
+        ShareController.shareAccount(self.account!, sender: sender, viewController: self)
     }
     
     @IBAction func segmentedControlValueChanged(sender: AnyObject) {
