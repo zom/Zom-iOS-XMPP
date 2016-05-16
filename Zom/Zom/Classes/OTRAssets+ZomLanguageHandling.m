@@ -20,6 +20,13 @@ static const char _bundle=0;
     NSBundle* bundle=objc_getAssociatedObject(self, &_bundle);
     return bundle ? [bundle localizedStringForKey:key value:value table:tableName] : [super localizedStringForKey:key value:value table:tableName];
 }
+- (NSString *)pathForResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath forLocalization:(NSString *)localizationName {
+
+    // English resourcers are found under "Base" for Zom
+    if ([localizationName isEqualToString:@"en"])
+        localizationName = @"Base";
+    return [super pathForResource:name ofType:ext inDirectory:subpath forLocalization:localizationName];
+}
 @end
 
 @implementation OTRAssets (ZomLanguageHandling)
@@ -31,12 +38,8 @@ static const char _bundle=0;
 
 + (NSBundle *)zom_resourcesBundle {
     NSBundle *bundle = [OTRAssets zom_resourcesBundle];
-    if (bundle != nil) {
+    if (bundle != nil && ![bundle isKindOfClass:[ZomLanguageAwareBundle class]]) {
         object_setClass(bundle,[ZomLanguageAwareBundle class]);
-        NSString *bundleLanguage = [OTRLanguageManager currentLocale];
-        if ([bundleLanguage isEqualToString:@"en"])
-            bundleLanguage = @"Base"; // English resources are here
-        objc_setAssociatedObject(bundle, &_bundle, bundleLanguage ? [NSBundle bundleWithPath:[bundle pathForResource:bundleLanguage ofType:@"lproj"]] : nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return bundle;
 }

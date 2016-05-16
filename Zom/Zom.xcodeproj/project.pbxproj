@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926741E51BFC88AB0044C059 /* AddBuddy.storyboard */; };
@@ -457,6 +458,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchCreateGroupView.xib; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		926741E51BFC88AB0044C059 /* AddBuddy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBuddy.storyboard; sourceTree = "<group>"; };
@@ -822,6 +824,7 @@
 				9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */,
 				92DD3E361BFB2271000811C1 /* PitchInviteView.xib */,
 				926741E51BFC88AB0044C059 /* AddBuddy.storyboard */,
+				921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1344,6 +1347,7 @@
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */,
 				D978BCAC1BABEC13009246CF /* torrc in Resources */,
+				921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */,
 				92DD3E371BFB2271000811C1 /* PitchInviteView.xib in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
 				926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */,

@@ -14,6 +14,7 @@ public class ZomConversationViewController: OTRConversationViewController {
     //Mark: Properties
     
     var pitchInviteView:UIView? = nil
+    var pitchCreateGroupView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
     
     public override func viewDidLoad() {
@@ -34,8 +35,10 @@ public class ZomConversationViewController: OTRConversationViewController {
             if (numBuddies < 5 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0) {
                 self.tableView.tableHeaderView = self.getPitchInviteView()
             }
-            else {
-                self.tableView.tableHeaderView = nil
+            else if (numBuddies > 1){
+                self.tableView.tableHeaderView = self.getPitchCreateGroupView()
+            } else {
+                self.tableView.tableHeaderView = nil;
             }
         }
     }
@@ -45,6 +48,14 @@ public class ZomConversationViewController: OTRConversationViewController {
             self.pitchInviteView = UINib(nibName: "PitchInviteView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
         }
         return self.pitchInviteView!
+    }
+
+    func getPitchCreateGroupView() -> UIView {
+        if (self.pitchCreateGroupView == nil) {
+            self.pitchCreateGroupView = UINib(nibName: "PitchCreateGroupView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
+            self.pitchCreateGroupView!.frame.size.height = 180
+        }
+        return self.pitchCreateGroupView!
     }
     
     @IBAction func addFriendsButtonPressed(sender: AnyObject) {
@@ -62,6 +73,24 @@ public class ZomConversationViewController: OTRConversationViewController {
                 vc = storyboard.instantiateInitialViewController()
                 self.navigationController?.presentViewController(vc!, animated: true, completion: nil)
             }
+        }
+    }
+    
+    @IBAction func createGroupButtonPressed(sender: AnyObject) {
+        self.performSelector(Selector("composeButtonPressed:"), withObject: sender)
+    }
+    
+    override public func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sizeHeaderToFit()
+    }
+    
+    func sizeHeaderToFit() {
+        if let headerView = tableView.tableHeaderView {
+            var frame = headerView.frame
+            frame.size.height = CGFloat.init(integerLiteral: 180)
+            headerView.frame = frame
+            tableView.tableHeaderView = headerView
         }
     }
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="MuZ-Pb-48i">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PitchInvite" translatesAutoresizingMaskIntoConstraints="NO" id="6rT-KZ-cxa">
+                    <rect key="frame" x="20" y="10" width="560" height="100"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0s1-ZE-rW4">
+                    <rect key="frame" x="238" y="120" width="124" height="40"/>
+                    <color key="backgroundColor" red="0.74901960779999999" green="0.12549019610000001" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="wzj-g4-agf"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                    <state key="normal" title="Create a Group">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="createGroupButtonPressed:" destination="-2" eventType="touchUpInside" id="jcB-7O-i9h"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="0s1-ZE-rW4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MuZ-Pb-48i" secondAttribute="leading" constant="20" id="548-J8-D7t"/>
+                <constraint firstItem="0s1-ZE-rW4" firstAttribute="centerX" secondItem="MuZ-Pb-48i" secondAttribute="centerX" id="97T-11-qhK"/>
+                <constraint firstItem="0s1-ZE-rW4" firstAttribute="top" secondItem="6rT-KZ-cxa" secondAttribute="bottom" constant="10" id="A6s-ZH-xay"/>
+                <constraint firstItem="6rT-KZ-cxa" firstAttribute="leading" secondItem="MuZ-Pb-48i" secondAttribute="leading" constant="20" id="AHS-UT-spK"/>
+                <constraint firstItem="6rT-KZ-cxa" firstAttribute="top" secondItem="MuZ-Pb-48i" secondAttribute="top" constant="10" id="RIh-VV-fOy"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0s1-ZE-rW4" secondAttribute="trailing" constant="20" id="fW5-wd-LEg"/>
+                <constraint firstItem="6rT-KZ-cxa" firstAttribute="centerX" secondItem="MuZ-Pb-48i" secondAttribute="centerX" id="hm0-89-goH"/>
+                <constraint firstAttribute="trailing" secondItem="6rT-KZ-cxa" secondAttribute="trailing" constant="20" id="t6D-fY-eRr"/>
+                <constraint firstAttribute="bottom" secondItem="0s1-ZE-rW4" secondAttribute="bottom" constant="20" id="wFC-Oe-Crb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PitchInvite" width="776" height="482"/>
+    </resources>
+</document>

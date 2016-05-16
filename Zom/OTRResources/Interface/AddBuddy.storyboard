@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bG5-Ie-2L6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bG5-Ie-2L6">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="-487" y="253"/>
         </scene>
-        <!--Add Buddy-->
+        <!--Add Friend-->
         <scene sceneID="GoY-Xw-xmj">
             <objects>
-                <viewController storyboardIdentifier="addNewBuddy" title="Add Buddy" id="Qvi-uT-RBx" customClass="ZomAddBuddyViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addNewBuddy" title="Add Friend" id="Qvi-uT-RBx" customClass="ZomAddBuddyViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Nl-VA-EAr"/>
                         <viewControllerLayoutGuide type="bottom" id="kIX-b5-9uX"/>
@@ -95,7 +95,7 @@
                             <constraint firstItem="JRg-OE-3kW" firstAttribute="leading" secondItem="Pgc-B9-aD5" secondAttribute="leadingMargin" id="s60-iu-NWV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add friend" id="ywi-Av-Esj">
+                    <navigationItem key="navigationItem" title="Add Friend" id="ywi-Av-Esj">
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="2lA-Dm-E7X">
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="Qvi-uT-RBx" id="M6d-UB-F2Y"/>
@@ -143,7 +143,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Oua-F4-23a">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Lh4-Px-0F5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="160"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
