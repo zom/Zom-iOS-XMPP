@@ -15,6 +15,7 @@ import BButton
 public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
     
     private var shieldIcon:UIImage? = nil;
+    private var hasFixedTitleViewConstraints:Bool = false
     
     public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
         
@@ -76,6 +77,31 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
             self.shieldIcon = image?.tint(UIColor.lightGrayColor(), blendMode: CGBlendMode.Multiply)
         }
         return shieldIcon!
+    }
+    
+    override public func refreshTitleView() -> Void {
+        super.refreshTitleView()
+        if (OTRAccountsManager.allAccountsAbleToAddBuddies().count < 2) {
+            // Hide the account name if only one
+            if let view = self.navigationItem.titleView as? OTRTitleSubtitleView {
+                view.subtitleLabel.hidden = true
+                view.subtitleImageView.hidden = true
+                if (!hasFixedTitleViewConstraints && view.constraints.count > 0) {
+                    var removeThese:[NSLayoutConstraint] = [NSLayoutConstraint]()
+                    for constraint:NSLayoutConstraint in view.constraints {
+                        if ((constraint.firstItem as? NSObject != nil && constraint.firstItem as! NSObject == view.titleLabel) || (constraint.secondItem as? NSObject != nil && constraint.secondItem as! NSObject == view.titleLabel)) {
+                            if (constraint.active && (constraint.firstAttribute == NSLayoutAttribute.Top || constraint.firstAttribute == NSLayoutAttribute.Bottom)) {
+                                removeThese.append(constraint)
+                            }
+                        }
+                    }
+                    view.removeConstraints(removeThese)
+                    let c:NSLayoutConstraint = NSLayoutConstraint(item: view.titleLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view.titleLabel.superview, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+                    view.addConstraint(c);
+                    hasFixedTitleViewConstraints = true
+                }
+            }
+        }
     }
 }
 

@@ -522,6 +522,7 @@
 		92ECE3C81CEAFD3B00CB4CFF /* UITableView+Zom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Zom.h"; path = "Classes/UITableView+Zom.h"; sourceTree = "<group>"; };
 		92ECE3C91CEAFD3B00CB4CFF /* UITableView+Zom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+Zom.m"; path = "Classes/UITableView+Zom.m"; sourceTree = "<group>"; };
 		92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddyInfoCell.swift; path = Classes/Views/ZomBuddyInfoCell.swift; sourceTree = "<group>"; };
+		92ECE3CD1CEB130A00CB4CFF /* ZomOverrides.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZomOverrides.h; path = Classes/ZomOverrides.h; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
@@ -741,6 +742,7 @@
 				92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */,
 				92ECE3C81CEAFD3B00CB4CFF /* UITableView+Zom.h */,
 				92ECE3C91CEAFD3B00CB4CFF /* UITableView+Zom.m */,
+				92ECE3CD1CEB130A00CB4CFF /* ZomOverrides.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
