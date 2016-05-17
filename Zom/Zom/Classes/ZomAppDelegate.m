@@ -12,6 +12,7 @@
 #import <ChatSecureCore/NSURL+ChatSecure.h>
 #import <ChatSecureCore/OTRAppDelegate.h>
 #import "OTRAssets+ZomLanguageHandling.h"
+#import "UITableView+Zom.h"
 
 @interface OTRAppDelegate (Zom)
 - (void)handleInvite:(NSString *)jidString fingerprint:(NSString *)fingerprint;
@@ -26,6 +27,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [OTRAssets setupLanguageHandling];
+    [UITableView zom_initialize];
+    
     BOOL ret = [super application:application didFinishLaunchingWithOptions:launchOptions];
     if (ret) {
         // For iPads, conversation controller is not necessarily shown until we pull out the side pane. The problem is that
