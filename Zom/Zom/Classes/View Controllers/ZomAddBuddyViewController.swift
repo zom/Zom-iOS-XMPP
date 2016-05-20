@@ -18,6 +18,7 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     var shareLink:String? = nil
     var pageController:UIPageViewController?
 
+    var startingTabIndex:Int = -1
     var previousSegmentedControlIndex:Int = 0
     var vcAdd:ZomNewBuddyViewController? = nil
     var vcQR:QRCodeReaderViewController? = nil
@@ -77,6 +78,12 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         pageController!.view.frame = self.containerView.frame
+        // Starting on a particular tab? Switch to that here.
+        if (self.startingTabIndex != -1) {
+            self.segmentedControl.selectedSegmentIndex = self.startingTabIndex
+            self.segmentedControlValueChanged(self.segmentedControl)
+            self.startingTabIndex = -1
+        }
     }
 
     @IBAction func cancelButtonPressed(sender: AnyObject) {
@@ -153,5 +160,9 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     
     public func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    public func showQRTab() -> Void {
+        self.startingTabIndex = 1
     }
 }

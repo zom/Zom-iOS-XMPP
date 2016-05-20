@@ -70,4 +70,9 @@
     return [ZomComposeViewController class];
 }
 
+- (Class) inviteViewControllerClass
+{
+    return [ZomInviteViewController class];
+}
+
 @end

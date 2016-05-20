@@ -12,3 +12,11 @@
 - (void)refreshTitleView;
 @end
 
+@interface OTRInviteViewController (ZomOverride)
+- (void)qrButtonPressed:(id)sender;
+- (void)linkShareButtonPressed:(id)sender;
+@end
+
+@interface OTRConversationViewController (ZomOverride)
+- (void)composeButtonPressed:(id)sender;
+@end
