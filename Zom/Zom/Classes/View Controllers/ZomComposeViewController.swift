@@ -11,6 +11,16 @@ import ChatSecureCore
 
 public class ZomComposeViewController: OTRComposeViewController {
     
+    public static var openInGroupMode:Bool = false
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        if (ZomComposeViewController.openInGroupMode) {
+            ZomComposeViewController.openInGroupMode = false
+            self.switchSelectionMode()
+        }
+    }
+    
     public override func addBuddy(accountsAbleToAddBuddies: [OTRAccount]?) {
         if let accounts = accountsAbleToAddBuddies {
             if (accounts.count > 0)

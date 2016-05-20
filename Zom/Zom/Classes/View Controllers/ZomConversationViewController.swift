@@ -77,7 +77,8 @@ public class ZomConversationViewController: OTRConversationViewController {
     }
     
     @IBAction func createGroupButtonPressed(sender: AnyObject) {
-        self.performSelector(Selector("composeButtonPressed:"), withObject: sender)
+        ZomComposeViewController.openInGroupMode = true
+        self.performSelector(#selector(self.composeButtonPressed(_:)), withObject: sender)
     }
     
     override public func viewDidLayoutSubviews() {
