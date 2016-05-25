@@ -13,10 +13,12 @@
 @end
 
 @interface OTRInviteViewController (ZomOverride)
+- (void)skipPressed:(id)sender;
 - (void)qrButtonPressed:(id)sender;
 - (void)linkShareButtonPressed:(id)sender;
 @end
 
 @interface OTRConversationViewController (ZomOverride)
+- (void)settingsButtonPressed:(id)sender;
 - (void)composeButtonPressed:(id)sender;
 @end
