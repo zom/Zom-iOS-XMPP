@@ -18,6 +18,25 @@ public class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguage
         self.navigationController?.delegate = self
     }
     
+    override public func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // If we already have an account, this is "Add account" and not initial onboarding. So, we need to allow the user to cancel out of this flow. Also, don't show this first welcome screen.
+        var hasAccounts:Bool = false
+        OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection.readWithBlock { (transaction) in
+            if (transaction.numberOfKeysInCollection(OTRAccount.collection()) > 0) {
+                hasAccounts = true
+            }
+        }
+        if (hasAccounts) {
+            let navigationController = self.navigationController
+            navigationController?.popViewControllerAnimated(false)
+            let vc:ZomIntroViewController = self.storyboard?.instantiateViewControllerWithIdentifier("introViewController") as! ZomIntroViewController
+            vc.showCancelButton = true
+            navigationController?.pushViewController(vc, animated: false)
+        }
+    }
+    
     // MARK: - Navigation
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender:sender)
@@ -65,5 +84,9 @@ public class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguage
                 self.navigationController?.setViewControllers(vcArray!, animated: false)
             }
         }
+    }
+    
+    public func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        print("WillShow")
     }
 }

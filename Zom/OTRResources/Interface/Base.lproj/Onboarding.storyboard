@@ -244,7 +244,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sY6-74-OTL">
-                        <barButtonItem key="rightBarButtonItem" image="globe" style="plain" id="Wn7-oS-4OC"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="Wn7-oS-4OC">
+                            <color key="tintColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="raD-fT-xSG" id="ONa-Xg-02R"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-yu-ETl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -404,7 +409,6 @@
         <image name="OTRSettingsIcon" width="25" height="25"/>
         <image name="PushOnboarding" width="293" height="293"/>
         <image name="chatsecure_logo_transparent" width="132" height="175"/>
-        <image name="globe" width="25" height="25"/>
         <image name="ic_language_white" width="24" height="24"/>
         <image name="invite_success" width="132" height="175"/>
         <image name="onboarding_main" width="750" height="750"/>
