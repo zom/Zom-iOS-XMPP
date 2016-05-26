@@ -28,7 +28,23 @@ public class ZomInviteViewController: OTRInviteViewController {
     override public func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
-            appDelegate.conversationViewController?.settingsButtonPressed(self)
+            if let conversationController = appDelegate.conversationViewController {
+
+                // Open settings
+                conversationController.settingsButtonPressed(self)
+                
+                // On iPads, make sure the the split view controller shows the settings pane
+                if let navigationController = conversationController.navigationController {
+                    if let opener = navigationController.parentViewController {
+                        if let splitController = opener as? UISplitViewController{
+                            if (!splitController.collapsed) {
+                                let btn = splitController.displayModeButtonItem()
+                                btn.target?.performSelector(btn.action, withObject: btn)
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
