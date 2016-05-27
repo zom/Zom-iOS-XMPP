@@ -22,6 +22,7 @@
 		9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */; };
 		9278C3A01BF4D2AE003AC533 /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39F1BF4D2AE003AC533 /* Stickers */; };
 		928A380D1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */; };
+		928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
 		9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */; };
@@ -510,6 +511,7 @@
 		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
 		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
+		928AB8131CF845880056AEC7 /* ZomImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZomImages.xcassets; sourceTree = "<group>"; };
 		928C99181C047B4E009FF66A /* ZomComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeViewController.swift; path = "Classes/View Controllers/ZomComposeViewController.swift"; sourceTree = "<group>"; };
 		928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickLanguageViewController.swift; path = "Classes/View Controllers/Onboarding/ZomPickLanguageViewController.swift"; sourceTree = "<group>"; };
 		9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickStickerViewController.swift; path = "Classes/View Controllers/ZomPickStickerViewController.swift"; sourceTree = "<group>"; };
@@ -829,6 +831,7 @@
 			children = (
 				D99DEC2B1BABDEF000875194 /* OTRCountryImages.xcassets */,
 				D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */,
+				928AB8131CF845880056AEC7 /* ZomImages.xcassets */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1389,6 +1392,7 @@
 				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
+				928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

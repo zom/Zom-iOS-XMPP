@@ -9,27 +9,29 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomInviteViewController: OTRInviteViewController {
+public class ZomInviteViewController: OTRInviteViewController, OTRAttachmentPickerDelegate {
     
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = ""
-        let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
-        let vc = storyboard.instantiateViewControllerWithIdentifier("congrats")
-        self.addChildViewController(vc)
-        vc.view.frame = self.view.frame
-        self.view.addSubview(vc.view)
+        let alreadyAdded = self.childViewControllers.contains { (controller) -> Bool in
+            return controller.restorationIdentifier != nil && ("congrats".compare(controller.restorationIdentifier!) == NSComparisonResult.OrderedSame);
+        }
+        if (!alreadyAdded) {
+            self.title = ""
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
+            let vc = storyboard.instantiateViewControllerWithIdentifier("congrats")
+            vc.restorationIdentifier = "congrats"
+            self.addChildViewController(vc)
+            vc.view.frame = self.view.frame
+            self.view.addSubview(vc.view)
+        }
     }
     
     @IBAction func settingsButtonPressed(sender: AnyObject) {
         self.skipPressed(sender)
-    }
-    
-    override public func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
         if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
             if let conversationController = appDelegate.conversationViewController {
-
+                
                 // Open settings
                 conversationController.settingsButtonPressed(self)
                 
@@ -46,5 +48,16 @@ public class ZomInviteViewController: OTRInviteViewController {
                 }
             }
         }
+    }
+
+    @IBAction func avatarButtonPressed(sender: AnyObject) {
+        let photoPicker = OTRAttachmentPicker(parentViewController: self, delegate: self)
+        photoPicker.showAlertControllerWithCompletion(nil)
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
     }
 }
