@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="u63-jC-sYl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -157,10 +157,10 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kExistingAccountCellIdentifier" id="Bgx-jG-Lpl">
-                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bgx-jG-Lpl" id="lIU-bq-W3j">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -187,18 +187,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Free Text &amp; Voice Messaging + Exciting Stickers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7Z-A1-2Dh">
-                                <rect key="frame" x="60" y="50" width="480" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.90196078431372551" green="0.15294117647058825" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Use ZOM to send and receive free text and voice messages anytime, anywhere" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLr-hm-vgk">
-                                <rect key="frame" x="60" y="84" width="480" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding_main" translatesAutoresizingMaskIntoConstraints="NO" id="cwB-fA-VC3">
                                 <rect key="frame" x="20" y="138" width="560" height="324"/>
                             </imageView>
@@ -226,20 +214,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90196078431372551" green="0.90588235294117647" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="SLr-hm-vgk" secondAttribute="trailing" constant="40" id="17z-Oh-Rcr"/>
-                            <constraint firstItem="SLr-hm-vgk" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="8Cm-hg-Ude"/>
                             <constraint firstItem="x2Z-j4-h7a" firstAttribute="top" secondItem="KMo-gZ-Dp1" secondAttribute="bottom" constant="20" id="HZR-Qc-Dul"/>
                             <constraint firstItem="xHH-ao-iyd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cwB-fA-VC3" secondAttribute="bottom" constant="20" id="OQH-Iu-avw"/>
-                            <constraint firstItem="cwB-fA-VC3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SLr-hm-vgk" secondAttribute="bottom" constant="20" id="S4O-XT-Osr"/>
                             <constraint firstAttribute="centerX" secondItem="cwB-fA-VC3" secondAttribute="centerX" id="Vbo-Vc-2ub"/>
                             <constraint firstAttribute="centerX" secondItem="xHH-ao-iyd" secondAttribute="centerX" id="YsX-BC-z2T"/>
-                            <constraint firstItem="f7Z-A1-2Dh" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" constant="40" id="ZLz-lj-seE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cwB-fA-VC3" secondAttribute="trailing" id="aEs-Pg-pAO"/>
                             <constraint firstItem="KMo-gZ-Dp1" firstAttribute="top" secondItem="xHH-ao-iyd" secondAttribute="bottom" priority="950" constant="30" id="f9a-Kj-R5S"/>
-                            <constraint firstItem="f7Z-A1-2Dh" firstAttribute="top" secondItem="gGq-hu-BR8" secondAttribute="bottom" constant="30" id="g7g-zF-Xb0"/>
                             <constraint firstAttribute="centerX" secondItem="KMo-gZ-Dp1" secondAttribute="centerX" id="lCy-c9-9jd"/>
-                            <constraint firstItem="SLr-hm-vgk" firstAttribute="top" secondItem="f7Z-A1-2Dh" secondAttribute="bottom" constant="10" id="lr1-d1-HpG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="f7Z-A1-2Dh" secondAttribute="trailing" constant="40" id="uNH-eK-7Ic"/>
+                            <constraint firstItem="cwB-fA-VC3" firstAttribute="centerY" secondItem="19j-qd-DAG" secondAttribute="centerY" id="qlo-DG-Ard"/>
                             <constraint firstItem="cwB-fA-VC3" firstAttribute="leading" secondItem="19j-qd-DAG" secondAttribute="leadingMargin" id="zeU-Yc-F8j"/>
                         </constraints>
                     </view>
@@ -356,7 +338,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Zom ID has been created and you can find your account details in settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TW-W4-0DC">
                                 <rect key="frame" x="40" y="224" width="520" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJP-fk-Ua1">
@@ -381,7 +363,7 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose an Avatar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy9-ZE-s19">
                                 <rect key="frame" x="10" y="461" width="580" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvv-mP-tn9">
