@@ -8,6 +8,8 @@
 
 @import ChatSecureCore;
 
+extern NSString *const kOTRXLFormShowAdvancedTag;
+
 @interface OTRMessagesViewController (ZomOverride)
 - (void)refreshTitleView;
 @end
@@ -21,4 +23,8 @@
 @interface OTRConversationViewController (ZomOverride)
 - (void)settingsButtonPressed:(id)sender;
 - (void)composeButtonPressed:(id)sender;
+@end
+
+@interface OTRBaseLoginViewController (ZomOverride)
+- (void)loginButtonPressed:(id)sender;
 @end

@@ -31,4 +31,24 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
         return 50
     }
+    
+    override public func textFieldDidEndEditing(textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
+        if let usernameRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
+            if let editCell = usernameRow.cellForFormController(self) as? XLFormTextFieldCell {
+                if (editCell.textField == textField) {
+                    if let text = textField.text?.characters.count {
+                        if (text > 0) {
+                            if let advancedRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormShowAdvancedTag) {
+                                if (advancedRow.value as? Bool == false) {
+                                    // Ok, if we are not showing advanced tab, enter means "go"
+                                    self.loginButtonPressed(self.navigationItem.rightBarButtonItem)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
