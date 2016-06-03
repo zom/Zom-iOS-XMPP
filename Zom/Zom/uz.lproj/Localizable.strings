@@ -1,0 +1,42 @@
+/* password section */
+"Account" = "Account";
+
+/* username section */
+"Basic Setup" = "Create a Zom ID";
+
+/* server selection footer */
+"Choose from our list of trusted servers, or use your own." = "Choose from our list of trusted servers, or use your own.";
+
+/* if you want to change your username */
+"Customize Username" = "Customize Username";
+
+/* toggle switch for show advanced */
+"Enable Tor" = "Tor";
+
+/* whether or not we should generate a strong password for them */
+"Generate Secure Password" = "Generate Secure Password";
+
+/* title for logging in */
+"Log In" = "Log In";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "Zom ID";
+
+/* server selection section title */
+"Server" = "Server";
+
+/* toggle switch for show advanced */
+"Show Advanced Options" = "Show Advanced Options";
+
+/* title for creating a new account */
+"Sign Up" = "";
+
+/* basic setup selection footer */
+"Think of a unique nickname that you don't use anywhere else and doesn't contain personal information." = "Your Zom ID can be anything you want, and is how you will be known by others on Zom.";
+
+/* password section */
+"Tor" = "Tor";
+
+/* help text for password generator */
+"We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
+
