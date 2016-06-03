@@ -151,6 +151,9 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     public func controller(viewController: OTRNewBuddyViewController!, didAddBuddy buddy: OTRBuddy!) {
         // TODO - enter conversation with newly added buddy
         self.cancelButtonPressed(self) // Close
+        if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
+            appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
+        }
     }
     
     public func shouldDismissViewController(viewController: OTRNewBuddyViewController!) -> Bool {
