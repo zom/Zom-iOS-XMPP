@@ -40,6 +40,7 @@
 		92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3C91CEAFD3B00CB4CFF /* UITableView+Zom.m */; };
 		92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */; };
 		92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */; };
+		92F60BF11D018121008834AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
 		D92DF7111BBDF7B000CFD706 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D92DF7121BBDF89800CFD706 /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
@@ -531,6 +532,7 @@
 		92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddyInfoCell.swift; path = Classes/Views/ZomBuddyInfoCell.swift; sourceTree = "<group>"; };
 		92ECE3CD1CEB130A00CB4CFF /* ZomOverrides.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZomOverrides.h; path = Classes/ZomOverrides.h; sourceTree = "<group>"; };
 		92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomInviteViewController.swift; path = "Classes/View Controllers/ZomInviteViewController.swift"; sourceTree = "<group>"; };
+		92F60BF21D018121008834AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
@@ -800,6 +802,7 @@
 				D978BC9A1BABE205009246CF /* Classes */,
 				D99DEB821BABD1F300875194 /* Info.plist */,
 				D99DEB711BABD1F300875194 /* Supporting Files */,
+				92F60BF31D018121008834AC /* Localizable.strings */,
 			);
 			path = Zom;
 			sourceTree = "<group>";
@@ -1375,6 +1378,7 @@
 				926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
+				92F60BF11D018121008834AC /* Localizable.strings in Resources */,
 				92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */,
 				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
 			);
@@ -1522,6 +1526,14 @@
 				92757BC81CC57B98000E3513 /* pl */,
 			);
 			name = Onboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		92F60BF31D018121008834AC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92F60BF21D018121008834AC /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		D99DEC091BABDDAE00875194 /* Localizable.strings */ = {
