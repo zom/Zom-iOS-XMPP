@@ -34,6 +34,14 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
         super.sendImageFilePath(filePath, asJPEG: false, shouldResize: false)
     }
     
+    override public func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> ChatSecureCore.JSQMessageData! {
+        let ret = super.collectionView(collectionView, messageDataForItemAtIndexPath: indexPath)
+        if (ZomStickerMessage.isValidStickerShortCode(ret.text!())) {
+            return ZomStickerMessage(message: ret)
+        }
+        return ret
+    }
+    
     public override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
         let string:NSMutableAttributedString = super.collectionView(collectionView, attributedTextForCellBottomLabelAtIndexPath: indexPath) as! NSMutableAttributedString
 

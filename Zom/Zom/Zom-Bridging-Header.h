@@ -26,6 +26,9 @@
 #import <ChatSecureCore/OTRDonateSetting.h>
 #import <ChatSecureCore/OTRViewSetting.h>
 #import <QRCodeReaderViewController/QRCodeReaderViewController-umbrella.h>
+#import <ChatSecureCore/OTRMessage.h>
+#import <ChatSecureCore/OTRMessage+JSQMessageData.h>
+#import <ChatSecureCore/OTRMediaItem.h>
 #import <ChatSecureCore/OTRTheme.h>
 #import <OTRAssets/OTRAssets.h>
 #import <OTRAssets/OTRStrings.h>
