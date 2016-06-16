@@ -31,5 +31,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)
-- (void)loginButtonPressed:(id)sender;
+- (IBAction)loginButtonPressed:(id)sender;
+- (void)pushInviteViewController;
 @end
+
