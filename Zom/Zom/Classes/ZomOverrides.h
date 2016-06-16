@@ -31,7 +31,12 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)
++ (instancetype)loginViewControllerForAccount:(OTRAccount *)account;
 - (IBAction)loginButtonPressed:(id)sender;
 - (void)pushInviteViewController;
+-(void)configureCell:(XLFormBaseCell*) cell;
 @end
 
+@interface OTRSettingsViewController (ZomOverride)
+- (void)logoutAccount:(OTRAccount *)account sender:(id)sender;
+@end
