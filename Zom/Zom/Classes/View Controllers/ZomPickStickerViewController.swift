@@ -13,6 +13,7 @@ public class ZomPickStickerViewController: UICollectionViewController {
     
     public var stickerPack: String = ""
     private var stickers: [String] = []
+    private var stickerPaths: [String] = []
     private var selectedSticker:String = ""
     
     private var assetGridThumbnailSize:CGSize = CGSize()
@@ -25,8 +26,8 @@ public class ZomPickStickerViewController: UICollectionViewController {
         do {
             let stickerFiles = try fileManager.contentsOfDirectoryAtPath(docsPath)
             for item in stickerFiles {
-                //let url: NSURL = NSURL.fileURLWithPath(docsPath).URLByAppendingPathComponent(item)
-                stickers.append(docsPath + "/" + item)
+                stickers.append((item as NSString).stringByDeletingPathExtension)
+                stickerPaths.append(docsPath + "/" + item)
             }
         } catch {
             print(error)
@@ -45,13 +46,13 @@ public class ZomPickStickerViewController: UICollectionViewController {
     // Mark - UICollectionViewDataSource
     
     public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return stickers.count
+        return stickerPaths.count
     }
     
     public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         let cell:ZomPickStickerCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ZomPickStickerCell
-        cell.imageView.image = UIImage(contentsOfFile: stickers[indexPath.item])
+        cell.imageView.image = UIImage(contentsOfFile: stickerPaths[indexPath.item])
         return cell
     }
     
@@ -65,7 +66,7 @@ public class ZomPickStickerViewController: UICollectionViewController {
         if (segue.destinationViewController is ZomMessagesViewController) {
             let vc:ZomMessagesViewController = segue.destinationViewController as! ZomMessagesViewController
             if (!selectedSticker.isEmpty) {
-                vc.selectSticker(selectedSticker)
+                vc.selectSticker(stickerPack, sticker: selectedSticker)
             }
         }
     }

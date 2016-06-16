@@ -30,8 +30,8 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
     @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
     }
     
-    public func selectSticker(filePath: String) {
-        super.sendImageFilePath(filePath, asJPEG: false, shouldResize: false)
+    public func selectSticker(pack:String, sticker: String) {
+        super.didPressSendButton(super.sendButton, withMessageText: ":" + pack + "-" + sticker + ":", senderId: super.senderId, senderDisplayName: super.senderDisplayName, date: NSDate())
     }
     
     override public func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> ChatSecureCore.JSQMessageData! {
