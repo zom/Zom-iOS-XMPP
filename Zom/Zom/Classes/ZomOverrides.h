@@ -40,3 +40,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRSettingsViewController (ZomOverride)
 - (void)logoutAccount:(OTRAccount *)account sender:(id)sender;
 @end
+
+@interface OTRBuddy (ZomOverride)
+- (void)setDisplayName:(NSString *)displayName;
+@end
