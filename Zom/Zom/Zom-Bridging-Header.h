@@ -32,6 +32,7 @@
 #import <ChatSecureCore/OTRMediaItem.h>
 #import <ChatSecureCore/OTRTheme.h>
 #import <ChatSecureCore/OTRBuddy.h>
+#import <ChatSecureCore/OTRXMPPBuddy.h>
 #import <OTRAssets/OTRAssets.h>
 #import <OTRAssets/OTRStrings.h>
 #import <ZXingObjC/ZXingObjC-umbrella.h>

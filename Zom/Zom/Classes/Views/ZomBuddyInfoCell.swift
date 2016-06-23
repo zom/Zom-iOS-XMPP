@@ -16,6 +16,12 @@ public class ZomBuddyInfoCell: OTRBuddyInfoCell {
         } else {
             super.setThread(thread, withAccountName: accountName)
         }
+        
+        if let xmppBuddy = thread as? OTRXMPPBuddy {
+            // Move account info to account and use identifier for full jid
+            self.accountLabel.text = self.identifierLabel.text
+            self.identifierLabel.text = xmppBuddy.username
+        }
     }
     
     override public func updateConstraints() {
