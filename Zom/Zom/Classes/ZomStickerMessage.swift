@@ -62,7 +62,7 @@ public class ZomStickerMessage: OTRMessage {
         let stickerDescription = message.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: ":"))
         let components = stickerDescription.componentsSeparatedByString("-")
         if (components.count == 2) {
-            let regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9_&]+", options: [])
+            let regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9_& ]+", options: [])
             let messagePack = regex.stringByReplacingMatchesInString(components[0], options: [], range: NSMakeRange(0, components[0].characters.count), withTemplate: "")
             let messageSticker = regex.stringByReplacingMatchesInString(components[1], options: [], range: NSMakeRange(0, components[1].characters.count), withTemplate: "")
             
