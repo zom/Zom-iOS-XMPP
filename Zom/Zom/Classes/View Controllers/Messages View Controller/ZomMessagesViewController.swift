@@ -12,51 +12,57 @@ import JSQMessagesViewController
 import OTRAssets
 import BButton
 
-public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
-    
-    private var shieldIcon:UIImage? = nil;
-    private var hasFixedTitleViewConstraints:Bool = false
-    
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
+var ZomMessagesViewController_associatedObject1: UInt8 = 0
+
+extension OTRMessagesViewController {
+    public override class func initialize() {
+        struct Static {
+            static var token: dispatch_once_t = 0
+        }
         
-        let sendStickerAction: UIAlertAction = UIAlertAction(title: OTRLanguageManager.translatedString("Sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-            let storyboard = UIStoryboard(name: "StickerShare", bundle: nil)
-            let vc = storyboard.instantiateInitialViewController()
-            self.presentViewController(vc!, animated: true, completion: nil)
-        })
-        alertController.addAction(sendStickerAction)
+        // make sure this isn't a subclass
+        if self !== OTRMessagesViewController.self {
+            return
+        }
+        
+        dispatch_once(&Static.token) {
+            zom_swizzle(#selector(OTRMessagesViewController.collectionView(_:messageDataForItemAtIndexPath:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
+            zom_swizzle(#selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
+        }
     }
     
-    @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
+    var shieldIcon:UIImage? {
+        get {
+            return objc_getAssociatedObject(self, &ZomMessagesViewController_associatedObject1) as? UIImage ?? nil
+        }
+        set {
+            objc_setAssociatedObject(self, &ZomMessagesViewController_associatedObject1, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
     
-    public func selectSticker(pack:String, sticker: String) {
-        super.didPressSendButton(super.sendButton, withMessageText: ":" + pack + "-" + sticker + ":", senderId: super.senderId, senderDisplayName: super.senderDisplayName, date: NSDate())
-    }
-    
-    override public func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> ChatSecureCore.JSQMessageData! {
-        let ret = super.collectionView(collectionView, messageDataForItemAtIndexPath: indexPath)
+    public func zom_collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> ChatSecureCore.JSQMessageData! {
+        let ret = self.zom_collectionView(collectionView, messageDataForItemAtIndexPath: indexPath)
         if (ZomStickerMessage.isValidStickerShortCode(ret.text!())) {
             return ZomStickerMessage(message: ret)
         }
         return ret
     }
     
-    public override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-        let string:NSMutableAttributedString = super.collectionView(collectionView, attributedTextForCellBottomLabelAtIndexPath: indexPath) as! NSMutableAttributedString
-
+    public func zom_collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        let string:NSMutableAttributedString = self.zom_collectionView(collectionView, attributedTextForCellBottomLabelAtIndexPath: indexPath) as! NSMutableAttributedString
+        
         let lock = NSString.fa_stringForFontAwesomeIcon(FAIcon.FALock);
         let unlock = NSString.fa_stringForFontAwesomeIcon(FAIcon.FAUnlock);
         
         let asd:NSString = string.string
-
+        
         let rangeLock:NSRange = asd.rangeOfString(lock);
         if (rangeLock.location != NSNotFound) {
             let attachment = textAttachment(12)
             let newLock = NSAttributedString.init(attachment: attachment);
             string.replaceCharactersInRange(rangeLock, withAttributedString: newLock)
         }
-
+        
         let rangeUnLock:NSRange = asd.rangeOfString(unlock);
         if (rangeUnLock.location != NSNotFound) {
             let nothing = NSAttributedString.init(string: "");
@@ -85,6 +91,41 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
             self.shieldIcon = image?.tint(UIColor.lightGrayColor(), blendMode: CGBlendMode.Multiply)
         }
         return shieldIcon!
+    }
+    
+    private class func zom_swizzle(originalSelector:Selector, swizzledSelector:Selector) -> Void {
+        let originalMethod = class_getInstanceMethod(self, originalSelector)
+        let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
+        
+        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        
+        if didAddMethod {
+            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+    }
+}
+
+public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
+    
+    private var hasFixedTitleViewConstraints:Bool = false
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
+        
+        let sendStickerAction: UIAlertAction = UIAlertAction(title: OTRLanguageManager.translatedString("Sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+            let storyboard = UIStoryboard(name: "StickerShare", bundle: nil)
+            let vc = storyboard.instantiateInitialViewController()
+            self.presentViewController(vc!, animated: true, completion: nil)
+        })
+        alertController.addAction(sendStickerAction)
+    }
+    
+    @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
+    }
+    
+    public func selectSticker(pack:String, sticker: String) {
+        super.didPressSendButton(super.sendButton, withMessageText: ":" + pack + "-" + sticker + ":", senderId: super.senderId, senderDisplayName: super.senderDisplayName, date: NSDate())
     }
     
     override public func refreshTitleView() -> Void {
