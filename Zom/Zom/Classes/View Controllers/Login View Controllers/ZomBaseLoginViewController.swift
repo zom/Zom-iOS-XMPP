@@ -13,6 +13,7 @@ import ChatSecureCore
 var ZomBaseLoginController_associatedObject1: UInt8 = 0
 var ZomBaseLoginController_associatedObject2: UInt8 = 1
 var ZomBaseLoginController_associatedObject3: UInt8 = 2
+var ZomBaseLoginController_associatedObject4: UInt8 = 3
 
 extension OTRBaseLoginViewController {
     public override class func initialize() {
@@ -59,6 +60,11 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         if (onlyShowInfo) {
             self.title = "Account information"
         }
+        if (self.createNewAccount) {
+            if let nickname = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
+                nickname.title = ""
+            }
+        }
     }
 
     public var onlyShowInfo:Bool {
@@ -86,6 +92,15 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
         set {
             objc_setAssociatedObject(self, &ZomBaseLoginController_associatedObject3, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    public var createNewAccount:Bool {
+        get {
+            return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject4) as? Bool ?? false
+        }
+        set {
+            objc_setAssociatedObject(self, &ZomBaseLoginController_associatedObject4, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -160,6 +175,22 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
         existingAccount = (self.account != nil)
         super.loginButtonPressed(sender)
+    }
+    
+    // If creating a new account, we may need to set display name to what
+    // was originally entered
+    override public func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (self.createNewAccount) {
+            if let nicknameRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
+                if let editCell = nicknameRow.cellForFormController(self) as? XLFormTextFieldCell {
+                    if (editCell.textField.text?.compare(nicknameRow.value as! String) != NSComparisonResult.OrderedSame) {
+                        self.account.displayName = editCell.textField.text
+                    }
+                }
+            }
+        }
+
     }
     
     override public func pushInviteViewController() {

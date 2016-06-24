@@ -24,10 +24,12 @@ public class ZomIntroViewController: OTRWelcomeViewController {
     
     // MARK: - Navigation
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "useExistingAccountSegue" {
-            if let login = segue.destinationViewController as? ZomBaseLoginViewController {
+        if let login = segue.destinationViewController as? ZomBaseLoginViewController {
+            if segue.identifier == "useExistingAccountSegue" {
                 login.form = OTRXLFormCreator.formForAccountType(OTRAccountType.Jabber, createAccount: false)
                 login.createLoginHandler = OTRXMPPLoginHandler()
+            } else {
+                login.createNewAccount = true
             }
         }
         super.prepareForSegue(segue, sender:sender)
