@@ -21,7 +21,7 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     var startingTabIndex:Int = -1
     var previousSegmentedControlIndex:Int = 0
     var vcAdd:ZomNewBuddyViewController? = nil
-    var vcQR:QRCodeReaderViewController? = nil
+    var vcQR:UIViewController? = nil
     var vcMyQR:ZomMyQRViewController? = nil
     var lastScannedQR:String? = nil
     
@@ -53,8 +53,20 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         vcAdd?.account = account!
         vcAdd!.delegate = self
         vcAdd!.showSmsButton(MFMessageComposeViewController.canSendText())
-        vcQR = QRCodeReaderViewController()
-        vcQR!.delegate = self
+        if (!QRCodeReader.supportsMetadataObjectTypes([AVMetadataObjectTypeQRCode])) {
+            vcQR = self.storyboard!.instantiateViewControllerWithIdentifier("enableCameraViewController")
+            let status = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+            if (status == AVAuthorizationStatus.NotDetermined) {
+                AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { (enabled) in
+                    if (enabled) {
+                        self.createQRViewController()
+                        self.segmentedControlValueChanged(self.segmentedControl)
+                    }
+                })
+            }
+        } else {
+            createQRViewController()
+        }
         vcMyQR = self.storyboard!.instantiateViewControllerWithIdentifier("myQR") as? ZomMyQRViewController
         
         var types = Set<NSNumber>()
@@ -73,6 +85,11 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
         self.addChildViewController(pageController!)
         self.view.addSubview(pageController!.view)
         pageController?.didMoveToParentViewController(self)
+    }
+    
+    private func createQRViewController() {
+        vcQR = QRCodeReaderViewController()
+        (vcQR as! QRCodeReaderViewController).delegate = self
     }
     
     public override func viewDidLayoutSubviews() {
@@ -167,5 +184,11 @@ public class ZomAddBuddyViewController: UIViewController, QRCodeReaderDelegate, 
     
     public func showQRTab() -> Void {
         self.startingTabIndex = 1
+    }
+    
+    @IBAction func enableCameraButtonPressed(sender: AnyObject) {
+        if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString) {
+            UIApplication.sharedApplication().openURL(settingsURL)
+        }
     }
 }
