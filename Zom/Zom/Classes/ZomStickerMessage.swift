@@ -24,6 +24,10 @@ public class ZomStickerMessage: OTRMessage {
         try super.init(dictionary: dictionaryValue)
     }
     
+    public required init!(uniqueId: String!) {
+        super.init(uniqueId: uniqueId)
+    }
+    
     public override func date() -> NSDate! {
         return originalMessage.date()
     }

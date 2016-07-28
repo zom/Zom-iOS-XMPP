@@ -24,6 +24,10 @@ public class ZomStickerMessageMedia: OTRMediaItem {
         try super.init(dictionary: dictionaryValue)
     }
     
+    required public init!(uniqueId: String!) {
+        super.init(uniqueId: uniqueId)
+    }
+    
     override public func mediaView() -> UIView! {
         if (imageView == nil && filePath != nil && NSFileManager.defaultManager().fileExistsAtPath(filePath!)) {
             if let image = UIImage(contentsOfFile: filePath!) {
