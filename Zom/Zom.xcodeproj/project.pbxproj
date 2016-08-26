@@ -10,6 +10,8 @@
 		9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */; };
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
+		92424CAA1D6F7BA4001256E4 /* ZomYapViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */; };
+		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926741E51BFC88AB0044C059 /* AddBuddy.storyboard */; };
@@ -472,6 +474,8 @@
 		9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddy.swift; path = Classes/ZomBuddy.swift; sourceTree = "<group>"; };
 		921224681CF7124600A88DF6 /* ZomSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomSettingsManager.swift; path = Classes/ZomSettingsManager.swift; sourceTree = "<group>"; };
 		921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchCreateGroupView.xib; sourceTree = "<group>"; };
+		92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomYapViewHandler.swift; path = Classes/ZomYapViewHandler.swift; sourceTree = "<group>"; };
+		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		926741E51BFC88AB0044C059 /* AddBuddy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddBuddy.storyboard; sourceTree = "<group>"; };
@@ -798,6 +802,8 @@
 				92CBA8BB1D119E14001CDD3D /* ZomStickerMessage.swift */,
 				92CBA8F11D11AFF8001CDD3D /* ZomStickerMessageMedia.swift */,
 				9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */,
+				92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */,
+				92424CDF1D6F92F3001256E4 /* ZomUtil.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1497,11 +1503,13 @@
 				9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */,
 				92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */,
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
+				92424CAA1D6F7BA4001256E4 /* ZomYapViewHandler.swift in Sources */,
 				92CBA8FE1D12E05E001CDD3D /* ZomSettingsViewController.swift in Sources */,
 				92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */,
 				92CBA8F21D11AFF8001CDD3D /* ZomStickerMessageMedia.swift in Sources */,
 				92DB70181C124BAD009B5684 /* ZomNewBuddyViewController.swift in Sources */,
 				926741E81BFC89140044C059 /* ZomAddBuddyViewController.swift in Sources */,
+				92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */,
 				929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */,
 				92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */,
 				9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */,

@@ -26,8 +26,8 @@ extension OTRMessagesViewController {
         }
         
         dispatch_once(&Static.token) {
-            zom_swizzle(#selector(OTRMessagesViewController.collectionView(_:messageDataForItemAtIndexPath:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
-            zom_swizzle(#selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
+            ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAtIndexPath:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
+            ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
         }
     }
     
@@ -91,19 +91,6 @@ extension OTRMessagesViewController {
             self.shieldIcon = image?.tint(UIColor.lightGrayColor(), blendMode: CGBlendMode.Multiply)
         }
         return shieldIcon!
-    }
-    
-    private class func zom_swizzle(originalSelector:Selector, swizzledSelector:Selector) -> Void {
-        let originalMethod = class_getInstanceMethod(self, originalSelector)
-        let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-        
-        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
-        
-        if didAddMethod {
-            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
-        } else {
-            method_exchangeImplementations(originalMethod, swizzledMethod)
-        }
     }
 }
 

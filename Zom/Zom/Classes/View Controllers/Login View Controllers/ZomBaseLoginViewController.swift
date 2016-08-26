@@ -27,7 +27,7 @@ extension OTRBaseLoginViewController {
         }
         
         dispatch_once(&Static.token) {
-            zom_swizzle(#selector(OTRBaseLoginViewController.viewDidLoad), swizzledSelector:#selector(OTRBaseLoginViewController.zom_viewDidLoad))
+            ZomUtil.swizzle(self, originalSelector: #selector(OTRBaseLoginViewController.viewDidLoad), swizzledSelector:#selector(OTRBaseLoginViewController.zom_viewDidLoad))
         }
     }
 
@@ -35,19 +35,6 @@ extension OTRBaseLoginViewController {
         object_setClass(self, ZomBaseLoginViewController.self)
         self.zom_viewDidLoad()
         (self as! ZomBaseLoginViewController).setupTableView()
-    }
-
-    private class func zom_swizzle(originalSelector:Selector, swizzledSelector:Selector) -> Void {
-        let originalMethod = class_getInstanceMethod(self, originalSelector)
-        let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-        
-        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
-        
-        if didAddMethod {
-            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
-        } else {
-            method_exchangeImplementations(originalMethod, swizzledMethod)
-        }
     }
 }
 
