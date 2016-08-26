@@ -38,7 +38,7 @@ extension OTRYapViewHandler {
                 }
                 return true
             })
-            let filteredView:YapDatabaseFilteredView = YapDatabaseFilteredView(parentViewName: OTRChatDatabaseViewExtensionName, filtering: filtering, versionTag: "1")
+            let filteredView:YapDatabaseFilteredView = YapDatabaseFilteredView(parentViewName: OTRChatDatabaseViewExtensionName, filtering: filtering, versionTag: "0")
             if OTRDatabaseManager.sharedInstance().database.registerExtension(filteredView, withName: OTRYapViewHandlerConstants.zomviewname, sendNotification: false) {
                 ZomUtil.swizzle(self, originalSelector: #selector(OTRYapViewHandler.setup(_:groups:)), swizzledSelector:#selector(OTRYapViewHandler.zom_setup(_:groups:)))
                 ZomUtil.swizzle(self, originalSelector: #selector(OTRYapViewHandler.setup(_:groupBlock:sortBlock:)), swizzledSelector: #selector(OTRYapViewHandler.zom_setup(_:groupBlock:sortBlock:)))
