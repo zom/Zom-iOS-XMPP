@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.8</string>
+	<string>1.0.9</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -45,7 +45,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>43</string>
+	<string>44</string>
 	<key>FacebookAppID</key>
 	<string>447241325394334</string>
 	<key>FacebookDisplayName</key>
@@ -75,8 +75,8 @@
 			</dict>
 		</dict>
 	</dict>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Access to the microphone is needed to send voice messages.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Access to the microphone is needed to send voice messages.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>

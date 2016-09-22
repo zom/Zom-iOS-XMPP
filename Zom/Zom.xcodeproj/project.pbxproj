@@ -47,8 +47,6 @@
 		92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */; };
 		92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */; };
 		92F60BF11D018121008834AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
-		D92DF7111BBDF7B000CFD706 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D92DF7121BBDF89800CFD706 /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
@@ -468,21 +466,6 @@
 			remoteInfo = OTRResources;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		D99DEB8D1BABD3E100875194 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D92DF7121BBDF89800CFD706 /* OTRAssets.framework in Embed Frameworks */,
-				D92DF7111BBDF7B000CFD706 /* ChatSecureCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.release.xcconfig"; sourceTree = "<group>"; };
@@ -953,7 +936,6 @@
 				D99DEB6C1BABD1F300875194 /* Resources */,
 				928BC2111CD2AF80001C4BA6 /* [CP] Copy Pods Resources */,
 				9208301C1CD2943F00761E39 /* [CP] Embed Pods Frameworks */,
-				D99DEB8D1BABD3E100875194 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -997,6 +979,9 @@
 						DevelopmentTeam = 9SV9LPRC42;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
