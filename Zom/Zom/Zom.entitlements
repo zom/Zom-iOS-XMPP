@@ -6,5 +6,7 @@
 	<array>
 		<string>applinks:zom.im</string>
 	</array>
+    <key>com.apple.developer.default-data-protection</key>
+    <string>NSFileProtectionComplete</string>
 </dict>
 </plist>

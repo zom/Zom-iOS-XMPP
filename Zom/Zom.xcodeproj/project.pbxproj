@@ -10,6 +10,7 @@
 		9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */; };
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
+		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
 		92424CAA1D6F7BA4001256E4 /* ZomYapViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
@@ -24,7 +25,6 @@
 		9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */; };
 		9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */; };
 		9278C3A01BF4D2AE003AC533 /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39F1BF4D2AE003AC533 /* Stickers */; };
-		928A380D1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */; };
 		928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
@@ -68,6 +68,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9208C96F1D93F914002EE2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FD73B350866ADCD825A44833C14FA33F;
+			remoteInfo = "Pods-ChatSecureCorePods-ChatSecure";
+		};
+		9208C9711D93F914002EE2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 81CB49263653031B6009C08CB904F9D4;
+			remoteInfo = "Pods-ChatSecureCorePods-ChatSecureCore";
+		};
+		9208C9731D93F914002EE2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86AEDDF5BE58272DDC9F771B63A2202B;
+			remoteInfo = "Pods-ChatSecureCorePods-ChatSecureTests";
+		};
+		9208C9751D93F914002EE2BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0E565859888E11EEB464475B3C3FF140;
+			remoteInfo = SAMKeychain;
+		};
 		928A37AC1CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -285,13 +313,6 @@
 			remoteGlobalIDString = 4A85A48783BC5873CF524808E2159F67;
 			remoteInfo = ParkedTextField;
 		};
-		928A37EA1CD209120095366C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4BDCA9B2F4C21A05886F029B7DC92962;
-			remoteInfo = "Pods-ChatSecureCore";
-		};
 		928A37EC1CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -326,13 +347,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 228ED3747DBCB4370E3D9E79D78BC04C;
 			remoteInfo = SQLCipher;
-		};
-		928A37F61CD209120095366C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4426508B26DD64D889292E9E27DC8521;
-			remoteInfo = SSKeychain;
 		};
 		928A37F81CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -471,9 +485,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.release.xcconfig"; sourceTree = "<group>"; };
+		28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZomPods_Zom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.debug.xcconfig"; sourceTree = "<group>"; };
 		9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddy.swift; path = Classes/ZomBuddy.swift; sourceTree = "<group>"; };
 		921224681CF7124600A88DF6 /* ZomSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomSettingsManager.swift; path = Classes/ZomSettingsManager.swift; sourceTree = "<group>"; };
 		921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchCreateGroupView.xib; sourceTree = "<group>"; };
+		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomYapViewHandler.swift; path = Classes/ZomYapViewHandler.swift; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
@@ -520,7 +538,6 @@
 		9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickerShare.storyboard; sourceTree = "<group>"; };
 		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
 		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		928AB8131CF845880056AEC7 /* ZomImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZomImages.xcassets; sourceTree = "<group>"; };
 		928C99181C047B4E009FF66A /* ZomComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeViewController.swift; path = "Classes/View Controllers/ZomComposeViewController.swift"; sourceTree = "<group>"; };
 		928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickLanguageViewController.swift; path = "Classes/View Controllers/Onboarding/ZomPickLanguageViewController.swift"; sourceTree = "<group>"; };
@@ -649,6 +666,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6927210B9065D98FE2546DF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */,
+				07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9278C3871BF33C10003AC533 /* Login View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -709,13 +735,15 @@
 				928A37E51CD209120095366C /* OpenInChrome.framework */,
 				928A37E71CD209120095366C /* OTRKit.framework */,
 				928A37E91CD209120095366C /* ParkedTextField.framework */,
-				928A37EB1CD209120095366C /* Pods_ChatSecureCore.framework */,
+				9208C9701D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecure.framework */,
+				9208C9721D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecureCore.framework */,
+				9208C9741D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecureTests.framework */,
 				928A37ED1CD209120095366C /* ProxyKit.framework */,
 				928A37EF1CD209120095366C /* PureLayout.framework */,
 				928A37F11CD209120095366C /* QRCodeReaderViewController.framework */,
 				928A37F31CD209120095366C /* Reachability.framework */,
+				9208C9761D93F914002EE2BE /* SAMKeychain.framework */,
 				928A37F51CD209120095366C /* SQLCipher.framework */,
-				928A37F71CD209120095366C /* SSKeychain.framework */,
 				928A37F91CD209120095366C /* TTTAttributedLabel.framework */,
 				928A37FB1CD209120095366C /* TUSafariActivity.framework */,
 				928A37FD1CD209120095366C /* TUSafariActivity.bundle */,
@@ -811,7 +839,7 @@
 		D978BCA41BABE88C009246CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				928A380C1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist */,
+				9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */,
 				9278C39F1BF4D2AE003AC533 /* Stickers */,
 				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
 				D978BCA51BABEB6F009246CF /* FontAwesome.ttf */,
@@ -829,6 +857,7 @@
 				D99DEB701BABD1F300875194 /* Zom */,
 				D99DEB6F1BABD1F300875194 /* Products */,
 				E6C4F2998CB86DBC0FDCD035 /* Frameworks */,
+				6927210B9065D98FE2546DF3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -906,6 +935,7 @@
 			isa = PBXGroup;
 			children = (
 				C1B5F63F8FC6924BC02033C7 /* Pods.framework */,
+				28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -917,11 +947,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D99DEB831BABD1F300875194 /* Build configuration list for PBXNativeTarget "Zom" */;
 			buildPhases = (
+				DA46D5D280F5A43DE216DD73 /* [CP] Check Pods Manifest.lock */,
 				D99DEB6A1BABD1F300875194 /* Sources */,
 				D99DEB6B1BABD1F300875194 /* Frameworks */,
 				D99DEB6C1BABD1F300875194 /* Resources */,
-				928BC2111CD2AF80001C4BA6 /* Copy Pods Resources */,
-				9208301C1CD2943F00761E39 /* Embed Pods Frameworks */,
+				928BC2111CD2AF80001C4BA6 /* [CP] Copy Pods Resources */,
+				9208301C1CD2943F00761E39 /* [CP] Embed Pods Frameworks */,
 				D99DEB8D1BABD3E100875194 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -964,6 +995,7 @@
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 9SV9LPRC42;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -1035,6 +1067,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9208C9701D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecure.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_ChatSecureCorePods_ChatSecure.framework;
+			remoteRef = 9208C96F1D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9208C9721D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecureCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_ChatSecureCorePods_ChatSecureCore.framework;
+			remoteRef = 9208C9711D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9208C9741D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecureTests.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_ChatSecureCorePods_ChatSecureTests.framework;
+			remoteRef = 9208C9731D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9208C9761D93F914002EE2BE /* SAMKeychain.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SAMKeychain.framework;
+			remoteRef = 9208C9751D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		928A37AD1CD209120095366C /* AFNetworking.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1252,13 +1312,6 @@
 			remoteRef = 928A37E81CD209120095366C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		928A37EB1CD209120095366C /* Pods_ChatSecureCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Pods_ChatSecureCore.framework;
-			remoteRef = 928A37EA1CD209120095366C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		928A37ED1CD209120095366C /* ProxyKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1292,13 +1345,6 @@
 			fileType = wrapper.framework;
 			path = SQLCipher.framework;
 			remoteRef = 928A37F41CD209120095366C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		928A37F71CD209120095366C /* SSKeychain.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SSKeychain.framework;
-			remoteRef = 928A37F61CD209120095366C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		928A37F91CD209120095366C /* TTTAttributedLabel.framework */ = {
@@ -1414,7 +1460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
-				928A380D1CD20A120095366C /* Pods-ChatSecureCore-acknowledgements.plist in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
 				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
@@ -1426,6 +1471,7 @@
 				926741E61BFC88AB0044C059 /* AddBuddy.storyboard in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
+				9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */,
 				92F60BF11D018121008834AC /* Localizable.strings in Resources */,
 				92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */,
 				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
@@ -1451,34 +1497,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9208301C1CD2943F00761E39 /* Embed Pods Frameworks */ = {
+		9208301C1CD2943F00761E39 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-frameworks.sh\"";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		928BC2111CD2AF80001C4BA6 /* Copy Pods Resources */ = {
+		928BC2111CD2AF80001C4BA6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export PODS_ROOT=\"${SRCROOT}/../ChatSecure/Pods\"\n\"${SRCROOT}/../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCore/Pods-ChatSecureCore-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-resources.sh\"\n";
+		};
+		DA46D5D280F5A43DE216DD73 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1664,21 +1725,26 @@
 		D99DEB681BABCEF700875194 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ENABLE_BITCODE = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		D99DEB691BABCEF700875194 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ENABLE_BITCODE = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
 		D99DEB841BABD1F300875194 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1697,7 +1763,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Zom/Zom.entitlements;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
@@ -1717,7 +1783,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../ChatSecure/Pods/Headers/Private/JSQMessagesViewController/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../ChatSecure/Pods/Headers/Private/JSQMessagesViewController/",
+					"$(SRCROOT)/../ChatSecure/Pods/JSQMessagesViewController/JSQMessagesViewController/Model/",
+				);
 				INFOPLIST_FILE = Zom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1725,15 +1794,17 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f19ed4eb-e5b8-43b0-81aa-91580860be8a";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Zom/Zom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		D99DEB851BABD1F300875194 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1752,9 +1823,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Zom/Zom.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zom, Llc (9SV9LPRC42)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zom, Llc (9SV9LPRC42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1766,15 +1838,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../ChatSecure/Pods/Headers/Private/JSQMessagesViewController/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../ChatSecure/Pods/Headers/Private/JSQMessagesViewController/",
+					"$(SRCROOT)/../ChatSecure/Pods/JSQMessagesViewController/JSQMessagesViewController/Model/",
+				);
 				INFOPLIST_FILE = Zom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "50adb1c4-bee2-45a6-8e7b-a9a95434688a";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Zom/Zom-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

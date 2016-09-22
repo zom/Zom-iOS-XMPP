@@ -148,15 +148,15 @@ extension UIImage
         let drawRect = CGRectMake(0.0, 0.0, size.width, size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context = UIGraphicsGetCurrentContext()
-        CGContextScaleCTM(context, 1.0, -1.0)
-        CGContextTranslateCTM(context, 0.0, -self.size.height)
-        CGContextClipToMask(context, drawRect, CGImage)
+        CGContextScaleCTM(context!, 1.0, -1.0)
+        CGContextTranslateCTM(context!, 0.0, -self.size.height)
+        CGContextClipToMask(context!, drawRect, CGImage!)
         color.setFill()
         UIRectFill(drawRect)
         drawInRect(drawRect, blendMode: blendMode, alpha: 1.0)
         let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return tintedImage
+        return tintedImage!
     }
 }
 
