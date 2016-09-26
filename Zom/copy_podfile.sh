@@ -11,5 +11,7 @@ cp $DIR/../ChatSecure/Podfile $DIR/Podfile
 perl -pi -e 's/ChatSecureCore/Zom/g' $DIR/Podfile
 perl -pi -e 's/Submodules/..\/ChatSecure\/Submodules/g' $DIR/Podfile
 perl -pi -e 's/Podspecs/..\/ChatSecure\/Podspecs/g' $DIR/Podfile
+perl -pi -e "s/target 'Chat/#target 'Chat/g" $DIR/Podfile
+
 
 echo "Updated Zom/Podfile from upstream ChatSecure"

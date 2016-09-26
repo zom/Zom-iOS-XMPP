@@ -1,30 +1,36 @@
+osx_image: xcode8
 language: objective-c
-osx_image: xcode7
 
 # Handle git submodules yourself
 # http://stackoverflow.com/a/24600210/805882
 git:
     submodules: false
 
-# Use regex to replace the SSH URL with the public URL, then initialize submodules
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
-    - perl -pi -e 's/git\@github\.com:/git:\/\/github.com\//g' .gitmodules
-    - git submodule update --init
-    - perl -pi -e 's/git\@github\.com:/git:\/\/github.com\//g' ChatSecure/.gitmodules
-    - perl -pi -e 's/git\@github\.com:/git:\/\/github.com\//g' ChatSecure/Podfile
+    - bundle install # We need a pre-release CocoaPods version "1.1.0.rc.1"
+    - sed -i -e 's/git@github.com:/git:\/\/github.com\//' .gitmodules
+    - sed -i -e 's/git@github.com:/git:\/\/github.com\//' Podfile
     - git submodule update --init --recursive
 
 install:
-  - cp Zom/OTRResources/Secrets-template.plist Zom/OTRResources/Secrets.plist
-  - cp ChatSecure/configurations/OTR_Codesigning.xcconfig.sample ChatSecure/configurations/OTR_Codesigning.xcconfig
-  - export ARCHS="i386"   # Only build CPAProxy dependencies for i386 to speed things up
-  - bash ChatSecure/Submodules/CPAProxy/scripts/build-all.sh
-  - bash ChatSecure/Submodules/OTRKit/scripts/build-all.sh
+  - cp OTRResources/Secrets-template.plist OTRResources/Secrets.plist
+  - cp configurations/OTR_Codesigning.xcconfig.sample configurations/OTR_Codesigning.xcconfig
+  - git clone https://github.com/ChatSecure/ChatSecure-iOS-Precompiled-Dependencies.git
+  - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/CPAProxyDependencies.zip -d ./ChatSecure/Submodules/CPAProxy/
+  - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/OTRKitDependencies.zip -d ./ChatSecure/Submodules/OTRKit/
+  - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/Pods.zip -d ./ChatSecure
 
 before_script:
+  - export COCOAPODS_DISABLE_DETERMINISTIC_UUIDS=1 # https://github.com/CocoaPods/CocoaPods/issues/3850
   - bash copy_podfile.sh
-  - pod install --project-directory=ChatSecure
-  - pod install --project-directory=Zom
-  - cd Zom
+  - bundle exec pod repo update --silent
+  - bundle exec pod install --project-directory=ChatSecure
+  - bundle exec pod install --project-directory=Zom
+  - bundle exec pod update --project-directory=ChatSecure libsqlfs SQLCipher --no-repo-update # Waiting for CocoaPods fix https://github.com/CocoaPods/CocoaPods/pull/5844
+  - bundle exec pod update --project-directory=Zom libsqlfs SQLCipher --no-repo-update # Waiting for CocoaPods fix https://github.com/CocoaPods/CocoaPods/pull/5844
 script:
-  - xctool -workspace Zom.xcworkspace -scheme Zom -sdk iphonesimulator -arch i386 build
+  - set -o pipefail
+  - cd Zom
+  - xcodebuild -workspace Zom.xcworkspace -scheme Zom -sdk iphonesimulator -destination 'name=iPhone 6' build | xcpretty -c
+

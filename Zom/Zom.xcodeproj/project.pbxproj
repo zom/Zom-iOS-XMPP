@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EA0B3C5D625D7C7F5F743FE /* Pods_ZomPods_Zom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */; };
 		9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */; };
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
@@ -636,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */,
+				4EA0B3C5D625D7C7F5F743FE /* Pods_ZomPods_Zom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,7 +974,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				TargetAttributes = {
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;

@@ -29,13 +29,13 @@ PODS:
   - CocoaAsyncSocket (7.5.1):
     - CocoaAsyncSocket/GCD (= 7.5.1)
   - CocoaAsyncSocket/GCD (7.5.1)
-  - CocoaLumberjack (2.4.0):
-    - CocoaLumberjack/Default (= 2.4.0)
-    - CocoaLumberjack/Extensions (= 2.4.0)
-  - CocoaLumberjack/Core (2.4.0)
-  - CocoaLumberjack/Default (2.4.0):
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.4.0):
+  - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
   - CPAProxy (1.1.0):
     - CocoaAsyncSocket
@@ -88,7 +88,7 @@ PODS:
     - CocoaAsyncSocket (~> 7.4)
     - CocoaLumberjack (~> 2.2)
   - PureLayout (3.0.2)
-  - QRCodeReaderViewController (4.0.1)
+  - QRCodeReaderViewController (4.0.2)
   - Reachability (3.2)
   - SAMKeychain (1.5.1)
   - SQLCipher (3.4.0):
@@ -331,7 +331,7 @@ DEPENDENCIES:
   - BButton (~> 4.0)
   - ChatSecure-Push-iOS (from `../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec`)
   - CocoaAsyncSocket (from `https://github.com/robbiehanson/CocoaAsyncSocket.git`, commit `071109901100334ad54ae704b4c644b6bb89ad21`)
-  - CocoaLumberjack (~> 2.0)
+  - CocoaLumberjack (~> 2.3.0)
   - CPAProxy (from `../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec`)
   - gtm-http-fetcher (from `../ChatSecure/Podspecs/gtm-http-fetcher.podspec`)
   - gtm-oauth2 (from `../ChatSecure/Podspecs/gtm-oauth2.podspec`)
@@ -410,7 +410,7 @@ SPEC CHECKSUMS:
   BButton: ab0f2ed3b998ae73c5188b57d270d81e4a1eeb27
   ChatSecure-Push-iOS: fe8577fd81ff76b1f303dcd51a350fb0c964a6d0
   CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
-  CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CPAProxy: cfd27b25328d6517b1f8570c4f0045838353e888
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   gtm-http-fetcher: 4e7de79fc9e774b291eae66a240f17b3a5277ec7
@@ -433,7 +433,7 @@ SPEC CHECKSUMS:
   ParkedTextField: 72d02a5fdadc089ff25efac04ea21dcc5a2467d3
   ProxyKit: 1f35adc913debc7ca6748c02487361dabaaea532
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  QRCodeReaderViewController: 6538745c8f4ffa9407a26bd7f9489ea01739e7b0
+  QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SAMKeychain: 6b04852a20684167aea97bdf8ba12c95d3616376
   SQLCipher: 5edce62bad2091ed65a422927fedee15149ad04c
@@ -446,6 +446,6 @@ SPEC CHECKSUMS:
   YapDatabase: b1e43555a34a5298e23a045be96817a5ef0da58f
   ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
 
-PODFILE CHECKSUM: 00218f4c4274bf8dda7befcfe79cab194ae05996
+PODFILE CHECKSUM: 2d24eda00e8d7886544059bc5607b0cfafb5faa6
 
 COCOAPODS: 1.1.0.rc.2
