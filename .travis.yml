@@ -25,7 +25,7 @@ install:
 
 before_script:
   - export COCOAPODS_DISABLE_DETERMINISTIC_UUIDS=1 # https://github.com/CocoaPods/CocoaPods/issues/3850
-  - bash copy_podfile.sh
+  - bash Zom/copy_podfile.sh
   - bundle exec pod repo update --silent
   - bundle exec pod install --project-directory=ChatSecure
   - bundle exec pod install --project-directory=Zom
