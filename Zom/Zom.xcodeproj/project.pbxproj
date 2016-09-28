@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4EA0B3C5D625D7C7F5F743FE /* Pods_ZomPods_Zom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */; };
+		920656981D9C4C1E00EC7034 /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
+		920656991D9C4C1E00EC7034 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9206569D1D9C4D1E00EC7034 /* OTRAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; };
+		9206569E1D9C4D1E00EC7034 /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */; };
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
@@ -48,7 +52,6 @@
 		92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */; };
 		92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */; };
 		92F60BF11D018121008834AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
-		D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
 		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
@@ -67,6 +70,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9206569A1D9C4C1E00EC7034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D9227C291BA7952100B5E1D0;
+			remoteInfo = ChatSecureCore;
+		};
+		9206569F1D9C4D1E00EC7034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D9AE3A0D1BA8CBFA00255537;
+			remoteInfo = OTRAssets;
+		};
 		9208C96F1D93F914002EE2BE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -468,6 +485,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9206569C1D9C4C1F00EC7034 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				920656991D9C4C1E00EC7034 /* ChatSecureCore.framework in Embed Frameworks */,
+				9206569E1D9C4D1E00EC7034 /* OTRAssets.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.release.xcconfig"; sourceTree = "<group>"; };
 		28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZomPods_Zom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -636,7 +668,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D933EA421BB6171900B5EE0F /* ChatSecureCore.framework in Frameworks */,
+				920656981D9C4C1E00EC7034 /* ChatSecureCore.framework in Frameworks */,
+				9206569D1D9C4D1E00EC7034 /* OTRAssets.framework in Frameworks */,
 				4EA0B3C5D625D7C7F5F743FE /* Pods_ZomPods_Zom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -938,12 +971,15 @@
 				D99DEB6C1BABD1F300875194 /* Resources */,
 				928BC2111CD2AF80001C4BA6 /* [CP] Copy Pods Resources */,
 				9208301C1CD2943F00761E39 /* [CP] Embed Pods Frameworks */,
+				9206569C1D9C4C1F00EC7034 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */,
 				D99DEC381BABDF1A00875194 /* PBXTargetDependency */,
+				9206569B1D9C4C1E00EC7034 /* PBXTargetDependency */,
+				920656A01D9C4D1E00EC7034 /* PBXTargetDependency */,
 			);
 			name = Zom;
 			productName = Zom;
@@ -1578,6 +1614,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9206569B1D9C4C1E00EC7034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ChatSecureCore;
+			targetProxy = 9206569A1D9C4C1E00EC7034 /* PBXContainerItemProxy */;
+		};
+		920656A01D9C4D1E00EC7034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OTRAssets;
+			targetProxy = 9206569F1D9C4D1E00EC7034 /* PBXContainerItemProxy */;
+		};
 		D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ChatSecureCore;
@@ -1733,6 +1779,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1753,7 +1800,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = "$(inherited)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1771,7 +1818,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../ChatSecure/Pods/Headers/Private/JSQMessagesViewController/",
+					"$(inherited)",
 					"$(SRCROOT)/../ChatSecure/Pods/JSQMessagesViewController/JSQMessagesViewController/Model/",
 				);
 				INFOPLIST_FILE = Zom/Info.plist;
@@ -1793,6 +1840,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1814,7 +1862,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = "$(inherited)";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1826,7 +1874,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../ChatSecure/Pods/Headers/Private/JSQMessagesViewController/",
+					"$(inherited)",
 					"$(SRCROOT)/../ChatSecure/Pods/JSQMessagesViewController/JSQMessagesViewController/Model/",
 				);
 				INFOPLIST_FILE = Zom/Info.plist;
