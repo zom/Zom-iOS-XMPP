@@ -10,7 +10,7 @@ git:
 before_install:
     - bundle install # We need a pre-release CocoaPods version "1.1.0.rc.1"
     - sed -i -e 's/git@github.com:/git:\/\/github.com\//' .gitmodules
-    - sed -i -e 's/git@github.com:/git:\/\/github.com\//' Podfile
+    - sed -i -e 's/git@github.com:/git:\/\/github.com\//' Zom/Podfile
     - git submodule update --init --recursive
 
 install:
