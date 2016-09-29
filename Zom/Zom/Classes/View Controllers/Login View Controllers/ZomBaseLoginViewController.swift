@@ -98,16 +98,20 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
     
     public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header:ZomTableViewSectionHeader = tableView.dequeueReusableHeaderFooterViewWithIdentifier("zomTableSectionHeader") as! ZomTableViewSectionHeader
-        header.labelView.text = self.tableView(tableView, titleForHeaderInSection: section)
+        header.labelView.text = super.tableView(tableView, titleForHeaderInSection: section)
         return header
     }
-    
+ 
     public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let title:String? = self.tableView(tableView, titleForHeaderInSection: section)
+        let title:String? = super.tableView(tableView, titleForHeaderInSection: section)
         if (title == nil || title!.isEmpty) {
             return 0
         }
         return 50
+    }
+    
+   public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return nil
     }
     
     public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -171,8 +175,10 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         if (self.createNewAccount) {
             if let nicknameRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
                 if let editCell = nicknameRow.cellForFormController(self) as? XLFormTextFieldCell {
-                    if (editCell.textField.text?.compare(nicknameRow.value as! String) != NSComparisonResult.OrderedSame) {
-                        self.account.displayName = editCell.textField.text
+                    if (editCell.textField.text != nil && nicknameRow.value != nil) {
+                        if (editCell.textField.text!.compare(nicknameRow.value as! String) != NSComparisonResult.OrderedSame) {
+                            self.account.displayName = editCell.textField.text
+                        }
                     }
                 }
             }
