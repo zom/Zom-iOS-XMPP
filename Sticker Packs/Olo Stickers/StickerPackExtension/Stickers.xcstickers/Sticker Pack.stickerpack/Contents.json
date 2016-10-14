@@ -1,0 +1,26 @@
+{
+  "stickers" : [
+    {
+      "filename" : "6yay.sticker"
+    },
+    {
+      "filename" : "4greeting.sticker"
+    },
+    {
+      "filename" : "15biscuit.sticker"
+    },
+    {
+      "filename" : "11flowers.sticker"
+    },
+    {
+      "filename" : "5hearts.sticker"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "grid-size" : "regular"
+  }
+}

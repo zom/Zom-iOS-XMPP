@@ -7,4 +7,10 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../Sticker Packs/Olo Stickers/Olo Stickers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Sticker Packs/Pema Stickers/Pema Stickers.xcodeproj">
+   </FileRef>
 </Workspace>
