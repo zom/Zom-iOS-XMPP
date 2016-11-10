@@ -27,7 +27,7 @@ public class ZomIntroViewController: OTRWelcomeViewController {
         if let login = segue.destinationViewController as? ZomBaseLoginViewController {
             if segue.identifier == "useExistingAccountSegue" {
                 login.form = OTRXLFormCreator.formForAccountType(OTRAccountType.Jabber, createAccount: false)
-                login.createLoginHandler = OTRXMPPLoginHandler()
+                login.loginHandler = OTRXMPPLoginHandler()
             } else {
                 login.createNewAccount = true
             }
