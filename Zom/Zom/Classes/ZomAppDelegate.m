@@ -16,6 +16,7 @@
 
 @interface OTRAppDelegate (Zom)
 - (void)handleInvite:(NSString *)jidString fingerprint:(NSString *)fingerprint;
+- (UISplitViewController *)setupDefaultSplitViewControllerWithLeadingViewController:(nonnull UIViewController *)leadingViewController;
 @end
 
 @interface OTRConversationViewController (Zom)
@@ -31,21 +32,25 @@
     
     BOOL ret = [super application:application didFinishLaunchingWithOptions:launchOptions];
     if (ret) {
+        //[(ZomMainTabbedViewController*)self.conversationViewController createTabs];
         // For iPads, conversation controller is not necessarily shown until we pull out the side pane. The problem is that
         // onboarding does not start until we do. We need to kick that code into action sooner on these devices.
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone && ![self.window.rootViewController isKindOfClass:OTRDatabaseUnlockViewController.class]) {
             [self.conversationViewController showOnboardingIfNeeded];
         }
-//        UIViewController *root = self.window.rootViewController;
-//        UITabBarController *tabController = [[UITabBarController alloc] init];
-//        self.window.rootViewController = tabController;
-//        root.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"1" image:[UIImage imageNamed:@"AppIcon.png"] tag:0];
-//        
-//        UIViewController *controller = [[ZomChooseAccountViewController alloc] init];
-//        controller.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"2" image:[UIImage imageNamed:@"AppIcon.png"] tag:0];
-//    
-//        [tabController setViewControllers:[NSArray arrayWithObjects:root, controller, nil]];
     }
+    return ret;
+}
+
+- (UISplitViewController *)setupDefaultSplitViewControllerWithLeadingViewController:(nonnull UIViewController *)leadingViewController {
+    
+    /* Leading view controller is a NavController that contains the ConversationController */
+    /* We want to replace the conversationController with a tab controller */
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];
+    ZomMainTabbedViewController *tabsController = [storyboard instantiateInitialViewController];
+    ((UINavigationController *)leadingViewController).viewControllers = [NSArray arrayWithObject:tabsController];
+    UISplitViewController *ret = [super setupDefaultSplitViewControllerWithLeadingViewController:leadingViewController];
+    [tabsController createTabs]; // Only do this once the split view controller is created, we need that as a delegate
     return ret;
 }
 

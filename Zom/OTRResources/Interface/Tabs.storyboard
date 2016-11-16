@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E1H-SC-6fK">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discover-->
+        <scene sceneID="OzF-Z5-T1E">
+            <objects>
+                <viewController id="BVZ-L4-aih" customClass="ZomDiscoverViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aQC-Fj-bbt"/>
+                        <viewControllerLayoutGuide type="bottom" id="czc-LT-PF2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="USk-yw-lan">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awf-Ca-eIa">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ySm-jv-VVy"/>
+                                </constraints>
+                                <state key="normal" title="Change Theme"/>
+                                <connections>
+                                    <action selector="changeThemeButtonPressedWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="gBC-Gw-hdz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="awf-Ca-eIa" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" id="Pi2-iP-J7m"/>
+                            <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="aZc-Bb-TS1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Discover" image="ic_discover" id="mMW-ze-V2Y"/>
+                    <connections>
+                        <segue destination="Zy3-pH-Iq8" kind="show" identifier="segueToPickColor" id="oX2-Yr-zyR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dg7-kM-bY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0n0-qv-bhh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="682"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="yOD-dq-ko3">
+            <objects>
+                <viewController storyboardIdentifier="me" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bbl-aj-Aw9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tFP-Ay-sci"/>
+                        <viewControllerLayoutGuide type="bottom" id="WET-23-eQZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pHG-gS-pS3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Me" image="ic_me" id="RWP-tA-YhH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSt-Mq-2b8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="1342"/>
+        </scene>
+        <!--Zom Pick Color View Controller-->
+        <scene sceneID="nhb-PI-ZJd">
+            <objects>
+                <collectionViewController id="Zy3-pH-Iq8" customClass="ZomPickColorViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7hs-57-iTT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QZx-eC-Bfp">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Hso-Vs-oU3">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R74-ZZ-Q83">
+                                            <color key="backgroundColor" red="0.11240921249999999" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="R74-ZZ-Q83" firstAttribute="leading" secondItem="Hso-Vs-oU3" secondAttribute="leading" id="Li3-Z9-xY9"/>
+                                    <constraint firstAttribute="trailing" secondItem="R74-ZZ-Q83" secondAttribute="trailing" id="blh-af-d9c"/>
+                                    <constraint firstAttribute="bottom" secondItem="R74-ZZ-Q83" secondAttribute="bottom" id="f0x-uu-4JA"/>
+                                    <constraint firstItem="R74-ZZ-Q83" firstAttribute="top" secondItem="Hso-Vs-oU3" secondAttribute="top" id="mt5-ry-cSy"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="backgroundView" destination="R74-ZZ-Q83" id="B9t-S1-89r"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Zy3-pH-Iq8" id="ROH-1B-Cjw"/>
+                            <outlet property="delegate" destination="Zy3-pH-Iq8" id="g00-wT-ph2"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <segue destination="0n0-qv-bhh" kind="unwind" identifier="unwindPickColorSegue" unwindAction="unwindPickColorWithUnwindSegue:" id="i4P-gN-OKA"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UxV-8a-yhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="681"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="FG5-Qp-Q4n">
+            <objects>
+                <viewController storyboardIdentifier="friends" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zk1-CB-Xd3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i44-iY-x6N"/>
+                        <viewControllerLayoutGuide type="bottom" id="amx-m7-RWs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Np3-Xs-roL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Friends" image="ic_friends" id="LlX-wc-bzj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxd-70-uDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="17"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="juF-ux-B5T">
+            <objects>
+                <viewController storyboardIdentifier="chats" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mJx-g7-4ZO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hUK-hU-O2J"/>
+                        <viewControllerLayoutGuide type="bottom" id="dWh-5k-dZ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H01-Wo-arH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chats" image="ic_chats" id="XJU-FY-mH5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qU9-fZ-nC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="-638"/>
+        </scene>
+        <!--Zom Main Tabbed View Controller-->
+        <scene sceneID="Ve8-Kc-OqO">
+            <objects>
+                <tabBarController id="E1H-SC-6fK" customClass="ZomMainTabbedViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="DWe-4H-OUK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="mJx-g7-4ZO" kind="relationship" relationship="viewControllers" id="5lJ-d2-cCH"/>
+                        <segue destination="Zk1-CB-Xd3" kind="relationship" relationship="viewControllers" id="qNN-qH-WTt"/>
+                        <segue destination="BVZ-L4-aih" kind="relationship" relationship="viewControllers" id="3A0-Ec-hVQ"/>
+                        <segue destination="bbl-aj-Aw9" kind="relationship" relationship="viewControllers" id="At4-QE-f8q"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlB-dZ-UGi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1324" y="-311"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_chats" width="36" height="36"/>
+        <image name="ic_discover" width="36" height="36"/>
+        <image name="ic_friends" width="36" height="36"/>
+        <image name="ic_me" width="36" height="36"/>
+    </resources>
+</document>

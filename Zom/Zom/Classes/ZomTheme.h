@@ -9,5 +9,5 @@
 @import ChatSecureCore;
 
 @interface ZomTheme : OTRTheme
-
+- (void) selectMainThemeColor:(UIColor*)color;
 @end

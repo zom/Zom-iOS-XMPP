@@ -14,8 +14,11 @@
 		9206569E1D9C4D1E00EC7034 /* OTRAssets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */; };
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
+		921A07D61DDA670B00FE8FE3 /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A079E1DDA622F00FE8FE3 /* Tabs.storyboard */; };
+		921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
 		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
+		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CAA1D6F7BA4001256E4 /* ZomYapViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
@@ -30,6 +33,7 @@
 		9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */; };
 		9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */; };
 		9278C3A01BF4D2AE003AC533 /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39F1BF4D2AE003AC533 /* Stickers */; };
+		927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */; };
 		928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
@@ -506,8 +510,11 @@
 		5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.debug.xcconfig"; sourceTree = "<group>"; };
 		9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddy.swift; path = Classes/ZomBuddy.swift; sourceTree = "<group>"; };
 		921224681CF7124600A88DF6 /* ZomSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomSettingsManager.swift; path = Classes/ZomSettingsManager.swift; sourceTree = "<group>"; };
+		921A079E1DDA622F00FE8FE3 /* Tabs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMainTabbedViewController.swift; path = "Classes/View Controllers/ZomMainTabbedViewController.swift"; sourceTree = "<group>"; };
 		921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchCreateGroupView.xib; sourceTree = "<group>"; };
 		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
+		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CA91D6F7BA3001256E4 /* ZomYapViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomYapViewHandler.swift; path = Classes/ZomYapViewHandler.swift; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
@@ -553,6 +560,7 @@
 		9278C39B1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomStickerPackTableViewController.swift; path = "Classes/View Controllers/ZomStickerPackTableViewController.swift"; sourceTree = "<group>"; };
 		9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickerShare.storyboard; sourceTree = "<group>"; };
 		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
+		927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickColorViewController.swift; path = "Classes/View Controllers/ZomPickColorViewController.swift"; sourceTree = "<group>"; };
 		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		928AB8131CF845880056AEC7 /* ZomImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZomImages.xcassets; sourceTree = "<group>"; };
 		928C99181C047B4E009FF66A /* ZomComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeViewController.swift; path = "Classes/View Controllers/ZomComposeViewController.swift"; sourceTree = "<group>"; };
@@ -792,6 +800,9 @@
 				92DB70171C124BAD009B5684 /* ZomNewBuddyViewController.swift */,
 				92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */,
 				92CBA8FD1D12E05E001CDD3D /* ZomSettingsViewController.swift */,
+				921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */,
+				9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */,
+				927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -945,6 +956,7 @@
 				92DD3E361BFB2271000811C1 /* PitchInviteView.xib */,
 				926741E51BFC88AB0044C059 /* AddBuddy.storyboard */,
 				921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */,
+				921A079E1DDA622F00FE8FE3 /* Tabs.storyboard */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1504,6 +1516,7 @@
 				92F60BF11D018121008834AC /* Localizable.strings in Resources */,
 				92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */,
 				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
+				921A07D61DDA670B00FE8FE3 /* Tabs.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1586,10 +1599,12 @@
 				9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */,
 				92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */,
 				928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */,
+				921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */,
 				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
 				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
 				92757B8C1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m in Sources */,
 				92DD3E331BFB1278000811C1 /* ZomConversationViewController.swift in Sources */,
+				9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */,
 				9278C39C1BF4AFCE003AC533 /* ZomStickerPackTableViewController.swift in Sources */,
 				92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */,
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
@@ -1606,6 +1621,7 @@
 				D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */,
 				921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */,
 				9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */,
+				927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */,
 				926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
