@@ -45,7 +45,14 @@ public class ZomMainTabbedViewController: UITabBarController {
         for item:UITabBarItem in self.tabBar.items! {
             item.selectedImage = item.image
             item.image = item.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+            item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor(),
+                NSFontAttributeName:UIFont.systemFontOfSize(1)], forState: UIControlState.Normal)
+            item.imageInsets = UIEdgeInsets(top: 7, left: 2, bottom: -3, right: 2)
         }
+        
+        let tabBar = self.tabBar
+        tabBar.selectionIndicatorImage = createSelectionIndicator(UIColor.whiteColor(), size: CGSizeMake(tabBar.frame.width/CGFloat(tabBar.items!.count), tabBar.frame.height), lineHeight: 3.0)
+        
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
@@ -68,5 +75,14 @@ public class ZomMainTabbedViewController: UITabBarController {
             let appName = NSBundle.mainBundle().infoDictionary![kCFBundleNameKey as String] as! String
             self.navigationItem.title = appName + " | " + selectedViewController!.tabBarItem.title!
         }
+    }
+    
+    private func createSelectionIndicator(color: UIColor, size: CGSize, lineHeight: CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(CGRectMake(0, 0, size.width, lineHeight))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
 }
