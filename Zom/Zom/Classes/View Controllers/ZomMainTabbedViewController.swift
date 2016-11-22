@@ -37,8 +37,6 @@ public class ZomMainTabbedViewController: UITabBarController {
                     newControllers.append(child)
                 }
             }
-            appDelegate.settingsViewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "ic_me"), tag: 0)
-            newControllers.append(appDelegate.settingsViewController)
             setViewControllers(newControllers, animated: false)
         }
         
@@ -57,6 +55,10 @@ public class ZomMainTabbedViewController: UITabBarController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
+
+        // Show settings in right nav bar item
+        let settingsItem = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .Plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
+        navigationItem.rightBarButtonItem = settingsItem
     }
     
     override public var selectedViewController: UIViewController? {
@@ -85,5 +87,9 @@ public class ZomMainTabbedViewController: UITabBarController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image!
+    }
+    
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        self.chatsViewController?.settingsButtonPressed(sender)
     }
 }
