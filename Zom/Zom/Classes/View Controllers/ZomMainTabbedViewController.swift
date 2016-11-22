@@ -12,7 +12,9 @@ public class ZomMainTabbedViewController: UITabBarController {
    
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
-
+    private var meViewController:ZomMyQRViewController? = nil
+    private var observerContext = 0
+    
     convenience init() {
         self.init(nibName:nil, bundle:nil)
     }
@@ -33,7 +35,11 @@ public class ZomMainTabbedViewController: UITabBarController {
                     }
                     friendsViewController?.delegate = appDelegate.splitViewCoordinator
                     newControllers.append(friendsViewController!)
-                } else {
+                } else if (child.restorationIdentifier == "me") {
+                    meViewController = child as? ZomMyQRViewController
+                    newControllers.append(child)
+                }
+                else {
                     newControllers.append(child)
                 }
             }
@@ -46,7 +52,7 @@ public class ZomMainTabbedViewController: UITabBarController {
             item.image = item.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
             item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor(),
                 NSFontAttributeName:UIFont.systemFontOfSize(1)], forState: UIControlState.Normal)
-            item.imageInsets = UIEdgeInsets(top: 7, left: 2, bottom: -3, right: 2)
+            item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         }
         
         // Show current tab by a small white top border
@@ -59,6 +65,32 @@ public class ZomMainTabbedViewController: UITabBarController {
         // Show settings in right nav bar item
         let settingsItem = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .Plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
         navigationItem.rightBarButtonItem = settingsItem
+    }
+    
+    override public func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
+        OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectingProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
+        if (selectedViewController == meViewController) {
+            populateMeTabController()
+        }
+    }
+    
+    override public func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
+        OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectingProtocols", context: &observerContext)
+    }
+    
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        guard context == &observerContext else {
+            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            return
+        }
+        if (selectedViewController == meViewController) {
+            // Maybe we need to update this!
+            populateMeTabController()
+        }
     }
     
     override public var selectedViewController: UIViewController? {
@@ -77,6 +109,9 @@ public class ZomMainTabbedViewController: UITabBarController {
         if (selectedViewController != nil) {
             let appName = NSBundle.mainBundle().infoDictionary![kCFBundleNameKey as String] as! String
             self.navigationItem.title = appName + " | " + selectedViewController!.tabBarItem.title!
+            if (selectedViewController == meViewController) {
+                populateMeTabController()
+            }
         }
     }
     
@@ -91,5 +126,27 @@ public class ZomMainTabbedViewController: UITabBarController {
     
     @IBAction func settingsButtonPressed(sender: AnyObject) {
         self.chatsViewController?.settingsButtonPressed(sender)
+    }
+    
+    private func populateMeTabController() {
+        if (meViewController != nil) {
+            var types = Set<NSNumber>()
+            types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
+            var account:OTRAccount?
+            let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
+            if (accounts.count > 0)
+            {
+                account = accounts[0] as? OTRAccount
+            }
+            if (account != nil) {
+                account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
+                    if (url != nil && error == nil) {
+                        self.meViewController!.setQRString(url.absoluteString)
+                    }
+                })
+            } else {
+                self.meViewController!.setQRString(nil)
+            }
+        }
     }
 }

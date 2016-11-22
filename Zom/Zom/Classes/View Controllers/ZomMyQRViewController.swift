@@ -44,6 +44,7 @@ public class ZomMyQRViewController: UIViewController {
             self.qrImageView.image = self.imageForQRString(self.qrString, size:self.qrImageView.frame.size)
         } else {
             self.inviteLinkLabel.text = ""
+            self.qrImageView.image = nil
             self.activityIndicator.startAnimating()
         }
     }
