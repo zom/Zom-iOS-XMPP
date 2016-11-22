@@ -15,6 +15,10 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @property (nonatomic, strong) OTRSplitViewControllerDelegateObject *splitViewControllerDelegate;
 @end
 
+@interface OTRComposeViewController (ZomOverride)
+- (BOOL)canAddBuddies;
+@end
+
 @interface OTRMessagesViewController (ZomOverride)
 - (void)refreshTitleView;
 @end

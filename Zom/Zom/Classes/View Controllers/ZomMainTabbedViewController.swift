@@ -15,7 +15,6 @@ public class ZomMainTabbedViewController: UITabBarController {
 
     convenience init() {
         self.init(nibName:nil, bundle:nil)
-        //createTabs()
     }
     
     public func createTabs() {
@@ -42,6 +41,8 @@ public class ZomMainTabbedViewController: UITabBarController {
             newControllers.append(appDelegate.settingsViewController)
             setViewControllers(newControllers, animated: false)
         }
+        
+        // Hide the tab item text, but don't null it (we use it to build the top title)
         for item:UITabBarItem in self.tabBar.items! {
             item.selectedImage = item.image
             item.image = item.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
@@ -50,7 +51,7 @@ public class ZomMainTabbedViewController: UITabBarController {
             item.imageInsets = UIEdgeInsets(top: 7, left: 2, bottom: -3, right: 2)
         }
         
-        let tabBar = self.tabBar
+        // Show current tab by a small white top border
         tabBar.selectionIndicatorImage = createSelectionIndicator(UIColor.whiteColor(), size: CGSizeMake(tabBar.frame.width/CGFloat(tabBar.items!.count), tabBar.frame.height), lineHeight: 3.0)
         
         let backItem = UIBarButtonItem()

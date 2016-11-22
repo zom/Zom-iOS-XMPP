@@ -21,6 +21,10 @@ public class ZomComposeViewController: OTRComposeViewController {
         }
     }
     
+    public override func canAddBuddies() -> Bool {
+        return true; // Always show add
+    }
+    
     public override func addBuddy(accountsAbleToAddBuddies: [OTRAccount]?) {
         if let accounts = accountsAbleToAddBuddies {
             if (accounts.count > 0)
