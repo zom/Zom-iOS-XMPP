@@ -23,6 +23,10 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (void)refreshTitleView;
 @end
 
+@interface OTRMessagesHoldTalkViewController (ZomOverride)
+- (void)setupDefaultSendButton;
+@end
+
 @interface OTRInviteViewController (ZomOverride)
 - (void)skipPressed:(id)sender;
 - (void)qrButtonPressed:(id)sender;

@@ -42,7 +42,7 @@ extension OTRMessagesViewController {
     
     public func zom_collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> ChatSecureCore.JSQMessageData! {
         let ret = self.zom_collectionView(collectionView, messageDataForItemAtIndexPath: indexPath)
-        if (ZomStickerMessage.isValidStickerShortCode(ret.text!())) {
+        if (ret != nil && ZomStickerMessage.isValidStickerShortCode(ret.text!())) {
             return ZomStickerMessage(message: ret)
         }
         return ret
@@ -98,6 +98,11 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
     
     private var hasFixedTitleViewConstraints:Bool = false
     
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+        self.cameraButton.setTitle(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAPlusSquareO), forState: UIControlState.Normal)
+    }
+    
     public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
         
         let sendStickerAction: UIAlertAction = UIAlertAction(title: OTRLanguageManager.translatedString("Sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
@@ -137,6 +142,21 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
                     hasFixedTitleViewConstraints = true
                 }
             }
+        }
+    }
+    
+    override public func setupDefaultSendButton() {
+        // Override this to always show Camera and Mic icons. We never get here
+        // in a "knock" scenario.
+        self.inputToolbar?.contentView?.leftBarButtonItem = self.cameraButton
+        self.inputToolbar?.contentView?.leftBarButtonItem.enabled = false
+        if (self.state.hasText) {
+            self.inputToolbar?.contentView?.rightBarButtonItem = self.sendButton
+            self.inputToolbar?.sendButtonLocation = JSQMessagesInputSendButtonLocation.Right
+            self.inputToolbar?.contentView?.rightBarButtonItem.enabled = self.state.isThreadOnline
+        } else {
+            self.inputToolbar?.contentView?.rightBarButtonItem = self.microphoneButton
+            self.inputToolbar?.contentView?.rightBarButtonItem.enabled = false
         }
     }
 }

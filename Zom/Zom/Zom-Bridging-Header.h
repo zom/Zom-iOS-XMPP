@@ -42,3 +42,4 @@
 #import "ZomOverrides.h"
 #import <MessageUI/MessageUI.h>
 #import <BButton/NSString+FontAwesome.h>
+#import <JSQMessagesViewController/JSQMessagesInputToolbar.h>
