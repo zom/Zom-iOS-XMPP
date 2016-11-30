@@ -9,11 +9,12 @@
 import Foundation
 
 public class ZomMainTabbedViewController: UITabBarController {
-   
+    
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
     private var meViewController:ZomMyQRViewController? = nil
     private var observerContext = 0
+    private var observersRegistered:Bool = false
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -61,7 +62,7 @@ public class ZomMainTabbedViewController: UITabBarController {
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
-
+        
         // Show settings in right nav bar item
         let settingsItem = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .Plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
         navigationItem.rightBarButtonItem = settingsItem
@@ -69,17 +70,32 @@ public class ZomMainTabbedViewController: UITabBarController {
     
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
-        OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectingProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
-        if (selectedViewController == meViewController) {
-            populateMeTabController()
+        registerObservers()
+    }
+    
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        registerObservers()
+    }
+    
+    private func registerObservers() {
+        if (!observersRegistered) {
+            observersRegistered = true
+            OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
+            OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectingProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
+            if (selectedViewController == meViewController) {
+                populateMeTabController()
+            }
         }
     }
     
     override public func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
-        OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectingProtocols", context: &observerContext)
+        if (observersRegistered) {
+            observersRegistered = false
+            OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
+            OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectingProtocols", context: &observerContext)
+            super.viewWillDisappear(animated)
+        }
     }
     
     override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {

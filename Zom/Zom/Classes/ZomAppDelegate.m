@@ -32,7 +32,6 @@
     
     BOOL ret = [super application:application didFinishLaunchingWithOptions:launchOptions];
     if (ret) {
-        //[(ZomMainTabbedViewController*)self.conversationViewController createTabs];
         // For iPads, conversation controller is not necessarily shown until we pull out the side pane. The problem is that
         // onboarding does not start until we do. We need to kick that code into action sooner on these devices.
         if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone && ![self.window.rootViewController isKindOfClass:OTRDatabaseUnlockViewController.class]) {
@@ -42,15 +41,28 @@
     return ret;
 }
 
-- (UISplitViewController *)setupDefaultSplitViewControllerWithLeadingViewController:(nonnull UIViewController *)leadingViewController {
+- (UIViewController *)setupDefaultSplitViewControllerWithLeadingViewController:(nonnull UIViewController *)leadingViewController {
     
     /* Leading view controller is a NavController that contains the ConversationController */
     /* We want to replace the conversationController with a tab controller */
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];
     ZomMainTabbedViewController *tabsController = [storyboard instantiateInitialViewController];
-    ((UINavigationController *)leadingViewController).viewControllers = [NSArray arrayWithObject:tabsController];
+    
+    UINavigationController *nav = (UINavigationController *)leadingViewController;
+    [nav setViewControllers:[NSArray arrayWithObject:tabsController]];
+    [tabsController didMoveToParentViewController:nav];
+    
     UISplitViewController *ret = [super setupDefaultSplitViewControllerWithLeadingViewController:leadingViewController];
+    
     [tabsController createTabs]; // Only do this once the split view controller is created, we need that as a delegate
+    if (![ret isCollapsed]) {
+        ZomCompactTraitViewController *compact = [ZomCompactTraitViewController new];
+        [compact addChildViewController:ret];
+        ret.view.frame = compact.view.frame;
+        [compact.view addSubview:ret.view];
+        [ret didMoveToParentViewController:compact];
+        return compact;
+    }
     return ret;
 }
 
