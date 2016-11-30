@@ -10,7 +10,7 @@ import UIKit
 import ChatSecureCore
 
 extension UIColor {
-    convenience init(a: Int, red: Int, green: Int, blue: Int) {
+    convenience init(a: UInt, red: UInt, green: UInt, blue: UInt) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
@@ -18,7 +18,7 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(a) / 255.0)
     }
     
-    convenience init(netHex:Int) {
+    convenience init(netHex:UInt) {
         self.init(a: (netHex >> 24) & 0xff, red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
 }
