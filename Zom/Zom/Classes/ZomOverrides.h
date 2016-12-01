@@ -19,6 +19,10 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (BOOL)canAddBuddies;
 @end
 
+@interface OTRAttachmentPicker (ZomOverride)
+- (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType;
+@end
+
 @interface OTRMessagesViewController (ZomOverride)
 - (void)refreshTitleView;
 @end

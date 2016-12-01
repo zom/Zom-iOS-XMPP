@@ -94,9 +94,12 @@ extension OTRMessagesViewController {
     }
 }
 
-public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
+public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate {
     
     private var hasFixedTitleViewConstraints:Bool = false
+    private var attachmentPickerController:OTRAttachmentPicker? = nil
+    private var attachmentPickerView:UIView? = nil
+    private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -158,6 +161,87 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController {
             self.inputToolbar?.contentView?.rightBarButtonItem = self.microphoneButton
             self.inputToolbar?.contentView?.rightBarButtonItem.enabled = false
         }
+    }
+    
+    override public func didPressAccessoryButton(sender: UIButton!) {
+        let pickerView = getPickerView()
+        self.view.addSubview(pickerView)
+        var newFrame = pickerView.frame;
+        let superBounds = self.view.bounds;
+        newFrame.origin.y = superBounds.size.height - newFrame.size.height;
+        UIView.animateWithDuration(0.3) {
+            pickerView.frame = newFrame;
+        }
+    }
+    
+    func getPickerView() -> UIView {
+        if (self.attachmentPickerView == nil) {
+            self.attachmentPickerView = UINib(nibName: "AttachmentPicker", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
+            self.attachmentPickerView!.frame.size.width = self.view.frame.width
+            self.attachmentPickerView!.frame.size.height = 100
+            self.attachmentPickerView!.frame.origin.y = self.view.frame.height // Start hidden (below screen)
+         
+             self.attachmentPickerView!.viewWithTag(1)?.userInteractionEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
+            self.attachmentPickerView!.viewWithTag(2)?.userInteractionEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+            
+            self.attachmentPickerTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
+            self.attachmentPickerTapRecognizer!.cancelsTouchesInView = true
+            self.attachmentPickerTapRecognizer!.delegate = self
+            self.view.addGestureRecognizer(self.attachmentPickerTapRecognizer!)
+        }
+        return self.attachmentPickerView!
+    }
+    
+    func onTap(sender: UIGestureRecognizer) {
+        closePickerView()
+    }
+    
+    func closePickerView() {
+        // Tapped outside attachment picker. Close it.
+        if (self.attachmentPickerTapRecognizer != nil) {
+            self.view.removeGestureRecognizer(self.attachmentPickerTapRecognizer!)
+            self.attachmentPickerTapRecognizer = nil
+        }
+        if (self.attachmentPickerView != nil) {
+            var newFrame = self.attachmentPickerView!.frame;
+            let superBounds = self.view.bounds;
+            newFrame.origin.y = superBounds.size.height;
+            UIView.animateWithDuration(0.3, animations: {
+                    self.attachmentPickerView!.frame = newFrame;
+                },
+                                       completion: { (success) in
+                                        self.attachmentPickerView?.removeFromSuperview()
+                                        self.attachmentPickerView = nil
+            })
+        }
+    }
+    
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    @IBAction func attachmentPickerSelectPhotoWithSender(sender: AnyObject) {
+        closePickerView()
+        attachmentPicker().showImagePickerForSourceType(UIImagePickerControllerSourceType.PhotoLibrary)
+    }
+    
+    @IBAction func attachmentPickerTakePhotoWithSender(sender: AnyObject) {
+        closePickerView()
+        attachmentPicker().showImagePickerForSourceType(UIImagePickerControllerSourceType.Camera)
+    }
+    
+    func attachmentPicker() -> OTRAttachmentPicker {
+        if (self.attachmentPickerController == nil) {
+            self.attachmentPickerController = OTRAttachmentPicker(parentViewController: self.parentViewController?.parentViewController, delegate: (self as! OTRAttachmentPickerDelegate))
+        }
+        return self.attachmentPickerController!
+    }
+    
+    @IBAction func attachmentPickerStickerWithSender(sender: AnyObject) {
+        closePickerView()
+        let storyboard = UIStoryboard(name: "StickerShare", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
+        self.presentViewController(vc!, animated: true, completion: nil)
     }
 }
 
