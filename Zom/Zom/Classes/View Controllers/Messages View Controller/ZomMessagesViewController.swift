@@ -98,7 +98,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     
     private var hasFixedTitleViewConstraints:Bool = false
     private var attachmentPickerController:OTRAttachmentPicker? = nil
-    private var attachmentPickerView:UIView? = nil
+    private var attachmentPickerView:AttachmentPicker? = nil
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
     
     override public func viewDidLoad() {
@@ -176,13 +176,17 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     
     func getPickerView() -> UIView {
         if (self.attachmentPickerView == nil) {
-            self.attachmentPickerView = UINib(nibName: "AttachmentPicker", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
+            self.attachmentPickerView = UINib(nibName: "AttachmentPicker", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? AttachmentPicker
             self.attachmentPickerView!.frame.size.width = self.view.frame.width
             self.attachmentPickerView!.frame.size.height = 100
             self.attachmentPickerView!.frame.origin.y = self.view.frame.height // Start hidden (below screen)
          
-             self.attachmentPickerView!.viewWithTag(1)?.userInteractionEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
-            self.attachmentPickerView!.viewWithTag(2)?.userInteractionEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+            if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)) {
+                self.attachmentPickerView!.removePhotoButton()
+            }
+            if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+                self.attachmentPickerView!.removeCameraButton()
+            }
             
             self.attachmentPickerTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
             self.attachmentPickerTapRecognizer!.cancelsTouchesInView = true
