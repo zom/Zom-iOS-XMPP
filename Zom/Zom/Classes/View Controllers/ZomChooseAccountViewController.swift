@@ -39,7 +39,7 @@ public class ZomChooseAccountViewController: OTRChooseAccountViewController, UIT
     // MARK: - Navigation
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addNewBuddySegue" {
-            let vc:ZomAddBuddyViewController = segue.destinationViewController as! ZomAddBuddyViewController
+            let vc:ZomNewBuddyViewController = segue.destinationViewController as! ZomNewBuddyViewController
             vc.account = self.selectedAccount
         }
         super.prepareForSegue(segue, sender:sender)

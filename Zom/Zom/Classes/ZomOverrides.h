@@ -19,6 +19,13 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (BOOL)canAddBuddies;
 @end
 
+@interface OTRNewBuddyViewController (ZomOverride)
+- (void) updateReturnButtons:(UITextField *)textField;
+- (void) qrButtonPressed:(id)sender;
+- (IBAction) doneButtonPressed:(id)sender;
+- (void) populateFromQRResult:(NSString *)result;
+@end
+
 @interface OTRAttachmentPicker (ZomOverride)
 - (void)showImagePickerForSourceType:(UIImagePickerControllerSourceType)sourceType;
 @end

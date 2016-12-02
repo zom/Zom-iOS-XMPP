@@ -33,7 +33,7 @@ public class ZomComposeViewController: OTRComposeViewController {
                 var vc:UIViewController? = nil
                 if (accounts.count == 1) {
                     vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")
-                    (vc as! ZomAddBuddyViewController).account = accounts[0]
+                    (vc as! ZomNewBuddyViewController).account = accounts[0]
                     self.navigationController?.pushViewController(vc!, animated: true)
                 } else {
                     vc = storyboard.instantiateInitialViewController()
