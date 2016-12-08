@@ -37,7 +37,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Discover" image="ic_discover" id="mMW-ze-V2Y"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="ic_explore_white" id="mMW-ze-V2Y"/>
                     <connections>
                         <segue destination="Zy3-pH-Iq8" kind="show" identifier="segueToPickColor" id="oX2-Yr-zyR"/>
                     </connections>
@@ -111,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" image="ic_friends" id="LlX-wc-bzj"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="ic_group_white" id="LlX-wc-bzj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxd-70-uDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +130,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chats" image="ic_chats" id="XJU-FY-mH5"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="ic_message_white" id="XJU-FY-mH5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qU9-fZ-nC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,7 +204,7 @@
                             <constraint firstItem="3OG-pV-hC2" firstAttribute="top" secondItem="Kvp-Av-kSv" secondAttribute="bottom" constant="20" id="x1H-ev-cbj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" image="ic_me" id="pL4-Qt-LL4"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="ic_face_white" id="pL4-Qt-LL4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="accountLabel" destination="3OG-pV-hC2" id="bug-uL-Cch"/>
@@ -220,9 +220,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_chats" width="36" height="36"/>
-        <image name="ic_discover" width="36" height="36"/>
-        <image name="ic_friends" width="36" height="36"/>
-        <image name="ic_me" width="36" height="36"/>
+        <image name="ic_explore_white" width="24" height="24"/>
+        <image name="ic_face_white" width="24" height="24"/>
+        <image name="ic_group_white" width="24" height="24"/>
+        <image name="ic_message_white" width="24" height="24"/>
     </resources>
 </document>
