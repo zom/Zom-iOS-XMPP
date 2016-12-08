@@ -29,6 +29,7 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             addFriendsLabel.textColor = appDelegate.theme.mainThemeColor
             gotInviteLabel.textColor = appDelegate.theme.mainThemeColor
             separator.backgroundColor = appDelegate.theme.mainThemeColor
+            addToolbar.barTintColor = appDelegate.theme.lightThemeColor
         }
         
         // Remove toolbar items
@@ -54,6 +55,37 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
                 self.showButton(self.shareSmsButtonItem, show:false)
             }
         })
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for item:UIBarButtonItem in self.addToolbar.items! {
+            if (item.tag != 1) {
+                let w = self.addToolbar.frame.width / 4
+                item.width = w
+                if (w < 100) {
+                    if let button = item.customView as? UIButton {
+                        if let text = button.attributedTitleForState(UIControlState.Normal) {
+                            button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func increaseFontSizeBy(text: NSAttributedString?, pointSize: CGFloat) -> NSAttributedString? {
+        let fullRange = NSRange(location: 0, length: (text?.length)!)
+        let mutableAttributeText = NSMutableAttributedString(attributedString: text!)
+        mutableAttributeText.enumerateAttribute(NSFontAttributeName, inRange: fullRange, options: NSAttributedStringEnumerationOptions.LongestEffectiveRangeNotRequired) {
+            (attribute: AnyObject?, range: NSRange, stop: UnsafeMutablePointer<ObjCBool>) in
+            if let attributeFont = attribute as? UIFont {
+                let newPointSize = attributeFont.pointSize + pointSize
+                let scaledFont = UIFont(descriptor: attributeFont.fontDescriptor(), size: newPointSize)
+                mutableAttributeText.addAttribute(NSFontAttributeName, value: scaledFont, range: range)
+            }
+        }
+        return mutableAttributeText
     }
     
     public func showButton(item:UIBarButtonItem, show:Bool) {
