@@ -65,150 +65,177 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD FRIENDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P2-BW-dpR">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-vA-D7O">
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">ADVANCED
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjm-Hj-OyL">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kph-yx-oL4">
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD FRIENDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P2-BW-dpR">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-vA-D7O">
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <string key="text">ADVANCED
 Enter your friend's full username (e.g. zomisfun.4x3f5g@zom.im) here:</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3x-Au-J6g">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3x-Au-J6g">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="ncG-I6-AAf"/>
+                                                </constraints>
+                                                <items>
+                                                    <barButtonItem tag="1" style="plain" systemItem="flexibleSpace" id="QkQ-ip-wir"/>
+                                                    <barButtonItem style="plain" id="KIQ-vS-BV4">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Zar-Jn-geE">
+                                                            <rect key="frame" x="88" y="15" width="46" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal">
+                                                                <attributedString key="attributedTitle">
+                                                                    <fragment content=" ">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="32" name="FontAwesome"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment content="SMS">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="shareSmsButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="k5E-XV-oT3"/>
+                                                            </connections>
+                                                        </button>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" id="PQG-a8-hIh">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="ByO-Xb-haS">
+                                                            <rect key="frame" x="144" y="15" width="46" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal">
+                                                                <attributedString key="attributedTitle">
+                                                                    <fragment content=" ">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="32" name="FontAwesome"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment content="Share">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="shareButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="52u-t9-acE"/>
+                                                            </connections>
+                                                        </button>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" id="NeV-GP-cRG">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="vKp-aN-lIH">
+                                                            <rect key="frame" x="200" y="15" width="46" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal">
+                                                                <attributedString key="attributedTitle">
+                                                                    <fragment content=" ">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="32" name="FontAwesome"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment content="Scan">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="scanButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="PeZ-zR-ikZ"/>
+                                                            </connections>
+                                                        </button>
+                                                    </barButtonItem>
+                                                    <barButtonItem tag="1" style="plain" systemItem="flexibleSpace" id="0lC-EW-Rsd"/>
+                                                </items>
+                                                <color key="barTintColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                            </toolbar>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOT INVITED?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqM-V0-Y5G">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the Zom invite link from your friend or scan their QR code now" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-Rl-D1L">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUW-He-cRg">
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="JCD-E7-9fN"/>
+                                                </constraints>
+                                            </view>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="00h-M0-IFw">
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="3NF-Jj-W57"/>
+                                                </constraints>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="00h-M0-IFw" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leadingMargin" constant="28" id="3UI-Jd-yag"/>
+                                            <constraint firstItem="OfJ-vA-D7O" firstAttribute="top" secondItem="LUW-He-cRg" secondAttribute="bottom" constant="20" id="71D-Gm-viy"/>
+                                            <constraint firstItem="AqM-V0-Y5G" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leadingMargin" constant="28" id="975-cC-AqH"/>
+                                            <constraint firstItem="LUW-He-cRg" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leadingMargin" constant="28" id="9Mq-Wa-kA4"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="LUW-He-cRg" secondAttribute="trailing" constant="28" id="I4J-FE-8TE"/>
+                                            <constraint firstItem="1kj-Rl-D1L" firstAttribute="top" secondItem="AqM-V0-Y5G" secondAttribute="bottom" constant="10" id="IRp-be-zCh"/>
+                                            <constraint firstItem="OfJ-vA-D7O" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leadingMargin" constant="28" id="Jez-Ty-jhd"/>
+                                            <constraint firstItem="LUW-He-cRg" firstAttribute="top" secondItem="1kj-Rl-D1L" secondAttribute="bottom" constant="10" id="KHv-2I-y7X"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="1kj-Rl-D1L" secondAttribute="trailing" constant="28" id="Oqe-OA-hi9"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="00h-M0-IFw" secondAttribute="trailing" constant="28" id="Q2m-F4-mwu"/>
+                                            <constraint firstAttribute="trailing" secondItem="b3x-Au-J6g" secondAttribute="trailing" constant="20" id="RJz-eb-WZc"/>
+                                            <constraint firstItem="AqM-V0-Y5G" firstAttribute="top" secondItem="b3x-Au-J6g" secondAttribute="bottom" constant="10" id="U9b-Xe-d1G"/>
+                                            <constraint firstItem="2P2-BW-dpR" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leadingMargin" constant="28" id="W4r-UJ-hyc"/>
+                                            <constraint firstItem="1kj-Rl-D1L" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leadingMargin" constant="28" id="Wdx-50-qQD"/>
+                                            <constraint firstItem="b3x-Au-J6g" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leading" constant="20" id="aBM-xe-cN1"/>
+                                            <constraint firstItem="00h-M0-IFw" firstAttribute="top" secondItem="OfJ-vA-D7O" secondAttribute="bottom" constant="10" id="dmU-8s-qTS"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="AqM-V0-Y5G" secondAttribute="trailing" constant="28" id="g8p-gf-37K"/>
+                                            <constraint firstItem="OfJ-vA-D7O" firstAttribute="trailing" secondItem="kph-yx-oL4" secondAttribute="trailingMargin" constant="-28" id="hcm-6S-Rkd"/>
+                                            <constraint firstItem="2P2-BW-dpR" firstAttribute="top" secondItem="kph-yx-oL4" secondAttribute="top" id="ile-ky-1PO"/>
+                                            <constraint firstItem="b3x-Au-J6g" firstAttribute="top" secondItem="2P2-BW-dpR" secondAttribute="bottom" constant="10" id="uZU-0h-rFZ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="2P2-BW-dpR" secondAttribute="trailing" constant="28" id="yRk-Ph-uVM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="ncG-I6-AAf"/>
+                                    <constraint firstItem="kph-yx-oL4" firstAttribute="top" secondItem="Sjm-Hj-OyL" secondAttribute="top" id="EDB-E1-FaF"/>
+                                    <constraint firstAttribute="bottom" secondItem="kph-yx-oL4" secondAttribute="bottom" id="iF5-fe-reS"/>
+                                    <constraint firstItem="kph-yx-oL4" firstAttribute="leading" secondItem="Sjm-Hj-OyL" secondAttribute="leading" id="nr7-iZ-QHq"/>
+                                    <constraint firstAttribute="trailing" secondItem="kph-yx-oL4" secondAttribute="trailing" id="ud5-PK-RKw"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem tag="1" style="plain" systemItem="flexibleSpace" id="QkQ-ip-wir"/>
-                                    <barButtonItem style="plain" id="KIQ-vS-BV4">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Zar-Jn-geE">
-                                            <rect key="frame" x="108" y="15" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content=" ">
-                                                        <attributes>
-                                                            <font key="NSFont" size="32" name="FontAwesome"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="SMS">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </state>
-                                            <connections>
-                                                <action selector="shareSmsButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="k5E-XV-oT3"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="PQG-a8-hIh">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="ByO-Xb-haS">
-                                            <rect key="frame" x="164" y="15" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content=" ">
-                                                        <attributes>
-                                                            <font key="NSFont" size="32" name="FontAwesome"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Share">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </state>
-                                            <connections>
-                                                <action selector="shareButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="52u-t9-acE"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="NeV-GP-cRG">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="vKp-aN-lIH">
-                                            <rect key="frame" x="220" y="15" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle">
-                                                    <fragment content=" ">
-                                                        <attributes>
-                                                            <font key="NSFont" size="32" name="FontAwesome"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Scan">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                            </state>
-                                            <connections>
-                                                <action selector="scanButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="PeZ-zR-ikZ"/>
-                                            </connections>
-                                        </button>
-                                    </barButtonItem>
-                                    <barButtonItem tag="1" style="plain" systemItem="flexibleSpace" id="0lC-EW-Rsd"/>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOT INVITED?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqM-V0-Y5G">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the Zom invite link from your friend or scan their QR code now" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-Rl-D1L">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUW-He-cRg">
-                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="JCD-E7-9fN"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="00h-M0-IFw">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2P2-BW-dpR" firstAttribute="top" secondItem="RXP-J4-T8C" secondAttribute="bottom" constant="10" id="0wE-id-jDC"/>
-                            <constraint firstItem="1kj-Rl-D1L" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leadingMargin" id="28h-gK-zum"/>
-                            <constraint firstItem="AqM-V0-Y5G" firstAttribute="top" secondItem="b3x-Au-J6g" secondAttribute="bottom" constant="10" id="4XD-Xl-U62"/>
-                            <constraint firstItem="LUW-He-cRg" firstAttribute="top" secondItem="1kj-Rl-D1L" secondAttribute="bottom" constant="10" id="8zr-KA-nrD"/>
-                            <constraint firstAttribute="trailing" secondItem="b3x-Au-J6g" secondAttribute="trailing" id="AFt-xW-jMC"/>
-                            <constraint firstItem="00h-M0-IFw" firstAttribute="top" secondItem="OfJ-vA-D7O" secondAttribute="bottom" constant="10" id="ClN-IH-0Py"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2P2-BW-dpR" secondAttribute="trailing" id="J4f-6k-w2c"/>
-                            <constraint firstItem="AqM-V0-Y5G" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leadingMargin" id="J5W-70-Qw0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LUW-He-cRg" secondAttribute="trailing" id="JWS-zi-0zJ"/>
-                            <constraint firstItem="LUW-He-cRg" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leadingMargin" id="KJC-yX-x2T"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AqM-V0-Y5G" secondAttribute="trailing" id="NK0-rq-O5Z"/>
-                            <constraint firstItem="00h-M0-IFw" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leadingMargin" id="cjH-7c-UaT"/>
-                            <constraint firstItem="1kj-Rl-D1L" firstAttribute="top" secondItem="AqM-V0-Y5G" secondAttribute="bottom" constant="10" id="cwv-A9-pk4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1kj-Rl-D1L" secondAttribute="trailing" id="dUq-N3-kYw"/>
-                            <constraint firstItem="OfJ-vA-D7O" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leadingMargin" id="ei3-hb-Kli"/>
-                            <constraint firstItem="KiG-F9-GRj" firstAttribute="top" secondItem="00h-M0-IFw" secondAttribute="bottom" id="fTW-0q-tLU"/>
-                            <constraint firstItem="OfJ-vA-D7O" firstAttribute="trailing" secondItem="2Bs-Th-yme" secondAttribute="trailingMargin" id="h3n-yN-ohm"/>
-                            <constraint firstItem="2P2-BW-dpR" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leadingMargin" id="l5e-bY-IL1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="00h-M0-IFw" secondAttribute="trailing" id="qw1-au-YEY"/>
-                            <constraint firstItem="b3x-Au-J6g" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leading" id="wXq-Ah-d7k"/>
-                            <constraint firstItem="b3x-Au-J6g" firstAttribute="top" secondItem="2P2-BW-dpR" secondAttribute="bottom" constant="10" id="wz2-PJ-47B"/>
-                            <constraint firstItem="OfJ-vA-D7O" firstAttribute="top" secondItem="LUW-He-cRg" secondAttribute="bottom" constant="20" id="xIq-T8-dGK"/>
+                            <constraint firstAttribute="trailing" secondItem="Sjm-Hj-OyL" secondAttribute="trailing" id="K7R-z5-i01"/>
+                            <constraint firstAttribute="bottom" secondItem="Sjm-Hj-OyL" secondAttribute="bottom" id="K9U-ui-000"/>
+                            <constraint firstItem="kph-yx-oL4" firstAttribute="height" secondItem="2Bs-Th-yme" secondAttribute="height" id="PJt-zM-eGI"/>
+                            <constraint firstItem="kph-yx-oL4" firstAttribute="width" secondItem="2Bs-Th-yme" secondAttribute="width" id="Tjj-Ft-xAK"/>
+                            <constraint firstItem="Sjm-Hj-OyL" firstAttribute="leading" secondItem="2Bs-Th-yme" secondAttribute="leading" id="i5h-rc-vmg"/>
+                            <constraint firstItem="Sjm-Hj-OyL" firstAttribute="top" secondItem="2Bs-Th-yme" secondAttribute="top" id="j5Z-8d-ech"/>
                         </constraints>
                     </view>
                     <connections>
@@ -216,6 +243,7 @@ Enter your friend's full username (e.g. zomisfun.4x3f5g@zom.im) here:</string>
                         <outlet property="addToolbar" destination="b3x-Au-J6g" id="B8h-Ou-stV"/>
                         <outlet property="gotInviteLabel" destination="AqM-V0-Y5G" id="hlm-Av-P8S"/>
                         <outlet property="scanButtonItem" destination="NeV-GP-cRG" id="54S-rm-mK7"/>
+                        <outlet property="scrollView" destination="Sjm-Hj-OyL" id="1Up-OM-rLu"/>
                         <outlet property="separator" destination="LUW-He-cRg" id="NRa-4g-cRN"/>
                         <outlet property="shareSmsButtonItem" destination="KIQ-vS-BV4" id="ufR-HF-CCG"/>
                         <outlet property="tableView" destination="00h-M0-IFw" id="eWm-5X-09c"/>

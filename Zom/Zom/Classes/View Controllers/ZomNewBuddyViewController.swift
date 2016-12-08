@@ -17,8 +17,10 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     @IBOutlet weak var addToolbar: UIToolbar!
     @IBOutlet var shareSmsButtonItem: UIBarButtonItem!
     @IBOutlet var scanButtonItem: UIBarButtonItem!
+    @IBOutlet var scrollView: UIScrollView!
 
     private var shareLink:String? = nil
+    private var hasAdjustedButtonSize = false
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,6 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             addFriendsLabel.textColor = appDelegate.theme.mainThemeColor
             gotInviteLabel.textColor = appDelegate.theme.mainThemeColor
             separator.backgroundColor = appDelegate.theme.mainThemeColor
-            addToolbar.barTintColor = appDelegate.theme.lightThemeColor
         }
         
         // Remove toolbar items
@@ -57,20 +58,51 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         })
     }
     
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIKeyboardDidHideNotification, object: nil)
+    }
+
+    public override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+        super.viewWillDisappear(animated)
+    }
+    
+    func didShowKeyboard(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
+                let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+                scrollView.contentInset = contentInsets;
+                scrollView.scrollIndicatorInsets = contentInsets;
+            }
+        }
+    }
+
+    func didHideKeyboard(notification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets;
+        scrollView.scrollIndicatorInsets = contentInsets;
+    }
+    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        for item:UIBarButtonItem in self.addToolbar.items! {
-            if (item.tag != 1) {
-                let w = self.addToolbar.frame.width / 4
-                item.width = w
-                if (w < 100) {
-                    if let button = item.customView as? UIButton {
-                        if let text = button.attributedTitleForState(UIControlState.Normal) {
-                            button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
+        if (!hasAdjustedButtonSize) {
+            for item:UIBarButtonItem in self.addToolbar.items! {
+                if (item.tag != 1) {
+                    let w = self.addToolbar.frame.width / 4
+                    item.width = w
+                    if (w < 100) {
+                        if let button = item.customView as? UIButton {
+                            if let text = button.attributedTitleForState(UIControlState.Normal) {
+                                button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
+                            }
                         }
                     }
                 }
             }
+            hasAdjustedButtonSize = true
         }
     }
     
