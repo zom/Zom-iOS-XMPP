@@ -175,30 +175,48 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OG-pV-hC2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kvp-Av-kSv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1ao-9b-3oh"/>
+                                    <constraint firstAttribute="width" constant="100" id="LeS-wd-ApT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="3OG-pV-hC2" secondAttribute="trailing" constant="10" id="5PD-kg-FCc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ic8-e2-idk" secondAttribute="trailing" id="6j0-XX-8LE"/>
-                            <constraint firstItem="JNJ-BI-kZy" firstAttribute="top" secondItem="TTT-qx-vo9" secondAttribute="bottom" id="7Px-J6-DO2"/>
+                            <constraint firstItem="Kvp-Av-kSv" firstAttribute="centerX" secondItem="kJe-lb-35h" secondAttribute="centerX" id="6oE-hB-9c1"/>
                             <constraint firstItem="yvw-9a-kab" firstAttribute="top" secondItem="ic8-e2-idk" secondAttribute="bottom" constant="10" id="7R6-j0-dhw"/>
                             <constraint firstItem="JNJ-BI-kZy" firstAttribute="leading" secondItem="kJe-lb-35h" secondAttribute="leadingMargin" id="BZd-yS-IPz"/>
+                            <constraint firstItem="Kvp-Av-kSv" firstAttribute="top" secondItem="kJe-lb-35h" secondAttribute="topMargin" constant="20" id="F1H-MS-Dpu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JNJ-BI-kZy" secondAttribute="trailing" id="GXb-pn-byr"/>
                             <constraint firstItem="ic8-e2-idk" firstAttribute="leading" secondItem="kJe-lb-35h" secondAttribute="leadingMargin" id="LWc-yc-7O7"/>
+                            <constraint firstItem="JNJ-BI-kZy" firstAttribute="top" secondItem="3OG-pV-hC2" secondAttribute="bottom" constant="20" id="QhF-Mj-nKi"/>
+                            <constraint firstItem="3OG-pV-hC2" firstAttribute="leading" secondItem="kJe-lb-35h" secondAttribute="leadingMargin" constant="10" id="Uze-jd-Zcq"/>
                             <constraint firstItem="thq-w9-pPB" firstAttribute="centerX" secondItem="JNJ-BI-kZy" secondAttribute="centerX" id="Vw2-JK-lch"/>
                             <constraint firstItem="thq-w9-pPB" firstAttribute="centerY" secondItem="JNJ-BI-kZy" secondAttribute="centerY" id="ZmZ-9Y-UUx"/>
                             <constraint firstItem="ic8-e2-idk" firstAttribute="top" secondItem="JNJ-BI-kZy" secondAttribute="bottom" constant="10" id="wb7-DK-hDH"/>
+                            <constraint firstItem="3OG-pV-hC2" firstAttribute="top" secondItem="Kvp-Av-kSv" secondAttribute="bottom" constant="20" id="x1H-ev-cbj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="ic_me" id="pL4-Qt-LL4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="accountLabel" destination="3OG-pV-hC2" id="bug-uL-Cch"/>
                         <outlet property="activityIndicator" destination="thq-w9-pPB" id="qHS-rM-twl"/>
+                        <outlet property="avatarImageView" destination="Kvp-Av-kSv" id="ict-KJ-DmF"/>
                         <outlet property="inviteLinkLabel" destination="ic8-e2-idk" id="6oc-jA-ZFg"/>
                         <outlet property="qrImageView" destination="JNJ-BI-kZy" id="w8v-V3-so5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LuA-q5-3fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="1358"/>
+            <point key="canvasLocation" x="-372" y="1357.8710644677662"/>
         </scene>
     </scenes>
     <resources>

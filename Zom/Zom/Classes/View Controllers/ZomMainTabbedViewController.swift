@@ -146,23 +146,13 @@ public class ZomMainTabbedViewController: UITabBarController {
     
     private func populateMeTabController() {
         if (meViewController != nil) {
-            var types = Set<NSNumber>()
-            types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
             var account:OTRAccount?
             let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
             if (accounts.count > 0)
             {
                 account = accounts[0] as? OTRAccount
             }
-            if (account != nil) {
-                account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
-                    if (url != nil && error == nil) {
-                        self.meViewController!.setQRString(url.absoluteString)
-                    }
-                })
-            } else {
-                self.meViewController!.setQRString(nil)
-            }
+            self.meViewController!.account = account
         }
     }
 }

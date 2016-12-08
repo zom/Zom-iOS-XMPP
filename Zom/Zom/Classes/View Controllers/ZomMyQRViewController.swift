@@ -9,12 +9,19 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomMyQRViewController: UIViewController {
+public class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegate {
 
+    var account: OTRAccount? {
+        didSet {
+            onAccountUpdated()
+        }
+    }
     var qrString: String? = nil
 
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var inviteLinkLabel: UILabel!
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     public override func viewDidLoad() {
@@ -23,11 +30,23 @@ public class ZomMyQRViewController: UIViewController {
         self.qrImageView.layer.magnificationFilter = kCAFilterNearest
         self.qrImageView.layer.shouldRasterize = true
         self.view.backgroundColor = ZomTheme().lightThemeColor
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapAvatarImage(_:)))
+        self.avatarImageView.userInteractionEnabled = true
+        self.avatarImageView.addGestureRecognizer(tapRecognizer)
         updateUI()
     }
     
-    public func setQRString(qrString:String?) {
-        self.qrString = qrString
+    private func onAccountUpdated() {
+        self.qrString = nil
+        if (account != nil) {
+            var types = Set<NSNumber>()
+            types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
+            account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
+                if (url != nil && error == nil) {
+                    self.qrString = url.absoluteString
+                }
+            })
+        }
         if (self.isViewLoaded()) {
             updateUI()
         }
@@ -47,6 +66,17 @@ public class ZomMyQRViewController: UIViewController {
             self.qrImageView.image = nil
             self.activityIndicator.startAnimating()
         }
+        if (self.account != nil) {
+            self.accountLabel.text = self.account?.username
+            setDefaultAvatar()
+        } else {
+            self.accountLabel.text = nil
+            setDefaultAvatar()
+        }
+    }
+    
+    func setDefaultAvatar() {
+        self.avatarImageView.image = UIImage(named: "onboarding_avatar", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -68,5 +98,15 @@ public class ZomMyQRViewController: UIViewController {
         }
         return nil
     }
-
+    
+    func didTapAvatarImage(sender: UITapGestureRecognizer? = nil) {
+        let photoPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.parentViewController, delegate: self)
+        photoPicker.showAlertControllerWithCompletion(nil)
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
+    }
 }
