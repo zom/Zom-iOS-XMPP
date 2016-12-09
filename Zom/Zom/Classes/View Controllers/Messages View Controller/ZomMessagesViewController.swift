@@ -167,8 +167,8 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         let pickerView = getPickerView()
         self.view.addSubview(pickerView)
         var newFrame = pickerView.frame;
-        let superBounds = self.view.bounds;
-        newFrame.origin.y = superBounds.size.height - newFrame.size.height;
+        let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
+        newFrame.origin.y = toolbarBottom - newFrame.size.height;
         UIView.animateWithDuration(0.3) {
             pickerView.frame = newFrame;
         }
@@ -179,7 +179,8 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
             self.attachmentPickerView = UINib(nibName: "AttachmentPicker", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? AttachmentPicker
             self.attachmentPickerView!.frame.size.width = self.view.frame.width
             self.attachmentPickerView!.frame.size.height = 100
-            self.attachmentPickerView!.frame.origin.y = self.view.frame.height // Start hidden (below screen)
+            let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
+            self.attachmentPickerView!.frame.origin.y = toolbarBottom // Start hidden (below screen)
          
             if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)) {
                 self.attachmentPickerView!.removePhotoButton()
@@ -208,8 +209,8 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         }
         if (self.attachmentPickerView != nil) {
             var newFrame = self.attachmentPickerView!.frame;
-            let superBounds = self.view.bounds;
-            newFrame.origin.y = superBounds.size.height;
+            let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
+            newFrame.origin.y = toolbarBottom
             UIView.animateWithDuration(0.3, animations: {
                     self.attachmentPickerView!.frame = newFrame;
                 },

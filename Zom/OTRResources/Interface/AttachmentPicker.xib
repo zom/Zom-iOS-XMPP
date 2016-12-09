@@ -26,41 +26,62 @@
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-di-81A">
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ZOF-du-Fpa"/>
-                        <barButtonItem style="plain" id="1vJ-4N-Ztr">
+                        <barButtonItem width="60" style="plain" id="1vJ-4N-Ztr">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lJp-hW-c9E">
-                                <rect key="frame" x="117" y="307" width="43" height="53"/>
+                                <rect key="frame" x="87" y="303" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64484208822250366" green="0.82787561416625977" blue="0.15414133667945862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
                                 <state key="normal" title="">
-                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="attachmentPickerSelectPhotoWithSender:" destination="-2" eventType="touchUpInside" id="Vcs-B4-O5a"/>
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem style="plain" id="r8K-0w-G4i">
+                        <barButtonItem width="60" style="plain" id="r8K-0w-G4i">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="maN-2N-lJ7">
-                                <rect key="frame" x="170" y="307" width="43" height="53"/>
+                                <rect key="frame" x="157" y="303" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="camera"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
                                 <state key="normal" title="">
-                                    <color key="titleColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="attachmentPickerTakePhotoWithSender:" destination="-2" eventType="touchUpInside" id="dNy-c4-yeA"/>
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem style="plain" id="i8a-RC-N8Y">
+                        <barButtonItem width="60" style="plain" id="i8a-RC-N8Y">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kaO-aX-KBI">
-                                <rect key="frame" x="223" y="307" width="35" height="53"/>
+                                <rect key="frame" x="227" y="303" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.73333333333333328" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
                                 <state key="normal" title="">
-                                    <color key="titleColor" red="1" green="0.73333333333333328" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="attachmentPickerStickerWithSender:" destination="-2" eventType="touchUpInside" id="dA5-1N-Bo2"/>
                                 </connections>
