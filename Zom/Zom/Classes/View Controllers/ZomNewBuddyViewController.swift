@@ -73,17 +73,19 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     func didShowKeyboard(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
-                let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
-                scrollView.contentInset = contentInsets;
-                scrollView.scrollIndicatorInsets = contentInsets;
+                // If the whole tableview is not visible, scroll up so that ADVANCED
+                // view is at the top (i.e. the separator is just off screen!
+                //
+                if ((self.tableView.frame.origin.y + self.tableView.frame.height) > self.view.frame.height - keyboardSize.height) {
+                    let separatorY = self.separator.frame.origin.y + self.separator.frame.size.height
+                    scrollView.setContentOffset(CGPointMake(0, separatorY), animated: true)
+                }
             }
         }
     }
 
     func didHideKeyboard(notification: NSNotification) {
-        let contentInsets = UIEdgeInsetsZero
-        scrollView.contentInset = contentInsets;
-        scrollView.scrollIndicatorInsets = contentInsets;
+        scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
     }
     
     public override func viewDidLayoutSubviews() {
