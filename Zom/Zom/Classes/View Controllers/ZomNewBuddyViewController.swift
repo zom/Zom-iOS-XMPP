@@ -89,22 +89,32 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if (!hasAdjustedButtonSize) {
-            for item:UIBarButtonItem in self.addToolbar.items! {
-                if (item.tag != 1) {
-                    let w = self.addToolbar.frame.width / 4
-                    item.width = w
-                    if (w < 100) {
-                        if let button = item.customView as? UIButton {
-                            if let text = button.attributedTitleForState(UIControlState.Normal) {
-                                button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
-                            }
+            adjustButtons()
+            hasAdjustedButtonSize = true
+        }
+    }
+
+    private func adjustButtons() {
+        for item:UIBarButtonItem in self.addToolbar.items! {
+            if (item.tag != 1) {
+                let w = (self.view.frame.width - 40) / 4
+                item.width = w
+                if let button = item.customView as? UIButton {
+                    button.frame.size.width = w
+                }
+                if (w < 100 && !hasAdjustedButtonSize) {
+                    if let button = item.customView as? UIButton {
+                        if let text = button.attributedTitleForState(UIControlState.Normal) {
+                            button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
                         }
                     }
                 }
             }
-            hasAdjustedButtonSize = true
         }
+        self.addToolbar.setNeedsUpdateConstraints()
+        self.addToolbar.setNeedsLayout()
     }
+    
     
     private func increaseFontSizeBy(text: NSAttributedString?, pointSize: CGFloat) -> NSAttributedString? {
         let fullRange = NSRange(location: 0, length: (text?.length)!)
@@ -132,6 +142,11 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             }
         }
         addToolbar.items = toolbarButtons
+        if (self.hasAdjustedButtonSize) {
+            // Need to re-adjust size
+            self.adjustButtons()
+        }
+
     }
 
     @IBAction func shareSmsButtonPressedWithSender(sender: AnyObject) {
@@ -179,11 +194,7 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     }
     
     public func controller(viewController: OTRNewBuddyViewController!, didAddBuddy buddy: OTRBuddy!) {
-        // TODO - enter conversation with newly added buddy
-        self.navigationController?.popViewControllerAnimated(true)
-        if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
-            appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
-        }
+        self.navigationController?.popViewControllerAnimated(true) // Pop back to friend list!
     }
     
     public override func populateFromQRResult(result: String!) {
