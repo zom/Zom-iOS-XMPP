@@ -164,13 +164,17 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     }
     
     override public func didPressAccessoryButton(sender: UIButton!) {
-        let pickerView = getPickerView()
-        self.view.addSubview(pickerView)
-        var newFrame = pickerView.frame;
-        let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
-        newFrame.origin.y = toolbarBottom - newFrame.size.height;
-        UIView.animateWithDuration(0.3) {
-            pickerView.frame = newFrame;
+        if (sender == self.cameraButton) {
+            let pickerView = getPickerView()
+            self.view.addSubview(pickerView)
+            var newFrame = pickerView.frame;
+            let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
+            newFrame.origin.y = toolbarBottom - newFrame.size.height;
+            UIView.animateWithDuration(0.3) {
+                pickerView.frame = newFrame;
+            }
+        } else {
+            super.didPressAccessoryButton(sender)
         }
     }
     
