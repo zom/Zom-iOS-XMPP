@@ -7,10 +7,25 @@
 //
 
 import Foundation
+import XMPPFramework
+import OTRKit
 
 public class ZomDiscoverViewController: UIViewController {
+
+    @IBAction func didPressZomServicesButtonWithSender(sender: AnyObject) {
+        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+            print("TODO")
+        }
+    }
     
-    @IBAction func changeThemeButtonPressedWithSender(sender: AnyObject) {
+    @IBAction func didPressCreateGroupButtonWithSender(sender: AnyObject) {
+        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+            ZomComposeViewController.openInGroupMode = true
+            appDelegate.conversationViewController.performSelector(#selector(appDelegate.conversationViewController.composeButtonPressed(_:)), withObject: sender)
+        }
+    }
+    
+    @IBAction func didPressChangeThemeButtonWithSender(sender: AnyObject) {
         self.performSegueWithIdentifier("segueToPickColor", sender: self)
     }
     

@@ -19,22 +19,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awf-Ca-eIa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-TI-SD2">
+                                <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Lgt-Pi-Z2H"/>
+                                    <constraint firstAttribute="height" constant="60" id="xxI-Xw-IeW"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="jkr-BY-jJk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsm-5u-vn8">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ONv-JN-hgb"/>
+                                </constraints>
+                                <state key="normal" title="Zom Services">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="F9I-n7-SOD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOg-JL-JIj">
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ase-bx-kNF"/>
+                                    <constraint firstAttribute="height" constant="60" id="eJA-lg-jjb"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="ic_group_add_white"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="HSr-nz-Gsc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elb-yq-kT3">
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="P0Y-gS-w3A"/>
+                                    <constraint firstAttribute="height" constant="60" id="P1B-xi-4pS"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="more_tshirt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="IGu-K6-RCT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awf-Ca-eIa">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ySm-jv-VVy"/>
                                 </constraints>
-                                <state key="normal" title="Change Theme"/>
+                                <state key="normal" title="Change Theme">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="changeThemeButtonPressedWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="gBC-Gw-hdz"/>
+                                    <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="J19-rs-38l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-vg-PXn">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MU0-dP-RgU"/>
+                                </constraints>
+                                <state key="normal" title="Create a Group">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="DFZ-Jg-5ck"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="awf-Ca-eIa" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" id="Pi2-iP-J7m"/>
-                            <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="aZc-Bb-TS1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Gsm-5u-vn8" secondAttribute="trailing" id="1rd-7G-xR5"/>
+                            <constraint firstItem="YOg-JL-JIj" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="2vj-Xi-qZJ"/>
+                            <constraint firstItem="x62-TI-SD2" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="5z4-9D-lDR"/>
+                            <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="elb-yq-kT3" secondAttribute="trailing" constant="20" id="74v-pq-qaq"/>
+                            <constraint firstItem="x62-TI-SD2" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="20" id="AZl-eF-tPu"/>
+                            <constraint firstItem="elb-yq-kT3" firstAttribute="top" secondItem="YOg-JL-JIj" secondAttribute="bottom" constant="20" id="EeF-wc-F5K"/>
+                            <constraint firstItem="awf-Ca-eIa" firstAttribute="centerY" secondItem="elb-yq-kT3" secondAttribute="centerY" id="Fz8-Dj-3kB"/>
+                            <constraint firstItem="RrB-vg-PXn" firstAttribute="leading" secondItem="YOg-JL-JIj" secondAttribute="trailing" constant="20" id="GH1-XW-22J"/>
+                            <constraint firstItem="elb-yq-kT3" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="KdW-HL-ilU"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="RrB-vg-PXn" secondAttribute="trailing" id="QRS-Lb-YDO"/>
+                            <constraint firstItem="Gsm-5u-vn8" firstAttribute="centerY" secondItem="x62-TI-SD2" secondAttribute="centerY" id="R6M-L4-CNU"/>
+                            <constraint firstItem="Gsm-5u-vn8" firstAttribute="leading" secondItem="x62-TI-SD2" secondAttribute="trailing" constant="20" id="d2t-fC-dK3"/>
+                            <constraint firstItem="RrB-vg-PXn" firstAttribute="centerY" secondItem="YOg-JL-JIj" secondAttribute="centerY" id="eB7-by-koW"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
+                            <constraint firstItem="YOg-JL-JIj" firstAttribute="top" secondItem="x62-TI-SD2" secondAttribute="bottom" constant="20" id="ktu-la-Hg2"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="ic_explore_white" id="mMW-ze-V2Y"/>
@@ -51,7 +142,7 @@
         <scene sceneID="nhb-PI-ZJd">
             <objects>
                 <collectionViewController id="Zy3-pH-Iq8" customClass="ZomPickColorViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="7hs-57-iTT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7hs-57-iTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,11 +150,11 @@
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Hso-Vs-oU3">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="20" y="20" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -222,7 +313,9 @@
     <resources>
         <image name="ic_explore_white" width="24" height="24"/>
         <image name="ic_face_white" width="24" height="24"/>
+        <image name="ic_group_add_white" width="108" height="108"/>
         <image name="ic_group_white" width="24" height="24"/>
         <image name="ic_message_white" width="24" height="24"/>
+        <image name="more_tshirt" width="128" height="128"/>
     </resources>
 </document>
