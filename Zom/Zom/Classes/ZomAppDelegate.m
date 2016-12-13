@@ -112,5 +112,13 @@
     return false;
 }
 
+- (OTRAccount *)getDefaultAccount {
+    NSArray *accounts = [OTRAccountsManager allAccountsAbleToAddBuddies];
+    if (accounts != nil && accounts.count > 0)
+    {
+        return (OTRAccount *)accounts[0];
+    }
+    return nil;
+}
 
 @end

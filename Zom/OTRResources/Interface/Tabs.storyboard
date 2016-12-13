@@ -6,6 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="FontAwesome.ttf">
+            <string>FontAwesome</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Discover-->
         <scene sceneID="OzF-Z5-T1E">
@@ -19,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-TI-SD2">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-TI-SD2">
                                 <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Lgt-Pi-Z2H"/>
@@ -36,7 +41,7 @@
                                     <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="jkr-BY-jJk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsm-5u-vn8">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsm-5u-vn8">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ONv-JN-hgb"/>
@@ -47,6 +52,54 @@
                                 <connections>
                                     <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="F9I-n7-SOD"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHJ-ji-Rkn">
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="7gE-jK-E8B"/>
+                                    <constraint firstAttribute="height" constant="60" id="M1t-3i-Opt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title=""/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-Ed-D5D">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="VAc-5x-RaX"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Photo Stream">
+                                            <attributes>
+                                                <color key="NSColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Coming Soon">
+                                            <attributes>
+                                                <color key="NSColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOg-JL-JIj">
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,6 +118,66 @@
                                 <connections>
                                     <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="HSr-nz-Gsc"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-vg-PXn">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MU0-dP-RgU"/>
+                                </constraints>
+                                <state key="normal" title="Create a Group">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="DFZ-Jg-5ck"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sod-YN-KRm">
+                                <color key="backgroundColor" red="1" green="0.73333333333333328" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="MhM-ZU-YhK"/>
+                                    <constraint firstAttribute="width" constant="60" id="dsc-Aq-9V2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
+                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title=""/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNy-9N-8vA">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5Mn-X2-9PG"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sticker Share">
+                                            <attributes>
+                                                <color key="NSColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="Coming Soon">
+                                            <attributes>
+                                                <color key="NSColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elb-yq-kT3">
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -96,36 +209,34 @@
                                     <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="J19-rs-38l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-vg-PXn">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MU0-dP-RgU"/>
-                                </constraints>
-                                <state key="normal" title="Create a Group">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="DFZ-Jg-5ck"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WNy-9N-8vA" firstAttribute="centerY" secondItem="sod-YN-KRm" secondAttribute="centerY" id="1ZK-TH-ABi"/>
+                            <constraint firstItem="WNy-9N-8vA" firstAttribute="leading" secondItem="sod-YN-KRm" secondAttribute="trailing" constant="20" id="1ij-Lv-LSL"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Gsm-5u-vn8" secondAttribute="trailing" id="1rd-7G-xR5"/>
                             <constraint firstItem="YOg-JL-JIj" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="2vj-Xi-qZJ"/>
+                            <constraint firstItem="CHJ-ji-Rkn" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="20" id="3DI-SF-i5e"/>
+                            <constraint firstItem="UsX-Ed-D5D" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" id="4gS-kG-du8"/>
                             <constraint firstItem="x62-TI-SD2" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="5z4-9D-lDR"/>
                             <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="elb-yq-kT3" secondAttribute="trailing" constant="20" id="74v-pq-qaq"/>
                             <constraint firstItem="x62-TI-SD2" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="20" id="AZl-eF-tPu"/>
-                            <constraint firstItem="elb-yq-kT3" firstAttribute="top" secondItem="YOg-JL-JIj" secondAttribute="bottom" constant="20" id="EeF-wc-F5K"/>
+                            <constraint firstItem="sod-YN-KRm" firstAttribute="top" secondItem="YOg-JL-JIj" secondAttribute="bottom" constant="20" id="Dfr-Sm-d7Z"/>
+                            <constraint firstItem="elb-yq-kT3" firstAttribute="top" secondItem="sod-YN-KRm" secondAttribute="bottom" constant="20" id="FWS-8X-3dq"/>
                             <constraint firstItem="awf-Ca-eIa" firstAttribute="centerY" secondItem="elb-yq-kT3" secondAttribute="centerY" id="Fz8-Dj-3kB"/>
                             <constraint firstItem="RrB-vg-PXn" firstAttribute="leading" secondItem="YOg-JL-JIj" secondAttribute="trailing" constant="20" id="GH1-XW-22J"/>
+                            <constraint firstItem="YOg-JL-JIj" firstAttribute="top" secondItem="CHJ-ji-Rkn" secondAttribute="bottom" constant="20" id="JRl-kl-yUh"/>
                             <constraint firstItem="elb-yq-kT3" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="KdW-HL-ilU"/>
+                            <constraint firstItem="sod-YN-KRm" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="MMh-Nk-aRc"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="RrB-vg-PXn" secondAttribute="trailing" id="QRS-Lb-YDO"/>
                             <constraint firstItem="Gsm-5u-vn8" firstAttribute="centerY" secondItem="x62-TI-SD2" secondAttribute="centerY" id="R6M-L4-CNU"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UsX-Ed-D5D" secondAttribute="trailing" id="T2c-3N-G2X"/>
+                            <constraint firstItem="UsX-Ed-D5D" firstAttribute="leading" secondItem="CHJ-ji-Rkn" secondAttribute="trailing" constant="20" id="UdO-GA-gTZ"/>
                             <constraint firstItem="Gsm-5u-vn8" firstAttribute="leading" secondItem="x62-TI-SD2" secondAttribute="trailing" constant="20" id="d2t-fC-dK3"/>
                             <constraint firstItem="RrB-vg-PXn" firstAttribute="centerY" secondItem="YOg-JL-JIj" secondAttribute="centerY" id="eB7-by-koW"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
-                            <constraint firstItem="YOg-JL-JIj" firstAttribute="top" secondItem="x62-TI-SD2" secondAttribute="bottom" constant="20" id="ktu-la-Hg2"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WNy-9N-8vA" secondAttribute="trailing" id="mQm-L0-6fV"/>
+                            <constraint firstItem="CHJ-ji-Rkn" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="nRQ-oP-Uhz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="ic_explore_white" id="mMW-ze-V2Y"/>
@@ -142,7 +253,7 @@
         <scene sceneID="nhb-PI-ZJd">
             <objects>
                 <collectionViewController id="Zy3-pH-Iq8" customClass="ZomPickColorViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7hs-57-iTT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="7hs-57-iTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

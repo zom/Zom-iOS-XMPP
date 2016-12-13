@@ -13,9 +13,11 @@ import OTRKit
 public class ZomDiscoverViewController: UIViewController {
 
     @IBAction func didPressZomServicesButtonWithSender(sender: AnyObject) {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
-            print("TODO")
-        }
+        //if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+        //    if let buddy = getZombotBuddy() {
+        //        appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
+        //    }
+        //}
     }
     
     @IBAction func didPressCreateGroupButtonWithSender(sender: AnyObject) {
@@ -45,4 +47,29 @@ public class ZomDiscoverViewController: UIViewController {
         }
     }
     
+    private func getZombotBuddy() -> OTRBuddy? {
+        var buddy:OTRBuddy? = nil
+        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+            let account:OTRAccount = appDelegate.getDefaultAccount()
+            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection.readWriteWithBlock { (transaction) in
+                buddy = OTRXMPPBuddy.fetchBuddyWithUsername("", withAccountUniqueId: account.uniqueId, transaction: transaction)
+                if (buddy == nil) {
+                    buddy = OTRXMPPBuddy()
+                    buddy!.username = "zombot@home.zom.im"
+                    buddy!.accountUniqueId = account.uniqueId
+                    // hack to show buddy in conversations view
+                    buddy!.lastMessageDate = NSDate()
+                    buddy!.setDisplayName("ZomBot!")
+                    (buddy as! OTRXMPPBuddy).pendingApproval = false
+                    buddy!.saveWithTransaction(transaction)
+                }
+                
+                if let proto:OTRProtocol? = OTRProtocolManager.sharedInstance().protocolForAccount(account) {
+                    proto?.addBuddy(buddy)
+                }
+                
+            }
+        }
+        return buddy;
+    }
 }

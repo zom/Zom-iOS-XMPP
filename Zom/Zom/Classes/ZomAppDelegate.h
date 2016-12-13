@@ -10,4 +10,6 @@
 
 @interface ZomAppDelegate : OTRAppDelegate
 
+- (OTRAccount *)getDefaultAccount;
+
 @end
