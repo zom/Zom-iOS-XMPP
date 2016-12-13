@@ -20,7 +20,6 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     @IBOutlet var scrollView: UIScrollView!
 
     private var shareLink:String? = nil
-    private var hasAdjustedButtonSize = false
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +31,8 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             gotInviteLabel.textColor = appDelegate.theme.mainThemeColor
             separator.backgroundColor = appDelegate.theme.mainThemeColor
         }
+        
+        adjustButtons()
         
         // Remove toolbar items
         //
@@ -87,24 +88,16 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     func didHideKeyboard(notification: NSNotification) {
         scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
     }
-    
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if (!hasAdjustedButtonSize) {
-            adjustButtons()
-            hasAdjustedButtonSize = true
-        }
-    }
 
     private func adjustButtons() {
         for item:UIBarButtonItem in self.addToolbar.items! {
             if (item.tag != 1) {
-                let w = (self.view.frame.width - 40) / 4
+                let w = (self.view.frame.width - 40) / 3.5
                 item.width = w
                 if let button = item.customView as? UIButton {
                     button.frame.size.width = w
                 }
-                if (w < 100 && !hasAdjustedButtonSize) {
+                if (w < 100) {
                     if let button = item.customView as? UIButton {
                         if let text = button.attributedTitleForState(UIControlState.Normal) {
                             button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
@@ -144,11 +137,6 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             }
         }
         addToolbar.items = toolbarButtons
-        if (self.hasAdjustedButtonSize) {
-            // Need to re-adjust size
-            self.adjustButtons()
-        }
-
     }
 
     @IBAction func shareSmsButtonPressedWithSender(sender: AnyObject) {
