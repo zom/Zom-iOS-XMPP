@@ -9,11 +9,12 @@
 
 import UIKit
 import ChatSecureCore
+import OTRAssets
+import BButton
 
 var ZomBaseLoginController_associatedObject1: UInt8 = 0
 var ZomBaseLoginController_associatedObject2: UInt8 = 1
 var ZomBaseLoginController_associatedObject3: UInt8 = 2
-var ZomBaseLoginController_associatedObject4: UInt8 = 3
 
 extension OTRBaseLoginViewController {
     public override class func initialize() {
@@ -60,11 +61,10 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
         set {
             objc_setAssociatedObject(self, &ZomBaseLoginController_associatedObject1, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            showPasswordAsText = newValue
         }
     }
 
-    public var showPasswordAsText:Bool {
+    private var existingAccount:Bool {
         get {
             return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject2) as? Bool ?? false
         }
@@ -72,22 +72,13 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
             objc_setAssociatedObject(self, &ZomBaseLoginController_associatedObject2, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-
-    private var existingAccount:Bool {
+    
+    public var createNewAccount:Bool {
         get {
             return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject3) as? Bool ?? false
         }
         set {
             objc_setAssociatedObject(self, &ZomBaseLoginController_associatedObject3, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    public var createNewAccount:Bool {
-        get {
-            return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject4) as? Bool ?? false
-        }
-        set {
-            objc_setAssociatedObject(self, &ZomBaseLoginController_associatedObject4, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -118,23 +109,38 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         if (onlyShowInfo) {
             cell.userInteractionEnabled = false
-        } else {
-            if let desc = self.form.formRowAtIndex(indexPath) {
+        }
+        if let desc = self.form.formRowAtIndex(indexPath) {
                 if (desc.tag == kOTRXLFormPasswordTextFieldTag) {
-                    cell.accessoryType = UITableViewCellAccessoryType.DetailButton
+                    let font:UIFont? = UIFont(name: kFontAwesomeFont, size: 30)
+                    if (font != nil) {
+                        let button = UIButton(type: UIButtonType.Custom)
+                        button.titleLabel?.font = font
+                        button.setTitle(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAEye), forState: UIControlState.Normal)
+                        //if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                        //    button.setTitleColor(appDelegate.theme.mainThemeColor, forState: UIControlState.Normal)
+                        //} else {
+                            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+                        //}
+                        button.frame = CGRectMake(0, 0, 44, 44)
+                        button.addTarget(self, action: #selector(self.didPressEyeIcon(_:withEvent:)), forControlEvents: UIControlEvents.TouchUpInside)
+                        cell.accessoryView = button
+                    } else {
+                        cell.accessoryType = UITableViewCellAccessoryType.DetailButton
+                    }
+                    cell.userInteractionEnabled = true
+                    if let xlCell = cell as? XLFormTextFieldCell {
+                        xlCell.textField.userInteractionEnabled = !onlyShowInfo
+                    }
                 }
             }
-        }
         return cell
     }
     
-    override public func configureCell(cell: XLFormBaseCell!) {
-        super.configureCell(cell)
-        if (cell.rowDescriptor.tag == kOTRXLFormPasswordTextFieldTag) {
-            if (cell.isKindOfClass(XLFormTextFieldCell.self)) {
-                let cellTextField = cell as! XLFormTextFieldCell
-                cellTextField.textField.secureTextEntry = !self.showPasswordAsText
-            }
+    func didPressEyeIcon(sender: UIControl!, withEvent: UIEvent!) {
+        let indexPath = self.tableView.indexPathForRowAtPoint((withEvent.touchesForView(sender)?.first?.locationInView(self.tableView))!)
+        if (indexPath != nil) {
+            self.tableView.delegate?.tableView!(self.tableView, accessoryButtonTappedForRowWithIndexPath: indexPath!)
         }
     }
     
@@ -192,17 +198,5 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         } else {
             super.pushInviteViewController()
         }
-    }
-    
-    public override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-        if let rowDesc:XLFormRowDescriptor = self.form.formRowAtIndex(indexPath) {
-            if (rowDesc.tag == kOTRXLFormPasswordTextFieldTag) {
-                if let editCell = rowDesc.cellForFormController(self) as? XLFormTextFieldCell {
-                    self.showPasswordAsText = !self.showPasswordAsText
-                    editCell.textField.secureTextEntry = !self.showPasswordAsText
-                }
-            }
-        }
-        //super.tableView(tableView, accessoryButtonTappedForRowWithIndexPath: indexPath)
     }
 }
