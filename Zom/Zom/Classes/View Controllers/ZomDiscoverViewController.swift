@@ -52,7 +52,7 @@ public class ZomDiscoverViewController: UIViewController {
         if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
             let account:OTRAccount = appDelegate.getDefaultAccount()
             OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection.readWriteWithBlock { (transaction) in
-                buddy = OTRXMPPBuddy.fetchBuddyWithUsername("", withAccountUniqueId: account.uniqueId, transaction: transaction)
+                buddy = OTRXMPPBuddy.fetchBuddyWithUsername("zombot@home.zom.im", withAccountUniqueId: account.uniqueId, transaction: transaction)
                 if (buddy == nil) {
                     buddy = OTRXMPPBuddy()
                     buddy!.username = "zombot@home.zom.im"
@@ -62,12 +62,11 @@ public class ZomDiscoverViewController: UIViewController {
                     //buddy!.setDisplayName("ZomBot")
                     //(buddy as! OTRXMPPBuddy).pendingApproval = false
                     buddy!.saveWithTransaction(transaction)
+
+                    if let proto:OTRProtocol? = OTRProtocolManager.sharedInstance().protocolForAccount(account) {
+                        proto?.addBuddy(buddy)
+                    }
                 }
-                
-                if let proto:OTRProtocol? = OTRProtocolManager.sharedInstance().protocolForAccount(account) {
-                    proto?.addBuddy(buddy)
-                }
-                
             }
         }
         return buddy;
