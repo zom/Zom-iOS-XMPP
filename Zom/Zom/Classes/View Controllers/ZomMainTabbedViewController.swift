@@ -171,15 +171,8 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
     
     private func populateMeTabController() {
         if (meViewController != nil) {
-            var account:OTRAccount?
-            let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
-            if (accounts.count > 0)
-            {
-                account = accounts[0] as? OTRAccount
-            }
-            
-            if (account != nil) {
-                ZomProfileViewControllerInfo.createInfo(account!, protocolString: account!.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction) { (info) in
+            if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate,let account = appDelegate.getDefaultAccount() {
+                ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction) { (info) in
                     self.meViewController!.info = info
                 }
             }
