@@ -266,7 +266,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         let account = self.account()
         
         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-        ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction) { (info) in
+        ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: true) { (info) in
             profileVC.info = info
         }
 

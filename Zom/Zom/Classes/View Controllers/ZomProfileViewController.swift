@@ -72,7 +72,7 @@ struct ZomProfileViewControllerInfo {
     let buddy:OTRBuddy
     let otrKit:OTRKit
     let otrKitInfo:zomOTRKitInfo
-
+    let hasSession:Bool
     
     func infoAtIndexPath(indexPath:NSIndexPath) -> ZomProfileViewCellInfoProtocol? {
         let section = indexPath.section
@@ -96,7 +96,7 @@ struct ZomProfileViewControllerInfo {
     }
     
     /** use this static function to create the info object for a buddy */
-    static func createInfo(buddy:OTRBuddy,accountName:String,protocolString:String,otrKit:OTRKit,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?, completion:(ZomProfileViewControllerInfo)->Void) {
+    static func createInfo(buddy:OTRBuddy,accountName:String,protocolString:String,otrKit:OTRKit,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?,hasSession:Bool,completion:(ZomProfileViewControllerInfo)->Void) {
         
         let userCell = UserCellInfo(avatarImage: buddy.avatarImage(), title: buddy.threadName(), subtitle: buddy.username)
         
@@ -115,18 +115,18 @@ struct ZomProfileViewControllerInfo {
                 }
                 
                 
-                var sections = [TableSectionInfo(title: nil, cells: [userCell,ButtonCellInfo(type:.Refresh)])]
+                var sections = [TableSectionInfo(title: nil, cells: [userCell,(hasSession ? ButtonCellInfo(type:.Refresh) : ButtonCellInfo(type:.StartChat))])]
                 if (fingerprintSectionCells?.count > 0 ) {
                     sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
                 }
-                let profileInfo = ZomProfileViewControllerInfo(tableSections: sections,buddy: buddy, otrKit: otrKit,otrKitInfo: zomOTRKitInfo(username: buddy.username, accountName: accountName, protocolString: protocolString))
+                let profileInfo = ZomProfileViewControllerInfo(tableSections: sections,buddy: buddy, otrKit: otrKit,otrKitInfo: zomOTRKitInfo(username: buddy.username, accountName: accountName, protocolString: protocolString), hasSession: hasSession)
                 completion(profileInfo)
                 
             })
         }
     }
     
-    /** use this static function to create the info object for a buddy */
+    /** use this static function to create the info object for the "ME" tab */
     static func createInfo(account:OTRAccount,protocolString:String,otrKit:OTRKit,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?, completion:(ZomProfileViewControllerInfo)->Void) {
 
         if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
@@ -151,7 +151,7 @@ struct ZomProfileViewControllerInfo {
                             if (fingerprintSectionCells?.count > 0 ) {
                                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
                             }
-                            let profileInfo = ZomProfileViewControllerInfo(tableSections: sections,buddy: buddy, otrKit: otrKit,otrKitInfo: zomOTRKitInfo(username: buddy.username, accountName: account.username, protocolString: protocolString))
+                            let profileInfo = ZomProfileViewControllerInfo(tableSections: sections,buddy: buddy, otrKit: otrKit,otrKitInfo: zomOTRKitInfo(username: buddy.username, accountName: account.username, protocolString: protocolString), hasSession: false)
                             completion(profileInfo)
                             
                         })
@@ -242,11 +242,13 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
     enum ButtonCellType {
         case Verify
         case Refresh
+        case StartChat
         
         func text() -> String {
             switch self {
             case .Verify : return NSLocalizedString("Verify Contact", comment: "Button label to verify contact security")
-            case .Refresh: return NSLocalizedString("Refresh Session", comment: "Button labe to refresh an OTR session")
+            case .Refresh: return NSLocalizedString("Refresh Session", comment: "Button label to refresh an OTR session")
+            case .StartChat: return NSLocalizedString("Start Chat", comment: "Button label to start a chat")
             }
         }
     }
@@ -268,10 +270,12 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
 class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var info:ZomProfileViewControllerInfo
+    var controller:ZomProfileViewController
     var relaodData:(() -> Void)?
     
-    init(info:ZomProfileViewControllerInfo) {
+    init(info:ZomProfileViewControllerInfo, controller:ZomProfileViewController) {
         self.info = info
+        self.controller = controller
     }
     
     //MARK: UITableViewDataSource
@@ -321,6 +325,15 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
          case let buttonCellInfo as ButtonCellInfo where buttonCellInfo.type == .Refresh:
             //TODO: We should at some point listen for encryption change notification to refresh the table view with new fingerprint informatoin
             self.info.otrKit.initiateEncryptionWithUsername(self.info.otrKitInfo.username, accountName: self.info.otrKitInfo.accountName, protocol: self.info.otrKitInfo.protocolString)
+            break
+        case let buttonCellInfo as ButtonCellInfo where buttonCellInfo.type == .StartChat:
+            //TODO: We should at some point listen for encryption change notification to refresh the table view with new fingerprint informatoin
+            // TODO: close and start chat! Possibly via
+            if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                controller.navigationController?.popViewControllerAnimated(true)
+                appDelegate.splitViewCoordinator.enterConversationWithBuddy(self.info.buddy.uniqueId)
+            }
+            break
         default:
             break
         }
@@ -333,10 +346,10 @@ class ZomProfileViewController : UIViewController {
     private var tableViewSource:ZomProfileTableViewSource?
     var info:ZomProfileViewControllerInfo? {
         didSet {
-            self.tableViewSource = ZomProfileTableViewSource(info: self.info!)
+            self.tableViewSource = ZomProfileTableViewSource(info: self.info!, controller: self)
             self.tableViewSource?.relaodData = {
                 if let n = self.info {
-                    ZomProfileViewControllerInfo.createInfo(n.buddy, accountName: n.otrKitInfo.accountName, protocolString: n.otrKitInfo.protocolString, otrKit: n.otrKit,qrAction:self.qrAction, shareAction: self.shareAction, completion: { (newInfo) in
+                    ZomProfileViewControllerInfo.createInfo(n.buddy, accountName: n.otrKitInfo.accountName, protocolString: n.otrKitInfo.protocolString, otrKit: n.otrKit,qrAction:self.qrAction, shareAction: self.shareAction, hasSession: n.hasSession, completion: { (newInfo) in
                         // Set the new info
                         self.info = newInfo
                     })

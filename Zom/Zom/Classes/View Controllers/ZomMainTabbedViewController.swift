@@ -8,13 +8,15 @@
 
 import Foundation
 
-public class ZomMainTabbedViewController: UITabBarController {
+public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate {
     
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
     private var meViewController:ZomProfileViewController? = nil
     private var observerContext = 0
     private var observersRegistered:Bool = false
+    private var barButtonSettings:UIBarButtonItem?
+    private var barButtonAddChat:UIBarButtonItem?
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -34,7 +36,7 @@ public class ZomMainTabbedViewController: UITabBarController {
                     if (friendsViewController!.view != nil) {
                         friendsViewController!.tabBarItem = child.tabBarItem
                     }
-                    friendsViewController?.delegate = appDelegate.splitViewCoordinator
+                    friendsViewController?.delegate = self
                     newControllers.append(friendsViewController!)
                 } else if (child.restorationIdentifier == "me") {
                     meViewController = ZomProfileViewController(nibName: nil, bundle: nil)
@@ -48,6 +50,10 @@ public class ZomMainTabbedViewController: UITabBarController {
             }
             setViewControllers(newControllers, animated: false)
         }
+        
+        // Create bar button items
+        self.barButtonSettings = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .Plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
+        self.barButtonAddChat = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(self.didPressAddButton(_:)))
         
         // Hide the tab item text, but don't null it (we use it to build the top title)
         for item:UITabBarItem in self.tabBar.items! {
@@ -65,9 +71,7 @@ public class ZomMainTabbedViewController: UITabBarController {
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem
         
-        // Show settings in right nav bar item
-        let settingsItem = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .Plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
-        navigationItem.rightBarButtonItem = settingsItem
+        updateRightButtons()
     }
     
     override public func viewWillAppear(animated: Bool) {
@@ -114,12 +118,14 @@ public class ZomMainTabbedViewController: UITabBarController {
     override public var selectedViewController: UIViewController? {
         didSet {
             updateTitle()
+            updateRightButtons()
         }
     }
     
     override public var selectedIndex: Int {
         didSet {
             updateTitle()
+            updateRightButtons()
         }
     }
     
@@ -129,6 +135,17 @@ public class ZomMainTabbedViewController: UITabBarController {
             self.navigationItem.title = appName + " | " + selectedViewController!.tabBarItem.title!
             if (selectedViewController == meViewController) {
                 populateMeTabController()
+            }
+        }
+    }
+    
+    private func updateRightButtons() {
+        if let add = barButtonAddChat, settings = barButtonSettings {
+            if (selectedIndex == 0) {
+                navigationItem.rightBarButtonItems = [settings, add]
+            }
+            else {
+                navigationItem.rightBarButtonItems = [settings]
             }
         }
     }
@@ -146,6 +163,12 @@ public class ZomMainTabbedViewController: UITabBarController {
         self.chatsViewController?.settingsButtonPressed(sender)
     }
     
+    @IBAction func didPressAddButton(sender: AnyObject) {
+        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+            appDelegate.splitViewCoordinator.conversationViewController(appDelegate.conversationViewController, didSelectCompose: self)
+        }
+    }
+    
     private func populateMeTabController() {
         if (meViewController != nil) {
             var account:OTRAccount?
@@ -161,5 +184,38 @@ public class ZomMainTabbedViewController: UITabBarController {
                 }
             }
         }
+    }
+    
+    // MARK: - OTRComposeViewControllerDelegate
+    public func controller(viewController: OTRComposeViewController, didSelectBuddies buddies: [String]?, accountId: String?, name: String?) {
+        if (buddies?.count == 1) {
+            guard let buds = buddies,
+                accountKey = accountId else {
+                    return
+            }
+            
+            if (buds.count == 1) {
+                if let buddyKey = buds.first {
+                    
+                    var buddy:OTRBuddy? = nil
+                    var account:OTRAccount? = nil
+                    OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection.readWithBlock { (transaction) -> Void in
+                        buddy = OTRBuddy.fetchObjectWithUniqueID(buddyKey, transaction: transaction)
+                        account = OTRAccount.fetchObjectWithUniqueID(accountKey, transaction: transaction)
+                    }
+                    if let b = buddy, a = account {
+                        let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
+                        ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: false) { (info) in
+                            profileVC.info = info
+                        }
+                        self.navigationController?.pushViewController(profileVC, animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    public func controllerDidCancel(viewController: OTRComposeViewController) {
+        
     }
 }
