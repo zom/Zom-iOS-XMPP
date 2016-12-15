@@ -252,6 +252,27 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         let vc = storyboard.instantiateInitialViewController()
         self.presentViewController(vc!, animated: true, completion: nil)
     }
+    
+    override public func rightBarButtonItem() -> UIBarButtonItem! {
+        let image = UIImage(named: "OTRInfoIcon", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
+        let item = UIBarButtonItem(image: image, style: .Plain, target: self, action: #selector(didPressInfoButton(_:)))
+        return item
+    }
+    
+    @objc func didPressInfoButton(sender:AnyObject) {
+        guard let buddy = self.threadObject() as? OTRBuddy else {
+            return
+        }
+        let account = self.account()
+        
+        let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
+        ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction) { (info) in
+            profileVC.info = info
+        }
+
+        
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
 }
 
 extension UIImage
