@@ -24,13 +24,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-TI-SD2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-TI-SD2">
                                 <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Lgt-Pi-Z2H"/>
                                     <constraint firstAttribute="height" constant="60" id="xxI-Xw-IeW"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" title=""/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -41,7 +43,7 @@
                                     <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="jkr-BY-jJk"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsm-5u-vn8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsm-5u-vn8">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ONv-JN-hgb"/>
@@ -216,7 +218,7 @@ Cg
                             <constraint firstItem="WNy-9N-8vA" firstAttribute="leading" secondItem="sod-YN-KRm" secondAttribute="trailing" constant="20" id="1ij-Lv-LSL"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Gsm-5u-vn8" secondAttribute="trailing" id="1rd-7G-xR5"/>
                             <constraint firstItem="YOg-JL-JIj" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="2vj-Xi-qZJ"/>
-                            <constraint firstItem="CHJ-ji-Rkn" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="20" id="3DI-SF-i5e"/>
+                            <constraint firstItem="CHJ-ji-Rkn" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="100" id="3DI-SF-i5e"/>
                             <constraint firstItem="UsX-Ed-D5D" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" id="4gS-kG-du8"/>
                             <constraint firstItem="x62-TI-SD2" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="5z4-9D-lDR"/>
                             <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="elb-yq-kT3" secondAttribute="trailing" constant="20" id="74v-pq-qaq"/>
@@ -253,7 +255,7 @@ Cg
         <scene sceneID="nhb-PI-ZJd">
             <objects>
                 <collectionViewController id="Zy3-pH-Iq8" customClass="ZomPickColorViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="7hs-57-iTT">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7hs-57-iTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

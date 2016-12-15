@@ -13,11 +13,11 @@ import OTRKit
 public class ZomDiscoverViewController: UIViewController {
 
     @IBAction func didPressZomServicesButtonWithSender(sender: AnyObject) {
-        //if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
-        //    if let buddy = getZombotBuddy() {
-        //        appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
-        //    }
-        //}
+        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+            if let buddy = getZombotBuddy() {
+                appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
+            }
+        }
     }
     
     @IBAction func didPressCreateGroupButtonWithSender(sender: AnyObject) {
@@ -58,9 +58,9 @@ public class ZomDiscoverViewController: UIViewController {
                     buddy!.username = "zombot@home.zom.im"
                     buddy!.accountUniqueId = account.uniqueId
                     // hack to show buddy in conversations view
-                    buddy!.lastMessageDate = NSDate()
-                    buddy!.setDisplayName("ZomBot!")
-                    (buddy as! OTRXMPPBuddy).pendingApproval = false
+                    //buddy!.lastMessageDate = NSDate()
+                    //buddy!.setDisplayName("ZomBot")
+                    //(buddy as! OTRXMPPBuddy).pendingApproval = false
                     buddy!.saveWithTransaction(transaction)
                 }
                 
