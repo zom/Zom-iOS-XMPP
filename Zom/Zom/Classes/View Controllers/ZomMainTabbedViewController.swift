@@ -12,7 +12,7 @@ public class ZomMainTabbedViewController: UITabBarController {
     
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
-    private var meViewController:ZomMyQRViewController? = nil
+    private var meViewController:ZomProfileViewController? = nil
     private var observerContext = 0
     private var observersRegistered:Bool = false
     
@@ -37,8 +37,10 @@ public class ZomMainTabbedViewController: UITabBarController {
                     friendsViewController?.delegate = appDelegate.splitViewCoordinator
                     newControllers.append(friendsViewController!)
                 } else if (child.restorationIdentifier == "me") {
-                    meViewController = child as? ZomMyQRViewController
-                    newControllers.append(child)
+                    meViewController = ZomProfileViewController(nibName: nil, bundle: nil)
+                    meViewController?.tabBarItem = child.tabBarItem
+                    //meViewController = child as? ZomProfileViewController
+                    newControllers.append(meViewController!)
                 }
                 else {
                     newControllers.append(child)
@@ -152,7 +154,12 @@ public class ZomMainTabbedViewController: UITabBarController {
             {
                 account = accounts[0] as? OTRAccount
             }
-            self.meViewController!.account = account
+            
+            if (account != nil) {
+                ZomProfileViewControllerInfo.createInfo(account!, protocolString: account!.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction) { (info) in
+                    self.meViewController!.info = info
+                }
+            }
         }
     }
 }

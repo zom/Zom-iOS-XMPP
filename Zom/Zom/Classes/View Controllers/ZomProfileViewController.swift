@@ -125,6 +125,42 @@ struct ZomProfileViewControllerInfo {
             })
         }
     }
+    
+    /** use this static function to create the info object for a buddy */
+    static func createInfo(account:OTRAccount,protocolString:String,otrKit:OTRKit,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?, completion:(ZomProfileViewControllerInfo)->Void) {
+
+        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+            let account:OTRAccount = appDelegate.getDefaultAccount()
+            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection.readWriteWithBlock { (transaction) in
+                if let buddy = OTRXMPPBuddy.fetchBuddyWithUsername(account.username, withAccountUniqueId: account.uniqueId, transaction: transaction) {
+                    let userCell = UserCellInfo(avatarImage: buddy.avatarImage(), title: buddy.threadName(), subtitle: buddy.username)
+                    
+                    //Once all fingerprints works in later (already exists in later OTRKit commit. Move to fetching all fingerprints
+                    otrKit.activeFingerprintForUsername(buddy.username, accountName: account.username, protocol: protocolString) { (fingerprint) in
+                        otrKit.activeFingerprintIsVerifiedForUsername(buddy.username, accountName: account.username, protocol: protocolString, completion: { (verified) in
+                            var fingerprintSectionCells:[ZomProfileViewCellInfoProtocol]? = nil
+                            if let fprint = fingerprint {
+                                
+                                fingerprintSectionCells = [FingerprintCellInfo(fingerprint: fprint,qrAction: qrAction, shareAction: shareAction)]
+                                if (!verified) {
+                                    fingerprintSectionCells?.append(ButtonCellInfo(type:.Verify))
+                                }
+                            }
+                            
+                            var sections = [TableSectionInfo(title: nil, cells: [userCell])]
+                            if (fingerprintSectionCells?.count > 0 ) {
+                                sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
+                            }
+                            let profileInfo = ZomProfileViewControllerInfo(tableSections: sections,buddy: buddy, otrKit: otrKit,otrKitInfo: zomOTRKitInfo(username: buddy.username, accountName: account.username, protocolString: protocolString))
+                            completion(profileInfo)
+                            
+                        })
+                    }
+
+                }
+            }
+        }
+    }
 }
 
 /** This struct contains all the information for a table section  */
