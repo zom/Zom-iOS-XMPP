@@ -26,8 +26,9 @@ internal enum ZomProfileViewCellIdentifier:String {
     case ProfileCell = "ProfileCell"
     case FingerprintCell = "FingerprintCell"
     case ButtonCell = "ButtonCell"
+    case PasswordCell = "PasswordCell"
     
-    static let allValues = [ProfileCell,FingerprintCell,ButtonCell]
+    static let allValues = [ProfileCell,FingerprintCell,ButtonCell,PasswordCell]
     
     func cellNib() -> UINib? {
         let resourceBundle = OTRAssets.resourcesBundle()
@@ -36,6 +37,8 @@ internal enum ZomProfileViewCellIdentifier:String {
             return UINib(nibName: "ZomUserInfoProfileCell", bundle: resourceBundle)
         case FingerprintCell:
             return UINib(nibName: "ZomFingerprintCell", bundle: resourceBundle)
+        case PasswordCell :
+            return UINib(nibName: "ZomPasswordCell", bundle: resourceBundle)
         default:
             return nil
         }
@@ -153,7 +156,8 @@ struct ZomProfileViewControllerInfo {
         otrKit.fingerprintForAccountName(account.username, protocol: protocolString) { (fingerprint) in
             let displayName = account.displayName ?? account.username!
             let userCell = UserCellInfo(avatarImage: account.avatarImage(), title: displayName, subtitle: account.username)
-            var sections = [TableSectionInfo(title: nil, cells: [userCell])]
+            let passwordCellInfo = PasswordCellInfo(password:account.password)
+            var sections = [TableSectionInfo(title: nil, cells: [userCell,passwordCellInfo])]
             if let fprint = fingerprint {
                 let fingerprintSectionCells:[ZomProfileViewCellInfoProtocol] = [FingerprintCellInfo(fingerprint: fprint, qrAction: qrAction, shareAction: shareAction)]
                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
@@ -263,6 +267,29 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
     func cellIdentifier() -> ZomProfileViewCellIdentifier {
         return .ButtonCell
     }
+    func cellHeight() -> CGFloat? {
+        return nil
+    }
+}
+
+struct PasswordCellInfo: ZomProfileViewCellInfoProtocol {
+    let password:String
+    
+    func configure(cell: UITableViewCell) {
+        guard let passwordCell = cell as? ZomPasswordCell else {
+            return
+        }
+        passwordCell.passwordTextField.text = self.password
+        
+        passwordCell.revealButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
+        passwordCell.revealButton.setTitle(NSString.fa_stringForFontAwesomeIcon(.FAEye), forState: UIControlState.Normal)
+        passwordCell.selectionStyle = .None
+    }
+    
+    func cellIdentifier() -> ZomProfileViewCellIdentifier {
+        return .PasswordCell
+    }
+    
     func cellHeight() -> CGFloat? {
         return nil
     }
