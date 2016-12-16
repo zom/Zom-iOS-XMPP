@@ -100,7 +100,7 @@ done
 # Step 3 - Extract strings from base storyboard and convert to utf-8. Split them into key-value pairs.
 #
 #
-cp "$1" /tmp/Localizable.strings
+ibtool --export-strings-file /tmp/Localizable.strings "$1"
 iconv -f utf-16 -t utf-8 /tmp/Localizable.strings >/tmp/Localizable.strings.utf8 || {
     echo "Failed to convert to utf-8"
     exit 1
@@ -153,7 +153,7 @@ function parseAndroidStringsFile {
     local filePath=$1
     android_keys=()
     android_values=()
-    while read line ; do
+    while read -r line ; do
 	key=$(echo $line | cut -d \  -f 1)
 	val=$(echo $line | cut -d \  -f 2-)
 	addAndroidMapping "$key" "$val"
@@ -161,10 +161,11 @@ function parseAndroidStringsFile {
 }
 
 function parseiOSStringsFile {
-    local filePath=$1
+    local filePath="$1"
+    echo "Parsing iOS file $filePath"
     ios_keys=()
     ios_values=()
-    while read line || [[ -n $line ]]; do
+    while read -r line || [[ -n $line ]]; do
 	sep=" = "
 	case $line in
 	    (*"$sep"*)
@@ -185,7 +186,7 @@ function parseiOSStringsFile {
 	    echo "Adding mapping $key --> $value"
 	    addiOSMapping "$key" "$value"
 	fi
-    done <"$filePath"
+    done < <(sed -n '/^\".*;$/p' "$filePath")
 }
 
 function findAndroidTranslation {
@@ -214,7 +215,7 @@ function findAndroidId {
     done
 }
 
-while read line || [[ -n $line ]]; do
+while read -r line || [[ -n $line ]]; do
     sep=" = "
     case $line in
 	(*"$sep"*)
@@ -235,7 +236,7 @@ while read line || [[ -n $line ]]; do
 	echo "Adding base mapping $key --> $value"
 	addBaseMapping "$key" "$value"
     fi
-done <"$default_strings_file"
+done < <(sed -n '/^\".*;$/p' "$default_strings_file")
 
 
 
@@ -255,7 +256,7 @@ i_translation=0
 while [ "x${base_translations[i_translation]}" != "x" ]
 do
     term="${base_translations[i_translation]}"
-    
+
     id=""
     count=0
     while [ "x${android_values[count]}" != "x" ] 
@@ -286,14 +287,14 @@ while [ "x${languages[languages_index]}" != "x" ]
 do
     language="${languages[languages_index]}"
     ios_file="${ios_files[languages_index]}"
-    echo "Processing language: $language"
+    echo "Processing language: $language ios_file $ios_file"
     ((languages_index++))
     language_suffix=$(getAndroidLanguageCodeFromiOSLanguageCode "$language")
     android_file="${android_base_strings_file/values/values$language_suffix}"
     if [ -f $android_file ]; then
 
 	# Copy a fresh strings file to our target ios language file
-	cp /tmp/Localizable.strings.utf8 "$ios_file"
+	# cp /tmp/Localizable.strings.utf8 "$ios_file"
 
 	parseAndroidStringsFile "$android_file"
 	parseiOSStringsFile "$ios_file"
@@ -325,7 +326,9 @@ do
 	    value="${ios_values[count]}"
 	    value="${value//\&/\\&}"
 	    echo "Update file $ios_file with $key -> $value"
-	    sed -e "s/$key\" =.*/$key\" = \"$value\";/" -i "" "$ios_file"
+	    value="${value/\\/\\\\}"
+	    command="s/$key\" =.*/$key\" = \"$value\";/"
+	    sed -e "$command" -i "" "$ios_file"
 	    ((count++))
 	done
 
