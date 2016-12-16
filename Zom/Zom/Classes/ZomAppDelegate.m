@@ -113,12 +113,30 @@
 }
 
 - (OTRAccount *)getDefaultAccount {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"zom_DefaultAccount"] != nil) {
+        NSString *accountUsername = [defaults objectForKey:@"zom_DefaultAccount"];
+        OTRAccount *account = [OTRAccountsManager accountWithUsername:accountUsername];
+        if (account != nil) {
+            return account;
+        }
+    }
     NSArray *accounts = [OTRAccountsManager allAccountsAbleToAddBuddies];
     if (accounts != nil && accounts.count > 0)
     {
         return (OTRAccount *)accounts[0];
     }
     return nil;
+}
+
+
+- (void)setDefaultAccount:(OTRAccount *)account {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (account != nil) {
+        [defaults setValue:account.username forKey:@"zom_DefaultAccount"];
+    } else {
+        [defaults removeObjectForKey:@"zom_DefaultAccount"];
+    }
 }
 
 @end

@@ -11,5 +11,6 @@
 @interface ZomAppDelegate : OTRAppDelegate
 
 - (OTRAccount *)getDefaultAccount;
+- (void) setDefaultAccount:(OTRAccount *)account;
 
 @end

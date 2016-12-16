@@ -50,7 +50,7 @@ extension OTRSettingsViewController {
             //
             let alert:UIAlertController = viewControllerToPresent as! UIAlertController
             if (alert.title == nil) {
-                let infoAction = UIAlertAction(title: "Show information", style: UIAlertActionStyle.Default, handler: { (action) in
+                let infoAction = UIAlertAction(title: NSLocalizedString("Show information", comment: "Account option to show more information"), style: UIAlertActionStyle.Default, handler: { (action) in
                     if (self.accountForInformation != nil) {
                         let login = OTRBaseLoginViewController(forAccount: self.accountForInformation)
                         object_setClass(login, ZomBaseLoginViewController.self)
@@ -62,6 +62,18 @@ extension OTRSettingsViewController {
                     }
                 })
                 alert.addAction(infoAction)
+                if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                    if (self.accountForInformation?.uniqueId != appDelegate.getDefaultAccount()?.uniqueId) {
+                        let setDefaultAction = UIAlertAction(title: NSLocalizedString("Set as default", comment: "Account option to set as default"), style: UIAlertActionStyle.Default, handler: { (action) in
+                            if (self.accountForInformation != nil) {
+                                if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                                    appDelegate.setDefaultAccount(self.accountForInformation)
+                                }
+                            }
+                        })
+                        alert.addAction(setDefaultAction)
+                    }
+                }
             }
         }
         self.zom_presentViewController(viewControllerToPresent, animated: flag, completion: completion)
