@@ -318,6 +318,11 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let object = info.infoAtIndexPath(indexPath) {
             let cell = tableView.dequeueReusableCellWithIdentifier(object.cellIdentifier().rawValue, forIndexPath: indexPath)
+            // Lay it out
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+            cell.setNeedsLayout()
+            cell.layoutIfNeeded()
             object.configure(cell)
             return cell
         }
@@ -461,6 +466,5 @@ class ZomProfileViewController : UIViewController {
         
         self.view.addSubview(self.tableView)
         self.tableView.autoPinEdgesToSuperviewEdges()
-        
     }
 }
