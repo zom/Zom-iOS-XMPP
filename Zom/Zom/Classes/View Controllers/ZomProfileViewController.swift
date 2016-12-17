@@ -22,6 +22,7 @@ extension OTRBuddy {
     }
 }
 
+/** All the idenitifiers for each cell that is possible in a ProfileViewController */
 internal enum ZomProfileViewCellIdentifier:String {
     case ProfileCell = "ProfileCell"
     case FingerprintCell = "FingerprintCell"
@@ -30,39 +31,46 @@ internal enum ZomProfileViewCellIdentifier:String {
     
     static let allValues = [ProfileCell,FingerprintCell,ButtonCell,PasswordCell]
     
-    func cellNib() -> UINib? {
-        let resourceBundle = OTRAssets.resourcesBundle()
-        switch self {
-        case .ProfileCell :
-            return UINib(nibName: "ZomUserInfoProfileCell", bundle: resourceBundle)
-        case FingerprintCell:
-            return UINib(nibName: "ZomFingerprintCell", bundle: resourceBundle)
-        case PasswordCell :
-            return UINib(nibName: "ZomPasswordCell", bundle: resourceBundle)
-        default:
-            return nil
-        }
+    enum ClassOrNib {
+        case Nib(UINib)
+        case Class(AnyClass)
     }
     
-    func cellClass() -> AnyClass? {
-        switch self {
+    /** Get the cell class or nib depending on the identifier type */
+    static func classOrNib(identifier:ZomProfileViewCellIdentifier) -> ClassOrNib {
+        let resourceBundle = OTRAssets.resourcesBundle()
+        switch identifier {
+        case .ProfileCell :
+            return .Nib(UINib(nibName: "ZomUserInfoProfileCell", bundle: resourceBundle))
+        case FingerprintCell:
+            return .Nib(UINib(nibName: "ZomFingerprintCell", bundle: resourceBundle))
+        case PasswordCell :
+            return .Nib(UINib(nibName: "ZomPasswordCell", bundle: resourceBundle))
         case .ButtonCell:
-            return UITableViewCell.self
-        default:
-            return nil
+            return .Class(UITableViewCell.self)
         }
     }
-        
 }
 
+/** 
+ This protocol defines the funtion for any cell info struct/object.
+ The Cell info should contain all the data necesssary to build the UITableViewCell of its type.
+ */
 protocol ZomProfileViewCellInfoProtocol {
     
+    /** 
+     Called from `func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell`.
+     */
     func configure(cell:UITableViewCell)
+    
+    /** The cell type for this cell info */
     func cellIdentifier() -> ZomProfileViewCellIdentifier
+    
+    /** The cell height. If nil then UITableViewAutomaticDimension is used */
     func cellHeight() -> CGFloat?
 }
 
-/**  */
+/** This contains all teh information necessary to build the ZomProfileViewController */
 struct ZomProfileViewControllerInfo {
     
     struct zomOTRKitInfo {
@@ -72,6 +80,7 @@ struct ZomProfileViewControllerInfo {
         let protocolString:String
     }
     
+    /** Since a profile can be for a user or a buddy this contains some of those differences */
     enum User {
         case Buddy(OTRBuddy)
         case Account(OTRAccount)
@@ -92,12 +101,14 @@ struct ZomProfileViewControllerInfo {
         }
     }
     
+    /** The sections of table view which contain the rows */
     let tableSections:[TableSectionInfo]
     let user:User
     let otrKit:OTRKit
     let otrKitInfo:zomOTRKitInfo
     let hasSession:Bool
     
+    /** Fetch the row info at a given indexpath */
     func infoAtIndexPath(indexPath:NSIndexPath) -> ZomProfileViewCellInfoProtocol? {
         let section = indexPath.section
         let row = indexPath.row
@@ -150,7 +161,7 @@ struct ZomProfileViewControllerInfo {
         }
     }
     
-    /** use this static function to create the info object for the "ME" tab */
+    /** Use this static function to create the info object for the "ME" tab */
     static func createInfo(account:OTRAccount,protocolString:String,otrKit:OTRKit,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?, completion:(ZomProfileViewControllerInfo)->Void) {
         
         otrKit.fingerprintForAccountName(account.username, protocol: protocolString) { (fingerprint) in
@@ -457,10 +468,13 @@ class ZomProfileViewController : UIViewController {
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
         ZomProfileViewCellIdentifier.allValues.forEach { (cellIdentifier) in
-            if let nib = cellIdentifier.cellNib() {
-                self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier.rawValue)
-            } else if let cellClass = cellIdentifier.cellClass() {
+            switch ZomProfileViewCellIdentifier.classOrNib(cellIdentifier) {
+                case let .Class(cellClass) :
                 self.tableView.registerClass(cellClass, forCellReuseIdentifier: cellIdentifier.rawValue)
+                break
+                case let .Nib(cellNib):
+                self.tableView.registerNib(cellNib, forCellReuseIdentifier: cellIdentifier.rawValue)
+                break
             }
         }
         
