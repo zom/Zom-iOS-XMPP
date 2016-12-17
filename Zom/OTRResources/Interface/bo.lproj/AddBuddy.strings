@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Tap the Zom invite link from your friend or scan their QR code now"; ObjectID = "1kj-Rl-D1L"; */
+"1kj-Rl-D1L.text" = "Tap the Zom invite link from your friend or scan their QR code now";
+
+/* Class = "UILabel"; text = "ADD FRIENDS"; ObjectID = "2P2-BW-dpR"; */
+"2P2-BW-dpR.text" = "ADD FRIENDS";
+
+/* Class = "UILabel"; text = "GOT INVITED?"; ObjectID = "AqM-V0-Y5G"; */
+"AqM-V0-Y5G.text" = "མགྲོན་འབོད་བྱས་སོང་ངམ།";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "FMY-5w-x2g"; */
+"FMY-5w-x2g.title" = "Title";
+
+/* Class = "UILabel"; text = "ADVANCED\nEnter your friend's full username (e.g. zomisfun.4x3f5g@zom.im) here:"; ObjectID = "OfJ-vA-D7O"; */
+"OfJ-vA-D7O.text" = "ADVANCED\nEnter your friend's full username (e.g. zomisfun.4x3f5g@zom.im) here:";
+
+/* Class = "UIViewController"; title = "Choose account"; ObjectID = "o4G-Cg-UOP"; */
+"o4G-Cg-UOP.title" = "Choose account";

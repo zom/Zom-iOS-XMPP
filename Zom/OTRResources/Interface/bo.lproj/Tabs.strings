@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3OG-pV-hC2"; */
+"3OG-pV-hC2.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "CHJ-ji-Rkn"; */
+"CHJ-ji-Rkn.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "Gsm-5u-vn8"; */
+"Gsm-5u-vn8.normalTitle" = "Zom Services";
+
+/* Class = "UITabBarItem"; title = "Friends"; ObjectID = "LlX-wc-bzj"; */
+"LlX-wc-bzj.title" = "གྲོགས་པོ།";
+
+/* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "RrB-vg-PXn"; */
+"RrB-vg-PXn.normalTitle" = "ཚོགས་པ་ཞིག་བཟོས།";
+
+/* Class = "UITabBarItem"; title = "Chats"; ObjectID = "XJU-FY-mH5"; */
+"XJU-FY-mH5.title" = "གླེང་མོལ།";
+
+/* Class = "UIButton"; normalTitle = "Change Theme"; ObjectID = "awf-Ca-eIa"; */
+"awf-Ca-eIa.normalTitle" = "པར་ངོས་བརྗེས།";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ic8-e2-idk"; */
+"ic8-e2-idk.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
+"mMW-ze-V2Y.title" = "གསར་རྙེད།";
+
+/* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
+"pL4-Qt-LL4.title" = "ང་།";
+
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "sod-YN-KRm"; */
+"sod-YN-KRm.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "x62-TI-SD2"; */
+"x62-TI-SD2.normalTitle" = "";
