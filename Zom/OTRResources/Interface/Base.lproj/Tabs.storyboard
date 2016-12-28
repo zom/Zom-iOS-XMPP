@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E1H-SC-6fK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E1H-SC-6fK">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -71,36 +71,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-Ed-D5D">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-Ed-D5D">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="VAc-5x-RaX"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Photo Stream">
-                                            <attributes>
-                                                <color key="NSColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="system" size="18"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="system" size="18"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="Coming Soon">
-                                            <attributes>
-                                                <color key="NSColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Photo Stream">
+                                    <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-5O-oEp">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Coming Soon">
+                                    <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOg-JL-JIj">
@@ -149,36 +131,18 @@ Cg
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WNy-9N-8vA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="WNy-9N-8vA">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="5Mn-X2-9PG"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Sticker Share">
-                                            <attributes>
-                                                <color key="NSColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="system" size="18"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment>
-                                            <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" metaFont="system" size="18"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="Coming Soon">
-                                            <attributes>
-                                                <color key="NSColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Sticker Share">
+                                    <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FBm-IU-igY">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Coming Soon">
+                                    <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elb-yq-kT3">
@@ -214,12 +178,12 @@ Cg
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WNy-9N-8vA" firstAttribute="centerY" secondItem="sod-YN-KRm" secondAttribute="centerY" id="1ZK-TH-ABi"/>
+                            <constraint firstItem="WNy-9N-8vA" firstAttribute="centerY" secondItem="sod-YN-KRm" secondAttribute="centerY" priority="900" id="1ZK-TH-ABi"/>
                             <constraint firstItem="WNy-9N-8vA" firstAttribute="leading" secondItem="sod-YN-KRm" secondAttribute="trailing" constant="20" id="1ij-Lv-LSL"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Gsm-5u-vn8" secondAttribute="trailing" id="1rd-7G-xR5"/>
                             <constraint firstItem="YOg-JL-JIj" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="2vj-Xi-qZJ"/>
                             <constraint firstItem="CHJ-ji-Rkn" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="100" id="3DI-SF-i5e"/>
-                            <constraint firstItem="UsX-Ed-D5D" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" id="4gS-kG-du8"/>
+                            <constraint firstItem="UsX-Ed-D5D" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" priority="900" id="4gS-kG-du8"/>
                             <constraint firstItem="x62-TI-SD2" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="5z4-9D-lDR"/>
                             <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="elb-yq-kT3" secondAttribute="trailing" constant="20" id="74v-pq-qaq"/>
                             <constraint firstItem="x62-TI-SD2" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="20" id="AZl-eF-tPu"/>
@@ -227,18 +191,24 @@ Cg
                             <constraint firstItem="elb-yq-kT3" firstAttribute="top" secondItem="sod-YN-KRm" secondAttribute="bottom" constant="20" id="FWS-8X-3dq"/>
                             <constraint firstItem="awf-Ca-eIa" firstAttribute="centerY" secondItem="elb-yq-kT3" secondAttribute="centerY" id="Fz8-Dj-3kB"/>
                             <constraint firstItem="RrB-vg-PXn" firstAttribute="leading" secondItem="YOg-JL-JIj" secondAttribute="trailing" constant="20" id="GH1-XW-22J"/>
+                            <constraint firstItem="Eox-5O-oEp" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" priority="900" id="IGg-dP-0Jh"/>
                             <constraint firstItem="YOg-JL-JIj" firstAttribute="top" secondItem="CHJ-ji-Rkn" secondAttribute="bottom" constant="20" id="JRl-kl-yUh"/>
                             <constraint firstItem="elb-yq-kT3" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="KdW-HL-ilU"/>
+                            <constraint firstItem="FBm-IU-igY" firstAttribute="top" secondItem="WNy-9N-8vA" secondAttribute="bottom" id="MGx-Dy-h5S"/>
                             <constraint firstItem="sod-YN-KRm" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="MMh-Nk-aRc"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="RrB-vg-PXn" secondAttribute="trailing" id="QRS-Lb-YDO"/>
                             <constraint firstItem="Gsm-5u-vn8" firstAttribute="centerY" secondItem="x62-TI-SD2" secondAttribute="centerY" id="R6M-L4-CNU"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UsX-Ed-D5D" secondAttribute="trailing" id="T2c-3N-G2X"/>
+                            <constraint firstItem="Eox-5O-oEp" firstAttribute="top" secondItem="UsX-Ed-D5D" secondAttribute="bottom" id="Tsj-cx-f1a"/>
                             <constraint firstItem="UsX-Ed-D5D" firstAttribute="leading" secondItem="CHJ-ji-Rkn" secondAttribute="trailing" constant="20" id="UdO-GA-gTZ"/>
+                            <constraint firstItem="FBm-IU-igY" firstAttribute="leading" secondItem="WNy-9N-8vA" secondAttribute="leading" id="Wu5-95-mW5"/>
                             <constraint firstItem="Gsm-5u-vn8" firstAttribute="leading" secondItem="x62-TI-SD2" secondAttribute="trailing" constant="20" id="d2t-fC-dK3"/>
                             <constraint firstItem="RrB-vg-PXn" firstAttribute="centerY" secondItem="YOg-JL-JIj" secondAttribute="centerY" id="eB7-by-koW"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
+                            <constraint firstItem="FBm-IU-igY" firstAttribute="centerY" secondItem="sod-YN-KRm" secondAttribute="centerY" priority="900" id="ghX-oN-4X5"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WNy-9N-8vA" secondAttribute="trailing" id="mQm-L0-6fV"/>
                             <constraint firstItem="CHJ-ji-Rkn" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="nRQ-oP-Uhz"/>
+                            <constraint firstItem="Eox-5O-oEp" firstAttribute="leading" secondItem="UsX-Ed-D5D" secondAttribute="leading" id="vN2-kG-LCx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="ic_explore_white" id="mMW-ze-V2Y"/>

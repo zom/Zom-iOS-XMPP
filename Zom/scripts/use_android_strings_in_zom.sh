@@ -13,23 +13,76 @@
 # Step 5 - Match translated strings iOS<->Android. If they match, store the id mapping between them.
 # Step 6 - Go through the iOS strings files, get the corresponding Android strings file and use the id mapping built in Step 5 to update the strings.
 
-if [ "$#" != "2" ]; then
-    echo "Usage: $0 <storyboardfile> <android-base-strings-file>"
-    echo "example: $0 ./OTRResources/Interface/Base.lproj/Onboarding.storyboard ../../Zom-Android/app/src/main/res/values/zomstrings.xml"
+base_file_ios=""
+android_input_files=()
 
-    exit 1
-fi
+function addAndroidInputFile {
+    local count=0
+    while [ "x${android_input_files[count]}" != "x" ]
+    do
+	((count++))
+    done
+    android_input_files[count]="$1"
+}
 
-if [ ! -f $1 ]; then
+function showUsageAndExit {
+    echo "Usage: $0 -s <storyboardfile> -i <android_strings_file> [-i <android_strings_file>...]";
+    echo
+    echo "example: $0 -s ./OTRResources/Interface/Base.lproj/Onboarding.storyboard -i ../../Zom-Android/app/src/main/res/values/zomstrings.xml -i ../../Zom-Android/app/src/main/res/values/strings.xml"
+    exit
+}
+
+
+# Parse indata
+#
+while [[ $# > 0 ]]
+do
+    key="$1"
+    case $key in
+	-h|--help)
+	    showUsageAndExit
+	    ;;
+	-s|--storyboard)
+	    base_file_ios="$2"
+	    shift # past argument
+	    ;;
+	-i|--input)
+	    addAndroidInputFile "$2"
+	    shift # past argument
+	    ;;
+    esac
+    shift # past argument or value
+done
+
+echo
+echo "Checking indata..."
+echo
+
+# Check that storyboard file exists
+if [ ! -f "$base_file_ios" ]; then
     echo "storyboard file not found!"
-    exit 1
+    echo
+    showUsageAndExit
 fi
+echo "Storyboard file $base_file_ios found"
 
-if [ ! -f $2 ]; then
-    echo "Android base strings file not found!"
-    exit 1
-fi
+# Check Android input files
+android_count=0
+while [ "x${android_input_files[android_count]}" != "x" ]
+do
+    thisfile="${android_input_files[android_count]}"
+    if [ ! -f "$thisfile" ]; then
+	echo "Input file $thisfile not found!"
+	echo
+	showUsageAndExit
+    fi
+    echo "Android input file $thisfile found"
+    ((android_count++))
+done
 
+echo
+echo "Indata ok"
+echo
 
 # Helper to translate from iOS language codes into corresponding Android language codes
 ios_language_codes=("Base" "en" "da-DK" "fa-IR" "nb-NO" "nl-NL" "pt-BR" "pt-PT" "ro-RO" "sl-SI" "zh-Hans-CN" "zh-Hant-TW")
@@ -56,9 +109,8 @@ function getAndroidLanguageCodeFromiOSLanguageCode {
 languages=()
 ios_files=()
 languages_index=0
-base_file_ios="$1"
-base_dir_ios="${1%%/Base.lproj*}"
-echo "Basr dir is $base_dir_ios"
+base_dir_ios="${base_file_ios%%/Base.lproj*}"
+echo "Base dir is $base_dir_ios"
 for languageDir in $(find $base_dir_ios -depth 1 -name "*.lproj" -print)
 do
     languageDir="${languageDir%%.lproj}" # strip .lproj
@@ -100,13 +152,12 @@ done
 # Step 3 - Extract strings from base storyboard and convert to utf-8. Split them into key-value pairs.
 #
 #
-ibtool --export-strings-file /tmp/Localizable.strings "$1"
+ibtool --export-strings-file /tmp/Localizable.strings "$base_file_ios"
 iconv -f utf-16 -t utf-8 /tmp/Localizable.strings >/tmp/Localizable.strings.utf8 || {
     echo "Failed to convert to utf-8"
     exit 1
 }
 default_strings_file="/tmp/Localizable.strings.utf8"
-android_base_strings_file=$2
 
 base_keys=()
 base_translations=()
@@ -151,13 +202,12 @@ function addiOSMapping {
 
 function parseAndroidStringsFile {
     local filePath=$1
-    android_keys=()
-    android_values=()
     while read -r line ; do
 	key=$(echo $line | cut -d \  -f 1)
 	val=$(echo $line | cut -d \  -f 2-)
+	#echo "Add mapping $key <--> $val"
 	addAndroidMapping "$key" "$val"
-    done < <(awk -F'name="|">|</' '{ print $2,$3}' "$filePath")
+    done < <(awk -F'name="|">|</' '{ if (NF == 4) print $2,$3}' "$filePath")
 }
 
 function parseiOSStringsFile {
@@ -247,7 +297,16 @@ done < <(sed -n '/^\".*;$/p' "$default_strings_file")
 # Step 4 - Extract strings from base android strings file, split into key-value pairs.
 #
 #
-parseAndroidStringsFile "$android_base_strings_file"
+android_keys=()
+android_values=()
+android_count=0
+while [ "x${android_input_files[android_count]}" != "x" ]
+do
+    thisfile="${android_input_files[android_count]}"
+    parseAndroidStringsFile "$thisfile"
+    ((android_count++))
+done
+
 
 # Step 5 - Match translated strings iOS<->Android. If they match, store the id mapping between them.
 #
@@ -290,52 +349,60 @@ do
     echo "Processing language: $language ios_file $ios_file"
     ((languages_index++))
     language_suffix=$(getAndroidLanguageCodeFromiOSLanguageCode "$language")
-    android_file="${android_base_strings_file/values/values$language_suffix}"
-    if [ -f $android_file ]; then
-
-	# Copy a fresh strings file to our target ios language file
-	# cp /tmp/Localizable.strings.utf8 "$ios_file"
-
-	parseAndroidStringsFile "$android_file"
-	parseiOSStringsFile "$ios_file"
-	
-	# Apply translation to all ios values
-        # First pass: update ios_values with translated strings
-	count=0
-	while [ "x${ios_keys[count]}" != "x" ]
-	do
-	    key="${ios_keys[count]}"
-	    # Get android id of key
-	    android_key=$(findAndroidId "$key")
-	    if [ "$android_key" != "" ]; then
-		translation=$(findAndroidTranslation "$android_key")
-		if [ "$translation" == "" ]; then
-		    echo "Language $language: missing translation for id $android_key."
-		else
-		    ios_values[count]="$translation"
-		fi
-	    fi
-	    ((count++))
-	done
-
-        # Second pass: update the actual file
-	count=0
-	while [ "x${ios_keys[count]}" != "x" ]
-	do
-	    key="${ios_keys[count]}"
-	    value="${ios_values[count]}"
-	    value="${value//\&/\\&}"
-	    echo "Update file $ios_file with $key -> $value"
-	    value="${value/\\/\\\\}"
-	    command="s/$key\" =.*/$key\" = \"$value\";/"
-	    sed -e "$command" -i "" "$ios_file"
-	    ((count++))
-	done
-
-	if [ "$language" == "Base" ]; then
-	    mv "$ios_file" "$ios_file.utf8"
-	    iconv -f utf-8 -t utf-16 "$ios_file.utf8" > "$ios_file"
-	    rm "$ios_file.utf8"
+    
+    # Copy a fresh strings file to our target ios language file
+    cp /tmp/Localizable.strings.utf8 "$ios_file"
+    
+    android_keys=()
+    android_values=()
+    android_count=0
+    while [ "x${android_input_files[android_count]}" != "x" ]
+    do
+	thisfile="${android_input_files[android_count]}"
+	android_file="${thisfile/values/values$language_suffix}"
+	if [ -f $android_file ]; then
+	    parseAndroidStringsFile "$android_file"
 	fi
+	((android_count++))
+    done
+    parseiOSStringsFile "$ios_file"
+    
+    # Apply translation to all ios values
+    # First pass: update ios_values with translated strings
+    count=0
+    while [ "x${ios_keys[count]}" != "x" ]
+    do
+	key="${ios_keys[count]}"
+	# Get android id of key
+	android_key=$(findAndroidId "$key")
+	if [ "$android_key" != "" ]; then
+	    translation=$(findAndroidTranslation "$android_key")
+	    if [ "$translation" == "" ]; then
+		echo "Language $language: missing translation for id $android_key."
+	    else
+		ios_values[count]="$translation"
+	    fi
+	fi
+	((count++))
+    done
+    
+    # Second pass: update the actual file
+    count=0
+    while [ "x${ios_keys[count]}" != "x" ]
+    do
+	key="${ios_keys[count]}"
+	value="${ios_values[count]}"
+	value="${value//\&/\\&}"
+	echo "Update file $ios_file with $key -> $value"
+	value="${value/\\/\\\\}"
+	command="s/$key\" =.*/$key\" = \"$value\";/"
+	sed -e "$command" -i "" "$ios_file"
+	((count++))
+    done
+    
+    if [ "$language" == "Base" ]; then
+	mv "$ios_file" "$ios_file.utf8"
+	iconv -f utf-8 -t utf-16 "$ios_file.utf8" > "$ios_file"
+	rm "$ios_file.utf8"
     fi
 done
