@@ -1,36 +1,39 @@
 
+/* Class = "UIButton"; normalTitle = "Photo Stream"; ObjectID = "2YO-2a-YcG"; */
+"2YO-2a-YcG.normalTitle" = "フォトストリーム";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "3OG-pV-hC2"; */
 "3OG-pV-hC2.text" = "Label";
 
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "CHJ-ji-Rkn"; */
-"CHJ-ji-Rkn.normalTitle" = "";
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "8j6-Sy-Ncb"; */
+"8j6-Sy-Ncb.normalTitle" = "";
 
-/* Class = "UIButton"; normalTitle = "Coming Soon"; ObjectID = "Eox-5O-oEp"; */
-"Eox-5O-oEp.normalTitle" = "Coming Soon";
-
-/* Class = "UIButton"; normalTitle = "Coming Soon"; ObjectID = "FBm-IU-igY"; */
-"FBm-IU-igY.normalTitle" = "Coming Soon";
-
-/* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "Gsm-5u-vn8"; */
-"Gsm-5u-vn8.normalTitle" = "Zom Services";
+/* Class = "UIButton"; normalTitle = "Change Theme"; ObjectID = "Dxr-5S-HbB"; */
+"Dxr-5S-HbB.normalTitle" = "テーマを変更";
 
 /* Class = "UITabBarItem"; title = "Friends"; ObjectID = "LlX-wc-bzj"; */
 "LlX-wc-bzj.title" = "友達";
 
-/* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "RrB-vg-PXn"; */
-"RrB-vg-PXn.normalTitle" = "グループチャットを作成";
+/* Class = "UIButton"; normalTitle = "Coming Soon"; ObjectID = "OCh-XO-KNo"; */
+"OCh-XO-KNo.normalTitle" = "Coming Soon";
 
-/* Class = "UIButton"; normalTitle = "Photo Stream"; ObjectID = "UsX-Ed-D5D"; */
-"UsX-Ed-D5D.normalTitle" = "フォトストリーム";
+/* Class = "UIButton"; normalTitle = "Coming Soon"; ObjectID = "QWh-mJ-5c7"; */
+"QWh-mJ-5c7.normalTitle" = "Coming Soon";
 
-/* Class = "UIButton"; normalTitle = "Sticker Share"; ObjectID = "WNy-9N-8vA"; */
-"WNy-9N-8vA.normalTitle" = "スティッカー共有";
+/* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "V6b-cp-1dq"; */
+"V6b-cp-1dq.normalTitle" = "Zom Services";
+
+/* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "WPP-eD-yKO"; */
+"WPP-eD-yKO.normalTitle" = "グループチャットを作成";
 
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "XJU-FY-mH5"; */
 "XJU-FY-mH5.title" = "チャット";
 
-/* Class = "UIButton"; normalTitle = "Change Theme"; ObjectID = "awf-Ca-eIa"; */
-"awf-Ca-eIa.normalTitle" = "テーマを変更";
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "YPE-2y-E8B"; */
+"YPE-2y-E8B.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Sticker Share"; ObjectID = "iZ8-ah-hqP"; */
+"iZ8-ah-hqP.normalTitle" = "スティッカー共有";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "ic8-e2-idk"; */
 "ic8-e2-idk.text" = "Label";
@@ -38,11 +41,8 @@
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
 "mMW-ze-V2Y.title" = "探索";
 
+/* Class = "UIButton"; normalTitle = ""; ObjectID = "oMK-jj-u4O"; */
+"oMK-jj-u4O.normalTitle" = "";
+
 /* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
 "pL4-Qt-LL4.title" = "自分";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "sod-YN-KRm"; */
-"sod-YN-KRm.normalTitle" = "";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "x62-TI-SD2"; */
-"x62-TI-SD2.normalTitle" = "";

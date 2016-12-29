@@ -24,191 +24,213 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x62-TI-SD2">
-                                <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgU-Ek-SLb">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-ff-wSc" userLabel="ContentView">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-2y-E8B">
+                                                <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="QmA-yh-aFF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" title=""/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="JZ7-Xq-WBm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6b-cp-1dq">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6wm-0h-F9r"/>
+                                                </constraints>
+                                                <state key="normal" title="Zom Services">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="Y6O-dO-Wy2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMK-jj-u4O">
+                                                <color key="backgroundColor" red="0.20000000000000001" green="0.70980392160000005" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="EVC-eb-uBy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" title=""/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2YO-2a-YcG">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Photo Stream">
+                                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-mJ-5c7">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Coming Soon">
+                                                    <color key="titleColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Huc-dU-m6S">
+                                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="6iE-iR-sJZ"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" image="ic_group_add_white"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="fkF-rW-bCH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPP-eD-yKO">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="EDD-Er-Ya0"/>
+                                                </constraints>
+                                                <state key="normal" title="Create a Group">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="fHy-Vo-g2v"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8j6-Sy-Ncb">
+                                                <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="auB-3Q-WMS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
+                                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" title=""/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="iZ8-ah-hqP">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="Sticker Share">
+                                                    <color key="titleColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-XO-KNo">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title="Coming Soon">
+                                                    <color key="titleColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUD-Nn-C0O">
+                                                <color key="backgroundColor" red="0.66666666669999997" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="huV-rc-Lr2"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                                <state key="normal" image="more_tshirt"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="HFu-fK-MXp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxr-5S-HbB">
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Change Theme">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="um6-hD-emV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="iZ8-ah-hqP" firstAttribute="bottom" secondItem="OCh-XO-KNo" secondAttribute="bottom" id="0PI-cz-BHt"/>
+                                            <constraint firstItem="8j6-Sy-Ncb" firstAttribute="centerY" secondItem="OCh-XO-KNo" secondAttribute="centerY" id="3Xl-EX-MNF"/>
+                                            <constraint firstItem="bUD-Nn-C0O" firstAttribute="centerY" secondItem="Dxr-5S-HbB" secondAttribute="centerY" id="62J-Lp-mHV"/>
+                                            <constraint firstItem="Huc-dU-m6S" firstAttribute="centerY" secondItem="WPP-eD-yKO" secondAttribute="centerY" id="67V-VR-xxP"/>
+                                            <constraint firstItem="bUD-Nn-C0O" firstAttribute="top" secondItem="8j6-Sy-Ncb" secondAttribute="bottom" constant="20" id="6ki-jE-gm9"/>
+                                            <constraint firstItem="Huc-dU-m6S" firstAttribute="leading" secondItem="8j6-Sy-Ncb" secondAttribute="leading" id="810-KQ-vTN"/>
+                                            <constraint firstItem="oMK-jj-u4O" firstAttribute="centerY" secondItem="QWh-mJ-5c7" secondAttribute="centerY" id="AyK-8G-m8f"/>
+                                            <constraint firstItem="QWh-mJ-5c7" firstAttribute="top" secondItem="2YO-2a-YcG" secondAttribute="bottom" id="ByR-rJ-ZV8"/>
+                                            <constraint firstItem="WPP-eD-yKO" firstAttribute="top" secondItem="QWh-mJ-5c7" secondAttribute="bottom" constant="55" id="H6r-3w-jdq"/>
+                                            <constraint firstItem="YPE-2y-E8B" firstAttribute="leading" secondItem="oMK-jj-u4O" secondAttribute="leading" id="H9E-dQ-8w5"/>
+                                            <constraint firstItem="oMK-jj-u4O" firstAttribute="leading" secondItem="Huc-dU-m6S" secondAttribute="leading" id="JQJ-rZ-txC"/>
+                                            <constraint firstItem="OCh-XO-KNo" firstAttribute="top" secondItem="iZ8-ah-hqP" secondAttribute="top" id="KjQ-tz-ZLf"/>
+                                            <constraint firstItem="YPE-2y-E8B" firstAttribute="top" secondItem="eo7-ff-wSc" secondAttribute="top" constant="20" id="NU5-Qy-yIx"/>
+                                            <constraint firstItem="Dxr-5S-HbB" firstAttribute="top" secondItem="OCh-XO-KNo" secondAttribute="bottom" constant="55" id="Nyp-BJ-HAV"/>
+                                            <constraint firstItem="YPE-2y-E8B" firstAttribute="centerY" secondItem="V6b-cp-1dq" secondAttribute="centerY" id="Qwq-4m-2ZR"/>
+                                            <constraint firstAttribute="bottom" secondItem="bUD-Nn-C0O" secondAttribute="bottom" constant="20" id="Sbf-n4-UM3"/>
+                                            <constraint firstItem="oMK-jj-u4O" firstAttribute="trailing" secondItem="Huc-dU-m6S" secondAttribute="trailing" id="aLC-KL-MEJ"/>
+                                            <constraint firstItem="QWh-mJ-5c7" firstAttribute="top" secondItem="2YO-2a-YcG" secondAttribute="top" id="aPN-If-8Xa"/>
+                                            <constraint firstItem="WPP-eD-yKO" firstAttribute="leading" secondItem="OCh-XO-KNo" secondAttribute="leading" id="dx6-eY-n4Y"/>
+                                            <constraint firstItem="8j6-Sy-Ncb" firstAttribute="leading" secondItem="bUD-Nn-C0O" secondAttribute="leading" id="fnK-Tw-Zsp"/>
+                                            <constraint firstItem="V6b-cp-1dq" firstAttribute="leading" secondItem="QWh-mJ-5c7" secondAttribute="leading" id="fra-3Z-UG0"/>
+                                            <constraint firstItem="QWh-mJ-5c7" firstAttribute="leading" secondItem="eo7-ff-wSc" secondAttribute="leadingMargin" constant="80" id="g1b-pF-Gi0"/>
+                                            <constraint firstItem="YPE-2y-E8B" firstAttribute="trailing" secondItem="oMK-jj-u4O" secondAttribute="trailing" id="haD-i8-fXe"/>
+                                            <constraint firstItem="8j6-Sy-Ncb" firstAttribute="top" secondItem="Huc-dU-m6S" secondAttribute="bottom" constant="20" id="hsZ-hu-80n"/>
+                                            <constraint firstItem="Huc-dU-m6S" firstAttribute="trailing" secondItem="8j6-Sy-Ncb" secondAttribute="trailing" id="jiP-Zc-6az"/>
+                                            <constraint firstItem="YPE-2y-E8B" firstAttribute="leading" secondItem="eo7-ff-wSc" secondAttribute="leadingMargin" id="kSK-pH-JFc"/>
+                                            <constraint firstItem="8j6-Sy-Ncb" firstAttribute="trailing" secondItem="bUD-Nn-C0O" secondAttribute="trailing" id="mJn-ZC-7Bs"/>
+                                            <constraint firstItem="OCh-XO-KNo" firstAttribute="top" secondItem="iZ8-ah-hqP" secondAttribute="bottom" id="mWX-Um-yQg"/>
+                                            <constraint firstItem="QWh-mJ-5c7" firstAttribute="top" secondItem="V6b-cp-1dq" secondAttribute="bottom" constant="55" id="oM6-6Y-hK4"/>
+                                            <constraint firstItem="Huc-dU-m6S" firstAttribute="top" secondItem="oMK-jj-u4O" secondAttribute="bottom" constant="20" id="oSq-Mv-Q8X"/>
+                                            <constraint firstItem="OCh-XO-KNo" firstAttribute="leading" secondItem="Dxr-5S-HbB" secondAttribute="leading" id="taZ-19-f69"/>
+                                            <constraint firstItem="2YO-2a-YcG" firstAttribute="bottom" secondItem="QWh-mJ-5c7" secondAttribute="bottom" id="tzp-0D-QNT"/>
+                                            <constraint firstItem="OCh-XO-KNo" firstAttribute="top" secondItem="WPP-eD-yKO" secondAttribute="bottom" constant="55" id="w5p-jF-gYX"/>
+                                            <constraint firstItem="OCh-XO-KNo" firstAttribute="leading" secondItem="iZ8-ah-hqP" secondAttribute="leading" id="wiz-Nz-2MZ"/>
+                                            <constraint firstItem="QWh-mJ-5c7" firstAttribute="leading" secondItem="WPP-eD-yKO" secondAttribute="leading" id="wvP-ro-fVK"/>
+                                            <constraint firstItem="2YO-2a-YcG" firstAttribute="leading" secondItem="QWh-mJ-5c7" secondAttribute="leading" id="x8N-Zw-OZF"/>
+                                            <constraint firstItem="oMK-jj-u4O" firstAttribute="top" secondItem="YPE-2y-E8B" secondAttribute="bottom" constant="20" id="zqc-lR-zUz"/>
+                                            <constraint firstItem="V6b-cp-1dq" firstAttribute="leading" secondItem="YPE-2y-E8B" secondAttribute="trailing" constant="20" id="zxQ-p3-EAv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Lgt-Pi-Z2H"/>
-                                    <constraint firstAttribute="height" constant="60" id="xxI-Xw-IeW"/>
+                                    <constraint firstItem="eo7-ff-wSc" firstAttribute="leading" secondItem="LgU-Ek-SLb" secondAttribute="leading" id="97c-TP-RgJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="eo7-ff-wSc" secondAttribute="trailing" id="Sc7-Xd-w9t"/>
+                                    <constraint firstItem="eo7-ff-wSc" firstAttribute="width" secondItem="LgU-Ek-SLb" secondAttribute="width" id="oyz-t4-094"/>
+                                    <constraint firstAttribute="bottom" secondItem="eo7-ff-wSc" secondAttribute="bottom" priority="750" constant="40" id="ymd-64-UpN"/>
+                                    <constraint firstItem="eo7-ff-wSc" firstAttribute="top" secondItem="LgU-Ek-SLb" secondAttribute="top" id="yyM-aO-DgP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" title=""/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="jkr-BY-jJk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gsm-5u-vn8">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ONv-JN-hgb"/>
-                                </constraints>
-                                <state key="normal" title="Zom Services">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressZomServicesButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="F9I-n7-SOD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHJ-ji-Rkn">
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.70980392156862748" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="7gE-jK-E8B"/>
-                                    <constraint firstAttribute="height" constant="60" id="M1t-3i-Opt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" title=""/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UsX-Ed-D5D">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Photo Stream">
-                                    <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-5O-oEp">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Coming Soon">
-                                    <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOg-JL-JIj">
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Ase-bx-kNF"/>
-                                    <constraint firstAttribute="height" constant="60" id="eJA-lg-jjb"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" image="ic_group_add_white"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="HSr-nz-Gsc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrB-vg-PXn">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="MU0-dP-RgU"/>
-                                </constraints>
-                                <state key="normal" title="Create a Group">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressCreateGroupButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="DFZ-Jg-5ck"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sod-YN-KRm">
-                                <color key="backgroundColor" red="1" green="0.73333333333333328" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="MhM-ZU-YhK"/>
-                                    <constraint firstAttribute="width" constant="60" id="dsc-Aq-9V2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="40"/>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" title=""/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="WNy-9N-8vA">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Sticker Share">
-                                    <color key="titleColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FBm-IU-igY">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Coming Soon">
-                                    <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elb-yq-kT3">
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="P0Y-gS-w3A"/>
-                                    <constraint firstAttribute="height" constant="60" id="P1B-xi-4pS"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" image="more_tshirt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="IGu-K6-RCT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awf-Ca-eIa">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ySm-jv-VVy"/>
-                                </constraints>
-                                <state key="normal" title="Change Theme">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressChangeThemeButtonWithSender:" destination="BVZ-L4-aih" eventType="touchUpInside" id="J19-rs-38l"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WNy-9N-8vA" firstAttribute="centerY" secondItem="sod-YN-KRm" secondAttribute="centerY" priority="900" id="1ZK-TH-ABi"/>
-                            <constraint firstItem="WNy-9N-8vA" firstAttribute="leading" secondItem="sod-YN-KRm" secondAttribute="trailing" constant="20" id="1ij-Lv-LSL"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Gsm-5u-vn8" secondAttribute="trailing" id="1rd-7G-xR5"/>
-                            <constraint firstItem="YOg-JL-JIj" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="2vj-Xi-qZJ"/>
-                            <constraint firstItem="CHJ-ji-Rkn" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="100" id="3DI-SF-i5e"/>
-                            <constraint firstItem="UsX-Ed-D5D" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" priority="900" id="4gS-kG-du8"/>
-                            <constraint firstItem="x62-TI-SD2" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="5z4-9D-lDR"/>
-                            <constraint firstItem="awf-Ca-eIa" firstAttribute="leading" secondItem="elb-yq-kT3" secondAttribute="trailing" constant="20" id="74v-pq-qaq"/>
-                            <constraint firstItem="x62-TI-SD2" firstAttribute="top" secondItem="aQC-Fj-bbt" secondAttribute="bottom" constant="20" id="AZl-eF-tPu"/>
-                            <constraint firstItem="sod-YN-KRm" firstAttribute="top" secondItem="YOg-JL-JIj" secondAttribute="bottom" constant="20" id="Dfr-Sm-d7Z"/>
-                            <constraint firstItem="elb-yq-kT3" firstAttribute="top" secondItem="sod-YN-KRm" secondAttribute="bottom" constant="20" id="FWS-8X-3dq"/>
-                            <constraint firstItem="awf-Ca-eIa" firstAttribute="centerY" secondItem="elb-yq-kT3" secondAttribute="centerY" id="Fz8-Dj-3kB"/>
-                            <constraint firstItem="RrB-vg-PXn" firstAttribute="leading" secondItem="YOg-JL-JIj" secondAttribute="trailing" constant="20" id="GH1-XW-22J"/>
-                            <constraint firstItem="Eox-5O-oEp" firstAttribute="centerY" secondItem="CHJ-ji-Rkn" secondAttribute="centerY" priority="900" id="IGg-dP-0Jh"/>
-                            <constraint firstItem="YOg-JL-JIj" firstAttribute="top" secondItem="CHJ-ji-Rkn" secondAttribute="bottom" constant="20" id="JRl-kl-yUh"/>
-                            <constraint firstItem="elb-yq-kT3" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="KdW-HL-ilU"/>
-                            <constraint firstItem="FBm-IU-igY" firstAttribute="top" secondItem="WNy-9N-8vA" secondAttribute="bottom" id="MGx-Dy-h5S"/>
-                            <constraint firstItem="sod-YN-KRm" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="MMh-Nk-aRc"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="RrB-vg-PXn" secondAttribute="trailing" id="QRS-Lb-YDO"/>
-                            <constraint firstItem="Gsm-5u-vn8" firstAttribute="centerY" secondItem="x62-TI-SD2" secondAttribute="centerY" id="R6M-L4-CNU"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UsX-Ed-D5D" secondAttribute="trailing" id="T2c-3N-G2X"/>
-                            <constraint firstItem="Eox-5O-oEp" firstAttribute="top" secondItem="UsX-Ed-D5D" secondAttribute="bottom" id="Tsj-cx-f1a"/>
-                            <constraint firstItem="UsX-Ed-D5D" firstAttribute="leading" secondItem="CHJ-ji-Rkn" secondAttribute="trailing" constant="20" id="UdO-GA-gTZ"/>
-                            <constraint firstItem="FBm-IU-igY" firstAttribute="leading" secondItem="WNy-9N-8vA" secondAttribute="leading" id="Wu5-95-mW5"/>
-                            <constraint firstItem="Gsm-5u-vn8" firstAttribute="leading" secondItem="x62-TI-SD2" secondAttribute="trailing" constant="20" id="d2t-fC-dK3"/>
-                            <constraint firstItem="RrB-vg-PXn" firstAttribute="centerY" secondItem="YOg-JL-JIj" secondAttribute="centerY" id="eB7-by-koW"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="awf-Ca-eIa" secondAttribute="trailing" id="gGl-Ak-atp"/>
-                            <constraint firstItem="FBm-IU-igY" firstAttribute="centerY" secondItem="sod-YN-KRm" secondAttribute="centerY" priority="900" id="ghX-oN-4X5"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WNy-9N-8vA" secondAttribute="trailing" id="mQm-L0-6fV"/>
-                            <constraint firstItem="CHJ-ji-Rkn" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leadingMargin" id="nRQ-oP-Uhz"/>
-                            <constraint firstItem="Eox-5O-oEp" firstAttribute="leading" secondItem="UsX-Ed-D5D" secondAttribute="leading" id="vN2-kG-LCx"/>
+                            <constraint firstItem="LgU-Ek-SLb" firstAttribute="leading" secondItem="USk-yw-lan" secondAttribute="leading" id="0EX-vQ-eQ2"/>
+                            <constraint firstAttribute="bottom" secondItem="LgU-Ek-SLb" secondAttribute="bottom" id="4h5-c2-2wU"/>
+                            <constraint firstAttribute="trailing" secondItem="LgU-Ek-SLb" secondAttribute="trailing" id="edd-cp-uCU"/>
+                            <constraint firstItem="LgU-Ek-SLb" firstAttribute="top" secondItem="USk-yw-lan" secondAttribute="top" id="hDt-0t-0AZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="ic_explore_white" id="mMW-ze-V2Y"/>
