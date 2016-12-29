@@ -8,6 +8,7 @@
 
 import UIKit
 import ChatSecureCore
+import BButton
 
 public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
     @IBOutlet weak var addFriendsLabel: UILabel!
@@ -16,6 +17,7 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     @IBOutlet weak var separator: UIView!
     @IBOutlet weak var addToolbar: UIToolbar!
     @IBOutlet var shareSmsButtonItem: UIBarButtonItem!
+    @IBOutlet var shareButtonItem: UIBarButtonItem!
     @IBOutlet var scanButtonItem: UIBarButtonItem!
     @IBOutlet var scrollView: UIScrollView!
 
@@ -30,6 +32,28 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             addFriendsLabel.textColor = appDelegate.theme.mainThemeColor
             gotInviteLabel.textColor = appDelegate.theme.mainThemeColor
             separator.backgroundColor = appDelegate.theme.mainThemeColor
+        }
+        
+        if let button = shareSmsButtonItem.customView as? UIButton {
+            let image = self.textToImage(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAPaperPlaneO), size: 30)
+            button.setImage(image, forState: .Normal)
+            button.titleLabel!.numberOfLines = 0
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        }
+        if let button = shareButtonItem.customView as? UIButton {
+            let image = self.textToImage(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAShareSquareO), size: 30)
+            button.setImage(image, forState: .Normal)
+            button.titleLabel!.numberOfLines = 0
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        }
+        if let button = scanButtonItem.customView as? UIButton {
+            let image = self.textToImage(NSString.fa_stringForFontAwesomeIcon(FAIcon.FACamera), size: 30)
+            button.setImage(image, forState: .Normal)
+            button.titleLabel!.numberOfLines = 0
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
         }
         
         adjustButtons()
@@ -90,39 +114,25 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     }
 
     private func adjustButtons() {
+        let numButtons = self.addToolbar.items!.count - 2
         for item:UIBarButtonItem in self.addToolbar.items! {
             if (item.tag != 1) {
-                let w = (self.view.frame.width - 40) / 3.5
+                let w = (self.view.frame.width - 40) / CGFloat(numButtons)
                 item.width = w
                 if let button = item.customView as? UIButton {
                     button.frame.size.width = w
                 }
-                if (w < 100) {
-                    if let button = item.customView as? UIButton {
-                        if let text = button.attributedTitleForState(UIControlState.Normal) {
-                            button.setAttributedTitle(increaseFontSizeBy(text, pointSize: -8), forState: UIControlState.Normal)
-                        }
-                    }
-                }
+//                if (w < 100) {
+//                    if let button = item.customView as? UIButton {
+//                        if let font = button.titleLabel?.font {
+//                            button.titleLabel?.font = font.fontWithSize(font.pointSize - 6)
+//                        }
+//                    }
+//                }
             }
         }
         self.addToolbar.setNeedsUpdateConstraints()
         self.addToolbar.setNeedsLayout()
-    }
-    
-    
-    private func increaseFontSizeBy(text: NSAttributedString?, pointSize: CGFloat) -> NSAttributedString? {
-        let fullRange = NSRange(location: 0, length: (text?.length)!)
-        let mutableAttributeText = NSMutableAttributedString(attributedString: text!)
-        mutableAttributeText.enumerateAttribute(NSFontAttributeName, inRange: fullRange, options: NSAttributedStringEnumerationOptions.LongestEffectiveRangeNotRequired) {
-            (attribute: AnyObject?, range: NSRange, stop: UnsafeMutablePointer<ObjCBool>) in
-            if let attributeFont = attribute as? UIFont {
-                let newPointSize = attributeFont.pointSize + pointSize
-                let scaledFont = UIFont(descriptor: attributeFont.fontDescriptor(), size: newPointSize)
-                mutableAttributeText.addAttribute(NSFontAttributeName, value: scaledFont, range: range)
-            }
-        }
-        return mutableAttributeText
     }
     
     public func showButton(item:UIBarButtonItem, show:Bool) {
@@ -137,6 +147,7 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             }
         }
         addToolbar.items = toolbarButtons
+        adjustButtons()
     }
 
     @IBAction func shareSmsButtonPressedWithSender(sender: AnyObject) {
@@ -190,6 +201,37 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     public override func populateFromQRResult(result: String!) {
         super.populateFromQRResult(result)
         super.doneButtonPressed(self)
+    }
+    
+    func textToImage(text: NSString, size: CGFloat) -> UIImage{
+        
+        // Setup the font specific variables
+        let textColor = UIColor.darkTextColor()
+        let textFont = UIFont(name: kFontAwesomeFont, size: 20)!
+        
+        // Setup the image context using the passed image
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(size, size), false, 0)
+        
+        // Setup the font attributes that will be later used to dictate how the text should be drawn
+        let textFontAttributes = [
+            NSFontAttributeName: textFont,
+            NSForegroundColorAttributeName: textColor,
+            ]
+        
+        // Create a point within the space that is as big as the image
+        let rect = CGRectMake(0, 0, size, size)
+        
+        // Draw the text into an image
+        text.drawInRect(rect, withAttributes: textFontAttributes)
+        
+        // Create a new image out of the images we have created
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // End the context now that we have the image we need
+        UIGraphicsEndImageContext()
+        
+        //Pass the image back up to the caller
+        return newImage!
     }
 }
  

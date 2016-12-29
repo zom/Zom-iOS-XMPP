@@ -17,5 +17,14 @@
 /* Class = "UILabel"; text = "Advanced"; ObjectID = "OfJ-vA-D7O"; */
 "OfJ-vA-D7O.text" = "先进";
 
+/* Class = "UIButton"; normalTitle = "SMS"; ObjectID = "YNA-R3-ip3"; */
+"YNA-R3-ip3.normalTitle" = "短信";
+
+/* Class = "UIButton"; normalTitle = "Scan"; ObjectID = "hDU-3X-Uni"; */
+"hDU-3X-Uni.normalTitle" = "打印";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "keg-Ok-RMI"; */
+"keg-Ok-RMI.normalTitle" = "分享";
+
 /* Class = "UIViewController"; title = "Choose account"; ObjectID = "o4G-Cg-UOP"; */
 "o4G-Cg-UOP.title" = "Choose account";

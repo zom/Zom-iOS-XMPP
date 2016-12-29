@@ -80,86 +80,44 @@
                                                     <constraint firstAttribute="height" constant="60" id="ncG-I6-AAf"/>
                                                 </constraints>
                                                 <items>
-                                                    <barButtonItem tag="1" style="plain" systemItem="flexibleSpace" id="QkQ-ip-wir"/>
-                                                    <barButtonItem style="plain" id="KIQ-vS-BV4">
-                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Zar-Jn-geE">
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0UU-hJ-Swj"/>
+                                                    <barButtonItem style="plain" id="T2S-sZ-Ozu">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YNA-R3-ip3">
                                                             <rect key="frame" x="88" y="15" width="46" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content=" ">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="32" name="FontAwesome"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                    <fragment content="SMS">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
+                                                            <state key="normal" title="SMS">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="shareSmsButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="k5E-XV-oT3"/>
+                                                                <action selector="shareSmsButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="UlO-yQ-2tK"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
-                                                    <barButtonItem style="plain" id="PQG-a8-hIh">
-                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="ByO-Xb-haS">
+                                                    <barButtonItem style="plain" id="aib-JE-xWq">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="keg-Ok-RMI">
                                                             <rect key="frame" x="144" y="15" width="46" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content=" ">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="32" name="FontAwesome"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                    <fragment content="Share">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
+                                                            <state key="normal" title="Share">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="shareButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="52u-t9-acE"/>
+                                                                <action selector="shareButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="x7C-VI-KPD"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
-                                                    <barButtonItem style="plain" id="NeV-GP-cRG">
-                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="vKp-aN-lIH">
+                                                    <barButtonItem style="plain" id="ajt-Kz-fmw">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hDU-3X-Uni">
                                                             <rect key="frame" x="200" y="15" width="46" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content=" ">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="32" name="FontAwesome"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                    <fragment content="Scan">
-                                                                        <attributes>
-                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <font key="NSFont" size="20" name=".AppleSystemUIFont"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
+                                                            <state key="normal" title="Scan">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="scanButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="PeZ-zR-ikZ"/>
+                                                                <action selector="scanButtonPressedWithSender:" destination="CMs-zP-DTu" eventType="touchUpInside" id="pFD-GJ-f7G"/>
                                                             </connections>
                                                         </button>
                                                     </barButtonItem>
-                                                    <barButtonItem tag="1" style="plain" systemItem="flexibleSpace" id="0lC-EW-Rsd"/>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Cvt-3N-fLT"/>
                                                 </items>
                                                 <color key="barTintColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                             </toolbar>
@@ -249,10 +207,11 @@
                         <outlet property="addFriendsLabel" destination="2P2-BW-dpR" id="HKZ-Zq-scG"/>
                         <outlet property="addToolbar" destination="b3x-Au-J6g" id="B8h-Ou-stV"/>
                         <outlet property="gotInviteLabel" destination="AqM-V0-Y5G" id="hlm-Av-P8S"/>
-                        <outlet property="scanButtonItem" destination="NeV-GP-cRG" id="54S-rm-mK7"/>
+                        <outlet property="scanButtonItem" destination="ajt-Kz-fmw" id="3Xw-bT-84T"/>
                         <outlet property="scrollView" destination="Sjm-Hj-OyL" id="1Up-OM-rLu"/>
                         <outlet property="separator" destination="LUW-He-cRg" id="NRa-4g-cRN"/>
-                        <outlet property="shareSmsButtonItem" destination="KIQ-vS-BV4" id="ufR-HF-CCG"/>
+                        <outlet property="shareButtonItem" destination="aib-JE-xWq" id="cIb-Jy-Va1"/>
+                        <outlet property="shareSmsButtonItem" destination="T2S-sZ-Ozu" id="7d1-Zf-SuT"/>
                         <outlet property="tableView" destination="00h-M0-IFw" id="eWm-5X-09c"/>
                         <outlet property="tapInviteLabel" destination="1kj-Rl-D1L" id="7BE-6f-fjK"/>
                     </connections>
