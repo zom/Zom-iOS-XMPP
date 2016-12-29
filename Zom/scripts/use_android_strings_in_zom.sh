@@ -205,6 +205,9 @@ function parseAndroidStringsFile {
     while read -r line ; do
 	key=$(echo $line | cut -d \  -f 1)
 	val=$(echo $line | cut -d \  -f 2-)
+        # Replace slash ' with '	
+	replace=\'
+        val="${val//\\\'/$replace}"
 	#echo "Add mapping $key <--> $val"
 	addAndroidMapping "$key" "$val"
     done < <(awk -F'name="|">|</' '{ if (NF == 4) print $2,$3}' "$filePath")

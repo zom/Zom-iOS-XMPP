@@ -11,8 +11,11 @@
 /* Class = "UINavigationItem"; title = "Title"; ObjectID = "FMY-5w-x2g"; */
 "FMY-5w-x2g.title" = "Title";
 
-/* Class = "UILabel"; text = "ADVANCED\nEnter your friend's full username (e.g. zomisfun.4x3f5g@zom.im) here:"; ObjectID = "OfJ-vA-D7O"; */
-"OfJ-vA-D7O.text" = "ADVANCED\nEnter your friend's full username (e.g. zomisfun.4x3f5g@zom.im) here:";
+/* Class = "UILabel"; text = "Enter your friend's full username (ie. zomisfun.4x3f5g@zom.im) here:"; ObjectID = "K32-OO-iFS"; */
+"K32-OO-iFS.text" = "Enter your friend's full username (ie. zomisfun.4x3f5g@zom.im) here:";
+
+/* Class = "UILabel"; text = "Advanced"; ObjectID = "OfJ-vA-D7O"; */
+"OfJ-vA-D7O.text" = "Erweitert";
 
 /* Class = "UIViewController"; title = "Choose account"; ObjectID = "o4G-Cg-UOP"; */
 "o4G-Cg-UOP.title" = "Choose account";
