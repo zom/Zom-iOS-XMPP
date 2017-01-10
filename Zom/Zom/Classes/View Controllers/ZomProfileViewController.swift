@@ -292,6 +292,8 @@ struct PasswordCellInfo: ZomProfileViewCellInfoProtocol {
         }
         passwordCell.passwordTextField.text = self.password
         
+        passwordCell.changeButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
+        passwordCell.changeButton.setTitle(NSString.fa_stringForFontAwesomeIcon(.FAEdit), forState: UIControlState.Normal)
         passwordCell.revealButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
         passwordCell.revealButton.setTitle(NSString.fa_stringForFontAwesomeIcon(.FAEye), forState: UIControlState.Normal)
         passwordCell.selectionStyle = .None
@@ -418,6 +420,7 @@ class ZomProfileViewController : UIViewController {
     }
     var qrAction:((FingerprintCellInfo) -> Void)?
     var shareAction:((FingerprintCellInfo) -> Void)?
+    var passwordChangeDelegate:PasswordChangeTextFieldDelegate? = nil
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -481,4 +484,57 @@ class ZomProfileViewController : UIViewController {
         self.view.addSubview(self.tableView)
         self.tableView.autoPinEdgesToSuperviewEdges()
     }
+    
+    @IBAction func didPressChangePasswordButton(sender: UIButton) {
+        let alert = UIAlertController(title: NSLocalizedString("Change password", comment: "Title for change password alert"), message: NSLocalizedString("Please enter your new password", comment: "Message for change password alert"), preferredStyle: UIAlertControllerStyle.Alert)
+        passwordChangeDelegate = PasswordChangeTextFieldDelegate(alert: alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK button"), style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) in
+            if let user = self.info?.user {
+                switch user {
+                case let .Account(account):
+                    if let xmppManager = OTRProtocolManager.sharedInstance().protocolForAccount(account) {
+                        print("Ok, got the manager. Now what? I'd like to cast this to a OTRXMPPManager and get xmppStream.")
+                    }
+                    break
+                default:
+                    break
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel button"), style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = NSLocalizedString("Password:", comment: "Prompt for new password")
+            textField.secureTextEntry = true
+            textField.addTarget(self.passwordChangeDelegate, action: #selector(PasswordChangeTextFieldDelegate.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        })
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = NSLocalizedString("Confirm New Password", comment: "Prompt for confirm password")
+            textField.secureTextEntry = true
+            textField.addTarget(self.passwordChangeDelegate, action: #selector(PasswordChangeTextFieldDelegate.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
+        })
+        alert.actions[0].enabled = false
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+
+    class PasswordChangeTextFieldDelegate: NSObject, UITextFieldDelegate {
+        var alert:UIAlertController
+        
+        func textFieldDidChange(textField: UITextField){
+            let tf1:UITextField = alert.textFields![0]
+            let tf2:UITextField = alert.textFields![1]
+            if (tf1.text?.characters.count > 0 && tf2.text?.characters.count > 0 &&
+                tf1.text!.compare(tf2.text!) == NSComparisonResult.OrderedSame) {
+                alert.actions[0].enabled = true
+            } else {
+                alert.actions[0].enabled = false
+            }
+        }
+        
+        init(
+            alert:UIAlertController
+            ) {
+            self.alert = alert
+        }
+    }
+    
 }

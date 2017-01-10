@@ -12,6 +12,7 @@ import UIKit
 public class ZomPasswordCell: UITableViewCell {
     
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var changeButton: UIButton!
     @IBOutlet weak var revealButton: UIButton!
     
     @IBAction func didPressRevealButton(sender: UIButton) {
