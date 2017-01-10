@@ -43,3 +43,4 @@
 #import <MessageUI/MessageUI.h>
 #import <BButton/NSString+FontAwesome.h>
 #import <JSQMessagesViewController/JSQMessagesInputToolbar.h>
+#import "OTRAssets+ZomLanguageHandling.h"

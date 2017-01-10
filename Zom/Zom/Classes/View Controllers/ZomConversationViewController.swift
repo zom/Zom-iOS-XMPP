@@ -28,7 +28,7 @@ public class ZomConversationViewController: OTRConversationViewController {
     }
     
     func updatePitchView() {
-        let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().newConnection()
+        if let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance()?.newConnection() {
         dataBaseConnection.readWithBlock { (transaction) -> Void in
             //let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as! YapDatabaseViewTransaction
             //let numBuddies = view.numberOfItemsInAllGroups()
@@ -40,6 +40,7 @@ public class ZomConversationViewController: OTRConversationViewController {
             //} else {
                 self.tableView.tableHeaderView = nil;
             //}
+            }
         }
     }
     
@@ -63,7 +64,7 @@ public class ZomConversationViewController: OTRConversationViewController {
         let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
         if (accounts.count > 0)
         {
-            let storyboard = UIStoryboard(name: "AddBuddy", bundle: nil)
+            let storyboard = UIStoryboard(name: "AddBuddy", bundle: NSBundle.mainBundle())
             var vc:UIViewController? = nil
             if (accounts.count == 1) {
                 vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")

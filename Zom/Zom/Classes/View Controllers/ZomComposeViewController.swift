@@ -34,7 +34,7 @@ public class ZomComposeViewController: OTRComposeViewController {
         if let accounts = accountsAbleToAddBuddies {
             if (accounts.count > 0)
             {
-                let storyboard = UIStoryboard(name: "AddBuddy", bundle: nil)
+                let storyboard = UIStoryboard(name: "AddBuddy", bundle: NSBundle.mainBundle())
                 var vc:UIViewController? = nil
                 if (accounts.count == 1) {
                     vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")

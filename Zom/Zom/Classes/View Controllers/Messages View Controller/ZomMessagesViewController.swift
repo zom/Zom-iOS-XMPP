@@ -109,7 +109,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
         
         let sendStickerAction: UIAlertAction = UIAlertAction(title: OTRLanguageManager.translatedString("Sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-            let storyboard = UIStoryboard(name: "StickerShare", bundle: nil)
+            let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
             let vc = storyboard.instantiateInitialViewController()
             self.presentViewController(vc!, animated: true, completion: nil)
         })
@@ -248,7 +248,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     
     @IBAction func attachmentPickerStickerWithSender(sender: AnyObject) {
         closePickerView()
-        let storyboard = UIStoryboard(name: "StickerShare", bundle: nil)
+        let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
         let vc = storyboard.instantiateInitialViewController()
         self.presentViewController(vc!, animated: true, completion: nil)
     }

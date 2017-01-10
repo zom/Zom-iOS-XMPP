@@ -28,6 +28,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [OTRAssets setupLanguageHandling];
+    [NSBundle setupLanguageHandling];
+    [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kOTRSettingKeyLanguage options:NSKeyValueObservingOptionNew context:nil];
     [UITableView zom_initialize];
     
     BOOL ret = [super application:application didFinishLaunchingWithOptions:launchOptions];
@@ -45,7 +47,7 @@
     
     /* Leading view controller is a NavController that contains the ConversationController */
     /* We want to replace the conversationController with a tab controller */
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:[NSBundle mainBundle]];
     ZomMainTabbedViewController *tabsController = [storyboard instantiateInitialViewController];
     
     UINavigationController *nav = (UINavigationController *)leadingViewController;
@@ -137,6 +139,41 @@
     } else {
         [defaults removeObjectForKey:@"zom_DefaultAccount"];
     }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(__unused id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    // Change language of main bundle resources
+    OTRLanguageSetting *langSetting = (OTRLanguageSetting *)[[OTRSettingsManager new] settingForOTRSettingKey:kOTRSettingKeyLanguage];
+    [NSBundle setLanguage:[langSetting value]];
+    
+    UIViewController *root = self.window.rootViewController;
+    if ([root isKindOfClass:ZomCompactTraitViewController.class]) {
+        root = ((ZomCompactTraitViewController*)root).childViewControllers[0];
+    }
+    if ([root isKindOfClass:UISplitViewController.class]) {
+        root = ((UISplitViewController*)root).childViewControllers[0];
+    }
+    if ([root isKindOfClass:UINavigationController.class] &&
+        [((UINavigationController *)root).viewControllers[0] isKindOfClass:ZomMainTabbedViewController.class]) {
+        
+        // Create new tabs controller
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:[NSBundle mainBundle]];
+        ZomMainTabbedViewController *tabsController = [storyboard instantiateInitialViewController];
+        UINavigationController *nav = (UINavigationController *)root;
+        [nav setViewControllers:[NSArray arrayWithObject:tabsController]];
+        [tabsController didMoveToParentViewController:nav];
+        [tabsController createTabs];
+        //ZomMainTabbedViewController *tabs = (ZomMainTabbedViewController *)(((UINavigationController *)root).viewControllers[0]);
+        //[tabs reload];
+    }
+    //[self application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
+    //if ([change[NSKeyValueChangeNewKey] isEqual:[NSNull null]]) {
+    //} else {
+    //}
 }
 
 @end

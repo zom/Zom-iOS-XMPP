@@ -12,3 +12,9 @@
 + (void) setupLanguageHandling;
 + (NSBundle*) zom_resourcesBundle;
 @end
+@interface NSBundle (ZomLanguageHandling)
++ (void) setupLanguageHandling;
++ (void) setLanguage:(NSString *)language;
++ (void) setBundle:(NSBundle *)main toLanguage:(NSString *)language;
++ (NSBundle*) zom_mainBundle;
+@end
