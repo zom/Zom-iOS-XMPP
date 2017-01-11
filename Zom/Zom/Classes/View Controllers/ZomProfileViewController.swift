@@ -492,8 +492,15 @@ class ZomProfileViewController : UIViewController {
             if let user = self.info?.user {
                 switch user {
                 case let .Account(account):
-                    if let xmppManager = OTRProtocolManager.sharedInstance().protocolForAccount(account) {
-                        print("Ok, got the manager. Now what? I'd like to cast this to a OTRXMPPManager and get xmppStream.")
+                    if let xmppManager = OTRProtocolManager.sharedInstance().protocolForAccount(account) as? OTRXMPPManager,
+                        newPassword = alert.textFields?.first?.text {
+                        xmppManager.changePassword(newPassword, completion: { (success, error) in
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                //Update password textfield with new password
+                                self.tableViewSource?.relaodData?()
+                            })
+                            
+                        })
                     }
                     break
                 default:
@@ -520,8 +527,12 @@ class ZomProfileViewController : UIViewController {
         var alert:UIAlertController
         
         func textFieldDidChange(textField: UITextField){
-            let tf1:UITextField = alert.textFields![0]
-            let tf2:UITextField = alert.textFields![1]
+            guard let tf1 = alert.textFields?[0] else {
+                return
+            }
+            guard let tf2 = alert.textFields?[1] else {
+                return
+            }
             if (tf1.text?.characters.count > 0 && tf2.text?.characters.count > 0 &&
                 tf1.text!.compare(tf2.text!) == NSComparisonResult.OrderedSame) {
                 alert.actions[0].enabled = true
