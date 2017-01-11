@@ -233,5 +233,39 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         //Pass the image back up to the caller
         return newImage!
     }
+    
+    public static func addBuddyToDefaultAccount(navController:UINavigationController?) {
+        let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
+        if (accounts.count > 0)
+        {
+            let storyboard = UIStoryboard(name: "AddBuddy", bundle: NSBundle.mainBundle())
+            var vc:UIViewController? = nil
+            if (accounts.count == 1) {
+                vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")
+                (vc as! ZomNewBuddyViewController).account = accounts[0] as? OTRAccount
+                navController?.pushViewController(vc!, animated: true)
+            } else {
+                // More than one account
+                var defaultAccount:OTRAccount? = nil
+                if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                    defaultAccount = appDelegate.getDefaultAccount()
+                }
+                if (defaultAccount != nil && accounts.contains( { element in
+                    if let a:OTRAccount = element as? OTRAccount {
+                        return a.username == defaultAccount!.username
+                    }
+                    return false
+                })) {
+                    // We have a default, use that
+                    vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")
+                    (vc as! ZomNewBuddyViewController).account = defaultAccount!
+                    navController?.pushViewController(vc!, animated: true)
+                } else {
+                    vc = storyboard.instantiateInitialViewController()
+                    navController?.presentViewController(vc!, animated: true, completion: nil)
+                }
+            }
+        }
+    }
 }
- 
+

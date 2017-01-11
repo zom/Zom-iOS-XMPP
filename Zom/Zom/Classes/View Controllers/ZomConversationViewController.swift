@@ -60,21 +60,7 @@ public class ZomConversationViewController: OTRConversationViewController {
     }
     
     @IBAction func addFriendsButtonPressed(sender: AnyObject) {
-        
-        let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
-        if (accounts.count > 0)
-        {
-            let storyboard = UIStoryboard(name: "AddBuddy", bundle: NSBundle.mainBundle())
-            var vc:UIViewController? = nil
-            if (accounts.count == 1) {
-                vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")
-                (vc as! ZomNewBuddyViewController).account = accounts[0] as? OTRAccount
-                self.navigationController?.pushViewController(vc!, animated: true)
-            } else {
-                vc = storyboard.instantiateInitialViewController()
-                self.navigationController?.presentViewController(vc!, animated: true, completion: nil)
-            }
-        }
+        ZomNewBuddyViewController.addBuddyToDefaultAccount(self.navigationController)
     }
     
     @IBAction func createGroupButtonPressed(sender: AnyObject) {
