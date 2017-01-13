@@ -117,8 +117,12 @@
 - (OTRAccount *)getDefaultAccount {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"zom_DefaultAccount"] != nil) {
-        NSString *accountUsername = [defaults objectForKey:@"zom_DefaultAccount"];
-        OTRAccount *account = [OTRAccountsManager accountWithUsername:accountUsername];
+        NSString *accountUniqueId = [defaults objectForKey:@"zom_DefaultAccount"];
+        
+        __block OTRAccount *account = nil;
+        [[OTRDatabaseManager sharedInstance].readOnlyDatabaseConnection readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
+            account = [OTRAccount fetchObjectWithUniqueID:accountUniqueId transaction:transaction];
+        }];
         if (account != nil) {
             return account;
         }
@@ -135,7 +139,7 @@
 - (void)setDefaultAccount:(OTRAccount *)account {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if (account != nil) {
-        [defaults setValue:account.username forKey:@"zom_DefaultAccount"];
+        [defaults setValue:account.uniqueId forKey:@"zom_DefaultAccount"];
     } else {
         [defaults removeObjectForKey:@"zom_DefaultAccount"];
     }

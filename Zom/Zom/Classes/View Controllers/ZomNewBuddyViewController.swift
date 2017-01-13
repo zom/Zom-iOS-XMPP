@@ -252,7 +252,7 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
                 }
                 if (defaultAccount != nil && accounts.contains( { element in
                     if let a:OTRAccount = element as? OTRAccount {
-                        return a.username == defaultAccount!.username
+                        return a.uniqueId == defaultAccount!.uniqueId
                     }
                     return false
                 })) {
