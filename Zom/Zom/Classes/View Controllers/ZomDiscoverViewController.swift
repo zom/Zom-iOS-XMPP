@@ -10,8 +10,19 @@ import Foundation
 import XMPPFramework
 import OTRKit
 
-public class ZomDiscoverViewController: UIViewController {
+public class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate {
 
+    @IBOutlet weak var pickStickerButton: UIButton!
+    var shareStickerOnResume:String?
+    
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if (shareStickerOnResume != nil) {
+            shareSticker(shareStickerOnResume!)
+            shareStickerOnResume = nil;
+        }
+    }
+    
     @IBAction func didPressZomServicesButtonWithSender(sender: AnyObject) {
         if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
             if let buddy = getZombotBuddy() {
@@ -29,6 +40,12 @@ public class ZomDiscoverViewController: UIViewController {
     
     @IBAction func didPressChangeThemeButtonWithSender(sender: AnyObject) {
         self.performSegueWithIdentifier("segueToPickColor", sender: self)
+    }
+
+    @IBAction func didPressStickerShareButtonWithSender(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
+        let vc = storyboard.instantiateInitialViewController()
+        self.tabBarController?.presentViewController(vc!, animated: true, completion: nil)
     }
     
     @IBAction func unwindPickColorWithUnwindSegue(unwindSegue: UIStoryboardSegue) {
@@ -70,5 +87,30 @@ public class ZomDiscoverViewController: UIViewController {
             }
         }
         return buddy;
+    }
+    
+    @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
+    }
+    
+    public func didPickSticker(sticker: String, inPack pack: String) {
+        if let fileName =
+            ZomStickerMessage.getFilenameForSticker(sticker, inPack: pack) {
+            shareStickerOnResume = fileName
+        }
+    }
+    
+    private func shareSticker(fileName: String) {
+        if let image = UIImage(contentsOfFile: fileName) {
+            let shareItems:Array = [image]
+            
+            let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+            //activityViewController!.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+            if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Phone {
+                self.tabBarController!.presentViewController(activityViewController, animated: true, completion: nil)
+            } else {
+                let popup: UIPopoverController = UIPopoverController(contentViewController: activityViewController)
+                popup.presentPopoverFromRect(pickStickerButton.bounds, inView: pickStickerButton, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+            }
+        }
     }
 }

@@ -9,6 +9,10 @@
 import UIKit
 import ChatSecureCore
 
+public protocol ZomPickStickerViewControllerDelegate {
+    func didPickSticker(sticker:String, inPack: String)
+}
+
 public class ZomPickStickerViewController: UICollectionViewController {
     
     public var stickerPack: String = ""
@@ -62,11 +66,10 @@ public class ZomPickStickerViewController: UICollectionViewController {
     }
 
     public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        if (segue.destinationViewController is ZomMessagesViewController) {
-            let vc:ZomMessagesViewController = segue.destinationViewController as! ZomMessagesViewController
+        if (segue.destinationViewController is ZomPickStickerViewControllerDelegate) {
+            let vc:ZomPickStickerViewControllerDelegate = segue.destinationViewController as! ZomPickStickerViewControllerDelegate
             if (!selectedSticker.isEmpty) {
-                vc.selectSticker(stickerPack, sticker: selectedSticker)
+                vc.didPickSticker(selectedSticker, inPack: stickerPack)
             }
         }
     }

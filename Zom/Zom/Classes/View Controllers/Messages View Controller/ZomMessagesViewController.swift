@@ -94,7 +94,7 @@ extension OTRMessagesViewController {
     }
 }
 
-public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate {
+public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate {
     
     private var hasFixedTitleViewConstraints:Bool = false
     private var attachmentPickerController:OTRAttachmentPicker? = nil
@@ -119,7 +119,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
     }
     
-    public func selectSticker(pack:String, sticker: String) {
+    public func didPickSticker(sticker: String, inPack pack: String) {
         super.didPressSendButton(super.sendButton, withMessageText: ":" + pack + "-" + sticker + ":", senderId: super.senderId, senderDisplayName: super.senderDisplayName, date: NSDate())
     }
     
