@@ -28,8 +28,14 @@ public class ZomIntroViewController: OTRWelcomeViewController {
             if segue.identifier == "useExistingAccountSegue" {
                 login.form = OTRXLFormCreator.formForAccountType(OTRAccountType.Jabber, createAccount: false)
                 login.loginHandler = OTRXMPPLoginHandler()
+                if let zomNavController = self.navigationController as? ZomOnboardingNavigationController {
+                    zomNavController.createdNewAccount = false
+                }
             } else {
                 login.createNewAccount = true
+                if let zomNavController = self.navigationController as? ZomOnboardingNavigationController {
+                    zomNavController.createdNewAccount = true
+                }
             }
         }
         super.prepareForSegue(segue, sender:sender)

@@ -9,21 +9,32 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomInviteViewController: OTRInviteViewController, OTRAttachmentPickerDelegate {
+public class ZomInviteViewController: OTRInviteViewController {
     
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let alreadyAdded = self.childViewControllers.contains { (controller) -> Bool in
-            return controller.restorationIdentifier != nil && ("congrats".compare(controller.restorationIdentifier!) == NSComparisonResult.OrderedSame);
+
+        // Only show congrats for new account!
+        var showCongratsView = true
+        if let zomNavController = self.navigationController as? ZomOnboardingNavigationController {
+            showCongratsView = (zomNavController.createdNewAccount == nil || zomNavController.createdNewAccount!)
         }
-        if (!alreadyAdded) {
-            self.title = ""
-            let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
-            let vc = storyboard.instantiateViewControllerWithIdentifier("congrats")
-            vc.restorationIdentifier = "congrats"
-            self.addChildViewController(vc)
-            vc.view.frame = self.view.frame
-            self.view.addSubview(vc.view)
+        
+        if (showCongratsView) {
+            let alreadyAdded = isShowingCongrats()
+            if (!alreadyAdded) {
+                self.title = ""
+                let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
+                let vc:ZomCongratsViewController = storyboard.instantiateViewControllerWithIdentifier("congrats") as! ZomCongratsViewController
+                vc.account = self.account
+                vc.restorationIdentifier = "congrats"
+                self.addChildViewController(vc)
+                vc.didMoveToParentViewController(self)
+                vc.view.frame = self.view.frame
+                self.view.addSubview(vc.view)
+            }
+        } else {
+            // TODO, jump straight to invite
         }
     }
     
@@ -49,15 +60,28 @@ public class ZomInviteViewController: OTRInviteViewController, OTRAttachmentPick
             }
         }
     }
-
-    @IBAction func avatarButtonPressed(sender: AnyObject) {
-        let photoPicker = OTRAttachmentPicker(parentViewController: self, delegate: self)
-        photoPicker.showAlertControllerWithCompletion(nil)
+    
+    public override func skipPressed(sender: AnyObject!) {
+        if (isShowingCongrats()) {
+            let congratsViewController = getCongratsViewController()
+            congratsViewController!.view.removeFromSuperview()
+            congratsViewController!.removeFromParentViewController()
+            congratsViewController!.didMoveToParentViewController(nil)
+        } else {
+            super.skipPressed(sender)
+        }
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+    private func isShowingCongrats() -> Bool {
+        return getCongratsViewController() != nil
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
+    private func getCongratsViewController() -> ZomCongratsViewController? {
+        for controller in self.childViewControllers {
+            if (controller.isKindOfClass(ZomCongratsViewController.self)) {
+                return controller as? ZomCongratsViewController
+            }
+        }
+        return nil
     }
 }

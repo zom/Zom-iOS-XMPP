@@ -203,8 +203,9 @@ struct UserCellInfo: ZomProfileViewCellInfoProtocol {
         
         userCell.displayNameLabel.text = self.title
         userCell.usernameLabel.text = self.subtitle
-        userCell.avatarImageView.image = self.avatarImage
+        userCell.avatarImageView.setImage(self.avatarImage, forState: .Normal)
         userCell.avatarImageView.layer.cornerRadius = CGRectGetWidth(userCell.avatarImageView.frame)/2;
+        userCell.avatarImageView.userInteractionEnabled = true
         userCell.avatarImageView.clipsToBounds = true;
         userCell.selectionStyle = .None
     }
@@ -391,7 +392,9 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
     }
 }
 
-class ZomProfileViewController : UIViewController {
+class ZomProfileViewController : UIViewController, OTRAttachmentPickerDelegate {
+    
+    private var avatarPicker:OTRAttachmentPicker?
     
     let tableView = UITableView(frame: CGRectZero, style: .Grouped)
     private var tableViewSource:ZomProfileTableViewSource?
@@ -548,4 +551,34 @@ class ZomProfileViewController : UIViewController {
         }
     }
     
+    @IBAction func didTapAvatarImageWithSender(sender: UIButton) {
+        if let user = self.info?.user {
+            switch user {
+            case let .Account(_):
+                // Keep strong reference
+                avatarPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.navigationController, delegate: self)
+                avatarPicker!.showAlertControllerWithCompletion(nil)
+                break
+                default:
+                break
+            }
+        }
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+        print("Got a video!")
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
+        if let user = self.info?.user {
+            switch user {
+            case let .Account(account):
+                account.avatarData = UIImagePNGRepresentation(photo)
+                break
+            default:
+                break
+            }
+        }
+        print("Got a photo!")
+    }
 }
