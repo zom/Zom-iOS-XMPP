@@ -14,6 +14,9 @@ public class ZomInviteViewController: OTRInviteViewController {
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
+        // Don't show the upstream view
+        self.view.hidden = true
+        
         // Only show congrats for new account!
         var showCongratsView = true
         if let zomNavController = self.navigationController as? ZomOnboardingNavigationController {
@@ -35,7 +38,37 @@ public class ZomInviteViewController: OTRInviteViewController {
             }
         } else {
             // TODO, jump straight to invite
+            showInviteFriends()
         }
+    }
+    
+    private func showInviteFriends() {
+        super.skipPressed(self)
+        /*
+        if (!isShowingInviteFriends()) {
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
+            let vc:ZomNewBuddyViewController = storyboard.instantiateViewControllerWithIdentifier("inviteFriends") as! ZomNewBuddyViewController
+            vc.account = self.account
+            self.addChildViewController(vc)
+            vc.didMoveToParentViewController(self)
+            vc.view.frame = self.view.frame
+            if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
+                vc.view.backgroundColor = appDelegate.theme.mainThemeColor
+                vc.view.tintColor = UIColor.whiteColor()
+                vc.addToolbar.barTintColor = appDelegate.theme.mainThemeColor
+                vc.addToolbar.tintColor = UIColor.whiteColor()
+                vc.imageView?.image = UIImage(named: "PitchInvite", inBundle: NSBundle.mainBundle(), compatibleWithTraitCollection: nil)
+                vc.addFriendsLabel?.textColor = UIColor.whiteColor()
+                vc.addFriendsLabel?.tintColor = UIColor.whiteColor()
+                for barButtonItem in vc.addToolbar.items! {
+                    if let button = barButtonItem.customView as? UIButton {
+                        button.tintColor = UIColor.whiteColor()
+                    }
+                }
+            }
+            self.view.addSubview(vc.view)
+        }
+        */
     }
     
     @IBAction func settingsButtonPressed(sender: AnyObject) {
@@ -67,6 +100,7 @@ public class ZomInviteViewController: OTRInviteViewController {
             congratsViewController!.view.removeFromSuperview()
             congratsViewController!.removeFromParentViewController()
             congratsViewController!.didMoveToParentViewController(nil)
+            showInviteFriends()
         } else {
             super.skipPressed(sender)
         }
@@ -80,6 +114,19 @@ public class ZomInviteViewController: OTRInviteViewController {
         for controller in self.childViewControllers {
             if (controller.isKindOfClass(ZomCongratsViewController.self)) {
                 return controller as? ZomCongratsViewController
+            }
+        }
+        return nil
+    }
+    
+    private func isShowingInviteFriends() -> Bool {
+        return getInviteFriendsViewController() != nil
+    }
+    
+    private func getInviteFriendsViewController() -> ZomNewBuddyViewController? {
+        for controller in self.childViewControllers {
+            if (controller.isKindOfClass(ZomNewBuddyViewController.self)) {
+                return controller as? ZomNewBuddyViewController
             }
         }
         return nil

@@ -11,15 +11,16 @@ import ChatSecureCore
 import BButton
 
 public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
-    @IBOutlet weak var addFriendsLabel: UILabel!
-    @IBOutlet weak var gotInviteLabel: UILabel!
-    @IBOutlet weak var tapInviteLabel: UILabel!
-    @IBOutlet weak var separator: UIView!
+    @IBOutlet weak var addFriendsLabel: UILabel?
+    @IBOutlet weak var gotInviteLabel: UILabel?
+    @IBOutlet weak var tapInviteLabel: UILabel?
+    @IBOutlet weak var separator: UIView?
     @IBOutlet weak var addToolbar: UIToolbar!
     @IBOutlet var shareSmsButtonItem: UIBarButtonItem!
     @IBOutlet var shareButtonItem: UIBarButtonItem!
     @IBOutlet var scanButtonItem: UIBarButtonItem!
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var scrollView: UIScrollView?
+    @IBOutlet var imageView: UIImageView?
 
     private var shareLink:String? = nil
     
@@ -29,9 +30,9 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         
         // Style
         if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
-            addFriendsLabel.textColor = appDelegate.theme.mainThemeColor
-            gotInviteLabel.textColor = appDelegate.theme.mainThemeColor
-            separator.backgroundColor = appDelegate.theme.mainThemeColor
+            addFriendsLabel?.textColor = appDelegate.theme.mainThemeColor
+            gotInviteLabel?.textColor = appDelegate.theme.mainThemeColor
+            separator?.backgroundColor = appDelegate.theme.mainThemeColor
         }
         
         if let button = shareSmsButtonItem.customView as? UIButton {
@@ -96,21 +97,23 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
     }
     
     func didShowKeyboard(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
+        if let userInfo = notification.userInfo, sep = self.separator, scroll = self.scrollView {
             if let keyboardSize: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
                 // If the whole tableview is not visible, scroll up so that ADVANCED
                 // view is at the top (i.e. the separator is just off screen!
                 //
                 if ((self.tableView.frame.origin.y + self.tableView.frame.height) > self.view.frame.height - keyboardSize.height) {
-                    let separatorY = self.separator.frame.origin.y + self.separator.frame.size.height
-                    scrollView.setContentOffset(CGPointMake(0, separatorY), animated: true)
+                    let separatorY = sep.frame.origin.y + sep.frame.size.height
+                    scroll.setContentOffset(CGPointMake(0, separatorY), animated: true)
                 }
             }
         }
     }
 
     func didHideKeyboard(notification: NSNotification) {
-        scrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+        if let scroll = self.scrollView {
+            scroll.setContentOffset(CGPointMake(0, 0), animated: true)
+        }
     }
 
     private func adjustButtons() {

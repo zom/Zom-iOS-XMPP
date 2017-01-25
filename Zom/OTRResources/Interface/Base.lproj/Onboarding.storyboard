@@ -395,9 +395,110 @@
             </objects>
             <point key="canvasLocation" x="2470" y="516"/>
         </scene>
+        <!--Zom New Buddy View Controller-->
+        <scene sceneID="Z7Y-55-1eQ">
+            <objects>
+                <viewController storyboardIdentifier="inviteFriends" id="sg3-qr-DJy" customClass="ZomNewBuddyViewController" customModule="Zom" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eDp-tm-crW"/>
+                        <viewControllerLayoutGuide type="bottom" id="5sM-KM-sJE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ts-6M-BTR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PitchInvite" translatesAutoresizingMaskIntoConstraints="NO" id="tVz-wt-0Ee"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friends!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1f-w1-jOU">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-Gl-LY3">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="lCH-2E-D39"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="A2q-75-Mm6"/>
+                                    <barButtonItem style="plain" id="pyo-PK-mhA">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f0C-jF-ZE2">
+                                            <rect key="frame" x="98" y="15" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="SMS">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="shareSmsButtonPressedWithSender:" destination="sg3-qr-DJy" eventType="touchUpInside" id="V2g-K3-lx1"/>
+                                            </connections>
+                                        </button>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="fhM-MH-VZa">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f0b-EP-rxv">
+                                            <rect key="frame" x="154" y="15" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Share">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="shareButtonPressedWithSender:" destination="sg3-qr-DJy" eventType="touchUpInside" id="scd-Ip-Aah"/>
+                                            </connections>
+                                        </button>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="C84-2O-Baq">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5ph-Z8-dYh">
+                                            <rect key="frame" x="210" y="15" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="Scan">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="scanButtonPressedWithSender:" destination="sg3-qr-DJy" eventType="touchUpInside" id="CJg-Pr-kjd"/>
+                                            </connections>
+                                        </button>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LsW-mv-S1U"/>
+                                </items>
+                                <color key="barTintColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tVz-wt-0Ee" firstAttribute="top" secondItem="eDp-tm-crW" secondAttribute="bottom" constant="20" id="3cd-Pl-kB3"/>
+                            <constraint firstAttribute="trailing" secondItem="a1f-w1-jOU" secondAttribute="trailing" constant="10" id="71x-47-dYT"/>
+                            <constraint firstAttribute="trailing" secondItem="cKb-Gl-LY3" secondAttribute="trailing" constant="10" id="7Q8-gc-AZU"/>
+                            <constraint firstItem="a1f-w1-jOU" firstAttribute="centerX" secondItem="7ts-6M-BTR" secondAttribute="centerX" id="8H7-AJ-4CF"/>
+                            <constraint firstAttribute="trailing" secondItem="tVz-wt-0Ee" secondAttribute="trailing" constant="20" id="8xR-3U-FrP"/>
+                            <constraint firstItem="tVz-wt-0Ee" firstAttribute="leading" secondItem="7ts-6M-BTR" secondAttribute="leading" constant="20" id="9Ek-bL-AfH"/>
+                            <constraint firstItem="a1f-w1-jOU" firstAttribute="leading" secondItem="7ts-6M-BTR" secondAttribute="leading" constant="10" id="Mgn-KR-LXE"/>
+                            <constraint firstItem="cKb-Gl-LY3" firstAttribute="top" secondItem="a1f-w1-jOU" secondAttribute="bottom" constant="20" id="af7-Fg-CFn"/>
+                            <constraint firstItem="a1f-w1-jOU" firstAttribute="top" secondItem="tVz-wt-0Ee" secondAttribute="bottom" constant="20" id="eYj-f5-G0n"/>
+                            <constraint firstItem="a1f-w1-jOU" firstAttribute="centerY" secondItem="7ts-6M-BTR" secondAttribute="centerY" id="uJ7-5l-IJY"/>
+                            <constraint firstItem="cKb-Gl-LY3" firstAttribute="leading" secondItem="7ts-6M-BTR" secondAttribute="leading" constant="10" id="vbG-3H-vo3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addFriendsLabel" destination="a1f-w1-jOU" id="s4e-Eo-sEL"/>
+                        <outlet property="addToolbar" destination="cKb-Gl-LY3" id="jGF-TZ-bdd"/>
+                        <outlet property="imageView" destination="tVz-wt-0Ee" id="Vrj-oO-Rvb"/>
+                        <outlet property="scanButtonItem" destination="C84-2O-Baq" id="45t-7M-ACY"/>
+                        <outlet property="shareButtonItem" destination="fhM-MH-VZa" id="VnD-GI-W8J"/>
+                        <outlet property="shareSmsButtonItem" destination="pyo-PK-mhA" id="yAA-f8-lhN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9e-fQ-o6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3188" y="516"/>
+        </scene>
     </scenes>
     <resources>
         <image name="OTRSettingsIcon" width="25" height="25"/>
+        <image name="PitchInvite" width="776" height="482"/>
         <image name="PushOnboarding" width="293" height="293"/>
         <image name="chatsecure_logo_transparent" width="132" height="175"/>
         <image name="ic_language_white" width="24" height="24"/>
