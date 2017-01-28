@@ -35,6 +35,7 @@ public class ZomInviteViewController: OTRInviteViewController {
                 vc.didMoveToParentViewController(self)
                 vc.view.frame = self.view.frame
                 self.view.addSubview(vc.view)
+                self.view.hidden = false
             }
         } else {
             // TODO, jump straight to invite
@@ -67,6 +68,7 @@ public class ZomInviteViewController: OTRInviteViewController {
                 }
             }
             self.view.addSubview(vc.view)
+            self.view.hidden = false
         }
         */
     }
@@ -95,15 +97,15 @@ public class ZomInviteViewController: OTRInviteViewController {
     }
     
     public override func skipPressed(sender: AnyObject!) {
-        if (isShowingCongrats()) {
+        /*if (isShowingCongrats()) {
             let congratsViewController = getCongratsViewController()
             congratsViewController!.view.removeFromSuperview()
             congratsViewController!.removeFromParentViewController()
             congratsViewController!.didMoveToParentViewController(nil)
             showInviteFriends()
-        } else {
+        } else {*/
             super.skipPressed(sender)
-        }
+        //}
     }
     
     private func isShowingCongrats() -> Bool {
