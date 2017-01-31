@@ -35,7 +35,7 @@ extension ShareControllerURLSource {
     }
     
     public func zom_activityViewController(activityViewController: UIActivityViewController, subjectForActivityType activityType: String?) -> String {
-        let text = OTRLanguageManager.translatedString("Let's Zom!")
+        let text = NSLocalizedString("Let's Zom!", comment: "String for sharing Zom link")
         return text
     }
 }

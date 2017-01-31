@@ -31,7 +31,7 @@ extension OTRYapViewHandler {
         dispatch_once(&Static.token) {
             
             let filtering:YapDatabaseViewFiltering = YapDatabaseViewFiltering.withObjectBlock({ (transaction:YapDatabaseReadTransaction, group:String, collection:String, key:String, object:AnyObject) -> Bool in
-                if let message = object as? OTRMessage {
+                if let message = object as? OTRBaseMessage {
                     if message.messageError() != nil {
                         return false
                     }

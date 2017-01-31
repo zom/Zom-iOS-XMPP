@@ -260,13 +260,18 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     }
     
     @objc func didPressInfoButton(sender:AnyObject) {
-        guard let buddy = self.threadObject() as? OTRBuddy else {
+        var threadOwner: OTRThreadOwner? = nil
+        var _account: OTRAccount? = nil
+        self.readOnlyDatabaseConnection.readWithBlock { (t) in
+            threadOwner = self.threadObjectWithTransaction(t)
+            _account = self.accountWithTransaction(t)
+        }
+        guard let buddy = threadOwner as? OTRBuddy, account = _account else {
             return
         }
-        let account = self.account()
-        
         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-        ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: true) { (info) in
+        let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+        ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: otrKit, qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: true) { (info) in
             profileVC.info = info
         }
 

@@ -5,50 +5,41 @@
 
 import UIKit
 import ChatSecureCore
+import JSQMessagesViewController
 
-public class ZomStickerMessage: OTRMessage {
+public class ZomStickerMessage: NSObject, JSQMessageData {
 
-    private var originalMessage:ChatSecureCore.JSQMessageData!
-    private var mediaObject:ZomStickerMessageMedia?
+    private var originalMessage:JSQMessageData
+    private lazy var mediaObject:ZomStickerMessageMedia? = { [unowned self] in
+        return ZomStickerMessageMedia(filePath: ZomStickerMessage.getStickerFilenameFromMessage(self.originalMessage.text!()))
+    }()
     
-    public init(message : ChatSecureCore.JSQMessageData!) {
-        super.init()
+    public init(message : JSQMessageData) {
         originalMessage = message
     }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    
+    public func senderDisplayName() -> String! {
+        return self.originalMessage.senderDisplayName()
     }
     
-    public required init(dictionary dictionaryValue: [NSObject : AnyObject]!) throws {
-        try super.init(dictionary: dictionaryValue)
-    }
-    
-    public required init!(uniqueId: String!) {
-        super.init(uniqueId: uniqueId)
-    }
-    
-    public override func date() -> NSDate! {
+    public func date() -> NSDate {
         return originalMessage.date()
     }
 
-    public override func messageHash() -> UInt {
+    public func messageHash() -> UInt {
         return originalMessage.messageHash()
     }
     
-    public override func senderId() -> String! {
+    public func senderId() -> String! {
         return originalMessage.senderId()
     }
     
-    override public func isMediaMessage() -> Bool {
+    public func isMediaMessage() -> Bool {
         return true
     }
     
-    override public func media() -> ChatSecureCore.JSQMessageMediaData! {
-        if (mediaObject == nil) {
-            mediaObject = ZomStickerMessageMedia(filePath: ZomStickerMessage.getStickerFilenameFromMessage(originalMessage.text!()))
-        }
-        return mediaObject!
+    public func media() -> JSQMessageMediaData! {
+        return self.mediaObject
     }
     
     public static func isValidStickerShortCode(message:String?) -> Bool {

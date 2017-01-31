@@ -172,7 +172,8 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
     private func populateMeTabController() {
         if (meViewController != nil) {
             if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate,let account = appDelegate.getDefaultAccount() {
-                ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction) { (info) in
+                let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+                ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: otrKit, qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction) { (info) in
                     self.meViewController!.info = info
                 }
             }
@@ -198,7 +199,8 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
                     }
                     if let b = buddy, a = account {
                         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-                        ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: false) { (info) in
+                        let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+                        ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: false) { (info) in
                             profileVC.info = info
                         }
                         self.navigationController?.pushViewController(profileVC, animated: true)
