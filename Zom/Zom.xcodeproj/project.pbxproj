@@ -707,7 +707,7 @@
 		D978BC971BABE200009246CF /* ZomTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomTheme.m; path = Classes/ZomTheme.m; sourceTree = "<group>"; };
 		D978BC9C1BABE6DA009246CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D978BCA51BABEB6F009246CF /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../../ChatSecure/ChatSecure/FontAwesome.ttf; sourceTree = "<group>"; };
-		D978BCA71BABEB83009246CF /* xmpp-server-list */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xmpp-server-list"; path = "../../ChatSecure/Submodules/xmpp-server-list"; sourceTree = "<group>"; };
+		D978BCA71BABEB83009246CF /* xmpp-server-list */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xmpp-server-list"; path = "../../Submodules/xmpp-server-list"; sourceTree = "<group>"; };
 		D978BCAB1BABEC13009246CF /* torrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = torrc; path = ../../ChatSecure/ChatSecure/Resources/torrc; sourceTree = "<group>"; };
 		D99DEB6E1BABD1F300875194 /* Zom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99DEB721BABD1F300875194 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Classes/main.m; sourceTree = "<group>"; };
