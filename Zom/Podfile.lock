@@ -366,33 +366,33 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ChatSecure-Push-iOS:
-    :path: ../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec
+    :path: "../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec"
   CocoaAsyncSocket:
     :commit: 071109901100334ad54ae704b4c644b6bb89ad21
     :git: https://github.com/robbiehanson/CocoaAsyncSocket.git
   CPAProxy:
-    :path: ../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec
+    :path: "../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec"
   gtm-http-fetcher:
-    :podspec: ../ChatSecure/Podspecs/gtm-http-fetcher.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-http-fetcher.podspec"
   gtm-oauth2:
-    :podspec: ../ChatSecure/Podspecs/gtm-oauth2.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-oauth2.podspec"
   IOCipher:
-    :path: ../ChatSecure/Submodules/IOCipher/IOCipher.podspec
+    :path: "../ChatSecure/Submodules/IOCipher/IOCipher.podspec"
   JSQMessagesViewController:
     :branch: 7.2.0-send_button
     :git: https://github.com/ChatSecure/JSQMessagesViewController
   libsqlfs:
-    :podspec: ../ChatSecure/Podspecs/libsqlfs.podspec
+    :podspec: "../ChatSecure/Podspecs/libsqlfs.podspec"
   OTRKit:
-    :path: ../ChatSecure/Submodules/OTRKit/OTRKit.podspec
+    :path: "../ChatSecure/Submodules/OTRKit/OTRKit.podspec"
   ParkedTextField:
-    :path: ../ChatSecure/Submodules/ParkedTextField/ParkedTextField.podspec
+    :path: "../ChatSecure/Submodules/ParkedTextField/ParkedTextField.podspec"
   ProxyKit:
-    :path: ../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec
+    :path: "../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec"
   SQLCipher:
-    :podspec: ../ChatSecure/Podspecs/SQLCipher.podspec.json
+    :podspec: "../ChatSecure/Podspecs/SQLCipher.podspec.json"
   XMPPFramework:
-    :path: ../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec
+    :path: "../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec"
 
 CHECKOUT OPTIONS:
   CocoaAsyncSocket:
