@@ -35,8 +35,8 @@ public class ZomInviteViewController: OTRInviteViewController {
                 vc.didMoveToParentViewController(self)
                 vc.view.frame = self.view.frame
                 self.view.addSubview(vc.view)
-                self.view.hidden = false
             }
+            self.view.hidden = false
         } else {
             // TODO, jump straight to invite
             showInviteFriends()
