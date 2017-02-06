@@ -28,7 +28,7 @@ extension OTRBuddy {
     func zom_getDisplayName() -> String? {
         let originalDisplayName = self.zom_getDisplayName()
         let account = self.username
-        if (account != nil && (originalDisplayName == nil || account.compare(originalDisplayName!) == NSComparisonResult.OrderedSame)) {
+        if (originalDisplayName == nil || account.compare(originalDisplayName!) == NSComparisonResult.OrderedSame) {
             let split = account.componentsSeparatedByString("@")
             if (split.count > 0) {
                 var displayName = split[0]

@@ -20,7 +20,7 @@ public class ZomChooseAccountViewController: OTRChooseAccountViewController, UIT
         let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
         if (accounts.count == 1)
         {
-            self.selectedAccount = accounts[0] as! OTRAccount
+            self.selectedAccount = accounts[0] as? OTRAccount
             self.performSegueWithIdentifier("addNewBuddySegue", sender: self)
         }
         
@@ -32,7 +32,7 @@ public class ZomChooseAccountViewController: OTRChooseAccountViewController, UIT
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let accounts:[AnyObject] = OTRAccountsManager.allAccountsAbleToAddBuddies()
-        self.selectedAccount = accounts[indexPath.row] as! OTRAccount
+        self.selectedAccount = accounts[indexPath.row] as? OTRAccount
         self.performSegueWithIdentifier("addNewBuddySegue", sender: self)
     }
     

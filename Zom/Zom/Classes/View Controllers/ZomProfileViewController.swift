@@ -380,8 +380,6 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
                 }
             }
             break
-        default:
-            break
         }
     }
 }
