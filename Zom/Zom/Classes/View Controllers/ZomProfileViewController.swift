@@ -234,9 +234,8 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
 public class ZomProfileViewController : UIViewController {
     
     private var avatarPicker:OTRAttachmentPicker?
-    private var readOnlyDatabaseConnection:YapDatabaseConnection {
-        return OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection
-    }
+    //FIXME: After big merge should use shared read-only connection
+    private var readOnlyDatabaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().newConnection()
     private var viewHandler:OTRYapViewHandler?
     
     let tableView = UITableView(frame: CGRectZero, style: .Grouped)
@@ -457,21 +456,26 @@ extension ZomProfileViewController: OTRYapViewHandlerDelegateProtocol {
         self.readOnlyDatabaseConnection.readWithBlock { (transaction) in
             newObject = transaction.objectForKey(key, inCollection: collection) as? OTRYapDatabaseObject
         }
-        var user:ZomProfileViewControllerInfo.User?
+        
         switch newObject {
         case let account as OTRAccount:
-            user = ZomProfileViewControllerInfo.User.Account(account)
+            ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: info.otrKit, qrAction: self.qrAction, shareAction: self.shareAction, completion: { (newInfo) in
+                self.info = newInfo
+            })
             break
         case let buddy as OTRBuddy:
-            user = ZomProfileViewControllerInfo.User.Buddy(buddy)
+            var account:OTRAccount? = nil
+            self.readOnlyDatabaseConnection.readWithBlock({ (transaction) in
+                account = OTRAccount.fetchObjectWithUniqueID(buddy.accountUniqueId, transaction: transaction)
+            })
+            if let account = account {
+                ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: info.otrKit, qrAction: self.qrAction, shareAction: self.shareAction, hasSession: info.hasSession , completion: { (newInfo) in
+                    self.info
+                })
+            }
+            
             break
         default: break
         }
-        
-        guard let newUser = user else {
-            return
-        }
-        
-        self.info = ZomProfileViewControllerInfo(tableSections: info.tableSections, user: newUser, otrKit: info.otrKit, otrKitInfo: info.otrKitInfo, hasSession: info.hasSession)
     }
 }
