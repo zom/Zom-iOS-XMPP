@@ -338,6 +338,11 @@ public class ZomProfileViewController : UIViewController {
         self.viewHandler?.delegate = self
     }
     
+    override public func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
+    }
+    
     @IBAction func didPressChangePasswordButton(sender: UIButton) {
         let alert = UIAlertController(title: NSLocalizedString("Change password", comment: "Title for change password alert"), message: NSLocalizedString("Please enter your new password", comment: "Message for change password alert"), preferredStyle: UIAlertControllerStyle.Alert)
         passwordChangeDelegate = PasswordChangeTextFieldDelegate(alert: alert)
