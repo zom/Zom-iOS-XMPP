@@ -134,4 +134,9 @@
     return svc;
 }
 
+- (BOOL) enableOMEMO
+{
+    return NO;
+}
+
 @end

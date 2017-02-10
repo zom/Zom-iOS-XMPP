@@ -484,14 +484,13 @@ internal class ZomProfileViewController : UIViewController, OTRAttachmentPickerD
                 case let .Account(account):
                     if let xmppManager = OTRProtocolManager.sharedInstance().protocolForAccount(account) as? OTRXMPPManager,
                         newPassword = alert.textFields?.first?.text {
-                        //FIXME: Needs chatsecure core to be updated
-//                        xmppManager.changePassword(newPassword, completion: { (success, error) in
-//                            dispatch_async(dispatch_get_main_queue(), { 
-//                                //Update password textfield with new password
-//                                self.tableViewSource?.relaodData?()
-//                            })
-//                            
-//                        })
+                        xmppManager.changePassword(newPassword, completion: { (success, error) in
+                            dispatch_async(dispatch_get_main_queue(), { 
+                                //Update password textfield with new password
+                                self.tableViewSource?.relaodData?()
+                            })
+                            
+                        })
                     }
                     break
                 default:
