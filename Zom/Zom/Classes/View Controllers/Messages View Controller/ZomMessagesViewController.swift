@@ -253,10 +253,10 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         self.presentViewController(vc!, animated: true, completion: nil)
     }
     
-    override public func rightBarButtonItem() -> UIBarButtonItem? {
+    public func setupInfoButton() {
         let image = UIImage(named: "OTRInfoIcon", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
         let item = UIBarButtonItem(image: image, style: .Plain, target: self, action: #selector(didPressInfoButton(_:)))
-        return item
+        self.navigationItem.rightBarButtonItem = item
     }
     
     @objc func didPressInfoButton(sender:AnyObject) {
