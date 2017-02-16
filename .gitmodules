@@ -1,3 +1,6 @@
 [submodule "ChatSecure"]
 	path = ChatSecure
 	url = git@github.com:zom/ChatSecure-iOS.git
+[submodule "Submodules/xmpp-server-list"]
+	path = Submodules/xmpp-server-list
+	url = git@github.com:zom/xmpp-server-list.git

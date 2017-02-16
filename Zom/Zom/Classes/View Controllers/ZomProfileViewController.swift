@@ -9,6 +9,7 @@
 import Foundation
 import PureLayout
 import OTRAssets
+import MobileCoreServices
 
 extension OTRBuddy {
     func zom_inviteLink(otrFingerprint:String?) -> NSURL {
@@ -22,55 +23,9 @@ extension OTRBuddy {
     }
 }
 
-/** All the idenitifiers for each cell that is possible in a ProfileViewController */
-internal enum ZomProfileViewCellIdentifier:String {
-    case ProfileCell = "ProfileCell"
-    case FingerprintCell = "FingerprintCell"
-    case ButtonCell = "ButtonCell"
-    case PasswordCell = "PasswordCell"
-    
-    static let allValues = [ProfileCell,FingerprintCell,ButtonCell,PasswordCell]
-    
-    enum ClassOrNib {
-        case Nib(UINib)
-        case Class(AnyClass)
-    }
-    
-    /** Get the cell class or nib depending on the identifier type */
-    static func classOrNib(identifier:ZomProfileViewCellIdentifier) -> ClassOrNib {
-        let resourceBundle = OTRAssets.resourcesBundle()
-        switch identifier {
-        case .ProfileCell :
-            return .Nib(UINib(nibName: "ZomUserInfoProfileCell", bundle: resourceBundle))
-        case FingerprintCell:
-            return .Nib(UINib(nibName: "ZomFingerprintCell", bundle: resourceBundle))
-        case PasswordCell :
-            return .Nib(UINib(nibName: "ZomPasswordCell", bundle: resourceBundle))
-        case .ButtonCell:
-            return .Class(UITableViewCell.self)
-        }
-    }
-}
 
-/** 
- This protocol defines the funtion for any cell info struct/object.
- The Cell info should contain all the data necesssary to build the UITableViewCell of its type.
- */
-protocol ZomProfileViewCellInfoProtocol {
-    
-    /** 
-     Called from `func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell`.
-     */
-    func configure(cell:UITableViewCell)
-    
-    /** The cell type for this cell info */
-    func cellIdentifier() -> ZomProfileViewCellIdentifier
-    
-    /** The cell height. If nil then UITableViewAutomaticDimension is used */
-    func cellHeight() -> CGFloat?
-}
 
-/** This contains all teh information necessary to build the ZomProfileViewController */
+/** This contains all the information necessary to build the ZomProfileViewController */
 struct ZomProfileViewControllerInfo {
     
     struct zomOTRKitInfo {
@@ -98,6 +53,20 @@ struct ZomProfileViewControllerInfo {
                 })
                 return
             }
+        }
+        
+        func databaseObject() -> OTRYapDatabaseObject {
+            switch self {
+            case Buddy(let buddy): return buddy
+            case Account(let account): return account
+            }
+        }
+        
+        func yapKey() -> String {
+            return self.databaseObject().uniqueId
+        }
+        func yapCollection() -> String {
+            return self.databaseObject().dynamicType.collection()
         }
     }
     
@@ -142,7 +111,7 @@ struct ZomProfileViewControllerInfo {
         let fingerprintSectionCells = allFingerprints.flatMap { (fingerprint) -> [ZomProfileViewCellInfoProtocol] in
             var result:[ZomProfileViewCellInfoProtocol] = [FingerprintCellInfo(fingerprint: fingerprint, qrAction: qrAction, shareAction: shareAction)]
             if (!fingerprint.isTrusted()) {
-                result.append(ButtonCellInfo(type: .Verify(fingerprint)))
+                result.append(ButtonCellInfo(type: ButtonCellInfo.ButtonCellType.Verify(fingerprint)))
             }
             return result
         }
@@ -170,45 +139,6 @@ struct ZomProfileViewControllerInfo {
     }
 }
 
-/** This struct contains all the information for a table section  */
-struct TableSectionInfo {
-    /** The title of the section */
-    let title:String?
-    /** The cells in the section */
-    let cells:[ZomProfileViewCellInfoProtocol]?
-}
-
-/** Contains all the information necessary to render the user cell */
-struct UserCellInfo: ZomProfileViewCellInfoProtocol {
-    
-    let avatarImage:UIImage?
-    let title:String
-    let subtitle:String?
-    
-    static let kCellHeight:CGFloat = 90
-    
-    func configure(cell: UITableViewCell) {
-        guard let userCell = cell as? ZomUserInfoProfileCell else {
-            return
-        }
-        
-        userCell.displayNameLabel.text = self.title
-        userCell.usernameLabel.text = self.subtitle
-        userCell.avatarImageView.setImage(self.avatarImage, forState: .Normal)
-        userCell.avatarImageView.layer.cornerRadius = CGRectGetWidth(userCell.avatarImageView.frame)/2;
-        userCell.avatarImageView.userInteractionEnabled = true
-        userCell.avatarImageView.clipsToBounds = true;
-        userCell.selectionStyle = .None
-    }
-    
-    func cellIdentifier() -> ZomProfileViewCellIdentifier {
-        return .ProfileCell
-    }
-    
-    func cellHeight() -> CGFloat? {
-        return UserCellInfo.kCellHeight
-    }
-}
 
 struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
     
@@ -259,50 +189,12 @@ enum ButtonCellType {
     }
 }
 
-struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
-    
-    let type:ButtonCellType
-    
-    func configure(cell:UITableViewCell) {
-        cell.textLabel?.text = self.type.text()
-        cell.textLabel?.textColor = UIButton(type: .System).titleColorForState(.Normal)
-    }
-    func cellIdentifier() -> ZomProfileViewCellIdentifier {
-        return .ButtonCell
-    }
-    func cellHeight() -> CGFloat? {
-        return nil
-    }
-}
 
-struct PasswordCellInfo: ZomProfileViewCellInfoProtocol {
-    let password:String
-    
-    func configure(cell: UITableViewCell) {
-        guard let passwordCell = cell as? ZomPasswordCell else {
-            return
-        }
-        passwordCell.passwordTextField.text = self.password
-        
-        passwordCell.changeButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
-        passwordCell.changeButton.setTitle(NSString.fa_stringForFontAwesomeIcon(.FAEdit), forState: UIControlState.Normal)
-        passwordCell.revealButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
-        passwordCell.revealButton.setTitle(NSString.fa_stringForFontAwesomeIcon(.FAEye), forState: UIControlState.Normal)
-        passwordCell.selectionStyle = .None
-    }
-    
-    func cellIdentifier() -> ZomProfileViewCellIdentifier {
-        return .PasswordCell
-    }
-    
-    func cellHeight() -> CGFloat? {
-        return nil
-    }
-}
+
 
 class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var info:ZomProfileViewControllerInfo
+    let info:ZomProfileViewControllerInfo
     var controller:ZomProfileViewController
     var relaodData:(() -> Void)?
     
@@ -384,9 +276,12 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
     }
 }
 
-internal class ZomProfileViewController : UIViewController, OTRAttachmentPickerDelegate {
+public class ZomProfileViewController : UIViewController {
     
     private var avatarPicker:OTRAttachmentPicker?
+    //FIXME: After big merge should use shared read-only connection
+    private var readOnlyDatabaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection
+    private var viewHandler:OTRYapViewHandler?
     
     let tableView = UITableView(frame: CGRectZero, style: .Grouped)
     private var tableViewSource:ZomProfileTableViewSource?
@@ -406,6 +301,11 @@ internal class ZomProfileViewController : UIViewController, OTRAttachmentPickerD
             self.tableView.delegate = self.tableViewSource
             self.tableView.dataSource = self.tableViewSource
             self.tableView.reloadData()
+            
+            if let yapKey = self.info?.user.yapKey(), yapCollection = self.info?.user.yapCollection() {
+                //TODO: Remove all previous key collection pairs
+                self.viewHandler?.keyCollectionObserver.observe(yapKey, collection: yapCollection)
+            }
         }
     }
     var qrAction:((FingerprintCellInfo) -> Void)?
@@ -451,11 +351,11 @@ internal class ZomProfileViewController : UIViewController, OTRAttachmentPickerD
         }
     }
     
-    required internal init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override internal func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -473,6 +373,15 @@ internal class ZomProfileViewController : UIViewController, OTRAttachmentPickerD
         
         self.view.addSubview(self.tableView)
         self.tableView.autoPinEdgesToSuperviewEdges()
+        
+        
+        self.viewHandler = OTRYapViewHandler(databaseConnection: self.readOnlyDatabaseConnection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+        self.viewHandler?.delegate = self
+    }
+    
+    override public func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .None)
     }
     
     @IBAction func didPressChangePasswordButton(sender: UIButton) {
@@ -546,27 +455,69 @@ internal class ZomProfileViewController : UIViewController, OTRAttachmentPickerD
                 avatarPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.navigationController, delegate: self)
                 avatarPicker!.showAlertControllerWithCompletion(nil)
                 break
-                default:
+            default:
                 break
             }
         }
     }
     
     
-    internal func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
-        print("Got a video!")
+}
+
+extension ZomProfileViewController: OTRAttachmentPickerDelegate {
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+        
     }
     
-    internal func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
         if let user = self.info?.user {
             switch user {
             case let .Account(account):
-                account.avatarData = UIImagePNGRepresentation(photo)
+                if let xmppManager = OTRProtocolManager.sharedInstance().protocolForAccount(account) as? OTRXMPPManager {
+                    xmppManager.setAvatar(photo, completion: { [weak self] (success) in
+                        self?.tableViewSource?.relaodData?()
+                        })
+                }
                 break
             default:
                 break
             }
         }
-        print("Got a photo!")
+    }
+    
+    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, preferredMediaTypesForSource source: UIImagePickerControllerSourceType) -> [String]! {
+        return [kUTTypeImage as String]
+    }
+}
+
+extension ZomProfileViewController: OTRYapViewHandlerDelegateProtocol {
+    public func didReceiveChanges(handler: OTRYapViewHandler, key: String, collection: String) {
+        
+        guard let info = self.info else {
+            return
+        }
+        
+        //The User object has changed. New info on the buddy and account
+        var newObject:OTRYapDatabaseObject?
+        self.readOnlyDatabaseConnection.readWithBlock { (transaction) in
+            newObject = transaction.objectForKey(key, inCollection: collection) as? OTRYapDatabaseObject
+        }
+        
+        switch newObject {
+        case let account as OTRAccount:
+            self.info = ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: info.otrKit, qrAction: self.qrAction, shareAction: self.shareAction)
+            break
+        case let buddy as OTRBuddy:
+            var account:OTRAccount? = nil
+            self.readOnlyDatabaseConnection.readWithBlock({ (transaction) in
+                account = OTRAccount.fetchObjectWithUniqueID(buddy.accountUniqueId, transaction: transaction)
+            })
+            if let account = account {
+               self.info = ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: info.otrKit, qrAction: self.qrAction, shareAction: self.shareAction, hasSession: info.hasSession)
+            }
+            
+            break
+        default: break
+        }
     }
 }
