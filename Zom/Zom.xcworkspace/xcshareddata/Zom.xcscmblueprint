@@ -10,6 +10,7 @@
     "DAAB2C887EFA8AB12BAB622BBAFD20531F9A3784" : 0,
     "6629762BA356A4C56436558F8BA2A9102478B1C6" : 0,
     "425D736B25093B4D45BF64638604863B9D31F2C1" : 0,
+    "EF95512761D96C4A6BCF745F9F23442E0E2471D9" : 9223372036854775807,
     "A9950D8C7A488A3339E7426A4D08917C04DE7033" : 0,
     "A9EA2EFC6B3324DC133DBB5B2F093519479E5635" : 0,
     "65A79C2919A5538250064F3C245A290D7BFC656E" : 0,
@@ -25,6 +26,7 @@
     "DAAB2C887EFA8AB12BAB622BBAFD20531F9A3784" : "Zom-iOS\/ChatSecure\/Submodules\/YapDatabase\/",
     "6629762BA356A4C56436558F8BA2A9102478B1C6" : "Zom-iOS\/Submodules\/xmpp-server-list\/",
     "425D736B25093B4D45BF64638604863B9D31F2C1" : "Zom-iOS\/ChatSecure\/Submodules\/OTRKit\/",
+    "EF95512761D96C4A6BCF745F9F23442E0E2471D9" : "Zom-iOS\/ChatSecure\/Submodules\/SignalProtocol-ObjC\/",
     "A9950D8C7A488A3339E7426A4D08917C04DE7033" : "Zom-iOS\/",
     "A9EA2EFC6B3324DC133DBB5B2F093519479E5635" : "Zom-iOS\/ChatSecure\/Submodules\/ParkedTextField\/",
     "65A79C2919A5538250064F3C245A290D7BFC656E" : "Zom-iOS\/ChatSecure\/",
@@ -95,6 +97,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:chrisballinger\/YapDatabase.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DAAB2C887EFA8AB12BAB622BBAFD20531F9A3784"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ChatSecure\/SignalProtocol-ObjC.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF95512761D96C4A6BCF745F9F23442E0E2471D9"
     }
   ]
 }

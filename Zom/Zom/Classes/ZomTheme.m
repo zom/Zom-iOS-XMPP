@@ -127,4 +127,16 @@
     return [ZomInviteViewController class];
 }
 
+/** Returns new instance. Override this in subclass to use a different settings view controller class */
+- (__kindof UIViewController *) settingsViewController {
+    OTRSettingsViewController *svc = [[OTRSettingsViewController alloc] init];
+    svc.settingsManager = [[ZomSettingsManager alloc] init];
+    return svc;
+}
+
+- (BOOL) enableOMEMO
+{
+    return NO;
+}
+
 @end

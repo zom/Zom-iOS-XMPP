@@ -9,20 +9,6 @@
 import UIKit
 
 public class ZomBuddyInfoCell: OTRBuddyInfoCell {
-    override public func setThread(thread: OTRThreadOwner!, withAccountName accountName: String!) {
-        if (OTRAccountsManager.allAccountsAbleToAddBuddies().count < 2) {
-            // Hide the account name if there is only one
-            super.setThread(thread, withAccountName: "")
-        } else {
-            super.setThread(thread, withAccountName: accountName)
-        }
-        
-        if let xmppBuddy = thread as? OTRXMPPBuddy {
-            // Move account info to account and use identifier for full jid
-            self.accountLabel.text = self.identifierLabel.text
-            self.identifierLabel.text = xmppBuddy.username
-        }
-    }
     
     override public func updateConstraints() {
         let firstTime:Bool = !self.addedConstraints

@@ -103,12 +103,12 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.cameraButton.setTitle(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAPlusSquareO), forState: UIControlState.Normal)
+        self.cameraButton?.setTitle(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAPlusSquareO), forState: UIControlState.Normal)
     }
     
     public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
         
-        let sendStickerAction: UIAlertAction = UIAlertAction(title: OTRLanguageManager.translatedString("Sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
+        let sendStickerAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Sticker", comment: "Label for button to open up sticker library and choose sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
             let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
             let vc = storyboard.instantiateInitialViewController()
             self.presentViewController(vc!, animated: true, completion: nil)
@@ -253,22 +253,25 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         self.presentViewController(vc!, animated: true, completion: nil)
     }
     
-    override public func rightBarButtonItem() -> UIBarButtonItem! {
+    public func setupInfoButton() {
         let image = UIImage(named: "OTRInfoIcon", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
         let item = UIBarButtonItem(image: image, style: .Plain, target: self, action: #selector(didPressInfoButton(_:)))
-        return item
+        self.navigationItem.rightBarButtonItem = item
     }
     
     @objc func didPressInfoButton(sender:AnyObject) {
-        guard let buddy = self.threadObject() as? OTRBuddy else {
+        var threadOwner: OTRThreadOwner? = nil
+        var _account: OTRAccount? = nil
+        self.readOnlyDatabaseConnection.readWithBlock { (t) in
+            threadOwner = self.threadObjectWithTransaction(t)
+            _account = self.accountWithTransaction(t)
+        }
+        guard let buddy = threadOwner as? OTRBuddy, account = _account else {
             return
         }
-        let account = self.account()
-        
         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-        ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: OTRKit.sharedInstance(), qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: true) { (info) in
-            profileVC.info = info
-        }
+        let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+        profileVC.info = ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: otrKit, qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: true)
 
         
         self.navigationController?.pushViewController(profileVC, animated: true)

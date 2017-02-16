@@ -42,7 +42,7 @@ public class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguage
         super.prepareForSegue(segue, sender:sender)
         if segue.identifier == "pickLanguageSegue" {
             let settingsManager: OTRSettingsManager = OTRSettingsManager()
-            let languageSetting: OTRListSetting = settingsManager.settingForOTRSettingKey(kOTRSettingKeyLanguage) as! OTRListSetting
+            let languageSetting = settingsManager.settingForOTRSettingKey(kOTRSettingKeyLanguage)
             let selectLanguageVC = segue.destinationViewController as! ZomPickLanguageViewController
             selectLanguageVC.otrSetting = languageSetting
             selectLanguageVC.delegate = self

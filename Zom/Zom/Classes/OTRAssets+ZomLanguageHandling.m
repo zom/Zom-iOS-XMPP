@@ -8,9 +8,7 @@
 
 #import "OTRAssets+ZomLanguageHandling.h"
 #import <objc/runtime.h>
-#import <ChatSecureCore/OTRLanguageManager.h>
-#import <ChatSecureCore/OTRSettingsManager.h>
-#import <ChatSecureCore/OTRLanguageSetting.h>
+@import ChatSecureCore;
 
 static const char _bundle=0;
 static const char _language=1;
