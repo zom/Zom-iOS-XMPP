@@ -28,7 +28,7 @@ install:
   - unzip -q ChatSecure-iOS-Precompiled-Dependencies.zip
   - mv ChatSecure-iOS-Precompiled-Dependencies-master ChatSecure-iOS-Precompiled-Dependencies
   - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/CPAProxyDependencies.zip -d ./ChatSecure/Submodules/CPAProxy/
-  - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/OTRKitDependencies.zip -d ./ChatSecure/Submodules/OTRKit/
+  - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/OTRKitDependencies-iOS.zip -d ./ChatSecure/Submodules/OTRKit/
   - unzip -q ./ChatSecure-iOS-Precompiled-Dependencies/Pods.zip -d ./ChatSecure
 
 before_script:
