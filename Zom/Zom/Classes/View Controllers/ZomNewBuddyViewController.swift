@@ -9,6 +9,8 @@
 import UIKit
 import ChatSecureCore
 import BButton
+import QRCodeReaderViewController
+import AVFoundation
 
 public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
     @IBOutlet weak var addFriendsLabel: UILabel?

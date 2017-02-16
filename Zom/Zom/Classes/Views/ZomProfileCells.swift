@@ -97,45 +97,10 @@ struct UserCellInfo: ZomProfileViewCellInfoProtocol {
     }
 }
 
-struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
-    
-    let fingerprint:String
-    let qrAction:((info:FingerprintCellInfo)->Void)?
-    let shareAction:((info:FingerprintCellInfo)->Void)?
-    private let shareImage = UIImage(named: "OTRShareIcon", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)?.imageWithRenderingMode(.AlwaysTemplate)
-    
-    func configure(cell: UITableViewCell) {
-        guard let fingerprintCell = cell as? ZomFingerprintCell else {
-            return
-        }
-        fingerprintCell.shareButton.setImage(self.shareImage, forState: .Normal)
-        fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil), forState: .Normal)
-        fingerprintCell.fingerprintLabel.text = fingerprint
-        fingerprintCell.qrAction = {cell in
-            if let action = self.qrAction {
-                action(info:self)
-            }
-        }
-        fingerprintCell.shareAction = {cell in
-            if let action = self.shareAction {
-                action(info:self)
-            }
-        }
-    }
-    
-    func cellIdentifier() -> ZomProfileViewCellIdentifier {
-        return .FingerprintCell
-    }
-    
-    func cellHeight() -> CGFloat? {
-        return 90
-    }
-}
-
 struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
     
     enum ButtonCellType {
-        case Verify
+        case Verify(OTRFingerprint)
         case Refresh
         case StartChat
         

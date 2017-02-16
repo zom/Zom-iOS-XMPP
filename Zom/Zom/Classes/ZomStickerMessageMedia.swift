@@ -24,7 +24,7 @@ public class ZomStickerMessageMedia: OTRMediaItem {
         try super.init(dictionary: dictionaryValue)
     }
     
-    required public init!(uniqueId: String!) {
+    required public init!(uniqueId: String) {
         super.init(uniqueId: uniqueId)
     }
     
