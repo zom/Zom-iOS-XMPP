@@ -1,6 +1,6 @@
 # [Zom-iOS](https://github.com/zom/zom-iOS)
 
-[![Build Status](https://travis-ci.org/zom/Zom-iOS.svg)](https://travis-ci.org/zom/Zom-iOS)
+[![Build Status](https://travis-ci.org/zom/Zom-iOS.svg?branch=master)](https://travis-ci.org/zom/Zom-iOS)
 
 Zom is a whitelabel fork of [ChatSecure](https://github.com/chatsecure/chatsecure-ios)
 
