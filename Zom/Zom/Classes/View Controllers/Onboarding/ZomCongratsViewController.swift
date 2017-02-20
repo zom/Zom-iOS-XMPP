@@ -13,9 +13,21 @@ import MobileCoreServices
 public class ZomCongratsViewController: UIViewController {
 
     @IBOutlet weak var avatarImageView:UIButton!
-    public var account:OTRAccount?
+    public var account:OTRAccount? {
+        didSet {
+            guard let acct = account else {
+                return;
+            }
+            self.viewHandler.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection())
+        }
+    }
     private var avatarPicker:OTRAttachmentPicker?
-    private var viewHandler = OTRYapViewHandler(databaseConnection: OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection)
+    private let viewHandler = OTRYapViewHandler(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        self.viewHandler.delegate = self
+    }
 
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -28,12 +40,6 @@ public class ZomCongratsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.refreshAvatarImage(self.account)
-        
-        if let account = self.account {
-            self.viewHandler.keyCollectionObserver.observe(account.uniqueId, collection: OTRAccount.collection())
-        }
-        
-        
     }
     
     func refreshAvatarImage(account:OTRAccount?) {
@@ -59,16 +65,16 @@ public class ZomCongratsViewController: UIViewController {
     
     /** Uses the global readOnlyDatabaseConnection to refetch the account object and refresh the avatar image view with that new object*/
     private func refreshViews() {
-        var account = self.account
-        OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection .asyncReadWithBlock({ (transaction) in
-            guard let key = self.account?.uniqueId else {
-                return
-            }
-            
+        guard let key = self.account?.uniqueId else {
+            self.refreshAvatarImage(nil)
+            return
+        }
+        var account:OTRAccount? = nil
+        OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection.asyncReadWithBlock({ (transaction) in
             account = OTRAccount .fetchObjectWithUniqueID(key, transaction: transaction)
-            }) {
-            self.account = account
-            self.refreshAvatarImage(self.account)
+            }, completionQueue: dispatch_get_main_queue()) {
+                self.account = account
+                self.refreshAvatarImage(self.account)
         }
     }
 }
