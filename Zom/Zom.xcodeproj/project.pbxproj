@@ -226,20 +226,6 @@
 			remoteGlobalIDString = C46607FA715E32F06E4EE6AB7F6B7D05;
 			remoteInfo = "gtm-oauth2";
 		};
-		928A37C81CD209120095366C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DC9E6D856E0EDB33B44DAF2699CE0A0;
-			remoteInfo = "HockeySDK-Source";
-		};
-		928A37CA1CD209120095366C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5FA2C0F72F456D8F379F83DADEEECD51;
-			remoteInfo = "HockeySDK-Source-HockeySDKResources";
-		};
 		928A37CC1CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -449,6 +435,48 @@
 			proxyType = 2;
 			remoteGlobalIDString = 262741156269D5229B69A19E4B31723F;
 			remoteInfo = ZXingObjC;
+		};
+		929DEA8A1E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6365CEFC1E2453F6009E213F;
+			remoteInfo = ChatSecureUITests;
+		};
+		929DEAC11E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 59E525DF65A3DBDE3EC69782FD9DEB08;
+			remoteInfo = FormatterKit;
+		};
+		929DEAC31E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B85D2A7651BDE657D2DCAD19BB1CB5A2;
+			remoteInfo = KSCrash;
+		};
+		929DEAC51E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 037B6BE795ED2623004875FA1CC18ED2;
+			remoteInfo = "SignalProtocol-ObjC";
+		};
+		929DEAC71E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 87A26A049C8F1E0883E0D73A1FF0AE1D;
+			remoteInfo = SignalProtocolC;
+		};
+		929DEAC91E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6861A4195F72C665887DF462DB08DDD6;
+			remoteInfo = YapTaskQueue;
 		};
 		D9315C9F1BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -834,17 +862,17 @@
 				928A37BD1CD209120095366C /* CocoaLumberjack.framework */,
 				928A37BF1CD209120095366C /* CPAProxy.framework */,
 				928A37C11CD209120095366C /* CPAProxy.bundle */,
+				929DEAC21E5B8B55008C3B77 /* FormatterKit.framework */,
 				928A37C31CD209120095366C /* GCDWebServer.framework */,
 				928A37C51CD209120095366C /* gtm_http_fetcher.framework */,
 				928A37C71CD209120095366C /* gtm_oauth2.framework */,
-				928A37C91CD209120095366C /* HockeySDK_Source.framework */,
-				928A37CB1CD209120095366C /* HockeySDKResources.bundle */,
 				928A37CD1CD209120095366C /* IOCipher.framework */,
 				928A37CF1CD209120095366C /* JSQMessagesViewController.framework */,
 				928A37D11CD209120095366C /* JSQSystemSoundPlayer.framework */,
 				928A37D31CD209120095366C /* JTSImageViewController.framework */,
 				928A37D51CD209120095366C /* JVFloatLabeledTextField.framework */,
 				928A37D71CD209120095366C /* KissXML.framework */,
+				929DEAC41E5B8B55008C3B77 /* KSCrash.framework */,
 				928A37D91CD209120095366C /* KVOController.framework */,
 				928A37DB1CD209120095366C /* libsqlfs.framework */,
 				928A37DD1CD209120095366C /* Mantle.framework */,
@@ -862,6 +890,8 @@
 				928A37F11CD209120095366C /* QRCodeReaderViewController.framework */,
 				928A37F31CD209120095366C /* Reachability.framework */,
 				9208C9761D93F914002EE2BE /* SAMKeychain.framework */,
+				929DEAC61E5B8B55008C3B77 /* SignalProtocolObjC.framework */,
+				929DEAC81E5B8B55008C3B77 /* SignalProtocolC.framework */,
 				928A37F51CD209120095366C /* SQLCipher.framework */,
 				928A37F91CD209120095366C /* TTTAttributedLabel.framework */,
 				928A37FB1CD209120095366C /* TUSafariActivity.framework */,
@@ -872,6 +902,7 @@
 				928A38051CD209120095366C /* XLForm.framework */,
 				928A38071CD209120095366C /* XMPPFramework.framework */,
 				928A38091CD209120095366C /* YapDatabase.framework */,
+				929DEACA1E5B8B55008C3B77 /* YapTaskQueue.framework */,
 				928A380B1CD209120095366C /* ZXingObjC.framework */,
 			);
 			name = Products;
@@ -919,6 +950,7 @@
 			children = (
 				D9315CA01BB5DC190077D2EE /* ChatSecure.app */,
 				D9315CA21BB5DC190077D2EE /* ChatSecureTests.xctest */,
+				929DEA8B1E5B8B55008C3B77 /* ChatSecureUITests.xctest */,
 				D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */,
 				D9315CA61BB5DC190077D2EE /* OTRAssets.framework */,
 				D9315CA81BB5DC190077D2EE /* OTRResources.bundle */,
@@ -1332,20 +1364,6 @@
 			remoteRef = 928A37C61CD209120095366C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		928A37C91CD209120095366C /* HockeySDK_Source.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = HockeySDK_Source.framework;
-			remoteRef = 928A37C81CD209120095366C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		928A37CB1CD209120095366C /* HockeySDKResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = HockeySDKResources.bundle;
-			remoteRef = 928A37CA1CD209120095366C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		928A37CD1CD209120095366C /* IOCipher.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1554,6 +1572,48 @@
 			fileType = wrapper.framework;
 			path = ZXingObjC.framework;
 			remoteRef = 928A380A1CD209120095366C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929DEA8B1E5B8B55008C3B77 /* ChatSecureUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChatSecureUITests.xctest;
+			remoteRef = 929DEA8A1E5B8B55008C3B77 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929DEAC21E5B8B55008C3B77 /* FormatterKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FormatterKit.framework;
+			remoteRef = 929DEAC11E5B8B55008C3B77 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929DEAC41E5B8B55008C3B77 /* KSCrash.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KSCrash.framework;
+			remoteRef = 929DEAC31E5B8B55008C3B77 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929DEAC61E5B8B55008C3B77 /* SignalProtocolObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SignalProtocolObjC.framework;
+			remoteRef = 929DEAC51E5B8B55008C3B77 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929DEAC81E5B8B55008C3B77 /* SignalProtocolC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SignalProtocolC.framework;
+			remoteRef = 929DEAC71E5B8B55008C3B77 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929DEACA1E5B8B55008C3B77 /* YapTaskQueue.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YapTaskQueue.framework;
+			remoteRef = 929DEAC91E5B8B55008C3B77 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D9315CA01BB5DC190077D2EE /* ChatSecure.app */ = {
