@@ -68,7 +68,7 @@ public class ZomDiscoverViewController: UIViewController, ZomPickStickerViewCont
         var buddy:OTRBuddy? = nil
         if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
             let account:OTRAccount = appDelegate.getDefaultAccount()
-            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection.readWriteWithBlock { (transaction) in
+            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWriteWithBlock { (transaction) in
                 buddy = OTRXMPPBuddy.fetchBuddyWithUsername("zombot@home.zom.im", withAccountUniqueId: account.uniqueId, transaction: transaction)
                 if (buddy == nil) {
                     let newBuddy = OTRXMPPBuddy()

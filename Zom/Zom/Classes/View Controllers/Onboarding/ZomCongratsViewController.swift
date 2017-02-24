@@ -18,15 +18,19 @@ public class ZomCongratsViewController: UIViewController {
             guard let acct = account else {
                 return;
             }
-            self.viewHandler.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection())
+            self.viewHandler?.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection())
         }
     }
     private var avatarPicker:OTRAttachmentPicker?
-    private let viewHandler = OTRYapViewHandler(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+    private var viewHandler:OTRYapViewHandler?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewHandler.delegate = self
+        if let connection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection {
+            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+            self.viewHandler?.delegate = self
+        }
+        
     }
 
     public override func viewDidLayoutSubviews() {
@@ -70,7 +74,7 @@ public class ZomCongratsViewController: UIViewController {
             return
         }
         var account:OTRAccount? = nil
-        OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection.asyncReadWithBlock({ (transaction) in
+        OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection?.asyncReadWithBlock({ (transaction) in
             account = OTRAccount .fetchObjectWithUniqueID(key, transaction: transaction)
             }, completionQueue: dispatch_get_main_queue()) {
                 self.account = account
