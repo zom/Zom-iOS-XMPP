@@ -29,7 +29,7 @@ public class ZomConversationViewController: OTRConversationViewController {
     }
     
     func updatePitchView() {
-        if let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance()?.newConnection() {
+        if let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().newConnection() {
         dataBaseConnection.readWithBlock { (transaction) -> Void in
             let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as! YapDatabaseViewTransaction
             let numBuddies = view.numberOfItemsInAllGroups()
