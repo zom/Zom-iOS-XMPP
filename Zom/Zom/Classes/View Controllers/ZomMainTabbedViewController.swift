@@ -191,7 +191,7 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
                     
                     var buddy:OTRBuddy? = nil
                     var account:OTRAccount? = nil
-                    OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection.readWithBlock { (transaction) -> Void in
+                    OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.readWithBlock { (transaction) -> Void in
                         buddy = OTRBuddy.fetchObjectWithUniqueID(buddyKey, transaction: transaction)
                         account = OTRAccount.fetchObjectWithUniqueID(accountKey, transaction: transaction)
                     }

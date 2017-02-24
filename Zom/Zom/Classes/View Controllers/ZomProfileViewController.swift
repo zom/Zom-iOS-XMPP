@@ -280,7 +280,7 @@ public class ZomProfileViewController : UIViewController {
     
     private var avatarPicker:OTRAttachmentPicker?
     //FIXME: After big merge should use shared read-only connection
-    private var readOnlyDatabaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection
+    private var readOnlyDatabaseConnection:YapDatabaseConnection? = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection
     private var viewHandler:OTRYapViewHandler?
     
     let tableView = UITableView(frame: CGRectZero, style: .Grouped)
@@ -374,9 +374,11 @@ public class ZomProfileViewController : UIViewController {
         self.view.addSubview(self.tableView)
         self.tableView.autoPinEdgesToSuperviewEdges()
         
+        if let connection = self.readOnlyDatabaseConnection {
+            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+            self.viewHandler?.delegate = self
+        }
         
-        self.viewHandler = OTRYapViewHandler(databaseConnection: self.readOnlyDatabaseConnection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
-        self.viewHandler?.delegate = self
     }
     
     override public func viewWillAppear(animated: Bool) {
@@ -499,7 +501,7 @@ extension ZomProfileViewController: OTRYapViewHandlerDelegateProtocol {
         
         //The User object has changed. New info on the buddy and account
         var newObject:OTRYapDatabaseObject?
-        self.readOnlyDatabaseConnection.readWithBlock { (transaction) in
+        self.readOnlyDatabaseConnection?.readWithBlock { (transaction) in
             newObject = transaction.objectForKey(key, inCollection: collection) as? OTRYapDatabaseObject
         }
         
@@ -509,7 +511,7 @@ extension ZomProfileViewController: OTRYapViewHandlerDelegateProtocol {
             break
         case let buddy as OTRBuddy:
             var account:OTRAccount? = nil
-            self.readOnlyDatabaseConnection.readWithBlock({ (transaction) in
+            self.readOnlyDatabaseConnection?.readWithBlock({ (transaction) in
                 account = OTRAccount.fetchObjectWithUniqueID(buddy.accountUniqueId, transaction: transaction)
             })
             if let account = account {
