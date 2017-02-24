@@ -15,20 +15,21 @@ import BButton
 var ZomMessagesViewController_associatedObject1: UInt8 = 0
 
 extension OTRMessagesViewController {
-    public override class func initialize() {
-        struct Static {
-            static var token: dispatch_once_t = 0
-        }
+    
+    private static var swizzle: () {
+        
+        ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAt:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
+        ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAt
+            :)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
+    }
+    
+    open override class func initialize() {
         
         // make sure this isn't a subclass
         if self !== OTRMessagesViewController.self {
             return
         }
-        
-        dispatch_once(&Static.token) {
-            ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAtIndexPath:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
-            ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
-        }
+        OTRMessagesViewController.swizzle
     }
     
     var shieldIcon:UIImage? {
@@ -40,107 +41,107 @@ extension OTRMessagesViewController {
         }
     }
     
-    public func zom_collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> ChatSecureCore.JSQMessageData! {
+    public func zom_collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAtIndexPath indexPath: NSIndexPath) -> ChatSecureCore.JSQMessageData {
         let ret = self.zom_collectionView(collectionView, messageDataForItemAtIndexPath: indexPath)
-        if (ret != nil && ZomStickerMessage.isValidStickerShortCode(ret.text!())) {
+        if (ZomStickerMessage.isValidStickerShortCode(ret.text!())) {
             return ZomStickerMessage(message: ret)
         }
         return ret
     }
     
-    public func zom_collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+    public func zom_collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
         let string:NSMutableAttributedString = self.zom_collectionView(collectionView, attributedTextForCellBottomLabelAtIndexPath: indexPath) as! NSMutableAttributedString
         
-        let lock = NSString.fa_stringForFontAwesomeIcon(FAIcon.FALock);
-        let unlock = NSString.fa_stringForFontAwesomeIcon(FAIcon.FAUnlock);
+        let lock = NSString.fa_string(forFontAwesomeIcon: FAIcon.FALock);
+        let unlock = NSString.fa_string(forFontAwesomeIcon: FAIcon.FAUnlock);
         
-        let asd:NSString = string.string
+        let asd:NSString = string.string as NSString
         
-        let rangeLock:NSRange = asd.rangeOfString(lock);
+        let rangeLock:NSRange = asd.range(of: lock!);
         if (rangeLock.location != NSNotFound) {
             let attachment = textAttachment(12)
             let newLock = NSAttributedString.init(attachment: attachment);
-            string.replaceCharactersInRange(rangeLock, withAttributedString: newLock)
+            string.replaceCharacters(in: rangeLock, with: newLock)
         }
         
-        let rangeUnLock:NSRange = asd.rangeOfString(unlock);
+        let rangeUnLock:NSRange = asd.range(of: unlock!);
         if (rangeUnLock.location != NSNotFound) {
             let nothing = NSAttributedString.init(string: "");
-            string.replaceCharactersInRange(rangeUnLock, withAttributedString: nothing)
+            string.replaceCharacters(in: rangeUnLock, with: nothing)
         }
         return string;
     }
     
-    func textAttachment(fontSize: CGFloat) -> NSTextAttachment {
+    func textAttachment(_ fontSize: CGFloat) -> NSTextAttachment {
         var font:UIFont? = UIFont(name: kFontAwesomeFont, size: fontSize)
         if (font == nil) {
-            font = UIFont.systemFontOfSize(fontSize)
+            font = UIFont.systemFont(ofSize: fontSize)
         }
         let textAttachment = NSTextAttachment()
         let image = getTintedShieldIcon()
         textAttachment.image = image
         let aspect = image.size.width / image.size.height
         let height = font?.capHeight
-        textAttachment.bounds = CGRectIntegral(CGRect(x:0,y:0,width:(height! * aspect),height:height!))
+        textAttachment.bounds = CGRect(x:0,y:0,width:(height! * aspect),height:height!).integral
         return textAttachment
     }
     
     func getTintedShieldIcon() -> UIImage {
         if (self.shieldIcon == nil) {
             let image = UIImage.init(named: "ic_security_white_36pt")
-            self.shieldIcon = image?.tint(UIColor.lightGrayColor(), blendMode: CGBlendMode.Multiply)
+            self.shieldIcon = image?.tint(UIColor.lightGray, blendMode: CGBlendMode.multiply)
         }
         return shieldIcon!
     }
 }
 
-public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate {
+open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate {
     
     private var hasFixedTitleViewConstraints:Bool = false
     private var attachmentPickerController:OTRAttachmentPicker? = nil
     private var attachmentPickerView:AttachmentPicker? = nil
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
-        self.cameraButton?.setTitle(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAPlusSquareO), forState: UIControlState.Normal)
+        self.cameraButton?.setTitle(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAPlusSquareO), for: .normal)
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
+    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
         
-        let sendStickerAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Sticker", comment: "Label for button to open up sticker library and choose sticker"), style: UIAlertActionStyle.Default, handler: { (UIAlertAction) -> Void in
-            let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
+        let sendStickerAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Sticker", comment: "Label for button to open up sticker library and choose sticker"), style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
+            let storyboard = UIStoryboard(name: "StickerShare", bundle: Bundle.main)
             let vc = storyboard.instantiateInitialViewController()
-            self.presentViewController(vc!, animated: true, completion: nil)
+            self.present(vc!, animated: true, completion: nil)
         })
         alertController.addAction(sendStickerAction)
     }
     
-    @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindPickSticker(_ unwindSegue: UIStoryboardSegue) {
     }
     
-    public func didPickSticker(sticker: String, inPack pack: String) {
-        super.didPressSendButton(super.sendButton, withMessageText: ":" + pack + "-" + sticker + ":", senderId: super.senderId, senderDisplayName: super.senderDisplayName, date: NSDate())
+    open func didPickSticker(_ sticker: String, inPack pack: String) {
+        super.didPressSend(super.sendButton, withMessageText: ":" + pack + "-" + sticker + ":", senderId: super.senderId, senderDisplayName: super.senderDisplayName, date: Date())
     }
     
-    override public func refreshTitleView() -> Void {
+    override open func refreshTitleView() -> Void {
         super.refreshTitleView()
         if (OTRAccountsManager.allAccountsAbleToAddBuddies().count < 2) {
             // Hide the account name if only one
             if let view = self.navigationItem.titleView as? OTRTitleSubtitleView {
-                view.subtitleLabel.hidden = true
-                view.subtitleImageView.hidden = true
+                view.subtitleLabel.isHidden = true
+                view.subtitleImageView.isHidden = true
                 if (!hasFixedTitleViewConstraints && view.constraints.count > 0) {
                     var removeThese:[NSLayoutConstraint] = [NSLayoutConstraint]()
                     for constraint:NSLayoutConstraint in view.constraints {
                         if ((constraint.firstItem as? NSObject != nil && constraint.firstItem as! NSObject == view.titleLabel) || (constraint.secondItem as? NSObject != nil && constraint.secondItem as! NSObject == view.titleLabel)) {
-                            if (constraint.active && (constraint.firstAttribute == NSLayoutAttribute.Top || constraint.firstAttribute == NSLayoutAttribute.Bottom)) {
+                            if (constraint.isActive && (constraint.firstAttribute == NSLayoutAttribute.top || constraint.firstAttribute == NSLayoutAttribute.bottom)) {
                                 removeThese.append(constraint)
                             }
                         }
                     }
                     view.removeConstraints(removeThese)
-                    let c:NSLayoutConstraint = NSLayoutConstraint(item: view.titleLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: view.titleLabel.superview, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+                    let c:NSLayoutConstraint = NSLayoutConstraint(item: view.titleLabel, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: view.titleLabel.superview, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
                     view.addConstraint(c);
                     hasFixedTitleViewConstraints = true
                 }
@@ -148,31 +149,31 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         }
     }
     
-    override public func setupDefaultSendButton() {
+    override open func setupDefaultSendButton() {
         // Override this to always show Camera and Mic icons. We never get here
         // in a "knock" scenario.
         self.inputToolbar?.contentView?.leftBarButtonItem = self.cameraButton
-        self.inputToolbar?.contentView?.leftBarButtonItem.enabled = false
+        self.inputToolbar?.contentView?.leftBarButtonItem.isEnabled = false
         if (self.state.hasText) {
             self.inputToolbar?.contentView?.rightBarButtonItem = self.sendButton
-            self.inputToolbar?.sendButtonLocation = JSQMessagesInputSendButtonLocation.Right
-            self.inputToolbar?.contentView?.rightBarButtonItem.enabled = self.state.isThreadOnline
+            self.inputToolbar?.sendButtonLocation = JSQMessagesInputSendButtonLocation.right
+            self.inputToolbar?.contentView?.rightBarButtonItem.isEnabled = self.state.isThreadOnline
         } else {
             self.inputToolbar?.contentView?.rightBarButtonItem = self.microphoneButton
-            self.inputToolbar?.contentView?.rightBarButtonItem.enabled = false
+            self.inputToolbar?.contentView?.rightBarButtonItem.isEnabled = false
         }
     }
     
-    override public func didPressAccessoryButton(sender: UIButton!) {
+    override open func didPressAccessoryButton(_ sender: UIButton!) {
         if (sender == self.cameraButton) {
             let pickerView = getPickerView()
             self.view.addSubview(pickerView)
             var newFrame = pickerView.frame;
             let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
             newFrame.origin.y = toolbarBottom - newFrame.size.height;
-            UIView.animateWithDuration(0.3) {
+            UIView.animate(withDuration: 0.3, animations: {
                 pickerView.frame = newFrame;
-            }
+            }) 
         } else {
             super.didPressAccessoryButton(sender)
         }
@@ -180,16 +181,16 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     
     func getPickerView() -> UIView {
         if (self.attachmentPickerView == nil) {
-            self.attachmentPickerView = UINib(nibName: "AttachmentPicker", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? AttachmentPicker
+            self.attachmentPickerView = UINib(nibName: "AttachmentPicker", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? AttachmentPicker
             self.attachmentPickerView!.frame.size.width = self.view.frame.width
             self.attachmentPickerView!.frame.size.height = 100
             let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
             self.attachmentPickerView!.frame.origin.y = toolbarBottom // Start hidden (below screen)
          
-            if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)) {
+            if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)) {
                 self.attachmentPickerView!.removePhotoButton()
             }
-            if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
+            if (!UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
                 self.attachmentPickerView!.removeCameraButton()
             }
             
@@ -201,7 +202,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         return self.attachmentPickerView!
     }
     
-    func onTap(sender: UIGestureRecognizer) {
+    func onTap(_ sender: UIGestureRecognizer) {
         closePickerView()
     }
     
@@ -215,7 +216,7 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
             var newFrame = self.attachmentPickerView!.frame;
             let toolbarBottom = self.inputToolbar.frame.origin.y + self.inputToolbar.frame.size.height
             newFrame.origin.y = toolbarBottom
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                     self.attachmentPickerView!.frame = newFrame;
                 },
                                        completion: { (success) in
@@ -225,48 +226,48 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
         }
     }
     
-    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    open func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
     
-    @IBAction func attachmentPickerSelectPhotoWithSender(sender: AnyObject) {
+    @IBAction func attachmentPickerSelectPhotoWithSender(_ sender: AnyObject) {
         closePickerView()
-        attachmentPicker().showImagePickerForSourceType(UIImagePickerControllerSourceType.PhotoLibrary)
+        attachmentPicker().showImagePicker(for: UIImagePickerControllerSourceType.photoLibrary)
     }
     
-    @IBAction func attachmentPickerTakePhotoWithSender(sender: AnyObject) {
+    @IBAction func attachmentPickerTakePhotoWithSender(_ sender: AnyObject) {
         closePickerView()
-        attachmentPicker().showImagePickerForSourceType(UIImagePickerControllerSourceType.Camera)
+        attachmentPicker().showImagePicker(for: UIImagePickerControllerSourceType.camera)
     }
     
     func attachmentPicker() -> OTRAttachmentPicker {
         if (self.attachmentPickerController == nil) {
-            self.attachmentPickerController = OTRAttachmentPicker(parentViewController: self.parentViewController?.parentViewController, delegate: (self as! OTRAttachmentPickerDelegate))
+            self.attachmentPickerController = OTRAttachmentPicker(parentViewController: self.parent?.parent, delegate: (self as! OTRAttachmentPickerDelegate))
         }
         return self.attachmentPickerController!
     }
     
-    @IBAction func attachmentPickerStickerWithSender(sender: AnyObject) {
+    @IBAction func attachmentPickerStickerWithSender(_ sender: AnyObject) {
         closePickerView()
-        let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "StickerShare", bundle: Bundle.main)
         let vc = storyboard.instantiateInitialViewController()
-        self.presentViewController(vc!, animated: true, completion: nil)
+        self.present(vc!, animated: true, completion: nil)
     }
     
-    public func setupInfoButton() {
-        let image = UIImage(named: "OTRInfoIcon", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
-        let item = UIBarButtonItem(image: image, style: .Plain, target: self, action: #selector(didPressInfoButton(_:)))
+    open func setupInfoButton() {
+        let image = UIImage(named: "OTRInfoIcon", in: OTRAssets.resourcesBundle(), compatibleWith: nil)
+        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didPressInfoButton(_:)))
         self.navigationItem.rightBarButtonItem = item
     }
     
-    @objc func didPressInfoButton(sender:AnyObject) {
+    @objc func didPressInfoButton(_ sender:AnyObject) {
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readOnlyDatabaseConnection.readWithBlock { (t) in
-            threadOwner = self.threadObjectWithTransaction(t)
-            _account = self.accountWithTransaction(t)
+        self.readOnlyDatabaseConnection.read { (t) in
+            threadOwner = self.threadObject(with: t)
+            _account = self.account(with: t)
         }
-        guard let buddy = threadOwner as? OTRBuddy, account = _account else {
+        guard let buddy = threadOwner as? OTRBuddy, let account = _account else {
             return
         }
         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
@@ -280,17 +281,17 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
 
 extension UIImage
 {
-    func tint(color: UIColor, blendMode: CGBlendMode) -> UIImage
+    func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage
     {
-        let drawRect = CGRectMake(0.0, 0.0, size.width, size.height)
+        let drawRect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context = UIGraphicsGetCurrentContext()
-        CGContextScaleCTM(context!, 1.0, -1.0)
-        CGContextTranslateCTM(context!, 0.0, -self.size.height)
-        CGContextClipToMask(context!, drawRect, CGImage!)
+        context!.scaleBy(x: 1.0, y: -1.0)
+        context!.translateBy(x: 0.0, y: -self.size.height)
+        context!.clip(to: drawRect, mask: cgImage!)
         color.setFill()
         UIRectFill(drawRect)
-        drawInRect(drawRect, blendMode: blendMode, alpha: 1.0)
+        draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
         let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return tintedImage!

@@ -17,19 +17,19 @@ var ZomBaseLoginController_associatedObject2: UInt8 = 1
 var ZomBaseLoginController_associatedObject3: UInt8 = 2
 
 extension OTRBaseLoginViewController {
-    public override class func initialize() {
-        struct Static {
-            static var token: dispatch_once_t = 0
-        }
+    
+    private static var swizzle: () {
+        ZomUtil.swizzle(self, originalSelector: #selector(OTRBaseLoginViewController.viewDidLoad), swizzledSelector:#selector(OTRBaseLoginViewController.zom_viewDidLoad))
+    }
+    
+    open override class func initialize() {
         
         // make sure this isn't a subclass
         if self !== OTRBaseLoginViewController.self {
             return
         }
         
-        dispatch_once(&Static.token) {
-            ZomUtil.swizzle(self, originalSelector: #selector(OTRBaseLoginViewController.viewDidLoad), swizzledSelector:#selector(OTRBaseLoginViewController.zom_viewDidLoad))
-        }
+        OTRBaseLoginViewController.swizzle
     }
 
     public func zom_viewDidLoad() {
@@ -40,22 +40,22 @@ extension OTRBaseLoginViewController {
 }
 
 
-public class ZomBaseLoginViewController: OTRBaseLoginViewController {
+open class ZomBaseLoginViewController: OTRBaseLoginViewController {
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         if (onlyShowInfo) {
             self.title = "Account information"
         }
         if (self.createNewAccount) {
-            if let nickname = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
+            if let nickname = self.form.formRow(withTag: kOTRXLFormNicknameTextFieldTag) {
                 nickname.title = ""
             }
         }
     }
 
-    public var onlyShowInfo:Bool {
+    open var onlyShowInfo:Bool {
         get {
             return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject1) as? Bool ?? false
         }
@@ -64,7 +64,7 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
     }
 
-    private var existingAccount:Bool {
+    fileprivate var existingAccount:Bool {
         get {
             return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject2) as? Bool ?? false
         }
@@ -73,7 +73,7 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
     }
     
-    public var createNewAccount:Bool {
+    open var createNewAccount:Bool {
         get {
             return objc_getAssociatedObject(self, &ZomBaseLoginController_associatedObject3) as? Bool ?? false
         }
@@ -82,18 +82,18 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         }
     }
     
-    private func setupTableView() -> Void {
+    fileprivate func setupTableView() -> Void {
         let nib:UINib = UINib(nibName: "ZomTableViewSectionHeader", bundle: nil)
-        self.tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "zomTableSectionHeader")
+        self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "zomTableSectionHeader")
     }
     
-    public override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header:ZomTableViewSectionHeader = tableView.dequeueReusableHeaderFooterViewWithIdentifier("zomTableSectionHeader") as! ZomTableViewSectionHeader
+    open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header:ZomTableViewSectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "zomTableSectionHeader") as! ZomTableViewSectionHeader
         header.labelView.text = super.tableView(tableView, titleForHeaderInSection: section)
         return header
     }
  
-    public override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let title:String? = super.tableView(tableView, titleForHeaderInSection: section)
         if (title == nil || title!.isEmpty) {
             return 0
@@ -101,56 +101,56 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         return 50
     }
     
-   public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+   open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
     
-    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if (onlyShowInfo) {
-            cell.userInteractionEnabled = false
+            cell.isUserInteractionEnabled = false
         }
-        if let desc = self.form.formRowAtIndex(indexPath) {
+        if let desc = self.form.formRow(atIndex: indexPath) {
                 if (desc.tag == kOTRXLFormPasswordTextFieldTag) {
                     let font:UIFont? = UIFont(name: kFontAwesomeFont, size: 30)
                     if (font != nil) {
-                        let button = UIButton(type: UIButtonType.Custom)
+                        let button = UIButton(type: UIButtonType.custom)
                         button.titleLabel?.font = font
-                        button.setTitle(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAEye), forState: UIControlState.Normal)
+                        button.setTitle(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAEye), for: UIControlState())
                         //if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
                         //    button.setTitleColor(appDelegate.theme.mainThemeColor, forState: UIControlState.Normal)
                         //} else {
-                            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+                            button.setTitleColor(UIColor.black, for: UIControlState())
                         //}
-                        button.frame = CGRectMake(0, 0, 44, 44)
-                        button.addTarget(self, action: #selector(self.didPressEyeIcon(_:withEvent:)), forControlEvents: UIControlEvents.TouchUpInside)
+                        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+                        button.addTarget(self, action: #selector(self.didPressEyeIcon(_:withEvent:)), for: UIControlEvents.touchUpInside)
                         cell.accessoryView = button
                     } else {
-                        cell.accessoryType = UITableViewCellAccessoryType.DetailButton
+                        cell.accessoryType = UITableViewCellAccessoryType.detailButton
                     }
-                    cell.userInteractionEnabled = true
+                    cell.isUserInteractionEnabled = true
                     if let xlCell = cell as? XLFormTextFieldCell {
-                        xlCell.textField.userInteractionEnabled = !onlyShowInfo
+                        xlCell.textField.isUserInteractionEnabled = !onlyShowInfo
                     }
                 }
             }
         return cell
     }
     
-    func didPressEyeIcon(sender: UIControl!, withEvent: UIEvent!) {
-        let indexPath = self.tableView.indexPathForRowAtPoint((withEvent.touchesForView(sender)?.first?.locationInView(self.tableView))!)
+    func didPressEyeIcon(_ sender: UIControl!, withEvent: UIEvent!) {
+        let indexPath = self.tableView.indexPathForRow(at: (withEvent.touches(for: sender)?.first?.location(in: self.tableView))!)
         if (indexPath != nil) {
-            self.tableView.delegate?.tableView!(self.tableView, accessoryButtonTappedForRowWithIndexPath: indexPath!)
+            self.tableView.delegate?.tableView!(self.tableView, accessoryButtonTappedForRowWith: indexPath!)
         }
     }
     
-    public override func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let usernameRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
-            if let editCell = usernameRow.cellForFormController(self) as? XLFormTextFieldCell {
+    open override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let usernameRow:XLFormRowDescriptor = self.form.formRow(withTag: kOTRXLFormNicknameTextFieldTag) {
+            if let editCell = usernameRow.cell(forForm: self) as? XLFormTextFieldCell {
                 if (editCell.textField == textField) {
                     if let text = textField.text?.characters.count {
                         if (text > 0) {
-                            if let advancedRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormShowAdvancedTag) {
+                            if let advancedRow:XLFormRowDescriptor = self.form.formRow(withTag: kOTRXLFormShowAdvancedTag) {
                                 if (advancedRow.value as? Bool == false) {
                                     // Ok, if we are not showing advanced tab, enter means "go"
                                     self.loginButtonPressed(self.navigationItem.rightBarButtonItem)
@@ -165,9 +165,9 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
         return super.textFieldShouldReturn(textField)
     }
     
-    override public func loginButtonPressed(sender: AnyObject!) {
+    override open func loginButtonPressed(_ sender: Any!) {
         if (onlyShowInfo) {
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
             return
         }
         existingAccount = (self.account != nil)
@@ -176,13 +176,13 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
     
     // If creating a new account, we may need to set display name to what
     // was originally entered
-    override public func viewWillDisappear(animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if (self.createNewAccount) {
-            if let nicknameRow:XLFormRowDescriptor = self.form.formRowWithTag(kOTRXLFormNicknameTextFieldTag) {
-                if let editCell = nicknameRow.cellForFormController(self) as? XLFormTextFieldCell {
+            if let nicknameRow:XLFormRowDescriptor = self.form.formRow(withTag: kOTRXLFormNicknameTextFieldTag) {
+                if let editCell = nicknameRow.cell(forForm: self) as? XLFormTextFieldCell {
                     if (editCell.textField.text != nil && nicknameRow.value != nil) {
-                        if (editCell.textField.text!.compare(nicknameRow.value as! String) != NSComparisonResult.OrderedSame) {
+                        if (editCell.textField.text!.compare(nicknameRow.value as! String) != ComparisonResult.orderedSame) {
                             self.account.displayName = editCell.textField.text
                         }
                     }
@@ -192,11 +192,11 @@ public class ZomBaseLoginViewController: OTRBaseLoginViewController {
 
     }
     
-    override public func pushInviteViewController() {
+    override open func pushInvite() {
         if (existingAccount) {
-            dismissViewControllerAnimated(true, completion: nil)
+            dismiss(animated: true, completion: nil)
         } else {
-            super.pushInviteViewController()
+            super.pushInvite()
         }
     }
 }

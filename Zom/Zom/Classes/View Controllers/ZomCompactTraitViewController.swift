@@ -13,13 +13,13 @@ class ZomCompactTraitViewController: UIViewController, UISplitViewControllerDele
         performOverrideTraitCollection()
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        performOverrideTraitCollection()
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.performOverrideTraitCollection()
     }
     
     private func performOverrideTraitCollection() {
         for childVC in self.childViewControllers {
-            setOverrideTraitCollection(UITraitCollection(horizontalSizeClass: .Compact), forChildViewController: childVC)
+            setOverrideTraitCollection(UITraitCollection(horizontalSizeClass: .compact), forChildViewController: childVC)
         }
     }
 }

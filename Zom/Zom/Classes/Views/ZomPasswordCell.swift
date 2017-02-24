@@ -9,13 +9,13 @@
 import UIKit
 
 @objc(ZomPasswordCell)
-public class ZomPasswordCell: UITableViewCell {
+open class ZomPasswordCell: UITableViewCell {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var changeButton: UIButton!
     @IBOutlet weak var revealButton: UIButton!
     
-    @IBAction func didPressRevealButton(sender: UIButton) {
-        self.passwordTextField.secureTextEntry = !self.passwordTextField.secureTextEntry
+    @IBAction func didPressRevealButton(_ sender: UIButton) {
+        self.passwordTextField.isSecureTextEntry = !self.passwordTextField.isSecureTextEntry
     }
 }

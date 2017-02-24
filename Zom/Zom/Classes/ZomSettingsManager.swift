@@ -8,21 +8,23 @@
 
 import ChatSecureCore
 
-public class ZomSettingsManager: OTRSettingsManager {
-    override public var settingsGroups: [OTRSettingsGroup] {
+open class ZomSettingsManager: OTRSettingsManager {
+    override open var settingsGroups: [OTRSettingsGroup] {
         get {
             var settingsGroups: [OTRSettingsGroup] = super.settingsGroups
             guard let groupOtherSettings = settingsGroups.last else { return [] }
-            var settings:[AnyObject] = []
-            for index in (groupOtherSettings.settings.endIndex-1).stride(through: groupOtherSettings.settings.startIndex, by: -1) {
+            var settings:[Any] = []
+            
+            for index in stride(from: groupOtherSettings.settings.endIndex-1, to: groupOtherSettings.settings.startIndex, by: -1) {
                 let setting = groupOtherSettings.settings[index]
-                if (setting.isKindOfClass(OTRShareSetting) || setting.isKindOfClass(OTRLanguageSetting)) {
+                if (setting is OTRShareSetting || setting is OTRLanguageSetting) {
                     settings.append(setting)
                 }
             }
-            let other = OTRSettingsGroup(title: groupOtherSettings.title, settings: settings)
-            settingsGroups.removeLast()
-            settingsGroups.append(other)
+            if let other = OTRSettingsGroup(title: groupOtherSettings.title, settings: settings) {
+                settingsGroups.removeLast()
+                settingsGroups.append(other)
+            }
             return settingsGroups
         }
     }

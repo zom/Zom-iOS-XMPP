@@ -10,7 +10,7 @@ import UIKit
 import ChatSecureCore
 import KVOController
 
-public class ZomConversationViewController: OTRConversationViewController {
+open class ZomConversationViewController: OTRConversationViewController {
     
     //Mark: Properties
     
@@ -18,19 +18,19 @@ public class ZomConversationViewController: OTRConversationViewController {
     var pitchCreateGroupView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.kvoobject = ZomConversationViewControllerKVOObject(viewController:self)
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updatePitchView()
     }
     
     func updatePitchView() {
-        if let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance()?.newConnection() {
-        dataBaseConnection.readWithBlock { (transaction) -> Void in
+        if let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().newConnection() {
+        dataBaseConnection.read { (transaction) -> Void in
             let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as! YapDatabaseViewTransaction
             let numBuddies = view.numberOfItemsInAllGroups()
             if (numBuddies == 0 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0) {
@@ -47,29 +47,29 @@ public class ZomConversationViewController: OTRConversationViewController {
     
     func getPitchInviteView() -> UIView {
         if (self.pitchInviteView == nil) {
-            self.pitchInviteView = UINib(nibName: "PitchInviteView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
+            self.pitchInviteView = UINib(nibName: "PitchInviteView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
         }
         return self.pitchInviteView!
     }
 
     func getPitchCreateGroupView() -> UIView {
         if (self.pitchCreateGroupView == nil) {
-            self.pitchCreateGroupView = UINib(nibName: "PitchCreateGroupView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as? UIView
+            self.pitchCreateGroupView = UINib(nibName: "PitchCreateGroupView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
             self.pitchCreateGroupView!.frame.size.height = 180
         }
         return self.pitchCreateGroupView!
     }
     
-    @IBAction func addFriendsButtonPressed(sender: AnyObject) {
+    @IBAction func addFriendsButtonPressed(_ sender: AnyObject) {
         ZomNewBuddyViewController.addBuddyToDefaultAccount(self.navigationController)
     }
     
-    @IBAction func createGroupButtonPressed(sender: AnyObject) {
+    @IBAction func createGroupButtonPressed(_ sender: AnyObject) {
         ZomComposeViewController.openInGroupMode = true
-        self.performSelector(#selector(self.composeButtonPressed(_:)), withObject: sender)
+        self.performSelector(inBackground: #selector(self.composeButtonPressed(_:)), with: sender)
     }
     
-    override public func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         sizeHeaderToFit()
     }
@@ -89,8 +89,8 @@ public class ZomConversationViewControllerKVOObject : NSObject {
     public init(viewController:ZomConversationViewController) {
         super.init()
         self.viewController = viewController
-        self.KVOController.observe(OTRProtocolManager.sharedInstance(), keyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.New, block: { (observer, object, change) -> Void in
-            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+        self.kvoController.observe(OTRProtocolManager.sharedInstance(), keyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.new, block: { (observer, object, change) -> Void in
+            DispatchQueue.main.async { [unowned self] in
                 self.viewController?.updatePitchView()
             }
         });

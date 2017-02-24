@@ -10,69 +10,74 @@ import UIKit
 import ChatSecureCore
 import MobileCoreServices
 
-public class ZomCongratsViewController: UIViewController {
+open class ZomCongratsViewController: UIViewController {
 
     @IBOutlet weak var avatarImageView:UIButton!
-    public var account:OTRAccount? {
+    open var account:OTRAccount? {
         didSet {
             guard let acct = account else {
                 return;
             }
-            self.viewHandler.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection())
+            self.viewHandler?.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection())
         }
     }
     private var avatarPicker:OTRAttachmentPicker?
-    private let viewHandler = OTRYapViewHandler(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+    private var viewHandler:OTRYapViewHandler?
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewHandler.delegate = self
+        
+        if let connection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection {
+            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+            self.viewHandler?.delegate = self
+        }
+        
     }
 
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.avatarImageView.layer.cornerRadius = CGRectGetWidth(self.avatarImageView.frame)/2;
-        self.avatarImageView.userInteractionEnabled = true
+        self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width/2;
+        self.avatarImageView.isUserInteractionEnabled = true
         self.avatarImageView.clipsToBounds = true;
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.refreshAvatarImage(self.account)
     }
     
-    func refreshAvatarImage(account:OTRAccount?) {
-        let defaultImage = { self.avatarImageView.setImage(UIImage(named: "onboarding_avatar", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil), forState: .Normal)}
+    func refreshAvatarImage(_ account:OTRAccount?) {
+        let defaultImage = { self.avatarImageView.setImage(UIImage(named: "onboarding_avatar", in: OTRAssets.resourcesBundle(), compatibleWith: nil), for: .normal)}
         
         guard let account = self.account else {
             defaultImage()
             return
         }
         
-        if let data = account.avatarData where data.length > 0 {
-            self.avatarImageView.setImage(account.avatarImage(), forState: .Normal)
+        if let data = account.avatarData, data.count > 0 {
+            self.avatarImageView.setImage(account.avatarImage(), for: .normal)
         } else {
             defaultImage()
         }
     }
     
-    @IBAction func avatarButtonPressed(sender: AnyObject) {
+    @IBAction func avatarButtonPressed(_ sender: AnyObject) {
         let picker = OTRAttachmentPicker(parentViewController: self, delegate: self)
         self.avatarPicker = picker
-        picker.showAlertControllerWithCompletion(nil)
+        picker?.showAlertController(completion: nil)
     }
     
     /** Uses the global readOnlyDatabaseConnection to refetch the account object and refresh the avatar image view with that new object*/
-    private func refreshViews() {
+    fileprivate func refreshViews() {
         guard let key = self.account?.uniqueId else {
             self.refreshAvatarImage(nil)
             return
         }
         var account:OTRAccount? = nil
-        OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection.asyncReadWithBlock({ (transaction) in
-            account = OTRAccount .fetchObjectWithUniqueID(key, transaction: transaction)
-            }, completionQueue: dispatch_get_main_queue()) {
+        OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection?.asyncRead({ (transaction) in
+            account = OTRAccount .fetch(withUniqueID: key, transaction: transaction)
+            }, completionQueue: DispatchQueue.main) {
                 self.account = account
                 self.refreshAvatarImage(self.account)
         }
@@ -80,7 +85,7 @@ public class ZomCongratsViewController: UIViewController {
 }
 
 extension ZomCongratsViewController: OTRYapViewHandlerDelegateProtocol {
-    public func didReceiveChanges(handler: OTRYapViewHandler, key: String, collection: String) {
+    public func didReceiveChanges(_ handler: OTRYapViewHandler, key: String, collection: String) {
         if key == self.account?.uniqueId {
             self.refreshViews()
         }
@@ -88,17 +93,19 @@ extension ZomCongratsViewController: OTRYapViewHandlerDelegateProtocol {
 }
 
 extension ZomCongratsViewController:OTRAttachmentPickerDelegate {
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: URL!) {
+        
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [AnyHashable : Any]!) {
         
         guard let account = self.account else {
             return
         }
         
-        if (OTRProtocolManager.sharedInstance().protocolForAccount(account) != nil) {
-            if let xmppManager = OTRProtocolManager.sharedInstance().protocolForAccount(account) as? OTRXMPPManager {
+        if (OTRProtocolManager.sharedInstance().protocol(for: account) != nil) {
+            if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? OTRXMPPManager {
                 xmppManager.setAvatar(photo, completion: { (success) in
                     //We updated the avatar
                 })
@@ -106,7 +113,7 @@ extension ZomCongratsViewController:OTRAttachmentPickerDelegate {
         }
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, preferredMediaTypesForSource source: UIImagePickerControllerSourceType) -> [String]! {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, preferredMediaTypesFor source: UIImagePickerControllerSourceType) -> [String]! {
         return [kUTTypeImage as String]
     }
 }

@@ -7,7 +7,7 @@ import UIKit
 import ChatSecureCore
 import JSQMessagesViewController
 
-public class ZomStickerMessage: NSObject, JSQMessageData {
+open class ZomStickerMessage: NSObject, JSQMessageData {
 
     private var originalMessage:JSQMessageData
     private lazy var mediaObject:ZomStickerMessageMedia? = { [unowned self] in
@@ -18,34 +18,34 @@ public class ZomStickerMessage: NSObject, JSQMessageData {
         originalMessage = message
     }
     
-    public func senderDisplayName() -> String! {
+    open func senderDisplayName() -> String! {
         return self.originalMessage.senderDisplayName()
     }
     
-    public func date() -> NSDate {
+    open func date() -> Date {
         return originalMessage.date()
     }
 
-    public func messageHash() -> UInt {
+    open func messageHash() -> UInt {
         return originalMessage.messageHash()
     }
     
-    public func senderId() -> String! {
+    open func senderId() -> String! {
         return originalMessage.senderId()
     }
     
-    public func isMediaMessage() -> Bool {
+    open func isMediaMessage() -> Bool {
         return true
     }
     
-    public func media() -> JSQMessageMediaData! {
-        return self.mediaObject
+    open func media() -> JSQMessageMediaData! {
+        return self.mediaObject as! JSQMessageMediaData
     }
     
-    public static func isValidStickerShortCode(message:String?) -> Bool {
+    open static func isValidStickerShortCode(_ message:String?) -> Bool {
         if (message != nil && message!.hasPrefix(":") && message!.hasSuffix(":")) {
             if let fileName = getStickerFilenameFromMessage(message) {
-                if (NSFileManager.defaultManager().fileExistsAtPath(fileName)) {
+                if (FileManager.default.fileExists(atPath: fileName)) {
                     return true
                 }
             }
@@ -53,35 +53,35 @@ public class ZomStickerMessage: NSObject, JSQMessageData {
         return false
     }
     
-    private static func getStickerFilenameFromMessage(message:String!) -> String? {
-        let stickerDescription = message.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: ":"))
-        let components = stickerDescription.componentsSeparatedByString("-")
+    fileprivate static func getStickerFilenameFromMessage(_ message:String!) -> String? {
+        let stickerDescription = message.trimmingCharacters(in: CharacterSet(charactersIn: ":"))
+        let components = stickerDescription.components(separatedBy: "-")
         if (components.count == 2) {
             let regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9_& ]+", options: [])
-            let messagePack = regex.stringByReplacingMatchesInString(components[0], options: [], range: NSMakeRange(0, components[0].characters.count), withTemplate: "")
-            let messageSticker = regex.stringByReplacingMatchesInString(components[1], options: [], range: NSMakeRange(0, components[1].characters.count), withTemplate: "")
+            let messagePack = regex.stringByReplacingMatches(in: components[0], options: [], range: NSMakeRange(0, components[0].characters.count), withTemplate: "")
+            let messageSticker = regex.stringByReplacingMatches(in: components[1], options: [], range: NSMakeRange(0, components[1].characters.count), withTemplate: "")
             return getFilenameForSticker(messageSticker, inPack: messagePack)
         }
         return nil
     }
     
-    public static func getFilenameForSticker(sticker:String, inPack pack:String) -> String? {
+    open static func getFilenameForSticker(_ sticker:String, inPack pack:String) -> String? {
         var foundPack:String?
         var foundSticker:String?
         
         // iOS is case sensitive, so need to match file case
         //
-        let docsPath = NSBundle.mainBundle().resourcePath! + "/Stickers"
-        let fileManager = NSFileManager.defaultManager()
+        let docsPath = Bundle.main.resourcePath! + "/Stickers"
+        let fileManager = FileManager.default
         do {
-            let stickerPacks = try fileManager.contentsOfDirectoryAtPath(docsPath)
+            let stickerPacks = try fileManager.contentsOfDirectory(atPath: docsPath)
             for stickerPack in stickerPacks {
-                if (stickerPack.caseInsensitiveCompare(pack) == NSComparisonResult.OrderedSame) {
+                if (stickerPack.caseInsensitiveCompare(pack) == ComparisonResult.orderedSame) {
                     foundPack = stickerPack
                     
-                    let stickers = try fileManager.contentsOfDirectoryAtPath(docsPath + "/" + foundPack!)
+                    let stickers = try fileManager.contentsOfDirectory(atPath: docsPath + "/" + foundPack!)
                     for s in stickers {
-                        if (s.caseInsensitiveCompare(sticker + ".png") == NSComparisonResult.OrderedSame) {
+                        if (s.caseInsensitiveCompare(sticker + ".png") == ComparisonResult.orderedSame) {
                             foundSticker = s
                             break
                         }
@@ -94,7 +94,7 @@ public class ZomStickerMessage: NSObject, JSQMessageData {
         }
         
         if (foundPack != nil && foundSticker != nil) {
-            return NSBundle.mainBundle().resourcePath! + "/Stickers/" + foundPack! + "/" + foundSticker!
+            return Bundle.main.resourcePath! + "/Stickers/" + foundPack! + "/" + foundSticker!
         }
         return nil
     }

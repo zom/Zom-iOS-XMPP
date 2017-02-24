@@ -9,11 +9,11 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomIntroViewController: OTRWelcomeViewController {
+open class ZomIntroViewController: OTRWelcomeViewController {
     
-    public var showCancelButton:Bool = false
+    open var showCancelButton:Bool = false
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         if (showCancelButton) {
@@ -23,10 +23,10 @@ public class ZomIntroViewController: OTRWelcomeViewController {
     }
     
     // MARK: - Navigation
-    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let login = segue.destinationViewController as? ZomBaseLoginViewController {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let login = segue.destination as? ZomBaseLoginViewController {
             if segue.identifier == "useExistingAccountSegue" {
-                login.form = OTRXLFormCreator.formForAccountType(OTRAccountType.Jabber, createAccount: false)
+                login.form = OTRXLFormCreator.form(for: OTRAccountType.jabber, createAccount: false)
                 login.loginHandler = OTRXMPPLoginHandler()
                 if let zomNavController = self.navigationController as? ZomOnboardingNavigationController {
                     zomNavController.createdNewAccount = false
@@ -38,10 +38,10 @@ public class ZomIntroViewController: OTRWelcomeViewController {
                 }
             }
         }
-        super.prepareForSegue(segue, sender:sender)
+        super.prepare(for: segue, sender:sender)
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
 }

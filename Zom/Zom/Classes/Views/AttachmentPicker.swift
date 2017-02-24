@@ -17,13 +17,13 @@ public class AttachmentPicker: UIView {
     
     public func removeCameraButton() {
         var toolbarButtons = toolbar.items
-        toolbarButtons!.removeAtIndex(toolbarButtons!.indexOf(cameraButton)!)
+        toolbarButtons!.remove(at: toolbarButtons!.index(of: cameraButton)!)
         toolbar.items = toolbarButtons
     }
     
     public func removePhotoButton() {
         var toolbarButtons = toolbar.items
-        toolbarButtons!.removeAtIndex(toolbarButtons!.indexOf(photosButton)!)
+        toolbarButtons!.remove(at: toolbarButtons!.index(of: photosButton)!)
         toolbar.items = toolbarButtons
     }
 }

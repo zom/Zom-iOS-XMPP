@@ -10,7 +10,7 @@ import UIKit
 import ChatSecureCore
 import ZXingObjC
 
-public class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegate {
+open class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegate {
 
     var account: OTRAccount? {
         didSet {
@@ -25,14 +25,14 @@ public class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegat
     @IBOutlet weak var avatarImageView: UIImageView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        self.qrImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        self.qrImageView.contentMode = UIViewContentMode.scaleAspectFit
         self.qrImageView.layer.magnificationFilter = kCAFilterNearest
         self.qrImageView.layer.shouldRasterize = true
         self.view.backgroundColor = ZomTheme().lightThemeColor
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapAvatarImage(_:)))
-        self.avatarImageView.userInteractionEnabled = true
+        self.avatarImageView.isUserInteractionEnabled = true
         self.avatarImageView.addGestureRecognizer(tapRecognizer)
         updateUI()
     }
@@ -41,19 +41,19 @@ public class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegat
         self.qrString = nil
         if (account != nil) {
             var types = Set<NSNumber>()
-            types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
-            account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
+            types.insert(NSNumber(value: OTRFingerprintType.OTR.rawValue))
+            account!.generateShareURL(withFingerprintTypes: types, completion: { (url, error) -> Void in
                 if (url != nil && error == nil) {
-                    self.qrString = url.absoluteString
+                    self.qrString = url?.absoluteString
                 }
             })
         }
-        if (self.isViewLoaded()) {
+        if (self.isViewLoaded) {
             updateUI()
         }
     }
     
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         updateUI()
     }
     
@@ -77,15 +77,15 @@ public class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegat
     }
     
     func setDefaultAvatar() {
-        self.avatarImageView.image = UIImage(named: "onboarding_avatar", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
+        self.avatarImageView.image = UIImage(named: "onboarding_avatar", in: OTRAssets.resourcesBundle(), compatibleWith: nil)
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
     }
     
-    func imageForQRString(qrString:String?, size:CGSize) -> UIImage? {
+    func imageForQRString(_ qrString:String?, size:CGSize) -> UIImage? {
         if (qrString == nil) {
             return nil
         }
@@ -95,19 +95,19 @@ public class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegat
         hints.margin = 0
         let result:ZXBitMatrix? = try? writer.encode(qrString, format: kBarcodeFormatQRCode, width: Int32(size.width), height: Int32(size.height), hints: hints)
         if (result != nil) {
-            return UIImage(CGImage: ZXImage(matrix: result, onColor: UIColor.blackColor().CGColor, offColor: ZomTheme().lightThemeColor.CGColor).cgimage)
+            return UIImage(cgImage: ZXImage(matrix: result, on: UIColor.black.cgColor, offColor: ZomTheme().lightThemeColor.cgColor).cgimage)
         }
         return nil
     }
     
-    func didTapAvatarImage(sender: UITapGestureRecognizer? = nil) {
-        let photoPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.parentViewController, delegate: self)
-        photoPicker.showAlertControllerWithCompletion(nil)
+    func didTapAvatarImage(_ sender: UITapGestureRecognizer? = nil) {
+        let photoPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.parent, delegate: self)
+        photoPicker?.showAlertController(completion: nil)
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: NSURL!) {
+    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: URL!) {
     }
     
-    public func attachmentPicker(attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [NSObject : AnyObject]!) {
+    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [AnyHashable: Any]!) {
     }
 }

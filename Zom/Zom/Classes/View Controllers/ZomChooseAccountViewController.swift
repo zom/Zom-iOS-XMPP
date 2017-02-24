@@ -9,43 +9,43 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomChooseAccountViewController: OTRChooseAccountViewController, UITableViewDelegate {
+open class ZomChooseAccountViewController: OTRChooseAccountViewController, UITableViewDelegate {
 
     @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
     var selectedAccount:OTRAccount? = nil
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
-        let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
-        if (accounts.count == 1)
+        
+        if let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies(), accounts.count == 1 
         {
             self.selectedAccount = accounts[0] as? OTRAccount
-            self.performSegueWithIdentifier("addNewBuddySegue", sender: self)
+            self.performSegue(withIdentifier: "addNewBuddySegue", sender: self)
         }
         
         //Super view changed our bar button item, so get our cancel button back!
         self.navigationItem.rightBarButtonItems = [self.cancelBarButtonItem]
     }
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let accounts:[AnyObject] = OTRAccountsManager.allAccountsAbleToAddBuddies()
+        tableView.deselectRow(at: indexPath, animated: true)
+        let accounts:[Any] = OTRAccountsManager.allAccountsAbleToAddBuddies()
         self.selectedAccount = accounts[indexPath.row] as? OTRAccount
-        self.performSegueWithIdentifier("addNewBuddySegue", sender: self)
+        self.performSegue(withIdentifier: "addNewBuddySegue", sender: self)
     }
     
     // MARK: - Navigation
-    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNewBuddySegue" {
-            let vc:ZomNewBuddyViewController = segue.destinationViewController as! ZomNewBuddyViewController
+            let vc:ZomNewBuddyViewController = segue.destination as! ZomNewBuddyViewController
             vc.account = self.selectedAccount
         }
-        super.prepareForSegue(segue, sender:sender)
+        super.prepare(for: segue, sender:sender)
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

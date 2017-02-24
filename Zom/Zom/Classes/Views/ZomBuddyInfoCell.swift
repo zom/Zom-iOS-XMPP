@@ -8,9 +8,9 @@
 
 import UIKit
 
-public class ZomBuddyInfoCell: OTRBuddyInfoCell {
+open class ZomBuddyInfoCell: OTRBuddyInfoCell {
     
-    override public func updateConstraints() {
+    override open func updateConstraints() {
         let firstTime:Bool = !self.addedConstraints
         super.updateConstraints()
         if (firstTime) {
@@ -21,13 +21,13 @@ public class ZomBuddyInfoCell: OTRBuddyInfoCell {
                 var removeThese:[NSLayoutConstraint] = [NSLayoutConstraint]()
                 for constraint:NSLayoutConstraint in self.constraints {
                     if ((constraint.firstItem as? NSObject != nil && constraint.firstItem as! NSObject == self.nameLabel) || (constraint.secondItem as? NSObject != nil && constraint.secondItem as! NSObject == self.nameLabel)) {
-                        if (constraint.active && (constraint.firstAttribute == NSLayoutAttribute.Top || constraint.firstAttribute == NSLayoutAttribute.Bottom)) {
+                        if (constraint.isActive && (constraint.firstAttribute == NSLayoutAttribute.top || constraint.firstAttribute == NSLayoutAttribute.bottom)) {
                             removeThese.append(constraint)
                         }
                     }
                 }
                 self.removeConstraints(removeThese)
-                let c:NSLayoutConstraint = NSLayoutConstraint(item: self.nameLabel, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self.nameLabel.superview, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+                let c:NSLayoutConstraint = NSLayoutConstraint(item: self.nameLabel, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self.nameLabel.superview, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
                 self.addConstraint(c);
             }
         }
