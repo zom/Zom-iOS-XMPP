@@ -28,6 +28,10 @@ public class ZomCongratsViewController: UIViewController {
         super.viewDidLoad()
         if let connection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection {
             self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+            if let accountKey = account?.uniqueId {
+                self.viewHandler?.keyCollectionObserver.observe(accountKey, collection: OTRAccount.collection())
+            }
+            
             self.viewHandler?.delegate = self
         }
         
@@ -47,17 +51,11 @@ public class ZomCongratsViewController: UIViewController {
     }
     
     func refreshAvatarImage(account:OTRAccount?) {
-        let defaultImage = { self.avatarImageView.setImage(UIImage(named: "onboarding_avatar", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil), forState: .Normal)}
         
-        guard let account = self.account else {
-            defaultImage()
-            return
-        }
-        
-        if let data = account.avatarData where data.length > 0 {
+        if let account = self.account, let data = account.avatarData where data.length > 0 {
             self.avatarImageView.setImage(account.avatarImage(), forState: .Normal)
         } else {
-            defaultImage()
+            self.avatarImageView.setImage(UIImage(named: "onboarding_avatar", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil), forState: .Normal)
         }
     }
     
