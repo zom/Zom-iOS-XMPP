@@ -248,7 +248,7 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
         case let .Verify(fingerprint):
             // Set active fingerprint as trusted
             fingerprint.trustLevel = .TrustedUser
-            self.info.otrKit.saveFingerprint(fingerprint)
+            OTRProtocolManager.sharedInstance().encryptionManager.saveFingerprint(fingerprint)
             self.relaodData?()
             break
          case .Refresh:
