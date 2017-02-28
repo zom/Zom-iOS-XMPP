@@ -255,11 +255,13 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
     
     public func setupInfoButton() {
         let image = UIImage(named: "OTRInfoIcon", inBundle: OTRAssets.resourcesBundle(), compatibleWithTraitCollection: nil)
-        let item = UIBarButtonItem(image: image, style: .Plain, target: self, action: #selector(didPressInfoButton(_:)))
+        let item = UIBarButtonItem(image: image, style: .Plain, target: self, action: #selector(infoButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = item
     }
     
-    @objc func didPressInfoButton(sender:AnyObject) {
+    
+    @objc public override func infoButtonPressed(sender: AnyObject?) {
+
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
         self.readOnlyDatabaseConnection.readWithBlock { (t) in
