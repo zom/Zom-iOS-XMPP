@@ -159,17 +159,17 @@ PODS:
   - SignalProtocol-ObjC (0.1.0):
     - SignalProtocolC (~> 0.1.0)
   - SignalProtocolC (0.1.0)
-  - SQLCipher (3.4.0):
-    - SQLCipher/standard (= 3.4.0)
-  - SQLCipher/common (3.4.0)
-  - SQLCipher/fts (3.4.0):
+  - SQLCipher (3.4.1):
+    - SQLCipher/standard (= 3.4.1)
+  - SQLCipher/common (3.4.1)
+  - SQLCipher/fts (3.4.1):
     - SQLCipher/common
-  - SQLCipher/standard (3.4.0):
+  - SQLCipher/standard (3.4.1):
     - SQLCipher/common
   - TTTAttributedLabel (2.0.0)
   - TUSafariActivity (1.0.4)
   - uservoice-iphone-sdk (3.2.9)
-  - VTAcknowledgementsViewController (1.2)
+  - VTAcknowledgementsViewController (1.2.1)
   - XLForm (3.3.0)
   - XMPPFramework (3.7.0):
     - CocoaAsyncSocket (~> 7.5.1)
@@ -226,9 +226,9 @@ PODS:
     - YapDatabase/SQLCipher/Core
   - YapTaskQueue/SQLCipher (0.1.6):
     - YapDatabase/SQLCipher (~> 2.9)
-  - ZXingObjC (3.1.0):
-    - ZXingObjC/All (= 3.1.0)
-  - ZXingObjC/All (3.1.0)
+  - ZXingObjC (3.2.1):
+    - ZXingObjC/All (= 3.2.1)
+  - ZXingObjC/All (3.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
@@ -349,16 +349,16 @@ SPEC CHECKSUMS:
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SignalProtocol-ObjC: 06dbca97b2c0b1b434ea325abc50b4c26cf6e900
   SignalProtocolC: a059b4ff6899a2d99d7fafb046513fdd2db2b441
-  SQLCipher: 4c768761421736a247ed6cf412d9045615d53dff
+  SQLCipher: 43d12c0eb9c57fb438749618fc3ce0065509a559
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   uservoice-iphone-sdk: 82b5c44465fe900b6e54ee856328733d2abfa947
-  VTAcknowledgementsViewController: 62d2b3979b6d86677246967cf880d14b13ee7ac4
+  VTAcknowledgementsViewController: e1de80f2c0ce31cc7e1c6f1c8aaeec2770371f09
   XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
   XMPPFramework: 9817d71a3015e08095cda1e8d6435fad8970059f
   YapDatabase: b1e43555a34a5298e23a045be96817a5ef0da58f
   YapTaskQueue: 4142a372ea5971deddafe7c797193b01348a66ef
-  ZXingObjC: bf15b3814f7a105b6d99f47da2333c93a063650a
+  ZXingObjC: bbf7b8f0cf8933fdd33eb4f9f46e22308552869b
 
 PODFILE CHECKSUM: 20bd012da84eeefff3266b1e75e447fa281df5c4
 

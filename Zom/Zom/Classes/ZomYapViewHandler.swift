@@ -43,7 +43,7 @@ extension OTRYapViewHandler {
                 return
             }
             
-            if database.registerExtension(filteredView, withName: OTRYapViewHandlerConstants.zomviewname, sendNotification: false) {
+            if database.registerExtension(filteredView, withName: OTRYapViewHandlerConstants.zomviewname) {
                 ZomUtil.swizzle(self, originalSelector: #selector(OTRYapViewHandler.setup(_:groups:)), swizzledSelector:#selector(OTRYapViewHandler.zom_setup(_:groups:)))
                 ZomUtil.swizzle(self, originalSelector: #selector(OTRYapViewHandler.setup(_:groupBlock:sortBlock:)), swizzledSelector: #selector(OTRYapViewHandler.zom_setup(_:groupBlock:sortBlock:)))
             }
