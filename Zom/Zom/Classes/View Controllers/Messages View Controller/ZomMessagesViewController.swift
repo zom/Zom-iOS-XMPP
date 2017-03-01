@@ -19,8 +19,6 @@ extension OTRMessagesViewController {
     private static var swizzle: () {
         
         ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAt:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
-        ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAt
-            :)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
     }
     
     open override class func initialize() {
@@ -49,30 +47,7 @@ extension OTRMessagesViewController {
         return ret
     }
     
-    public func zom_collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-        let string:NSMutableAttributedString = self.zom_collectionView(collectionView, attributedTextForCellBottomLabelAtIndexPath: indexPath) as! NSMutableAttributedString
-        
-        let lock = NSString.fa_string(forFontAwesomeIcon: FAIcon.FALock);
-        let unlock = NSString.fa_string(forFontAwesomeIcon: FAIcon.FAUnlock);
-        
-        let asd:NSString = string.string as NSString
-        
-        let rangeLock:NSRange = asd.range(of: lock!);
-        if (rangeLock.location != NSNotFound) {
-            let attachment = textAttachment(12)
-            let newLock = NSAttributedString.init(attachment: attachment);
-            string.replaceCharacters(in: rangeLock, with: newLock)
-        }
-        
-        let rangeUnLock:NSRange = asd.range(of: unlock!);
-        if (rangeUnLock.location != NSNotFound) {
-            let nothing = NSAttributedString.init(string: "");
-            string.replaceCharacters(in: rangeUnLock, with: nothing)
-        }
-        return string;
-    }
-    
-    func textAttachment(_ fontSize: CGFloat) -> NSTextAttachment {
+    func textAttachment(fontSize: CGFloat) -> NSTextAttachment {
         var font:UIFont? = UIFont(name: kFontAwesomeFont, size: fontSize)
         if (font == nil) {
             font = UIFont.systemFont(ofSize: fontSize)
@@ -254,13 +229,15 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         self.present(vc!, animated: true, completion: nil)
     }
     
-    open func setupInfoButton() {
+    public func setupInfoButton() {
         let image = UIImage(named: "OTRInfoIcon", in: OTRAssets.resourcesBundle(), compatibleWith: nil)
-        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(didPressInfoButton(_:)))
+        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(infoButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = item
     }
     
-    @objc func didPressInfoButton(_ sender:AnyObject) {
+    
+    @objc open override func infoButtonPressed(_ sender: Any?) {
+
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
         self.readOnlyDatabaseConnection.read { (t) in
@@ -276,6 +253,32 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 
         
         self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    open override func deliveryStatusString(for message: OTROutgoingMessage) -> String? {
+        let checkmark = {
+            return NSString.fa_string(forFontAwesomeIcon: .FACheck)
+        }
+        var string = "" as NSString
+        if (message.dateSent != nil) {
+            string = string.appending(checkmark()!) as NSString
+        }
+        
+        if (message.isDelivered) {
+            string = string.appending(checkmark()!) as NSString
+        }
+        return string as String
+    }
+    
+    open override func encryptionStatusString(forMesage message: OTRMessageProtocol) -> NSAttributedString? {
+        switch message.messageSecurity() {
+        case .OMEMO: fallthrough
+        case .OTR:
+            let attachment = textAttachment(fontSize: 12)
+            return NSAttributedString(attachment: attachment)
+        default:
+            return nil
+        }
     }
 }
 
