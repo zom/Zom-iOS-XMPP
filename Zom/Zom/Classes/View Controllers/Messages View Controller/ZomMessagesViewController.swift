@@ -27,7 +27,6 @@ extension OTRMessagesViewController {
         
         dispatch_once(&Static.token) {
             ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAtIndexPath:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
-            ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)), swizzledSelector: #selector(OTRMessagesViewController.zom_collectionView(_:attributedTextForCellBottomLabelAtIndexPath:)))
         }
     }
     
@@ -46,29 +45,6 @@ extension OTRMessagesViewController {
             return ZomStickerMessage(message: ret)
         }
         return ret
-    }
-    
-    public func zom_collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
-        let string:NSMutableAttributedString = self.zom_collectionView(collectionView, attributedTextForCellBottomLabelAtIndexPath: indexPath) as! NSMutableAttributedString
-        
-        let lock = NSString.fa_stringForFontAwesomeIcon(FAIcon.FALock);
-        let unlock = NSString.fa_stringForFontAwesomeIcon(FAIcon.FAUnlock);
-        
-        let asd:NSString = string.string
-        
-        let rangeLock:NSRange = asd.rangeOfString(lock);
-        if (rangeLock.location != NSNotFound) {
-            let attachment = textAttachment(12)
-            let newLock = NSAttributedString.init(attachment: attachment);
-            string.replaceCharactersInRange(rangeLock, withAttributedString: newLock)
-        }
-        
-        let rangeUnLock:NSRange = asd.rangeOfString(unlock);
-        if (rangeUnLock.location != NSNotFound) {
-            let nothing = NSAttributedString.init(string: "");
-            string.replaceCharactersInRange(rangeUnLock, withAttributedString: nothing)
-        }
-        return string;
     }
     
     func textAttachment(fontSize: CGFloat) -> NSTextAttachment {
@@ -277,6 +253,32 @@ public class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGes
 
         
         self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    public override func deliveryStatusStringForMessage(message: OTROutgoingMessage) -> String? {
+        let checkmark = {
+            return NSString.fa_stringForFontAwesomeIcon(.FACheck)
+        }
+        var string = ""
+        if (message.dateSent != nil) {
+            string = string.stringByAppendingString(checkmark())
+        }
+        
+        if (message.delivered) {
+            string = string.stringByAppendingString(checkmark())
+        }
+        return string
+    }
+    
+    public override func encryptionStatusStringForMesage(message: OTRMessageProtocol) -> NSAttributedString? {
+        switch message.messageSecurity() {
+        case .OMEMO: fallthrough
+        case .OTR:
+            let attachment = textAttachment(12)
+            return NSAttributedString(attachment: attachment)
+        default:
+            return nil
+        }
     }
 }
 
