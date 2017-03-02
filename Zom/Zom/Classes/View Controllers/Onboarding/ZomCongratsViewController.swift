@@ -62,7 +62,8 @@ public class ZomCongratsViewController: UIViewController {
     @IBAction func avatarButtonPressed(sender: AnyObject) {
         let picker = OTRAttachmentPicker(parentViewController: self, delegate: self)
         self.avatarPicker = picker
-        picker.showAlertControllerWithCompletion(nil)
+        let view = sender as? UIView
+        picker.showAlertControllerFromSourceView(view, withCompletion: nil)
     }
     
     /** Uses the global readOnlyDatabaseConnection to refetch the account object and refresh the avatar image view with that new object*/
