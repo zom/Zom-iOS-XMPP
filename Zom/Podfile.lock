@@ -276,15 +276,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ChatSecure-Push-iOS:
-    :path: ../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec
+    :path: "../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec"
   CPAProxy:
-    :path: ../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec
+    :path: "../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec"
   gtm-http-fetcher:
-    :podspec: ../ChatSecure/Podspecs/gtm-http-fetcher.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-http-fetcher.podspec"
   gtm-oauth2:
-    :podspec: ../ChatSecure/Podspecs/gtm-oauth2.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-oauth2.podspec"
   IOCipher:
-    :path: ../ChatSecure/Submodules/IOCipher/IOCipher.podspec
+    :path: "../ChatSecure/Submodules/IOCipher/IOCipher.podspec"
   JSQMessagesViewController:
     :git: https://github.com/ChatSecure/JSQMessagesViewController
     :tag: 7.3.4-send_button
@@ -292,17 +292,17 @@ EXTERNAL SOURCES:
     :branch: podspec-fix
     :git: https://github.com/ChatSecure/libsqlfs.git
   OTRKit:
-    :path: ../ChatSecure/Submodules/OTRKit/OTRKit.podspec
+    :path: "../ChatSecure/Submodules/OTRKit/OTRKit.podspec"
   ParkedTextField:
-    :path: ../ChatSecure/Submodules/ParkedTextField/ParkedTextField.podspec
+    :path: "../ChatSecure/Submodules/ParkedTextField/ParkedTextField.podspec"
   ProxyKit:
-    :path: ../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec
+    :path: "../ChatSecure/Submodules/ProxyKit/ProxyKit.podspec"
   SignalProtocol-ObjC:
-    :path: ../ChatSecure/Submodules/SignalProtocol-ObjC/SignalProtocol-ObjC.podspec
+    :path: "../ChatSecure/Submodules/SignalProtocol-ObjC/SignalProtocol-ObjC.podspec"
   SignalProtocolC:
     :podspec: https://raw.githubusercontent.com/ChatSecure/SignalProtocolC.podspec/b2b483fe1c4c66cecfc0376c496e6a58ed1939b5/SignalProtocolC.podspec
   XMPPFramework:
-    :path: ../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec
+    :path: "../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec"
 
 CHECKOUT OPTIONS:
   JSQMessagesViewController:
