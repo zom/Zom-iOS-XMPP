@@ -480,7 +480,7 @@ open class ZomProfileViewController : UIViewController {
             case .account(_):
                 // Keep strong reference
                 avatarPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.navigationController, delegate: self)
-                avatarPicker!.showAlertController(completion: nil)
+                avatarPicker!.showAlertController(fromSourceView: sender, withCompletion: nil)
                 break
             default:
                 break

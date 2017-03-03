@@ -102,7 +102,7 @@ open class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegate 
     
     func didTapAvatarImage(_ sender: UITapGestureRecognizer? = nil) {
         let photoPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.parent, delegate: self)
-        photoPicker?.showAlertController(completion: nil)
+        photoPicker?.showAlertController(fromSourceView: self.avatarImageView, withCompletion: nil)
     }
     
     open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: URL!) {
