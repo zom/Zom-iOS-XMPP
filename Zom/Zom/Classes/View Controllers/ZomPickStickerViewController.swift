@@ -10,27 +10,27 @@ import UIKit
 import ChatSecureCore
 
 public protocol ZomPickStickerViewControllerDelegate {
-    func didPickSticker(sticker:String, inPack: String)
+    func didPickSticker(_ sticker:String, inPack: String)
 }
 
-public class ZomPickStickerViewController: UICollectionViewController {
+open class ZomPickStickerViewController: UICollectionViewController {
     
-    public var stickerPack: String = ""
+    open var stickerPack: String = ""
     private var stickers: [String] = []
     private var stickerPaths: [String] = []
     private var selectedSticker:String = ""
     
-    private var assetGridThumbnailSize:CGSize = CGSize()
+    fileprivate var assetGridThumbnailSize:CGSize = CGSize()
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
-        let docsPath = NSBundle.mainBundle().resourcePath! + "/Stickers/" + stickerPack
-        let fileManager = NSFileManager.defaultManager()
+        let docsPath = Bundle.main.resourcePath! + "/Stickers/" + stickerPack
+        let fileManager = FileManager.default
         do {
-            let stickerFiles = try fileManager.contentsOfDirectoryAtPath(docsPath)
+            let stickerFiles = try fileManager.contentsOfDirectory(atPath: docsPath)
             for item in stickerFiles {
-                stickers.append((item as NSString).stringByDeletingPathExtension)
+                stickers.append((item as NSString).deletingPathExtension)
                 stickerPaths.append(docsPath + "/" + item)
             }
         } catch {
@@ -38,36 +38,36 @@ public class ZomPickStickerViewController: UICollectionViewController {
         }
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Determine the size of the thumbnails to request from the PHCachingImageManager
-        let scale:CGFloat = UIScreen.mainScreen().scale
+        let scale:CGFloat = UIScreen.main.scale
         let cellSize:CGSize = (self.collectionViewLayout as! UICollectionViewFlowLayout).itemSize;
-        assetGridThumbnailSize = CGSizeMake(cellSize.width * scale, cellSize.height * scale);
+        assetGridThumbnailSize = CGSize(width: cellSize.width * scale, height: cellSize.height * scale);
     }
     
     // Mark - UICollectionViewDataSource
     
-    public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return stickerPaths.count
     }
     
-    public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell:ZomPickStickerCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ZomPickStickerCell
+        let cell:ZomPickStickerCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ZomPickStickerCell
         cell.imageView.image = UIImage(contentsOfFile: stickerPaths[indexPath.item])
         return cell
     }
     
-    public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    open override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedSticker = stickers[indexPath.item]
-        self.performSegueWithIdentifier("unwindPickStickerSegue", sender: self)
+        self.performSegue(withIdentifier: "unwindPickStickerSegue", sender: self)
     }
 
-    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.destinationViewController is ZomPickStickerViewControllerDelegate) {
-            let vc:ZomPickStickerViewControllerDelegate = segue.destinationViewController as! ZomPickStickerViewControllerDelegate
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.destination is ZomPickStickerViewControllerDelegate) {
+            let vc:ZomPickStickerViewControllerDelegate = segue.destination as! ZomPickStickerViewControllerDelegate
             if (!selectedSticker.isEmpty) {
                 vc.didPickSticker(selectedSticker, inPack: stickerPack)
             }

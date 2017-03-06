@@ -9,13 +9,13 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomInviteViewController: OTRInviteViewController {
+open class ZomInviteViewController: OTRInviteViewController {
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         // Don't show the upstream view
-        self.view.hidden = true
+        self.view.isHidden = true
         
         // Only show congrats for new account!
         var showCongratsView = true
@@ -28,15 +28,15 @@ public class ZomInviteViewController: OTRInviteViewController {
             if (!alreadyAdded) {
                 self.title = ""
                 let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
-                let vc:ZomCongratsViewController = storyboard.instantiateViewControllerWithIdentifier("congrats") as! ZomCongratsViewController
+                let vc:ZomCongratsViewController = storyboard.instantiateViewController(withIdentifier: "congrats") as! ZomCongratsViewController
                 vc.account = self.account
                 vc.restorationIdentifier = "congrats"
                 self.addChildViewController(vc)
-                vc.didMoveToParentViewController(self)
+                vc.didMove(toParentViewController: self)
                 vc.view.frame = self.view.frame
                 self.view.addSubview(vc.view)
             }
-            self.view.hidden = false
+            self.view.isHidden = false
         } else {
             // TODO, jump straight to invite
             showInviteFriends()
@@ -73,30 +73,26 @@ public class ZomInviteViewController: OTRInviteViewController {
         */
     }
     
-    @IBAction func settingsButtonPressed(sender: AnyObject) {
+    @IBAction func settingsButtonPressed(_ sender: AnyObject) {
         self.skipPressed(sender)
-        if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
-            if let conversationController = appDelegate.conversationViewController {
+        if let appDelegate = UIApplication.shared.delegate as? OTRAppDelegate {
+            let conversationController = appDelegate.conversationViewController
                 
-                // Open settings
-                conversationController.settingsButtonPressed(self)
-                
-                // On iPads, make sure the the split view controller shows the settings pane
-                if let navigationController = conversationController.navigationController {
-                    if let opener = navigationController.parentViewController {
-                        if let splitController = opener as? UISplitViewController{
-                            if (!splitController.collapsed) {
-                                let btn = splitController.displayModeButtonItem()
-                                btn.target?.performSelector(btn.action, withObject: btn)
-                            }
-                        }
-                    }
+            // Open settings
+            conversationController.settingsButtonPressed(self)
+            
+            // On iPads, make sure the the split view controller shows the settings pane
+            if let navigationController = conversationController.navigationController, let opener = navigationController.parent as? UISplitViewController, !opener.isCollapsed  {
+                let btn = opener.displayModeButtonItem
+                guard let action = btn.action else {
+                    return
                 }
+                btn.target?.performForm(action, with: btn)
             }
         }
     }
     
-    public override func skipPressed(sender: AnyObject!) {
+    open override func skipPressed(_ sender: Any!) {
         /*if (isShowingCongrats()) {
             let congratsViewController = getCongratsViewController()
             congratsViewController!.view.removeFromSuperview()
@@ -114,7 +110,7 @@ public class ZomInviteViewController: OTRInviteViewController {
     
     private func getCongratsViewController() -> ZomCongratsViewController? {
         for controller in self.childViewControllers {
-            if (controller.isKindOfClass(ZomCongratsViewController.self)) {
+            if (controller is ZomCongratsViewController) {
                 return controller as? ZomCongratsViewController
             }
         }
@@ -127,7 +123,7 @@ public class ZomInviteViewController: OTRInviteViewController {
     
     private func getInviteFriendsViewController() -> ZomNewBuddyViewController? {
         for controller in self.childViewControllers {
-            if (controller.isKindOfClass(ZomNewBuddyViewController.self)) {
+            if (controller is ZomNewBuddyViewController) {
                 return controller as? ZomNewBuddyViewController
             }
         }

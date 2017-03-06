@@ -10,12 +10,12 @@ import Foundation
 import XMPPFramework
 import OTRKit
 
-public class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate {
+open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate {
 
     @IBOutlet weak var pickStickerButton: UIButton!
     var shareStickerOnResume:String?
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if (shareStickerOnResume != nil) {
             shareSticker(shareStickerOnResume!)
@@ -23,38 +23,38 @@ public class ZomDiscoverViewController: UIViewController, ZomPickStickerViewCont
         }
     }
     
-    @IBAction func didPressZomServicesButtonWithSender(sender: AnyObject) {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+    @IBAction func didPressZomServicesButtonWithSender(_ sender: AnyObject) {
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             if let buddy = getZombotBuddy() {
                 appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
             }
         }
     }
     
-    @IBAction func didPressCreateGroupButtonWithSender(sender: AnyObject) {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+    @IBAction func didPressCreateGroupButtonWithSender(_ sender: AnyObject) {
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             ZomComposeViewController.openInGroupMode = true
-            appDelegate.conversationViewController.performSelector(#selector(appDelegate.conversationViewController.composeButtonPressed(_:)), withObject: sender)
+            appDelegate.conversationViewController.perform(#selector(appDelegate.conversationViewController.composeButtonPressed(_:)), with: sender)
         }
     }
     
-    @IBAction func didPressChangeThemeButtonWithSender(sender: AnyObject) {
-        self.performSegueWithIdentifier("segueToPickColor", sender: self)
+    @IBAction func didPressChangeThemeButtonWithSender(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "segueToPickColor", sender: self)
     }
 
-    @IBAction func didPressStickerShareButtonWithSender(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "StickerShare", bundle: NSBundle.mainBundle())
+    @IBAction func didPressStickerShareButtonWithSender(_ sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "StickerShare", bundle: Bundle.main)
         let vc = storyboard.instantiateInitialViewController()
-        self.tabBarController?.presentViewController(vc!, animated: true, completion: nil)
+        self.tabBarController?.present(vc!, animated: true, completion: nil)
     }
     
-    @IBAction func unwindPickColorWithUnwindSegue(unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindPickColorWithUnwindSegue(_ unwindSegue: UIStoryboardSegue) {
         print("Unwind!")
     }
     
-    func selectThemeColor(color: UIColor?) {
+    func selectThemeColor(_ color: UIColor?) {
         if (color != nil) {
-            if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
+            if let appDelegate = UIApplication.shared.delegate as? OTRAppDelegate {
                 (appDelegate.theme as! ZomTheme).selectMainThemeColor(color)
                 self.navigationController?.navigationBar.barTintColor = appDelegate.theme.mainThemeColor
                 self.navigationController?.navigationBar.backgroundColor = appDelegate.theme.mainThemeColor
@@ -64,53 +64,55 @@ public class ZomDiscoverViewController: UIViewController, ZomPickStickerViewCont
         }
     }
     
-    private func getZombotBuddy() -> OTRBuddy? {
+    fileprivate func getZombotBuddy() -> OTRBuddy? {
         var buddy:OTRBuddy? = nil
-        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             let account:OTRAccount = appDelegate.getDefaultAccount()
-            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWriteWithBlock { (transaction) in
-                buddy = OTRXMPPBuddy.fetchBuddyWithUsername("zombot@home.zom.im", withAccountUniqueId: account.uniqueId, transaction: transaction)
+            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWrite { (transaction) in
+                buddy = OTRXMPPBuddy.fetch(withUsername: "zombot@home.zom.im", withAccountUniqueId: account.uniqueId, transaction: transaction)
                 if (buddy == nil) {
-                    let newBuddy = OTRXMPPBuddy()
-                    newBuddy.username = "zombot@home.zom.im"
-                    newBuddy.accountUniqueId = account.uniqueId
-                    // hack to show buddy in conversations view
-                    //buddy!.lastMessageDate = NSDate()
-                    //buddy!.setDisplayName("ZomBot")
-                    //(buddy as! OTRXMPPBuddy).pendingApproval = false
-                    newBuddy.saveWithTransaction(transaction)
-
-                    if let proto:OTRProtocol? = OTRProtocolManager.sharedInstance().protocolForAccount(account) {
-                        proto?.addBuddy(newBuddy)
+                    if let newBuddy = OTRXMPPBuddy() {
+                        newBuddy.username = "zombot@home.zom.im"
+                        newBuddy.accountUniqueId = account.uniqueId
+                        // hack to show buddy in conversations view
+                        //buddy!.lastMessageDate = NSDate()
+                        //buddy!.setDisplayName("ZomBot")
+                        //(buddy as! OTRXMPPBuddy).pendingApproval = false
+                        newBuddy.save(with: transaction)
+                        
+                        if let proto = OTRProtocolManager.sharedInstance().protocol(for: account) {
+                            proto.add(newBuddy)
+                        }
+                        buddy = newBuddy
                     }
-                    buddy = newBuddy
+                    
                 }
             }
         }
         return buddy;
     }
     
-    @IBAction func unwindPickSticker(unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindPickSticker(_ unwindSegue: UIStoryboardSegue) {
     }
     
-    public func didPickSticker(sticker: String, inPack pack: String) {
+    open func didPickSticker(_ sticker: String, inPack pack: String) {
         if let fileName =
             ZomStickerMessage.getFilenameForSticker(sticker, inPack: pack) {
             shareStickerOnResume = fileName
         }
     }
     
-    private func shareSticker(fileName: String) {
+    private func shareSticker(_ fileName: String) {
         if let image = UIImage(contentsOfFile: fileName) {
             let shareItems:Array = [image]
             
             let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
             //activityViewController!.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard, UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
-            if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Phone {
-                self.tabBarController!.presentViewController(activityViewController, animated: true, completion: nil)
+            if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
+                self.tabBarController!.present(activityViewController, animated: true, completion: nil)
             } else {
                 let popup: UIPopoverController = UIPopoverController(contentViewController: activityViewController)
-                popup.presentPopoverFromRect(pickStickerButton.bounds, inView: pickStickerButton, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+                popup.present(from: pickStickerButton.bounds, in: pickStickerButton, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
             }
         }
     }

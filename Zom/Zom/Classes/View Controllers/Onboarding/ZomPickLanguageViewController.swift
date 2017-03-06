@@ -10,15 +10,15 @@ import UIKit
 import ChatSecureCore
 
 public protocol ZomPickLanguageViewControllerDelegate {
-    func dismissViewController(wasSaved:Bool) -> Void
+    func dismissViewController(_ wasSaved:Bool) -> Void
 }
 
-public class ZomPickLanguageViewController: OTRLanguageListSettingViewController {
+open class ZomPickLanguageViewController: OTRLanguageListSettingViewController {
 
     var delegate:ZomPickLanguageViewControllerDelegate? = nil
     var saveWasCalled:Bool = false
 
-    public override func loadView() {
+    open override func loadView() {
         let lb = self.navigationItem.leftBarButtonItem
         let rb = self.navigationItem.rightBarButtonItem
         super.loadView()
@@ -26,25 +26,25 @@ public class ZomPickLanguageViewController: OTRLanguageListSettingViewController
         self.navigationItem.rightBarButtonItem = rb
     }
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
         if (delegate != nil) {
             self.delegate?.dismissViewController(false)
         } else {
-            super.dismissViewControllerAnimated(true, completion: nil)
+            super.dismiss(animated: true, completion: nil)
         }
     }
 
-    @IBAction func saveButtonPressed(sender: AnyObject) {
+    @IBAction func saveButtonPressed(_ sender: AnyObject) {
         saveWasCalled = true
         self.save(self)
     }
 
     // We are shown in a navigation view controller, so don't dismiss us here
-    public override func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+    open override func dismiss(animated flag: Bool, completion: (() -> Void)?) {
         if (delegate != nil) {
             delegate!.dismissViewController(self.saveWasCalled)
         } else {
-            super.dismissViewControllerAnimated(flag, completion: completion)
+            super.dismiss(animated: flag, completion: completion)
         }
     }
 }

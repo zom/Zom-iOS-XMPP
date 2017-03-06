@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ZomTableViewSectionHeader: UITableViewHeaderFooterView {
+open class ZomTableViewSectionHeader: UITableViewHeaderFooterView {
     // MARK: - Views
     @IBOutlet var labelView: UILabel!
 }

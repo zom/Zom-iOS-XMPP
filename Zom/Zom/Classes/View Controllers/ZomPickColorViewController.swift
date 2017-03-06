@@ -23,13 +23,13 @@ extension UIColor {
     }
 }
 
-public class ZomPickColorViewController: UICollectionViewController {
+open class ZomPickColorViewController: UICollectionViewController {
     
     
     private var colors: [UIColor] = []
     private var selectedColor:UIColor? = nil
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         colors.append(UIColor(colorLiteralRed: 231/255.0, green: 39/255.0, blue: 90/255.0, alpha: 1.0))
@@ -43,27 +43,27 @@ public class ZomPickColorViewController: UICollectionViewController {
     
     // Mark - UICollectionViewDataSource
     
-    public override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }
     
-    public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell:UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         cell.backgroundView?.backgroundColor = colors[indexPath.item]
         cell.backgroundColor = colors[indexPath.item]
         return cell
     }
     
-    public override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    open override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedColor = colors[indexPath.item]
-        self.performSegueWithIdentifier("unwindPickColorSegue", sender: self)
+        self.performSegue(withIdentifier: "unwindPickColorSegue", sender: self)
     }
     
-    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
-        if (segue.destinationViewController is ZomDiscoverViewController) {
-            let vc:ZomDiscoverViewController = segue.destinationViewController as! ZomDiscoverViewController
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if (segue.destination is ZomDiscoverViewController) {
+            let vc:ZomDiscoverViewController = segue.destination as! ZomDiscoverViewController
             if (selectedColor != nil) {
                 vc.selectThemeColor(selectedColor)
             }

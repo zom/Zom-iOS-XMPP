@@ -9,8 +9,8 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomOnboardingNavigationController: UINavigationController {
+open class ZomOnboardingNavigationController: UINavigationController {
     
-    public var createdNewAccount:Bool?
+    open var createdNewAccount:Bool?
 
 }

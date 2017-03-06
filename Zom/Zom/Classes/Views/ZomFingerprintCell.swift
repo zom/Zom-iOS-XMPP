@@ -8,10 +8,10 @@
 
 import UIKit
 
-typealias CellAction = (cell:ZomFingerprintCell) -> Void
+typealias CellAction = (_ cell:ZomFingerprintCell) -> Void
 
 @objc(ZomFingerprintCell)
-public class ZomFingerprintCell: UITableViewCell {
+open class ZomFingerprintCell: UITableViewCell {
     
     @IBOutlet weak var fingerprintLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
@@ -20,15 +20,15 @@ public class ZomFingerprintCell: UITableViewCell {
     var qrAction:CellAction?
     var shareAction:CellAction?
     
-    @IBAction func qrButtonPressed(sender: UIButton) {
+    @IBAction func qrButtonPressed(_ sender: UIButton) {
         if let action = self.qrAction {
-            action(cell: self)
+            action(self)
         }
     }
     
-    @IBAction func shareButtonPressed(sender: UIButton) {
+    @IBAction func shareButtonPressed(_ sender: UIButton) {
         if let action = self.shareAction {
-            action(cell:self)
+            action(self)
         }
     }
 }

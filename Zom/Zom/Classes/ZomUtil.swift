@@ -9,8 +9,8 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomUtil {
-    public class func swizzle(clazz:AnyClass, originalSelector:Selector, swizzledSelector:Selector) -> Void {
+open class ZomUtil {
+    open class func swizzle(_ clazz:AnyClass, originalSelector:Selector, swizzledSelector:Selector) -> Void {
         let originalMethod = class_getInstanceMethod(clazz, originalSelector)
         let swizzledMethod = class_getInstanceMethod(clazz, swizzledSelector)
         

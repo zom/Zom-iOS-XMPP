@@ -12,7 +12,7 @@ import BButton
 import QRCodeReaderViewController
 import AVFoundation
 
-public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
+open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
     @IBOutlet weak var addFriendsLabel: UILabel?
     @IBOutlet weak var gotInviteLabel: UILabel?
     @IBOutlet weak var tapInviteLabel: UILabel?
@@ -26,37 +26,37 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
 
     private var shareLink:String? = nil
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         super.delegate = self
         
         // Style
-        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             addFriendsLabel?.textColor = appDelegate.theme.mainThemeColor
             gotInviteLabel?.textColor = appDelegate.theme.mainThemeColor
             separator?.backgroundColor = appDelegate.theme.mainThemeColor
         }
         
         if let button = shareSmsButtonItem.customView as? UIButton {
-            let image = self.textToImage(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAPaperPlaneO), size: 30)
-            button.setImage(image, forState: .Normal)
+            let image = self.textToImage(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAPaperPlaneO) as NSString, size: 30)
+            button.setImage(image, for: UIControlState())
             button.titleLabel!.numberOfLines = 0
             button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
         }
         if let button = shareButtonItem.customView as? UIButton {
-            let image = self.textToImage(NSString.fa_stringForFontAwesomeIcon(FAIcon.FAShareSquareO), size: 30)
-            button.setImage(image, forState: .Normal)
+            let image = self.textToImage(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAShareSquareO) as NSString, size: 30)
+            button.setImage(image, for: UIControlState())
             button.titleLabel!.numberOfLines = 0
             button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
         }
         if let button = scanButtonItem.customView as? UIButton {
-            let image = self.textToImage(NSString.fa_stringForFontAwesomeIcon(FAIcon.FACamera), size: 30)
-            button.setImage(image, forState: .Normal)
+            let image = self.textToImage(NSString.fa_string(forFontAwesomeIcon: FAIcon.FACamera) as NSString, size: 30)
+            button.setImage(image, for: UIControlState())
             button.titleLabel!.numberOfLines = 0
             button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
         }
         
         adjustButtons()
@@ -75,10 +75,10 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         
         // Create the share link
         var types = Set<NSNumber>()
-        types.insert(NSNumber(int: OTRFingerprintType.OTR.rawValue))
-        self.account!.generateShareURLWithFingerprintTypes(types, completion: { (url, error) -> Void in
+        types.insert(NSNumber(value: OTRFingerprintType.OTR.rawValue))
+        self.account!.generateShareURL(withFingerprintTypes: types, completion: { (url, error) -> Void in
             if (url != nil && error == nil) {
-                self.shareLink = url.absoluteString
+                self.shareLink = url?.absoluteString
                 self.showButton(self.shareSmsButtonItem, show:MFMessageComposeViewController.canSendText())
             } else {
                 self.showButton(self.shareSmsButtonItem, show:false)
@@ -86,35 +86,35 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         })
     }
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didShowKeyboard(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(didHideKeyboard(_:)), name: UIKeyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
     }
 
-    public override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+    open override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardDidHide, object: nil)
         super.viewWillDisappear(animated)
     }
     
-    func didShowKeyboard(notification: NSNotification) {
-        if let userInfo = notification.userInfo, sep = self.separator, scroll = self.scrollView {
-            if let keyboardSize: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size {
-                // If the whole tableview is not visible, scroll up so that ADVANCED
-                // view is at the top (i.e. the separator is just off screen!
-                //
-                if ((self.tableView.frame.origin.y + self.tableView.frame.height) > self.view.frame.height - keyboardSize.height) {
-                    let separatorY = sep.frame.origin.y + sep.frame.size.height
-                    scroll.setContentOffset(CGPointMake(0, separatorY), animated: true)
-                }
+    func didShowKeyboard(_ notification: Notification) {
+        
+        if let userInfo = notification.userInfo, let sep = self.separator, let scroll = self.scrollView {
+            let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
+            // If the whole tableview is not visible, scroll up so that ADVANCED
+            // view is at the top (i.e. the separator is just off screen!
+            //
+            if ((self.tableView.frame.origin.y + self.tableView.frame.height) > self.view.frame.height - keyboardSize.height) {
+                let separatorY = sep.frame.origin.y + sep.frame.size.height
+                scroll.setContentOffset(CGPoint(x: 0, y: separatorY), animated: true)
             }
         }
     }
 
-    func didHideKeyboard(notification: NSNotification) {
+    func didHideKeyboard(_ notification: Notification) {
         if let scroll = self.scrollView {
-            scroll.setContentOffset(CGPointMake(0, 0), animated: true)
+            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
     }
 
@@ -140,35 +140,35 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         self.addToolbar.setNeedsLayout()
     }
     
-    public func showButton(item:UIBarButtonItem, show:Bool) {
+    open func showButton(_ item:UIBarButtonItem, show:Bool) {
         var toolbarButtons = addToolbar.items
         if (!show) {
-            if let index = toolbarButtons!.indexOf(item) {
-                toolbarButtons!.removeAtIndex(index)
+            if let index = toolbarButtons!.index(of: item) {
+                toolbarButtons!.remove(at: index)
             }
         } else {
             if (toolbarButtons!.contains(item) == false) {
-                toolbarButtons!.insert(item, atIndex: 1) // After the flexible space!
+                toolbarButtons!.insert(item, at: 1) // After the flexible space!
             }
         }
         addToolbar.items = toolbarButtons
         adjustButtons()
     }
 
-    @IBAction func shareSmsButtonPressedWithSender(sender: AnyObject) {
+    @IBAction func shareSmsButtonPressedWithSender(_ sender: AnyObject) {
         if (self.shareLink != nil) {
             let messageComposeViewController:MFMessageComposeViewController = MFMessageComposeViewController()
             messageComposeViewController.body = self.shareLink
             messageComposeViewController.messageComposeDelegate = self
-            self.navigationController!.presentViewController(messageComposeViewController, animated: true, completion: nil)
+            self.navigationController!.present(messageComposeViewController, animated: true, completion: nil)
         }
     }
     
-    @IBAction func shareButtonPressedWithSender(sender: AnyObject) {
+    @IBAction func shareButtonPressedWithSender(_ sender: AnyObject) {
         ShareController.shareAccount(self.account!, sender: sender, viewController: self)
     }
 
-    @IBAction func scanButtonPressedWithSender(sender: AnyObject) {
+    @IBAction func scanButtonPressedWithSender(_ sender: AnyObject) {
 //        if (!QRCodeReader.supportsMetadataObjectTypes([AVMetadataObjectTypeQRCode])) {
 //                    let status = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
 //                    if (status == AVAuthorizationStatus.NotDetermined) {
@@ -183,39 +183,39 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
 //        }
     }
     
-    public func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    open func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
-    public override func updateReturnButtons(textField: UITextField!) {
-        textField.returnKeyType = UIReturnKeyType.Done
+    open override func updateReturnButtons(_ textField: UITextField!) {
+        textField.returnKeyType = UIReturnKeyType.done
     }
     
-    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1 // Dont show the display name field!
     }
     
-    public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
     
-    public func controller(viewController: OTRNewBuddyViewController!, didAddBuddy buddy: OTRBuddy!) {
-        self.navigationController?.popViewControllerAnimated(true) // Pop back to friend list!
+    open func controller(_ viewController: OTRNewBuddyViewController!, didAdd buddy: OTRBuddy!) {
+       _ = self.navigationController?.popViewController(animated: true) // Pop back to friend list!
     }
     
-    public override func populateFromQRResult(result: String!) {
-        super.populateFromQRResult(result)
+    open override func populate(fromQRResult result: String!) {
+        super.populate(fromQRResult: result)
         super.doneButtonPressed(self)
     }
     
-    func textToImage(text: NSString, size: CGFloat) -> UIImage{
+    func textToImage(_ text: NSString, size: CGFloat) -> UIImage{
         
         // Setup the font specific variables
-        let textColor = UIColor.darkTextColor()
+        let textColor = UIColor.darkText
         let textFont = UIFont(name: kFontAwesomeFont, size: 20)!
         
         // Setup the image context using the passed image
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(size, size), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: size, height: size), false, 0)
         
         // Setup the font attributes that will be later used to dictate how the text should be drawn
         let textFontAttributes = [
@@ -224,10 +224,10 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
             ]
         
         // Create a point within the space that is as big as the image
-        let rect = CGRectMake(0, 0, size, size)
+        let rect = CGRect(x: 0, y: 0, width: size, height: size)
         
         // Draw the text into an image
-        text.drawInRect(rect, withAttributes: textFontAttributes)
+        text.draw(in: rect, withAttributes: textFontAttributes)
         
         // Create a new image out of the images we have created
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -239,36 +239,36 @@ public class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComp
         return newImage!
     }
     
-    public static func addBuddyToDefaultAccount(navController:UINavigationController?) {
-        let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies()
-        if (accounts.count > 0)
-        {
-            let storyboard = UIStoryboard(name: "AddBuddy", bundle: NSBundle.mainBundle())
-            var vc:UIViewController? = nil
-            if (accounts.count == 1) {
-                vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")
-                (vc as! ZomNewBuddyViewController).account = accounts[0] as? OTRAccount
+    open static func addBuddyToDefaultAccount(_ navController:UINavigationController?) {
+        guard let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies(), accounts.count > 0 else {
+            return
+        }
+
+        let storyboard = UIStoryboard(name: "AddBuddy", bundle: Bundle.main)
+        var vc:UIViewController? = nil
+        if (accounts.count == 1) {
+            vc = storyboard.instantiateViewController(withIdentifier: "addNewBuddy")
+            (vc as! ZomNewBuddyViewController).account = accounts[0] as? OTRAccount
+            navController?.pushViewController(vc!, animated: true)
+        } else {
+            // More than one account
+            var defaultAccount:OTRAccount? = nil
+            if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
+                defaultAccount = appDelegate.getDefaultAccount()
+            }
+            if (defaultAccount != nil && accounts.contains( where: { element in
+                if let a:OTRAccount = element as? OTRAccount {
+                    return a.uniqueId == defaultAccount!.uniqueId
+                }
+                return false
+            })) {
+                // We have a default, use that
+                vc = storyboard.instantiateViewController(withIdentifier: "addNewBuddy")
+                (vc as! ZomNewBuddyViewController).account = defaultAccount!
                 navController?.pushViewController(vc!, animated: true)
             } else {
-                // More than one account
-                var defaultAccount:OTRAccount? = nil
-                if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
-                    defaultAccount = appDelegate.getDefaultAccount()
-                }
-                if (defaultAccount != nil && accounts.contains( { element in
-                    if let a:OTRAccount = element as? OTRAccount {
-                        return a.uniqueId == defaultAccount!.uniqueId
-                    }
-                    return false
-                })) {
-                    // We have a default, use that
-                    vc = storyboard.instantiateViewControllerWithIdentifier("addNewBuddy")
-                    (vc as! ZomNewBuddyViewController).account = defaultAccount!
-                    navController?.pushViewController(vc!, animated: true)
-                } else {
-                    vc = storyboard.instantiateInitialViewController()
-                    navController?.presentViewController(vc!, animated: true, completion: nil)
-                }
+                vc = storyboard.instantiateInitialViewController()
+                navController?.present(vc!, animated: true, completion: nil)
             }
         }
     }

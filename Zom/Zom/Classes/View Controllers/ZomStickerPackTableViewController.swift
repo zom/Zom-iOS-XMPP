@@ -10,25 +10,25 @@ import UIKit
 import ChatSecureCore
 import Photos
 
-public class ZomStickerPackTableViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+open class ZomStickerPackTableViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 
     private var stickerPacks: Array<String> = [];
     private(set) lazy var orderedViewControllers: [UIViewController] = []
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
-        let docsPath = NSBundle.mainBundle().resourcePath! + "/Stickers"
-        let fileManager = NSFileManager.defaultManager()
+        let docsPath = Bundle.main.resourcePath! + "/Stickers"
+        let fileManager = FileManager.default
         do {
-            stickerPacks = try fileManager.contentsOfDirectoryAtPath(docsPath)
+            stickerPacks = try fileManager.contentsOfDirectory(atPath: docsPath)
         } catch {
             print(error)
         }
         
         // Create view controllers
         for stickerPack in stickerPacks {
-            let vc:ZomPickStickerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("pickStickerViewController") as! ZomPickStickerViewController
+            let vc:ZomPickStickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "pickStickerViewController") as! ZomPickStickerViewController
             vc.stickerPack = stickerPack
             orderedViewControllers.append(vc)
         }
@@ -38,15 +38,15 @@ public class ZomStickerPackTableViewController: UIPageViewController, UIPageView
         if let firstViewController:ZomPickStickerViewController = orderedViewControllers.first as? ZomPickStickerViewController {
             self.navigationItem.title = firstViewController.stickerPack
             setViewControllers([firstViewController],
-                               direction: .Forward,
+                               direction: .forward,
                                animated: true,
                                completion: nil)
         }
     }
     
-    public func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+    open func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
         
@@ -63,9 +63,9 @@ public class ZomStickerPackTableViewController: UIPageViewController, UIPageView
         return orderedViewControllers[previousIndex]
     }
     
-    public func pageViewController(pageViewController: UIPageViewController,
-                            viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+    open func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
         }
         
@@ -83,20 +83,20 @@ public class ZomStickerPackTableViewController: UIPageViewController, UIPageView
         return orderedViewControllers[nextIndex]
     }
     
-    public func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    open func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return orderedViewControllers.count
     }
     
-    public func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    open func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         guard let firstViewController = viewControllers?.first,
-            firstViewControllerIndex = orderedViewControllers.indexOf(firstViewController) else {
+            let firstViewControllerIndex = orderedViewControllers.index(of: firstViewController) else {
                 return 0
         }
         
         return firstViewControllerIndex
     }
     
-    public func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let vc:ZomPickStickerViewController = pageViewController.viewControllers?[0] as? ZomPickStickerViewController {
             self.navigationItem.title = vc.stickerPack
         }

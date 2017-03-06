@@ -107,24 +107,24 @@
 
 #pragma mark - Overrides
 
-- (Class) conversationViewControllerClass
+- (__kindof UIViewController*) conversationViewController
 {
-    return [ZomConversationViewController class];
+    return [[ZomConversationViewController alloc] init];
 }
 
-- (Class) messagesViewControllerClass
+- (__kindof JSQMessagesViewController *) messagesViewController
 {
-    return [ZomMessagesViewController class];
+    return [ZomMessagesViewController messagesViewController];
 }
 
-- (Class) composeViewControllerClass
+- (__kindof UIViewController *) composeViewController
 {
-    return [ZomComposeViewController class];
+    return [[ZomComposeViewController alloc] init];
 }
 
-- (Class) inviteViewControllerClass
+- (__kindof UIViewController* ) inviteViewControllerForAccount:(OTRAccount*)account
 {
-    return [ZomInviteViewController class];
+    return [[ZomInviteViewController alloc] initWithAccount:account];
 }
 
 /** Returns new instance. Override this in subclass to use a different settings view controller class */

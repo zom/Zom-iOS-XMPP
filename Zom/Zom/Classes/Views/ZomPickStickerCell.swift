@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ZomPickStickerCell: UICollectionViewCell {
+open class ZomPickStickerCell: UICollectionViewCell {
     
     // MARK: - Views
     @IBOutlet var imageView: UIImageView!

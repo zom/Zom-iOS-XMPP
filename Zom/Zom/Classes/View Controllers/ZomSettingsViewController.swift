@@ -14,20 +14,20 @@ import ObjectiveC
 var AssociatedObjectHandle: UInt8 = 0
 
 extension OTRSettingsViewController {
-    public override class func initialize() {
-        struct Static {
-            static var token: dispatch_once_t = 0
-        }
+    private static var swizzle: () {
+        ZomUtil.swizzle(self, originalSelector: #selector(OTRSettingsViewController.present), swizzledSelector:#selector(OTRSettingsViewController.zom_presentViewController(_:animated:completion:)))
+        ZomUtil.swizzle(self, originalSelector: #selector(OTRSettingsViewController.logoutAccount(_:sender:)), swizzledSelector: #selector(OTRSettingsViewController.zom_logoutAccount(_:sender:)))
+
+    }
+    
+    open override class func initialize() {
         
         // make sure this isn't a subclass
         if self !== OTRSettingsViewController.self {
             return
         }
         
-        dispatch_once(&Static.token) {
-            ZomUtil.swizzle(self, originalSelector: #selector(OTRSettingsViewController.presentViewController(_:animated:completion:)), swizzledSelector:#selector(OTRSettingsViewController.zom_presentViewController(_:animated:completion:)))
-            ZomUtil.swizzle(self, originalSelector: #selector(OTRSettingsViewController.logoutAccount(_:sender:)), swizzledSelector: #selector(OTRSettingsViewController.zom_logoutAccount(_:sender:)))
-        }
+        OTRSettingsViewController.swizzle
     }
     
     var accountForInformation:OTRAccount? {
@@ -39,34 +39,36 @@ extension OTRSettingsViewController {
         }
     }
     
-    func zom_logoutAccount(account:OTRAccount?, sender:AnyObject?) {
+    func zom_logoutAccount(_ account:OTRAccount?, sender:AnyObject?) {
         self.accountForInformation = account
         self.zom_logoutAccount(account, sender: sender)
     }
     
-    func zom_presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-        if (viewControllerToPresent.isKindOfClass(UIAlertController.self)) {
+    func zom_presentViewController(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+        if (viewControllerToPresent is UIAlertController) {
             // Currently pretty ugly way to find the alert for "logout account", TODO: change this!
             //
             let alert:UIAlertController = viewControllerToPresent as! UIAlertController
             if (alert.title == nil) {
-                let infoAction = UIAlertAction(title: NSLocalizedString("Show information", comment: "Account option to show more information"), style: UIAlertActionStyle.Default, handler: { (action) in
+                let infoAction = UIAlertAction(title: NSLocalizedString("Show information", comment: "Account option to show more information"), style: UIAlertActionStyle.default, handler: { (action) in
                     if (self.accountForInformation != nil) {
-                        let login = OTRBaseLoginViewController(forAccount: self.accountForInformation)
+                        guard let login = OTRBaseLoginViewController(for: self.accountForInformation) else {
+                            return
+                        }
                         object_setClass(login, ZomBaseLoginViewController.self)
                         login.showsCancelButton = false
                         (login as! ZomBaseLoginViewController).onlyShowInfo = true
                         let nav = UINavigationController(rootViewController: login)
-                        nav.modalPresentationStyle = UIModalPresentationStyle.FormSheet
-                        self.presentViewController(nav, animated: true, completion: nil)
+                        nav.modalPresentationStyle = UIModalPresentationStyle.formSheet
+                        self.present(nav, animated: true, completion: nil)
                     }
                 })
                 alert.addAction(infoAction)
-                if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
                     if (self.accountForInformation?.uniqueId != appDelegate.getDefaultAccount()?.uniqueId) {
-                        let setDefaultAction = UIAlertAction(title: NSLocalizedString("Set as default", comment: "Account option to set as default"), style: UIAlertActionStyle.Default, handler: { (action) in
+                        let setDefaultAction = UIAlertAction(title: NSLocalizedString("Set as default", comment: "Account option to set as default"), style: UIAlertActionStyle.default, handler: { (action) in
                             if (self.accountForInformation != nil) {
-                                if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+                                if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
                                     appDelegate.setDefaultAccount(self.accountForInformation)
                                 }
                             }

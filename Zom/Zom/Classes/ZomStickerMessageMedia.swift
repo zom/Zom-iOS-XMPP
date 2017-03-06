@@ -6,7 +6,7 @@
 import UIKit
 import ChatSecureCore
 
-public class ZomStickerMessageMedia: OTRMediaItem {
+open class ZomStickerMessageMedia: OTRMediaItem {
 
     private var imageView:UIView?
     private var filePath:String?
@@ -20,7 +20,7 @@ public class ZomStickerMessageMedia: OTRMediaItem {
         super.init(coder: aDecoder)
     }
     
-    public required init(dictionary dictionaryValue: [NSObject : AnyObject]!) throws {
+    public required init(dictionary dictionaryValue: [AnyHashable: Any]!) throws {
         try super.init(dictionary: dictionaryValue)
     }
     
@@ -28,15 +28,15 @@ public class ZomStickerMessageMedia: OTRMediaItem {
         super.init(uniqueId: uniqueId)
     }
     
-    override public func mediaView() -> UIView! {
-        if (imageView == nil && filePath != nil && NSFileManager.defaultManager().fileExistsAtPath(filePath!)) {
+    override open func mediaView() -> UIView! {
+        if (imageView == nil && filePath != nil && FileManager.default.fileExists(atPath: filePath!)) {
             if let image = UIImage(contentsOfFile: filePath!) {
                 let size = self.mediaViewDisplaySize()
                 imageView = UIImageView(image: image)
                 imageView!.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-                imageView!.contentMode = UIViewContentMode.ScaleAspectFit
+                imageView!.contentMode = UIViewContentMode.scaleAspectFit
                 imageView!.clipsToBounds = true
-                JSQMessagesMediaViewBubbleImageMasker.applyBubbleImageMaskToMediaView(imageView, isOutgoing: false)
+                JSQMessagesMediaViewBubbleImageMasker.applyBubbleImageMask(toMediaView: imageView, isOutgoing: false)
             }
         }
         return imageView

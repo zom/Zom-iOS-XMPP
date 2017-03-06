@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate {
+open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate {
     
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
@@ -22,8 +22,8 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         self.init(nibName:nil, bundle:nil)
     }
     
-    public func createTabs() {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? OTRAppDelegate {
+    open func createTabs() {
+        if let appDelegate = UIApplication.shared.delegate as? OTRAppDelegate {
             
             var newControllers:[UIViewController] = [];
             for child in childViewControllers {
@@ -52,20 +52,22 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         }
         
         // Create bar button items
-        self.barButtonSettings = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .Plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
-        self.barButtonAddChat = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(self.didPressAddButton(_:)))
+        self.barButtonSettings = UIBarButtonItem(image: UIImage(named: "14-gear"), style: .plain, target: self, action: #selector(self.settingsButtonPressed(_:)))
+        self.barButtonAddChat = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.didPressAddButton(_:)))
         
         // Hide the tab item text, but don't null it (we use it to build the top title)
         for item:UITabBarItem in self.tabBar.items! {
             item.selectedImage = item.image
-            item.image = item.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-            item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clearColor(),
-                NSFontAttributeName:UIFont.systemFontOfSize(1)], forState: UIControlState.Normal)
+            item.image = item.image!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            
+            item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clear,
+                                         NSFontAttributeName:UIFont.systemFont(ofSize: 1)], for: .normal)
             item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         }
         
         // Show current tab by a small white top border
-        tabBar.selectionIndicatorImage = createSelectionIndicator(UIColor.whiteColor(), size: CGSizeMake(tabBar.frame.width/CGFloat(tabBar.items!.count), tabBar.frame.height), lineHeight: 3.0)
+        
+        tabBar.selectionIndicatorImage = createSelectionIndicator(UIColor.white, size: CGSize(width:tabBar.frame.width/CGFloat(tabBar.items!.count),height:tabBar.frame.height), lineHeight: 3.0)
         
         let backItem = UIBarButtonItem()
         backItem.title = ""
@@ -74,12 +76,12 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         updateRightButtons()
     }
     
-    override public func viewWillAppear(animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerObservers()
     }
     
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         registerObservers()
     }
@@ -87,15 +89,15 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
     private func registerObservers() {
         if (!observersRegistered) {
             observersRegistered = true
-            OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
-            OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectingProtocols", options: NSKeyValueObservingOptions.New, context: &observerContext)
+            OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.new, context: &observerContext)
+            OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectingProtocols", options: NSKeyValueObservingOptions.new, context: &observerContext)
             if (selectedViewController == meViewController) {
                 populateMeTabController()
             }
         }
     }
     
-    override public func viewWillDisappear(animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         if (observersRegistered) {
             observersRegistered = false
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
@@ -104,9 +106,10 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         }
     }
     
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard context == &observerContext else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
         if (selectedViewController == meViewController) {
@@ -115,14 +118,14 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         }
     }
     
-    override public var selectedViewController: UIViewController? {
+    override open var selectedViewController: UIViewController? {
         didSet {
             updateTitle()
             updateRightButtons()
         }
     }
     
-    override public var selectedIndex: Int {
+    override open var selectedIndex: Int {
         didSet {
             updateTitle()
             updateRightButtons()
@@ -131,7 +134,7 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
     
     private func updateTitle() {
         if (selectedViewController != nil) {
-            let appName = NSBundle.mainBundle().infoDictionary![kCFBundleNameKey as String] as! String
+            let appName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
             self.navigationItem.title = appName + " | " + selectedViewController!.tabBarItem.title!
             if (selectedViewController == meViewController) {
                 populateMeTabController()
@@ -140,7 +143,7 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
     }
     
     private func updateRightButtons() {
-        if let add = barButtonAddChat, settings = barButtonSettings {
+        if let add = barButtonAddChat, let settings = barButtonSettings {
             if (selectedIndex == 0) {
                 navigationItem.rightBarButtonItems = [settings, add]
             }
@@ -150,28 +153,29 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         }
     }
     
-    private func createSelectionIndicator(color: UIColor, size: CGSize, lineHeight: CGFloat) -> UIImage {
+    private func createSelectionIndicator(_ color: UIColor, size: CGSize, lineHeight: CGFloat) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.setFill()
-        UIRectFill(CGRectMake(0, 0, size.width, lineHeight))
+        
+        UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: lineHeight))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image!
     }
     
-    @IBAction func settingsButtonPressed(sender: AnyObject) {
+    @IBAction func settingsButtonPressed(_ sender: AnyObject) {
         self.chatsViewController?.settingsButtonPressed(sender)
     }
     
-    @IBAction func didPressAddButton(sender: AnyObject) {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate {
+    @IBAction func didPressAddButton(_ sender: AnyObject) {
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             appDelegate.splitViewCoordinator.conversationViewController(appDelegate.conversationViewController, didSelectCompose: self)
         }
     }
     
     private func populateMeTabController() {
         if (meViewController != nil) {
-            if let appDelegate = UIApplication.sharedApplication().delegate as? ZomAppDelegate,let account = appDelegate.getDefaultAccount() {
+            if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate,let account = appDelegate.getDefaultAccount() {
                 let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
                 self.meViewController?.info = ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: otrKit, qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction)
             }
@@ -179,10 +183,10 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
     }
     
     // MARK: - OTRComposeViewControllerDelegate
-    public func controller(viewController: OTRComposeViewController, didSelectBuddies buddies: [String]?, accountId: String?, name: String?) {
+    open func controller(_ viewController: OTRComposeViewController, didSelectBuddies buddies: [String]?, accountId: String?, name: String?) {
         if (buddies?.count == 1) {
             guard let buds = buddies,
-                accountKey = accountId else {
+                let accountKey = accountId else {
                     return
             }
             
@@ -191,11 +195,11 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
                     
                     var buddy:OTRBuddy? = nil
                     var account:OTRAccount? = nil
-                    OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.readWithBlock { (transaction) -> Void in
-                        buddy = OTRBuddy.fetchObjectWithUniqueID(buddyKey, transaction: transaction)
-                        account = OTRAccount.fetchObjectWithUniqueID(accountKey, transaction: transaction)
+                    OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.read { (transaction) -> Void in
+                        buddy = OTRBuddy.fetch(withUniqueID: buddyKey, transaction: transaction)
+                        account = OTRAccount.fetch(withUniqueID: accountKey, transaction: transaction)
                     }
-                    if let b = buddy, a = account {
+                    if let b = buddy, let a = account {
                         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
                         let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
                         profileVC.info = ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: false)
@@ -206,7 +210,7 @@ public class ZomMainTabbedViewController: UITabBarController, OTRComposeViewCont
         }
     }
     
-    public func controllerDidCancel(viewController: OTRComposeViewController) {
+    open func controllerDidCancel(_ viewController: OTRComposeViewController) {
         
     }
 }
