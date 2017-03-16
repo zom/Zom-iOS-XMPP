@@ -11,6 +11,7 @@ import ChatSecureCore
 import JSQMessagesViewController
 import OTRAssets
 import BButton
+import AFNetworking
 
 var ZomMessagesViewController_associatedObject1: UInt8 = 0
 
@@ -76,10 +77,23 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var attachmentPickerController:OTRAttachmentPicker? = nil
     private var attachmentPickerView:AttachmentPicker? = nil
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
+    private var noNetworkView:UITextView?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.cameraButton?.setTitle(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAPlusSquareO), for: .normal)
+    }
+    
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AFNetworkReachabilityManager.shared().setReachabilityStatusChange { (status:AFNetworkReachabilityStatus) in
+            self.setHasNetwork(AFNetworkReachabilityManager.shared().isReachable)
+        }
+        AFNetworkReachabilityManager.shared().startMonitoring()
+    }
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AFNetworkReachabilityManager.shared().stopMonitoring()
     }
     
     open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
@@ -278,6 +292,34 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             return NSAttributedString(attachment: attachment)
         default:
             return nil
+        }
+    }
+    
+    func setHasNetwork(_ hasNetwork:Bool) {
+        if (hasNetwork) {
+            if let view = self.noNetworkView {
+                UIView.animate(withDuration: 0.5, animations: { 
+                    self.noNetworkView?.frame.origin.y = -30
+                }, completion: { (success) in
+                    view.isHidden = true
+                })
+            }
+        } else {
+            if (self.noNetworkView == nil) {
+                self.noNetworkView = UITextView(frame: CGRect(x: 0, y: -30, width: self.navigationController?.navigationBar.frame.width ?? 0, height: 30))
+                self.noNetworkView?.backgroundColor = UIColor(netHex: 0xff4a4a4a)
+                self.noNetworkView?.text = "No Internet"
+                self.noNetworkView?.textColor = UIColor.white
+                self.noNetworkView?.textAlignment = NSTextAlignment.center
+                self.view.addSubview(self.noNetworkView!)
+            }
+            if let view = self.noNetworkView {
+                view.isHidden = false
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.noNetworkView?.frame.origin.y = 0
+                }, completion: { (success) in
+                })
+            }
         }
     }
 }
