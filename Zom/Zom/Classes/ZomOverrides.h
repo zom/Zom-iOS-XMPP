@@ -16,6 +16,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @end
 
 @interface OTRComposeViewController (ZomOverride)
+@property (nonatomic, strong) OTRYapViewHandler *viewHandler;
 - (BOOL)canAddBuddies;
 @end
 
