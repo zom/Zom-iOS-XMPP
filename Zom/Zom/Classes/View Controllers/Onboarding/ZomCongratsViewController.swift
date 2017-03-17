@@ -74,7 +74,7 @@ open class ZomCongratsViewController: UIViewController {
         }
         var account:OTRAccount? = nil
         OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection?.asyncRead({ (transaction) in
-            account = OTRAccount.fetch(withUniqueID:key, transaction: transaction)
+            account = OTRAccount.fetchObject(withUniqueID:key, transaction: transaction)
             }, completionQueue: DispatchQueue.main) {
                 self.account = account
                 self.refreshAvatarImage(account: self.account)

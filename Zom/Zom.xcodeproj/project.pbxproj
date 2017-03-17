@@ -127,6 +127,13 @@
 			remoteGlobalIDString = 0E565859888E11EEB464475B3C3FF140;
 			remoteInfo = SAMKeychain;
 		};
+		920A4F1E1E7AB5D8008E374E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2F2243783C4E2DA458FC3C67AC151E12;
+			remoteInfo = libidn;
+		};
 		928A37AC1CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -872,6 +879,7 @@
 				928A37D71CD209120095366C /* KissXML.framework */,
 				929DEAC41E5B8B55008C3B77 /* KSCrash.framework */,
 				928A37D91CD209120095366C /* KVOController.framework */,
+				920A4F1F1E7AB5D8008E374E /* libidn.framework */,
 				928A37DB1CD209120095366C /* libsqlfs.framework */,
 				928A37DD1CD209120095366C /* Mantle.framework */,
 				928A37DF1CD209120095366C /* MBProgressHUD.framework */,
@@ -1149,7 +1157,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;
@@ -1262,6 +1270,13 @@
 			fileType = wrapper.framework;
 			path = SAMKeychain.framework;
 			remoteRef = 9208C9751D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		920A4F1F1E7AB5D8008E374E /* libidn.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = libidn.framework;
+			remoteRef = 920A4F1E1E7AB5D8008E374E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		928A37AD1CD209120095366C /* AFNetworking.framework */ = {
@@ -2026,7 +2041,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 2.3;
 			};
@@ -2036,8 +2071,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 2.3;
 			};
 			name = Release;

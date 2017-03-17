@@ -40,7 +40,7 @@ extension OTRBuddy {
         
         var fingerprints = [String:String]()
         if let otrFprint = otrFingerprint {
-            fingerprints[OTRAccount.fingerprintStringType(for: .OTR)] = otrFprint
+            fingerprints[OTRAccount.fingerprintStringType(for: .OTR)!] = otrFprint
         }
         
         return NSURL.otr_shareLink(NSURL.otr_shareBase().absoluteString, username: self.username, fingerprints: fingerprints)
@@ -151,9 +151,9 @@ struct ZomProfileViewControllerInfo {
     static func createInfo(_ account:OTRAccount,protocolString:String,otrKit:OTRKit,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?) -> ZomProfileViewControllerInfo {
         
         let fingerprint = otrKit.fingerprint(forAccountName: account.username, protocol: protocolString)
-        let displayName = account.displayName ?? account.username!
+        let displayName = account.displayName ?? account.username
         let userCell = UserCellInfo(avatarImage: account.avatarImage(), title: displayName, subtitle: account.username)
-        let passwordCellInfo = PasswordCellInfo(password:account.password)
+        let passwordCellInfo = PasswordCellInfo(password:account.password!)
         var sections = [TableSectionInfo(title: nil, cells: [userCell,passwordCellInfo])]
         if let fprint = fingerprint {
             let fingerprintSectionCells:[ZomProfileViewCellInfoProtocol] = [FingerprintCellInfo(fingerprint: fprint, qrAction: qrAction, shareAction: shareAction)]
@@ -537,7 +537,7 @@ extension ZomProfileViewController: OTRYapViewHandlerDelegateProtocol {
         case let buddy as OTRBuddy:
             var account:OTRAccount? = nil
             self.readOnlyDatabaseConnection?.read({ (transaction) in
-                account = OTRAccount.fetch(withUniqueID: buddy.accountUniqueId, transaction: transaction)
+                account = OTRAccount.fetchObject(withUniqueID: buddy.accountUniqueId, transaction: transaction)
             })
             if let account = account {
                self.info = ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: info.otrKit, qrAction: self.qrAction, shareAction: self.shareAction, hasSession: info.hasSession)

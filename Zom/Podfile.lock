@@ -35,7 +35,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - CPAProxy (1.1.0):
+  - CPAProxy (1.2.0):
     - CocoaAsyncSocket
   - FormatterKit/Resources (1.8.1)
   - FormatterKit/TimeIntervalFormatter (1.8.1):
@@ -274,15 +274,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   ChatSecure-Push-iOS:
-    :path: ../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec
+    :path: "../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec"
   CPAProxy:
-    :path: ../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec
+    :path: "../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec"
   gtm-http-fetcher:
-    :podspec: ../ChatSecure/Podspecs/gtm-http-fetcher.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-http-fetcher.podspec"
   gtm-oauth2:
-    :podspec: ../ChatSecure/Podspecs/gtm-oauth2.podspec
+    :podspec: "../ChatSecure/Podspecs/gtm-oauth2.podspec"
   IOCipher:
-    :path: ../ChatSecure/Submodules/IOCipher/IOCipher.podspec
+    :path: "../ChatSecure/Submodules/IOCipher/IOCipher.podspec"
   JSQMessagesViewController:
     :git: https://github.com/ChatSecure/JSQMessagesViewController
     :tag: 7.3.4-send_button
@@ -290,16 +290,16 @@ EXTERNAL SOURCES:
     :branch: podspec-fix
     :git: https://github.com/ChatSecure/libsqlfs.git
   OTRKit:
-    :path: ../ChatSecure/Submodules/OTRKit/OTRKit.podspec
+    :path: "../ChatSecure/Submodules/OTRKit/OTRKit.podspec"
   ParkedTextField:
     :git: https://github.com/gmertk/ParkedTextField.git
     :tag: 0.3.0
   SignalProtocol-ObjC:
-    :path: ../ChatSecure/Submodules/SignalProtocol-ObjC/SignalProtocol-ObjC.podspec
+    :path: "../ChatSecure/Submodules/SignalProtocol-ObjC/SignalProtocol-ObjC.podspec"
   SignalProtocolC:
     :podspec: https://raw.githubusercontent.com/ChatSecure/SignalProtocolC.podspec/b2b483fe1c4c66cecfc0376c496e6a58ed1939b5/SignalProtocolC.podspec
   XMPPFramework:
-    :path: ../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec
+    :path: "../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec"
   YapTaskQueue:
     :branch: 0.2.0-escaping-closure
     :git: https://github.com/ChatSecure/YapTaskQueue.git
@@ -327,7 +327,7 @@ SPEC CHECKSUMS:
   ChatSecure-Push-iOS: 8e336b0f94f80fae22e734e592c14de6ecf8d091
   CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  CPAProxy: 3a23720ca12c0725353a6cd45673fae2b460a98a
+  CPAProxy: b1b33221b6ad297169cb813b6bbefd2a69ea9aad
   FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   gtm-http-fetcher: 4e7de79fc9e774b291eae66a240f17b3a5277ec7
