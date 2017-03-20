@@ -263,8 +263,8 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         }
         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
         let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
-        profileVC.info = ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: otrKit, qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: true)
-
+        let info = ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: otrKit, hasSession: true)
+        profileVC.setupWithInfo(info: info)
         
         self.navigationController?.pushViewController(profileVC, animated: true)
     }

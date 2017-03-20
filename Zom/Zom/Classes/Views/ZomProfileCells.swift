@@ -65,6 +65,31 @@ struct TableSectionInfo {
     let cells:[ZomProfileViewCellInfoProtocol]?
 }
 
+//After swift 3.1 use `where Element == TableSectionInfo`
+extension Array  {
+    func sectionAtIndex(_ index:Int) -> Element? {
+        if (self.indices.contains(index)) {
+            return self[index]
+        }
+        return nil
+    }
+    
+    /** Fetch the row info at a given indexpath */
+    func infoAtIndexPath(_ indexPath:IndexPath) -> ZomProfileViewCellInfoProtocol? {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        if let sectionInfo = self.sectionAtIndex(section) as? TableSectionInfo {
+            if let cells = sectionInfo.cells {
+                if(cells.indices.contains(row)) {
+                    return cells[row]
+                }
+            }
+        }
+        return nil
+    }
+}
+
 /** Contains all the information necessary to render the user cell */
 struct UserCellInfo: ZomProfileViewCellInfoProtocol {
     
@@ -100,13 +125,15 @@ struct UserCellInfo: ZomProfileViewCellInfoProtocol {
 struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
     
     enum ButtonCellType {
-        case verify(OTRFingerprint)
+        case otrVerify(OTRFingerprint)
+        case omemoVerify(OTROMEMODevice)
         case refresh
         case startChat
         
         func text() -> String {
             switch self {
-            case .verify : return NSLocalizedString("Verify Contact", comment: "Button label to verify contact security")
+            case .omemoVerify: fallthrough
+            case .otrVerify : return NSLocalizedString("Verify Contact", comment: "Button label to verify contact security")
             case .refresh: return NSLocalizedString("Refresh Session", comment: "Button label to refresh an OTR session")
             case .startChat: return NSLocalizedString("Start Chat", comment: "Button label to start a chat")
             }
