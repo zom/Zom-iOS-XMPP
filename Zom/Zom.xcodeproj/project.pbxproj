@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EA0B3C5D625D7C7F5F743FE /* Pods_ZomPods_Zom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */; };
+		630A50001E78858100A79C85 /* ZomProfileViewControllerSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A4FFF1E78858100A79C85 /* ZomProfileViewControllerSource.swift */; };
 		6320C9041DFF6C410080F3BD /* ZomProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320C9031DFF6C410080F3BD /* ZomProfileViewController.swift */; };
 		6320C93B1DFF740C0080F3BD /* ZomUserInfoProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6320C93A1DFF740C0080F3BD /* ZomUserInfoProfileCell.swift */; };
 		6320C93D1DFF74190080F3BD /* ZomUserInfoProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6320C93C1DFF74190080F3BD /* ZomUserInfoProfileCell.xib */; };
@@ -86,6 +87,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		630A503B1E78858200A79C85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2F2243783C4E2DA458FC3C67AC151E12;
+			remoteInfo = libidn;
+		};
 		9206569A1D9C4C1E00EC7034 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
@@ -555,6 +563,7 @@
 		07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.release.xcconfig"; sourceTree = "<group>"; };
 		28AA00FB0160FE83A0C6770E /* Pods_ZomPods_Zom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZomPods_Zom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomPods-Zom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.debug.xcconfig"; sourceTree = "<group>"; };
+		630A4FFF1E78858100A79C85 /* ZomProfileViewControllerSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomProfileViewControllerSource.swift; path = "Classes/View Controllers/ZomProfileViewControllerSource.swift"; sourceTree = "<group>"; };
 		6320C9031DFF6C410080F3BD /* ZomProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomProfileViewController.swift; path = "Classes/View Controllers/ZomProfileViewController.swift"; sourceTree = "<group>"; };
 		6320C93A1DFF740C0080F3BD /* ZomUserInfoProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUserInfoProfileCell.swift; path = Classes/Views/ZomUserInfoProfileCell.swift; sourceTree = "<group>"; };
 		6320C93C1DFF74190080F3BD /* ZomUserInfoProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZomUserInfoProfileCell.xib; path = Classes/Views/ZomUserInfoProfileCell.xib; sourceTree = "<group>"; };
@@ -881,7 +890,7 @@
 				928A37D71CD209120095366C /* KissXML.framework */,
 				929DEAC41E5B8B55008C3B77 /* KSCrash.framework */,
 				928A37D91CD209120095366C /* KVOController.framework */,
-				920A4F1F1E7AB5D8008E374E /* libidn.framework */,
+				630A503C1E78858200A79C85 /* libidn.framework */,
 				928A37DB1CD209120095366C /* libsqlfs.framework */,
 				928A37DD1CD209120095366C /* Mantle.framework */,
 				928A37DF1CD209120095366C /* MBProgressHUD.framework */,
@@ -936,6 +945,7 @@
 				92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */,
 				6323C7081E3AB5CD00D0FB42 /* ZomProfileCells.swift */,
 				6320C9031DFF6C410080F3BD /* ZomProfileViewController.swift */,
+				630A4FFF1E78858100A79C85 /* ZomProfileViewControllerSource.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1247,6 +1257,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		630A503C1E78858200A79C85 /* libidn.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = libidn.framework;
+			remoteRef = 630A503B1E78858200A79C85 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9208C9701D93F914002EE2BE /* Pods_ChatSecureCorePods_ChatSecure.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1781,6 +1798,7 @@
 				92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */,
 				928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */,
 				921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */,
+				630A50001E78858100A79C85 /* ZomProfileViewControllerSource.swift in Sources */,
 				92D5FACD1E8304FF008D722F /* UIApplication+Zom.swift in Sources */,
 				92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */,
 				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
