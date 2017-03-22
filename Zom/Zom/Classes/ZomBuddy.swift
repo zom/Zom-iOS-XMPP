@@ -12,7 +12,7 @@ import ChatSecureCore
 extension OTRBuddy {
     
     private static var swizzle: () {
-        ZomUtil.swizzle(self, originalSelector: Selector("displayName"), swizzledSelector:#selector(OTRBuddy.zom_getDisplayName))
+        ZomUtil.swizzle(self, originalSelector: #selector(getter: OTRUserInfoProfile.displayName), swizzledSelector:#selector(OTRBuddy.zom_getDisplayName))
     }
     
     open override class func initialize() {
@@ -37,7 +37,7 @@ extension OTRBuddy {
                 let regex = try! NSRegularExpression(pattern: "\\.[a-fA-F0-9]{4,8}$", options: [])
                 displayName = regex.stringByReplacingMatches(in: displayName, options: [], range: NSMakeRange(0, displayName.characters.count), withTemplate: "")
                 
-                self.setDisplayName(displayName)
+                self.displayName = displayName
                 return displayName
             }
         }

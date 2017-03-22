@@ -62,5 +62,5 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @end
 
 @interface OTRBuddy (ZomOverride)
-- (void)setDisplayName:(NSString *)displayName;
+@property (nonatomic, strong, readwrite, nonnull) NSString *displayName;
 @end
