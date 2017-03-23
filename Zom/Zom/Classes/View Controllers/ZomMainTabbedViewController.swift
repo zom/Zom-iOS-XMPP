@@ -91,7 +91,6 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
             observersRegistered = true
             OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectedProtocols", options: NSKeyValueObservingOptions.new, context: &observerContext)
             OTRProtocolManager.sharedInstance().addObserver(self, forKeyPath: "numberOfConnectingProtocols", options: NSKeyValueObservingOptions.new, context: &observerContext)
-            NotificationCenter.default.addObserver(self, selector: #selector(buddyPendingApprovalStateDidChange(notification:)), name: NSNotification.Name.OTRBuddyPendingApprovalDidChange, object: nil)
             if (selectedViewController == meViewController) {
                 populateMeTabController()
             }
@@ -103,7 +102,6 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
             observersRegistered = false
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectingProtocols", context: &observerContext)
-            NotificationCenter.default.removeObserver(self, name: NSNotification.Name.OTRBuddyPendingApprovalDidChange, object: nil)
             super.viewWillDisappear(animated)
         }
     }
@@ -215,12 +213,4 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     open func controllerDidCancel(_ viewController: OTRComposeViewController) {
         
     }
-    
-    // A new buddy has approved us, show a local notification
-    //
-    @objc func buddyPendingApprovalStateDidChange(notification: NSNotification){
-        guard let buddy = notification.object as? OTRBuddy else { return }
-        UIApplication.shared.showLocalNotificationForApprovedBuddy(buddy)
-    }
-
 }
