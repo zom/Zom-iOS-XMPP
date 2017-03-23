@@ -8,9 +8,12 @@
 
 @import ChatSecureCore;
 
+@class ZomMainTabbedViewController;
+
 @interface ZomAppDelegate : OTRAppDelegate
 
 - (OTRAccount *)getDefaultAccount;
 - (void) setDefaultAccount:(OTRAccount *)account;
+@property (nonatomic, strong) ZomMainTabbedViewController *mainTabViewController;
 
 @end

@@ -17,6 +17,7 @@
 @interface OTRAppDelegate (Zom)
 - (void)handleInvite:(NSString *)jidString fingerprint:(NSString *)fingerprint;
 - (UISplitViewController *)setupDefaultSplitViewControllerWithLeadingViewController:(nonnull UIViewController *)leadingViewController;
+- (void) showSubscriptionRequestForBuddy:(NSDictionary*)userInfo;
 @end
 
 @interface OTRConversationViewController (Zom)
@@ -64,15 +65,15 @@
     /* Leading view controller is a NavController that contains the ConversationController */
     /* We want to replace the conversationController with a tab controller */
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:[NSBundle mainBundle]];
-    ZomMainTabbedViewController *tabsController = [storyboard instantiateInitialViewController];
+    self.mainTabViewController = [storyboard instantiateInitialViewController];
     
     UINavigationController *nav = (UINavigationController *)leadingViewController;
-    [nav setViewControllers:[NSArray arrayWithObject:tabsController]];
-    [tabsController didMoveToParentViewController:nav];
+    [nav setViewControllers:[NSArray arrayWithObject:self.mainTabViewController]];
+    [self.mainTabViewController didMoveToParentViewController:nav];
     
     UISplitViewController *ret = [super setupDefaultSplitViewControllerWithLeadingViewController:leadingViewController];
     
-    [tabsController createTabs]; // Only do this once the split view controller is created, we need that as a delegate
+    [self.mainTabViewController createTabs]; // Only do this once the split view controller is created, we need that as a delegate
     if (![ret isCollapsed]) {
         ZomCompactTraitViewController *compact = [ZomCompactTraitViewController new];
         [compact addChildViewController:ret];
@@ -194,6 +195,11 @@
     //if ([change[NSKeyValueChangeNewKey] isEqual:[NSNull null]]) {
     //} else {
     //}
+}
+
+- (void) showSubscriptionRequestForBuddy:(NSDictionary*)userInfo {
+    [super showSubscriptionRequestForBuddy:userInfo];
+    [self.mainTabViewController setSelectedIndex:0]; // Select the conversations list
 }
 
 @end
