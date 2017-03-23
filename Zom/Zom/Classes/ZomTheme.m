@@ -136,7 +136,7 @@
 
 - (BOOL) enableOMEMO
 {
-    return NO;
+    return YES;
 }
 
 @end

@@ -177,7 +177,8 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         if (meViewController != nil) {
             if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate,let account = appDelegate.getDefaultAccount() {
                 let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
-                self.meViewController?.info = ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: otrKit, qrAction: self.meViewController!.qrAction!, shareAction: self.meViewController!.shareAction)
+                let info = ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: otrKit)
+                self.meViewController?.setupWithInfo(info: info)
             }
         }
     }
@@ -202,7 +203,8 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
                     if let b = buddy, let a = account {
                         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
                         let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
-                        profileVC.info = ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, qrAction: profileVC.qrAction!, shareAction: profileVC.shareAction, hasSession: false)
+                        let info = ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, hasSession: false)
+                        profileVC.setupWithInfo(info: info)
                         self.navigationController?.pushViewController(profileVC, animated: true)
                     }
                 }
