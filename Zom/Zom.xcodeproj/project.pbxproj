@@ -32,6 +32,20 @@
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
+		926AF4A31E847B3800463F54 /* OMEMODeviceFingerprintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */; };
+		926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */; };
+		926AF4A51E847B3800463F54 /* ServerCapabilityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */; };
+		926AF4A61E847B3800463F54 /* SingleButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49F1E847B3800463F54 /* SingleButtonTableViewCell.xib */; };
+		926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF4A01E847B3800463F54 /* TwoButtonTableViewCell.xib */; };
+		926AF4A81E847B3800463F54 /* UserInfoProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF4A11E847B3800463F54 /* UserInfoProfileCell.xib */; };
+		926AF4A91E847B3800463F54 /* XMPPAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF4A21E847B3800463F54 /* XMPPAccountCell.xib */; };
+		926AF4E41E847BB100463F54 /* OMEMODeviceFingerprintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */; };
+		926AF4E51E847BB100463F54 /* PushAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */; };
+		926AF4E61E847BB100463F54 /* ServerCapabilityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */; };
+		926AF4E71E847BB100463F54 /* SingleButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49F1E847B3800463F54 /* SingleButtonTableViewCell.xib */; };
+		926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF4A01E847B3800463F54 /* TwoButtonTableViewCell.xib */; };
+		926AF4E91E847BB100463F54 /* UserInfoProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF4A11E847B3800463F54 /* UserInfoProfileCell.xib */; };
+		926AF4EA1E847BB100463F54 /* XMPPAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF4A21E847B3800463F54 /* XMPPAccountCell.xib */; };
 		92757B8C1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */; };
 		9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9278C38F1BF34050003AC533 /* ZomTableViewSectionHeader.xib */; };
 		9278C3961BF36A59003AC533 /* ZomIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C3951BF36A59003AC533 /* ZomIntroViewController.swift */; };
@@ -134,13 +148,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 0E565859888E11EEB464475B3C3FF140;
 			remoteInfo = SAMKeychain;
-		};
-		920A4F1E1E7AB5D8008E374E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2F2243783C4E2DA458FC3C67AC151E12;
-			remoteInfo = libidn;
 		};
 		928A37AC1CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -582,6 +589,13 @@
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OMEMODeviceFingerprintCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/OMEMODeviceFingerprintCell.xib; sourceTree = "<group>"; };
+		926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushAccountTableViewCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/PushAccountTableViewCell.xib; sourceTree = "<group>"; };
+		926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ServerCapabilityTableViewCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/ServerCapabilityTableViewCell.xib; sourceTree = "<group>"; };
+		926AF49F1E847B3800463F54 /* SingleButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SingleButtonTableViewCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/SingleButtonTableViewCell.xib; sourceTree = "<group>"; };
+		926AF4A01E847B3800463F54 /* TwoButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TwoButtonTableViewCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/TwoButtonTableViewCell.xib; sourceTree = "<group>"; };
+		926AF4A11E847B3800463F54 /* UserInfoProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInfoProfileCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/UserInfoProfileCell.xib; sourceTree = "<group>"; };
+		926AF4A21E847B3800463F54 /* XMPPAccountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = XMPPAccountCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/XMPPAccountCell.xib; sourceTree = "<group>"; };
 		92757B8A1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OTRAssets+ZomLanguageHandling.h"; path = "Classes/OTRAssets+ZomLanguageHandling.h"; sourceTree = "<group>"; };
 		92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OTRAssets+ZomLanguageHandling.m"; path = "Classes/OTRAssets+ZomLanguageHandling.m"; sourceTree = "<group>"; };
 		92757B8E1CC57B4F000E3513 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Onboarding.strings; sourceTree = "<group>"; };
@@ -1092,6 +1106,13 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */,
+				926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */,
+				926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */,
+				926AF49F1E847B3800463F54 /* SingleButtonTableViewCell.xib */,
+				926AF4A01E847B3800463F54 /* TwoButtonTableViewCell.xib */,
+				926AF4A11E847B3800463F54 /* UserInfoProfileCell.xib */,
+				926AF4A21E847B3800463F54 /* XMPPAccountCell.xib */,
 				924D01401CC4E5B400398A4F /* Onboarding.storyboard */,
 				D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */,
 				D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */,
@@ -1287,13 +1308,6 @@
 			fileType = wrapper.framework;
 			path = SAMKeychain.framework;
 			remoteRef = 9208C9751D93F914002EE2BE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		920A4F1F1E7AB5D8008E374E /* libidn.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = libidn.framework;
-			remoteRef = 920A4F1E1E7AB5D8008E374E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		928A37AD1CD209120095366C /* AFNetworking.framework */ = {
@@ -1689,13 +1703,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
+				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
+				926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
+				926AF4A61E847B3800463F54 /* SingleButtonTableViewCell.xib in Resources */,
 				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				92A021CE1DF0133500EC4EE4 /* AttachmentPicker.xib in Resources */,
 				9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */,
+				926AF4A31E847B3800463F54 /* OMEMODeviceFingerprintCell.xib in Resources */,
 				D978BCAC1BABEC13009246CF /* torrc in Resources */,
+				926AF4A91E847B3800463F54 /* XMPPAccountCell.xib in Resources */,
 				921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */,
+				926AF4A81E847B3800463F54 /* UserInfoProfileCell.xib in Resources */,
 				92DD3E371BFB2271000811C1 /* PitchInviteView.xib in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
 				92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */,
@@ -1704,6 +1724,7 @@
 				9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */,
 				92F60BF11D018121008834AC /* Localizable.strings in Resources */,
 				92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */,
+				926AF4A51E847B3800463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
 				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
 				92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */,
 			);
@@ -1713,6 +1734,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926AF4E41E847BB100463F54 /* OMEMODeviceFingerprintCell.xib in Resources */,
+				926AF4E51E847BB100463F54 /* PushAccountTableViewCell.xib in Resources */,
+				926AF4E61E847BB100463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
+				926AF4E71E847BB100463F54 /* SingleButtonTableViewCell.xib in Resources */,
+				926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */,
+				926AF4E91E847BB100463F54 /* UserInfoProfileCell.xib in Resources */,
+				926AF4EA1E847BB100463F54 /* XMPPAccountCell.xib in Resources */,
 				D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */,
 				633CDA221E0350BF001A3ACF /* ZomPasswordCell.xib in Resources */,
 				D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */,
