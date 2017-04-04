@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_security" translatesAutoresizingMaskIntoConstraints="NO" id="weu-b9-oTG">
+                    <rect key="frame" x="169.5" y="30" width="36" height="36"/>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="TEx-Q1-baL"/>
+                        <constraint firstAttribute="width" constant="36" id="r9p-7o-rTN"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="We're preparing your private zom." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAn-x9-MkP">
+                    <rect key="frame" x="58.5" y="126" width="258.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="One moment please!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYc-Zo-Msf">
+                    <rect key="frame" x="103.5" y="96" width="168.5" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="kAn-x9-MkP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9rl-Fu-4eM"/>
+                <constraint firstItem="weu-b9-oTG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HJf-U1-WDw"/>
+                <constraint firstItem="kAn-x9-MkP" firstAttribute="top" secondItem="WYc-Zo-Msf" secondAttribute="bottom" constant="9" id="JOv-O0-8QF"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kAn-x9-MkP" secondAttribute="bottom" constant="30" id="KYd-am-iRU"/>
+                <constraint firstItem="weu-b9-oTG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="avK-Qp-yRi"/>
+                <constraint firstItem="WYc-Zo-Msf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="i2N-T7-7ia"/>
+                <constraint firstItem="WYc-Zo-Msf" firstAttribute="top" secondItem="weu-b9-oTG" secondAttribute="bottom" constant="30" id="q5W-AN-oGb"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_security" width="24" height="24"/>
+    </resources>
+</document>

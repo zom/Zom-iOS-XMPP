@@ -78,6 +78,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var attachmentPickerView:AttachmentPicker? = nil
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
     private var noNetworkView:UITextView?
+    private var preparingView:UIView?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -317,6 +318,47 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                 view.isHidden = false
                 UIView.animate(withDuration: 0.5, animations: {
                     self.noNetworkView?.frame.origin.y = 0
+                }, completion: { (success) in
+                })
+            }
+        }
+    }
+    
+    override open func didUpdateState() {
+        super.didUpdateState()
+        if ((self.state.messageSecurity == OTRMessageTransportSecurity.OTR ||
+            self.state.messageSecurity == OTRMessageTransportSecurity.OMEMO)
+            && !self.state.canSendMedia) {
+            self.updatePreparingView(true)
+        } else if (self.state.canSendMedia) {
+            self.updatePreparingView(false)
+        }
+    }
+    
+    func updatePreparingView(_ show:Bool) {
+        if (!show) {
+            if let view = self.preparingView {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.preparingView?.alpha = 0.0
+                }, completion: { (success) in
+                    view.isHidden = true
+                })
+                self.preparingView = nil
+            }
+        } else {
+            if (self.preparingView == nil) {
+                self.preparingView = UINib(nibName: "PreparingSessionView",
+                    bundle: Bundle.main
+                    ).instantiate(withOwner: nil, options: nil)[0] as? UIView
+                let size = self.preparingView?.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+                self.preparingView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: size!.height)
+                self.preparingView?.alpha = 0.0
+                self.view.addSubview(self.preparingView!)
+            }
+            if let view = self.preparingView {
+                view.isHidden = false
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.preparingView?.alpha = 1
                 }, completion: { (success) in
                 })
             }

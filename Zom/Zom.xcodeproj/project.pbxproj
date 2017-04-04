@@ -63,6 +63,7 @@
 		929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */; };
 		92A021971DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */; };
 		92A021CE1DF0133500EC4EE4 /* AttachmentPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */; };
+		92A7C6631E93B4230025BFDC /* PreparingSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */; };
 		92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */; };
 		92AA05E51E3774EF0054BEAD /* ZomOnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */; };
 		92CBA8BC1D119E14001CDD3D /* ZomStickerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBA8BB1D119E14001CDD3D /* ZomStickerMessage.swift */; };
@@ -645,6 +646,7 @@
 		929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBaseLoginViewController.swift; path = "Classes/View Controllers/Login View Controllers/ZomBaseLoginViewController.swift"; sourceTree = "<group>"; };
 		92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomCompactTraitViewController.swift; path = "Classes/View Controllers/ZomCompactTraitViewController.swift"; sourceTree = "<group>"; };
 		92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachmentPicker.xib; sourceTree = "<group>"; };
+		92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreparingSessionView.xib; sourceTree = "<group>"; };
 		92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomCongratsViewController.swift; path = "Classes/View Controllers/Onboarding/ZomCongratsViewController.swift"; sourceTree = "<group>"; };
 		92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomOnboardingNavigationController.swift; path = "Classes/View Controllers/Onboarding/ZomOnboardingNavigationController.swift"; sourceTree = "<group>"; };
 		92CBA8BB1D119E14001CDD3D /* ZomStickerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomStickerMessage.swift; path = Classes/ZomStickerMessage.swift; sourceTree = "<group>"; };
@@ -1123,6 +1125,7 @@
 				921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */,
 				92F6947D1E04913E00B0963C /* Tabs.storyboard */,
 				92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */,
+				92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1704,6 +1707,7 @@
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
+				92A7C6631E93B4230025BFDC /* PreparingSessionView.xib in Resources */,
 				926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
 				926AF4A61E847B3800463F54 /* SingleButtonTableViewCell.xib in Resources */,
