@@ -37,8 +37,8 @@ PODS:
     - CocoaLumberjack/Default
   - CPAProxy (1.2.0):
     - CocoaAsyncSocket
-  - FormatterKit/Resources (1.8.1)
-  - FormatterKit/TimeIntervalFormatter (1.8.1):
+  - FormatterKit/Resources (1.8.2)
+  - FormatterKit/TimeIntervalFormatter (1.8.2):
     - FormatterKit/Resources
   - GCDWebServer/CocoaLumberjack (3.3.3):
     - CocoaLumberjack (~> 2)
@@ -238,7 +238,7 @@ DEPENDENCIES:
   - CocoaAsyncSocket (~> 7.6.0)
   - CocoaLumberjack (~> 2.3.0)
   - CPAProxy (from `../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec`)
-  - FormatterKit/TimeIntervalFormatter
+  - FormatterKit/TimeIntervalFormatter (~> 1.8.2)
   - gtm-http-fetcher (from `../ChatSecure/Podspecs/gtm-http-fetcher.podspec`)
   - gtm-oauth2 (from `../ChatSecure/Podspecs/gtm-oauth2.podspec`)
   - IOCipher/GCDWebServer (from `../ChatSecure/Submodules/IOCipher/IOCipher.podspec`)
@@ -328,7 +328,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CPAProxy: b1b33221b6ad297169cb813b6bbefd2a69ea9aad
-  FormatterKit: 11ad17b983200629246a5a466f6f1bfa2df823cb
+  FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   gtm-http-fetcher: 4e7de79fc9e774b291eae66a240f17b3a5277ec7
   gtm-oauth2: b31c9d7c82f773f7b7094cbb7da8dc7b5968ce16
@@ -367,6 +367,6 @@ SPEC CHECKSUMS:
   YapTaskQueue: f5d60946ffa289e228faf8411bf53cf90cfa7ead
   ZXingObjC: bbf7b8f0cf8933fdd33eb4f9f46e22308552869b
 
-PODFILE CHECKSUM: 0940db013f66cc9aadde1b5adbc0e1e44352e9be
+PODFILE CHECKSUM: 128d0cf2ab3ebd59be7ab78b2c5dbcafa45cb807
 
 COCOAPODS: 1.2.0
