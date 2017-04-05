@@ -326,12 +326,25 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func didUpdateState() {
         super.didUpdateState()
-        if ((self.state.messageSecurity == OTRMessageTransportSecurity.OTR ||
-            self.state.messageSecurity == OTRMessageTransportSecurity.OMEMO)
-            && !self.state.canSendMedia) {
-            self.updatePreparingView(true)
-        } else if (self.state.canSendMedia) {
-            self.updatePreparingView(false)
+        self.readOnlyDatabaseConnection.asyncRead { [weak self] (transaction) in
+            guard let strongSelf = self else { return }
+            guard let threadKey = strongSelf.threadKey else { return }
+            guard let buddy = transaction.object(forKey: threadKey, inCollection: strongSelf.threadCollection) as? OTRBuddy else { return }
+            if (strongSelf.state.isThreadOnline && buddy.preferredSecurity != OTRSessionSecurity.plaintextOnly) {
+                // Find out if we have previous fingerprints, i.e. if this is
+                // THE VERY FIRST encrypted session we are trying to create.
+                buddy.bestTransportSecurity(with: transaction, completionBlock: { (otrMessageTransportSecurity) in
+                    if (otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintext && otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintextWithOTR) {
+                        // We have fingerprints, hide the preparing view
+                        strongSelf.updatePreparingView(false)
+                    } else {
+                        strongSelf.updatePreparingView(true)
+                    }
+                }, completionQueue: DispatchQueue.main)
+            } else {
+                // Plaintext only, don't show the preparing view
+                strongSelf.updatePreparingView(false)
+            }
         }
     }
     
