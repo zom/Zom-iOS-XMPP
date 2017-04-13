@@ -18,12 +18,10 @@ static const char _language=1;
 @implementation ZomLanguageAwareBundle
 -(NSString*)localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName
 {
-    NSLog(@"getString %@ table %@", key, tableName);
     NSBundle* bundle=objc_getAssociatedObject(self, &_bundle);
     return bundle ? [bundle localizedStringForKey:key value:value table:tableName] : [super localizedStringForKey:key value:value table:tableName];
 }
 - (NSString *)pathForResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath forLocalization:(NSString *)localizationName {
-    NSLog(@"pathForResource %@ of type %@", name, ext);
     // English resourcers are found under "Base" for Zom
     if ([localizationName isEqualToString:@"en"])
         localizationName = @"Base";
@@ -57,7 +55,6 @@ static const char _language=1;
 }
 
 + (void) setBundle:(NSBundle *)main toLanguage:(NSString *)language {
-    NSLog(@"SetLanguage %@", language);
     NSString* mainLang=objc_getAssociatedObject(main, &_language);
     if (mainLang == nil || ![mainLang isEqualToString:language]) {
         NSString *bundleLanguage = language;
