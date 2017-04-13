@@ -7,8 +7,11 @@
 //
 
 import ChatSecureCore
+import VTAcknowledgementsViewController
 
-open class ZomSettingsManager: OTRSettingsManager {
+open class ZomSettingsManager: OTRSettingsManager, OTRSettingDelegate {
+    open var viewController:UIViewController?
+    
     override open var settingsGroups: [OTRSettingsGroup] {
         get {
             var settingsGroups: [OTRSettingsGroup] = super.settingsGroups
@@ -21,11 +24,26 @@ open class ZomSettingsManager: OTRSettingsManager {
                     settings.append(setting)
                 }
             }
+            
+            // Add the acknoledgements link
+            let acknowledgements = OTRViewSetting(title: VTAcknowledgementsViewController.localizedTitle(), description: "", viewControllerClass: VTAcknowledgementsViewController.self)
+            acknowledgements?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            acknowledgements?.delegate = self
+            settings.append(acknowledgements!)
+            
             if let other = OTRSettingsGroup(title: groupOtherSettings.title, settings: settings) {
                 settingsGroups.removeLast()
                 settingsGroups.append(other)
             }
             return settingsGroups
         }
+    }
+    
+    public func otrSetting(_ setting: OTRSetting!, showDetailViewControllerClass viewControllerClass: AnyClass!) {
+        guard let vcAcknowledgements = OTRAcknowledgementsViewController.defaultAcknowledgement() else { return }
+        self.viewController?.navigationController?.pushViewController(vcAcknowledgements, animated: true)
+    }
+    
+    public func refreshView() {
     }
 }

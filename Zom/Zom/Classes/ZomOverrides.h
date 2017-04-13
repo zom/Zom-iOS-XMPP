@@ -59,6 +59,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 
 @interface OTRSettingsViewController (ZomOverride)
 - (void)logoutAccount:(OTRAccount *)account sender:(id)sender;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @interface OTRBuddy (ZomOverride)

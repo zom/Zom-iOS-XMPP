@@ -7,7 +7,8 @@
 //
 
 #import "ZomTheme.h"
-#import "Zom-swift.h"
+#import "Zom-Swift.h"
+#import "ZomOverrides.h"
 
 #define DEFAULT_ZOM_COLOR @"#FFE7275A"
 
@@ -129,8 +130,10 @@
 
 /** Returns new instance. Override this in subclass to use a different settings view controller class */
 - (__kindof UIViewController *) settingsViewController {
-    OTRSettingsViewController *svc = [[OTRSettingsViewController alloc] init];
-    svc.settingsManager = [[ZomSettingsManager alloc] init];
+    ZomSettingsViewController *svc = [[ZomSettingsViewController alloc] init];
+    ZomSettingsManager *settingsManager = [[ZomSettingsManager alloc] init];
+    svc.settingsManager = settingsManager;
+    settingsManager.viewController = svc;
     return svc;
 }
 
