@@ -29,8 +29,8 @@
 	<key>pushAPIURL</key>
 	<string>https://push.zom.im/api/v1/</string>
 	<key>StagingPushAPIURL</key>
-	<string>https://push.zom.im/api/v1/</string>
+	<string>https://push-staging.zom.im/api/v1/</string>
 	<key>ShouldShowPushWarning</key>
-	<true/>
+	<false/>
 </dict>
 </plist>
