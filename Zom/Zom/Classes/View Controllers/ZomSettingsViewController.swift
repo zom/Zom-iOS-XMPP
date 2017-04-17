@@ -11,6 +11,13 @@ import ChatSecureCore
 
 open class ZomSettingsViewController : OTRSettingsViewController {
     
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Remove the right bar info button
+        self.navigationItem.rightBarButtonItem = nil
+    }
+    
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == (tableView.numberOfSections - 1) {
                 return versionString()
