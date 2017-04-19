@@ -30,6 +30,7 @@
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
+		924F684C1EA758A300528FB6 /* MigrationInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924F680E1EA7589C00528FB6 /* MigrationInfoHeaderView.xib */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
@@ -150,6 +151,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 0E565859888E11EEB464475B3C3FF140;
 			remoteInfo = SAMKeychain;
+		};
+		924F684A1EA7589C00528FB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 408AC2E4D61BE5F0674CC8B29F32B64A;
+			remoteInfo = SignalProtocolObjC;
 		};
 		928A37AC1CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -480,13 +488,6 @@
 			remoteGlobalIDString = B85D2A7651BDE657D2DCAD19BB1CB5A2;
 			remoteInfo = KSCrash;
 		};
-		929DEAC51E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 037B6BE795ED2623004875FA1CC18ED2;
-			remoteInfo = "SignalProtocol-ObjC";
-		};
 		929DEAC71E5B8B55008C3B77 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -589,6 +590,7 @@
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ZomPods-Zom-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-acknowledgements.plist"; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		924F680E1EA7589C00528FB6 /* MigrationInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MigrationInfoHeaderView.xib; path = ../../../ChatSecure/OTRResources/Interface/MigrationInfoHeaderView.xib; sourceTree = "<group>"; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -924,8 +926,8 @@
 				928A37F11CD209120095366C /* QRCodeReaderViewController.framework */,
 				928A37F31CD209120095366C /* Reachability.framework */,
 				9208C9761D93F914002EE2BE /* SAMKeychain.framework */,
-				929DEAC61E5B8B55008C3B77 /* SignalProtocolObjC.framework */,
 				929DEAC81E5B8B55008C3B77 /* SignalProtocolC.framework */,
+				924F684B1EA7589C00528FB6 /* SignalProtocolObjC.framework */,
 				928A37F51CD209120095366C /* SQLCipher.framework */,
 				928A37F91CD209120095366C /* TTTAttributedLabel.framework */,
 				928A37FB1CD209120095366C /* TUSafariActivity.framework */,
@@ -1111,6 +1113,7 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				924F680E1EA7589C00528FB6 /* MigrationInfoHeaderView.xib */,
 				926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */,
 				926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */,
 				926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */,
@@ -1314,6 +1317,13 @@
 			fileType = wrapper.framework;
 			path = SAMKeychain.framework;
 			remoteRef = 9208C9751D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		924F684B1EA7589C00528FB6 /* SignalProtocolObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SignalProtocolObjC.framework;
+			remoteRef = 924F684A1EA7589C00528FB6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		928A37AD1CD209120095366C /* AFNetworking.framework */ = {
@@ -1645,13 +1655,6 @@
 			remoteRef = 929DEAC31E5B8B55008C3B77 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		929DEAC61E5B8B55008C3B77 /* SignalProtocolObjC.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SignalProtocolObjC.framework;
-			remoteRef = 929DEAC51E5B8B55008C3B77 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		929DEAC81E5B8B55008C3B77 /* SignalProtocolC.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1760,6 +1763,7 @@
 				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
+				924F684C1EA758A300528FB6 /* MigrationInfoHeaderView.xib in Resources */,
 				928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
