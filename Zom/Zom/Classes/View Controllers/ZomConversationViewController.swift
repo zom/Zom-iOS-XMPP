@@ -15,7 +15,7 @@ open class ZomConversationViewController: OTRConversationViewController {
     //Mark: Properties
     
     var pitchInviteView:UIView? = nil
-    var pitchCreateGroupView:UIView? = nil
+    //var pitchCreateGroupView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
     
     open override func viewDidLoad() {
@@ -33,12 +33,12 @@ open class ZomConversationViewController: OTRConversationViewController {
         dataBaseConnection.read { (transaction) -> Void in
             let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as! YapDatabaseViewTransaction
             let numBuddies = view.numberOfItemsInAllGroups()
-            if (numBuddies == 0 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0) {
+            if (numBuddies == 0 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0 && self.tableView.tableHeaderView == nil) {
                 self.tableView.tableHeaderView = self.getPitchInviteView()
             //}
             //else if (numBuddies > 1){
             //    self.tableView.tableHeaderView = self.getPitchCreateGroupView()
-            } else {
+            } else if (self.tableView.tableHeaderView == self.pitchInviteView) {
                 self.tableView.tableHeaderView = nil;
             }
             }
@@ -52,13 +52,13 @@ open class ZomConversationViewController: OTRConversationViewController {
         return self.pitchInviteView!
     }
 
-    func getPitchCreateGroupView() -> UIView {
-        if (self.pitchCreateGroupView == nil) {
-            self.pitchCreateGroupView = UINib(nibName: "PitchCreateGroupView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
-            self.pitchCreateGroupView!.frame.size.height = 180
-        }
-        return self.pitchCreateGroupView!
-    }
+//    func getPitchCreateGroupView() -> UIView {
+//        if (self.pitchCreateGroupView == nil) {
+//            self.pitchCreateGroupView = UINib(nibName: "PitchCreateGroupView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+//            self.pitchCreateGroupView!.frame.size.height = 180
+//        }
+//        return self.pitchCreateGroupView!
+//    }
     
     @IBAction func addFriendsButtonPressed(_ sender: AnyObject) {
         ZomNewBuddyViewController.addBuddyToDefaultAccount(self.navigationController)
@@ -76,10 +76,12 @@ open class ZomConversationViewController: OTRConversationViewController {
     
     func sizeHeaderToFit() {
         if let headerView = tableView.tableHeaderView {
-            var frame = headerView.frame
-            frame.size.height = CGFloat.init(integerLiteral: 180)
-            headerView.frame = frame
-            tableView.tableHeaderView = headerView
+            if headerView == self.pitchInviteView {
+                var frame = headerView.frame
+                frame.size.height = CGFloat.init(integerLiteral: 180)
+                headerView.frame = frame
+                tableView.tableHeaderView = headerView
+            }
         }
     }
 }
