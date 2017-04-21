@@ -31,6 +31,7 @@
 		924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
 		924F684C1EA758A300528FB6 /* MigrationInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924F680E1EA7589C00528FB6 /* MigrationInfoHeaderView.xib */; };
+		924F68551EA7720400528FB6 /* MigratedBuddyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924F68531EA7720000528FB6 /* MigratedBuddyHeaderView.xib */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
@@ -591,6 +592,7 @@
 		924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ZomPods-Zom-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-acknowledgements.plist"; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
 		924F680E1EA7589C00528FB6 /* MigrationInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MigrationInfoHeaderView.xib; path = ../../../ChatSecure/OTRResources/Interface/MigrationInfoHeaderView.xib; sourceTree = "<group>"; };
+		924F68531EA7720000528FB6 /* MigratedBuddyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MigratedBuddyHeaderView.xib; path = ../../../ChatSecure/OTRResources/Interface/MigratedBuddyHeaderView.xib; sourceTree = "<group>"; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -1113,6 +1115,7 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				924F68531EA7720000528FB6 /* MigratedBuddyHeaderView.xib */,
 				924F680E1EA7589C00528FB6 /* MigrationInfoHeaderView.xib */,
 				926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */,
 				926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */,
@@ -1765,6 +1768,7 @@
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
 				924F684C1EA758A300528FB6 /* MigrationInfoHeaderView.xib in Resources */,
 				928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */,
+				924F68551EA7720400528FB6 /* MigratedBuddyHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1812,7 +1816,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
