@@ -183,7 +183,7 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
                 if let editCell = nicknameRow.cell(forForm: self) as? XLFormTextFieldCell {
                     if (editCell.textField.text != nil && nicknameRow.value != nil) {
                         if (editCell.textField.text!.compare(nicknameRow.value as! String) != ComparisonResult.orderedSame) {
-                            self.account.displayName = editCell.textField.text!
+                            self.account?.displayName = editCell.textField.text!
                         }
                     }
                 }
