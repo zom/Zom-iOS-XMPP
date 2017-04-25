@@ -240,7 +240,8 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
     }
     
     open static func addBuddyToDefaultAccount(_ navController:UINavigationController?) {
-        guard let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies(), accounts.count > 0 else {
+        let accounts = OTRAccountsManager.allAccounts()
+        guard accounts.count > 0 else {
             return
         }
 
@@ -248,7 +249,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         var vc:UIViewController? = nil
         if (accounts.count == 1) {
             vc = storyboard.instantiateViewController(withIdentifier: "addNewBuddy")
-            (vc as! ZomNewBuddyViewController).account = accounts[0] as? OTRAccount
+            (vc as! ZomNewBuddyViewController).account = accounts[0]
             navController?.pushViewController(vc!, animated: true)
         } else {
             // More than one account
@@ -257,10 +258,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
                 defaultAccount = appDelegate.getDefaultAccount()
             }
             if (defaultAccount != nil && accounts.contains( where: { element in
-                if let a:OTRAccount = element as? OTRAccount {
-                    return a.uniqueId == defaultAccount!.uniqueId
-                }
-                return false
+                return element.uniqueId == defaultAccount!.uniqueId
             })) {
                 // We have a default, use that
                 vc = storyboard.instantiateViewController(withIdentifier: "addNewBuddy")

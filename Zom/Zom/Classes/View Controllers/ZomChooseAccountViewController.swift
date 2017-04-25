@@ -17,10 +17,10 @@ open class ZomChooseAccountViewController: OTRChooseAccountViewController, UITab
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if let accounts = OTRAccountsManager.allAccountsAbleToAddBuddies(), accounts.count == 1 
+        let accounts = OTRAccountsManager.allAccounts()
+        if accounts.count == 1
         {
-            self.selectedAccount = accounts[0] as? OTRAccount
+            self.selectedAccount = accounts[0]
             self.performSegue(withIdentifier: "addNewBuddySegue", sender: self)
         }
         
@@ -31,7 +31,7 @@ open class ZomChooseAccountViewController: OTRChooseAccountViewController, UITab
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.deselectRow(at: indexPath, animated: true)
-        let accounts:[Any] = OTRAccountsManager.allAccountsAbleToAddBuddies()
+        let accounts:[Any] = OTRAccountsManager.allAccounts()
         self.selectedAccount = accounts[indexPath.row] as? OTRAccount
         self.performSegue(withIdentifier: "addNewBuddySegue", sender: self)
     }

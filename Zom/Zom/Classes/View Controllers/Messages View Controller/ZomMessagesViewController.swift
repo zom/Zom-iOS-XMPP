@@ -116,7 +116,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func refreshTitleView() -> Void {
         super.refreshTitleView()
-        if (OTRAccountsManager.allAccountsAbleToAddBuddies().count < 2) {
+        if (OTRAccountsManager.allAccounts().count < 2) {
             // Hide the account name if only one
             if let view = self.navigationItem.titleView as? OTRTitleSubtitleView {
                 view.subtitleLabel.isHidden = true
@@ -333,14 +333,13 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             if (strongSelf.state.isThreadOnline && buddy.preferredSecurity != OTRSessionSecurity.plaintextOnly) {
                 // Find out if we have previous fingerprints, i.e. if this is
                 // THE VERY FIRST encrypted session we are trying to create.
-                buddy.bestTransportSecurity(with: transaction, completionBlock: { (otrMessageTransportSecurity) in
-                    if (otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintext && otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintextWithOTR) {
-                        // We have fingerprints, hide the preparing view
-                        strongSelf.updatePreparingView(false)
-                    } else {
-                        strongSelf.updatePreparingView(true)
-                    }
-                }, completionQueue: DispatchQueue.main)
+                let otrMessageTransportSecurity = buddy.bestTransportSecurity(with: transaction)
+                if (otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintext && otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintextWithOTR) {
+                    // We have fingerprints, hide the preparing view
+                    strongSelf.updatePreparingView(false)
+                } else {
+                    strongSelf.updatePreparingView(true)
+                }
             } else {
                 // Plaintext only, don't show the preparing view
                 strongSelf.updatePreparingView(false)

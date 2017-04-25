@@ -33,7 +33,7 @@ open class ZomConversationViewController: OTRConversationViewController {
         dataBaseConnection.read { (transaction) -> Void in
             let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as! YapDatabaseViewTransaction
             let numBuddies = view.numberOfItemsInAllGroups()
-            if (numBuddies == 0 && OTRAccountsManager.allAccountsAbleToAddBuddies().count > 0 && self.tableView.tableHeaderView == nil) {
+            if (numBuddies == 0 && OTRAccountsManager.allAccounts().count > 0 && self.tableView.tableHeaderView == nil) {
                 self.tableView.tableHeaderView = self.getPitchInviteView()
             //}
             //else if (numBuddies > 1){
