@@ -37,6 +37,9 @@ extension OTRBaseLoginViewController {
             object_setClass(self, ZomBaseLoginViewController.self)
             self.zom_viewDidLoad()
             (self as! ZomBaseLoginViewController).setupTableView()
+        } else if object_getClass(self) === OTRAccountMigrationViewController.self {
+            object_setClass(self, ZomAccountMigrationViewController.self)
+            self.zom_viewDidLoad()
         } else {
             self.zom_viewDidLoad()
         }
@@ -201,6 +204,16 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
             dismiss(animated: true, completion: nil)
         } else {
             super.pushInvite()
+        }
+    }
+}
+
+open class ZomAccountMigrationViewController: OTRAccountMigrationViewController {
+    override open func handleSuccess(withNewAccount account: OTRAccount, sender: Any) {
+        super.handleSuccess(withNewAccount: account, sender: sender)
+        // Set the migrated account as default!
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
+            appDelegate.setDefaultAccount(account)
         }
     }
 }
