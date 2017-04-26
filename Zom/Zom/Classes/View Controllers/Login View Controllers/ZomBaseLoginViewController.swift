@@ -33,9 +33,13 @@ extension OTRBaseLoginViewController {
     }
 
     public func zom_viewDidLoad() {
-        object_setClass(self, ZomBaseLoginViewController.self)
-        self.zom_viewDidLoad()
-        (self as! ZomBaseLoginViewController).setupTableView()
+        if object_getClass(self) === OTRBaseLoginViewController.self {
+            object_setClass(self, ZomBaseLoginViewController.self)
+            self.zom_viewDidLoad()
+            (self as! ZomBaseLoginViewController).setupTableView()
+        } else {
+            self.zom_viewDidLoad()
+        }
     }
 }
 
