@@ -17,6 +17,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     private var observersRegistered:Bool = false
     private var barButtonSettings:UIBarButtonItem?
     private var barButtonAddChat:UIBarButtonItem?
+    private var chatsViewControllerTitleView:UIView?
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -79,6 +80,24 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         registerObservers()
+        if chatsViewControllerTitleView == nil {
+            chatsViewControllerTitleView = chatsViewController?.navigationItem.titleView
+            if let titleView = chatsViewControllerTitleView {
+            chatsViewController?.navigationItem.titleView = nil
+            for subview:UIView in titleView.subviews {
+                subview.tintColor = ZomAppDelegate.appDelegate.theme.mainThemeColor
+            }
+            let margin:CGFloat = 10
+            let height = titleView.frame.height
+            let insets = chatsViewController?.tableView.contentInset
+            chatsViewController?.tableView.contentInset = UIEdgeInsetsMake((insets?.top ?? 0) + height + 2 * margin, insets?.left ?? 0, insets?.bottom ?? 0, insets?.right ?? 0)
+            titleView.translatesAutoresizingMaskIntoConstraints = false
+            chatsViewController?.view.addSubview(titleView)
+            NSLayoutConstraint(item: titleView, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: chatsViewController?.view, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0).isActive = true
+            NSLayoutConstraint(item: titleView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: chatsViewController?.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: margin).isActive = true
+            }
+            //updateTitle()
+        }
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -139,6 +158,11 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
             if (selectedViewController == meViewController) {
                 populateMeTabController()
             }
+//            if selectedViewController == chatsViewController {
+//                self.navigationItem.titleView = chatsViewControllerTitleView
+//            } else {
+//                self.navigationItem.titleView = nil
+//            }
         }
     }
     
