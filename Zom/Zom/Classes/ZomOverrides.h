@@ -48,6 +48,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRConversationViewController (ZomOverride)
 - (void)settingsButtonPressed:(id)sender;
 - (void)composeButtonPressed:(id)sender;
+- (IBAction)didPressStartMigrationButton:(id)sender;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate {
+open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate, ZomMigrationInfoViewControllerDelegateProtocol {
     
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
@@ -239,5 +239,28 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     
     open func controllerDidCancel(_ viewController: OTRComposeViewController) {
         
+    }
+    
+    @IBAction func startAutoMigrationButtonPressed(_ sender: AnyObject) {
+        startAutomaticMigration()
+    }
+    
+    @IBAction func showMigrationInfoButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "showMigrationInfo", sender: self)
+    }
+    
+    public func startAutomaticMigration() {
+        // Ok, to be implemented
+        print("More to come")
+    }
+    
+    public func startAssistedMigration() {
+        chatsViewController?.didPressStartMigrationButton(self)
+    }
+    
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let migrationViewController = segue.destination as? ZomMigrationInfoViewController {
+            migrationViewController.delegate = self
+        }
     }
 }

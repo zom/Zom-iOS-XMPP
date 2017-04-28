@@ -84,16 +84,6 @@ open class ZomConversationViewController: OTRConversationViewController {
             }
         }
     }
-    
-    @IBAction func startAutoMigrationButtonPressed(_ sender: AnyObject) {
-        // Ok, to be implemented
-        print("More to come")
-    }
-
-    @IBAction func showMigrationInfoButtonPressed(_ sender: AnyObject) {
-        // Ok, to be implemented
-        print("More to come")
-    }
 }
 
 public class ZomConversationViewControllerKVOObject : NSObject {
