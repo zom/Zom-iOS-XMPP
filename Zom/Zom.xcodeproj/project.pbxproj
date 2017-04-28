@@ -29,6 +29,8 @@
 		92256CCC1EB2287C00CE4B35 /* 6yay.png in Resources */ = {isa = PBXBuildFile; fileRef = 92256CCB1EB2287C00CE4B35 /* 6yay.png */; };
 		92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */; };
 		92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */; };
+		92256CD81EB3887600CE4B35 /* WaitingForApprovalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92256CD71EB3887600CE4B35 /* WaitingForApprovalView.xib */; };
+		92256CDC1EB38F8200CE4B35 /* 15biscuit.png in Resources */ = {isa = PBXBuildFile; fileRef = 92256CD91EB38F7700CE4B35 /* 15biscuit.png */; };
 		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
@@ -593,6 +595,8 @@
 		92256CCB1EB2287C00CE4B35 /* 6yay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6yay.png; path = "../../Zom/Stickers/olo and shimi/6yay.png"; sourceTree = "<group>"; };
 		92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoViewController.swift; path = "Classes/View Controllers/ZomMigrationInfoViewController.swift"; sourceTree = "<group>"; };
 		92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoHeaderView.swift; path = Classes/Views/ZomMigrationInfoHeaderView.swift; sourceTree = "<group>"; };
+		92256CD71EB3887600CE4B35 /* WaitingForApprovalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForApprovalView.xib; sourceTree = "<group>"; };
+		92256CD91EB38F7700CE4B35 /* 15biscuit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15biscuit.png; path = "../../Zom/Stickers/olo and shimi/15biscuit.png"; sourceTree = "<group>"; };
 		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
@@ -1117,6 +1121,7 @@
 				D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */,
 				928AB8131CF845880056AEC7 /* ZomImages.xcassets */,
 				92256CCB1EB2287C00CE4B35 /* 6yay.png */,
+				92256CD91EB38F7700CE4B35 /* 15biscuit.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1144,6 +1149,7 @@
 				92F6947D1E04913E00B0963C /* Tabs.storyboard */,
 				92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */,
 				92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */,
+				92256CD71EB3887600CE4B35 /* WaitingForApprovalView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1732,6 +1738,7 @@
 				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				92A021CE1DF0133500EC4EE4 /* AttachmentPicker.xib in Resources */,
+				92256CDC1EB38F8200CE4B35 /* 15biscuit.png in Resources */,
 				9278C3901BF34050003AC533 /* ZomTableViewSectionHeader.xib in Resources */,
 				926AF4A31E847B3800463F54 /* OMEMODeviceFingerprintCell.xib in Resources */,
 				D978BCAC1BABEC13009246CF /* torrc in Resources */,
@@ -1740,6 +1747,7 @@
 				926AF4A81E847B3800463F54 /* UserInfoProfileCell.xib in Resources */,
 				92DD3E371BFB2271000811C1 /* PitchInviteView.xib in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
+				92256CD81EB3887600CE4B35 /* WaitingForApprovalView.xib in Resources */,
 				92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,

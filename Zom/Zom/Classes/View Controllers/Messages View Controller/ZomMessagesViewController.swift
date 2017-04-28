@@ -79,6 +79,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
     private var noNetworkView:UITextView?
     private var preparingView:UIView?
+    private var pendingApprovalView:UIView?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -330,19 +331,36 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             guard let strongSelf = self else { return }
             guard let threadKey = strongSelf.threadKey else { return }
             guard let buddy = transaction.object(forKey: threadKey, inCollection: strongSelf.threadCollection) as? OTRBuddy else { return }
-            if (strongSelf.state.isThreadOnline && buddy.preferredSecurity != OTRSessionSecurity.plaintextOnly) {
-                // Find out if we have previous fingerprints, i.e. if this is
-                // THE VERY FIRST encrypted session we are trying to create.
-                let otrMessageTransportSecurity = buddy.bestTransportSecurity(with: transaction)
-                if (otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintext && otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintextWithOTR) {
-                    // We have fingerprints, hide the preparing view
-                    strongSelf.updatePreparingView(false)
+            
+            DispatchQueue.main.async {
+                if (strongSelf.state.isThreadOnline && buddy.preferredSecurity != OTRSessionSecurity.plaintextOnly) {
+                    // Find out if we have previous fingerprints, i.e. if this is
+                    // THE VERY FIRST encrypted session we are trying to create.
+                    let otrMessageTransportSecurity = buddy.bestTransportSecurity(with: transaction)
+                    if (otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintext && otrMessageTransportSecurity != OTRMessageTransportSecurity.plaintextWithOTR) {
+                        // We have fingerprints, hide the preparing view
+                        strongSelf.updatePreparingView(false)
+                    } else {
+                        strongSelf.updatePreparingView(true)
+                    }
                 } else {
-                    strongSelf.updatePreparingView(true)
+                    // Plaintext only, don't show the preparing view
+                    strongSelf.updatePreparingView(false)
                 }
-            } else {
-                // Plaintext only, don't show the preparing view
-                strongSelf.updatePreparingView(false)
+                
+                if let xmppbuddy = buddy as? OTRXMPPBuddy, xmppbuddy.pendingApproval {
+                    if strongSelf.pendingApprovalView == nil {
+                        strongSelf.pendingApprovalView = UINib(nibName: "WaitingForApprovalView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+                        strongSelf.view.addSubview(strongSelf.pendingApprovalView!)
+                    }
+                    strongSelf.pendingApprovalView!.frame = strongSelf.view.bounds
+                    strongSelf.view.bringSubview(toFront: strongSelf.pendingApprovalView!)
+                } else {
+                    if strongSelf.pendingApprovalView != nil {
+                        strongSelf.pendingApprovalView?.removeFromSuperview()
+                        strongSelf.pendingApprovalView = nil
+                    }
+                }
             }
         }
     }
