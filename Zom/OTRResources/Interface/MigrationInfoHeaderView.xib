@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" id="RXs-xW-dqD" customClass="MigrationInfoHeaderView" customModule="ChatSecureCore">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="196"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="6yay.png" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-Sk-FkY">
+                    <rect key="frame" x="10" y="10" width="309" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="quD-3r-d4G"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7X-Vx-y3q">
+                    <rect key="frame" x="10" y="100" width="309" height="46"/>
+                    <gestureRecognizers/>
+                    <attributedString key="attributedText">
+                        <fragment content="We're making improvements around here. Get your free upgrade! ">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="More">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="14" name=".SFNSText-Bold"/>
+                                <font key="NSOriginalFont" size="14" name=".SFNSText-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                <integer key="NSUnderline" value="1"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pw-Nj-rZF">
+                    <rect key="frame" x="10" y="100" width="309" height="46"/>
+                    <connections>
+                        <action selector="showMigrationInfoButtonPressed:" destination="-2" eventType="touchUpInside" id="uED-jG-Twu"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eO0-iK-1Ym">
+                    <rect key="frame" x="92" y="156" width="145" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGW-Vp-uBw">
+                    <rect key="frame" x="116.5" y="156" width="95" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="hyB-4e-hlB"/>
+                    </constraints>
+                    <state key="normal" title="Upgrade Now"/>
+                    <connections>
+                        <action selector="startAutoMigrationButtonPressed:" destination="-2" eventType="touchUpInside" id="Ozp-rR-H8C"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="5Pw-Nj-rZF" firstAttribute="height" secondItem="d7X-Vx-y3q" secondAttribute="height" id="0o1-tM-gM5"/>
+                <constraint firstItem="d7X-Vx-y3q" firstAttribute="top" secondItem="1b8-Sk-FkY" secondAttribute="bottom" constant="10" id="5sq-CX-KUG"/>
+                <constraint firstItem="5Pw-Nj-rZF" firstAttribute="width" secondItem="d7X-Vx-y3q" secondAttribute="width" id="Bp0-Ch-mz7"/>
+                <constraint firstItem="eO0-iK-1Ym" firstAttribute="height" secondItem="kGW-Vp-uBw" secondAttribute="height" id="H68-fj-746"/>
+                <constraint firstItem="kGW-Vp-uBw" firstAttribute="top" secondItem="d7X-Vx-y3q" secondAttribute="bottom" constant="10" id="R8Q-UA-bBY"/>
+                <constraint firstItem="d7X-Vx-y3q" firstAttribute="leading" secondItem="RXs-xW-dqD" secondAttribute="leading" constant="10" id="WGP-lh-sKY"/>
+                <constraint firstItem="kGW-Vp-uBw" firstAttribute="centerX" secondItem="RXs-xW-dqD" secondAttribute="centerX" id="Y4w-Zt-qoH"/>
+                <constraint firstItem="1b8-Sk-FkY" firstAttribute="top" secondItem="RXs-xW-dqD" secondAttribute="top" constant="10" id="Ztq-4X-KSp"/>
+                <constraint firstItem="5Pw-Nj-rZF" firstAttribute="top" secondItem="d7X-Vx-y3q" secondAttribute="top" id="an7-BV-c8t"/>
+                <constraint firstItem="5Pw-Nj-rZF" firstAttribute="leading" secondItem="d7X-Vx-y3q" secondAttribute="leading" id="c35-2k-s4a"/>
+                <constraint firstAttribute="trailing" secondItem="d7X-Vx-y3q" secondAttribute="trailing" constant="10" id="ej3-Wy-RMa"/>
+                <constraint firstAttribute="trailing" secondItem="1b8-Sk-FkY" secondAttribute="trailing" constant="10" id="fm6-De-1Z2"/>
+                <constraint firstAttribute="bottom" secondItem="kGW-Vp-uBw" secondAttribute="bottom" constant="10" id="hoC-Fm-boy"/>
+                <constraint firstItem="1b8-Sk-FkY" firstAttribute="leading" secondItem="RXs-xW-dqD" secondAttribute="leading" constant="10" id="ibC-hv-CJL"/>
+                <constraint firstItem="eO0-iK-1Ym" firstAttribute="width" secondItem="kGW-Vp-uBw" secondAttribute="width" constant="50" id="ign-6Z-Ckr"/>
+                <constraint firstItem="eO0-iK-1Ym" firstAttribute="top" secondItem="kGW-Vp-uBw" secondAttribute="top" id="nDs-UZ-f04"/>
+                <constraint firstItem="eO0-iK-1Ym" firstAttribute="centerX" secondItem="RXs-xW-dqD" secondAttribute="centerX" id="zUC-2S-O8s"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="188.5" y="-204"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="6yay.png" width="370" height="320"/>
+    </resources>
+</document>

@@ -55,7 +55,7 @@
     [[UIButton appearanceWhenContainedIn:UITableViewCell.class, UITableView.class, nil] setBackgroundColor:nil];
     [[UIButton appearanceWhenContainedIn:UITableViewCell.class, UITableView.class, nil] setTintColor:nil];
     // Migration button style
-    [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setBackgroundColor:nil];
+    [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setBackgroundColor:UIColor.clearColor];
     [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setTintColor:self.mainThemeColor];
     
     UIPageControl *pageControl = [UIPageControl appearance];
