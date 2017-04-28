@@ -49,6 +49,8 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (void)settingsButtonPressed:(id)sender;
 - (void)composeButtonPressed:(id)sender;
 - (IBAction)didPressStartMigrationButton:(id)sender;
+- (MigrationInfoHeaderView *)createMigrationHeaderView:(OTRXMPPAccount *)account;
+@property (nonatomic, strong) MigrationInfoHeaderView *migrationInfoHeaderView;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)

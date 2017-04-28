@@ -208,12 +208,25 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
     }
 }
 
+@objc public protocol ZomAccountMigrationViewControllerAutoDelegateProtocol {
+    func automaticMigrationDone(error:Error?) -> Void
+}
+
 open class ZomAccountMigrationViewController: OTRAccountMigrationViewController {
+
+    public var useAutoMode:Bool = false
+    open weak var autoDelegate:ZomAccountMigrationViewControllerAutoDelegateProtocol?
+    
     override open func handleSuccess(withNewAccount account: OTRAccount, sender: Any) {
         super.handleSuccess(withNewAccount: account, sender: sender)
         // Set the migrated account as default!
         if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             appDelegate.setDefaultAccount(account)
+        }
+        if useAutoMode {
+            if let delegate = autoDelegate {
+                delegate.automaticMigrationDone(error: nil)
+            }
         }
     }
 }

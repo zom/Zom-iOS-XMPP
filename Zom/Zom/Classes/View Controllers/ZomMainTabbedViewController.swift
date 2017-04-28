@@ -8,7 +8,7 @@
 
 import Foundation
 
-open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate, ZomMigrationInfoViewControllerDelegateProtocol {
+open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewControllerDelegate, ZomMigrationInfoViewControllerDelegateProtocol, ZomAccountMigrationViewControllerAutoDelegateProtocol {
     
     private var chatsViewController:ZomConversationViewController? = nil
     private var friendsViewController:ZomComposeViewController? = nil
@@ -18,6 +18,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     private var barButtonSettings:UIBarButtonItem?
     private var barButtonAddChat:UIBarButtonItem?
     private var chatsViewControllerTitleView:UIView?
+    private var automaticMigrationViewController:UIViewController?
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -250,12 +251,31 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     }
     
     public func startAutomaticMigration() {
-        // Ok, to be implemented
-        print("More to come")
+        guard let migrationView = chatsViewController?.migrationInfoHeaderView as? ZomMigrationInfoHeaderView, let oldAccount = migrationView.account else { return }
+        chatsViewController?.migrationStep = 1
+        let migrateVC = OTRAccountMigrationViewController(oldAccount: oldAccount)
+        migrateVC.showsCancelButton = true
+        migrateVC.modalPresentationStyle = .none
+        automaticMigrationViewController = UINavigationController(rootViewController: migrateVC)
+        migrateVC.viewDidLoad()
+        if let zomMigrate = migrateVC as? ZomAccountMigrationViewController {
+            zomMigrate.useAutoMode = true
+            zomMigrate.autoDelegate = self
+        }
+        migrateVC.viewWillAppear(false)
+        migrateVC.loginButtonPressed(self)
     }
     
     public func startAssistedMigration() {
         chatsViewController?.didPressStartMigrationButton(self)
+    }
+
+    @IBAction func migrationDoneButtonPressed(_ sender: AnyObject) {
+        chatsViewController?.migrationStep = 0
+    }
+    
+    public func automaticMigrationDone(error: Error?) {
+        chatsViewController?.migrationStep = 2
     }
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

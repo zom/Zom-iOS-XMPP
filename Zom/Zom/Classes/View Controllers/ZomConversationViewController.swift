@@ -17,6 +17,16 @@ open class ZomConversationViewController: OTRConversationViewController {
     var pitchInviteView:UIView? = nil
     //var pitchCreateGroupView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
+    public var migrationStep:Int = 0 {
+        didSet {
+            updateMigrationViewWithStep(view: self.migrationInfoHeaderView)
+            if migrationStep == 0 && self.migrationInfoHeaderView != nil {
+                // Remove it
+                self.migrationInfoHeaderView = nil
+                self.tableView.tableHeaderView = nil
+            }
+        }
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +92,38 @@ open class ZomConversationViewController: OTRConversationViewController {
                 headerView.frame = frame
                 tableView.tableHeaderView = headerView
             }
+        }
+    }
+
+    open override func createMigrationHeaderView(_ account: OTRXMPPAccount!) -> MigrationInfoHeaderView! {
+        let view = super.createMigrationHeaderView(account)
+        updateMigrationViewWithStep(view: view)
+        return view
+    }
+    
+    public func updateMigrationViewWithStep(view:UIView?) {
+        guard let view = view as? ZomMigrationInfoHeaderView else { return }
+        view.autoMigrateButton.isHidden = (self.migrationStep != 0)
+        view.assistedMigrateButton.isEnabled = (self.migrationStep == 0)
+        view.workingButton.isHidden = (self.migrationStep != 1)
+        view.doneButton.isHidden = (self.migrationStep != 2)
+        view.infoLabel.isHidden = (self.migrationStep == 2)
+        view.doneLabel.isHidden = (self.migrationStep != 2)
+        var imageFile:String?
+        switch migrationStep
+        {
+        case 1:
+             imageFile = ZomStickerMessage.getFilenameForSticker("1thinking", inPack: "olo and shimi")
+            break
+        case 2:
+            imageFile = ZomStickerMessage.getFilenameForSticker("9dancing", inPack: "olo and shimi")
+            break
+        default:
+            imageFile = ZomStickerMessage.getFilenameForSticker("6yay", inPack: "olo and shimi")
+            break
+        }
+        if let file = imageFile {
+            view.imageView.image = UIImage(contentsOfFile: file)
         }
     }
 }
