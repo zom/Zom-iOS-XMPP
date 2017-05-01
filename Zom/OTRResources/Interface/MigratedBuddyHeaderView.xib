@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" id="2Cx-4V-S4Y" customClass="ZomMigratedBuddyHeaderView" customModule="Zom">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="196"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="12music.png" translatesAutoresizingMaskIntoConstraints="NO" id="9AE-Xg-7zW">
+                    <rect key="frame" x="10" y="10" width="309" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="kdu-rF-cPa"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNH-On-dDu">
+                    <rect key="frame" x="10" y="100" width="309" height="46"/>
+                    <gestureRecognizers/>
+                    <attributedString key="attributedText">
+                        <fragment content="Your friend has upgraded. Chat with them at %@">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yr-HZ-wkW">
+                    <rect key="frame" x="120.5" y="156" width="87" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="fvU-Xg-ent"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                    <state key="normal" title="Switch"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didPressMigratedSwitch" destination="-2" eventType="touchUpInside" id="6ah-v0-TKe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="9AE-Xg-7zW" firstAttribute="leading" secondItem="2Cx-4V-S4Y" secondAttribute="leading" constant="10" id="DWu-UY-kFt"/>
+                <constraint firstAttribute="trailing" secondItem="WNH-On-dDu" secondAttribute="trailing" constant="10" id="JdM-yx-ooz"/>
+                <constraint firstItem="7yr-HZ-wkW" firstAttribute="top" secondItem="WNH-On-dDu" secondAttribute="bottom" constant="10" id="Lee-DL-gNd"/>
+                <constraint firstAttribute="trailing" secondItem="9AE-Xg-7zW" secondAttribute="trailing" constant="10" id="Wwm-HO-umQ"/>
+                <constraint firstAttribute="bottom" secondItem="7yr-HZ-wkW" secondAttribute="bottom" constant="10" id="Zu5-S3-cdQ"/>
+                <constraint firstItem="WNH-On-dDu" firstAttribute="leading" secondItem="2Cx-4V-S4Y" secondAttribute="leading" constant="10" id="aWt-KK-EgA"/>
+                <constraint firstItem="WNH-On-dDu" firstAttribute="top" secondItem="9AE-Xg-7zW" secondAttribute="bottom" constant="10" id="bCy-LC-Cq0"/>
+                <constraint firstItem="7yr-HZ-wkW" firstAttribute="centerX" secondItem="2Cx-4V-S4Y" secondAttribute="centerX" id="nqw-GT-E5d"/>
+                <constraint firstItem="9AE-Xg-7zW" firstAttribute="top" secondItem="2Cx-4V-S4Y" secondAttribute="top" constant="10" id="zOi-Op-73R"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="infoLabel" destination="WNH-On-dDu" id="BHt-tr-EGT"/>
+                <outlet property="switchButton" destination="7yr-HZ-wkW" id="ToA-6d-n0D"/>
+            </connections>
+            <point key="canvasLocation" x="188.5" y="-204"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="12music.png" width="370" height="320"/>
+    </resources>
+</document>

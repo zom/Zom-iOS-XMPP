@@ -35,8 +35,10 @@
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */; };
+		924BC4461EB72A16001E9F42 /* 12music.png in Resources */ = {isa = PBXBuildFile; fileRef = 924BC4441EB72A09001E9F42 /* 12music.png */; };
+		924BC4481EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */; };
+		924BC4491EB77449001E9F42 /* MigratedBuddyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924BC4421EB7286D001E9F42 /* MigratedBuddyHeaderView.xib */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
-		924F68551EA7720400528FB6 /* MigratedBuddyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924F68531EA7720000528FB6 /* MigratedBuddyHeaderView.xib */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
@@ -601,8 +603,10 @@
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ZomPods-Zom-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-acknowledgements.plist"; sourceTree = "<group>"; };
+		924BC4421EB7286D001E9F42 /* MigratedBuddyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MigratedBuddyHeaderView.xib; sourceTree = "<group>"; };
+		924BC4441EB72A09001E9F42 /* 12music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 12music.png; path = "../../Zom/Stickers/olo and shimi/12music.png"; sourceTree = "<group>"; };
+		924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigratedBuddyHeaderView.swift; path = Classes/Views/ZomMigratedBuddyHeaderView.swift; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
-		924F68531EA7720000528FB6 /* MigratedBuddyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MigratedBuddyHeaderView.xib; path = ../../../ChatSecure/OTRResources/Interface/MigratedBuddyHeaderView.xib; sourceTree = "<group>"; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -884,6 +888,7 @@
 				92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */,
 				9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */,
 				92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */,
+				924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1122,6 +1127,7 @@
 				928AB8131CF845880056AEC7 /* ZomImages.xcassets */,
 				92256CCB1EB2287C00CE4B35 /* 6yay.png */,
 				92256CD91EB38F7700CE4B35 /* 15biscuit.png */,
+				924BC4441EB72A09001E9F42 /* 12music.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1129,8 +1135,8 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				924BC4421EB7286D001E9F42 /* MigratedBuddyHeaderView.xib */,
 				92256CC81EB2175700CE4B35 /* MigrationInfoHeaderView.xib */,
-				924F68531EA7720000528FB6 /* MigratedBuddyHeaderView.xib */,
 				926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */,
 				926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */,
 				926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */,
@@ -1769,6 +1775,7 @@
 				926AF4E51E847BB100463F54 /* PushAccountTableViewCell.xib in Resources */,
 				926AF4E61E847BB100463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
 				926AF4E71E847BB100463F54 /* SingleButtonTableViewCell.xib in Resources */,
+				924BC4461EB72A16001E9F42 /* 12music.png in Resources */,
 				926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				926AF4E91E847BB100463F54 /* UserInfoProfileCell.xib in Resources */,
 				926AF4EA1E847BB100463F54 /* XMPPAccountCell.xib in Resources */,
@@ -1786,7 +1793,7 @@
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
 				928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */,
-				924F68551EA7720400528FB6 /* MigratedBuddyHeaderView.xib in Resources */,
+				924BC4491EB77449001E9F42 /* MigratedBuddyHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1860,6 +1867,7 @@
 				921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */,
 				630A50001E78858100A79C85 /* ZomProfileViewControllerSource.swift in Sources */,
 				92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */,
+				924BC4481EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift in Sources */,
 				92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */,
 				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
 				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
