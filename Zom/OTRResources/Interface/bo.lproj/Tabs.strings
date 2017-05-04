@@ -1,3 +1,5 @@
+/* Class = "UIButton"; normalTitle = "Advanced"; ObjectID = "0jb-cM-dW1"; */
+"0jb-cM-dW1.normalTitle" = "ཚད་མཐོ་བོ།";
 
 /* Class = "UIButton"; normalTitle = "Photo Stream"; ObjectID = "2YO-2a-YcG"; */
 "2YO-2a-YcG.normalTitle" = "པར་མཛོད།";
@@ -14,7 +16,7 @@
 /* Class = "UITabBarItem"; title = "Friends"; ObjectID = "LlX-wc-bzj"; */
 "LlX-wc-bzj.title" = "གྲོགས་པོ།";
 
-/* Class = "UIButton"; normalTitle = "Coming Soon"; ObjectID = "OCh-XO-KNo"; */
+/* (No Commment) */
 "OCh-XO-KNo.normalTitle" = "Coming Soon";
 
 /* Class = "UIButton"; normalTitle = "Coming Soon"; ObjectID = "QWh-mJ-5c7"; */
@@ -22,6 +24,9 @@
 
 /* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "V6b-cp-1dq"; */
 "V6b-cp-1dq.normalTitle" = "འཛོམས་ཞབས་ཞུ།";
+
+/* Class = "UIButton"; normalTitle = "Upgrade Now"; ObjectID = "WK5-FQ-F9x"; */
+"WK5-FQ-F9x.normalTitle" = "རིམ་སྤོར་";
 
 /* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "WPP-eD-yKO"; */
 "WPP-eD-yKO.normalTitle" = "ཚོགས་པ་ཞིག་བཟོས།";
@@ -46,3 +51,4 @@
 
 /* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
 "pL4-Qt-LL4.title" = "ང་།";
+
