@@ -26,7 +26,7 @@
 "V6b-cp-1dq.normalTitle" = "འཛོམས་ཞབས་ཞུ།";
 
 /* Class = "UIButton"; normalTitle = "Upgrade Now"; ObjectID = "WK5-FQ-F9x"; */
-"WK5-FQ-F9x.normalTitle" = "རིམ་སྤོར་";
+"WK5-FQ-F9x.normalTitle" = "རིམ་སྤོར་བྱོས།";
 
 /* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "WPP-eD-yKO"; */
 "WPP-eD-yKO.normalTitle" = "ཚོགས་པ་ཞིག་བཟོས།";
@@ -42,6 +42,9 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "ic8-e2-idk"; */
 "ic8-e2-idk.text" = "Label";
+
+/* Class = "UILabel"; text = "We need to upgrade your Zom account to a new server. We can automatically upgrade you to provide the best performance. If you are an advanced user, you can also choose your own server."; ObjectID = "ifp-gM-dKk"; */
+"ifp-gM-dKk.text" = "ཁྱེད་ཀྱི་རོགས་པ་གསར་པའི་ལན་ལ་སྒུག་བཞིན་ཡོད། ང་ཚོས་ཐད་ཀར་ཁྱེད་ཀྱི་མཉེན་ཆས་རིམ་སྤོར་བྱེད་ཆོག གལ་ཏེ་ཁྱེད་གློག་ཀླད་ཐོག་མཁས་པ་ཞིག་ཡིན་ན་རང་གི་དྲ་གནས་མཁོ་སྤྲོད་མཁན་རང་རང་གིས་འདམ་ཡང་ཆོག";
 
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
 "mMW-ze-V2Y.title" = "གསར་རྙེད།";
