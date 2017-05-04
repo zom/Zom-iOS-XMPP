@@ -25,11 +25,9 @@
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
 		921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
-		92256CCA1EB2175C00CE4B35 /* MigrationInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92256CC81EB2175700CE4B35 /* MigrationInfoHeaderView.xib */; };
 		92256CCC1EB2287C00CE4B35 /* 6yay.png in Resources */ = {isa = PBXBuildFile; fileRef = 92256CCB1EB2287C00CE4B35 /* 6yay.png */; };
 		92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */; };
 		92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */; };
-		92256CD81EB3887600CE4B35 /* WaitingForApprovalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92256CD71EB3887600CE4B35 /* WaitingForApprovalView.xib */; };
 		92256CDC1EB38F8200CE4B35 /* 15biscuit.png in Resources */ = {isa = PBXBuildFile; fileRef = 92256CD91EB38F7700CE4B35 /* 15biscuit.png */; };
 		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
@@ -37,8 +35,11 @@
 		924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */; };
 		924BC4461EB72A16001E9F42 /* 12music.png in Resources */ = {isa = PBXBuildFile; fileRef = 924BC4441EB72A09001E9F42 /* 12music.png */; };
 		924BC4481EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */; };
-		924BC4491EB77449001E9F42 /* MigratedBuddyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924BC4421EB7286D001E9F42 /* MigratedBuddyHeaderView.xib */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
+		924FC4EC1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC4EE1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib */; };
+		924FC5691EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC56B1EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib */; };
+		924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC5AC1EBB3FE800CEA225 /* PreparingSessionView.xib */; };
+		924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
@@ -73,7 +74,6 @@
 		929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */; };
 		92A021971DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */; };
 		92A021CE1DF0133500EC4EE4 /* AttachmentPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */; };
-		92A7C6631E93B4230025BFDC /* PreparingSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */; };
 		92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */; };
 		92AA05E51E3774EF0054BEAD /* ZomOnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */; };
 		92CBA8BC1D119E14001CDD3D /* ZomStickerMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBA8BB1D119E14001CDD3D /* ZomStickerMessage.swift */; };
@@ -593,20 +593,145 @@
 		921224681CF7124600A88DF6 /* ZomSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomSettingsManager.swift; path = Classes/ZomSettingsManager.swift; sourceTree = "<group>"; };
 		921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMainTabbedViewController.swift; path = "Classes/View Controllers/ZomMainTabbedViewController.swift"; sourceTree = "<group>"; };
 		921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchCreateGroupView.xib; sourceTree = "<group>"; };
-		92256CC81EB2175700CE4B35 /* MigrationInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MigrationInfoHeaderView.xib; sourceTree = "<group>"; };
 		92256CCB1EB2287C00CE4B35 /* 6yay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6yay.png; path = "../../Zom/Stickers/olo and shimi/6yay.png"; sourceTree = "<group>"; };
 		92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoViewController.swift; path = "Classes/View Controllers/ZomMigrationInfoViewController.swift"; sourceTree = "<group>"; };
 		92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoHeaderView.swift; path = Classes/Views/ZomMigrationInfoHeaderView.swift; sourceTree = "<group>"; };
-		92256CD71EB3887600CE4B35 /* WaitingForApprovalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForApprovalView.xib; sourceTree = "<group>"; };
 		92256CD91EB38F7700CE4B35 /* 15biscuit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15biscuit.png; path = "../../Zom/Stickers/olo and shimi/15biscuit.png"; sourceTree = "<group>"; };
 		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ZomPods-Zom-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-acknowledgements.plist"; sourceTree = "<group>"; };
-		924BC4421EB7286D001E9F42 /* MigratedBuddyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MigratedBuddyHeaderView.xib; sourceTree = "<group>"; };
 		924BC4441EB72A09001E9F42 /* 12music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 12music.png; path = "../../Zom/Stickers/olo and shimi/12music.png"; sourceTree = "<group>"; };
 		924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigratedBuddyHeaderView.swift; path = Classes/Views/ZomMigratedBuddyHeaderView.swift; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		924FC4ED1EBB3F3900CEA225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MigratedBuddyHeaderView.xib; sourceTree = "<group>"; };
+		924FC52C1EBB3F6400CEA225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC52E1EBB3F6700CEA225 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5301EBB3F6800CEA225 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5321EBB3F6C00CEA225 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5341EBB3F7400CEA225 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5361EBB3F7A00CEA225 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5381EBB3F7C00CEA225 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC53A1EBB3F7E00CEA225 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC53C1EBB3F7F00CEA225 /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "fa-IR.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC53E1EBB3F8100CEA225 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5401EBB3F8200CEA225 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5421EBB3F8400CEA225 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5441EBB3F8600CEA225 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5461EBB3F8700CEA225 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5481EBB3F8B00CEA225 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC54A1EBB3F8D00CEA225 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC54C1EBB3F8E00CEA225 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC54E1EBB3F9000CEA225 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5501EBB3F9200CEA225 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5521EBB3F9300CEA225 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5541EBB3F9400CEA225 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5561EBB3F9500CEA225 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5581EBB3F9700CEA225 /* sl-SI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sl-SI"; path = "sl-SI.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC55A1EBB3F9800CEA225 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC55C1EBB3F9A00CEA225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC55E1EBB3F9B00CEA225 /* ro-RO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ro-RO"; path = "ro-RO.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5601EBB3F9C00CEA225 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5621EBB3F9D00CEA225 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5641EBB3F9F00CEA225 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/MigratedBuddyHeaderView.strings; sourceTree = "<group>"; };
+		924FC5661EBB3FA000CEA225 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5681EBB3FA200CEA225 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/MigratedBuddyHeaderView.strings"; sourceTree = "<group>"; };
+		924FC56A1EBB3FAB00CEA225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MigrationInfoHeaderView.xib; sourceTree = "<group>"; };
+		924FC56D1EBB3FB000CEA225 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC56F1EBB3FB100CEA225 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5711EBB3FB300CEA225 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5731EBB3FB400CEA225 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5751EBB3FB500CEA225 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5771EBB3FB600CEA225 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5791EBB3FB700CEA225 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC57B1EBB3FBA00CEA225 /* sl-SI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sl-SI"; path = "sl-SI.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC57D1EBB3FBB00CEA225 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC57F1EBB3FBC00CEA225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5811EBB3FBE00CEA225 /* ro-RO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ro-RO"; path = "ro-RO.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5831EBB3FBF00CEA225 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5851EBB3FC100CEA225 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5871EBB3FC200CEA225 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5891EBB3FC400CEA225 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC58B1EBB3FC600CEA225 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC58D1EBB3FC800CEA225 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC58F1EBB3FC900CEA225 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5911EBB3FCA00CEA225 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5931EBB3FCC00CEA225 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5951EBB3FCD00CEA225 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5971EBB3FD000CEA225 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5991EBB3FD100CEA225 /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "fa-IR.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC59B1EBB3FD200CEA225 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC59D1EBB3FD300CEA225 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC59F1EBB3FD400CEA225 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5A11EBB3FD500CEA225 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/MigrationInfoHeaderView.strings"; sourceTree = "<group>"; };
+		924FC5A31EBB3FD700CEA225 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5A51EBB3FD800CEA225 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5A71EBB3FDA00CEA225 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5A91EBB3FDC00CEA225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MigrationInfoHeaderView.strings; sourceTree = "<group>"; };
+		924FC5AB1EBB3FE800CEA225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreparingSessionView.xib; sourceTree = "<group>"; };
+		924FC5AE1EBB3FF000CEA225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WaitingForApprovalView.xib; sourceTree = "<group>"; };
+		924FC5B11EBB402F00CEA225 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5B31EBB403100CEA225 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5B51EBB403200CEA225 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5B71EBB403300CEA225 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5B91EBB403400CEA225 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5BB1EBB403500CEA225 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5BD1EBB403600CEA225 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5BF1EBB403700CEA225 /* sl-SI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sl-SI"; path = "sl-SI.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5C11EBB403800CEA225 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5C31EBB403A00CEA225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5C51EBB403C00CEA225 /* ro-RO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ro-RO"; path = "ro-RO.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5C71EBB403D00CEA225 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5C91EBB403E00CEA225 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5CB1EBB404000CEA225 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5CD1EBB404100CEA225 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5CF1EBB404400CEA225 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5D11EBB404600CEA225 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5D31EBB404700CEA225 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5D51EBB404900CEA225 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5D71EBB404A00CEA225 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5D91EBB404C00CEA225 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5DB1EBB404D00CEA225 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5DD1EBB404F00CEA225 /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "fa-IR.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5DF1EBB405000CEA225 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5E11EBB405200CEA225 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5E31EBB405300CEA225 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5E51EBB405400CEA225 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/PreparingSessionView.strings"; sourceTree = "<group>"; };
+		924FC5E71EBB405500CEA225 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5E91EBB405700CEA225 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5EB1EBB405800CEA225 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5ED1EBB405900CEA225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PreparingSessionView.strings; sourceTree = "<group>"; };
+		924FC5EF1EBB406100CEA225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5F11EBB406200CEA225 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5F31EBB406300CEA225 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5F51EBB406400CEA225 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5F71EBB406600CEA225 /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC5F91EBB406700CEA225 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5FB1EBB406800CEA225 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5FD1EBB406A00CEA225 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC5FF1EBB406B00CEA225 /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "fa-IR.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6011EBB406C00CEA225 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6031EBB406E00CEA225 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6051EBB406F00CEA225 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6071EBB407000CEA225 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6091EBB407100CEA225 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC60B1EBB407400CEA225 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC60D1EBB407500CEA225 /* nb-NO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nb-NO"; path = "nb-NO.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC60F1EBB407600CEA225 /* nl-NL */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "nl-NL"; path = "nl-NL.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6111EBB407800CEA225 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6131EBB407900CEA225 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6151EBB407A00CEA225 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6171EBB407B00CEA225 /* ro-RO */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ro-RO"; path = "ro-RO.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6191EBB407D00CEA225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC61B1EBB407E00CEA225 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC61D1EBB407F00CEA225 /* sl-SI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sl-SI"; path = "sl-SI.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC61F1EBB408100CEA225 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6211EBB408200CEA225 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6231EBB408300CEA225 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC6251EBB408700CEA225 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6271EBB408900CEA225 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
+		924FC6291EBB408A00CEA225 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
+		924FC62B1EBB408C00CEA225 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -666,7 +791,6 @@
 		929545871BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBaseLoginViewController.swift; path = "Classes/View Controllers/Login View Controllers/ZomBaseLoginViewController.swift"; sourceTree = "<group>"; };
 		92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomCompactTraitViewController.swift; path = "Classes/View Controllers/ZomCompactTraitViewController.swift"; sourceTree = "<group>"; };
 		92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachmentPicker.xib; sourceTree = "<group>"; };
-		92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreparingSessionView.xib; sourceTree = "<group>"; };
 		92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomCongratsViewController.swift; path = "Classes/View Controllers/Onboarding/ZomCongratsViewController.swift"; sourceTree = "<group>"; };
 		92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomOnboardingNavigationController.swift; path = "Classes/View Controllers/Onboarding/ZomOnboardingNavigationController.swift"; sourceTree = "<group>"; };
 		92CBA8BB1D119E14001CDD3D /* ZomStickerMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomStickerMessage.swift; path = Classes/ZomStickerMessage.swift; sourceTree = "<group>"; };
@@ -1135,8 +1259,8 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				924BC4421EB7286D001E9F42 /* MigratedBuddyHeaderView.xib */,
-				92256CC81EB2175700CE4B35 /* MigrationInfoHeaderView.xib */,
+				924FC4EE1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib */,
+				924FC56B1EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib */,
 				926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */,
 				926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */,
 				926AF49E1E847B3800463F54 /* ServerCapabilityTableViewCell.xib */,
@@ -1154,8 +1278,8 @@
 				921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */,
 				92F6947D1E04913E00B0963C /* Tabs.storyboard */,
 				92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */,
-				92A7C6621E93B4230025BFDC /* PreparingSessionView.xib */,
-				92256CD71EB3887600CE4B35 /* WaitingForApprovalView.xib */,
+				924FC5AC1EBB3FE800CEA225 /* PreparingSessionView.xib */,
+				924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1737,7 +1861,7 @@
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
-				92A7C6631E93B4230025BFDC /* PreparingSessionView.xib in Resources */,
+				924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */,
 				926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
 				926AF4A61E847B3800463F54 /* SingleButtonTableViewCell.xib in Resources */,
@@ -1753,7 +1877,7 @@
 				926AF4A81E847B3800463F54 /* UserInfoProfileCell.xib in Resources */,
 				92DD3E371BFB2271000811C1 /* PitchInviteView.xib in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
-				92256CD81EB3887600CE4B35 /* WaitingForApprovalView.xib in Resources */,
+				924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */,
 				92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
@@ -1779,7 +1903,7 @@
 				926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				926AF4E91E847BB100463F54 /* UserInfoProfileCell.xib in Resources */,
 				926AF4EA1E847BB100463F54 /* XMPPAccountCell.xib in Resources */,
-				92256CCA1EB2175C00CE4B35 /* MigrationInfoHeaderView.xib in Resources */,
+				924FC5691EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib in Resources */,
 				D99DEC311BABDEF000875194 /* OTRCountryImages.xcassets in Resources */,
 				633CDA221E0350BF001A3ACF /* ZomPasswordCell.xib in Resources */,
 				D99DEC0B1BABDDAE00875194 /* Localizable.strings in Resources */,
@@ -1793,7 +1917,7 @@
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
 				928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */,
-				924BC4491EB77449001E9F42 /* MigratedBuddyHeaderView.xib in Resources */,
+				924FC4EC1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1968,6 +2092,162 @@
 				92757BC81CC57B98000E3513 /* pl */,
 			);
 			name = Onboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		924FC4EE1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924FC4ED1EBB3F3900CEA225 /* Base */,
+				924FC52C1EBB3F6400CEA225 /* en */,
+				924FC52E1EBB3F6700CEA225 /* ar */,
+				924FC5301EBB3F6800CEA225 /* bo */,
+				924FC5321EBB3F6C00CEA225 /* ca */,
+				924FC5341EBB3F7400CEA225 /* da-DK */,
+				924FC5361EBB3F7A00CEA225 /* de */,
+				924FC5381EBB3F7C00CEA225 /* el */,
+				924FC53A1EBB3F7E00CEA225 /* es */,
+				924FC53C1EBB3F7F00CEA225 /* fa-IR */,
+				924FC53E1EBB3F8100CEA225 /* fr */,
+				924FC5401EBB3F8200CEA225 /* he */,
+				924FC5421EBB3F8400CEA225 /* hu */,
+				924FC5441EBB3F8600CEA225 /* id */,
+				924FC5461EBB3F8700CEA225 /* it */,
+				924FC5481EBB3F8B00CEA225 /* ja */,
+				924FC54A1EBB3F8D00CEA225 /* zh-Hant-TW */,
+				924FC54C1EBB3F8E00CEA225 /* zh-Hans-CN */,
+				924FC54E1EBB3F9000CEA225 /* vi */,
+				924FC5501EBB3F9200CEA225 /* uz */,
+				924FC5521EBB3F9300CEA225 /* tr */,
+				924FC5541EBB3F9400CEA225 /* sv */,
+				924FC5561EBB3F9500CEA225 /* sl */,
+				924FC5581EBB3F9700CEA225 /* sl-SI */,
+				924FC55A1EBB3F9800CEA225 /* sk */,
+				924FC55C1EBB3F9A00CEA225 /* ru */,
+				924FC55E1EBB3F9B00CEA225 /* ro-RO */,
+				924FC5601EBB3F9C00CEA225 /* pt-PT */,
+				924FC5621EBB3F9D00CEA225 /* pt-BR */,
+				924FC5641EBB3F9F00CEA225 /* pl */,
+				924FC5661EBB3FA000CEA225 /* nl-NL */,
+				924FC5681EBB3FA200CEA225 /* nb-NO */,
+			);
+			name = MigratedBuddyHeaderView.xib;
+			sourceTree = "<group>";
+		};
+		924FC56B1EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924FC56A1EBB3FAB00CEA225 /* Base */,
+				924FC56D1EBB3FB000CEA225 /* zh-Hant-TW */,
+				924FC56F1EBB3FB100CEA225 /* zh-Hans-CN */,
+				924FC5711EBB3FB300CEA225 /* vi */,
+				924FC5731EBB3FB400CEA225 /* uz */,
+				924FC5751EBB3FB500CEA225 /* tr */,
+				924FC5771EBB3FB600CEA225 /* sv */,
+				924FC5791EBB3FB700CEA225 /* sl */,
+				924FC57B1EBB3FBA00CEA225 /* sl-SI */,
+				924FC57D1EBB3FBB00CEA225 /* sk */,
+				924FC57F1EBB3FBC00CEA225 /* ru */,
+				924FC5811EBB3FBE00CEA225 /* ro-RO */,
+				924FC5831EBB3FBF00CEA225 /* pt-PT */,
+				924FC5851EBB3FC100CEA225 /* pt-BR */,
+				924FC5871EBB3FC200CEA225 /* pl */,
+				924FC5891EBB3FC400CEA225 /* nl-NL */,
+				924FC58B1EBB3FC600CEA225 /* nb-NO */,
+				924FC58D1EBB3FC800CEA225 /* ja */,
+				924FC58F1EBB3FC900CEA225 /* it */,
+				924FC5911EBB3FCA00CEA225 /* id */,
+				924FC5931EBB3FCC00CEA225 /* hu */,
+				924FC5951EBB3FCD00CEA225 /* he */,
+				924FC5971EBB3FD000CEA225 /* fr */,
+				924FC5991EBB3FD100CEA225 /* fa-IR */,
+				924FC59B1EBB3FD200CEA225 /* es */,
+				924FC59D1EBB3FD300CEA225 /* el */,
+				924FC59F1EBB3FD400CEA225 /* de */,
+				924FC5A11EBB3FD500CEA225 /* da-DK */,
+				924FC5A31EBB3FD700CEA225 /* ca */,
+				924FC5A51EBB3FD800CEA225 /* bo */,
+				924FC5A71EBB3FDA00CEA225 /* ar */,
+				924FC5A91EBB3FDC00CEA225 /* en */,
+			);
+			name = MigrationInfoHeaderView.xib;
+			sourceTree = "<group>";
+		};
+		924FC5AC1EBB3FE800CEA225 /* PreparingSessionView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924FC5AB1EBB3FE800CEA225 /* Base */,
+				924FC5B11EBB402F00CEA225 /* zh-Hant-TW */,
+				924FC5B31EBB403100CEA225 /* zh-Hans-CN */,
+				924FC5B51EBB403200CEA225 /* vi */,
+				924FC5B71EBB403300CEA225 /* uz */,
+				924FC5B91EBB403400CEA225 /* tr */,
+				924FC5BB1EBB403500CEA225 /* sv */,
+				924FC5BD1EBB403600CEA225 /* sl */,
+				924FC5BF1EBB403700CEA225 /* sl-SI */,
+				924FC5C11EBB403800CEA225 /* sk */,
+				924FC5C31EBB403A00CEA225 /* ru */,
+				924FC5C51EBB403C00CEA225 /* ro-RO */,
+				924FC5C71EBB403D00CEA225 /* pt-PT */,
+				924FC5C91EBB403E00CEA225 /* pt-BR */,
+				924FC5CB1EBB404000CEA225 /* pl */,
+				924FC5CD1EBB404100CEA225 /* nl-NL */,
+				924FC5CF1EBB404400CEA225 /* nb-NO */,
+				924FC5D11EBB404600CEA225 /* ja */,
+				924FC5D31EBB404700CEA225 /* it */,
+				924FC5D51EBB404900CEA225 /* id */,
+				924FC5D71EBB404A00CEA225 /* hu */,
+				924FC5D91EBB404C00CEA225 /* he */,
+				924FC5DB1EBB404D00CEA225 /* fr */,
+				924FC5DD1EBB404F00CEA225 /* fa-IR */,
+				924FC5DF1EBB405000CEA225 /* es */,
+				924FC5E11EBB405200CEA225 /* el */,
+				924FC5E31EBB405300CEA225 /* de */,
+				924FC5E51EBB405400CEA225 /* da-DK */,
+				924FC5E71EBB405500CEA225 /* ca */,
+				924FC5E91EBB405700CEA225 /* bo */,
+				924FC5EB1EBB405800CEA225 /* ar */,
+				924FC5ED1EBB405900CEA225 /* en */,
+			);
+			name = PreparingSessionView.xib;
+			sourceTree = "<group>";
+		};
+		924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				924FC5AE1EBB3FF000CEA225 /* Base */,
+				924FC5EF1EBB406100CEA225 /* en */,
+				924FC5F11EBB406200CEA225 /* ar */,
+				924FC5F31EBB406300CEA225 /* bo */,
+				924FC5F51EBB406400CEA225 /* ca */,
+				924FC5F71EBB406600CEA225 /* da-DK */,
+				924FC5F91EBB406700CEA225 /* de */,
+				924FC5FB1EBB406800CEA225 /* el */,
+				924FC5FD1EBB406A00CEA225 /* es */,
+				924FC5FF1EBB406B00CEA225 /* fa-IR */,
+				924FC6011EBB406C00CEA225 /* fr */,
+				924FC6031EBB406E00CEA225 /* he */,
+				924FC6051EBB406F00CEA225 /* hu */,
+				924FC6071EBB407000CEA225 /* id */,
+				924FC6091EBB407100CEA225 /* it */,
+				924FC60B1EBB407400CEA225 /* ja */,
+				924FC60D1EBB407500CEA225 /* nb-NO */,
+				924FC60F1EBB407600CEA225 /* nl-NL */,
+				924FC6111EBB407800CEA225 /* pl */,
+				924FC6131EBB407900CEA225 /* pt-BR */,
+				924FC6151EBB407A00CEA225 /* pt-PT */,
+				924FC6171EBB407B00CEA225 /* ro-RO */,
+				924FC6191EBB407D00CEA225 /* ru */,
+				924FC61B1EBB407E00CEA225 /* sk */,
+				924FC61D1EBB407F00CEA225 /* sl-SI */,
+				924FC61F1EBB408100CEA225 /* sl */,
+				924FC6211EBB408200CEA225 /* sv */,
+				924FC6231EBB408300CEA225 /* tr */,
+				924FC6251EBB408700CEA225 /* zh-Hant-TW */,
+				924FC6271EBB408900CEA225 /* zh-Hans-CN */,
+				924FC6291EBB408A00CEA225 /* vi */,
+				924FC62B1EBB408C00CEA225 /* uz */,
+			);
+			name = WaitingForApprovalView.xib;
 			sourceTree = "<group>";
 		};
 		92F60BF31D018121008834AC /* Localizable.strings */ = {
