@@ -18,6 +18,8 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRComposeViewController (ZomOverride)
 @property (nonatomic, strong) OTRYapViewHandler *viewHandler;
 - (BOOL)canAddBuddies;
+- (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
+- (YapDatabaseViewFiltering *)getFilteringBlock:(BOOL)showArchived;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)

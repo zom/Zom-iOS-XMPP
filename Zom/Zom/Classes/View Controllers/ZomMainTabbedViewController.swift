@@ -18,6 +18,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     private var barButtonSettings:UIBarButtonItem?
     private var barButtonAddChat:UIBarButtonItem?
     private var chatsViewControllerTitleView:UIView?
+    private var friendsViewControllerTitleView:UIView?
     private var automaticMigrationViewController:UIViewController?
     
     convenience init() {
@@ -88,8 +89,16 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
                     subview.tintColor = UIColor.white
                 }
             }
-            updateTitle()
         }
+        if friendsViewControllerTitleView == nil {
+            friendsViewControllerTitleView = friendsViewController?.navigationItem.titleView
+            if let titleView = friendsViewControllerTitleView {
+                for subview:UIView in titleView.subviews {
+                    subview.tintColor = UIColor.white
+                }
+            }
+        }
+        updateTitle()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -152,6 +161,8 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
             }
             if selectedViewController == chatsViewController {
                 self.navigationItem.titleView = chatsViewControllerTitleView
+            } else if selectedViewController == friendsViewController {
+                self.navigationItem.titleView = friendsViewControllerTitleView
             } else {
                 self.navigationItem.titleView = nil
             }
