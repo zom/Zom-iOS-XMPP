@@ -1,6 +1,9 @@
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "TA9-iF-te6"; */
 "TA9-iF-te6.normalTitle" = "ཚར་སོང།";
 
+/* Class = "UILabel"; text = "We're making improvements around here. Get your free upgrade! [[More]]"; ObjectID = "d7X-Vx-y3q"; */
+"d7X-Vx-y3q.text" = "ད་ལྟ་ང་ཚོ་འདིར་བཟོ་བཅོས་རྒྱག་གི་ཡོད། རིན་མེད་མཉེན་ཆས་རིམ་སྤོར་འདི་ནས་ལེན་རོགས།";
+
 /* Class = "UIButton"; normalTitle = "Upgrade Now"; ObjectID = "kGW-Vp-uBw"; */
 "kGW-Vp-uBw.normalTitle" = "མཉེན་ཆས་རིམ་སྤོར་བྱོས།";
 
@@ -8,5 +11,5 @@
 "riy-5z-YuX.normalTitle" = "ཏོག་ཙམ་སྒུག་རོགས།";
 
 /* Class = "UILabel"; text = "Upgrade Complete! Waiting for your friends to approve your upgraded account."; ObjectID = "vsJ-yR-DAE"; */
-"vsJ-yR-DAE.text" = "རིམ་སྤོར་ཚར་སོང་།  ད་ཁྱེད་ཀྱི་རོགས་པ་ཚོས་ངོས་ལེན་བྱེད་པར་སྒུག་བཞིན་ཡོད།";
+"vsJ-yR-DAE.text" = "རིམ་སྤོར་ཚར་སོང་། ད་ཁྱེད་ཀྱི་རོགས་པ་ཚོས་ངོས་ལེན་བྱེད་པར་སྒུག་བཞིན་ཡོད།";
 
