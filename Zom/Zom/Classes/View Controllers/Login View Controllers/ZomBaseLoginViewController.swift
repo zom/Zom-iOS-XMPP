@@ -172,7 +172,7 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
         return super.textFieldShouldReturn(textField)
     }
     
-    override open func loginButtonPressed(_ sender: Any!) {
+    override open func loginButtonPressed(_ sender: Any) {
         if (onlyShowInfo) {
             dismiss(animated: true, completion: nil)
             return
