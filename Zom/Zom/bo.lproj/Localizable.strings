@@ -40,3 +40,11 @@
 /* help text for password generator */
 "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
 
+"Inbox" = "ཡིག་སྒམ།";
+
+"Active" = "དྲར་ཞུགས་བཞིན་པ།";
+
+"Archive" = "ཡིག་ཚང།";
+
+"Pending Approval" = "ངོས་ལེན་ལ་སྒུག་བཞིན་ཡོད།";
+
