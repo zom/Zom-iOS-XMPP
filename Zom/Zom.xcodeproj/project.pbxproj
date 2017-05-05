@@ -65,6 +65,9 @@
 		9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */; };
 		9278C3A01BF4D2AE003AC533 /* Stickers in Resources */ = {isa = PBXBuildFile; fileRef = 9278C39F1BF4D2AE003AC533 /* Stickers */; };
 		927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */; };
+		9286A5281EBC6EEB0069F124 /* ZomGenericLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */; };
+		9286A56B1EBC86430069F124 /* ArchivedFriendInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9286A56D1EBC86430069F124 /* ArchivedFriendInfoView.xib */; };
+		9286A5721EBC891D0069F124 /* ArchivedChatInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9286A5741EBC891D0069F124 /* ArchivedChatInfoView.xib */; };
 		928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
@@ -781,6 +784,11 @@
 		9278C39D1BF4C59A003AC533 /* StickerShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StickerShare.storyboard; sourceTree = "<group>"; };
 		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
 		927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickColorViewController.swift; path = "Classes/View Controllers/ZomPickColorViewController.swift"; sourceTree = "<group>"; };
+		9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomGenericLabelView.swift; path = Classes/Views/ZomGenericLabelView.swift; sourceTree = "<group>"; };
+		9286A56C1EBC86430069F124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ArchivedFriendInfoView.xib; sourceTree = "<group>"; };
+		9286A56F1EBC86480069F124 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/ArchivedFriendInfoView.strings; sourceTree = "<group>"; };
+		9286A5731EBC891D0069F124 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ArchivedChatInfoView.xib; sourceTree = "<group>"; };
+		9286A5761EBC89200069F124 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/ArchivedChatInfoView.strings; sourceTree = "<group>"; };
 		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		928AB8131CF845880056AEC7 /* ZomImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZomImages.xcassets; sourceTree = "<group>"; };
 		928C99181C047B4E009FF66A /* ZomComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeViewController.swift; path = "Classes/View Controllers/ZomComposeViewController.swift"; sourceTree = "<group>"; };
@@ -1013,6 +1021,7 @@
 				9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */,
 				92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */,
 				924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */,
+				9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1280,6 +1289,8 @@
 				92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */,
 				924FC5AC1EBB3FE800CEA225 /* PreparingSessionView.xib */,
 				924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */,
+				9286A56D1EBC86430069F124 /* ArchivedFriendInfoView.xib */,
+				9286A5741EBC891D0069F124 /* ArchivedChatInfoView.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1861,6 +1872,7 @@
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
+				9286A56B1EBC86430069F124 /* ArchivedFriendInfoView.xib in Resources */,
 				924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */,
 				926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
@@ -1883,6 +1895,7 @@
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
 				924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */,
 				9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */,
+				9286A5721EBC891D0069F124 /* ArchivedChatInfoView.xib in Resources */,
 				92F60BF11D018121008834AC /* Localizable.strings in Resources */,
 				92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */,
 				926AF4A51E847B3800463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
@@ -2009,6 +2022,7 @@
 				92A021971DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift in Sources */,
 				92DB70181C124BAD009B5684 /* ZomNewBuddyViewController.swift in Sources */,
 				92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */,
+				9286A5281EBC6EEB0069F124 /* ZomGenericLabelView.swift in Sources */,
 				929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */,
 				92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */,
 				6329CE201E009E51001BC2C6 /* ZomFingerprintCell.swift in Sources */,
@@ -2248,6 +2262,24 @@
 				924FC62B1EBB408C00CEA225 /* uz */,
 			);
 			name = WaitingForApprovalView.xib;
+			sourceTree = "<group>";
+		};
+		9286A56D1EBC86430069F124 /* ArchivedFriendInfoView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9286A56C1EBC86430069F124 /* Base */,
+				9286A56F1EBC86480069F124 /* bo */,
+			);
+			name = ArchivedFriendInfoView.xib;
+			sourceTree = "<group>";
+		};
+		9286A5741EBC891D0069F124 /* ArchivedChatInfoView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9286A5731EBC891D0069F124 /* Base */,
+				9286A5761EBC89200069F124 /* bo */,
+			);
+			name = ArchivedChatInfoView.xib;
 			sourceTree = "<group>";
 		};
 		92F60BF31D018121008834AC /* Localizable.strings */ = {

@@ -17,6 +17,8 @@ open class ZomConversationViewController: OTRConversationViewController {
     var pitchInviteView:UIView? = nil
     //var pitchCreateGroupView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
+    var archivedChatInfoView:UIView?
+
     public var migrationStep:Int = 0 {
         didSet {
             updateMigrationViewWithStep(view: self.migrationInfoHeaderView)
@@ -82,6 +84,29 @@ open class ZomConversationViewController: OTRConversationViewController {
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         sizeHeaderToFit()
+        if let view = archivedChatInfoView {
+            var frame = self.tableView.frame
+            frame = frame.offsetBy(dx: 0, dy: view.frame.height)
+            self.tableView.frame = frame
+        }
+    }
+    
+    override open func viewWillLayoutSubviews() {
+        if self.inboxArchiveControl.selectedSegmentIndex == 1, !UserDefaults.standard.bool(forKey: "zom_ArchivedChatInfoViewShown") {
+            if archivedChatInfoView == nil {
+                archivedChatInfoView = UINib(nibName: "ArchivedChatInfoView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+                if let view = archivedChatInfoView {
+                    view.translatesAutoresizingMaskIntoConstraints = false
+                    self.view.addSubview(view)
+                    
+                    let hconstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: NSLayoutFormatOptions.alignAllLeading, metrics: nil, views: ["view":view])
+                    NSLayoutConstraint.activate(hconstraints)
+                }
+            }
+        } else if archivedChatInfoView != nil {
+            archivedChatInfoView?.removeFromSuperview()
+            archivedChatInfoView = nil
+        }
     }
     
     func sizeHeaderToFit() {
@@ -95,6 +120,11 @@ open class ZomConversationViewController: OTRConversationViewController {
         }
     }
 
+    override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
+        super.updateInboxArchiveFilteringAndShowArchived(showArchived)
+        self.view.setNeedsLayout()
+    }
+    
     open override func createMigrationHeaderView(_ account: OTRXMPPAccount!) -> MigrationInfoHeaderView! {
         let view = super.createMigrationHeaderView(account)
         updateMigrationViewWithStep(view: view)
@@ -125,6 +155,11 @@ open class ZomConversationViewController: OTRConversationViewController {
         if let file = imageFile {
             view.imageView.image = UIImage(contentsOfFile: file)
         }
+    }
+    
+    @IBAction func didPressGotIt(_ sender: AnyObject) {
+        UserDefaults.standard.set(true, forKey: "zom_ArchivedChatInfoViewShown")
+        self.view.setNeedsLayout()
     }
 }
 

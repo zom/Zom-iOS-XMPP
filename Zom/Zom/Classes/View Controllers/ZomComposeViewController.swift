@@ -14,6 +14,7 @@ open class ZomComposeViewController: OTRComposeViewController {
     static var extensionName:String = "Zom" + OTRAllBuddiesDatabaseViewExtensionName
     static var filteredExtensionName:String = "Zom" + OTRFilteredBuddiesName
     open static var openInGroupMode:Bool = false
+    var archivedFriendInfoView:UIView?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,32 @@ open class ZomComposeViewController: OTRComposeViewController {
         }
         navigationItem.title = NSLocalizedString("Choose a Friend", comment: "When selecting friend")
     }
+
+    override open func viewWillLayoutSubviews() {
+        if self.inboxArchiveControl.selectedSegmentIndex == 1, !UserDefaults.standard.bool(forKey: "zom_ArchivedFriendInfoViewShown") {
+            if archivedFriendInfoView == nil {
+                archivedFriendInfoView = UINib(nibName: "ArchivedFriendInfoView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+                if let view = archivedFriendInfoView {
+                    view.translatesAutoresizingMaskIntoConstraints = false
+                    self.view.addSubview(view)
+                    
+                    let hconstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: NSLayoutFormatOptions.alignAllLeading, metrics: nil, views: ["view":view])
+                    NSLayoutConstraint.activate(hconstraints)
+                }
+            }
+        } else if archivedFriendInfoView != nil {
+            archivedFriendInfoView?.removeFromSuperview()
+            archivedFriendInfoView = nil
+        }
+    }
+    
+    override open func viewDidLayoutSubviews() {
+        if let view = archivedFriendInfoView {
+            var frame = self.tableView.frame
+            frame = frame.offsetBy(dx: 0, dy: view.frame.height)
+            self.tableView.frame = frame
+        }
+    }
     
     override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
         super.updateInboxArchiveFilteringAndShowArchived(showArchived)
@@ -34,6 +61,7 @@ open class ZomComposeViewController: OTRComposeViewController {
                 fvt.setFiltering(self.getFilteringBlock(showArchived), versionTag:NSUUID().uuidString)
             }
         })
+        self.view.setNeedsLayout()
     }
     
     func setupZomSortedView() {
@@ -91,4 +119,10 @@ open class ZomComposeViewController: OTRComposeViewController {
             }
         }
     }
+    
+    @IBAction func didPressGotIt(_ sender: AnyObject) {
+        UserDefaults.standard.set(true, forKey: "zom_ArchivedFriendInfoViewShown")
+        self.view.setNeedsLayout()
+    }
+    
 }

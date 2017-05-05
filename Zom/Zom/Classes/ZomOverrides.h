@@ -20,6 +20,8 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (BOOL)canAddBuddies;
 - (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
 - (YapDatabaseViewFiltering *)getFilteringBlock:(BOOL)showArchived;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISegmentedControl *inboxArchiveControl;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)
@@ -52,7 +54,9 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (void)composeButtonPressed:(id)sender;
 - (IBAction)didPressStartMigrationButton:(id)sender;
 - (MigrationInfoHeaderView *)createMigrationHeaderView:(OTRXMPPAccount *)account;
+- (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
 @property (nonatomic, strong) MigrationInfoHeaderView *migrationInfoHeaderView;
+@property (nonatomic, strong) UISegmentedControl *inboxArchiveControl;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)
