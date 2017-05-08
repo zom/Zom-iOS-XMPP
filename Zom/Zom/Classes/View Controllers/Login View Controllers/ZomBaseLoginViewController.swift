@@ -15,6 +15,8 @@ import BButton
 var ZomBaseLoginController_associatedObject1: UInt8 = 0
 var ZomBaseLoginController_associatedObject2: UInt8 = 1
 var ZomBaseLoginController_associatedObject3: UInt8 = 2
+var ZomAccountMigrationViewController_associatedObject1: UInt8 = 3
+var ZomAccountMigrationViewController_associatedObject2: UInt8 = 4
 
 extension OTRBaseLoginViewController {
     
@@ -214,8 +216,23 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
 
 open class ZomAccountMigrationViewController: OTRAccountMigrationViewController {
 
-    public lazy var useAutoMode:Bool = false
-    public lazy var autoDelegate:ZomAccountMigrationViewControllerAutoDelegateProtocol? = nil
+    open var useAutoMode:Bool {
+        get {
+            return objc_getAssociatedObject(self, &ZomAccountMigrationViewController_associatedObject1) as? Bool ?? false
+        }
+        set {
+            objc_setAssociatedObject(self, &ZomAccountMigrationViewController_associatedObject1, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+
+    open var autoDelegate:ZomAccountMigrationViewControllerAutoDelegateProtocol? {
+        get {
+            return objc_getAssociatedObject(self, &ZomAccountMigrationViewController_associatedObject2) as? ZomAccountMigrationViewControllerAutoDelegateProtocol
+        }
+        set {
+            objc_setAssociatedObject(self, &ZomAccountMigrationViewController_associatedObject2, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
     
     override open func handleSuccess(withNewAccount account: OTRAccount, sender: Any) {
         super.handleSuccess(withNewAccount: account, sender: sender)
@@ -223,6 +240,17 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
         if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
             appDelegate.setDefaultAccount(account)
         }
+        
+        // Logout old account and disable auto-login
+        OTRDatabaseManager.shared.readWriteDatabaseConnection?.readWrite({ (transaction) in
+            self.oldAccount.autologin = false
+            self.oldAccount.save(with: transaction)
+                //if let xmpp = OTRProtocolManager.shared.protocol(for: self.oldAccount) as? OTRXMPPManager,
+                    //xmpp.connectionStatus != .disconnected {
+                    //xmpp.disconnect()
+                //}
+        })
+        
         if useAutoMode {
             DispatchQueue.main.async {
                 if let delegate = self.autoDelegate {
