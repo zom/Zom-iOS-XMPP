@@ -253,7 +253,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     }
     
     public func startAutomaticMigration() {
-        guard let migrationView = chatsViewController?.migrationInfoHeaderView as? ZomMigrationInfoHeaderView, let oldAccount = migrationView.account else { return }
+        guard let migrationView = chatsViewController?.migrationInfoHeaderView as? ZomMigrationInfoHeaderView, let oldAccount = migrationView.account, self.automaticMigrationViewController == nil else { return }
         chatsViewController?.migrationStep = 1
         let migrateVC = OTRAccountMigrationViewController(oldAccount: oldAccount)
         migrateVC.showsCancelButton = true
@@ -274,6 +274,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
 
     @IBAction func migrationDoneButtonPressed(_ sender: AnyObject) {
         chatsViewController?.migrationStep = 0
+        self.automaticMigrationViewController = nil
     }
     
     public func automaticMigrationDone(error: Error?) {

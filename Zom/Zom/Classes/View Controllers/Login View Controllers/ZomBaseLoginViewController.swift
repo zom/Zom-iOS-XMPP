@@ -214,8 +214,8 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
 
 open class ZomAccountMigrationViewController: OTRAccountMigrationViewController {
 
-    public var useAutoMode:Bool = false
-    open weak var autoDelegate:ZomAccountMigrationViewControllerAutoDelegateProtocol?
+    public lazy var useAutoMode:Bool = false
+    public lazy var autoDelegate:ZomAccountMigrationViewControllerAutoDelegateProtocol? = nil
     
     override open func handleSuccess(withNewAccount account: OTRAccount, sender: Any) {
         super.handleSuccess(withNewAccount: account, sender: sender)
@@ -224,8 +224,10 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
             appDelegate.setDefaultAccount(account)
         }
         if useAutoMode {
-            if let delegate = autoDelegate {
-                delegate.automaticMigrationDone(error: nil)
+            DispatchQueue.main.async {
+                if let delegate = self.autoDelegate {
+                    delegate.automaticMigrationDone(error: nil)
+                }
             }
         }
     }
