@@ -33,6 +33,11 @@ open class ZomConversationViewController: OTRConversationViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.kvoobject = ZomConversationViewControllerKVOObject(viewController:self)
+        
+        // Constrain table view bottom to layout guide instead of superview
+        let constraints = self.tableView.constraintsAffectingLayout(for: .vertical)
+        self.view.removeConstraints(constraints)
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[topguide][tableView][guide]", options: NSLayoutFormatOptions(), metrics: nil, views: ["topguide":self.topLayoutGuide,"guide":self.bottomLayoutGuide,"tableView":self.tableView]))
     }
     
     open override func viewWillAppear(_ animated: Bool) {
