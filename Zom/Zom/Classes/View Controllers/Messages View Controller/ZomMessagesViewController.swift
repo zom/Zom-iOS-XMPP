@@ -92,6 +92,15 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             self.setHasNetwork(AFNetworkReachabilityManager.shared().isReachable)
         }
         AFNetworkReachabilityManager.shared().startMonitoring()
+        
+        // Don't allow sending to archived
+        super.readOnlyDatabaseConnection.read { (transaction) in
+            if let threadOwner = self.threadObject(with: transaction), threadOwner.isArchived {
+                self.inputToolbar.isHidden = true
+            } else {
+                self.inputToolbar.isHidden = false
+            }
+        }
     }
     override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
