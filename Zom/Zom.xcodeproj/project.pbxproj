@@ -29,6 +29,7 @@
 		92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */; };
 		92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */; };
 		92256CDC1EB38F8200CE4B35 /* 15biscuit.png in Resources */ = {isa = PBXBuildFile; fileRef = 92256CD91EB38F7700CE4B35 /* 15biscuit.png */; };
+		92256C511EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */; };
 		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
@@ -601,6 +602,7 @@
 		92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoViewController.swift; path = "Classes/View Controllers/ZomMigrationInfoViewController.swift"; sourceTree = "<group>"; };
 		92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoHeaderView.swift; path = Classes/Views/ZomMigrationInfoHeaderView.swift; sourceTree = "<group>"; };
 		92256CD91EB38F7700CE4B35 /* 15biscuit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15biscuit.png; path = "../../Zom/Stickers/olo and shimi/15biscuit.png"; sourceTree = "<group>"; };
+		92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomAccountDetailViewController.swift; path = "Classes/View Controllers/ZomAccountDetailViewController.swift"; sourceTree = "<group>"; };
 		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
@@ -1118,6 +1120,7 @@
 				6320C9031DFF6C410080F3BD /* ZomProfileViewController.swift */,
 				630A4FFF1E78858100A79C85 /* ZomProfileViewControllerSource.swift */,
 				92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */,
+				92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2019,6 +2022,7 @@
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
 				9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */,
 				92CBA8FE1D12E05E001CDD3D /* ZomSettingsViewController.swift in Sources */,
+				92256C511EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift in Sources */,
 				92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */,
 				92CBA8F21D11AFF8001CDD3D /* ZomStickerMessageMedia.swift in Sources */,
 				92A021971DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift in Sources */,
