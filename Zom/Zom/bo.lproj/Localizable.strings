@@ -19,6 +19,9 @@
 /* title for logging in */
 "Log In" = "Log In";
 
+/* label for new account info for migration */
+"My new account information" = "ངས་མཉེན་ཆས་རིམ་སྤོར་བྱས་ཚར་ཡིན། ངའི་མཉམ་དུ་སྐད་ཆ་བཤད་ན་འདིར་ཕེབས་རོགས།";
+
 /* for choosing your XMPP vCard display name */
 "Nickname" = "";
 
