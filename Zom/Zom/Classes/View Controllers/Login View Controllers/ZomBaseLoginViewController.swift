@@ -236,25 +236,32 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
     
     override open func handleSuccess(withNewAccount account: OTRAccount, sender: Any) {
         super.handleSuccess(withNewAccount: account, sender: sender)
-        // Set the migrated account as default!
-        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
-            appDelegate.setDefaultAccount(account)
-        }
-        
-        // Logout old account and disable auto-login
-        OTRDatabaseManager.shared.readWriteDatabaseConnection?.readWrite({ (transaction) in
-            self.oldAccount.autologin = false
-            self.oldAccount.save(with: transaction)
+        if (self.migrationStatus == MigrationStatus.complete) {
+            
+            // Set the migrated account as default!
+            if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
+                appDelegate.setDefaultAccount(account)
+            }
+            
+            // Mute all old friends
+            OTRDatabaseManager.shared.readWriteDatabaseConnection?.readWrite({ (transaction) in
+                for buddy in self.oldAccount.allBuddies(with: transaction) {
+                    buddy.muteExpiration = Date.distantFuture
+                    buddy.save(with: transaction)
+                }
+
+                // Logout old account and disable auto-login
+                self.oldAccount.autologin = false
+                self.oldAccount.save(with: transaction)
                 //if let xmpp = OTRProtocolManager.shared.protocol(for: self.oldAccount) as? OTRXMPPManager,
-                    //xmpp.connectionStatus != .disconnected {
-                    //xmpp.disconnect()
-                //}
-        })
-        
-        if useAutoMode {
+                //xmpp.connectionStatus != .disconnected {
+                //xmpp.disconnect()
+            })
+        }
+        if useAutoMode, self.migrationStatus == .complete || self.migrationStatus == .failed {
             DispatchQueue.main.async {
                 if let delegate = self.autoDelegate {
-                    delegate.automaticMigrationDone(error: nil)
+                    delegate.automaticMigrationDone(error: (self.migrationStatus == .complete ? nil : NSError(domain: "Failed", code: 1, userInfo: nil)))
                 }
             }
         }
