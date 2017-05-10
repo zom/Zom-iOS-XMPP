@@ -234,9 +234,9 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
         }
     }
     
-    override open func handleSuccess(withNewAccount account: OTRAccount, sender: Any) {
-        super.handleSuccess(withNewAccount: account, sender: sender)
-        if (self.migrationStatus == MigrationStatus.complete) {
+    override open func onMigrationComplete(_ success: Bool) {
+        super.onMigrationComplete(success)
+        if (success) {
             
             // Set the migrated account as default!
             if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
@@ -249,20 +249,24 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
                     buddy.muteExpiration = Date.distantFuture
                     buddy.save(with: transaction)
                 }
-
+                
                 // Logout old account and disable auto-login
                 self.oldAccount.autologin = false
                 self.oldAccount.save(with: transaction)
-                //if let xmpp = OTRProtocolManager.shared.protocol(for: self.oldAccount) as? OTRXMPPManager,
-                //xmpp.connectionStatus != .disconnected {
-                //xmpp.disconnect()
             })
         }
-        if useAutoMode, self.migrationStatus == .complete || self.migrationStatus == .failed {
+        if useAutoMode {
             DispatchQueue.main.async {
                 if let delegate = self.autoDelegate {
-                    delegate.automaticMigrationDone(error: (self.migrationStatus == .complete ? nil : NSError(domain: "Failed", code: 1, userInfo: nil)))
+                    delegate.automaticMigrationDone(error: success ? nil : NSError(domain: "Failed", code: 1, userInfo: nil))
                 }
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
+            // Log out of old account after 1 minute
+            if let xmpp = OTRProtocolManager.shared.protocol(for: self.oldAccount) as? OTRXMPPManager,
+            xmpp.connectionStatus != .disconnected {
+                xmpp.disconnect()
             }
         }
     }
