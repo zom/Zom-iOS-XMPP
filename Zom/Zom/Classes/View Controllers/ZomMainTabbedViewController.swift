@@ -79,33 +79,6 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         updateRightButtons()
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        registerObservers()
-        if chatsViewControllerTitleView == nil {
-            chatsViewControllerTitleView = chatsViewController?.navigationItem.titleView
-            if let titleView = chatsViewControllerTitleView {
-                for subview:UIView in titleView.subviews {
-                    subview.tintColor = UIColor.white
-                }
-            }
-        }
-        if friendsViewControllerTitleView == nil {
-            friendsViewControllerTitleView = friendsViewController?.navigationItem.titleView
-            if let titleView = friendsViewControllerTitleView {
-                for subview:UIView in titleView.subviews {
-                    subview.tintColor = UIColor.white
-                }
-            }
-        }
-        updateTitle()
-    }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        registerObservers()
-    }
-    
     private func registerObservers() {
         if (!observersRegistered) {
             observersRegistered = true
@@ -117,12 +90,18 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         }
     }
 
-    override open func viewWillDisappear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        registerObservers()
+        updateTitle()
+    }
+    
+    override open func viewDidDisappear(_ animated: Bool) {
         if (observersRegistered) {
             observersRegistered = false
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectingProtocols", context: &observerContext)
-            super.viewWillDisappear(animated)
+            super.viewDidDisappear(animated)
         }
     }
     
@@ -160,12 +139,32 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
                 populateMeTabController()
             }
             if selectedViewController == chatsViewController {
+                // Get the title view from the child
+                if chatsViewControllerTitleView == nil {
+                    chatsViewControllerTitleView = chatsViewController?.navigationItem.titleView
+                    if let titleView = chatsViewControllerTitleView {
+                        for subview:UIView in titleView.subviews {
+                            subview.tintColor = UIColor.white
+                        }
+                    }
+                }
                 self.navigationItem.titleView = chatsViewControllerTitleView
             } else if selectedViewController == friendsViewController {
+                // Get the title view from the child
+                if friendsViewControllerTitleView == nil {
+                    friendsViewControllerTitleView = friendsViewController?.navigationItem.titleView
+                    if let titleView = friendsViewControllerTitleView {
+                        for subview:UIView in titleView.subviews {
+                            subview.tintColor = UIColor.white
+                        }
+                    }
+                }
                 self.navigationItem.titleView = friendsViewControllerTitleView
             } else {
                 self.navigationItem.titleView = nil
             }
+        } else {
+            self.navigationItem.titleView = nil
         }
     }
     
