@@ -36,20 +36,19 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 
 extension OTRBuddy {
-    func zom_inviteLink(_ fingerprint:Fingerprint?) -> URL {
-        
-        var fingerprints = [String:String]()
+    func zom_inviteLink(_ fingerprint:Fingerprint?) -> URL? {
+        guard let jid = XMPPJID(string: self.username) else { return nil }
+        var queryItems = [URLQueryItem]()
         if let fprint = fingerprint {
             switch fprint {
             case .OTR(let otrFingerprint):
-                fingerprints[OTRAccount.fingerprintStringType(for: .OTR)!] = (otrFingerprint.fingerprint as NSData).humanReadableFingerprint()
+                queryItems.append(URLQueryItem(name: OTRAccount.fingerprintStringType(for: .OTR)!, value: (otrFingerprint.fingerprint as NSData).humanReadableFingerprint()))
                 break
             default:
                 break
             }
         }
-        
-        return NSURL.otr_shareLink(NSURL.otr_shareBase().absoluteString, username: self.username, fingerprints: fingerprints)
+        return NSURL.otr_shareLink(NSURL.otr_shareBase, jid: jid , queryItems: queryItems)
     }
 }
 

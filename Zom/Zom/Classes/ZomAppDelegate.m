@@ -116,15 +116,20 @@
     NSURLComponents *components = [[NSURLComponents alloc] initWithURL:url resolvingAgainstBaseURL:YES];
     NSString *host = components.host;
     if ([host isEqualToString:@"zom.im"] && [url otr_isInviteLink]) {
-
-        __block NSString *username = nil;
+        __block XMPPJID *jid = nil;
         __block NSString *fingerprint = nil;
-        [url otr_decodeShareLink:^(NSString *uName, NSString *fPrint) {
-            username = uName;
-            fingerprint = fPrint;
+        NSString *otr = [OTRAccount fingerprintStringTypeForFingerprintType:OTRFingerprintTypeOTR];
+        [url otr_decodeShareLink:^(XMPPJID * _Nullable inJid, NSArray<NSURLQueryItem*> * _Nullable queryItems) {
+            jid = inJid;
+            [queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.name isEqualToString:otr]) {
+                    fingerprint = obj.value;
+                    *stop = YES;
+                }
+            }];
         }];
-        if (username.length) {
-            [super handleInvite:username fingerprint:fingerprint];
+        if (jid) {
+            [OTRProtocolManager handleInviteForJID:jid otrFingerprint:fingerprint];
         }
         return true;
     }
@@ -160,6 +165,7 @@
     } else {
         [defaults removeObjectForKey:@"zom_DefaultAccount"];
     }
+    [defaults synchronize];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
