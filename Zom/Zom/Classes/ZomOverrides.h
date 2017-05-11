@@ -74,7 +74,3 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRBuddy (ZomOverride)
 @property (nonatomic, strong, readwrite, nonnull) NSString *displayName;
 @end
-
-@interface OTRAccountMigrationViewController (ZomOverride)
--(void) onMigrationComplete:(BOOL)success;
-@end
