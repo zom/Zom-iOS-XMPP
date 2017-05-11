@@ -258,6 +258,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         migrateVC.showsCancelButton = true
         migrateVC.modalPresentationStyle = .none
         automaticMigrationViewController = UINavigationController(rootViewController: migrateVC)
+        self.addChildViewController(automaticMigrationViewController!)
         migrateVC.viewDidLoad()
         if let zomMigrate = migrateVC as? ZomAccountMigrationViewController {
             zomMigrate.useAutoMode = true
@@ -273,6 +274,9 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
 
     @IBAction func migrationDoneButtonPressed(_ sender: AnyObject) {
         chatsViewController?.migrationStep = 0
+        if let vc = self.automaticMigrationViewController {
+            vc.removeFromParentViewController()
+        }
         self.automaticMigrationViewController = nil
     }
     
