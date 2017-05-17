@@ -255,7 +255,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     public func setupInfoButton() {
-        let image = UIImage(named: "OTRInfoIcon", in: OTRAssets.resourcesBundle(), compatibleWith: nil)
+        let image = UIImage(named: "OTRInfoIcon", in: OTRAssets.resourcesBundle, compatibleWith: nil)
         let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(infoButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = item
     }

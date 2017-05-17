@@ -25,7 +25,7 @@ internal enum ZomProfileViewCellIdentifier:String {
     
     /** Get the cell class or nib depending on the identifier type */
     static func classOrNib(_ identifier:ZomProfileViewCellIdentifier) -> ClassOrNib {
-        let resourceBundle = OTRAssets.resourcesBundle()
+        let resourceBundle = OTRAssets.resourcesBundle
         switch identifier {
         case .ProfileCell :
             return .nib(UINib(nibName: "ZomUserInfoProfileCell", bundle: resourceBundle))

@@ -55,7 +55,7 @@ open class ZomCongratsViewController: UIViewController {
         if let account = self.account, let data = account.avatarData, data.count > 0 {
             self.avatarImageView.setImage(account.avatarImage(), for: .normal)
         } else {
-            self.avatarImageView.setImage(UIImage(named: "onboarding_avatar", in: OTRAssets.resourcesBundle(), compatibleWith: nil), for: .normal)
+            self.avatarImageView.setImage(UIImage(named: "onboarding_avatar", in: OTRAssets.resourcesBundle, compatibleWith: nil), for: .normal)
         }
     }
     

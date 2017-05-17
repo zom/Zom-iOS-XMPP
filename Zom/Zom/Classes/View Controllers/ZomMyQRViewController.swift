@@ -77,7 +77,7 @@ open class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegate 
     }
     
     func setDefaultAvatar() {
-        self.avatarImageView.image = UIImage(named: "onboarding_avatar", in: OTRAssets.resourcesBundle(), compatibleWith: nil)
+        self.avatarImageView.image = UIImage(named: "onboarding_avatar", in: OTRAssets.resourcesBundle, compatibleWith: nil)
     }
     
     open override func viewWillAppear(_ animated: Bool) {

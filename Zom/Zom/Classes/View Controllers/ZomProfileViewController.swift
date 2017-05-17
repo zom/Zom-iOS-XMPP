@@ -80,14 +80,14 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
     let fingerprint:Fingerprint
     let qrAction:((_ info:FingerprintCellInfo)->Void)?
     let shareAction:((_ info:FingerprintCellInfo)->Void)?
-    fileprivate let shareImage = UIImage(named: "OTRShareIcon", in: OTRAssets.resourcesBundle(), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+    fileprivate let shareImage = UIImage(named: "OTRShareIcon", in: OTRAssets.resourcesBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     
     func configure(_ cell: UITableViewCell) {
         guard let fingerprintCell = cell as? ZomFingerprintCell else {
             return
         }
         fingerprintCell.shareButton.setImage(self.shareImage, for: UIControlState())
-        fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", in: OTRAssets.resourcesBundle(), compatibleWith: nil), for: UIControlState())
+        fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", in: OTRAssets.resourcesBundle, compatibleWith: nil), for: UIControlState())
         fingerprintCell.fingerprintLabel.text = fingerprint.fingerprintString()
         fingerprintCell.qrAction = {cell in
             if let action = self.qrAction {

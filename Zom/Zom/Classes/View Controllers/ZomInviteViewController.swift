@@ -27,7 +27,7 @@ open class ZomInviteViewController: OTRInviteViewController {
             let alreadyAdded = isShowingCongrats()
             if (!alreadyAdded) {
                 self.title = ""
-                let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
+                let storyboard = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle)
                 let vc:ZomCongratsViewController = storyboard.instantiateViewController(withIdentifier: "congrats") as! ZomCongratsViewController
                 vc.account = self.account
                 vc.restorationIdentifier = "congrats"

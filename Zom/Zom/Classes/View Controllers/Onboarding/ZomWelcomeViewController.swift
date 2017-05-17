@@ -52,7 +52,7 @@ open class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguageVi
 
     open func dismissViewController(_ wasSaved: Bool) {
         if (wasSaved) {
-            let sb = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle())
+            let sb = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle)
             // Recreate the storyboard with the new language
             let vc:UINavigationController = sb.instantiateInitialViewController() as! UINavigationController
             vc.modalPresentationStyle = UIModalPresentationStyle.formSheet;
