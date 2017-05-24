@@ -237,6 +237,8 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
     override open func onMigrationComplete(_ success: Bool) {
         super.onMigrationComplete(success)
         if (success) {
+            // Remember migration, at least for this session
+            self.oldAccount.hasMigrated = true;
             
             // Set the migrated account as default!
             if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {

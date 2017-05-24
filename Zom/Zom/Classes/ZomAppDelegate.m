@@ -32,6 +32,8 @@
     [NSBundle setupLanguageHandling];
     [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kOTRSettingKeyLanguage options:NSKeyValueObservingOptionNew context:nil];
     [UITableView zom_initialize];
+    [OTRXMPPAccount swizzle];
+    [OTRAccountMigrator swizzle];
 
     // Auto-pin the home.zom.im cert
     //

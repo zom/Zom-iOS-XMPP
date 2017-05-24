@@ -74,3 +74,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRBuddy (ZomOverride)
 @property (nonatomic, strong, readwrite, nonnull) NSString *displayName;
 @end
+
+@interface OTRAccountMigrator (ZomOverride)
+- (BOOL) areBothAccountsAreOnline;
+@end
