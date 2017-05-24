@@ -431,6 +431,18 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             }
         }
     }
+    
+    override open func didPressMigratedSwitch() {
+        // Archive this convo
+        self.readWriteDatabaseConnection.readWrite { (transaction) in
+            let thread = self.threadObject(with: transaction)
+            if let buddy = thread as? OTRXMPPBuddy {
+                buddy.isArchived = true
+                buddy.save(with: transaction)
+            }
+        }
+        super.didPressMigratedSwitch()
+    }
 }
 
 extension UIImage

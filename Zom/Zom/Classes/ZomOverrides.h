@@ -37,6 +37,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 
 @interface OTRMessagesViewController (ZomOverride)
 - (void)refreshTitleView;
+- (IBAction)didPressMigratedSwitch;
 @end
 
 @interface OTRMessagesHoldTalkViewController (ZomOverride)
