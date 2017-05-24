@@ -20,7 +20,6 @@ extension OTRMessagesViewController {
     private static var swizzle: () {
         
         ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAt:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
-        ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:cellForItemAt:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:cellForItemAtIndexPath:)))
     }
     
     open override class func initialize() {
@@ -46,31 +45,6 @@ extension OTRMessagesViewController {
         if let text = ret.text?() {
             if ZomStickerMessage.isValidStickerShortCode(text) {
                 return ZomStickerMessage(message: ret)
-            }
-        }
-        return ret
-    }
-    
-    public func zom_collectionView(_ collectionView: JSQMessagesCollectionView,cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
-    {
-        let ret = self.zom_collectionView(collectionView, cellForItemAtIndexPath: indexPath)
-        if let jsqCell = ret as? JSQMessagesCollectionViewCell,
-            let messageData = self.message(at: indexPath as IndexPath),
-            messageData.messageIncoming() {
-            let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-            if let input = jsqCell.textView.text {
-                let matches = detector.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))
-                for match in matches {
-                    let urlString = (input as NSString).substring(with: match.range)
-                    if let url = NSURL(string: urlString), url.otr_isInviteLink {
-                        // Migration link?
-                        url.otr_decodeShareLink({ (jid, queryItems:[URLQueryItem]?) in
-                            if let items = queryItems, NSURL.otr_queryItemsContainMigrationHint(items) {
-                                self.showJIDForwardingHeader(withNewJID: jid)
-                            }
-                        })
-                    }
-                }
             }
         }
         return ret
