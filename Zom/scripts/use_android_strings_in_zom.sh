@@ -125,6 +125,7 @@ do
     # Does the file exist for this language?
     languageFile="${base_file_ios/Base.lproj/${languageDir}.lproj}"
     languageFile="${languageFile/.storyboard/.strings}"
+    languageFile="${languageFile/.xib/.strings}"
     if [ ! -f $languageFile ]; then
 	echo "Storyboard strings file not found for language $languageDir"
 	continue
