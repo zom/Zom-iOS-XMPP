@@ -54,3 +54,18 @@
 
 "Pending Approval" = "ངོས་ལེན་ལ་སྒུག་བཞིན་ཡོད།";
 
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "འབྲེལ་གཏུགས་སྣོན།";
+
+/* Title for ChatSecure Push (this probably doesnt need to be translated) */
+"ChatSecure Push" = "ChatSecure Push";
+
+/* Title for button to manage ChatSecure Push account */
+"Manage ChatSecure Push account" = "Manage ChatSecure Push account";
+
+/* label for new account info for migration */
+"My new account information" = "ངས་མཉེན་ཆས་རིམ་སྤོར་བྱས་ཚར་ཡིན། ངའི་མཉམ་དུ་སྐད་ཆ་བཤད་ན་འདིར་ཕེབས་རོགས།";
+
+/* Button to switch the chat over to the migrated account */
+"Switch" = "སྐད་ཆ་ཤོད།";
