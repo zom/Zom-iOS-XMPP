@@ -41,11 +41,14 @@
 "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
 
 
-/* The title for the view to add a buddy */
-"Add Buddy" = "Tambah Teman";
+/* Label in buddy list for users that are away */
+"Away" = "Menjauh";
 
-/* Title for ChatSecure Push (this probably doesnt need to be translated) */
-"ChatSecure Push" = "ChatSecure Push";
+/* To let the user know the fingerprint as been checked */
+"Verified" = "Terverivikasi";
 
-/* Title for button to manage ChatSecure Push account */
-"Manage ChatSecure Push account" = "Atur akun ChatSecure Push";
+/* Shown when verifying fingerprints */
+"Verify" = "Cocokkan";
+
+/* Title of error message pop-up box */
+"Error!" = "Kesalahan!";

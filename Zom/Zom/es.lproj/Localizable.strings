@@ -44,8 +44,113 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "Añadir amigo";
 
-/* Title for ChatSecure Push (this probably doesnt need to be translated) */
-"ChatSecure Push" = "ChatSecure Push";
+/* Error string for OTR message string */
+"An error occured while encrypting a message and the message was not sent." = "Ha habido un error durante la encriptación del mensaje y no se ha enviado ";
 
-/* Title for button to manage ChatSecure Push account */
-"Manage ChatSecure Push account" = "Manage ChatSecure Push account";
+/* SSL error message */
+"Bad certificate format" = "Formato de certificado inválido ";
+
+/* SSL error message */
+"Bad MAC" = "MAC inválida";
+
+/* SSL error message */
+"Bad SSLCipherSuite" = "SSLCipherSuite inválido";
+
+/* SSL error message */
+"Bad unsupported cert format" = "Formato de certificado invalido";
+
+/* Text describing what happens when the user has forgotten the passphrase */
+"Because the database contents is encrypted with your passphrase, you've lost access to your data and will need to delete and reinstall ChatSecure to continue. Password managers like 1Password or MiniKeePass can be helpful for generating and storing strong passwords." = "El contenido de la base de datos es encriptado con tu contraseño, por lo que has perdido acceso a tus datos y necesitarás borrar y reinstalar ChatSecure para continuar. Gestores de contraseñas como 1Password o MiniKeePass pueden ser útiles para generar y guardar fuertes contraseñas";
+
+/* The title for the view that shows detailed buddy info */
+"Buddy Info" = "Información de amigo";
+
+/* SSL error message */
+"Cert chain not verified by root" = "La cadena de certificados no ha sido verificada por el administrador";
+
+/* SSL error message */
+"Certificate expired" = "Certificado expirado";
+
+/* SSL error message */
+"Chain had a cert not yet valid" = "La cadena tiene un certificado aun no válido";
+
+/* Body of SMS or email when sharing a link to the app */
+"Chat with me securely" = "Chatear conmigo de forma segura";
+
+/* let users know source is on Github */
+"Check out the source here on Github" = "Revisa el código fuente en Github";
+
+/* SSL error message */
+"Cipher Suite negotiation failure" = "Negociación de Cipher Suite fallida";
+
+/* SSL error message */
+"Connection closed via error" = "Conexión cerrada por un error";
+
+/* Error message when cannot get public key from SSL certificate */
+"Could not retrieve public key from certificate" = "No se ha podido recuperar la llave pública del certificado";
+
+/* Start of sentence that will be followed by names */
+"Created by" = "Creado por";
+
+/* SSL error message */
+"Decoding error" = "Error de descodificación";
+
+/* SSL error message */
+"Decryption failed" = "Falló el descifrado";
+
+/* SSL error message */
+"Decryption failure" = "Descifrado fallido";
+
+/* default string to revert to normal language behaviour */
+"Default" = "Por defecto";
+
+/* Ask user if they want to delete the stored account information */
+"Delete Account?" = "¿Deseas borrar la cuenta?";
+
+/* Description for automatic conversation deletion */
+"Delete chats on disconnect" = "Borrar conversaciones al desconectarse";
+
+/* Generic title for encryption errors */
+"Encryption Error" = "Erro de encriptación";
+
+/* title label for error when creating account */
+"Error Creating Account" = "Error creando la cuenta";
+
+/* Message when cannot connect to XMPP server */
+"Failed to connect to XMPP server. Please check your login credentials and internet connection and try again." = "La conexión con el servidor XMPP falló. Por favor revise sus credenciales de inicio de sesión y su conexión a internet e intente de nuevo.";
+
+/* Label for button when you've forgotten the passphrase */
+"Forgot Passphrase?" = "Has olvidado la contraseña?";
+
+/* Label for button to open link to translate app */
+"Help Translate" = "Ayuda a traducir";
+
+/* Label text for hostname field on login scree */
+"Hostname" = "Nombre de host";
+
+/* title label for invalid email */
+"Invalid Email" = "Email inválido";
+
+/* SSL error message */
+"No renegotiation allowed" = "No está permitido renegociar";
+
+/* For an old settings value */
+"Old" = "Viejo";
+
+/* String on button to email feedback */
+"Send Feedback" = "Enviar Comentarios";
+
+/* Message for warning about using tor network */
+"Tor is an experimental feature, please use with caution." = "Tor es una opción experimental, tenga cuidado al usarla";
+
+/* shown to show that the certificate was valid to the system */
+"Valid certificate" = "Cerfiticado válido";
+
+/* Title of the dialog for fingerprint verification */
+"Verify Fingerprint" = "Verificar huella digital";
+
+/* Message shown when about to donate */
+"Your donation will help fund the continued development of ChatSecure." = "Tu donación ayudará a financiar el desarrollo de ChatSecure.";
+
+/* Title of error message pop-up box */
+"Error!" = "¡Error!";

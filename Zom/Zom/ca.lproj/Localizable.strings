@@ -41,11 +41,11 @@
 "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
 
 
-/* The title for the view to add a buddy */
-"Add Buddy" = "Add Buddy";
+/* Label in buddy list for users that are away */
+"Away" = "Fora";
 
-/* Title for ChatSecure Push (this probably doesnt need to be translated) */
-"ChatSecure Push" = "ChatSecure Push";
+/* Label in buddy list for users that are offline */
+"Offline" = "Fora de linia";
 
-/* Title for button to manage ChatSecure Push account */
-"Manage ChatSecure Push account" = "Manage ChatSecure Push account";
+/* Title for the Settings screen */
+"Settings" = "Paràmetres";

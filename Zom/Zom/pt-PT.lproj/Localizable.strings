@@ -41,11 +41,26 @@
 "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
 
 
-/* The title for the view to add a buddy */
-"Add Buddy" = "Adicionar Contacto";
+/* SSL error message */
+"Decryption failed" = "A desencriptação falhou";
 
-/* Title for ChatSecure Push (this probably doesnt need to be translated) */
-"ChatSecure Push" = "ChatSecure Push";
+/* Ask user if they want to delete the stored account information */
+"Delete Account?" = "Apagar Conta?";
 
-/* Title for button to manage ChatSecure Push account */
-"Manage ChatSecure Push account" = "Manage ChatSecure Push account";
+/* Description for automatic conversation deletion */
+"Delete chats on disconnect" = "Apagar conversas ao desligar";
+
+/* Message when cannot connect to XMPP server */
+"Failed to connect to XMPP server. Please check your login credentials and internet connection and try again." = "Falhou ao ligar ao servidor XMPP. Por favor verifique as suas credenciais de início de sessão e ligação à internet e volte a tentar.";
+
+/* SSL error message */
+"I/O would block (not fatal)" = "I/O would block (não fatal)";
+
+/* SSL error message */
+"Insufficient buffer provided" = "Buffer providenciado é insuficiente";
+
+/* string to bring up language selector */
+"Language" = "Língua";
+
+/* Title of error message pop-up box */
+"Error!" = "Erro!";

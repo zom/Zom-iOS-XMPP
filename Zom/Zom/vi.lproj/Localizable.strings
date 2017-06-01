@@ -41,11 +41,5 @@
 "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
 
 
-/* The title for the view to add a buddy */
-"Add Buddy" = "Thêm Bạn";
-
-/* Title for ChatSecure Push (this probably doesnt need to be translated) */
-"ChatSecure Push" = "ChatSecure Push";
-
-/* Title for button to manage ChatSecure Push account */
-"Manage ChatSecure Push account" = "Manage ChatSecure Push account";
+/* Title of error message pop-up box */
+"Error!" = "Xảy ra lỗi!";

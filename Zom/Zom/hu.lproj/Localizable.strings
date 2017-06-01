@@ -41,11 +41,14 @@
 "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
 
 
-/* The title for the view to add a buddy */
-"Add Buddy" = "Partner hozzáadása";
+/* SSL error message */
+"Bad certificate format" = "Hibás tanúsítvány forma ";
 
-/* Title for ChatSecure Push (this probably doesnt need to be translated) */
-"ChatSecure Push" = "ChatSecure Push";
+/* Message shown when connecting to the Tor network */
+"Connecting to Tor" = "Csatlakozás Tor hálózathoz";
 
-/* Title for button to manage ChatSecure Push account */
-"Manage ChatSecure Push account" = "Manage ChatSecure Push account";
+/* SSL error message */
+"Decryption failed" = "Sikertelen dekódolás";
+
+/* Title of error message pop-up box */
+"Error!" = "Hiba!";
