@@ -16,6 +16,8 @@ use_frameworks!
 
 source 'https://github.com/CocoaPods/Specs.git'
 
+  pod 'IDMPhotoBrowser', '~> 1.11'
+
 abstract_target 'ZomPods' do
   pod 'AFNetworking', '~> 3.1'
   pod "Appirater", '~> 2.0'
@@ -83,6 +85,8 @@ abstract_target 'ZomPods' do
   pod 'XMPPFramework', :path => '../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec'
   pod 'IOCipher/GCDWebServer', :path => '../ChatSecure/Submodules/IOCipher/IOCipher.podspec'
 
+
+  pod 'IDMPhotoBrowser', '~> 1.11'
 
   target 'Zom'
   #target 'ChatSecureTests'

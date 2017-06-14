@@ -37,6 +37,7 @@ PODS:
     - CocoaLumberjack/Default
   - CPAProxy (1.2.0):
     - CocoaAsyncSocket
+  - DACircularProgress (2.3.1)
   - FormatterKit/Resources (1.8.2)
   - FormatterKit/TimeIntervalFormatter (1.8.2):
     - FormatterKit/Resources
@@ -47,6 +48,10 @@ PODS:
   - gtm-http-fetcher (1.1)
   - gtm-oauth2 (1.1):
     - gtm-http-fetcher (~> 1.1)
+  - IDMPhotoBrowser (1.11.3):
+    - DACircularProgress
+    - pop
+    - SDWebImage (= 4.0.0)
   - IOCipher/common (0.1.0):
     - libsqlfs/SQLCipher
   - IOCipher/GCDWebServer (0.1.0):
@@ -144,6 +149,7 @@ PODS:
   - OpenInChrome (0.0.1)
   - OTRKit (2.0.0)
   - ParkedTextField (0.3.0)
+  - pop (1.0.9)
   - ProxyKit/Client (1.2.0):
     - ProxyKit/common
   - ProxyKit/common (1.2.0):
@@ -153,6 +159,9 @@ PODS:
   - QRCodeReaderViewController (4.0.2)
   - Reachability (3.2)
   - SAMKeychain (1.5.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SignalProtocolC (2.3.1)
   - SignalProtocolObjC (1.0.0):
     - SignalProtocolC (~> 2.3.1)
@@ -241,6 +250,7 @@ DEPENDENCIES:
   - FormatterKit/TimeIntervalFormatter (~> 1.8.2)
   - gtm-http-fetcher (from `../ChatSecure/Podspecs/gtm-http-fetcher.podspec`)
   - gtm-oauth2 (from `../ChatSecure/Podspecs/gtm-oauth2.podspec`)
+  - IDMPhotoBrowser (~> 1.11)
   - IOCipher/GCDWebServer (from `../ChatSecure/Submodules/IOCipher/IOCipher.podspec`)
   - JSQMessagesViewController (from `https://github.com/ChatSecure/JSQMessagesViewController`, tag `7.3.4-send_button`)
   - JTSImageViewController (~> 1.4)
@@ -325,10 +335,12 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: b9d5589f07baf9de8f34cc25abd4fcba28f13805
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CPAProxy: b1b33221b6ad297169cb813b6bbefd2a69ea9aad
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
   GCDWebServer: 1c39a1f0763e4eb492bee021e4270fce097d3555
   gtm-http-fetcher: 4e7de79fc9e774b291eae66a240f17b3a5277ec7
   gtm-oauth2: b31c9d7c82f773f7b7094cbb7da8dc7b5968ce16
+  IDMPhotoBrowser: b96159fe4adb991a844068eb17dab9c0b7d7e51a
   IOCipher: 4cb4cd9a5998f69f4578a51501987dc5951ff092
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
@@ -346,11 +358,13 @@ SPEC CHECKSUMS:
   OpenInChrome: f1f3f9dec682216fe78a0d7fe0b5b263d6312c32
   OTRKit: 559ddb8defb126bdbf6a9f43ee3649b219f42320
   ParkedTextField: e735a0a6b5343834f0e2fe7ba359d20b27768f8d
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   ProxyKit: ae9ed36909d0e68b27087eb3ed5aa35c86f8bff0
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SignalProtocolC: e61c89693515347df8ed97961160a36cbe55c441
   SignalProtocolObjC: f5f0c7dcbedf21490b7ec190b6dc5103910acb75
   SQLCipher: 43d12c0eb9c57fb438749618fc3ce0065509a559
@@ -364,6 +378,6 @@ SPEC CHECKSUMS:
   YapTaskQueue: f5d60946ffa289e228faf8411bf53cf90cfa7ead
   ZXingObjC: bbf7b8f0cf8933fdd33eb4f9f46e22308552869b
 
-PODFILE CHECKSUM: ba40d73fbe4c8933bac51f6e8ef2c17a6fa8a2b4
+PODFILE CHECKSUM: 5e3742f82278e11c843ca6bab30d41696941ed47
 
 COCOAPODS: 1.2.1
