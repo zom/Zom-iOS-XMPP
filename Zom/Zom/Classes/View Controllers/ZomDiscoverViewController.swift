@@ -9,8 +9,9 @@
 import Foundation
 import XMPPFramework
 import OTRKit
+import IDMPhotoBrowser
 
-open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate {
+open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate, IDMPhotoBrowserDelegate {
 
     @IBOutlet weak var pickStickerButton: UIButton!
     var shareStickerOnResume:String?
@@ -36,6 +37,37 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
             ZomComposeViewController.openInGroupMode = true
             appDelegate.conversationViewController.perform(#selector(appDelegate.conversationViewController.composeButtonPressed(_:)), with: sender)
         }
+    }
+
+    @IBAction func didPressPhotoStreamButtonWithSender(_ sender: AnyObject) {
+        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.asyncRead({ (transaction) in
+            var array:[OTRMediaItem] = [OTRMediaItem]()
+            let collection = OTRMediaItem.collection()
+            let allMediaItemKeys = transaction.allKeys(inCollection: collection)
+            allMediaItemKeys.forEach({ (key) in
+                if let object = transaction.object(forKey: key, inCollection: collection) as? OTRMediaItem {
+                    array.append(object)
+                }
+            })
+            if array.count > 0 {
+                var photos:[ZomPhotoStreamImage] = [ZomPhotoStreamImage]()
+                print("Array count: " + String(format: "%d", arguments: [array.count]))
+                array.forEach({ (mediaItem) in
+                    if let message = mediaItem.parentMessage(in: transaction) {
+                        let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message)
+                        photos.append(p)
+                    }
+                })
+                DispatchQueue.main.async {
+                    if photos.count > 0, let browser = IDMPhotoBrowser(photos: photos) {
+                        browser.autoHideInterface = false
+                        browser.useWhiteBackgroundColor = true
+                        browser.delegate = self
+                        self.tabBarController?.present(browser, animated: true, completion: nil)
+                    }
+                }
+            }
+        });
     }
     
     @IBAction func didPressChangeThemeButtonWithSender(_ sender: AnyObject) {
@@ -115,5 +147,14 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
                 popup.present(from: pickStickerButton.bounds, in: pickStickerButton, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
             }
         }
+    }
+    
+    public func photoBrowser(_ photoBrowser: IDMPhotoBrowser!, captionViewForPhotoAt index: UInt) -> IDMCaptionView? {
+        if let photo = photoBrowser.photo(at: index) as? ZomPhotoStreamImage {
+            let captionView = IDMCaptionView(photo: photo)
+            captionView?.label.attributedText = photo.attributedCaption()
+            return captionView
+        }
+        return nil
     }
 }
