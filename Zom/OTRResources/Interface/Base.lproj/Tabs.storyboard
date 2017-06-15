@@ -247,6 +247,7 @@
                     <connections>
                         <outlet property="pickStickerButton" destination="8j6-Sy-Ncb" id="khj-lh-6n1"/>
                         <segue destination="Zy3-pH-Iq8" kind="show" identifier="segueToPickColor" id="oX2-Yr-zyR"/>
+                        <segue destination="9Rk-Yf-uRu" kind="show" identifier="segueToPhotoStream" id="Nna-cy-deU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dg7-kM-bY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -305,6 +306,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UxV-8a-yhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="735" y="681"/>
+        </scene>
+        <!--Photo Stream-->
+        <scene sceneID="EgJ-ME-txd">
+            <objects>
+                <collectionViewController title="Photo Stream" id="9Rk-Yf-uRu" customClass="ZomPhotoStreamViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4ZW-ha-bJN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hjO-YR-3n7">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6O8-MM-XYq" customClass="ZomPhotoStreamCell" customModule="Zom" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kGS-gv-r59">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kGS-gv-r59" secondAttribute="trailing" id="0gm-fD-7uK"/>
+                                    <constraint firstAttribute="bottom" secondItem="kGS-gv-r59" secondAttribute="bottom" id="7LK-5r-Bt3"/>
+                                    <constraint firstItem="kGS-gv-r59" firstAttribute="leading" secondItem="6O8-MM-XYq" secondAttribute="leading" id="cfr-vZ-ATD"/>
+                                    <constraint firstItem="kGS-gv-r59" firstAttribute="top" secondItem="6O8-MM-XYq" secondAttribute="top" id="osB-T7-wNO"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="kGS-gv-r59" id="XIS-Q4-oRh"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="9Rk-Yf-uRu" id="KpU-az-LRH"/>
+                            <outlet property="delegate" destination="9Rk-Yf-uRu" id="NKU-cJ-Gc1"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cb-8r-dmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1375" y="754"/>
         </scene>
         <!--Friends-->
         <scene sceneID="FG5-Qp-Q4n">

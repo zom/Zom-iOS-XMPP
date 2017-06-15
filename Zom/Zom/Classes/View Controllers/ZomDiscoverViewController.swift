@@ -40,34 +40,7 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
     }
 
     @IBAction func didPressPhotoStreamButtonWithSender(_ sender: AnyObject) {
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.asyncRead({ (transaction) in
-            var array:[OTRMediaItem] = [OTRMediaItem]()
-            let collection = OTRMediaItem.collection()
-            let allMediaItemKeys = transaction.allKeys(inCollection: collection)
-            allMediaItemKeys.forEach({ (key) in
-                if let object = transaction.object(forKey: key, inCollection: collection) as? OTRMediaItem {
-                    array.append(object)
-                }
-            })
-            if array.count > 0 {
-                var photos:[ZomPhotoStreamImage] = [ZomPhotoStreamImage]()
-                print("Array count: " + String(format: "%d", arguments: [array.count]))
-                array.forEach({ (mediaItem) in
-                    if let message = mediaItem.parentMessage(in: transaction) {
-                        let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message)
-                        photos.append(p)
-                    }
-                })
-                DispatchQueue.main.async {
-                    if photos.count > 0, let browser = IDMPhotoBrowser(photos: photos) {
-                        browser.autoHideInterface = false
-                        browser.useWhiteBackgroundColor = true
-                        browser.delegate = self
-                        self.tabBarController?.present(browser, animated: true, completion: nil)
-                    }
-                }
-            }
-        });
+        self.performSegue(withIdentifier: "segueToPhotoStream", sender: self)
     }
     
     @IBAction func didPressChangeThemeButtonWithSender(_ sender: AnyObject) {

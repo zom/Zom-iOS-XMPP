@@ -31,10 +31,18 @@ open class ZomPhotoStreamImage: NSObject, IDMPhotoProtocol {
     }
     
     public func loadUnderlyingImageAndNotify() {
+        self.loadUnderlyingImageAndNotify(callback: nil)
+    }
+ 
+    public func loadUnderlyingImageAndNotify(callback:((_ photo:ZomPhotoStreamImage) -> Void)?) {
         OTRMediaFileManager.sharedInstance().data(for: mediaItem, buddyUniqueId: message.buddyUniqueId, completion: { (data, error) in
             if error == nil, let data = data {
                 self.image = UIImage(data: data)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: IDMPhoto_LOADING_DID_END_NOTIFICATION), object: self)
+                if let cb = callback {
+                    cb(self)
+                } else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: IDMPhoto_LOADING_DID_END_NOTIFICATION), object: self)
+                }
             }
         }, completionQueue: nil)
     }
