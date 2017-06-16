@@ -417,6 +417,56 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         }
         super.didPressMigratedSwitch()
     }
+    
+    open override func didSetupMappings(_ handler: OTRYapViewHandler!) {
+        super.didSetupMappings(handler)
+        let numberMappingsItems = handler.mappings?.numberOfItems(inSection: 0) ?? 0
+        if numberMappingsItems > 0 {
+            self.checkRangeForMigrationMessage(range: NSMakeRange(0, Int(numberMappingsItems)))
+        }
+    }
+    
+    open override func didReceiveChanges(_ handler: OTRYapViewHandler!, sectionChanges: [YapDatabaseViewSectionChange]!, rowChanges: [YapDatabaseViewRowChange]!) {
+        var collectionViewNumberOfItems = 0
+        var numberMappingsItems = 0
+        if rowChanges.count > 0 {
+            collectionViewNumberOfItems = self.collectionView.numberOfItems(inSection: 0)
+            numberMappingsItems = Int(self.viewHandler.mappings?.numberOfItems(inSection: 0) ?? 0)
+        }
+        super.didReceiveChanges(handler, sectionChanges: sectionChanges, rowChanges: rowChanges)
+        if numberMappingsItems > collectionViewNumberOfItems, numberMappingsItems > 0 {
+                self.checkRangeForMigrationMessage(range: NSMakeRange(collectionViewNumberOfItems, numberMappingsItems - collectionViewNumberOfItems))
+        }
+    }
+    
+    // If we find any incoming migration link messages, show the "your friend has migrated" header
+    // to allow the user to start chatting with the new account instead.
+    func checkRangeForMigrationMessage(range: NSRange) {
+        DispatchQueue.global().async {
+
+            let types: NSTextCheckingResult.CheckingType = [.link]
+            let detector = try? NSDataDetector(types: types.rawValue)
+                for i in range.location..<(range.location + range.length) {
+                    if let message = self.message(at: IndexPath(row: i, section: 0)), message.messageIncoming(), let text = message.text() {
+                        
+                        detector?.enumerateMatches(in: text, range: NSMakeRange(0, text.utf16.count)) {
+                            (result, _, _) in
+                            if let res = result, let url = res.url, let nsurl = NSURL(string: url.absoluteString) {
+                                if nsurl.otr_isInviteLink {
+                                    nsurl.otr_decodeShareLink({ (jid, queryItems:[URLQueryItem]?) in
+                                        if let query = queryItems, NSURL.otr_queryItemsContainMigrationHint(query) {
+                                            DispatchQueue.main.async {
+                                                self.showJIDForwardingHeader(withNewJID: jid)
+                                            }
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+    }
 }
 
 extension UIImage

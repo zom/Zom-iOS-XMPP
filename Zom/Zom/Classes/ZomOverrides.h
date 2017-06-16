@@ -38,6 +38,10 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRMessagesViewController (ZomOverride)
 - (void)refreshTitleView;
 - (IBAction)didPressMigratedSwitch;
+@property (nonatomic, strong) OTRYapViewHandler *viewHandler;
+- (void)didSetupMappings:(OTRYapViewHandler *)handler;
+- (void)didReceiveChanges:(OTRYapViewHandler *)handler sectionChanges:(NSArray<YapDatabaseViewSectionChange *> *)sectionChanges rowChanges:(NSArray<YapDatabaseViewRowChange *> *)rowChanges;
+- (void)showJIDForwardingHeaderWithNewJID:(XMPPJID *)newJid;
 @end
 
 @interface OTRMessagesHoldTalkViewController (ZomOverride)
