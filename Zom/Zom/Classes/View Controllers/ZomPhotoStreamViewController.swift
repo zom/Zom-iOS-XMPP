@@ -20,7 +20,7 @@ open class ZomPhotoStreamViewController: UICollectionViewController, IDMPhotoBro
         super.viewDidLoad()
         OTRDatabaseManager.shared.readOnlyDatabaseConnection?.asyncRead({ (transaction) in
             var array:[OTRMediaItem] = [OTRMediaItem]()
-            let collection = OTRMediaItem.collection()
+            let collection = OTRMediaItem.collection
             let allMediaItemKeys = transaction.allKeys(inCollection: collection)
             allMediaItemKeys.forEach({ (key) in
                 if let object = transaction.object(forKey: key, inCollection: collection) as? OTRMediaItem {
@@ -30,7 +30,7 @@ open class ZomPhotoStreamViewController: UICollectionViewController, IDMPhotoBro
             if array.count > 0 {
                 var photos:[ZomPhotoStreamImage] = [ZomPhotoStreamImage]()
                 array.forEach({ (mediaItem) in
-                    if let message = mediaItem.parentMessage(in: transaction) {
+                    if let message = mediaItem.parentMessage(with: transaction) {
                         let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message)
                         photos.append(p)
                     }

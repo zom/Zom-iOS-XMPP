@@ -41,7 +41,7 @@ enum User {
         return self.databaseObject().uniqueId
     }
     func yapCollection() -> String {
-        return type(of: self.databaseObject()).collection()
+        return type(of: self.databaseObject()).collection
     }
 }
 
@@ -158,7 +158,7 @@ class ZomProfileViewObserver: NSObject {
                 
                 var allFingerprints = [Fingerprint.OTR(fingerprint)]
                 if let xmpp = OTRProtocolManager.sharedInstance().protocol(for: account) as? OTRXMPPManager, let myBundle = xmpp.omemoSignalCoordinator?.fetchMyBundle(), var devices = allOMEMODevices {
-                    let thisDevice = OTROMEMODevice(deviceId: NSNumber(value: myBundle.deviceId as UInt32), trustLevel: .trustedUser, parentKey: account.uniqueId, parentCollection: type(of: account).collection(), publicIdentityKeyData: myBundle.identityKey, lastSeenDate: Date())
+                    let thisDevice = OTROMEMODevice(deviceId: NSNumber(value: myBundle.deviceId as UInt32), trustLevel: .trustedUser, parentKey: account.uniqueId, parentCollection: type(of: account).collection, publicIdentityKeyData: myBundle.identityKey, lastSeenDate: Date())
                     
                     devices = devices.filter({ (fingerprint) -> Bool in
                         switch fingerprint {

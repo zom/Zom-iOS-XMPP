@@ -18,7 +18,7 @@ open class ZomCongratsViewController: UIViewController {
             guard let acct = account else {
                 return;
             }
-            self.viewHandler?.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection())
+            self.viewHandler?.keyCollectionObserver.observe(acct.uniqueId, collection: OTRAccount.collection)
         }
     }
     private var avatarPicker:OTRAttachmentPicker?
@@ -29,7 +29,7 @@ open class ZomCongratsViewController: UIViewController {
         if let connection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection {
             self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
             if let accountKey = account?.uniqueId {
-                self.viewHandler?.keyCollectionObserver.observe(accountKey, collection: OTRAccount.collection())
+                self.viewHandler?.keyCollectionObserver.observe(accountKey, collection: OTRAccount.collection)
             }
             
             self.viewHandler?.delegate = self

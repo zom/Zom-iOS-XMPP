@@ -298,7 +298,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func encryptionStatusString(forMesage message: OTRMessageProtocol) -> NSAttributedString? {
-        switch message.messageSecurity() {
+        switch message.messageSecurity {
         case .OMEMO: fallthrough
         case .OTR:
             let attachment = textAttachment(fontSize: 12)
@@ -447,7 +447,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             let types: NSTextCheckingResult.CheckingType = [.link]
             let detector = try? NSDataDetector(types: types.rawValue)
                 for i in range.location..<(range.location + range.length) {
-                    if let message = self.message(at: IndexPath(row: i, section: 0)), message.messageIncoming(), let text = message.text() {
+                    if let message = self.message(at: IndexPath(row: i, section: 0)), message.isMessageIncoming, let text = message.messageText {
                         
                         detector?.enumerateMatches(in: text, range: NSMakeRange(0, text.utf16.count)) {
                             (result, _, _) in

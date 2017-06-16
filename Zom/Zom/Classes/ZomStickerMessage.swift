@@ -11,7 +11,7 @@ open class ZomStickerMessage: NSObject, JSQMessageData {
 
     private var originalMessage:JSQMessageData
     private lazy var mediaObject:ZomStickerMessageMedia? = { [unowned self] in
-        return ZomStickerMessageMedia(filePath: ZomStickerMessage.getStickerFilenameFromMessage(self.originalMessage.text!()))
+        return ZomStickerMessageMedia(filename: ZomStickerMessage.getStickerFilenameFromMessage(self.originalMessage.text!())!, mimeType: "image/png", isIncoming: true)
     }()
     
     public init(message : JSQMessageData) {

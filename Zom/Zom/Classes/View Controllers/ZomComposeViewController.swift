@@ -69,7 +69,7 @@ open class ZomComposeViewController: OTRComposeViewController {
         // with the difference that  XMPPBuddies that are avaiting approval are ordered to the top of the list.
         //
         if OTRDatabaseManager.shared.database?.registeredExtension(ZomComposeViewController.extensionName) == nil {
-            if let originalView:YapDatabaseView = OTRDatabaseManager.sharedInstance().database?.registeredExtension(OTRAllBuddiesDatabaseViewExtensionName) as? YapDatabaseView{
+            if let originalView:YapDatabaseAutoView = OTRDatabaseManager.sharedInstance().database?.registeredExtension(OTRAllBuddiesDatabaseViewExtensionName) as? YapDatabaseAutoView {
                 let sorting = YapDatabaseViewSorting.withObjectBlock({ (transaction, group, collection1, group1, object1, collection2, group2, object2) -> ComparisonResult in
                     let pendingApproval1 = (object1 as? OTRXMPPBuddy)?.pendingApproval ?? false
                     let pendingApproval2 = (object2 as? OTRXMPPBuddy)?.pendingApproval ?? false
@@ -85,7 +85,7 @@ open class ZomComposeViewController: OTRComposeViewController {
                 })
                 let options = YapDatabaseViewOptions()
                 options.isPersistent = false
-                let newView = YapDatabaseView(grouping: originalView.grouping, sorting: sorting, versionTag: "1", options: options)
+                let newView = YapDatabaseAutoView(grouping: originalView.grouping, sorting: sorting, versionTag: "1", options: options)
                 OTRDatabaseManager.sharedInstance().database?.register(newView, withName: ZomComposeViewController.extensionName)
             }
         }
