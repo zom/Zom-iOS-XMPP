@@ -30,5 +30,5 @@ rm $DIR/Podfile.temp
 echo "Updated Zom/Podfile from upstream ChatSecure"
 
 # Copy Cartfile from ChatSecure to Zom
-cp $DIR/../ChatSecure/Cartfile $DIR/../Cartfile
+cp $DIR/../ChatSecure/Cartfile $DIR/Cartfile
 echo "Updated Zom/Cartfile from upstream ChatSecure"

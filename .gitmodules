@@ -4,3 +4,18 @@
 [submodule "Submodules/xmpp-server-list"]
 	path = Submodules/xmpp-server-list
 	url = git@github.com:zom/xmpp-server-list.git
+[submodule "Carthage/Checkouts/HTMLReader"]
+	path = Zom/Carthage/Checkouts/HTMLReader
+	url = https://github.com/ChatSecure/HTMLReader.git
+[submodule "Carthage/Checkouts/Mantle"]
+	path = Zom/Carthage/Checkouts/Mantle
+	url = https://github.com/ChatSecure/Mantle.git
+[submodule "Carthage/Checkouts/Alamofire"]
+	path = Zom/Carthage/Checkouts/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "Carthage/Checkouts/SignalProtocolC"]
+	path = Zom/Carthage/Checkouts/SignalProtocolC
+	url = https://github.com/ChatSecure/SignalProtocolC.git
+[submodule "Carthage/Checkouts/SignalProtocol-ObjC"]
+	path = Zom/Carthage/Checkouts/SignalProtocol-ObjC
+	url = https://github.com/ChatSecure/SignalProtocol-ObjC.git
