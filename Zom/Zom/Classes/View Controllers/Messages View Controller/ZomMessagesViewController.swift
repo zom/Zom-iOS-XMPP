@@ -50,13 +50,12 @@ extension OTRMessagesViewController {
         return ret
     }
     
-    func textAttachment(fontSize: CGFloat) -> NSTextAttachment {
+    func textAttachment(image: UIImage, fontSize: CGFloat) -> NSTextAttachment {
         var font:UIFont? = UIFont(name: kFontAwesomeFont, size: fontSize)
         if (font == nil) {
             font = UIFont.systemFont(ofSize: fontSize)
         }
         let textAttachment = NSTextAttachment()
-        let image = getTintedShieldIcon()
         textAttachment.image = image
         let aspect = image.size.width / image.size.height
         let height = font?.capHeight
@@ -82,6 +81,8 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var noNetworkView:UITextView?
     private var preparingView:UIView?
     private var pendingApprovalView:UIView?
+    private var singleCheckIcon:UIImage?
+    private var doubleCheckIcon:UIImage?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -282,26 +283,34 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
-    open override func deliveryStatusString(for message: OTROutgoingMessage) -> String? {
-        let checkmark = {
-            return NSString.fa_string(forFontAwesomeIcon: .FACheck)
-        }
-        var string = "" as NSString
+    open override func deliveryStatusString(for message: OTROutgoingMessage) -> NSAttributedString? {
         if (message.dateSent != nil) {
-            string = string.appending(checkmark()!) as NSString
+            if (message.isDelivered) {
+                if self.doubleCheckIcon == nil {
+                    self.doubleCheckIcon = UIImage.init(named: "ic_delivered_grey")
+                }
+                if let image = self.doubleCheckIcon {
+                    let attachment = self.textAttachment(image: image, fontSize: 12)
+                    return NSAttributedString(attachment: attachment)
+                }
+            } else {
+                if self.singleCheckIcon == nil {
+                    self.singleCheckIcon = UIImage.init(named: "ic_sent_grey")
+                }
+                if let image = self.singleCheckIcon {
+                    let attachment = self.textAttachment(image: image, fontSize: 12)
+                    return NSAttributedString(attachment: attachment)
+                }
+            }
         }
-        
-        if (message.isDelivered) {
-            string = string.appending(checkmark()!) as NSString
-        }
-        return string as String
+        return nil
     }
     
-    open override func encryptionStatusString(forMesage message: OTRMessageProtocol) -> NSAttributedString? {
+    open override func encryptionStatusString(forMessage message: OTRMessageProtocol) -> NSAttributedString? {
         switch message.messageSecurity {
         case .OMEMO: fallthrough
         case .OTR:
-            let attachment = textAttachment(fontSize: 12)
+            let attachment = textAttachment(image: getTintedShieldIcon(), fontSize: 12)
             return NSAttributedString(attachment: attachment)
         default:
             return nil
