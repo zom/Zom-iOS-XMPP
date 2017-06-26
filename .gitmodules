@@ -19,3 +19,33 @@
 [submodule "Carthage/Checkouts/SignalProtocol-ObjC"]
 	path = Zom/Carthage/Checkouts/SignalProtocol-ObjC
 	url = https://github.com/ChatSecure/SignalProtocol-ObjC.git
+[submodule "Carthage/Checkouts/KVOController"]
+	path = Zom/Carthage/Checkouts/KVOController
+	url = https://github.com/facebook/KVOController.git
+[submodule "Carthage/Checkouts/PureLayout"]
+	path = Zom/Carthage/Checkouts/PureLayout
+	url = https://github.com/PureLayout/PureLayout.git
+[submodule "Carthage/Checkouts/MBProgressHUD"]
+	path = Zom/Carthage/Checkouts/MBProgressHUD
+	url = https://github.com/jdg/MBProgressHUD.git
+[submodule "Carthage/Checkouts/FormatterKit"]
+	path = Zom/Carthage/Checkouts/FormatterKit
+	url = https://github.com/mattt/FormatterKit.git
+[submodule "Carthage/Checkouts/AFNetworking"]
+	path = Zom/Carthage/Checkouts/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking.git
+[submodule "Carthage/Checkouts/SAMKeychain"]
+	path = Zom/Carthage/Checkouts/SAMKeychain
+	url = https://github.com/soffes/SAMKeychain.git
+[submodule "Carthage/Checkouts/TTTAttributedLabel"]
+	path = Zom/Carthage/Checkouts/TTTAttributedLabel
+	url = https://github.com/TTTAttributedLabel/TTTAttributedLabel.git
+[submodule "Carthage/Checkouts/uservoice-ios-sdk"]
+	path = Zom/Carthage/Checkouts/uservoice-ios-sdk
+	url = https://github.com/uservoice/uservoice-ios-sdk.git
+[submodule "Carthage/Checkouts/XLForm"]
+	path = Zom/Carthage/Checkouts/XLForm
+	url = https://github.com/xmartlabs/XLForm.git
+[submodule "Carthage/Checkouts/ZXingObjC"]
+	path = Zom/Carthage/Checkouts/ZXingObjC
+	url = https://github.com/TheLevelUp/ZXingObjC.git

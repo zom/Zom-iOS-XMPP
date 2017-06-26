@@ -30,6 +30,21 @@
 		92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */; };
 		92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */; };
 		92256CDC1EB38F8200CE4B35 /* 15biscuit.png in Resources */ = {isa = PBXBuildFile; fileRef = 92256CD91EB38F7700CE4B35 /* 15biscuit.png */; };
+		922F42321F00EF7E00E34D65 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42231F00EF7E00E34D65 /* AFNetworking.framework */; };
+		922F42331F00EF7E00E34D65 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42241F00EF7E00E34D65 /* Alamofire.framework */; };
+		922F42341F00EF7E00E34D65 /* DTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42251F00EF7E00E34D65 /* DTFoundation.framework */; };
+		922F42351F00EF7E00E34D65 /* FormatterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42261F00EF7E00E34D65 /* FormatterKit.framework */; };
+		922F42361F00EF7E00E34D65 /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42271F00EF7E00E34D65 /* HTMLReader.framework */; };
+		922F42371F00EF7E00E34D65 /* Kvitto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42281F00EF7E00E34D65 /* Kvitto.framework */; };
+		922F42381F00EF7E00E34D65 /* KVOController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42291F00EF7E00E34D65 /* KVOController.framework */; };
+		922F42391F00EF7E00E34D65 /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422A1F00EF7E00E34D65 /* Mantle.framework */; };
+		922F423A1F00EF7E00E34D65 /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422B1F00EF7E00E34D65 /* MBProgressHUD.framework */; };
+		922F423B1F00EF7E00E34D65 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422C1F00EF7E00E34D65 /* PureLayout.framework */; };
+		922F423C1F00EF7E00E34D65 /* SAMKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422D1F00EF7E00E34D65 /* SAMKeychain.framework */; };
+		922F423D1F00EF7E00E34D65 /* TTTAttributedLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422E1F00EF7E00E34D65 /* TTTAttributedLabel.framework */; };
+		922F423E1F00EF7E00E34D65 /* UserVoice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422F1F00EF7E00E34D65 /* UserVoice.framework */; };
+		922F423F1F00EF7E00E34D65 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42301F00EF7E00E34D65 /* XLForm.framework */; };
+		922F42401F00EF7E00E34D65 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42311F00EF7E00E34D65 /* ZXingObjC.framework */; };
 		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
@@ -41,19 +56,6 @@
 		924FC5691EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC56B1EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib */; };
 		924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC5AC1EBB3FE800CEA225 /* PreparingSessionView.xib */; };
 		924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */; };
-		9253ADD31EFBAB3A00100DFB /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADC61EFBAB3A00100DFB /* AFNetworking.framework */; };
-		9253ADD41EFBAB3A00100DFB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADC71EFBAB3A00100DFB /* Alamofire.framework */; };
-		9253ADD51EFBAB3A00100DFB /* FormatterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADC81EFBAB3A00100DFB /* FormatterKit.framework */; };
-		9253ADD61EFBAB3A00100DFB /* HTMLReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADC91EFBAB3A00100DFB /* HTMLReader.framework */; };
-		9253ADD71EFBAB3A00100DFB /* KVOController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADCA1EFBAB3A00100DFB /* KVOController.framework */; };
-		9253ADD81EFBAB3A00100DFB /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADCB1EFBAB3A00100DFB /* Mantle.framework */; };
-		9253ADD91EFBAB3A00100DFB /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADCC1EFBAB3A00100DFB /* MBProgressHUD.framework */; };
-		9253ADDA1EFBAB3A00100DFB /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADCD1EFBAB3A00100DFB /* PureLayout.framework */; };
-		9253ADDB1EFBAB3A00100DFB /* SAMKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADCE1EFBAB3A00100DFB /* SAMKeychain.framework */; };
-		9253ADDC1EFBAB3A00100DFB /* TTTAttributedLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADCF1EFBAB3A00100DFB /* TTTAttributedLabel.framework */; };
-		9253ADDD1EFBAB3A00100DFB /* UserVoice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADD01EFBAB3A00100DFB /* UserVoice.framework */; };
-		9253ADDE1EFBAB3A00100DFB /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADD11EFBAB3A00100DFB /* XLForm.framework */; };
-		9253ADDF1EFBAB3A00100DFB /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9253ADD21EFBAB3A00100DFB /* ZXingObjC.framework */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
@@ -513,6 +515,21 @@
 		92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoViewController.swift; path = "Classes/View Controllers/ZomMigrationInfoViewController.swift"; sourceTree = "<group>"; };
 		92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoHeaderView.swift; path = Classes/Views/ZomMigrationInfoHeaderView.swift; sourceTree = "<group>"; };
 		92256CD91EB38F7700CE4B35 /* 15biscuit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15biscuit.png; path = "../../Zom/Stickers/olo and shimi/15biscuit.png"; sourceTree = "<group>"; };
+		922F42231F00EF7E00E34D65 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = SOURCE_ROOT; };
+		922F42241F00EF7E00E34D65 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
+		922F42251F00EF7E00E34D65 /* DTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DTFoundation.framework; path = Carthage/Build/iOS/DTFoundation.framework; sourceTree = SOURCE_ROOT; };
+		922F42261F00EF7E00E34D65 /* FormatterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FormatterKit.framework; path = Carthage/Build/iOS/FormatterKit.framework; sourceTree = SOURCE_ROOT; };
+		922F42271F00EF7E00E34D65 /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = SOURCE_ROOT; };
+		922F42281F00EF7E00E34D65 /* Kvitto.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kvitto.framework; path = Carthage/Build/iOS/Kvitto.framework; sourceTree = SOURCE_ROOT; };
+		922F42291F00EF7E00E34D65 /* KVOController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOController.framework; path = Carthage/Build/iOS/KVOController.framework; sourceTree = SOURCE_ROOT; };
+		922F422A1F00EF7E00E34D65 /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/iOS/Mantle.framework; sourceTree = SOURCE_ROOT; };
+		922F422B1F00EF7E00E34D65 /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = SOURCE_ROOT; };
+		922F422C1F00EF7E00E34D65 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = SOURCE_ROOT; };
+		922F422D1F00EF7E00E34D65 /* SAMKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAMKeychain.framework; path = Carthage/Build/iOS/SAMKeychain.framework; sourceTree = SOURCE_ROOT; };
+		922F422E1F00EF7E00E34D65 /* TTTAttributedLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TTTAttributedLabel.framework; path = Carthage/Build/iOS/TTTAttributedLabel.framework; sourceTree = SOURCE_ROOT; };
+		922F422F1F00EF7E00E34D65 /* UserVoice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserVoice.framework; path = Carthage/Build/iOS/UserVoice.framework; sourceTree = SOURCE_ROOT; };
+		922F42301F00EF7E00E34D65 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = SOURCE_ROOT; };
+		922F42311F00EF7E00E34D65 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = SOURCE_ROOT; };
 		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
@@ -648,19 +665,6 @@
 		924FC6271EBB408900CEA225 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
 		924FC6291EBB408A00CEA225 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
 		924FC62B1EBB408C00CEA225 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
-		9253ADC61EFBAB3A00100DFB /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = SOURCE_ROOT; };
-		9253ADC71EFBAB3A00100DFB /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = SOURCE_ROOT; };
-		9253ADC81EFBAB3A00100DFB /* FormatterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FormatterKit.framework; path = Carthage/Build/iOS/FormatterKit.framework; sourceTree = SOURCE_ROOT; };
-		9253ADC91EFBAB3A00100DFB /* HTMLReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HTMLReader.framework; path = Carthage/Build/iOS/HTMLReader.framework; sourceTree = SOURCE_ROOT; };
-		9253ADCA1EFBAB3A00100DFB /* KVOController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOController.framework; path = Carthage/Build/iOS/KVOController.framework; sourceTree = SOURCE_ROOT; };
-		9253ADCB1EFBAB3A00100DFB /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/iOS/Mantle.framework; sourceTree = SOURCE_ROOT; };
-		9253ADCC1EFBAB3A00100DFB /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = SOURCE_ROOT; };
-		9253ADCD1EFBAB3A00100DFB /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = SOURCE_ROOT; };
-		9253ADCE1EFBAB3A00100DFB /* SAMKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SAMKeychain.framework; path = Carthage/Build/iOS/SAMKeychain.framework; sourceTree = SOURCE_ROOT; };
-		9253ADCF1EFBAB3A00100DFB /* TTTAttributedLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TTTAttributedLabel.framework; path = Carthage/Build/iOS/TTTAttributedLabel.framework; sourceTree = SOURCE_ROOT; };
-		9253ADD01EFBAB3A00100DFB /* UserVoice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserVoice.framework; path = Carthage/Build/iOS/UserVoice.framework; sourceTree = SOURCE_ROOT; };
-		9253ADD11EFBAB3A00100DFB /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = SOURCE_ROOT; };
-		9253ADD21EFBAB3A00100DFB /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = SOURCE_ROOT; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -901,22 +905,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9253ADDC1EFBAB3A00100DFB /* TTTAttributedLabel.framework in Frameworks */,
-				9253ADDE1EFBAB3A00100DFB /* XLForm.framework in Frameworks */,
-				9253ADD51EFBAB3A00100DFB /* FormatterKit.framework in Frameworks */,
+				922F423D1F00EF7E00E34D65 /* TTTAttributedLabel.framework in Frameworks */,
+				922F42361F00EF7E00E34D65 /* HTMLReader.framework in Frameworks */,
 				920656981D9C4C1E00EC7034 /* ChatSecureCore.framework in Frameworks */,
-				9253ADD31EFBAB3A00100DFB /* AFNetworking.framework in Frameworks */,
+				922F42321F00EF7E00E34D65 /* AFNetworking.framework in Frameworks */,
+				922F423E1F00EF7E00E34D65 /* UserVoice.framework in Frameworks */,
+				922F42401F00EF7E00E34D65 /* ZXingObjC.framework in Frameworks */,
 				9206569D1D9C4D1E00EC7034 /* OTRAssets.framework in Frameworks */,
-				9253ADD61EFBAB3A00100DFB /* HTMLReader.framework in Frameworks */,
-				9253ADD81EFBAB3A00100DFB /* Mantle.framework in Frameworks */,
-				9253ADD41EFBAB3A00100DFB /* Alamofire.framework in Frameworks */,
-				9253ADDD1EFBAB3A00100DFB /* UserVoice.framework in Frameworks */,
+				922F42331F00EF7E00E34D65 /* Alamofire.framework in Frameworks */,
+				922F42391F00EF7E00E34D65 /* Mantle.framework in Frameworks */,
+				922F42381F00EF7E00E34D65 /* KVOController.framework in Frameworks */,
+				922F42371F00EF7E00E34D65 /* Kvitto.framework in Frameworks */,
+				922F423F1F00EF7E00E34D65 /* XLForm.framework in Frameworks */,
+				922F423C1F00EF7E00E34D65 /* SAMKeychain.framework in Frameworks */,
+				922F423A1F00EF7E00E34D65 /* MBProgressHUD.framework in Frameworks */,
 				4EA0B3C5D625D7C7F5F743FE /* Pods_ZomPods_Zom.framework in Frameworks */,
-				9253ADD91EFBAB3A00100DFB /* MBProgressHUD.framework in Frameworks */,
-				9253ADDA1EFBAB3A00100DFB /* PureLayout.framework in Frameworks */,
-				9253ADDF1EFBAB3A00100DFB /* ZXingObjC.framework in Frameworks */,
-				9253ADDB1EFBAB3A00100DFB /* SAMKeychain.framework in Frameworks */,
-				9253ADD71EFBAB3A00100DFB /* KVOController.framework in Frameworks */,
+				922F42351F00EF7E00E34D65 /* FormatterKit.framework in Frameworks */,
+				922F42341F00EF7E00E34D65 /* DTFoundation.framework in Frameworks */,
+				922F423B1F00EF7E00E34D65 /* PureLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,19 +949,21 @@
 		9253AC641EF7CC9A00100DFB /* Carthage */ = {
 			isa = PBXGroup;
 			children = (
-				9253ADC61EFBAB3A00100DFB /* AFNetworking.framework */,
-				9253ADC71EFBAB3A00100DFB /* Alamofire.framework */,
-				9253ADC81EFBAB3A00100DFB /* FormatterKit.framework */,
-				9253ADC91EFBAB3A00100DFB /* HTMLReader.framework */,
-				9253ADCA1EFBAB3A00100DFB /* KVOController.framework */,
-				9253ADCB1EFBAB3A00100DFB /* Mantle.framework */,
-				9253ADCC1EFBAB3A00100DFB /* MBProgressHUD.framework */,
-				9253ADCD1EFBAB3A00100DFB /* PureLayout.framework */,
-				9253ADCE1EFBAB3A00100DFB /* SAMKeychain.framework */,
-				9253ADCF1EFBAB3A00100DFB /* TTTAttributedLabel.framework */,
-				9253ADD01EFBAB3A00100DFB /* UserVoice.framework */,
-				9253ADD11EFBAB3A00100DFB /* XLForm.framework */,
-				9253ADD21EFBAB3A00100DFB /* ZXingObjC.framework */,
+				922F42231F00EF7E00E34D65 /* AFNetworking.framework */,
+				922F42241F00EF7E00E34D65 /* Alamofire.framework */,
+				922F42251F00EF7E00E34D65 /* DTFoundation.framework */,
+				922F42261F00EF7E00E34D65 /* FormatterKit.framework */,
+				922F42271F00EF7E00E34D65 /* HTMLReader.framework */,
+				922F42281F00EF7E00E34D65 /* Kvitto.framework */,
+				922F42291F00EF7E00E34D65 /* KVOController.framework */,
+				922F422A1F00EF7E00E34D65 /* Mantle.framework */,
+				922F422B1F00EF7E00E34D65 /* MBProgressHUD.framework */,
+				922F422C1F00EF7E00E34D65 /* PureLayout.framework */,
+				922F422D1F00EF7E00E34D65 /* SAMKeychain.framework */,
+				922F422E1F00EF7E00E34D65 /* TTTAttributedLabel.framework */,
+				922F422F1F00EF7E00E34D65 /* UserVoice.framework */,
+				922F42301F00EF7E00E34D65 /* XLForm.framework */,
+				922F42311F00EF7E00E34D65 /* ZXingObjC.framework */,
 			);
 			name = Carthage;
 			sourceTree = "<group>";
@@ -1818,6 +1826,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/UserVoice.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XLForm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kvitto.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DTFoundation.framework",
 			);
 			name = "[Carthage] Copy Frameworks";
 			outputPaths = (

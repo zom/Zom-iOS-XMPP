@@ -1,5 +1,5 @@
 [submodule "Carthage/Checkouts/HTMLReader"]
-	url = https://github.com/ChatSecure/HTMLReader.git
+	url = https://github.com/nolanw/HTMLReader.git
 [submodule "Carthage/Checkouts/Mantle"]
 	url = https://github.com/ChatSecure/Mantle.git
 [submodule "Carthage/Checkouts/SignalProtocolC"]
