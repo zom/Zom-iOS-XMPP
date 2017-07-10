@@ -116,6 +116,8 @@
 		92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */; };
 		92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F694451E04913800B0963C /* AddBuddy.storyboard */; };
 		92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F6947D1E04913E00B0963C /* Tabs.storyboard */; };
+		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
+		92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
 		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
@@ -876,6 +878,8 @@
 		92F694F51E0491C500B0963C /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Tabs.strings; sourceTree = "<group>"; };
 		92F694F71E0491C900B0963C /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/Tabs.strings"; sourceTree = "<group>"; };
 		92F694F91E0491CB00B0963C /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Tabs.strings"; sourceTree = "<group>"; };
+		92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTMLPreviewView.xib; path = ../../../ChatSecure/OTRResources/Interface/HTMLPreviewView.xib; sourceTree = "<group>"; };
+		92F71F881F137EBE00C99690 /* MediaDownloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaDownloadView.xib; path = ../../../ChatSecure/OTRResources/Interface/MediaDownloadView.xib; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
@@ -1228,6 +1232,8 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */,
+				92F71F881F137EBE00C99690 /* MediaDownloadView.xib */,
 				924FC4EE1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib */,
 				924FC56B1EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib */,
 				926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */,
@@ -1764,6 +1770,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				926AF4E41E847BB100463F54 /* OMEMODeviceFingerprintCell.xib in Resources */,
+				92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */,
+				92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */,
 				926AF4E51E847BB100463F54 /* PushAccountTableViewCell.xib in Resources */,
 				926AF4E61E847BB100463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
 				926AF4E71E847BB100463F54 /* SingleButtonTableViewCell.xib in Resources */,
