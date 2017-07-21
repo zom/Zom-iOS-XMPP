@@ -48,6 +48,10 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (void)setupDefaultSendButton;
 @end
 
+@interface OTRMessagesGroupViewController (ZomOverride)
+- (void)didSelectOccupantsButton:(id)sender;
+@end
+
 @interface OTRInviteViewController (ZomOverride)
 - (void)skipPressed:(id)sender;
 - (void)qrButtonPressed:(id)sender;

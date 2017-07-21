@@ -116,6 +116,11 @@
     return [[ZomConversationViewController alloc] init];
 }
 
+- (__kindof JSQMessagesViewController *) groupMessagesViewController
+{
+    return [ZomGroupMessagesViewController messagesViewController];
+}
+
 - (__kindof JSQMessagesViewController *) messagesViewController
 {
     return [ZomMessagesViewController messagesViewController];

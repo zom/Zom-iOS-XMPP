@@ -46,6 +46,7 @@
 		922F423F1F00EF7E00E34D65 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42301F00EF7E00E34D65 /* XLForm.framework */; };
 		922F42401F00EF7E00E34D65 /* ZXingObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F42311F00EF7E00E34D65 /* ZXingObjC.framework */; };
 		9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */; };
+		9236F56D1F22206E00C963D0 /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9236F56C1F22206E00C963D0 /* MaterialIcons-Regular.ttf */; };
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */; };
@@ -118,6 +119,9 @@
 		92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F6947D1E04913E00B0963C /* Tabs.storyboard */; };
 		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
 		92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */; };
+		92F71FEC1F210BF600C99690 /* ZomGroupMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F71FEB1F210BF500C99690 /* ZomGroupMessagesViewController.swift */; };
+		92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */; };
+		92F7201B1F21119D00C99690 /* Zom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7201A1F21119D00C99690 /* Zom.storyboard */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
 		D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
@@ -533,6 +537,7 @@
 		922F42301F00EF7E00E34D65 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = SOURCE_ROOT; };
 		922F42311F00EF7E00E34D65 /* ZXingObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZXingObjC.framework; path = Carthage/Build/iOS/ZXingObjC.framework; sourceTree = SOURCE_ROOT; };
 		9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; path = "../../ChatSecure/Pods/Target Support Files/Pods-ChatSecureCorePods-ChatSecureCore/Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist"; sourceTree = "<group>"; };
+		9236F56C1F22206E00C963D0 /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ZomPods-Zom-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -880,6 +885,9 @@
 		92F694F91E0491CB00B0963C /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Tabs.strings"; sourceTree = "<group>"; };
 		92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTMLPreviewView.xib; path = ../../../ChatSecure/OTRResources/Interface/HTMLPreviewView.xib; sourceTree = "<group>"; };
 		92F71F881F137EBE00C99690 /* MediaDownloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaDownloadView.xib; path = ../../../ChatSecure/OTRResources/Interface/MediaDownloadView.xib; sourceTree = "<group>"; };
+		92F71FEB1F210BF500C99690 /* ZomGroupMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomGroupMessagesViewController.swift; path = "Classes/View Controllers/Messages View Controller/ZomGroupMessagesViewController.swift"; sourceTree = "<group>"; };
+		92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomRoomOccupantsViewController.swift; path = "Classes/View Controllers/ZomRoomOccupantsViewController.swift"; sourceTree = "<group>"; };
+		92F7201A1F21119D00C99690 /* Zom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Zom.storyboard; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
@@ -1005,6 +1013,7 @@
 			isa = PBXGroup;
 			children = (
 				9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */,
+				92F71FEB1F210BF500C99690 /* ZomGroupMessagesViewController.swift */,
 			);
 			name = "Messages View Controller";
 			sourceTree = "<group>";
@@ -1079,6 +1088,7 @@
 				92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */,
 				92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */,
 				92CF0A7E1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift */,
+				92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1153,6 +1163,7 @@
 				9278C39F1BF4D2AE003AC533 /* Stickers */,
 				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
 				D978BCA51BABEB6F009246CF /* FontAwesome.ttf */,
+				9236F56C1F22206E00C963D0 /* MaterialIcons-Regular.ttf */,
 				D978BCA71BABEB83009246CF /* xmpp-server-list */,
 				D978BC9C1BABE6DA009246CF /* Images.xcassets */,
 				D978BCAB1BABEC13009246CF /* torrc */,
@@ -1257,6 +1268,7 @@
 				924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */,
 				9286A56D1EBC86430069F124 /* ArchivedFriendInfoView.xib */,
 				9286A5741EBC891D0069F124 /* ArchivedChatInfoView.xib */,
+				92F7201A1F21119D00C99690 /* Zom.storyboard */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1751,6 +1763,7 @@
 				926AF4A81E847B3800463F54 /* UserInfoProfileCell.xib in Resources */,
 				92A567C61EDED3B900684E72 /* PitchInviteView.xib in Resources */,
 				D978BC9D1BABE6DA009246CF /* Images.xcassets in Resources */,
+				92F7201B1F21119D00C99690 /* Zom.storyboard in Resources */,
 				924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */,
 				92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
@@ -1762,6 +1775,7 @@
 				926AF4A51E847B3800463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
 				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
 				92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */,
+				9236F56D1F22206E00C963D0 /* MaterialIcons-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1893,6 +1907,7 @@
 				6323C7091E3AB5CD00D0FB42 /* ZomProfileCells.swift in Sources */,
 				92CF0ABB1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift in Sources */,
 				92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */,
+				92F71FEC1F210BF600C99690 /* ZomGroupMessagesViewController.swift in Sources */,
 				92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */,
 				928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */,
 				921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */,
@@ -1925,6 +1940,7 @@
 				6329CE201E009E51001BC2C6 /* ZomFingerprintCell.swift in Sources */,
 				9208607F1D13DBE200CC31D0 /* ZomBuddy.swift in Sources */,
 				D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */,
+				92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */,
 				921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */,
 				9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */,
 				6320C93B1DFF740C0080F3BD /* ZomUserInfoProfileCell.swift in Sources */,
