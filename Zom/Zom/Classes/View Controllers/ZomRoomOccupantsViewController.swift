@@ -33,8 +33,12 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.groupTableViewDataSource = GroupTableDataSource(dataSource: self.tableView.dataSource!)
+        
+        self.tableView.register(OTRBuddyInfoCell.self, forCellReuseIdentifier: "buddyCell")
+        
+        self.groupTableViewDataSource = GroupTableDataSource(parent: self, dataSource: self.tableView.dataSource!)
         self.tableView.dataSource = self.groupTableViewDataSource
+        self.tableView.delegate = self.groupTableViewDataSource
         self.groupInfoTableViewDataSource = GroupInfoTableDataSource(roomKey: self.roomKey!)
         groupInfoTableView.dataSource = self.groupInfoTableViewDataSource
         groupInfoTableView.delegate = self.groupInfoTableViewDataSource
@@ -46,10 +50,16 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
         qrCodeButton.backgroundColor = UIColor.white //reset this, set by appearance proxy
     }
     
-    class GroupTableDataSource: NSObject, UITableViewDataSource {
+    private func getOccupant(indexPath:IndexPath) -> OTRXMPPRoomOccupant? {
+        return viewHandler?.object(indexPath) as? OTRXMPPRoomOccupant
+    }
+    
+    class GroupTableDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+        let parent:ZomRoomOccupantsViewController
         let superSource:UITableViewDataSource
         
-        init(dataSource:UITableViewDataSource) {
+        init(parent:ZomRoomOccupantsViewController, dataSource:UITableViewDataSource) {
+            self.parent = parent
             self.superSource = dataSource
             super.init()
         }
@@ -63,7 +73,28 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            return superSource.tableView(tableView, cellForRowAt:indexPath)
+            let cell:OTRBuddyInfoCell = tableView.dequeueReusableCell(withIdentifier: "buddyCell", for: indexPath) as! OTRBuddyInfoCell
+            var buddy:OTRXMPPBuddy? = nil
+            if let roomOccupant = parent.getOccupant(indexPath: indexPath) {
+                OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
+                    if let key = self.parent.roomKey, let room = OTRXMPPRoom.fetchObject(withUniqueID: key, transaction: transaction) {
+                        buddy = OTRXMPPBuddy.fetch(withUsername: roomOccupant.realJID ?? roomOccupant.jid!, withAccountUniqueId: room.accountUniqueId!, transaction: transaction)
+                    }
+                })
+            }
+            cell.selectionStyle = .none
+            if let buddy = buddy {
+                cell.setThread(buddy, account: nil)
+            }
+            return cell
+        }
+        
+        func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 80.0
+        }
+        
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 80.0
         }
     }
     
