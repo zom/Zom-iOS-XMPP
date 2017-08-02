@@ -18,7 +18,7 @@
         <!--Zom Room Occupants View Controller-->
         <scene sceneID="fEB-cU-ujR">
             <objects>
-                <viewController storyboardIdentifier="roomOccupants" id="BSe-a3-42h" customClass="ZomRoomOccupantsViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="roomOccupants" automaticallyAdjustsScrollViewInsets="NO" id="BSe-a3-42h" customClass="ZomRoomOccupantsViewController" customModule="Zom" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J3Z-H3-pJ7"/>
                         <viewControllerLayoutGuide type="bottom" id="yHj-pS-eXf"/>
@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dpJ-GN-put">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.99607843137254903" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Gt2-pb-eMl">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
@@ -277,7 +277,7 @@
                             <constraint firstItem="dpJ-GN-put" firstAttribute="leading" secondItem="RPq-GN-JN5" secondAttribute="leading" id="NCo-N9-0Ug"/>
                             <constraint firstItem="yHj-pS-eXf" firstAttribute="top" secondItem="dpJ-GN-put" secondAttribute="bottom" id="Nzy-16-9Qf"/>
                             <constraint firstAttribute="trailing" secondItem="dpJ-GN-put" secondAttribute="trailing" id="YUL-2J-bWX"/>
-                            <constraint firstItem="dpJ-GN-put" firstAttribute="top" secondItem="J3Z-H3-pJ7" secondAttribute="bottom" id="aVL-gO-jxk"/>
+                            <constraint firstItem="dpJ-GN-put" firstAttribute="top" secondItem="RPq-GN-JN5" secondAttribute="top" id="sbb-yY-apH"/>
                         </constraints>
                     </view>
                     <connections>
