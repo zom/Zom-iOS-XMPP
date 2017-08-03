@@ -1,51 +1,21 @@
-/* password section */
-"Account" = "Account";
+/* Cancel button */
+"Cancel" = "取消";
 
-/* username section */
-"Basic Setup" = "创建一个用户名";
+/* When selecting friend */
+"Choose a Friend" = "选择朋友";
 
-/* server selection footer */
-"Choose from our list of trusted servers, or use your own." = "Choose from our list of trusted servers, or use your own.";
+/* Prompt for confirm password */
+"Confirm New Password" = "确认新密码";
 
-/* if you want to change your username */
-"Customize Username" = "Customize Username";
+/* OK button */
+"OK" = "确定";
 
-/* toggle switch for show advanced */
-"Enable Tor" = "Tor";
+/* Button label to refresh an OTR session */
+"Refresh Session" = "重新整理工作阶段";
 
-/* whether or not we should generate a strong password for them */
-"Generate Secure Password" = "Generate Secure Password";
+/* Table view section header */
+"Secure Identity" = "安全身份";
 
-/* title for logging in */
-"Log In" = "Log In";
+/* Button label to verify contact security */
+"Verify Contact" = "验证钥匙";
 
-/* for choosing your XMPP vCard display name */
-"Nickname" = "";
-
-/* server selection section title */
-"Server" = "Server";
-
-/* toggle switch for show advanced */
-"Show Advanced Options" = "Show Advanced Options";
-
-/* title for creating a new account */
-"Sign Up" = "";
-
-/* basic setup selection footer */
-"Think of a unique nickname that you don't use anywhere else and doesn't contain personal information." = "Your Zom ID can be anything you want, and is how you will be known by others on Zom.";
-
-/* password section */
-"Tor" = "Tor";
-
-/* help text for password generator */
-"We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
-
-
-/* Error string for OTR message string */
-"A private conversation could not be set up." = "无法建立加密会话";
-
-/* SSL error message */
-"Access denied" = "拒绝存取";
-
-/* Title of error message pop-up box */
-"Error!" = "错误！";

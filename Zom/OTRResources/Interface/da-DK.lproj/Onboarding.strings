@@ -1,4 +1,3 @@
-
 /* Class = "UIButton"; normalTitle = ">>"; ObjectID = "77z-hp-gqK"; */
 "77z-hp-gqK.normalTitle" = ">>";
 
@@ -11,7 +10,7 @@
 /* Class = "UIButton"; normalTitle = "Switch Language"; ObjectID = "RzG-Jv-y0g"; */
 "RzG-Jv-y0g.normalTitle" = "Switch Language";
 
-/* Class = "UILabel"; text = "Use ZOM to send and receive free text and voice messages anytime, anywhere"; ObjectID = "SLr-hm-vgk"; */
+/* (No Commment) */
 "SLr-hm-vgk.text" = "Use ZOM to send and receive free text and voice messages anytime, anywhere";
 
 /* Class = "UIViewController"; title = "Enable Push"; ObjectID = "SVg-zE-e0I"; */
@@ -20,13 +19,13 @@
 /* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "cHd-eh-dlb"; */
 "cHd-eh-dlb.normalTitle" = "Skip";
 
-/* Class = "UILabel"; text = "Free Text & Voice Messaging + Exciting Stickers"; ObjectID = "f7Z-A1-2Dh"; */
+/* (No Commment) */
 "f7Z-A1-2Dh.text" = "Free Text & Voice Messaging + Exciting Stickers";
 
 /* Class = "UIButton"; normalTitle = "Enable Push"; ObjectID = "ilB-OW-Ojc"; */
 "ilB-OW-Ojc.normalTitle" = "Enable Push";
 
-/* Class = "UITableViewController"; title = "Sign into an existing account"; ObjectID = "kXx-ta-MsF"; */
+/* (No Commment) */
 "kXx-ta-MsF.title" = "Sign into an existing account";
 
 /* Class = "UIViewController"; title = "Switch Language"; ObjectID = "ls3-ll-Zye"; */
@@ -35,5 +34,6 @@
 /* Class = "UIButton"; normalTitle = "Create an Account"; ObjectID = "xHH-ao-iyd"; */
 "xHH-ao-iyd.normalTitle" = "Create an Account";
 
-/* Class = "UITextView"; text = "Zom can now automatically notify compatible offline contacts that you'd like to establish a secure conversation with. To protect your privacy, these notifications currently do not contain any content."; ObjectID = "z6D-2V-YZv"; */
+/* Class = "UITextView"; text = "Zom needs permission to notify you of new messages!"; ObjectID = "z6D-2V-YZv"; */
 "z6D-2V-YZv.text" = "Zom can now automatically notify compatible offline contacts that you'd like to establish a secure conversation with. To protect your privacy, these notifications currently do not contain any content.";
+

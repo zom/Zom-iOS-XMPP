@@ -1,4 +1,3 @@
-
 /* Class = "UILabel"; text = "Tap the Zom invite link from your friend or scan their QR code now"; ObjectID = "1kj-Rl-D1L"; */
 "1kj-Rl-D1L.text" = "ཁྱེད་ཀྱི་གྲོགས་པོས་བསྐུར་བའི་འཛོམས་ZOM.IM འབྲེལ་ཐག་དེ་ལ་བསྣུན་པའམ་ཡང་ན་དེའི་་ཨང་ཚབ་ལ་གཤེར།";
 
@@ -28,3 +27,4 @@
 
 /* Class = "UIViewController"; title = "Choose account"; ObjectID = "o4G-Cg-UOP"; */
 "o4G-Cg-UOP.title" = "Choose account";
+

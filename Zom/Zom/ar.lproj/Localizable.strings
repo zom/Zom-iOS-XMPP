@@ -1,51 +1,18 @@
-/* password section */
-"Account" = "Account";
+/* Cancel button */
+"Cancel" = "ألْغ";
 
-/* username section */
-"Basic Setup" = "Create a Zom ID";
+/* When selecting friend */
+"Choose a Friend" = "اختيار صديق";
 
-/* server selection footer */
-"Choose from our list of trusted servers, or use your own." = "Choose from our list of trusted servers, or use your own.";
+/* Prompt for confirm password */
+"Confirm New Password" = "تأكيد كلمة السر الجديدة";
 
-/* if you want to change your username */
-"Customize Username" = "Customize Username";
+/* OK button */
+"OK" = "موافق";
 
-/* toggle switch for show advanced */
-"Enable Tor" = "Tor";
+/* Button label to refresh an OTR session */
+"Refresh Session" = "تحديث الجلسة";
 
-/* whether or not we should generate a strong password for them */
-"Generate Secure Password" = "Generate Secure Password";
+/* Button label to verify contact security */
+"Verify Contact" = "تحقق من جهة الاتصال";
 
-/* title for logging in */
-"Log In" = "Log In";
-
-/* for choosing your XMPP vCard display name */
-"Nickname" = "";
-
-/* server selection section title */
-"Server" = "Server";
-
-/* toggle switch for show advanced */
-"Show Advanced Options" = "Show Advanced Options";
-
-/* title for creating a new account */
-"Sign Up" = "";
-
-/* basic setup selection footer */
-"Think of a unique nickname that you don't use anywhere else and doesn't contain personal information." = "Your Zom ID can be anything you want, and is how you will be known by others on Zom.";
-
-/* password section */
-"Tor" = "Tor";
-
-/* help text for password generator */
-"We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
-
-
-/* Error string for OTR message string */
-"A private conversation could not be set up." = "لم يتمكن من إعداد المحادثة الخاصة.";
-
-/* Error string for OTR message string */
-"An error occured while encrypting a message and the message was not sent." = "حدث خطأ أثناء تعمية الرسالة ولم تُرسَل.";
-
-/* Title of error message pop-up box */
-"Error!" = "خطأ!";

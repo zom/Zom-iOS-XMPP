@@ -1,62 +1,21 @@
-/* password section */
-"Account" = "Account";
+/* Cancel button */
+"Cancel" = "ཕྱིར་འཐེན།";
 
-/* The title for the view to add a buddy */
-"Add Buddy" = "གྲོགས་པོ་སྣོན།";
+/* When selecting friend */
+"Choose a Friend" = "གྲོགས་ཞིག་འདེམས།";
 
-/* username section */
-"Basic Setup" = "འཛོམས་ཀྱི་ཁ་བྱང་ཞིག་བཟོས།";
+/* Prompt for confirm password */
+"Confirm New Password" = "གསང་ཚིག་གསར་པ་ངེས་གཏན་བཟོས།";
 
-/* server selection footer */
-"Choose from our list of trusted servers, or use your own." = "Choose from our list of trusted servers, or use your own.";
+/* OK button */
+"OK" = "འགྲིག";
 
-/* if you want to change your username */
-"Customize Username" = "Customize Username";
+/* Button label to refresh an OTR session */
+"Refresh Session" = "གླེང་མོལ་བསྐྱར་གསོ།";
 
-/* toggle switch for show advanced */
-"Enable Tor" = "Tor";
+/* Table view section header */
+"Secure Identity" = "བདེ་འཇགས་ངོ་བོ།";
 
-/* whether or not we should generate a strong password for them */
-"Generate Secure Password" = "Generate Secure Password";
+/* Button label to verify contact security */
+"Verify Contact" = "འབྲེལ་གཏུག་ར་སྤྲོད་གྱིས།";
 
-/* title for logging in */
-"Log In" = "Log In";
-
-/* label for new account info for migration */
-"My new account information" = "ངས་མཉེན་ཆས་རིམ་སྤོར་བྱས་ཚར་ཡིན། ངའི་མཉམ་དུ་སྐད་ཆ་བཤད་ན་འདིར་ཕེབས་རོགས།";
-
-/* for choosing your XMPP vCard display name */
-"Nickname" = "";
-
-/* server selection section title */
-"Server" = "Server";
-
-/* toggle switch for show advanced */
-"Show Advanced Options" = "Show Advanced Options";
-
-/* title for creating a new account */
-"Sign Up" = "";
-
-/* basic setup selection footer */
-"Think of a unique nickname that you don't use anywhere else and doesn't contain personal information." = "Your Zom ID can be anything you want, and is how you will be known by others on Zom.";
-
-/* password section */
-"Tor" = "Tor";
-
-/* help text for password generator */
-"We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
-
-"Inbox" = "ཡིག་སྒམ།";
-
-"Active" = "དྲར་ཞུགས་བཞིན་པ།";
-
-"Archive" = "ཡིག་ཚང།";
-
-"Pending Approval" = "ངོས་ལེན་ལ་སྒུག་བཞིན་ཡོད།";
-
-
-/* Button to switch the chat over to the migrated account */
-"Switch" = "སྐད་ཆ་ཤོད།";
-
-/* Title of error message pop-up box */
-"Error!" = "ནོར་འཁྲུལ།";

@@ -1,69 +1,21 @@
-/* password section */
-"Account" = "Account";
+/* Cancel button */
+"Cancel" = "Abbrechen";
 
-/* username section */
-"Basic Setup" = "Create a Zom ID";
+/* When selecting friend */
+"Choose a Friend" = "Kontakt auswählen";
 
-/* server selection footer */
-"Choose from our list of trusted servers, or use your own." = "Choose from our list of trusted servers, or use your own.";
+/* Prompt for confirm password */
+"Confirm New Password" = "Neues Passwort bestätigen";
 
-/* if you want to change your username */
-"Customize Username" = "Customize Username";
+/* OK button */
+"OK" = "OK";
 
-/* toggle switch for show advanced */
-"Enable Tor" = "Tor";
+/* Button label to refresh an OTR session */
+"Refresh Session" = "Sitzung aktualisieren";
 
-/* whether or not we should generate a strong password for them */
-"Generate Secure Password" = "Generate Secure Password";
+/* Table view section header */
+"Secure Identity" = "Fingerabdruck";
 
-/* title for logging in */
-"Log In" = "Log In";
+/* Button label to verify contact security */
+"Verify Contact" = "Schlüssel überprüfen";
 
-/* for choosing your XMPP vCard display name */
-"Nickname" = "";
-
-/* server selection section title */
-"Server" = "Server";
-
-/* toggle switch for show advanced */
-"Show Advanced Options" = "Show Advanced Options";
-
-/* title for creating a new account */
-"Sign Up" = "";
-
-/* basic setup selection footer */
-"Think of a unique nickname that you don't use anywhere else and doesn't contain personal information." = "Your Zom ID can be anything you want, and is how you will be known by others on Zom.";
-
-/* password section */
-"Tor" = "Tor";
-
-/* help text for password generator */
-"We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
-
-
-/* Text describing what happens when the user has forgotten the passphrase */
-"Because the database contents is encrypted with your passphrase, you've lost access to your data and will need to delete and reinstall ChatSecure to continue. Password managers like 1Password or MiniKeePass can be helpful for generating and storing strong passwords." = "Da die Datenbankinhalte mit Ihrem Password verschlüsselt sind, haben Sie den Zugriff auf Ihre Daten verloren und Sie müssen ChatSecure löschen und neu installieren, um fortzufahren. Passwort-Manager wie 1Password oder MiniKeePass können behilflich sein, zur Erzeugung und Speicherung von starken Passwörtern.";
-
-/* Body of SMS or email when sharing a link to the app */
-"Chat with me securely" = "Sicheren Chat starten";
-
-/* Message shown when connecting to the Tor network */
-"Connecting to Tor" = "Verbinden mit Tor";
-
-/* Title for progress of creating a new account */
-"Creating Account" = "Erstellen des Kontos";
-
-/* Description for automatic conversation deletion */
-"Delete chats on disconnect" = "Chats beim Trennen löschen";
-
-/* Label for button to open link to translate app */
-"Help Translate" = "Übersetzen helfen";
-
-/* Error string for OTR message string */
-"Received an encrypted message but cannot read it because no private connection is established yet." = "Eine verschlüsselte Nachricht erhalten, kann aber nicht gelesen werden, weil noch keine private Verbindung aufgebaut wurde.";
-
-/* Error string for OTR message string */
-"Received and discarded a message intended for another instance." = "Eine Nachricht, bestimmt für eine andere Instanz empfangen und verworfen.";
-
-/* Title of error message pop-up box */
-"Error!" = "Fehler!";

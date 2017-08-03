@@ -1,72 +1,18 @@
-/* password section */
-"Account" = "Account";
+/* Cancel button */
+"Cancel" = "Отменить";
 
-/* username section */
-"Basic Setup" = "Create a Zom ID";
+/* When selecting friend */
+"Choose a Friend" = "Выбрать друга";
 
-/* server selection footer */
-"Choose from our list of trusted servers, or use your own." = "Choose from our list of trusted servers, or use your own.";
+/* Prompt for confirm password */
+"Confirm New Password" = "Подтверди Новый Пароль";
 
-/* if you want to change your username */
-"Customize Username" = "Customize Username";
+/* OK button */
+"OK" = "ОК";
 
-/* toggle switch for show advanced */
-"Enable Tor" = "Tor";
+/* Button label to refresh an OTR session */
+"Refresh Session" = "Обновить сеанс";
 
-/* whether or not we should generate a strong password for them */
-"Generate Secure Password" = "Generate Secure Password";
+/* Button label to verify contact security */
+"Verify Contact" = "Проверить ключ";
 
-/* title for logging in */
-"Log In" = "Log In";
-
-/* for choosing your XMPP vCard display name */
-"Nickname" = "";
-
-/* server selection section title */
-"Server" = "Server";
-
-/* toggle switch for show advanced */
-"Show Advanced Options" = "Show Advanced Options";
-
-/* title for creating a new account */
-"Sign Up" = "";
-
-/* basic setup selection footer */
-"Think of a unique nickname that you don't use anywhere else and doesn't contain personal information." = "Your Zom ID can be anything you want, and is how you will be known by others on Zom.";
-
-/* password section */
-"Tor" = "Tor";
-
-/* help text for password generator */
-"We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else." = "We can automatically generate you a secure password. If you choose your own, make sure it's a unique password you don't use anywhere else.";
-
-
-/* Error string for OTR message string */
-"A private conversation could not be set up." = "Приватность разговора не может быть установлена";
-
-/* Label for text field where you compose a new message */
-"Compose" = "Сообщение";
-
-/* Label for button to create a new account via in band registration */
-"Create New Account" = "Создать новый";
-
-/* SSL error message */
-"Handshake failure" = "Ошибка хэндшейка";
-
-/* Error string for OTR message string */
-"Message has not been sent because our buddy has ended the private conversation. We should either close the connection, or refresh it." = "Сообщение не было отправлено, потому что собеседние завершил приватный разговор. Мы должны завершить соединение или восстановить его";
-
-/* SSL error message */
-"Peer cert is valid, or was ignored if verification disabled" = "Сертификат удаленной стороны корректен либо проверка отключена";
-
-/* Error string for OTR message string */
-"Received and discarded a message intended for another instance." = "Сообщение адресовано другому";
-
-/* SSL error message */
-"Server has requested a client cert" = "Требуется клиентский сертификат";
-
-/* Message for warning about using tor network */
-"Tor is an experimental feature, please use with caution." = "Поддержка Tor экспериментальна, используйте внимательно";
-
-/* Title of error message pop-up box */
-"Error!" = "Ошибка!";
