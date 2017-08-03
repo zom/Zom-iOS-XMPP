@@ -36,9 +36,9 @@ function addAndroidInputFile {
 }
 
 function showUsageAndExit {
-    echo "Usage: $0 -x <path_to_xidel_binary> -p <project_file> -i <android_strings_file> [-i <android_strings_file>...]";
+    echo "Usage: $0 -x <path_to_xidel_binary> -d <project_dir> -p <project_file> -i <android_strings_file> [-i <android_strings_file>...]";
     echo
-    echo "example: $0 -p ../Zom.xcodeproj -i ../../../Zom-Android/app/src/main/res/values/zomstrings.xml -i ../../../Zom-Android/app/src/main/res/values/strings.xml"
+    echo "example: $0 -x ~/Downloads/xidel -d ../Zom -p ../Zom.xcodeproj -i ../../../Zom-Android/app/src/main/res/values/zomstrings.xml -i ../../../Zom-Android/app/src/main/res/values/strings.xml"
     echo
     echo "Xidel can be found here: http://videlibri.sourceforge.net/xidel.html"
     exit
@@ -437,7 +437,10 @@ do
 
     # Update the xcode project
     echo "Update XCode project"
-    rm -rf "${project_dir}/${language}.lproj/Localizable.strings"
+    rm "${project_dir}/${language}.lproj/Localizable.strings"
     xcodebuild -importLocalizations -localizationPath "$ios_file" -project "$project_file"
+    
+    # Clean up by removing some strange extra files created by xcode during the import process
+    fgrep "IDELocalizationWork Temporary File" -l "${project_dir}/${language}.lproj/*.strings" | xargs -I {} rm {}
 done
 
