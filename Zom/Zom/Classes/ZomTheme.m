@@ -50,14 +50,27 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UISwitch appearance] setOnTintColor:self.mainThemeColor];
     [[UILabel appearanceWhenContainedIn:ZomTableViewSectionHeader.class, nil] setTextColor:self.mainThemeColor];
+
     [[UIButton appearanceWhenContainedIn:UITableView.class, nil] setBackgroundColor:self.mainThemeColor];
     [[UIButton appearanceWhenContainedIn:UITableView.class, nil] setTintColor:[UIColor whiteColor]];
     [[UIButton appearanceWhenContainedIn:UITableViewCell.class, UITableView.class, nil] setBackgroundColor:nil];
     [[UIButton appearanceWhenContainedIn:UITableViewCell.class, UITableView.class, nil] setTintColor:nil];
+    
     // Migration button style
     [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setBackgroundColor:UIColor.clearColor];
     [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setTintColor:self.mainThemeColor];
+
+    // Group compose cell button
+    [[UIButton appearanceWhenContainedIn:OTRComposeGroupBuddyCell.class, UICollectionView.class, UITableView.class, UIViewController.class, nil] setBackgroundColor:UIColor.clearColor];
+    [[UIButton appearanceWhenContainedIn:OTRComposeGroupBuddyCell.class, UICollectionView.class, UITableView.class, UIViewController.class, nil] setTintColor:UIColor.lightGrayColor];
     
+    // Checkmark icon in group compose view
+    [[UIImageView appearanceWhenContainedIn: OTRBuddyInfoCheckableCell.class, UITableView.class, UIViewController.class, nil] setTintColor:self.mainThemeColor];
+
+    // Group compose QR button
+   [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomComposeGroupViewController.class, nil] setBackgroundColor:UIColor.whiteColor];
+    [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomComposeGroupViewController.class, nil] setTintColor:UIColor.blackColor];
+
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = self.mainThemeColor;
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
