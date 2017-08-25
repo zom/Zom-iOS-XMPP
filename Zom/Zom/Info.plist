@@ -45,7 +45,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>87</string>
+	<string>88</string>
 	<key>FacebookAppID</key>
 	<string>447241325394334</string>
 	<key>FacebookDisplayName</key>
@@ -84,8 +84,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>
-        <string>OTRResources.bundle/MaterialIcons-Regular.ttf</string>
-        <string>OTRResources.bundle/ios-icon-font.ttf</string>
+		<string>OTRResources.bundle/MaterialIcons-Regular.ttf</string>
+		<string>OTRResources.bundle/ios-icon-font.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
