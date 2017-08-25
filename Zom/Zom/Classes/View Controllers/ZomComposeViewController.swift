@@ -14,8 +14,14 @@ open class ZomComposeViewController: OTRComposeViewController {
     static var extensionName:String = "Zom" + OTRAllBuddiesDatabaseViewExtensionName
     static var filteredExtensionName:String = "Zom" + OTRFilteredBuddiesName
     open static var openInGroupMode:Bool = false
-    var archivedFriendInfoView:UIView?
     
+    var archivedFriendInfoView:UIView?
+    var wasOpenedInGroupMode = false
+    
+    static let imageActionButtonCellIdentifier = "imageActionCell"
+    static let imageActionCreateGroupIdentifier = "imageActionCellCreateGroup"
+    static let imageActionAddFriendIdentifier = "imageActionCellAddFriend"
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
@@ -23,9 +29,38 @@ open class ZomComposeViewController: OTRComposeViewController {
         }
         if (ZomComposeViewController.openInGroupMode) {
             ZomComposeViewController.openInGroupMode = false
-            self.switchSelectionMode()
+            self.wasOpenedInGroupMode = true
+            self.groupButtonPressed(self)
+            navigationItem.title = ""
+        } else {
+            navigationItem.title = NSLocalizedString("Choose a Friend", comment: "When selecting friend")
+            let nib = UINib(nibName: "ImageActionButtonCell", bundle: OTRAssets.resourcesBundle)
+            self.tableView.register(nib, forCellReuseIdentifier: ZomComposeViewController.imageActionButtonCellIdentifier)
+            
+            if let cell = self.tableView.dequeueReusableCell(withIdentifier: ZomComposeViewController.imageActionButtonCellIdentifier) as? ZomImageActionButtonCell {
+                cell.actionLabel.text = NSLocalizedString("Create a Group", comment: "Cell text for creating a group")
+                cell.iconLabel.backgroundColor = UIColor(netHex: 0xff7ed321)
+                self.tableViewHeader.addStackedSubview(cell, identifier: nil, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
+                    self.groupButtonPressed(cell)
+                })
+                cell.translatesAutoresizingMaskIntoConstraints = true
+                cell.contentView.translatesAutoresizingMaskIntoConstraints = true
+            }
+            if let cell = self.tableView.dequeueReusableCell(withIdentifier: ZomComposeViewController.imageActionButtonCellIdentifier) as? ZomImageActionButtonCell {
+                cell.actionLabel.text = ADD_BUDDY_STRING()
+                cell.iconLabel.text = ""
+                cell.iconLabel.backgroundColor = ZomAppDelegate.appDelegate.theme.mainThemeColor
+                self.tableViewHeader.addStackedSubview(cell, identifier: nil, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
+                    let accounts = OTRAccountsManager.allAccounts()
+                    self.addBuddy(accounts)
+                })
+                cell.translatesAutoresizingMaskIntoConstraints = true
+                cell.contentView.translatesAutoresizingMaskIntoConstraints = true
+            }
+
+            // Remove the "create group" option from navigation bar
+            self.navigationItem.rightBarButtonItems = nil
         }
-        navigationItem.title = NSLocalizedString("Choose a Friend", comment: "When selecting friend")
     }
 
     override open func viewWillLayoutSubviews() {
@@ -52,6 +87,9 @@ open class ZomComposeViewController: OTRComposeViewController {
             frame = frame.offsetBy(dx: 0, dy: view.frame.height)
             self.tableView.frame = frame
         }
+        // Hide the upstream add friends option
+        //let hideAddFriends = (parent is UINavigationController)
+        self.tableViewHeader.setView(ADD_BUDDY_STRING(), hidden: true)
     }
     
     override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
@@ -103,14 +141,6 @@ open class ZomComposeViewController: OTRComposeViewController {
         self.viewHandler.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
     }
     
-    open override func canAddBuddies() -> Bool {
-        if (parent is UINavigationController) {
-            // When opened from the "chats" tab, we don't want to show the "Add friend" button!
-            return false
-        }
-        return true; // Always show add
-    }
-    
     open override func addBuddy(_ accountsAbleToAddBuddies: [OTRAccount]?) {
         if let accounts = accountsAbleToAddBuddies {
             if (accounts.count > 0)
@@ -120,9 +150,22 @@ open class ZomComposeViewController: OTRComposeViewController {
         }
     }
     
+    open override func groupButtonPressed(_ sender: Any!) {
+        let storyboard = UIStoryboard(name: "OTRComposeGroup", bundle: OTRAssets.resourcesBundle)
+        if let vc = storyboard.instantiateInitialViewController() as? OTRComposeGroupViewController {
+            vc.delegate = self as? OTRComposeGroupViewControllerDelegate
+            self.navigationController?.pushViewController(vc, animated: (sender as? UIViewController != self))
+        }
+    }
+    
     @IBAction func didPressGotIt(_ sender: AnyObject) {
         UserDefaults.standard.set(true, forKey: "zom_ArchivedFriendInfoViewShown")
         self.view.setNeedsLayout()
     }
     
+    open override func onCancelled(_ viewController: UIViewController!) {
+        if viewController is OTRComposeGroupViewController && wasOpenedInGroupMode {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 }

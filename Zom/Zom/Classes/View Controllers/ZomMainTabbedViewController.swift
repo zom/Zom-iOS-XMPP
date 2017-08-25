@@ -212,29 +212,30 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     
     // MARK: - OTRComposeViewControllerDelegate
     open func controller(_ viewController: OTRComposeViewController, didSelectBuddies buddies: [String]?, accountId: String?, name: String?) {
-        if (buddies?.count == 1) {
-            guard let buds = buddies,
-                let accountKey = accountId else {
-                    return
-            }
+        guard let buds = buddies else { return }
+        if (buds.count == 1) {
+            guard let accountKey = accountId else { return }
             
-            if (buds.count == 1) {
-                if let buddyKey = buds.first {
-                    
-                    var buddy:OTRBuddy? = nil
-                    var account:OTRAccount? = nil
-                    OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.read { (transaction) -> Void in
-                        buddy = OTRBuddy.fetchObject(withUniqueID: buddyKey, transaction: transaction)
-                        account = OTRAccount.fetchObject(withUniqueID: accountKey, transaction: transaction)
-                    }
-                    if let b = buddy, let a = account {
-                        let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-                        let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
-                        let info = ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, hasSession: false)
-                        profileVC.setupWithInfo(info: info)
-                        self.navigationController?.pushViewController(profileVC, animated: true)
-                    }
+            if let buddyKey = buds.first {
+                
+                var buddy:OTRBuddy? = nil
+                var account:OTRAccount? = nil
+                OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.read { (transaction) -> Void in
+                    buddy = OTRBuddy.fetchObject(withUniqueID: buddyKey, transaction: transaction)
+                    account = OTRAccount.fetchObject(withUniqueID: accountKey, transaction: transaction)
                 }
+                if let b = buddy, let a = account {
+                    let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
+                    let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+                    let info = ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, hasSession: false)
+                    profileVC.setupWithInfo(info: info)
+                    self.navigationController?.pushViewController(profileVC, animated: true)
+                }
+            }
+        } else if (buds.count > 1) {
+            if let delegate = ZomAppDelegate.appDelegate.splitViewCoordinator {
+                viewController.navigationController?.popViewController(animated: true)
+                delegate.controller(viewController, didSelectBuddies: buddies, accountId: accountId, name: name)
             }
         }
     }

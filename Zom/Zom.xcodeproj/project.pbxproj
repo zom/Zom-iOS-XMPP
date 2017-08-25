@@ -49,6 +49,8 @@
 		9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */; };
 		92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92424CDF1D6F92F3001256E4 /* ZomUtil.swift */; };
 		924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */; };
+		92440F111F501D9C00365D89 /* ZomImageActionButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92440F101F501D9C00365D89 /* ZomImageActionButtonCell.swift */; };
+		92440F121F501DAF00365D89 /* ImageActionButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92440EDA1F501D3000365D89 /* ImageActionButtonCell.xib */; };
 		924BC4461EB72A16001E9F42 /* 12music.png in Resources */ = {isa = PBXBuildFile; fileRef = 924BC4441EB72A09001E9F42 /* 12music.png */; };
 		924BC4481EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */; };
 		924D013E1CC4E5B400398A4F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924D01401CC4E5B400398A4F /* Onboarding.storyboard */; };
@@ -185,6 +187,27 @@
 			proxyType = 2;
 			remoteGlobalIDString = 86AEDDF5BE58272DDC9F771B63A2202B;
 			remoteInfo = "Pods-ChatSecureCorePods-ChatSecureTests";
+		};
+		92440F0A1F501D3200365D89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 923B4DE879E8789607DABFAD50CEADAA;
+			remoteInfo = Alamofire;
+		};
+		92440F0C1F501D3200365D89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9EFF88AAA15E66EC42B9266039C8EB2A;
+			remoteInfo = DTFoundation;
+		};
+		92440F0E1F501D3200365D89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 205447F382E484BA13D2FA4CBC4BD81F;
+			remoteInfo = Kvitto;
 		};
 		9253ADC01EFBA0F700100DFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -545,6 +568,8 @@
 		9239491A1DDB472E00647E8B /* ZomDiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomDiscoverViewController.swift; path = "Classes/View Controllers/ZomDiscoverViewController.swift"; sourceTree = "<group>"; };
 		92424CDF1D6F92F3001256E4 /* ZomUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUtil.swift; path = Classes/ZomUtil.swift; sourceTree = "<group>"; };
 		924345E81E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-ZomPods-Zom-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-acknowledgements.plist"; sourceTree = "<group>"; };
+		92440EDA1F501D3000365D89 /* ImageActionButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageActionButtonCell.xib; sourceTree = "<group>"; };
+		92440F101F501D9C00365D89 /* ZomImageActionButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomImageActionButtonCell.swift; path = Classes/Views/ZomImageActionButtonCell.swift; sourceTree = "<group>"; };
 		924BC4441EB72A09001E9F42 /* 12music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 12music.png; path = "../../Zom/Stickers/olo and shimi/12music.png"; sourceTree = "<group>"; };
 		924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigratedBuddyHeaderView.swift; path = Classes/Views/ZomMigratedBuddyHeaderView.swift; sourceTree = "<group>"; };
 		924D01411CC4E60400398A4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
@@ -1014,6 +1039,7 @@
 				924BC4471EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift */,
 				9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */,
 				92CF0ABA1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift */,
+				92440F101F501D9C00365D89 /* ZomImageActionButtonCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1030,6 +1056,7 @@
 		928A37761CD209110095366C /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				92440F0B1F501D3200365D89 /* Alamofire.framework */,
 				928A37AF1CD209120095366C /* Appirater.framework */,
 				928A37B11CD209120095366C /* Appirater.bundle */,
 				928A37B31CD209120095366C /* ARChromeActivity.framework */,
@@ -1040,6 +1067,7 @@
 				928A37BD1CD209120095366C /* CocoaLumberjack.framework */,
 				928A37BF1CD209120095366C /* CPAProxy.framework */,
 				928A37C11CD209120095366C /* CPAProxy.bundle */,
+				92440F0D1F501D3200365D89 /* DTFoundation.framework */,
 				928A37C31CD209120095366C /* GCDWebServer.framework */,
 				928A37C51CD209120095366C /* gtm_http_fetcher.framework */,
 				928A37C71CD209120095366C /* gtm_oauth2.framework */,
@@ -1048,6 +1076,7 @@
 				928A37D31CD209120095366C /* JTSImageViewController.framework */,
 				928A37D71CD209120095366C /* KissXML.framework */,
 				929DEAC41E5B8B55008C3B77 /* KSCrash.framework */,
+				92440F0F1F501D3200365D89 /* Kvitto.framework */,
 				630A503C1E78858200A79C85 /* libidn.framework */,
 				928A37DB1CD209120095366C /* libsqlfs.framework */,
 				928A37E11CD209120095366C /* MWFeedParser.framework */,
@@ -1282,6 +1311,7 @@
 				92F7201A1F21119D00C99690 /* OTRRoomOccupants.storyboard */,
 				92DC0FA41F444A4300318E49 /* OTRComposeGroup.storyboard */,
 				92CC68F51F430AEF0006CDF8 /* OTRComposeGroupBuddyCell.xib */,
+				92440EDA1F501D3000365D89 /* ImageActionButtonCell.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1461,6 +1491,27 @@
 			fileType = wrapper.framework;
 			path = Pods_ChatSecureCorePods_ChatSecureTests.framework;
 			remoteRef = 9208C9731D93F914002EE2BE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		92440F0B1F501D3200365D89 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 92440F0A1F501D3200365D89 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		92440F0D1F501D3200365D89 /* DTFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DTFoundation.framework;
+			remoteRef = 92440F0C1F501D3200365D89 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		92440F0F1F501D3200365D89 /* Kvitto.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Kvitto.framework;
+			remoteRef = 92440F0E1F501D3200365D89 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9253ADC11EFBA0F700100DFB /* SignalProtocolC.framework */ = {
@@ -1801,6 +1852,7 @@
 				926AF4E51E847BB100463F54 /* PushAccountTableViewCell.xib in Resources */,
 				926AF4E61E847BB100463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
 				926AF4E71E847BB100463F54 /* SingleButtonTableViewCell.xib in Resources */,
+				92440F121F501DAF00365D89 /* ImageActionButtonCell.xib in Resources */,
 				924BC4461EB72A16001E9F42 /* 12music.png in Resources */,
 				9251C34B1F35C6AE003ACE4A /* MaterialIcons-Regular.ttf in Resources */,
 				926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */,
@@ -1921,6 +1973,7 @@
 				929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */,
 				92AA05E51E3774EF0054BEAD /* ZomOnboardingNavigationController.swift in Sources */,
 				9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */,
+				92440F111F501D9C00365D89 /* ZomImageActionButtonCell.swift in Sources */,
 				633CDA1F1E034AFE001A3ACF /* ZomPasswordCell.swift in Sources */,
 				6323C7091E3AB5CD00D0FB42 /* ZomProfileCells.swift in Sources */,
 				92CF0ABB1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift in Sources */,

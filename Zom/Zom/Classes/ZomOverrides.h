@@ -17,11 +17,13 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 
 @interface OTRComposeViewController (ZomOverride)
 @property (nonatomic, strong) OTRYapViewHandler *viewHandler;
-- (BOOL)canAddBuddies;
+@property (nonatomic, strong) OTRVerticalStackView *tableViewHeader;
 - (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
 - (YapDatabaseViewFiltering *)getFilteringBlock:(BOOL)showArchived;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISegmentedControl *inboxArchiveControl;
+- (void) groupButtonPressed:(id)sender;
+- (void)onCancelled:(UIViewController *)viewController;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)
