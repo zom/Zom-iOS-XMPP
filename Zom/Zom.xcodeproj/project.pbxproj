@@ -128,7 +128,6 @@
 		92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F6947D1E04913E00B0963C /* Tabs.storyboard */; };
 		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
 		92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */; };
-		92F71FEC1F210BF600C99690 /* ZomGroupMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F71FEB1F210BF500C99690 /* ZomGroupMessagesViewController.swift */; };
 		92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
@@ -919,7 +918,6 @@
 		92F694F91E0491CB00B0963C /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/Tabs.strings"; sourceTree = "<group>"; };
 		92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTMLPreviewView.xib; path = ../../../ChatSecure/OTRResources/Interface/HTMLPreviewView.xib; sourceTree = "<group>"; };
 		92F71F881F137EBE00C99690 /* MediaDownloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaDownloadView.xib; path = ../../../ChatSecure/OTRResources/Interface/MediaDownloadView.xib; sourceTree = "<group>"; };
-		92F71FEB1F210BF500C99690 /* ZomGroupMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomGroupMessagesViewController.swift; path = "Classes/View Controllers/Messages View Controller/ZomGroupMessagesViewController.swift"; sourceTree = "<group>"; };
 		92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomRoomOccupantsViewController.swift; path = "Classes/View Controllers/ZomRoomOccupantsViewController.swift"; sourceTree = "<group>"; };
 		92F7201A1F21119D00C99690 /* OTRRoomOccupants.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OTRRoomOccupants.storyboard; sourceTree = "<group>"; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1048,7 +1046,6 @@
 			isa = PBXGroup;
 			children = (
 				9278C3981BF3F859003AC533 /* ZomMessagesViewController.swift */,
-				92F71FEB1F210BF500C99690 /* ZomGroupMessagesViewController.swift */,
 			);
 			name = "Messages View Controller";
 			sourceTree = "<group>";
@@ -1978,7 +1975,6 @@
 				6323C7091E3AB5CD00D0FB42 /* ZomProfileCells.swift in Sources */,
 				92CF0ABB1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift in Sources */,
 				92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */,
-				92F71FEC1F210BF600C99690 /* ZomGroupMessagesViewController.swift in Sources */,
 				92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */,
 				928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */,
 				921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */,
