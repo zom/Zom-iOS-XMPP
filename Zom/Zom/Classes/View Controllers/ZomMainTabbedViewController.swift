@@ -170,7 +170,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     
     private func updateRightButtons() {
         if let add = barButtonAddChat, let settings = barButtonSettings {
-            if (selectedIndex == 0) {
+            if (selectedIndex == 0 || selectedIndex == 1) {
                 navigationItem.rightBarButtonItems = [add]
             } else if (selectedIndex == 3) {
                 navigationItem.rightBarButtonItems = [settings]

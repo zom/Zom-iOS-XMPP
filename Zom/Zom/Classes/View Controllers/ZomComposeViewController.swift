@@ -40,7 +40,7 @@ open class ZomComposeViewController: OTRComposeViewController {
             if let cell = self.tableView.dequeueReusableCell(withIdentifier: ZomComposeViewController.imageActionButtonCellIdentifier) as? ZomImageActionButtonCell {
                 cell.actionLabel.text = NSLocalizedString("Create a Group", comment: "Cell text for creating a group")
                 cell.iconLabel.backgroundColor = UIColor(netHex: 0xff7ed321)
-                self.tableViewHeader.addStackedSubview(cell, identifier: nil, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
+                self.tableViewHeader.addStackedSubview(cell, identifier: ZomComposeViewController.imageActionCreateGroupIdentifier, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
                     self.groupButtonPressed(cell)
                 })
                 cell.translatesAutoresizingMaskIntoConstraints = true
@@ -50,7 +50,7 @@ open class ZomComposeViewController: OTRComposeViewController {
                 cell.actionLabel.text = ADD_BUDDY_STRING()
                 cell.iconLabel.text = ""
                 cell.iconLabel.backgroundColor = ZomAppDelegate.appDelegate.theme.mainThemeColor
-                self.tableViewHeader.addStackedSubview(cell, identifier: nil, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
+                self.tableViewHeader.addStackedSubview(cell, identifier: ZomComposeViewController.imageActionAddFriendIdentifier, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
                     let accounts = OTRAccountsManager.allAccounts()
                     self.addBuddy(accounts)
                 })
@@ -88,8 +88,10 @@ open class ZomComposeViewController: OTRComposeViewController {
             self.tableView.frame = frame
         }
         // Hide the upstream add friends option
-        //let hideAddFriends = (parent is UINavigationController)
+        let hideAddFriends = !(parent is UINavigationController)
         self.tableViewHeader.setView(ADD_BUDDY_STRING(), hidden: true)
+        self.tableViewHeader.setView(ZomComposeViewController.imageActionCreateGroupIdentifier, hidden: hideAddFriends)
+        self.tableViewHeader.setView(ZomComposeViewController.imageActionAddFriendIdentifier, hidden: hideAddFriends)
     }
     
     override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
