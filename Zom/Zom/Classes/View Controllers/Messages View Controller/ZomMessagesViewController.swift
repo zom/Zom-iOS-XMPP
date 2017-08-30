@@ -13,66 +13,9 @@ import OTRAssets
 import BButton
 import AFNetworking
 
-var ZomMessagesViewController_associatedObject1: UInt8 = 0
-
-extension OTRMessagesViewController {
-    
-    private static var swizzle: () {
-        
-        ZomUtil.swizzle(self, originalSelector: #selector(OTRMessagesViewController.collectionView(_:messageDataForItemAt:)), swizzledSelector:#selector(OTRMessagesViewController.zom_collectionView(_:messageDataForItemAtIndexPath:)))
-    }
-    
-    open override class func initialize() {
-        
-        // make sure this isn't a subclass
-        if self !== OTRMessagesViewController.self {
-            return
-        }
-        OTRMessagesViewController.swizzle
-    }
-    
-    var shieldIcon:UIImage? {
-        get {
-            return objc_getAssociatedObject(self, &ZomMessagesViewController_associatedObject1) as? UIImage ?? nil
-        }
-        set {
-            objc_setAssociatedObject(self, &ZomMessagesViewController_associatedObject1, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
-    public func zom_collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAtIndexPath indexPath: NSIndexPath) -> ChatSecureCore.JSQMessageData {
-        let ret = self.zom_collectionView(collectionView, messageDataForItemAtIndexPath: indexPath)
-        if let text = ret.text?() {
-            if ZomStickerMessage.isValidStickerShortCode(text) {
-                return ZomStickerMessage(message: ret)
-            }
-        }
-        return ret
-    }
-    
-    func textAttachment(image: UIImage, fontSize: CGFloat) -> NSTextAttachment {
-        var font:UIFont? = UIFont(name: kFontAwesomeFont, size: fontSize)
-        if (font == nil) {
-            font = UIFont.systemFont(ofSize: fontSize)
-        }
-        let textAttachment = NSTextAttachment()
-        textAttachment.image = image
-        let aspect = image.size.width / image.size.height
-        let height = font?.capHeight
-        textAttachment.bounds = CGRect(x:0,y:0,width:(height! * aspect),height:height!).integral
-        return textAttachment
-    }
-    
-    func getTintedShieldIcon() -> UIImage {
-        if (self.shieldIcon == nil) {
-            let image = UIImage.init(named: "ic_security_white_36pt")
-            self.shieldIcon = image?.tint(UIColor.lightGray, blendMode: CGBlendMode.multiply)
-        }
-        return shieldIcon!
-    }
-}
-
 open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate {
+    
+    static let ZomUnknownSenderMessageCell = "ZomUnknownSenderMessageCell"
     
     private var hasFixedTitleViewConstraints:Bool = false
     private var attachmentPickerController:OTRAttachmentPicker? = nil
@@ -83,9 +26,12 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var pendingApprovalView:UIView?
     private var singleCheckIcon:UIImage?
     private var doubleCheckIcon:UIImage?
+    private var shieldIcon:UIImage?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        let nibUnknown = UINib(nibName: ZomMessagesViewController.ZomUnknownSenderMessageCell, bundle: nil)
+        super.collectionView.register(nibUnknown, forCellWithReuseIdentifier: ZomMessagesViewController.ZomUnknownSenderMessageCell)
         self.cameraButton?.setTitle(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAPlusSquareO), for: .normal)
     }
     
@@ -476,24 +422,175 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                 }
         }
     }
+    
+    func textAttachment(image: UIImage, fontSize: CGFloat) -> NSTextAttachment {
+        var font:UIFont? = UIFont(name: kFontAwesomeFont, size: fontSize)
+        if (font == nil) {
+            font = UIFont.systemFont(ofSize: fontSize)
+        }
+        let textAttachment = NSTextAttachment()
+        textAttachment.image = image
+        let aspect = image.size.width / image.size.height
+        let height = font?.capHeight
+        textAttachment.bounds = CGRect(x:0,y:0,width:(height! * aspect),height:height!).integral
+        return textAttachment
+    }
+    
+    func getTintedShieldIcon() -> UIImage {
+        if (self.shieldIcon == nil) {
+            let image = UIImage.init(named: "ic_security_white_36pt")
+            self.shieldIcon = image?.tint(UIColor.lightGray, blendMode: CGBlendMode.multiply)
+        }
+        return shieldIcon!
+    }
+    
+    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var incoming = false
+        if let jsqCollectionView = collectionView as? JSQMessagesCollectionView {
+            let messageData = self.collectionView(jsqCollectionView, messageDataForItemAt: indexPath)
+            if let messageData = messageData as? UnknownSenderGroupMessageData {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZomMessagesViewController.ZomUnknownSenderMessageCell, for: indexPath)
+                if let cell = cell as? ZomUnknownSenderMessageCell {
+                    cell.nicknameView.text = messageData.senderDisplayName()
+                    cell.usernameView.text = messageData.senderUserName()
+                    cell.titleView.text = String(format: NSLocalizedString("User %@ sent a message. You need to become friends to see future messages from this user.", comment: "Label for group message received from unknown sender"), arguments: [messageData.senderDisplayName()])
+                    if let avatar = self.collectionView(jsqCollectionView, avatarImageDataForItemAt: indexPath) {
+                        cell.imageView.image = avatar.avatarImage() ?? avatar.avatarPlaceholderImage()
+                    }
+                    cell.acceptAction = {(cell:ZomUnknownSenderMessageCell) -> Void
+                        in
+                        print("Accept")
+                    }
+                    cell.denyAction = {(cell:ZomUnknownSenderMessageCell) -> Void
+                        in
+                        print("Deny")
+                    }
+                }
+                return cell
+            } else if let message = messageData as? OTRMessageProtocol & JSQMessageData {
+                incoming = message.isMessageIncoming
+            }
+        }
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
+        // Style cells
+//        if let jsqCell = cell as? JSQMessagesCollectionViewCell {
+//            jsqCell.textView?.textColor = UIColor.black
+//            if incoming {
+//                jsqCell.contentView.backgroundColor = UIColor(netHex: 0xfff0f0f0);
+//            } else {
+//                jsqCell.contentView.backgroundColor = OTRAppDelegate.appDelegate.theme.mainThemeColor.bb_lighten(withValue: 0.8)
+//            }
+//        }
+        return cell
+    }
+    
+    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        let ret = super.collectionView(collectionView, messageDataForItemAt: indexPath)
+        if let ret = ret, let text = ret.text?() {
+            if ZomStickerMessage.isValidStickerShortCode(text) {
+                return ZomStickerMessage(message: ret)
+            }
+        }
+        if self.isGroupChat(), let message = ret as? OTRMessageProtocol & JSQMessageData, message.isMessageIncoming, let messageSender = message.senderId() {
+            var buddy:OTRXMPPBuddy?
+            var roomOccupant:OTRXMPPRoomOccupant?
+            self.readOnlyDatabaseConnection.read { (transaction) in
+                transaction.enumerateRoomOccupants(jid: messageSender, block: { (occupant:OTRXMPPRoomOccupant,
+                    stop:UnsafeMutablePointer<ObjCBool>) in
+                    roomOccupant = occupant
+                    stop.pointee = true
+                })
+                if let occupant = roomOccupant, let realJid = occupant.realJID, let account = self.account(with: transaction) {
+                    buddy = OTRXMPPBuddy.fetch(withUsername: realJid, withAccountUniqueId: account.uniqueId, transaction: transaction)
+                }
+            }
+            if let buddy = buddy {
+                if buddy.pendingApproval || buddy.hasIncomingSubscriptionRequest {
+                    return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
+                } else {
+                    var preferredSecurity:OTRMessageTransportSecurity?
+                    self.readOnlyDatabaseConnection.read { (transaction) in
+                        preferredSecurity = buddy.preferredTransportSecurity(with: transaction)
+                    }
+                    if let sec = preferredSecurity {
+                        switch sec {
+                        case .plaintext, .plaintextWithOTR:
+                            // No keys
+                            return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
+                        default: break
+                        }
+                    }
+                }
+            } else if let _ = roomOccupant, let message = ret {
+                // Not someone we know
+                return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
+            }
+        }
+        return ret
+    }
+    
+    open override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
+        if let jsqCollectionView = collectionView as? JSQMessagesCollectionView {
+            let messageData = self.collectionView(jsqCollectionView, messageDataForItemAt: indexPath)
+            if let _ = messageData as? UnknownSenderGroupMessageData {
+                return CGSize(width: size.width, height: 110) //TODO
+            }
+        }
+        return size
+    }
+    
+    override open func hasBubbleSizeForCell(at indexPath: IndexPath!) -> Bool {
+        if self.collectionView(collectionView, messageDataForItemAt: indexPath) is UnknownSenderGroupMessageData {
+            return false
+        }
+        return super.hasBubbleSizeForCell(at: indexPath)
+    }
+
+    // Uncomment this to remove bubbles
+//    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+//        return nil
+//    }
 }
 
-extension UIImage
-{
-    func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage
-    {
-        let drawRect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        let context = UIGraphicsGetCurrentContext()
-        context!.scaleBy(x: 1.0, y: -1.0)
-        context!.translateBy(x: 0.0, y: -self.size.height)
-        context!.clip(to: drawRect, mask: cgImage!)
-        color.setFill()
-        UIRectFill(drawRect)
-        draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
-        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return tintedImage!
+open class UnknownSenderGroupMessageData: NSObject, JSQMessageData {
+    private var nickName:String?
+    private var userName:String?
+    private var originalMessage:JSQMessageData
+
+    public init(message : JSQMessageData, nickName:String?, userName:String?) {
+        originalMessage = message
+        self.nickName = nickName
+        self.userName = userName
+    }
+    
+    open func senderUserName() -> String! {
+        return self.userName ?? senderDisplayName()
+    }
+    
+    open func senderDisplayName() -> String! {
+        return self.nickName ?? self.originalMessage.senderDisplayName()
+    }
+    
+    open func date() -> Date {
+        return originalMessage.date()
+    }
+    
+    open func messageHash() -> UInt {
+        return originalMessage.messageHash()
+    }
+    
+    open func senderId() -> String! {
+        return originalMessage.senderId()
+    }
+    
+    open func isMediaMessage() -> Bool {
+        return true
+    }
+    
+    open func media() -> JSQMessageMediaData! {
+        return nil
     }
 }
+
 

@@ -44,6 +44,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 - (void)didSetupMappings:(OTRYapViewHandler *)handler;
 - (void)didReceiveChanges:(OTRYapViewHandler *)handler sectionChanges:(NSArray<YapDatabaseViewSectionChange *> *)sectionChanges rowChanges:(NSArray<YapDatabaseViewRowChange *> *)rowChanges;
 - (void)showJIDForwardingHeaderWithNewJID:(XMPPJID *)newJid;
+- (BOOL)hasBubbleSizeForCellAtIndexPath:(NSIndexPath*)indexPath;
 @end
 
 @interface OTRMessagesHoldTalkViewController (ZomOverride)
