@@ -10,6 +10,8 @@ import UIKit
 import ChatSecureCore
 
 open class ZomComposeViewController: OTRComposeViewController {
+
+    typealias ObjcYapDatabaseViewSortingWithObjectBlock = @convention(block) (YapDatabaseReadTransaction, String, String, String, Any, String, String, Any) -> ComparisonResult
     
     static var extensionName:String = "Zom" + OTRAllBuddiesDatabaseViewExtensionName
     static var filteredExtensionName:String = "Zom" + OTRFilteredBuddiesName
@@ -118,10 +120,9 @@ open class ZomComposeViewController: OTRComposeViewController {
                     } else if (!pendingApproval1 && pendingApproval2) {
                         return .orderedDescending
                     }
-                    if let originalBlock = originalView.sorting.block as? YapDatabaseViewSortingWithObjectBlock {
-                        return originalBlock(transaction, group, collection1, group1, object1, collection2, group2, object2)
-                    }
-                    return ComparisonResult.orderedSame
+                    let blockObject:AnyObject = originalView.sorting.block as AnyObject
+                    let originalBlock = unsafeBitCast(blockObject, to: ObjcYapDatabaseViewSortingWithObjectBlock.self)
+                    return originalBlock(transaction, group, collection1, group1, object1, collection2, group2, object2)
                 })
                 let options = YapDatabaseViewOptions()
                 options.isPersistent = false
