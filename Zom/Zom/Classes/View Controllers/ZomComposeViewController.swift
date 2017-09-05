@@ -17,7 +17,6 @@ open class ZomComposeViewController: OTRComposeViewController {
     static var filteredExtensionName:String = "Zom" + OTRFilteredBuddiesName
     open static var openInGroupMode:Bool = false
     
-    var archivedFriendInfoView:UIView?
     var wasOpenedInGroupMode = false
     
     static let imageActionButtonCellIdentifier = "imageActionCell"
@@ -64,31 +63,8 @@ open class ZomComposeViewController: OTRComposeViewController {
             self.navigationItem.rightBarButtonItems = nil
         }
     }
-
-    override open func viewWillLayoutSubviews() {
-        if self.inboxArchiveControl.selectedSegmentIndex == 1, !UserDefaults.standard.bool(forKey: "zom_ArchivedFriendInfoViewShown") {
-            if archivedFriendInfoView == nil {
-                archivedFriendInfoView = UINib(nibName: "ArchivedFriendInfoView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
-                if let view = archivedFriendInfoView {
-                    view.translatesAutoresizingMaskIntoConstraints = false
-                    self.view.addSubview(view)
-                    
-                    let hconstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: NSLayoutFormatOptions.alignAllLeading, metrics: nil, views: ["view":view])
-                    NSLayoutConstraint.activate(hconstraints)
-                }
-            }
-        } else if archivedFriendInfoView != nil {
-            archivedFriendInfoView?.removeFromSuperview()
-            archivedFriendInfoView = nil
-        }
-    }
     
     override open func viewDidLayoutSubviews() {
-        if let view = archivedFriendInfoView {
-            var frame = self.tableView.frame
-            frame = frame.offsetBy(dx: 0, dy: view.frame.height)
-            self.tableView.frame = frame
-        }
         // Hide the upstream add friends option
         let hideAddFriends = !(parent is UINavigationController)
         self.tableViewHeader.setView(ADD_BUDDY_STRING(), hidden: true)
@@ -159,11 +135,6 @@ open class ZomComposeViewController: OTRComposeViewController {
             vc.delegate = self as? OTRComposeGroupViewControllerDelegate
             self.navigationController?.pushViewController(vc, animated: (sender as? UIViewController != self))
         }
-    }
-    
-    @IBAction func didPressGotIt(_ sender: AnyObject) {
-        UserDefaults.standard.set(true, forKey: "zom_ArchivedFriendInfoViewShown")
-        self.view.setNeedsLayout()
     }
     
     open override func onCancelled(_ viewController: UIViewController!) {
