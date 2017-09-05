@@ -458,7 +458,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                 if let cell = cell as? ZomUnknownSenderMessageCell {
                     cell.nicknameView.text = messageData.senderDisplayName()
                     cell.usernameView.text = messageData.senderUserName()
-                    cell.titleView.text = String(format: NSLocalizedString("User %@ sent a message. You need to become friends to see future messages from this user.", comment: "Label for group message received from unknown sender"), arguments: [messageData.senderDisplayName()])
+                    cell.titleView.text = String(format: NSLocalizedString("%@ has things to say. Become friends to see upcoming chats.", comment: "Label for group message received from unknown sender"), arguments: [messageData.senderDisplayName()])
                     if let avatar = self.collectionView(jsqCollectionView, avatarImageDataForItemAt: indexPath) {
                         cell.imageView.image = avatar.avatarImage() ?? avatar.avatarPlaceholderImage()
                     }
