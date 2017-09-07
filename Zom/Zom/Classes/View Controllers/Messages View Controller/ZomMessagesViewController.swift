@@ -496,41 +496,42 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                 return ZomStickerMessage(message: ret)
             }
         }
-        if self.isGroupChat(), let message = ret as? OTRMessageProtocol & JSQMessageData, message.isMessageIncoming, let messageSender = message.senderId() {
-            var buddy:OTRXMPPBuddy?
-            var roomOccupant:OTRXMPPRoomOccupant?
-            self.readOnlyDatabaseConnection.read { (transaction) in
-                transaction.enumerateRoomOccupants(jid: messageSender, block: { (occupant:OTRXMPPRoomOccupant,
-                    stop:UnsafeMutablePointer<ObjCBool>) in
-                    roomOccupant = occupant
-                    stop.pointee = true
-                })
-                if let occupant = roomOccupant, let realJid = occupant.realJID, let account = self.account(with: transaction) {
-                    buddy = OTRXMPPBuddy.fetch(withUsername: realJid, withAccountUniqueId: account.uniqueId, transaction: transaction)
-                }
-            }
-            if let buddy = buddy {
-                if buddy.pendingApproval || buddy.hasIncomingSubscriptionRequest {
-                    return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
-                } else {
-                    var preferredSecurity:OTRMessageTransportSecurity?
-                    self.readOnlyDatabaseConnection.read { (transaction) in
-                        preferredSecurity = buddy.preferredTransportSecurity(with: transaction)
-                    }
-                    if let sec = preferredSecurity {
-                        switch sec {
-                        case .plaintext, .plaintextWithOTR:
-                            // No keys
-                            return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
-                        default: break
-                        }
-                    }
-                }
-            } else if let _ = roomOccupant, let message = ret {
-                // Not someone we know
-                return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
-            }
-        }
+        // Uncomment this block to show an "add friend view" for group messages from people you are not friends with. This below code is a very brute force way to do it - better would be to already have "message from unknown" as a separate entity in the db.
+//        if self.isGroupChat(), let message = ret as? OTRMessageProtocol & JSQMessageData, message.isMessageIncoming, let messageSender = message.senderId() {
+//            var buddy:OTRXMPPBuddy?
+//            var roomOccupant:OTRXMPPRoomOccupant?
+//            self.readOnlyDatabaseConnection.read { (transaction) in
+//                transaction.enumerateRoomOccupants(jid: messageSender, block: { (occupant:OTRXMPPRoomOccupant,
+//                    stop:UnsafeMutablePointer<ObjCBool>) in
+//                    roomOccupant = occupant
+//                    stop.pointee = true
+//                })
+//                if let occupant = roomOccupant, let realJid = occupant.realJID, let account = self.account(with: transaction) {
+//                    buddy = OTRXMPPBuddy.fetch(withUsername: realJid, withAccountUniqueId: account.uniqueId, transaction: transaction)
+//                }
+//            }
+//            if let buddy = buddy {
+//                if buddy.pendingApproval || buddy.hasIncomingSubscriptionRequest {
+//                    return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
+//                } else {
+//                    var preferredSecurity:OTRMessageTransportSecurity?
+//                    self.readOnlyDatabaseConnection.read { (transaction) in
+//                        preferredSecurity = buddy.preferredTransportSecurity(with: transaction)
+//                    }
+//                    if let sec = preferredSecurity {
+//                        switch sec {
+//                        case .plaintext, .plaintextWithOTR:
+//                            // No keys
+//                            return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
+//                        default: break
+//                        }
+//                    }
+//                }
+//            } else if let _ = roomOccupant, let message = ret {
+//                // Not someone we know
+//                return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
+//            }
+//        }
         return ret
     }
     
@@ -556,6 +557,9 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 //    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
 //        return nil
 //    }
+    override open func getFallbackConferenceServiceJID() -> String? {
+        return "conference.zom.im"
+    }
 }
 
 open class UnknownSenderGroupMessageData: NSObject, JSQMessageData {
