@@ -298,6 +298,11 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func didUpdateState() {
         super.didUpdateState()
+        if isGroupChat() {
+            self.pendingApprovalView?.removeFromSuperview()
+            self.pendingApprovalView = nil
+            self.updatePreparingView(false)
+        } else {
         self.readOnlyDatabaseConnection.asyncRead { [weak self] (transaction) in
             guard let strongSelf = self else { return }
             guard let threadKey = strongSelf.threadKey else { return }
@@ -333,6 +338,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                     }
                 }
             }
+        }
         }
     }
     
