@@ -34,6 +34,7 @@
     [UITableView zom_initialize];
     [OTRXMPPAccount swizzle];
     [OTRAccountMigrator swizzle];
+    [OTRXMPPRoomManager swizzle];
 
     // Auto-pin the home.zom.im cert
     //

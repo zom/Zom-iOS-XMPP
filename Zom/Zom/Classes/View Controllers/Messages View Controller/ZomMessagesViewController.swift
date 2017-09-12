@@ -557,9 +557,6 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 //    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
 //        return nil
 //    }
-    override open func getFallbackConferenceServiceJID() -> String? {
-        return "conference.zom.im"
-    }
 }
 
 open class UnknownSenderGroupMessageData: NSObject, JSQMessageData {
