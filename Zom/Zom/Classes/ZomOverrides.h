@@ -23,7 +23,7 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UISegmentedControl *inboxArchiveControl;
 - (void) groupButtonPressed:(id)sender;
-- (void)onCancelled:(UIViewController *)viewController;
+- (void) groupSelectionCancelled:(OTRComposeGroupViewController *)composeViewController;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)

@@ -137,8 +137,8 @@ open class ZomComposeViewController: OTRComposeViewController {
         }
     }
     
-    open override func onCancelled(_ viewController: UIViewController!) {
-        if viewController is OTRComposeGroupViewController && wasOpenedInGroupMode {
+    override open func groupSelectionCancelled(_ composeViewController: OTRComposeGroupViewController!) {
+        if composeViewController != nil && wasOpenedInGroupMode {
             dismiss(animated: true, completion: nil)
         }
     }
