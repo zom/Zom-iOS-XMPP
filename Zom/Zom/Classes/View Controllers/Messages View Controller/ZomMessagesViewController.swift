@@ -204,12 +204,12 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     override open func setupInfoButton() {
+        let image = UIImage(named: "OTRInfoIcon", in: OTRAssets.resourcesBundle, compatibleWith: nil)
         if self.isGroupChat() {
             super.setupInfoButton()
+            self.navigationItem.rightBarButtonItem?.image = image
             return
         }
-        
-        let image = UIImage(named: "OTRInfoIcon", in: OTRAssets.resourcesBundle, compatibleWith: nil)
         let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(infoButtonPressed(_:)))
         self.navigationItem.rightBarButtonItem = item
     }
