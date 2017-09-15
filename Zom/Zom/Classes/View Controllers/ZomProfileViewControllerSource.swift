@@ -112,7 +112,7 @@ class ZomProfileViewObserver: NSObject {
             return
         }
         
-        self.info = ZomProfileViewControllerInfo(user: user, otrKit: self.info.otrKit, otrKitInfo: self.info.otrKitInfo, hasSession: self.info.hasSession)
+        self.info = ZomProfileViewControllerInfo(user: user, otrKit: self.info.otrKit, otrKitInfo: self.info.otrKitInfo, hasSession: self.info.hasSession, calledFromGroup: self.info.calledFromGroup)
         self.tableSections = self.generateSections(info: self.info, qrAction: self.qrAction, shareAction: self.shareAction)
         self.delegate?.didUpdateTableSections(observer: self)
     }
@@ -143,8 +143,11 @@ class ZomProfileViewObserver: NSObject {
             
             let fingerprintSectionCells = self.generateFingerprintCells(fingerprints: allFingerprints)
             
-            
-            sections += [TableSectionInfo(title: nil, cells: [userCell,(info.hasSession ? ButtonCellInfo(type:.refresh) : ButtonCellInfo(type:.startChat))])]
+            var cells:[ZomProfileViewCellInfoProtocol] = [userCell]
+            if !info.calledFromGroup {
+                cells.append((info.hasSession ? ButtonCellInfo(type:.refresh) : ButtonCellInfo(type:.startChat)))
+            }
+            sections += [TableSectionInfo(title: nil, cells: cells)]
             if (fingerprintSectionCells.count > 0 ) {
                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
             }
@@ -217,14 +220,15 @@ struct ZomProfileViewControllerInfo {
     let otrKit:OTRKit
     let otrKitInfo:ZomOTRKitInfo
     let hasSession:Bool
+    let calledFromGroup:Bool
     
     /** use this static function to create the info object for a buddy */
-    static func createInfo(_ buddy:OTRBuddy,accountName:String,protocolString:String,otrKit:OTRKit,hasSession:Bool) -> ZomProfileViewControllerInfo {
-        return ZomProfileViewControllerInfo(user: .buddy(buddy), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: buddy.username, accountName: accountName, protocolString: protocolString), hasSession: hasSession)
+    static func createInfo(_ buddy:OTRBuddy,accountName:String,protocolString:String,otrKit:OTRKit,hasSession:Bool,calledFromGroup:Bool) -> ZomProfileViewControllerInfo {
+        return ZomProfileViewControllerInfo(user: .buddy(buddy), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: buddy.username, accountName: accountName, protocolString: protocolString), hasSession: hasSession, calledFromGroup: calledFromGroup)
     }
     
     /** Use this static function to create the info object for the "ME" tab */
     static func createInfo(_ account:OTRAccount,protocolString:String,otrKit:OTRKit) -> ZomProfileViewControllerInfo {
-        return ZomProfileViewControllerInfo(user: .account(account), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: nil, accountName: account.username, protocolString: protocolString), hasSession: false)
+        return ZomProfileViewControllerInfo(user: .account(account), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: nil, accountName: account.username, protocolString: protocolString), hasSession: false, calledFromGroup: false)
     }
 }
