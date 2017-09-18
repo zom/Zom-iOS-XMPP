@@ -563,6 +563,18 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 //    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
 //        return nil
 //    }
+    @IBAction func didPressReinvite(_ sender: AnyObject) {
+        var threadOwner: OTRThreadOwner? = nil
+        var _account: OTRAccount? = nil
+        self.readOnlyDatabaseConnection.read { (t) in
+            threadOwner = self.threadObject(with: t)
+            _account = self.account(with: t)
+        }
+        guard let buddy = threadOwner as? OTRBuddy, let account = _account, let manager = OTRProtocolManager.shared.protocol(for: account) else {
+            return
+        }
+        manager.add(buddy)
+    }
 }
 
 open class UnknownSenderGroupMessageData: NSObject, JSQMessageData {

@@ -69,6 +69,7 @@
 		925434871F556EED007567B7 /* ZomUnknownSenderMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 925434851F556EED007567B7 /* ZomUnknownSenderMessageCell.xib */; };
 		925434891F556F14007567B7 /* ZomUnknownSenderMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925434881F556F14007567B7 /* ZomUnknownSenderMessageCell.swift */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
+		92636B581F6FD56A002FFE07 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
 		926AF4A31E847B3800463F54 /* OMEMODeviceFingerprintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */; };
@@ -95,7 +96,6 @@
 		927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */; };
 		9286A5281EBC6EEB0069F124 /* ZomGenericLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */; };
 		9286A5771EBC8D120069F124 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
-		928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
 		92949FA31ED46978004044A7 /* ZomMigrationSwizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92949FA21ED46978004044A7 /* ZomMigrationSwizzles.swift */; };
@@ -1828,6 +1828,7 @@
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
 				926AF4A61E847B3800463F54 /* SingleButtonTableViewCell.xib in Resources */,
 				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
+				92636B581F6FD56A002FFE07 /* ZomImages.xcassets in Resources */,
 				9278C39E1BF4C59A003AC533 /* StickerShare.storyboard in Resources */,
 				92A021CE1DF0133500EC4EE4 /* AttachmentPicker.xib in Resources */,
 				92256CDC1EB38F8200CE4B35 /* 15biscuit.png in Resources */,
@@ -1887,7 +1888,6 @@
 				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
-				928AB8491CF846040056AEC7 /* ZomImages.xcassets in Resources */,
 				924FC4EC1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
