@@ -120,6 +120,12 @@ echo
 echo "Indata ok"
 echo
 
+# Import string util functions
+# 
+my_dir="$(dirname "$0")"
+. "$my_dir/stringtool.sh" -library
+
+
 # Helper to translate from iOS language codes into corresponding Android language codes
 ios_language_codes=("Base" "en" "da-DK" "fa-IR" "nb-NO" "nl-NL" "pt-BR" "pt-PT" "ro-RO" "sl-SI" "zh-Hans-CN" "zh-Hant-TW")
 android_language_codes=("" "" "-da" "-fa" "-nb" "-nl" "-pt-rBR" "-pt" "-ro" "-sl-rSI" "-zh-rCN" "-zh-rTW")
@@ -148,7 +154,7 @@ if [ -d "/tmp/ZomTranslations" ]; then
 fi
 xcodebuild -exportLocalizations -localizationPath /tmp/ZomTranslations -exportLanguage Base -project "$project_file"
 
-# Export for all others
+# Get languages
 #
 #
 languages=()
@@ -166,9 +172,6 @@ do
     fi
     languages[languages_index]="$language"
     ((languages_index++))
-    echo "Export XLIFF for $language"
-    xcodebuild -exportLocalizations -localizationPath /tmp/ZomTranslations -exportLanguage "$language" -project "$project_file"
-    perl -i~ -0777 -pe "s/<file original=\"[^\.]+\.plist\"(.|\n)*?<\/file>\s*//g" "/tmp/ZomTranslations/${language}.xliff"
 done
 
 # Make sure corresponding Android strings file exists
@@ -191,6 +194,7 @@ done
 #
 base_keys=()
 base_translations=()
+base_comments=()
 android_base_keys=()
 
 android_keys=()
@@ -202,12 +206,17 @@ ios_values=()
 
 function addBaseMapping {
     local count=0
-    while [ "x${base_keys[count]}" != "x" ]
+    while [ "x${base_keys[count]}" != "x" ] && [ "x${base_keys[count]}" != "x$1" ]
     do
 	((count++))
     done
-    base_keys[count]="$1"
-    base_translations[count]="$2"
+    if [ "x${base_keys[count]}" == "x$1" ]; then
+	echo "Update base mapping for ${base_keys[count]} to $2"
+	base_translations[count]="$2"
+    else
+	base_keys[count]="$1"
+	base_translations[count]="$2"
+    fi
 }
 
 function addAndroidMapping {
@@ -239,40 +248,9 @@ function parseAndroidStringsFile {
         # Replace slash ' with '	
 	replace=\'
         val="${val//\\\'/$replace}"
-	#echo "Add mapping $key <--> $val"
+	# echo "Add mapping $key <--> $val"
 	addAndroidMapping "$key" "$val"
     done < <(awk -F'name="|">|</' '{ if (NF == 4) print $2,$3}' "$filePath")
-}
-
-function parseiOSStringsFile {
-    local filePath="$1"
-    echo "Parsing iOS file $filePath"
-    echo "Parsing XLIFF file $filePath"
-
-sep="####"
-$xidel --xpath "//file[contains(@original,'.storyboard') or contains(@original,'.xib') or contains(@original,'.strings')]//trans-unit/(concat(@id,'$sep',source/text(),'$sep',target/text()))" "$filePath" > /tmp/parsed.xml
-
-    ios_ids=()
-    ios_keys=()
-    ios_values=()
-    while read -r line || [[ -n $line ]]; do
-	case $line in
-	    (*"$sep"*)
-	    id=${line%%"$sep"*}
-            keyval=${line#*"$sep"}
-	    key=${keyval%%"$sep"*}
-	    value=${keyval#*"$sep"}
-	    ;;
-	    (*)
-	    key=
-	    value=
-	    ;;
-	esac
-	if [ "$key" != "" ]; then
-	    #echo "Adding mapping $key --> $value"
-	    addiOSMapping "$id" "$key" "$value"
-	fi
-    done < "/tmp/parsed.xml"
 }
 
 function findAndroidTranslation {
@@ -296,6 +274,19 @@ function findAndroidId {
 	thisid="${base_keys[count]}"
 	if [ "$thisid" == "$id" ]; then
 	    echo "${android_base_keys[count]}"
+	fi
+	((count++))
+    done
+}
+
+function findBaseTranslation {
+    local id="$1"
+    local count=0
+    while [ "x${base_keys[count]}" != "x" ]
+    do
+	thisid="${base_keys[count]}"
+	if [ "$thisid" == "$id" ]; then
+	    echo "${base_translations[count]}"
 	fi
 	((count++))
     done
@@ -326,6 +317,26 @@ while read -r line || [[ -n $line ]]; do
     fi
 done < "/tmp/base.xml"
 
+# XCode does a bad job of exporting, pick up strings from Localizable.strings
+#
+unset base_string_comments
+unset base_string_keys
+unset base_string_values
+declare -a base_string_comments
+declare -a base_string_keys
+declare -a base_string_values
+parseiOSStringsFile "${base_dir_ios}Base.lproj/Localizable.strings" base_string_comments base_string_keys base_string_values
+base_string_count=0
+while [ "x${base_string_keys[base_string_count]}" != "x" ]
+do
+    base_string_key="${base_string_keys[base_string_count]}"
+    base_string_value="${base_string_values[base_string_count]}"
+    echo "Adding extra base mapping $base_string_key --> $base_string_value"
+    addBaseMapping "$base_string_key" "$base_string_value"
+    ((base_string_count++))
+done
+
+echo "Base translations: ${base_translations[@]}"
 
 # Extract strings from base android strings file, split into key-value pairs.
 #
@@ -394,53 +405,89 @@ do
 	fi
 	((android_count++))
     done
-    parseiOSStringsFile "$ios_file"
-    
-    # Apply translation to all ios values
-    # First pass: update ios_values with translated strings
-    count=0
-    while [ "x${ios_keys[count]}" != "x" ]
-    do
-	key="${ios_keys[count]}"
-	# Get android id of key
-	android_key=$(findAndroidId "$key")
-	if [ "$android_key" != "" ]; then
-	    translation=$(findAndroidTranslation "$android_key")
-	    if [ "$translation" == "" ]; then
-		echo "Language $language: missing translation for id $android_key."
-	    else
-		#echo "Translation for $android_key is $translation"
-		ios_values[count]="$translation"
-	    fi
-	fi
-	((count++))
-    done
-    
-    # Second pass: update the actual file
-    echo "Update file $ios_file"
-    count=0
-    while [ "x${ios_keys[count]}" != "x" ]
-    do
-	id="${ios_ids[count]}"
-	key="${ios_keys[count]}"
-	value="${ios_values[count]}"
-	if [ "$value" != "" ]; then
-	    #echo "Update file $ios_file with $id: $key -> $value"
-	    value="${value//&/&amp;}"
-	    value="${value//</&lt;}"
-	    value="${value//>/&gt;}"
-	    export translation=${value}
-	    perl -i~ -0777 -pe "s/(<trans-unit id=\"$id\">\s+<source>.*<\/source>)(\s+<target>.*<\/target>)?/\$1\n        <target>\$ENV{translation}<\/target>/g" "$ios_file"
-	fi
-	((count++))
-    done
 
-    # Update the xcode project
-    echo "Update XCode project"
-    rm "${project_dir}/${language}.lproj/Localizable.strings"
-    xcodebuild -importLocalizations -localizationPath "$ios_file" -project "$project_file"
+    # Find all .strings file for this language (in either Zom or OTRResources folder, we don't want stuff in pods)
+    #
+    for stringFile in $(find .. -name *.strings | fgrep ${language}.lproj | grep -E "\.\./Zom/|\.\./OTRResources/")
+    do
+	echo "iOS File: $stringFile -----------------------------"
+	infile="$stringFile"
+	base_stringFile=${stringFile/${language}.lproj/Base.lproj}
+	echo "Base file: $base_stringFile"
+	if [ -f "$base_stringFile" ];then
+	    echo "exists"
+	    infile="/tmp/merged.strings"
+	    ./stringtool.sh "$stringFile" "$base_stringFile" -union > "$infile"
+	else
+	    echo "does not exist"
+	fi
+
+	echo
+	unset ios_comments
+	unset ios_keys
+	unset ios_values
+	declare -a ios_comments
+	declare -a ios_keys
+	declare -a ios_values
+	parseiOSStringsFile "$infile" ios_comments ios_keys ios_values 
     
-    # Clean up by removing some strange extra files created by xcode during the import process
-    fgrep "IDELocalizationWork Temporary File" -l "${project_dir}/${language}.lproj/*.strings" | xargs -I {} rm {}
+        # Apply translation to all ios values
+        # First pass: update ios_values with translated strings
+	count=0
+	while [ "x${ios_keys[count]}" != "x" ]
+	do
+	    key="${ios_keys[count]}"
+            # Get android id of key
+	    android_key=$(findAndroidId "$key")
+	    if [ "$android_key" != "" ]; then
+		translation=$(findAndroidTranslation "$android_key")
+		if [ ! "$translation" == "" ]; then
+		#echo "Translation for $android_key is $translation"
+		    ios_values[count]="$translation"
+		#else
+		    #echo "Language $language: missing translation for id $android_key."
+		fi
+	    #else
+		#echo "Failed to find Android key for: $key (value is ${ios_values[count]})"
+	    fi
+	    ((count++))
+	done
+	
+	unset ios_comments_out
+	unset ios_keys_out
+	unset ios_values_out
+	declare -a ios_comments_out
+	declare -a ios_keys_out
+	declare -a ios_values_out
+	count_out=0
+	count=0
+	while [ "x${ios_keys[count]}" != "x" ]
+	do
+	    comment="${ios_comments[count]}"
+	    key="${ios_keys[count]}"
+	    value="${ios_values[count]}"
+	    baseval=$(findBaseTranslation "$key")
+	    if [ ! "$baseval" == "$value" ]; then
+		ios_comments_out[count_out]="$comment"
+		ios_keys_out[count_out]="$key"
+		ios_values_out[count_out]="$value"
+		((count_out++))
+	    #else
+		#echo "String $key has value $value equal to base, removing"
+	    fi
+	    ((count++))
+	done
+
+	outputStringFile ios_comments_out[@] ios_keys_out[@] ios_values_out[@] > /tmp/processed.strings
+
+	charset=$(file -I "$stringFile" | fgrep -l "charset=utf-16")
+	if [ "$charset" == "" ];then
+	    #Charset already UTF-8
+	    cp /tmp/processed.strings "$stringFile"
+	else
+            #Charset converting to UTF-16"
+	    iconv -f utf-8 -t utf-16 /tmp/processed.strings >  "$stringFile"
+	fi
+    done
 done
 
