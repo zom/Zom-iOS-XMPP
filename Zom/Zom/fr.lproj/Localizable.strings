@@ -4,9 +4,9 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Confirmer le nouveau mot de passe";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to verify contact security */
 "Verify Contact" = "Vérifier la clé";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Envoyer un message sécurisé";
 

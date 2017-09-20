@@ -4,29 +4,17 @@
 /* Class = "UIButton"; normalTitle = "Photo Stream"; ObjectID = "2YO-2a-YcG"; */
 "2YO-2a-YcG.normalTitle" = "པར་མཛོད།";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "3OG-pV-hC2"; */
-"3OG-pV-hC2.text" = "Label";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "8j6-Sy-Ncb"; */
-"8j6-Sy-Ncb.normalTitle" = "";
-
 /* Class = "UIButton"; normalTitle = "Change Theme"; ObjectID = "Dxr-5S-HbB"; */
 "Dxr-5S-HbB.normalTitle" = "པར་ངོས་བརྗེས།";
 
 /* Class = "UITabBarItem"; title = "Friends"; ObjectID = "LlX-wc-bzj"; */
 "LlX-wc-bzj.title" = "གྲོགས་པོ།";
 
-/* (No Commment) */
-"OCh-XO-KNo.normalTitle" = "Coming Soon";
-
-/* (No Commment) */
-"QWh-mJ-5c7.normalTitle" = "Coming Soon";
-
 /* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "V6b-cp-1dq"; */
 "V6b-cp-1dq.normalTitle" = "འཛོམས་ཞབས་ཞུ།";
 
 /* Class = "UIButton"; normalTitle = "Upgrade Now"; ObjectID = "WK5-FQ-F9x"; */
-"WK5-FQ-F9x.normalTitle" = "རིམ་སྤོར་བྱོས།";
+"WK5-FQ-F9x.normalTitle" = "མཉེན་ཆས་རིམ་སྤོར་བྱོས།";
 
 /* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "WPP-eD-yKO"; */
 "WPP-eD-yKO.normalTitle" = "ཚོགས་པ་ཞིག་བཟོས།";
@@ -34,23 +22,14 @@
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "XJU-FY-mH5"; */
 "XJU-FY-mH5.title" = "གླེང་མོལ།";
 
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "YPE-2y-E8B"; */
-"YPE-2y-E8B.normalTitle" = "";
-
 /* Class = "UIButton"; normalTitle = "Sticker Share"; ObjectID = "iZ8-ah-hqP"; */
 "iZ8-ah-hqP.normalTitle" = "སྦྱར་ཤོག་བཀྲམས།";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "ic8-e2-idk"; */
-"ic8-e2-idk.text" = "Label";
 
 /* Class = "UILabel"; text = "We need to upgrade your Zom account to a new server. We can automatically upgrade you to provide the best performance. If you are an advanced user, you can also choose your own server."; ObjectID = "ifp-gM-dKk"; */
 "ifp-gM-dKk.text" = "ཁྱེད་ཀྱི་རོགས་པ་གསར་པའི་ལན་ལ་སྒུག་བཞིན་ཡོད། ང་ཚོས་ཐད་ཀར་ཁྱེད་ཀྱི་མཉེན་ཆས་རིམ་སྤོར་བྱེད་ཆོག གལ་ཏེ་ཁྱེད་གློག་ཀླད་ཐོག་མཁས་པ་ཞིག་ཡིན་ན་རང་གི་དྲ་གནས་མཁོ་སྤྲོད་མཁན་རང་རང་གིས་འདམ་ཡང་ཆོག";
 
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
 "mMW-ze-V2Y.title" = "གསར་རྙེད།";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "oMK-jj-u4O"; */
-"oMK-jj-u4O.normalTitle" = "";
 
 /* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
 "pL4-Qt-LL4.title" = "ང་།";

@@ -19,3 +19,12 @@
 /* Button label to verify contact security */
 "Verify Contact" = "Contact verifiëren";
 
+/* username section */
+"Basic Setup" = "Zom-ID aanmaken";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "Bijnaam";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Stuur een privébericht";
+

@@ -7,9 +7,6 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Conferma nuova password";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to refresh an OTR session */
 "Refresh Session" = "Aggiorna sessione";
 
@@ -18,4 +15,10 @@
 
 /* Button label to verify contact security */
 "Verify Contact" = "Verifica contatto";
+
+/* username section */
+"Basic Setup" = "Crea un ID Zom";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Invia messaggio privato";
 

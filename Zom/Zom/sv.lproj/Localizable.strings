@@ -4,9 +4,9 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Bekräfta nytt lösenord";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to verify contact security */
 "Verify Contact" = "Verifiera nyckel";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Skicka säkert meddelande";
 

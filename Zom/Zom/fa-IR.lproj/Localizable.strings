@@ -10,3 +10,9 @@
 /* Button label to verify contact security */
 "Verify Contact" = "بررسی تماس با";
 
+/* for choosing your XMPP vCard display name */
+"Nickname" = "نام مستعار";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "ارسال پیام امن";
+

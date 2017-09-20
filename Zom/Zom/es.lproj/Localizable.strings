@@ -10,3 +10,6 @@
 /* Button label to refresh an OTR session */
 "Refresh Session" = "Actualizar sesión";
 
+/* username section */
+"Basic Setup" = "Crear un ID de Zom";
+

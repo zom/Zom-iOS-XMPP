@@ -1,12 +1,9 @@
-
 /* Class = "UIButton"; normalTitle = "Done"; ObjectID = "TA9-iF-te6"; */
-"TA9-iF-te6.normalTitle" = "Done";
+"TA9-iF-te6.normalTitle" = "完了";
 
 /* Class = "UIButton"; normalTitle = "Upgrade Now"; ObjectID = "kGW-Vp-uBw"; */
-"kGW-Vp-uBw.normalTitle" = "Upgrade Now";
-
-/* Class = "UIButton"; normalTitle = "Working on it..."; ObjectID = "riy-5z-YuX"; */
-"riy-5z-YuX.normalTitle" = "Working on it...";
+"kGW-Vp-uBw.normalTitle" = "今すぐアップグレード";
 
 /* Class = "UILabel"; text = "Upgrade Complete! Waiting for your friends to approve your upgraded account."; ObjectID = "vsJ-yR-DAE"; */
-"vsJ-yR-DAE.text" = "Upgrade Complete! Waiting for your friends to approve your upgraded account.";
+"vsJ-yR-DAE.text" = "アップグレード完了! アップグレードされたアカウントを友だちが承認するのを待っています。";
+

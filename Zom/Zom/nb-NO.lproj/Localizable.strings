@@ -4,9 +4,9 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Bekreft nytt passord";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to verify contact security */
 "Verify Contact" = "Kontroller nøkkel";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Send sikret melding";
 

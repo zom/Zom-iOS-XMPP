@@ -10,3 +10,9 @@
 /* Button label to verify contact security */
 "Verify Contact" = "Anahtarı Doğrula";
 
+/* for choosing your XMPP vCard display name */
+"Nickname" = "Rumuz";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Güvenli ileti gönder";
+

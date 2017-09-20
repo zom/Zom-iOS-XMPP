@@ -16,3 +16,9 @@
 /* Button label to verify contact security */
 "Verify Contact" = "Проверить ключ";
 
+/* username section */
+"Basic Setup" = "Создать Zom ID";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Отправить защищенное сообщение";
+

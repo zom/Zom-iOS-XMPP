@@ -16,3 +16,12 @@
 /* Button label to verify contact security */
 "Verify Contact" = "تحقق من جهة الاتصال";
 
+/* username section */
+"Basic Setup" = "إنشاء معرف Zom";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "اسم المستعار";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "أرسل رسالة آمنة";
+

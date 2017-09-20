@@ -19,3 +19,12 @@
 /* Button label to verify contact security */
 "Verify Contact" = "验证钥匙";
 
+/* username section */
+"Basic Setup" = "创建一个 Zom ID";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "昵称";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "发送安全消息";
+

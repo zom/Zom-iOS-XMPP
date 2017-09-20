@@ -10,3 +10,6 @@
 /* Button label to verify contact security */
 "Verify Contact" = "Xác Nhận Khóa";
 
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Gửi tin nhắn mã hóa";
+

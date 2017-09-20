@@ -4,9 +4,9 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Επιβεβαίωση Νέου Κωδικού";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to verify contact security */
 "Verify Contact" = "Επαλήθευση κλειδιού";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Αποστολή ασφαλούς μηνύματος";
 

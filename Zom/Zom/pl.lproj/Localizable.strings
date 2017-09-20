@@ -4,9 +4,12 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Potwierdź Nowe Hasło";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to verify contact security */
 "Verify Contact" = "Zweryfikuj klucz";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "Pseudonim:";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Wyślij bezpieczną wiadomość";
 

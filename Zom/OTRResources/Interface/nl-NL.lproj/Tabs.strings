@@ -1,47 +1,26 @@
 /* Class = "UIButton"; normalTitle = "Photo Stream"; ObjectID = "2YO-2a-YcG"; */
-"2YO-2a-YcG.normalTitle" = "Photo Stream";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "3OG-pV-hC2"; */
-"3OG-pV-hC2.text" = "Label";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "8j6-Sy-Ncb"; */
-"8j6-Sy-Ncb.normalTitle" = "";
+"2YO-2a-YcG.normalTitle" = "Fotostroom";
 
 /* Class = "UIButton"; normalTitle = "Change Theme"; ObjectID = "Dxr-5S-HbB"; */
-"Dxr-5S-HbB.normalTitle" = "Change Theme";
+"Dxr-5S-HbB.normalTitle" = "Thema wijzigen";
 
 /* Class = "UITabBarItem"; title = "Friends"; ObjectID = "LlX-wc-bzj"; */
-"LlX-wc-bzj.title" = "Friends";
-
-/* (No Commment) */
-"OCh-XO-KNo.normalTitle" = "Coming Soon";
-
-/* (No Commment) */
-"QWh-mJ-5c7.normalTitle" = "Coming Soon";
+"LlX-wc-bzj.title" = "Vrienden";
 
 /* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "V6b-cp-1dq"; */
-"V6b-cp-1dq.normalTitle" = "Zom Services";
+"V6b-cp-1dq.normalTitle" = "Zom-diensten";
 
 /* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "WPP-eD-yKO"; */
-"WPP-eD-yKO.normalTitle" = "Create a Group";
+"WPP-eD-yKO.normalTitle" = "Groep aanmaken";
 
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "XJU-FY-mH5"; */
-"XJU-FY-mH5.title" = "Chats";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "YPE-2y-E8B"; */
-"YPE-2y-E8B.normalTitle" = "";
+"XJU-FY-mH5.title" = "Gesprekken";
 
 /* Class = "UIButton"; normalTitle = "Sticker Share"; ObjectID = "iZ8-ah-hqP"; */
-"iZ8-ah-hqP.normalTitle" = "Sticker Share";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "ic8-e2-idk"; */
-"ic8-e2-idk.text" = "Label";
+"iZ8-ah-hqP.normalTitle" = "Stickers delen";
 
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
-"mMW-ze-V2Y.title" = "Discover";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "oMK-jj-u4O"; */
-"oMK-jj-u4O.normalTitle" = "";
+"mMW-ze-V2Y.title" = "Ontdekken";
 
 /* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
 "pL4-Qt-LL4.title" = "Ik";

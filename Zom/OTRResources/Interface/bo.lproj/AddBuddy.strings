@@ -1,20 +1,14 @@
 /* Class = "UILabel"; text = "Tap the Zom invite link from your friend or scan their QR code now"; ObjectID = "1kj-Rl-D1L"; */
 "1kj-Rl-D1L.text" = "ཁྱེད་ཀྱི་གྲོགས་པོས་བསྐུར་བའི་འཛོམས་ZOM.IM འབྲེལ་ཐག་དེ་ལ་བསྣུན་པའམ་ཡང་ན་དེའི་་ཨང་ཚབ་ལ་གཤེར།";
 
-/* Class = "UILabel"; text = "ADD FRIENDS"; ObjectID = "2P2-BW-dpR"; */
-"2P2-BW-dpR.text" = "ADD FRIENDS";
-
 /* Class = "UILabel"; text = "GOT INVITED?"; ObjectID = "AqM-V0-Y5G"; */
 "AqM-V0-Y5G.text" = "མགྲོན་འབོད་བྱས་སོང་ངམ།";
-
-/* Class = "UINavigationItem"; title = "Title"; ObjectID = "FMY-5w-x2g"; */
-"FMY-5w-x2g.title" = "Title";
 
 /* Class = "UILabel"; text = "Enter your friend's full username (ie. zomisfun.4x3f5g@zom.im) here:"; ObjectID = "K32-OO-iFS"; */
 "K32-OO-iFS.text" = "ཁྱེད་ཀྱི་གྲོགས་པོའི་ཐོ་འགོད་མིང་ཆ་ཚང་ཕྲིས། དཔེར་ན། (zomisfun.4x3f5g@zom.im) ལྟ་བུ།";
 
 /* Class = "UILabel"; text = "Advanced"; ObjectID = "OfJ-vA-D7O"; */
-"OfJ-vA-D7O.text" = "ཚད་མཐོའི་སྒྲིག་བཟོ།";
+"OfJ-vA-D7O.text" = "ཚད་མཐོ་བོ།";
 
 /* Class = "UIButton"; normalTitle = "SMS"; ObjectID = "YNA-R3-ip3"; */
 "YNA-R3-ip3.normalTitle" = "འཕྲིན་ཐུང་།";
@@ -24,7 +18,4 @@
 
 /* Class = "UIButton"; normalTitle = "Share"; ObjectID = "keg-Ok-RMI"; */
 "keg-Ok-RMI.normalTitle" = "ངོ་སྤྲོད་བྱོས།";
-
-/* Class = "UIViewController"; title = "Choose account"; ObjectID = "o4G-Cg-UOP"; */
-"o4G-Cg-UOP.title" = "Choose account";
 

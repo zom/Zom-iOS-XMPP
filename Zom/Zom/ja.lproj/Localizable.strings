@@ -7,9 +7,6 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "新しいパスワードを確認";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to refresh an OTR session */
 "Refresh Session" = "セッションを更新";
 
@@ -18,4 +15,13 @@
 
 /* Button label to verify contact security */
 "Verify Contact" = "連絡先を検証";
+
+/* username section */
+"Basic Setup" = "Zom ID を作成";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "ニックネーム";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "安全にメッセージを送信";
 

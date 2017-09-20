@@ -1,26 +1,11 @@
 /* Class = "UIButton"; normalTitle = "Photo Stream"; ObjectID = "2YO-2a-YcG"; */
 "2YO-2a-YcG.normalTitle" = "Lista de fotos compartidas";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "3OG-pV-hC2"; */
-"3OG-pV-hC2.text" = "Label";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "8j6-Sy-Ncb"; */
-"8j6-Sy-Ncb.normalTitle" = "";
-
 /* Class = "UIButton"; normalTitle = "Change Theme"; ObjectID = "Dxr-5S-HbB"; */
 "Dxr-5S-HbB.normalTitle" = "Cambiar tema";
 
 /* Class = "UITabBarItem"; title = "Friends"; ObjectID = "LlX-wc-bzj"; */
 "LlX-wc-bzj.title" = "Amigos";
-
-/* (No Commment) */
-"OCh-XO-KNo.normalTitle" = "Coming Soon";
-
-/* (No Commment) */
-"QWh-mJ-5c7.normalTitle" = "Coming Soon";
-
-/* Class = "UIButton"; normalTitle = "Zom Services"; ObjectID = "V6b-cp-1dq"; */
-"V6b-cp-1dq.normalTitle" = "Zom Services";
 
 /* Class = "UIButton"; normalTitle = "Create a Group"; ObjectID = "WPP-eD-yKO"; */
 "WPP-eD-yKO.normalTitle" = "Crear un grupo";
@@ -28,20 +13,8 @@
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "XJU-FY-mH5"; */
 "XJU-FY-mH5.title" = "Conversaciones";
 
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "YPE-2y-E8B"; */
-"YPE-2y-E8B.normalTitle" = "";
-
 /* Class = "UIButton"; normalTitle = "Sticker Share"; ObjectID = "iZ8-ah-hqP"; */
 "iZ8-ah-hqP.normalTitle" = "Compartir con etiquetas";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "ic8-e2-idk"; */
-"ic8-e2-idk.text" = "Label";
-
-/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
-"mMW-ze-V2Y.title" = "Discover";
-
-/* Class = "UIButton"; normalTitle = ""; ObjectID = "oMK-jj-u4O"; */
-"oMK-jj-u4O.normalTitle" = "";
 
 /* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
 "pL4-Qt-LL4.title" = "Yo";

@@ -19,3 +19,12 @@
 /* Button label to verify contact security */
 "Verify Contact" = "འབྲེལ་གཏུག་ར་སྤྲོད་གྱིས།";
 
+/* username section */
+"Basic Setup" = "འཛོམས་ཀྱི་ཁ་བྱང་ཞིག་བཟོས།";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "སྙུག་མིང་།";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "ཉེན་སྲུང་ཅན་གྱི་འཕྲིན་ཐུང་ཐོངས།";
+

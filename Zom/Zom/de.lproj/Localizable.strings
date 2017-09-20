@@ -7,9 +7,6 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Neues Passwort bestätigen";
 
-/* OK button */
-"OK" = "OK";
-
 /* Button label to refresh an OTR session */
 "Refresh Session" = "Sitzung aktualisieren";
 
@@ -18,4 +15,13 @@
 
 /* Button label to verify contact security */
 "Verify Contact" = "Schlüssel überprüfen";
+
+/* username section */
+"Basic Setup" = "Zom-Kennung erstellen";
+
+/* for choosing your XMPP vCard display name */
+"Nickname" = "Spitzname";
+
+/* The placeholder text in the chat view where the message should go */
+"Send %@ encrypted message" = "Sichere Nachricht senden";
 
