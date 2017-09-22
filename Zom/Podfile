@@ -16,9 +16,9 @@ use_frameworks!
 
 source 'https://github.com/CocoaPods/Specs.git'
 
+abstract_target 'ZomPods' do
   pod 'IDMPhotoBrowser', '~> 1.11'
 
-abstract_target 'ZomPods' do
   # User Interface
   pod "Appirater", '~> 2.0'
   pod 'OpenInChrome', '~> 0.0'
@@ -79,9 +79,9 @@ abstract_target 'ZomPods' do
   pod 'Kvitto', '~> 1.0'
 
 
+  target 'Zom'
   pod 'IDMPhotoBrowser', '~> 1.11'
 
-  target 'Zom'
   #target 'ChatSecureTests'
   #target 'ChatSecure'
 end

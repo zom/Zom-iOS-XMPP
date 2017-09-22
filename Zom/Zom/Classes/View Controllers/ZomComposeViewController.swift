@@ -115,7 +115,7 @@ open class ZomComposeViewController: OTRComposeViewController {
             OTRDatabaseManager.sharedInstance().database?.register(filteredView, withName: ZomComposeViewController.filteredExtensionName)
         }
         
-        self.viewHandler = OTRYapViewHandler.init(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection!, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+        self.viewHandler = OTRYapViewHandler.init(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection!, databaseChangeNotificationName: DatabaseNotificationName.longLivedTransactionChanges)
         self.viewHandler.delegate = self as? OTRYapViewHandlerDelegateProtocol
         self.viewHandler.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
     }
