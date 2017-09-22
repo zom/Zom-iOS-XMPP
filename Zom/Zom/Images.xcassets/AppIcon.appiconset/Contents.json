@@ -124,6 +124,12 @@
       "idiom" : "ipad",
       "filename" : "zicon167.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "Zom1024.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
