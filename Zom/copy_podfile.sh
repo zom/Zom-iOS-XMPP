@@ -17,13 +17,13 @@ perl -pi -e "s/target 'Chat/#target 'Chat/g" $DIR/Podfile
 mv $DIR/Podfile $DIR/Podfile.temp
 while IFS= read -r line
 do
+    echo "$line"
     if [[ "$line" =~ ^.*target."'Zom".*$ ]]
     then
 	echo -n "  "
         cat $DIR/Podfile.Zom
 	echo ""
     fi
-    echo "$line"
 done <$DIR/Podfile.temp >$DIR/Podfile
 rm $DIR/Podfile.temp
 
