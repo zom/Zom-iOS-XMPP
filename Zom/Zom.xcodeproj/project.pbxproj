@@ -1917,7 +1917,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FormatterKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/HTMLReader.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KVOController.framework",
@@ -1929,8 +1928,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/UserVoice.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/XLForm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ZXingObjC.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kvitto.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/DTFoundation.framework",
 			);
 			name = "[Carthage] Copy Frameworks";
 			outputPaths = (
