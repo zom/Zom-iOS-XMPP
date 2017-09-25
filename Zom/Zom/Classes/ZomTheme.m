@@ -37,6 +37,8 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setBarTintColor:self.mainThemeColor];
     [[UINavigationBar appearance] setBackgroundColor:self.mainThemeColor];
+    // On iOS 11 bar button items are descendants of button...
+    [[UIButton appearanceWhenContainedIn:UINavigationBar.class, nil] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:self.mainThemeColor];
     [[UITabBar appearance] setBackgroundColor:self.mainThemeColor];
