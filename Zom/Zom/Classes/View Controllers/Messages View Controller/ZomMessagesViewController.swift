@@ -234,17 +234,10 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         self.navigationController?.pushViewController(profileVC, animated: true)
     }
     
-    open override func deliveryStatusString(for message: OTROutgoingMessage) -> NSAttributedString? {
-        if (message.dateSent != nil) {
-            if (message.isDelivered) {
-                if self.doubleCheckIcon == nil {
-                    self.doubleCheckIcon = UIImage.init(named: "ic_delivered_grey")
-                }
-                if let image = self.doubleCheckIcon {
-                    let attachment = self.textAttachment(image: image, fontSize: 12)
-                    return NSAttributedString(attachment: attachment)
-                }
-            } else {
+    override open func deliveryStatusString(forMessage message: OTRMessageProtocol) -> NSAttributedString? {
+        let result = super.deliveryStatusString(forMessage: message)
+        if let result = result {
+            if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FAClockO)) {
                 if self.singleCheckIcon == nil {
                     self.singleCheckIcon = UIImage.init(named: "ic_sent_grey")
                 }
@@ -252,9 +245,17 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                     let attachment = self.textAttachment(image: image, fontSize: 12)
                     return NSAttributedString(attachment: attachment)
                 }
+            } else if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FACheck)) {
+                if self.doubleCheckIcon == nil {
+                    self.doubleCheckIcon = UIImage.init(named: "ic_delivered_grey")
+                }
+                if let image = self.doubleCheckIcon {
+                    let attachment = self.textAttachment(image: image, fontSize: 12)
+                    return NSAttributedString(attachment: attachment)
+                }
             }
         }
-        return nil
+        return result
     }
     
     open override func encryptionStatusString(forMessage message: OTRMessageProtocol) -> NSAttributedString? {
