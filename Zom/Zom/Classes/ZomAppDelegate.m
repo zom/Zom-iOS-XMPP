@@ -38,20 +38,24 @@
     [OTRBaseLoginViewController swizzle];
     [ShareControllerURLSource swizzle];
     [OTRBuddy swizzle];
-
+    
     // Auto-pin the home.zom.im cert
     //
-    NSArray *storedCerts = [OTRCertificatePinning storedCertificatesWithHostName:@"home.zom.im"];
-    if (storedCerts == nil || [storedCerts count] == 0) {
-        NSArray *servers = [OTRXMPPServerInfo defaultServerList];
-        for (OTRXMPPServerInfo *server in servers) {
-            if ([[server server] isEqualToString:@"home.zom.im"]) {
-                NSString *cert = [server certificate];
-                NSData *temp = [[NSData alloc] initWithBase64EncodedString:cert options:0];
-                SecCertificateRef ref = [OTRCertificatePinning certForData:temp];
+    NSArray *servers = [OTRXMPPServerInfo defaultServerList];
+    for (OTRXMPPServerInfo *server in servers) {
+        if ([[server server] isEqualToString:@"home.zom.im"]) {
+            NSString *certString = [server certificate];
+            NSData *certData = [[NSData alloc] initWithBase64EncodedString:certString options:0];
+            
+            NSArray *storedCerts = [OTRCertificatePinning storedCertificatesWithHostName:@"home.zom.im"];
+            
+            // If we have not stored it, or if we have a diff (i.e. it
+            // has been updated)
+            if (storedCerts == nil || [storedCerts count] == 0 || ![storedCerts[0] isEqualToData:certData]) {
+                SecCertificateRef ref = [OTRCertificatePinning certForData:certData];
                 [OTRCertificatePinning addCertificate:ref withHostName:@"home.zom.im"];
-                break;
             }
+            break;
         }
     }
     
