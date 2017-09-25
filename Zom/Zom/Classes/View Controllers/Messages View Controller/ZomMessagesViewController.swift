@@ -384,7 +384,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         super.didPressMigratedSwitch()
     }
     
-    open override func didSetupMappings(_ handler: OTRYapViewHandler!) {
+    open override func didSetupMappings(_ handler: OTRYapViewHandler) {
         super.didSetupMappings(handler)
         let numberMappingsItems = handler.mappings?.numberOfItems(inSection: 0) ?? 0
         if numberMappingsItems > 0 {
@@ -392,7 +392,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         }
     }
     
-    open override func didReceiveChanges(_ handler: OTRYapViewHandler!, sectionChanges: [YapDatabaseViewSectionChange]!, rowChanges: [YapDatabaseViewRowChange]!) {
+    open override func didReceiveChanges(_ handler: OTRYapViewHandler, sectionChanges: [YapDatabaseViewSectionChange], rowChanges: [YapDatabaseViewRowChange]) {
         var collectionViewNumberOfItems = 0
         var numberMappingsItems = 0
         if rowChanges.count > 0 {
@@ -420,7 +420,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                             if let res = result, let url = res.url, let nsurl = NSURL(string: url.absoluteString) {
                                 if nsurl.otr_isInviteLink {
                                     nsurl.otr_decodeShareLink({ (jid, queryItems:[URLQueryItem]?) in
-                                        if let query = queryItems, NSURL.otr_queryItemsContainMigrationHint(query) {
+                                        if let jid = jid, let query = queryItems, NSURL.otr_queryItemsContainMigrationHint(query) {
                                             DispatchQueue.main.async {
                                                 self.showJIDForwardingHeader(withNewJID: jid)
                                             }
@@ -456,7 +456,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var incoming = false
+        //var incoming = false
         if let jsqCollectionView = collectionView as? JSQMessagesCollectionView {
             let messageData = self.collectionView(jsqCollectionView, messageDataForItemAt: indexPath)
             if let messageData = messageData as? UnknownSenderGroupMessageData {
@@ -478,8 +478,8 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                     }
                 }
                 return cell
-            } else if let message = messageData as? OTRMessageProtocol & JSQMessageData {
-                incoming = message.isMessageIncoming
+            //} else if let message = messageData as? OTRMessageProtocol & JSQMessageData {
+                //incoming = message.isMessageIncoming
             }
         }
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
@@ -552,7 +552,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         return size
     }
     
-    override open func hasBubbleSizeForCell(at indexPath: IndexPath!) -> Bool {
+    override open func hasBubbleSizeForCell(at indexPath: IndexPath) -> Bool {
         if self.collectionView(collectionView, messageDataForItemAt: indexPath) is UnknownSenderGroupMessageData {
             return false
         }

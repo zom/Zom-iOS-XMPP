@@ -20,18 +20,8 @@ var ZomAccountMigrationViewController_associatedObject2: UInt8 = 4
 
 extension OTRBaseLoginViewController {
     
-    private static var swizzle: () {
+    @objc public static func swizzle() {
         ZomUtil.swizzle(self, originalSelector: #selector(OTRBaseLoginViewController.viewDidLoad), swizzledSelector:#selector(OTRBaseLoginViewController.zom_viewDidLoad))
-    }
-    
-    open override class func initialize() {
-        
-        // make sure this isn't a subclass
-        if self !== OTRBaseLoginViewController.self {
-            return
-        }
-        
-        OTRBaseLoginViewController.swizzle
     }
 
     public func zom_viewDidLoad() {
@@ -162,7 +152,7 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
                             if let advancedRow:XLFormRowDescriptor = self.form.formRow(withTag: kOTRXLFormShowAdvancedTag) {
                                 if (advancedRow.value as? Bool == false) {
                                     // Ok, if we are not showing advanced tab, enter means "go"
-                                    self.loginButtonPressed(self.navigationItem.rightBarButtonItem)
+                                    self.loginButtonPressed(self.navigationItem.rightBarButtonItem as Any)
                                     return true
                                 }
                             }

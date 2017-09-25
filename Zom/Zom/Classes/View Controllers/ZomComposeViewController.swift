@@ -111,13 +111,13 @@ open class ZomComposeViewController: OTRComposeViewController {
             let options = YapDatabaseViewOptions()
             options.isPersistent = false
             let filtering = getFilteringBlock(false)
-            let filteredView = YapDatabaseFilteredView(parentViewName: ZomComposeViewController.extensionName, filtering: filtering!, versionTag: NSUUID().uuidString, options: options)
+            let filteredView = YapDatabaseFilteredView(parentViewName: ZomComposeViewController.extensionName, filtering: filtering, versionTag: NSUUID().uuidString, options: options)
             OTRDatabaseManager.sharedInstance().database?.register(filteredView, withName: ZomComposeViewController.filteredExtensionName)
         }
         
         self.viewHandler = OTRYapViewHandler.init(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection!, databaseChangeNotificationName: DatabaseNotificationName.longLivedTransactionChanges)
-        self.viewHandler.delegate = self as? OTRYapViewHandlerDelegateProtocol
-        self.viewHandler.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
+        self.viewHandler?.delegate = self as? OTRYapViewHandlerDelegateProtocol
+        self.viewHandler?.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
     }
     
     open override func addBuddy(_ accountsAbleToAddBuddies: [OTRAccount]?) {

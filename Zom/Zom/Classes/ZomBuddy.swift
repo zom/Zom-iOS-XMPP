@@ -11,18 +11,8 @@ import ChatSecureCore
 
 extension OTRBuddy {
     
-    private static var swizzle: () {
+    @objc public static func swizzle() {
         ZomUtil.swizzle(self, originalSelector: #selector(getter: OTRUserInfoProfile.displayName), swizzledSelector:#selector(OTRBuddy.zom_getDisplayName))
-    }
-    
-    open override class func initialize() {
-        
-        // make sure this isn't a subclass
-        if self !== OTRBuddy.self {
-            return
-        }
-        
-        OTRBuddy.swizzle
     }
     
     func zom_getDisplayName() -> String? {

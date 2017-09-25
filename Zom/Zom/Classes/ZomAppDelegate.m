@@ -35,6 +35,9 @@
     [OTRXMPPAccount swizzle];
     [OTRAccountMigrator swizzle];
     [OTRXMPPRoomManager swizzle];
+    [OTRBaseLoginViewController swizzle];
+    [ShareControllerURLSource swizzle];
+    [OTRBuddy swizzle];
 
     // Auto-pin the home.zom.im cert
     //

@@ -32,7 +32,7 @@ open class ZomPickColorViewController: UICollectionViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        colors.append(UIColor(colorLiteralRed: 231/255.0, green: 39/255.0, blue: 90/255.0, alpha: 1.0))
+        colors.append(UIColor(netHex: 0xffe7275a))
         colors.append(UIColor(netHex: 0xFFECEFF1))
         colors.append(UIColor(netHex: 0xcc00ddff))
         colors.append(UIColor(netHex: 0xffff00dd))

@@ -105,7 +105,7 @@ open class ZomConversationViewController: OTRConversationViewController {
         self.view.setNeedsLayout()
     }
     
-    open override func createMigrationHeaderView(_ account: OTRXMPPAccount!) -> MigrationInfoHeaderView! {
+    open override func createMigrationHeaderView(_ account: OTRXMPPAccount) -> MigrationInfoHeaderView {
         let view = super.createMigrationHeaderView(account)
         updateMigrationViewWithStep(view: view)
         return view

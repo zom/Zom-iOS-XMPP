@@ -14,7 +14,7 @@ extension OTRXMPPRoomManager {
     }
     
     public var zom_conferenceServicesJID: [String] {
-        let array = zom_conferenceServicesJID
+        let array = self.zom_conferenceServicesJID
         if array.count == 0 {
             return ["conference.zom.im"]
         }

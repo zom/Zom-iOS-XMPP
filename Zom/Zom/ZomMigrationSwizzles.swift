@@ -19,7 +19,7 @@ extension OTRXMPPAccount {
         if hasMigrated {
             return false
         }
-        return zom_needsMigration
+        return self.zom_needsMigration
     }
     
     open var hasMigrated:Bool {

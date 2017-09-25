@@ -39,7 +39,7 @@ open class ZomStickerMessage: NSObject, JSQMessageData {
     }
     
     open func media() -> JSQMessageMediaData! {
-        return self.mediaObject as! JSQMessageMediaData
+        return self.mediaObject!
     }
     
     open static func isValidStickerShortCode(_ message:String?) -> Bool {

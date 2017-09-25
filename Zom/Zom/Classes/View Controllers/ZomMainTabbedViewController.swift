@@ -233,10 +233,9 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
                 }
             }
         } else if (buds.count > 1) {
-            if let delegate = ZomAppDelegate.appDelegate.splitViewCoordinator {
-                viewController.navigationController?.popViewController(animated: true)
-                delegate.controller(viewController, didSelectBuddies: buddies, accountId: accountId, name: name)
-            }
+            let delegate = ZomAppDelegate.appDelegate.splitViewCoordinator
+            viewController.navigationController?.popViewController(animated: true)
+            delegate.controller(viewController, didSelectBuddies: buddies, accountId: accountId, name: name)
         }
     }
     

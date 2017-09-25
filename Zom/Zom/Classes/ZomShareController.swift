@@ -8,7 +8,7 @@
 
 extension ShareControllerURLSource {
     
-    private static var swizzle: () {
+    public static func swizzle() {
         let originalSelector = #selector(ShareControllerURLSource.activityViewController(_:subjectForActivityType:))
         let swizzledSelector = #selector(ShareControllerURLSource.zom_activityViewController(_:subjectForActivityType:))
         
@@ -22,15 +22,6 @@ extension ShareControllerURLSource {
         } else {
             method_exchangeImplementations(originalMethod, swizzledMethod)
         }
-    }
-    
-    open override class func initialize() {
-        
-        // make sure this isn't a subclass
-        if self !== ShareControllerURLSource.self {
-            return
-        }
-        ShareControllerURLSource.swizzle
     }
     
     public func zom_activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: String?) -> String {

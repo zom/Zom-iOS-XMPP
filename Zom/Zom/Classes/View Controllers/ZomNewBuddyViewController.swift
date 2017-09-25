@@ -187,7 +187,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         controller.dismiss(animated: true, completion: nil)
     }
     
-    open override func updateReturnButtons(_ textField: UITextField!) {
+    open override func updateReturnButtons(_ textField: UITextField) {
         textField.returnKeyType = UIReturnKeyType.done
     }
     

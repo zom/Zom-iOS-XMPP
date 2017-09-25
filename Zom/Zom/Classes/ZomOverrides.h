@@ -8,29 +8,29 @@
 
 @import ChatSecureCore;
 
-extern NSString *const kOTRXLFormShowAdvancedTag;
+extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 
 @interface OTRAppDelegate (ZomOverride)
-@property (nonatomic, strong) OTRSplitViewCoordinator *splitViewCoordinator;
-@property (nonatomic, strong) OTRSplitViewControllerDelegateObject *splitViewControllerDelegate;
+@property (nonatomic, strong) OTRSplitViewCoordinator * _Nonnull splitViewCoordinator;
+@property (nonatomic, strong) OTRSplitViewControllerDelegateObject * _Nonnull splitViewControllerDelegate;
 @end
 
 @interface OTRComposeViewController (ZomOverride)
-@property (nonatomic, strong) OTRYapViewHandler *viewHandler;
-@property (nonatomic, strong) OTRVerticalStackView *tableViewHeader;
+@property (nonatomic, strong) OTRYapViewHandler * _Nullable viewHandler;
+@property (nonatomic, strong) OTRVerticalStackView * _Nonnull tableViewHeader;
 - (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
-- (YapDatabaseViewFiltering *)getFilteringBlock:(BOOL)showArchived;
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UISegmentedControl *inboxArchiveControl;
-- (void) groupButtonPressed:(id)sender;
-- (void) groupSelectionCancelled:(OTRComposeGroupViewController *)composeViewController;
+- (YapDatabaseViewFiltering * _Nonnull)getFilteringBlock:(BOOL)showArchived;
+@property (nonatomic, strong) UITableView * _Nonnull tableView;
+@property (nonatomic, strong) UISegmentedControl * _Nonnull inboxArchiveControl;
+- (void) groupButtonPressed:(id _Nullable)sender;
+- (void) groupSelectionCancelled:(OTRComposeGroupViewController * _Nullable)composeViewController;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)
-- (void) updateReturnButtons:(UITextField *)textField;
-- (void) qrButtonPressed:(id)sender;
-- (IBAction) doneButtonPressed:(id)sender;
-- (void) populateFromQRResult:(NSString *)result;
+- (void) updateReturnButtons:(UITextField * _Nonnull)textField;
+- (void) qrButtonPressed:(id _Nullable)sender;
+- (IBAction) doneButtonPressed:(id _Nullable)sender;
+- (void) populateFromQRResult:(NSString * _Nonnull)result;
 @end
 
 @interface OTRAttachmentPicker (ZomOverride)
@@ -40,11 +40,11 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @interface OTRMessagesViewController (ZomOverride)
 - (void)refreshTitleView;
 - (IBAction)didPressMigratedSwitch;
-@property (nonatomic, strong) OTRYapViewHandler *viewHandler;
-- (void)didSetupMappings:(OTRYapViewHandler *)handler;
-- (void)didReceiveChanges:(OTRYapViewHandler *)handler sectionChanges:(NSArray<YapDatabaseViewSectionChange *> *)sectionChanges rowChanges:(NSArray<YapDatabaseViewRowChange *> *)rowChanges;
-- (void)showJIDForwardingHeaderWithNewJID:(XMPPJID *)newJid;
-- (BOOL)hasBubbleSizeForCellAtIndexPath:(NSIndexPath*)indexPath;
+@property (nonatomic, strong) OTRYapViewHandler * _Nonnull viewHandler;
+- (void)didSetupMappings:(OTRYapViewHandler * _Nonnull)handler;
+- (void)didReceiveChanges:(OTRYapViewHandler * _Nonnull)handler sectionChanges:(NSArray<YapDatabaseViewSectionChange *> * _Nonnull)sectionChanges rowChanges:(NSArray<YapDatabaseViewRowChange *> * _Nonnull)rowChanges;
+- (void)showJIDForwardingHeaderWithNewJID:(XMPPJID * _Nonnull)newJid;
+- (BOOL)hasBubbleSizeForCellAtIndexPath:(NSIndexPath* _Nonnull)indexPath;
 - (void)setupInfoButton;
 @end
 
@@ -53,31 +53,31 @@ extern NSString *const kOTRXLFormShowAdvancedTag;
 @end
 
 @interface OTRInviteViewController (ZomOverride)
-- (void)skipPressed:(id)sender;
-- (void)qrButtonPressed:(id)sender;
-- (void)linkShareButtonPressed:(id)sender;
+- (void)skipPressed:(id _Nullable)sender;
+- (void)qrButtonPressed:(id _Nullable)sender;
+- (void)linkShareButtonPressed:(id _Nullable)sender;
 @end
 
 @interface OTRConversationViewController (ZomOverride)
-- (void)settingsButtonPressed:(id)sender;
-- (void)composeButtonPressed:(id)sender;
-- (IBAction)didPressStartMigrationButton:(id)sender;
-- (MigrationInfoHeaderView *)createMigrationHeaderView:(OTRXMPPAccount *)account;
+- (void)settingsButtonPressed:(id _Nullable)sender;
+- (void)composeButtonPressed:(id _Nullable)sender;
+- (IBAction)didPressStartMigrationButton:(id _Nullable)sender;
+- (MigrationInfoHeaderView * _Nonnull)createMigrationHeaderView:(OTRXMPPAccount * _Nonnull)account;
 - (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
-@property (nonatomic, strong) MigrationInfoHeaderView *migrationInfoHeaderView;
-@property (nonatomic, strong) UISegmentedControl *inboxArchiveControl;
+@property (nonatomic, strong) MigrationInfoHeaderView * _Nullable migrationInfoHeaderView;
+@property (nonatomic, strong) UISegmentedControl * _Nonnull inboxArchiveControl;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)
-+ (instancetype)loginViewControllerForAccount:(OTRAccount *)account;
-- (IBAction)loginButtonPressed:(id)sender;
++ (instancetype _Nonnull)loginViewControllerForAccount:(OTRAccount * _Nonnull)account;
+- (IBAction)loginButtonPressed:(id _Nonnull)sender;
 - (void)pushInviteViewController;
--(void)configureCell:(XLFormBaseCell*) cell;
+-(void)configureCell:(XLFormBaseCell* _Nonnull) cell;
 @end
 
 @interface OTRSettingsViewController (ZomOverride)
-- (void)logoutAccount:(OTRAccount *)account sender:(id)sender;
-@property (nonatomic, strong) UITableView *tableView;
+- (void)logoutAccount:(OTRAccount * _Nonnull)account sender:(id _Nullable)sender;
+@property (nonatomic, strong) UITableView * _Nonnull tableView;
 @end
 
 @interface OTRBuddy (ZomOverride)
