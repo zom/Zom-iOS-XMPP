@@ -51,7 +51,16 @@
             
             // If we have not stored it, or if we have a diff (i.e. it
             // has been updated)
-            if (storedCerts == nil || [storedCerts count] == 0 || ![storedCerts[0] isEqualToData:certData]) {
+            BOOL foundIt = NO;
+            if (storedCerts != nil) {
+                for (NSData *cert in storedCerts) {
+                    if ([cert isEqualToData:certData]) {
+                        foundIt = YES;
+                        break;
+                    }
+                }
+            }
+            if (!foundIt) {
                 SecCertificateRef ref = [OTRCertificatePinning certForData:certData];
                 [OTRCertificatePinning addCertificate:ref withHostName:@"home.zom.im"];
             }
