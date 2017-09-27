@@ -87,7 +87,7 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
             return
         }
         fingerprintCell.shareButton.setImage(self.shareImage, for: UIControlState())
-        fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", in: OTRAssets.resourcesBundle, compatibleWith: nil), for: UIControlState())
+        fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", in: Bundle.main, compatibleWith: nil), for: UIControlState())
         fingerprintCell.fingerprintLabel.text = fingerprint.fingerprintString()
         fingerprintCell.qrAction = {cell in
             if let action = self.qrAction {
