@@ -27,7 +27,7 @@ open class ZomCongratsViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         if let connection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection {
-            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.longLivedTransactionChanges)
+            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
             if let accountKey = account?.uniqueId {
                 self.viewHandler?.keyCollectionObserver.observe(accountKey, collection: OTRAccount.collection)
             }

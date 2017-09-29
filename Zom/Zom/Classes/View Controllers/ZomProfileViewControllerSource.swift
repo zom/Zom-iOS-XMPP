@@ -80,7 +80,7 @@ class ZomProfileViewObserver: NSObject {
         super.init()
         self.tableSections = self.generateSections(info: info, qrAction: qrAction, shareAction: shareAction)
         if let connection = self.readOnlyDatabaseConnection {
-            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.longLivedTransactionChanges)
+            self.viewHandler = OTRYapViewHandler(databaseConnection: connection, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
             self.viewHandler?.delegate = self
         }
         self.viewHandler?.keyCollectionObserver.observe(info.user.yapKey(), collection: info.user.yapCollection())
