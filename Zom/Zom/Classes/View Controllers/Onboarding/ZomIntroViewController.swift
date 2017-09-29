@@ -25,9 +25,7 @@ open class ZomIntroViewController: OTRWelcomeViewController {
     // MARK: - Navigation
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let login = segue.destination as? ZomBaseLoginViewController {
-            if segue.identifier == "useExistingAccountSegue" {
-                login.form = XLFormDescriptor.existingAccountForm(with: .jabber)
-                login.loginHandler = OTRXMPPLoginHandler()
+            if segue.identifier == "addExistingAccount" {
                 if let zomNavController = self.navigationController as? ZomOnboardingNavigationController {
                     zomNavController.createdNewAccount = false
                 }

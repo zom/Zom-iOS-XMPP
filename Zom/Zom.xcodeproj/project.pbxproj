@@ -98,6 +98,7 @@
 		9286A5771EBC8D120069F124 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
+		9294728D1F7EC43600E61DD6 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		92949FA31ED46978004044A7 /* ZomMigrationSwizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92949FA21ED46978004044A7 /* ZomMigrationSwizzles.swift */; };
 		9295457E1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9295457D1BF5D9A300A26FC2 /* ZomPickStickerViewController.swift */; };
 		929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929545831BF5DC4E00A26FC2 /* ZomPickStickerCell.swift */; };
@@ -1886,6 +1887,7 @@
 				D99DEBFB1BABDD7700875194 /* Branding.plist in Resources */,
 				6320C93D1DFF74190080F3BD /* ZomUserInfoProfileCell.xib in Resources */,
 				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
+				9294728D1F7EC43600E61DD6 /* ZomImages.xcassets in Resources */,
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
 				924FC4EC1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib in Resources */,

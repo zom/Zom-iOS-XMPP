@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u63-jC-sYl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="u63-jC-sYl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,6 @@
             <objects>
                 <navigationController modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="u63-jC-sYl" customClass="ZomOnboardingNavigationController" customModule="Zom" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="StA-Hd-yQZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -150,24 +149,6 @@
             </objects>
             <point key="canvasLocation" x="-159" y="1275"/>
         </scene>
-        <!--Zom Base Login View Controller-->
-        <scene sceneID="of2-kB-JgU">
-            <objects>
-                <viewController id="8ID-P4-yv8" customClass="ZomBaseLoginViewController" customModule="Zom" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fYL-rB-dQs"/>
-                        <viewControllerLayoutGuide type="bottom" id="q2S-pT-5tV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tIN-bg-nYJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xjm-tr-xFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="596" y="1371"/>
-        </scene>
         <!--Zom Intro View Controller-->
         <scene sceneID="fJn-Vt-ZKz">
             <objects>
@@ -184,7 +165,7 @@
                                 <rect key="frame" x="16" y="138" width="343" height="391"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-ao-iyd">
-                                <rect key="frame" x="100.5" y="549" width="174" height="38"/>
+                                <rect key="frame" x="103" y="549" width="169" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Create an Account">
                                     <color key="titleColor" red="0.90196078431372551" green="0.15294117647058825" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -201,7 +182,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8ID-P4-yv8" kind="show" identifier="useExistingAccountSegue" id="qye-me-G3w"/>
+                                    <segue destination="ZvQ-dC-bHm" kind="show" identifier="addExistingAccount" id="Qhk-zi-MaD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -437,7 +418,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="A2q-75-Mm6"/>
                                     <barButtonItem style="plain" id="pyo-PK-mhA">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f0C-jF-ZE2">
-                                            <rect key="frame" x="98" y="15" width="46" height="30"/>
+                                            <rect key="frame" x="108.5" y="15" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" title="SMS">
@@ -451,7 +432,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="fhM-MH-VZa">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f0b-EP-rxv">
-                                            <rect key="frame" x="154" y="15" width="46" height="30"/>
+                                            <rect key="frame" x="154.5" y="15" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" title="Share">
@@ -465,7 +446,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="C84-2O-Baq">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5ph-Z8-dYh">
-                                            <rect key="frame" x="210" y="15" width="46" height="30"/>
+                                            <rect key="frame" x="200.5" y="15" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <state key="normal" title="Scan">
@@ -522,5 +503,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="muI-Tk-jlc"/>
+        <segue reference="Qhk-zi-MaD"/>
     </inferredMetricsTieBreakers>
 </document>
