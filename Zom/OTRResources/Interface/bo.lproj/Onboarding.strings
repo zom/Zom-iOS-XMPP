@@ -16,3 +16,15 @@
 /* Class = "UIButton"; normalTitle = "Create an Account"; ObjectID = "xHH-ao-iyd"; */
 "xHH-ao-iyd.normalTitle" = "ཁ་བྱང་ཞིག་བཟོས།";
 
+/* Class = "UIButton"; normalTitle = "Scan"; ObjectID = "5ph-Z8-dYh"; */
+"5ph-Z8-dYh.normalTitle" = "བཤེར།";
+
+/* Class = "UILabel"; text = "Add Friends!"; ObjectID = "a1f-w1-jOU"; */
+"a1f-w1-jOU.text" = "གྲོགས་སྣོན།";
+
+/* Class = "UIButton"; normalTitle = "SMS"; ObjectID = "f0C-jF-ZE2"; */
+"f0C-jF-ZE2.normalTitle" = "འཕྲིན་ཐུང་།";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "f0b-EP-rxv"; */
+"f0b-EP-rxv.normalTitle" = "ངོ་སྤྲོད་བྱོས།";
+

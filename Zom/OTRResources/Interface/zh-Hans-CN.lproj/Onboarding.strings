@@ -16,3 +16,15 @@
 /* Class = "UIButton"; normalTitle = "Create an Account"; ObjectID = "xHH-ao-iyd"; */
 "xHH-ao-iyd.normalTitle" = "创建一个帐户";
 
+/* Class = "UIButton"; normalTitle = "Scan"; ObjectID = "5ph-Z8-dYh"; */
+"5ph-Z8-dYh.normalTitle" = "扫描";
+
+/* Class = "UILabel"; text = "Add Friends!"; ObjectID = "a1f-w1-jOU"; */
+"a1f-w1-jOU.text" = "添加朋友";
+
+/* Class = "UIButton"; normalTitle = "SMS"; ObjectID = "f0C-jF-ZE2"; */
+"f0C-jF-ZE2.normalTitle" = "短信";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "f0b-EP-rxv"; */
+"f0b-EP-rxv.normalTitle" = "分享";
+

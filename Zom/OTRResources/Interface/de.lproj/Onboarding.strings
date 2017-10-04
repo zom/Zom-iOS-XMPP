@@ -16,3 +16,12 @@
 /* Class = "UIButton"; normalTitle = "Create an Account"; ObjectID = "xHH-ao-iyd"; */
 "xHH-ao-iyd.normalTitle" = "Konto erstellen";
 
+/* Class = "UIButton"; normalTitle = "Scan"; ObjectID = "5ph-Z8-dYh"; */
+"5ph-Z8-dYh.normalTitle" = "Scannen";
+
+/* Class = "UILabel"; text = "Add Friends!"; ObjectID = "a1f-w1-jOU"; */
+"a1f-w1-jOU.text" = "Kontakte hinzufügen!";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "f0b-EP-rxv"; */
+"f0b-EP-rxv.normalTitle" = "Teilen";
+

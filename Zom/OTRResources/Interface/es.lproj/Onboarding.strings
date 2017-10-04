@@ -16,3 +16,9 @@
 /* Class = "UIButton"; normalTitle = "Create an Account"; ObjectID = "xHH-ao-iyd"; */
 "xHH-ao-iyd.normalTitle" = "Crear una cuenta";
 
+/* Class = "UIButton"; normalTitle = "Scan"; ObjectID = "5ph-Z8-dYh"; */
+"5ph-Z8-dYh.normalTitle" = "Escanear";
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "f0b-EP-rxv"; */
+"f0b-EP-rxv.normalTitle" = "Compartir";
+
