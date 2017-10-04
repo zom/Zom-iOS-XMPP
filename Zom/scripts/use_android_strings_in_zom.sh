@@ -248,7 +248,7 @@ function parseAndroidStringsFile {
         # Replace slash ' with '	
 	replace=\'
         val="${val//\\\'/$replace}"
-	# echo "Add mapping $key <--> $val"
+	echo "Add mapping $key <--> $val"
 	addAndroidMapping "$key" "$val"
     done < <(awk -F'name="|">|</' '{ if (NF == 4) print $2,$3}' "$filePath")
 }
@@ -312,8 +312,12 @@ while read -r line || [[ -n $line ]]; do
     esac
     if [ "$key" != "" ]; then
 	    # Cleanup key and value by removing quotes
-	echo "Adding base mapping $key --> $value"
-	addBaseMapping "$key" "$value"
+	if [ ${#value} -gt 0 ]; then
+	    echo "Adding base mapping $key --> $value"
+	    addBaseMapping "$key" "$value"
+	else
+	    echo "Ignore empty value for key $key"
+	fi
     fi
 done < "/tmp/base.xml"
 
@@ -336,7 +340,14 @@ do
     ((base_string_count++))
 done
 
-echo "Base translations: ${base_translations[@]}"
+#echo "Base translations: ${base_translations[@]}"
+iq_translation=0
+while [ "x${base_translations[iq_translation]}" != "x" ]
+do
+    term="${base_translations[iq_translation]}"
+    echo "$term"
+    ((iq_translation++))
+done
 
 # Extract strings from base android strings file, split into key-value pairs.
 #
@@ -420,6 +431,13 @@ do
 	    ./stringtool.sh "$stringFile" "$base_stringFile" -union > "$infile"
 	else
 	    echo "does not exist"
+	    storyboard_file=${base_stringFile/.strings/.storyboard}
+	    if [ -f "$storyboard_file" ];then
+		echo "There is a storyboard file, trying that..."
+		ibtool --export-strings-file "/tmp/base.strings" "$storyboard_file"
+		infile="/tmp/merged.strings"
+		./stringtool.sh "$stringFile" "/tmp/base.strings" -union > "$infile"
+	    fi
 	fi
 
 	echo
