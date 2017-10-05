@@ -68,6 +68,7 @@ open class ZomComposeViewController: OTRComposeViewController {
         // Hide the upstream add friends option
         let hideAddFriends = !(parent is UINavigationController)
         self.tableViewHeader.setView(ADD_BUDDY_STRING(), hidden: true)
+        self.tableViewHeader.setView(JOIN_GROUP_STRING(), hidden: true)
         self.tableViewHeader.setView(ZomComposeViewController.imageActionCreateGroupIdentifier, hidden: hideAddFriends)
         self.tableViewHeader.setView(ZomComposeViewController.imageActionAddFriendIdentifier, hidden: hideAddFriends)
     }
