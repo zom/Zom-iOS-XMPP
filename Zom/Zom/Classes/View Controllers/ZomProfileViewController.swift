@@ -373,8 +373,10 @@ open class ZomProfileViewController : UIViewController {
             switch user {
             case .account(_):
                 // Keep strong reference
-                avatarPicker = OTRAttachmentPicker(parentViewController: self.tabBarController?.navigationController, delegate: self)
-                avatarPicker!.showAlertController(fromSourceView: sender, withCompletion: nil)
+                if let parentViewController = self.tabBarController?.navigationController {
+                    avatarPicker = OTRAttachmentPicker(parentViewController: parentViewController, delegate: self)
+                    avatarPicker!.showAlertController(fromSourceView: sender, withCompletion: nil)
+                }
                 break
             default:
                 break
@@ -384,11 +386,11 @@ open class ZomProfileViewController : UIViewController {
 }
 
 extension ZomProfileViewController: OTRAttachmentPickerDelegate {
-    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: URL!) {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotVideoURL videoURL: URL) {
         
     }
     
-    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [AnyHashable: Any]!) {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotPhoto photo: UIImage, withInfo info: [AnyHashable: Any]) {
         if let user = self.profileObserver?.info.user {
             switch user {
             case let .account(account):
@@ -403,7 +405,7 @@ extension ZomProfileViewController: OTRAttachmentPickerDelegate {
         }
     }
     
-    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, preferredMediaTypesFor source: UIImagePickerControllerSourceType) -> [String]! {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, preferredMediaTypesFor source: UIImagePickerControllerSourceType) -> [String] {
         return [kUTTypeImage as String]
     }
 }

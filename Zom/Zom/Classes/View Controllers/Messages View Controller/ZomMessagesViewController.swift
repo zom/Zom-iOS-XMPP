@@ -190,8 +190,8 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     func attachmentPicker() -> OTRAttachmentPicker {
-        if (self.attachmentPickerController == nil) {
-            self.attachmentPickerController = OTRAttachmentPicker(parentViewController: self.parent?.parent, delegate: (self as! OTRAttachmentPickerDelegate))
+        if self.attachmentPickerController == nil, let parentViewController = self.parent?.parent {
+            self.attachmentPickerController = OTRAttachmentPicker(parentViewController: parentViewController, delegate: (self as! OTRAttachmentPickerDelegate))
         }
         return self.attachmentPickerController!
     }

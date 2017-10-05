@@ -62,8 +62,9 @@ open class ZomCongratsViewController: UIViewController {
     @IBAction func avatarButtonPressed(_ sender: AnyObject) {
         let picker = OTRAttachmentPicker(parentViewController: self, delegate: self)
         self.avatarPicker = picker
-        let view = sender as? UIView
-        picker?.showAlertController(fromSourceView: view, withCompletion: nil)
+        if let view = sender as? UIView {
+            picker.showAlertController(fromSourceView: view, withCompletion: nil)
+        }
     }
     
     /** Uses the global readOnlyDatabaseConnection to refetch the account object and refresh the avatar image view with that new object*/
@@ -92,11 +93,11 @@ extension ZomCongratsViewController: OTRYapViewHandlerDelegateProtocol {
 
 extension ZomCongratsViewController:OTRAttachmentPickerDelegate {
 
-    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: URL!) {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotVideoURL videoURL: URL) {
         
     }
     
-    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [AnyHashable : Any]!) {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotPhoto photo: UIImage, withInfo info: [AnyHashable : Any]) {
         
         guard let account = self.account else {
             return

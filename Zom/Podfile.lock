@@ -13,13 +13,13 @@ PODS:
   - BButton (4.0.2)
   - ChatSecure-Push-iOS (1.0)
   - CocoaAsyncSocket (7.6.1)
-  - CocoaLumberjack (3.2.0):
-    - CocoaLumberjack/Default (= 3.2.0)
-    - CocoaLumberjack/Extensions (= 3.2.0)
-  - CocoaLumberjack/Default (3.2.0)
-  - CocoaLumberjack/Extensions (3.2.0):
+  - CocoaLumberjack (3.3.0):
+    - CocoaLumberjack/Default (= 3.3.0)
+    - CocoaLumberjack/Extensions (= 3.3.0)
+  - CocoaLumberjack/Default (3.3.0)
+  - CocoaLumberjack/Extensions (3.3.0):
     - CocoaLumberjack/Default
-  - CocoaLumberjack/Swift (3.2.0):
+  - CocoaLumberjack/Swift (3.3.0):
     - CocoaLumberjack/Default
   - CPAProxy (1.2.0):
     - CocoaAsyncSocket
@@ -227,7 +227,7 @@ DEPENDENCIES:
   - BButton (~> 4.0)
   - ChatSecure-Push-iOS (from `../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec`)
   - CocoaAsyncSocket (~> 7.6.0)
-  - CocoaLumberjack/Swift (from `https://github.com/CocoaLumberjack/CocoaLumberjack.git`, commit `acc32864538c5d75b41a4bfa364b1431cf89954d`)
+  - CocoaLumberjack/Swift (~> 3.3.0)
   - CPAProxy (from `../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec`)
   - GCDWebServer (~> 3.4)
   - gtm-http-fetcher (from `../ChatSecure/Podspecs/gtm-http-fetcher.podspec`)
@@ -256,9 +256,6 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChatSecure-Push-iOS:
     :path: ../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec
-  CocoaLumberjack:
-    :commit: acc32864538c5d75b41a4bfa364b1431cf89954d
-    :git: https://github.com/CocoaLumberjack/CocoaLumberjack.git
   CPAProxy:
     :path: ../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec
   gtm-http-fetcher:
@@ -283,9 +280,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/ChatSecure/YapTaskQueue.git
 
 CHECKOUT OPTIONS:
-  CocoaLumberjack:
-    :commit: acc32864538c5d75b41a4bfa364b1431cf89954d
-    :git: https://github.com/CocoaLumberjack/CocoaLumberjack.git
   libsqlfs:
     :commit: 317d21a1e43e28396a62a462a8213a5f33678c2c
     :git: https://github.com/ChatSecure/libsqlfs.git
@@ -301,7 +295,7 @@ SPEC CHECKSUMS:
   BButton: ab0f2ed3b998ae73c5188b57d270d81e4a1eeb27
   ChatSecure-Push-iOS: 8e336b0f94f80fae22e734e592c14de6ecf8d091
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
-  CocoaLumberjack: 0d8cb05e834c1b391771fb3397d9a553accd33a9
+  CocoaLumberjack: 3c8c74683302f9012bb168e1c4b7ae3c0b558431
   CPAProxy: b1b33221b6ad297169cb813b6bbefd2a69ea9aad
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DTFoundation: 26a164ef510877387906fb92bff524a792db4bf8
@@ -335,6 +329,6 @@ SPEC CHECKSUMS:
   YapDatabase: 69ca88a2dfee305fde4412cf670c76f75aa7ccd0
   YapTaskQueue: f3b23875bead71a7ee57b65637ce9c0e98b68c34
 
-PODFILE CHECKSUM: 633c17d246abba5cf3ea476454a71f62de44d201
+PODFILE CHECKSUM: ac7d5df71d5c9a074c17cdce581f6c6d741907aa
 
 COCOAPODS: 1.3.1
