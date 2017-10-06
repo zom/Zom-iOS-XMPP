@@ -140,8 +140,11 @@ class ZomProfileViewObserver: NSObject {
             if let devices = allOMEMODevices {
                 allFingerprints += devices
             }
-            
-            let fingerprintSectionCells = self.generateFingerprintCells(fingerprints: allFingerprints)
+            var shownFingerprints:[Fingerprint] = []
+            if let lastFingerprint = allFingerprints.last {
+                shownFingerprints.append(lastFingerprint)
+            }
+            let fingerprintSectionCells = self.generateFingerprintCells(fingerprints: shownFingerprints)
             
             var cells:[ZomProfileViewCellInfoProtocol] = [userCell]
             if !info.calledFromGroup {
@@ -170,10 +173,16 @@ class ZomProfileViewObserver: NSObject {
                         default: return true
                         }
                     })
-                    allFingerprints.append(.OMEMO(thisDevice))
                     allFingerprints += devices
+                    allFingerprints.append(.OMEMO(thisDevice))
                 }
-                let fingerprintSectionCells = self.generateFingerprintCells(fingerprints: allFingerprints)
+                
+                var shownFingerprints:[Fingerprint] = []
+                if let lastFingerprint = allFingerprints.last {
+                    shownFingerprints.append(lastFingerprint)
+                }
+                
+                let fingerprintSectionCells = self.generateFingerprintCells(fingerprints: shownFingerprints)
                 
                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
                 
