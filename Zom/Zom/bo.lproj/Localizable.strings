@@ -28,3 +28,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "ཉེན་སྲུང་ཅན་གྱི་འཕྲིན་ཐུང་ཐོངས།";
 
+/* Cell text for creating a group */
+"Create a Group" = "ཚོགས་པ་ཞིག་བཟོས།";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "གྲོགས་སྣོན།";
+

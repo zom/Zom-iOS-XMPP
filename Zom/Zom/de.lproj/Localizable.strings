@@ -25,3 +25,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Sichere Nachricht senden";
 
+/* Cell text for creating a group */
+"Create a Group" = "Gruppe erstellen";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "Kontakte hinzufügen";
+

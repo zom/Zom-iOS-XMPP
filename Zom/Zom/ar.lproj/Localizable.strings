@@ -25,3 +25,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "أرسل رسالة آمنة";
 
+/* Cell text for creating a group */
+"Create a Group" = "إنشاء مجموعة";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "إضافة أصدقاء!";
+

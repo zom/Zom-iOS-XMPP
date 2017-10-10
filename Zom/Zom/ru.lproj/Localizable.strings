@@ -22,3 +22,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Отправить защищенное сообщение";
 
+/* Cell text for creating a group */
+"Create a Group" = "Создать группу";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "Добавить друзей";
+

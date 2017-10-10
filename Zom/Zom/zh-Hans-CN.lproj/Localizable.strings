@@ -28,3 +28,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "发送安全消息";
 
+/* Cell text for creating a group */
+"Create a Group" = "删除群聊";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "添加朋友";
+

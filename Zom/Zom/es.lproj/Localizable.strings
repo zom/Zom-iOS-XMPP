@@ -13,3 +13,9 @@
 /* username section */
 "Basic Setup" = "Crear un ID de Zom";
 
+/* Cell text for creating a group */
+"Create a Group" = "Crear un grupo";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "Añadir amigos";
+

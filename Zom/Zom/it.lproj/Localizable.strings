@@ -22,3 +22,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Invia messaggio privato";
 
+/* Cell text for creating a group */
+"Create a Group" = "Crea un gruppo";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "Aggiungi amici";
+

@@ -25,3 +25,9 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "安全にメッセージを送信";
 
+/* Cell text for creating a group */
+"Create a Group" = "グループチャットを作成";
+
+/* The title for the view to add a buddy */
+"Add Buddy" = "友達を追加";
+
