@@ -67,7 +67,7 @@ function parseiOSStringsFile {
 	return 0
     fi
 
-    #echo "Parsing file $filePath"
+    echo "Parsing file $filePath"
     charset=$(file -I "$filePath" | fgrep -l "charset=utf-16")
     if [ "$charset" == "" ];then
 	#echo "Charset: already UTF-8"

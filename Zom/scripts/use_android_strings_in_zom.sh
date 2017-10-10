@@ -240,6 +240,22 @@ function addiOSMapping {
     ios_values[count]="$3"
 }
 
+
+function findAndroidTranslation {
+    local id="$1"
+    local count=0
+    #>&2 echo "FIND TRANSLATION FOR ID ##$id##"
+    while [ "x${android_keys[count]}" != "x" ]
+    do
+	thisid="${android_keys[count]}"
+	if [ "$thisid" == "$id" ]; then
+	    echo "${android_values[count]}"
+	    return
+	fi
+	((count++))
+    done
+}
+
 function parseAndroidStringsFile {
     local filePath=$1
     while read -r line ; do
@@ -248,32 +264,20 @@ function parseAndroidStringsFile {
         # Replace slash ' with '	
 	replace=\'
         val="${val//\\\'/$replace}"
-	echo "Add mapping $key <--> $val"
+	# echo "Add android mapping $key <--> $val"
 	addAndroidMapping "$key" "$val"
     done < <(awk -F'name="|">|</' '{ if (NF == 4) print $2,$3}' "$filePath")
-}
-
-function findAndroidTranslation {
-    local id="$1"
-    local count=0
-    while [ "x${android_keys[count]}" != "x" ]
-    do
-	thisid="${android_keys[count]}"
-	if [ "$thisid" == "$id" ]; then
-	    echo "${android_values[count]}"
-	fi
-	((count++))
-    done
 }
 
 function findAndroidId {
     local id="$1"
     local count=0
-    while [ "x${base_keys[count]}" != "x" ]
+    while [ "x${base_translations[count]}" != "x" ]
     do
-	thisid="${base_keys[count]}"
+	thisid="${base_translations[count]}"
 	if [ "$thisid" == "$id" ]; then
 	    echo "${android_base_keys[count]}"
+            return
 	fi
 	((count++))
     done
@@ -287,6 +291,7 @@ function findBaseTranslation {
 	thisid="${base_keys[count]}"
 	if [ "$thisid" == "$id" ]; then
 	    echo "${base_translations[count]}"
+            return
 	fi
 	((count++))
     done
@@ -386,7 +391,7 @@ do
 	#exit 1
 	android_base_keys[i_translation]=""
     else
-	echo "Lookup for $term is $id"
+	#echo "Lookup for $term is --$id--"
 	android_base_keys[i_translation]="$id"
     fi
     ((i_translation++))
@@ -455,15 +460,18 @@ do
 	while [ "x${ios_keys[count]}" != "x" ]
 	do
 	    key="${ios_keys[count]}"
+	    key=$(findBaseTranslation "$key")
+	    
             # Get android id of key
 	    android_key=$(findAndroidId "$key")
+	    #echo "Android key is $android_key"
 	    if [ "$android_key" != "" ]; then
 		translation=$(findAndroidTranslation "$android_key")
 		if [ ! "$translation" == "" ]; then
-		#echo "Translation for $android_key is $translation"
+		    #echo "Translation for $android_key is $translation"
 		    ios_values[count]="$translation"
 		#else
-		    #echo "Language $language: missing translation for id $android_key."
+		#    echo "Language $language: missing translation for id $android_key."
 		fi
 	    #else
 		#echo "Failed to find Android key for: $key (value is ${ios_values[count]})"
