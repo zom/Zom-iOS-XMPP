@@ -174,6 +174,7 @@ do
     ((languages_index++))
 done
 
+
 # Make sure corresponding Android strings file exists
 #
 #
@@ -206,16 +207,20 @@ ios_values=()
 
 function addBaseMapping {
     local count=0
-    while [ "x${base_keys[count]}" != "x" ] && [ "x${base_keys[count]}" != "x$1" ]
-    do
-	((count++))
-    done
-    if [ "x${base_keys[count]}" == "x$1" ]; then
-	echo "Update base mapping for ${base_keys[count]} to $2"
-	base_translations[count]="$2"
-    else
-	base_keys[count]="$1"
-	base_translations[count]="$2"
+    if [ "$1" != "" ] && [ "$2" != "" ]; then
+	while [ "x${base_keys[count]}" != "x" ] && [ "x${base_keys[count]}" != "x$1" ]
+	do
+	    ((count++))
+	done
+	if [ "x${base_keys[count]}" == "x$1" ]; then
+	    #echo "Update base mapping for ${base_keys[count]} to $2"
+	    base_translations[count]="$2"
+	else
+	    base_keys[count]="$1"
+	    base_translations[count]="$2"
+	fi
+    #else
+	#echo "Called addBaseMapping with empty key or value, ignoring"
     fi
 }
 
@@ -318,10 +323,10 @@ while read -r line || [[ -n $line ]]; do
     if [ "$key" != "" ]; then
 	    # Cleanup key and value by removing quotes
 	if [ ${#value} -gt 0 ]; then
-	    echo "Adding base mapping $key --> $value"
+	    #echo "Adding base mapping $key --> $value"
 	    addBaseMapping "$key" "$value"
-	else
-	    echo "Ignore empty value for key $key"
+	#else
+	#    echo "Ignore empty value for key $key"
 	fi
     fi
 done < "/tmp/base.xml"
@@ -340,7 +345,7 @@ while [ "x${base_string_keys[base_string_count]}" != "x" ]
 do
     base_string_key="${base_string_keys[base_string_count]}"
     base_string_value="${base_string_values[base_string_count]}"
-    echo "Adding extra base mapping $base_string_key --> $base_string_value"
+    #echo "Adding extra base mapping $base_string_key --> $base_string_value"
     addBaseMapping "$base_string_key" "$base_string_value"
     ((base_string_count++))
 done
@@ -350,7 +355,7 @@ iq_translation=0
 while [ "x${base_translations[iq_translation]}" != "x" ]
 do
     term="${base_translations[iq_translation]}"
-    echo "$term"
+    #echo "${base_keys[iq_translation]} ----> $term"
     ((iq_translation++))
 done
 
@@ -464,14 +469,14 @@ do
 	    
             # Get android id of key
 	    android_key=$(findAndroidId "$key")
-	    #echo "Android key is $android_key"
+	    #>&2 echo "Android key is $android_key"
 	    if [ "$android_key" != "" ]; then
 		translation=$(findAndroidTranslation "$android_key")
 		if [ ! "$translation" == "" ]; then
 		    #echo "Translation for $android_key is $translation"
 		    ios_values[count]="$translation"
 		#else
-		#    echo "Language $language: missing translation for id $android_key."
+		#    >&2 echo "Language $language: missing translation for id $android_key."
 		fi
 	    #else
 		#echo "Failed to find Android key for: $key (value is ${ios_values[count]})"

@@ -70,34 +70,46 @@ function parseiOSStringsFile {
     #>&2 echo "Parsing file $filePath"
     charset=$(file -I "$filePath" | fgrep -l "charset=utf-16")
     if [ "$charset" == "" ];then
-	#echo "Charset: already UTF-8"
+	#>&2 echo "Charset: already UTF-8"
 	cp "$filePath" /tmp/temp.strings
     else
-	#echo "Charset: converting to UTF-8"
+	#>&2 echo "Charset: converting to UTF-8"
 	iconv -f utf-16 -t utf-8 "$filePath" > /tmp/temp.strings
     fi
 
-    local sep="####"
-    while read -r line || [[ -n $line ]]; do
-	case $line in
-	    (*"$sep"*)
-	    comment=${line%%"$sep"*}
-            keyval=${line#*"$sep"}
-	    key=${keyval%%"$sep"*}
-	    value=${keyval#*"$sep"}
-	    ;;
-	    (*)
-	    key=
-	    value=
-	    ;;
-	esac
+    filecontents=$(cat /tmp/temp.strings)
+
+    # Cant set IFS to multichar string, so replace /* with single char \r to act as separator
+    changed=$(echo "$filecontents" | sed "s/\/\*/$(printf '\r')/g")
+
+    # Then read into array
+    oldIFS="$IFS"
+    IFS=$'\r' read -a lines -d '' <<< "$changed"
+    IFS="$oldIFS"
+    sep=$(printf '\r')
+    for linein in "${lines[@]}"
+    do
+	line=$(echo "/*${linein}" | sed "s/\n/${sep}/g")
+	line=$(echo "$line" | sed "s/\*\//${sep}/g")
+	line=$(echo "$line" | sed "s/\" = \"/${sep}/g")
+	oldIFS="$IFS"
+	IFS=$'\r' read -a components -d '' <<< "$line"
+	IFS="$oldIFS"
+
+	comment="${components[0]}*/"
+	#echo "Comment is $comment"
+	key="${components[1]:2}"
+	#echo "Key is $key"
+	value="${components[2]}"
+	value=$(echo "$value" | sed 's/";//g')
+	#echo "Value is $value"
 	if [ "$key" != "" ]; then
-	    #echo "Adding mapping $key --> $value (comment $comment)"
+	    #>&2 echo "Adding mapping $key --> $value (comment $comment)"
 	    eval "$2[\${#$2[@]}]=\$comment"
 	    eval "$3[\${#$3[@]}]=\$key"
 	    eval "$4[\${#$4[@]}]=\$value"
 	fi
-    done < <(sed -n 'H;1h;$!d;x; s/\(\/\*[^\/]*\*\/\)\s*\n"\([^"]*\)" = "\([^"]*\)";/\1####\2####\3/gp ' /tmp/temp.strings)
+    done
 }
 
 nFiles=0
