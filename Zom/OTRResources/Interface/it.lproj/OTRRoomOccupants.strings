@@ -16,3 +16,6 @@
 /* Class = "UILabel"; text = "Share"; ObjectID = "zx5-44-k1l"; */
 "zx5-44-k1l.text" = "Condividi";
 
+/* Class = "UILabel"; text = " "; ObjectID = "Rna-SJ-kqj"; */
+"Rna-SJ-kqj.text" = " ";
+

@@ -19,3 +19,36 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "Añadir amigos";
 
+/* Title for the about page */
+"About" = "Acerca de";
+
+/* Label in buddy list for users that are away */
+"Away" = "Ausente";
+
+/* Title for chats view */
+"Chats" = "Conversaciones";
+
+/* Button to delete account */
+"Delete Account" = "Eliminar cuenta";
+
+/* The title for the view to enter a group chat name or label */
+"Group Name" = "Nombre del grupo";
+
+/* string to bring up language selector */
+"Language" = "Idioma";
+
+/* No comment provided by engineer. */
+"Me" = "Yo";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Desconectado";
+
+/* Title for the Settings screen */
+"Settings" = "Ajustes";
+
+/* Title for sharing a link to the app */
+"Share" = "Compartir";
+
+/* To let the user know the fingerprint as been checked */
+"Verified" = "Comprobado";
+

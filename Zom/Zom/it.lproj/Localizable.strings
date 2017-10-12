@@ -28,3 +28,65 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "Aggiungi amici";
 
+/* Button to switch the chat over to the migrated account */
+"Switch" = "Chatta ora";
+
+/* default string to revert to normal language behaviour */
+"Default" = "Predefinita";
+
+/* Title for the about page */
+"About" = "Informazioni";
+
+/* segmented control value for active friends
+   This will be displayed in the UI as 'Active 10m ago'  */
+"Active" = "Attiva";
+
+/* String to describe advanced set of settings */
+"Advanced" = "Avanzate";
+
+/* Noun. segmented control value for displaying archived conversations
+   Verb. action for archiving an old conversation */
+"Archive" = "Archivio";
+
+/* Label in buddy list for users that are away */
+"Away" = "Assente";
+
+/* Title for chats view */
+"Chats" = "Chat";
+
+/* String for button to connect connect */
+"Connect" = "Connetti";
+
+/* action button for deleting something */
+"Delete" = "Elimina";
+
+/* Button to delete account */
+"Delete Account" = "Elimina account";
+
+/* Title for button to press when user is finished */
+"Done" = "Fatto";
+
+/* The title for the view to enter a group chat name or label */
+"Group Name" = "Nome gruppo";
+
+/* segmented control value for active conversations */
+"Inbox" = "Attiva";
+
+/* No comment provided by engineer. */
+"Me" = "Io";
+
+/* Title for button to start migration tool */
+"Migrate Account" = "Migra account";
+
+/* String for XMPP buddies when adding buddy is pending */
+"Pending Approval" = "Approvazione in attesa";
+
+/* Title for the Settings screen */
+"Settings" = "Impostazioni";
+
+/* Title for sharing a link to the app */
+"Share" = "Condividi";
+
+/* To let the user know the fingerprint as been checked */
+"Verified" = "Verificato";
+

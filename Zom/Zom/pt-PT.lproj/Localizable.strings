@@ -1,3 +1,21 @@
 /* Cancel button */
 "Cancel" = "Cancelar";
 
+/* Title for the about page */
+"About" = "Sobre";
+
+/* Label in buddy list for users that are away */
+"Away" = "Ausente";
+
+/* string to bring up language selector */
+"Language" = "Língua";
+
+/* No comment provided by engineer. */
+"Me" = "Eu";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Off-line";
+
+/* Title for the Settings screen */
+"Settings" = "Configurações";
+

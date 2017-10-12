@@ -34,3 +34,77 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "གྲོགས་སྣོན།";
 
+/* Button to switch the chat over to the migrated account */
+"Switch" = "སྐད་ཆ་ཤོད།";
+
+/* default string to revert to normal language behaviour */
+"Default" = "སྔར་ཡོད།";
+
+/* Title for the about page */
+"About" = "དེའི་སྐོར།";
+
+/* segmented control value for active friends
+   This will be displayed in the UI as 'Active 10m ago'  */
+"Active" = "དྲ་ཐོག་ན་འདུག";
+
+/* String to describe advanced set of settings */
+"Advanced" = "ཚད་མཐོ་བོ།";
+
+/* Noun. segmented control value for displaying archived conversations
+   Verb. action for archiving an old conversation */
+"Archive" = "ཡིག་མཛོད།";
+
+/* Label in buddy list for users that are away */
+"Away" = "ད་ལྟ་འདིར་མེད།";
+
+/* Title for chats view */
+"Chats" = "གླེང་མོལ།";
+
+/* String for button to connect connect */
+"Connect" = "མཐུད།";
+
+/* action button for deleting something */
+"Delete" = "གསུབ།";
+
+/* Button to delete account */
+"Delete Account" = "ཁ་བྱང་གསུབ།";
+
+/* Title for button to press when user is finished */
+"Done" = "བྱས་ཚར།";
+
+/* The title for the view to enter a group chat name or label */
+"Group Name" = "ཚོགས་པའི་མིང་།";
+
+/* segmented control value for active conversations */
+"Inbox" = "དྲ་ཐོག་ན་འདུག";
+
+/* the name for jabber, also include (XMPP) at the end */
+"Jabber (XMPP)" = "འཇེབ་པར། (XMPP)";
+
+/* string to bring up language selector */
+"Language" = "སྐད་ཡིག";
+
+/* No comment provided by engineer. */
+"Me" = "ང་།";
+
+/* Title for button to start migration tool */
+"Migrate Account" = "ཐོ་བྱང་གནས་སྤོ།";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "དྲ་ཐོག་ཏུ་མེད།";
+
+/* Label text for password field on login screen */
+"Password" = "གསང་ཚིག";
+
+/* String for XMPP buddies when adding buddy is pending */
+"Pending Approval" = "ངོས་ལེན་ལ་སྒུག་བཞིན་ཡོད།";
+
+/* Title for the Settings screen */
+"Settings" = "སྒྲིག་བཟོ།";
+
+/* Title for sharing a link to the app */
+"Share" = "ངོ་སྤྲོད་བྱོས།";
+
+/* To let the user know the fingerprint as been checked */
+"Verified" = "བརྟག་དཔྱད་ཟིན།";
+

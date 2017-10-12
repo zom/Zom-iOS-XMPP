@@ -10,3 +10,30 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Send sikret melding";
 
+/* Title for the about page */
+"About" = "Om";
+
+/* Label in buddy list for users that are away */
+"Away" = "Borte";
+
+/* String for button to connect connect */
+"Connect" = "Koble til";
+
+/* action button for deleting something */
+"Delete" = "Slett";
+
+/* string to bring up language selector */
+"Language" = "Språk";
+
+/* No comment provided by engineer. */
+"Me" = "Meg";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Frakoblet";
+
+/* Label text for password field on login screen */
+"Password" = "Passord";
+
+/* Title for the Settings screen */
+"Settings" = "Innstillinger";
+

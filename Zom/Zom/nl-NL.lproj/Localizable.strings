@@ -34,3 +34,74 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "Vrienden toevoegen";
 
+/* Button to switch the chat over to the migrated account */
+"Switch" = "Nu chatten";
+
+/* default string to revert to normal language behaviour */
+"Default" = "Standaard";
+
+/* Title for the about page */
+"About" = "Over";
+
+/* segmented control value for active friends
+   This will be displayed in the UI as 'Active 10m ago'  */
+"Active" = "Actief";
+
+/* String to describe advanced set of settings */
+"Advanced" = "Geavanceerd";
+
+/* Noun. segmented control value for displaying archived conversations
+   Verb. action for archiving an old conversation */
+"Archive" = "Archief";
+
+/* Label in buddy list for users that are away */
+"Away" = "Afwezig";
+
+/* Title for chats view */
+"Chats" = "Gesprekken";
+
+/* String for button to connect connect */
+"Connect" = "Verbinden";
+
+/* action button for deleting something */
+"Delete" = "Verwijderen";
+
+/* Button to delete account */
+"Delete Account" = "Account verwijderen";
+
+/* Title for button to press when user is finished */
+"Done" = "Klaar";
+
+/* The title for the view to enter a group chat name or label */
+"Group Name" = "Groepsnaam";
+
+/* segmented control value for active conversations */
+"Inbox" = "Actief";
+
+/* string to bring up language selector */
+"Language" = "Taal";
+
+/* No comment provided by engineer. */
+"Me" = "Ik";
+
+/* Title for button to start migration tool */
+"Migrate Account" = "Account migreren";
+
+/* Label text for password field on login screen */
+"Password" = "Wachtwoord";
+
+/* String for XMPP buddies when adding buddy is pending */
+"Pending Approval" = "Wachten op aanvaarding";
+
+/* Title for the Settings screen */
+"Settings" = "Instellingen";
+
+/* Title for sharing a link to the app */
+"Share" = "Delen";
+
+/* To let the user know the fingerprint as been checked */
+"Verified" = "Geverifieerd";
+
+/* This will be shown after your own JID in the group profile view */
+"you" = "jij";
+

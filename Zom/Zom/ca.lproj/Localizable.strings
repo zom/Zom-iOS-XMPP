@@ -16,3 +16,30 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Envia un missatge segur";
 
+/* Title for the about page */
+"About" = "Quan a";
+
+/* Label in buddy list for users that are away */
+"Away" = "Absent";
+
+/* String for button to connect connect */
+"Connect" = "Connecta";
+
+/* action button for deleting something */
+"Delete" = "Esborra";
+
+/* string to bring up language selector */
+"Language" = "Idioma";
+
+/* No comment provided by engineer. */
+"Me" = "Jo";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Fora de línia";
+
+/* Label text for password field on login screen */
+"Password" = "Contrasenya";
+
+/* Title for the Settings screen */
+"Settings" = "Paràmetres";
+

@@ -10,3 +10,27 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Αποστολή ασφαλούς μηνύματος";
 
+/* Title for the about page */
+"About" = "Σχετικά με";
+
+/* Label in buddy list for users that are away */
+"Away" = "Μακριά από τον υπολογιστή";
+
+/* String for button to connect connect */
+"Connect" = "Σύνδεση";
+
+/* string to bring up language selector */
+"Language" = "Γλώσσα";
+
+/* No comment provided by engineer. */
+"Me" = "Εγώ";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Εκτός σύνδεσης";
+
+/* Label text for password field on login screen */
+"Password" = "Κωδικός";
+
+/* Title for the Settings screen */
+"Settings" = "Ρυθμίσεις";
+

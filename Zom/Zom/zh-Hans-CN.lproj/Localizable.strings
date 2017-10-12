@@ -34,3 +34,74 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "添加朋友";
 
+/* Button to switch the chat over to the migrated account */
+"Switch" = "现在聊天";
+
+/* default string to revert to normal language behaviour */
+"Default" = "预设";
+
+/* Title for the about page */
+"About" = "关于";
+
+/* segmented control value for active friends
+   This will be displayed in the UI as 'Active 10m ago'  */
+"Active" = "在线";
+
+/* String to describe advanced set of settings */
+"Advanced" = "高级";
+
+/* Noun. segmented control value for displaying archived conversations
+   Verb. action for archiving an old conversation */
+"Archive" = "档案";
+
+/* Label in buddy list for users that are away */
+"Away" = "离开";
+
+/* Title for chats view */
+"Chats" = "通讯录";
+
+/* String for button to connect connect */
+"Connect" = "连接";
+
+/* action button for deleting something */
+"Delete" = "删除";
+
+/* Button to delete account */
+"Delete Account" = "删除帐户";
+
+/* Title for button to press when user is finished */
+"Done" = "完成";
+
+/* The title for the view to enter a group chat name or label */
+"Group Name" = "群聊名称";
+
+/* segmented control value for active conversations */
+"Inbox" = "在线";
+
+/* string to bring up language selector */
+"Language" = "语言";
+
+/* No comment provided by engineer. */
+"Me" = "我";
+
+/* Title for button to start migration tool */
+"Migrate Account" = "迁移帐户";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "离线";
+
+/* Label text for password field on login screen */
+"Password" = "密码";
+
+/* String for XMPP buddies when adding buddy is pending */
+"Pending Approval" = "待批准";
+
+/* Title for the Settings screen */
+"Settings" = "设置";
+
+/* Title for sharing a link to the app */
+"Share" = "分享";
+
+/* To let the user know the fingerprint as been checked */
+"Verified" = "验证";
+

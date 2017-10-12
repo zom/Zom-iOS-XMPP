@@ -1,3 +1,15 @@
 /* Cancel button */
 "Cancel" = "Zrušiť";
 
+/* Label in buddy list for users that are away */
+"Away" = "Preč";
+
+/* string to bring up language selector */
+"Language" = "Jazyk";
+
+/* No comment provided by engineer. */
+"Me" = "Mňa";
+
+/* Title for the Settings screen */
+"Settings" = "Nastavenie";
+

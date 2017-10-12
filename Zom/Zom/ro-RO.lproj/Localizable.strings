@@ -4,3 +4,12 @@
 /* Prompt for confirm password */
 "Confirm New Password" = "Confirma Parola Noua";
 
+/* Title for the about page */
+"About" = "Despre";
+
+/* String for button to connect connect */
+"Connect" = "Conecteaza-te";
+
+/* Label text for password field on login screen */
+"Password" = "Parola";
+

@@ -31,3 +31,64 @@
 /* The title for the view to add a buddy */
 "Add Buddy" = "Kontakte hinzufügen";
 
+/* Button to switch the chat over to the migrated account */
+"Switch" = "Jetzt chatten";
+
+/* Title for the about page */
+"About" = "Über";
+
+/* segmented control value for active friends
+   This will be displayed in the UI as 'Active 10m ago'  */
+"Active" = "Aktiv";
+
+/* String to describe advanced set of settings */
+"Advanced" = "erweitert";
+
+/* Label in buddy list for users that are away */
+"Away" = "Abwesend";
+
+/* Title for chats view */
+"Chats" = "Unterhaltungen";
+
+/* String for button to connect connect */
+"Connect" = "Verbinden";
+
+/* action button for deleting something */
+"Delete" = "Löschen";
+
+/* Button to delete account */
+"Delete Account" = "Konto löschen";
+
+/* The title for the view to enter a group chat name or label */
+"Group Name" = "Gruppenname";
+
+/* segmented control value for active conversations */
+"Inbox" = "Aktiv";
+
+/* string to bring up language selector */
+"Language" = "Sprache";
+
+/* No comment provided by engineer. */
+"Me" = "Ich";
+
+/* Title for button to start migration tool */
+"Migrate Account" = "Account übertragen";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Getrennt";
+
+/* Label text for password field on login screen */
+"Password" = "Passwort";
+
+/* String for XMPP buddies when adding buddy is pending */
+"Pending Approval" = "Warte auf Bestätigung";
+
+/* Title for the Settings screen */
+"Settings" = "Einstellungen";
+
+/* Title for sharing a link to the app */
+"Share" = "Teilen";
+
+/* To let the user know the fingerprint as been checked */
+"Verified" = "Überprüft";
+

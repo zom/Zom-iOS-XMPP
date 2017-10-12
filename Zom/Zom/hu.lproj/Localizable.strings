@@ -4,3 +4,9 @@
 /* OK button */
 "OK" = "Ok";
 
+/* Title for the about page */
+"About" = "Rólunk";
+
+/* Title for the Settings screen */
+"Settings" = "Beállítások";
+

@@ -4,3 +4,27 @@
 /* OK button */
 "OK" = "V redu";
 
+/* Title for the about page */
+"About" = "O programu";
+
+/* Label in buddy list for users that are away */
+"Away" = "Odsoten";
+
+/* String for button to connect connect */
+"Connect" = "Poveži";
+
+/* action button for deleting something */
+"Delete" = "Zbriši";
+
+/* string to bring up language selector */
+"Language" = "Jezik";
+
+/* No comment provided by engineer. */
+"Me" = "Jaz";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Nedosegljiv";
+
+/* Title for the Settings screen */
+"Settings" = "Nastavitve";
+

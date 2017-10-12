@@ -10,3 +10,21 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Kirim pesan aman";
 
+/* Title for the about page */
+"About" = "Tentang";
+
+/* Label in buddy list for users that are away */
+"Away" = "Tidak di tempat";
+
+/* String for button to connect connect */
+"Connect" = "Hubungkan";
+
+/* string to bring up language selector */
+"Language" = "Bahasa";
+
+/* No comment provided by engineer. */
+"Me" = "Saya";
+
+/* Title for the Settings screen */
+"Settings" = "Pengaturan";
+

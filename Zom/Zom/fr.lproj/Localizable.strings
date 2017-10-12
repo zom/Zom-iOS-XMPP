@@ -10,3 +10,30 @@
 /* The placeholder text in the chat view where the message should go */
 "Send %@ encrypted message" = "Envoyer un message sécurisé";
 
+/* Title for the about page */
+"About" = "À propos";
+
+/* Label in buddy list for users that are away */
+"Away" = "Absent";
+
+/* String for button to connect connect */
+"Connect" = "Connectez-vous";
+
+/* action button for deleting something */
+"Delete" = "Supprimer";
+
+/* string to bring up language selector */
+"Language" = "Langue";
+
+/* No comment provided by engineer. */
+"Me" = "Moi";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "Hors ligne";
+
+/* Label text for password field on login screen */
+"Password" = "mot de passe";
+
+/* Title for the Settings screen */
+"Settings" = "Paramètres";
+

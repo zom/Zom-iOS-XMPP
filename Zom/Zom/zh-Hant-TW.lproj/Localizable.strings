@@ -4,3 +4,27 @@
 /* OK button */
 "OK" = "確定";
 
+/* Title for the about page */
+"About" = "關於";
+
+/* Label in buddy list for users that are away */
+"Away" = "外出";
+
+/* String for button to connect connect */
+"Connect" = "連線";
+
+/* the name for jabber, also include (XMPP) at the end */
+"Jabber (XMPP)" = "Jabber (XMPP)協定";
+
+/* string to bring up language selector */
+"Language" = "語言";
+
+/* No comment provided by engineer. */
+"Me" = "我";
+
+/* Label in buddy list for users that are offline */
+"Offline" = "離線";
+
+/* Title for the Settings screen */
+"Settings" = "設定";
+
