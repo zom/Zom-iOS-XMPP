@@ -7,45 +7,51 @@
 //
 
 import UIKit
-import IDMPhotoBrowser
+import INSPhotoGallery
 
-open class ZomPhotoStreamImage: NSObject, IDMPhotoProtocol {
-
+open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
+    public var image: UIImage?
+    public var thumbnailImage: UIImage?
     private let mediaItem:OTRMediaItem
     private let message:OTRMessageProtocol
-    private var image:UIImage?
-    private var buddy:OTRBuddy?
-    public var progressUpdateBlock:IDMProgressUpdateBlock?
-    
-    public init(mediaItem: OTRMediaItem, message: OTRMessageProtocol) {
+    private var threadOwner:OTRThreadOwner?
+    public var attributedTitle: NSAttributedString?
+
+    public init(mediaItem: OTRMediaItem, message: OTRMessageProtocol, threadOwner: OTRThreadOwner?) {
         self.mediaItem = mediaItem
         self.message = message
+        self.threadOwner = threadOwner
         super.init()
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.asyncRead({ (transaction) in
-            self.buddy = self.message.threadOwner(with: transaction) as? OTRBuddy
-        })
+        
+        let caption = NSMutableAttributedString()
+        if let buddy = self.threadOwner as? OTRBuddy {
+            caption.append(NSAttributedString(string: buddy.displayName))
+            caption.append(NSAttributedString(string: "\n"))
+            let range = NSRange(location: 0, length: caption.length)
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .center
+            caption.addAttributes([NSForegroundColorAttributeName : UIColor.white, NSParagraphStyleAttributeName: paragraph], range: range)
+        }
+        caption.append(JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.messageDate))
+        self.attributedTitle = caption
     }
     
-    public func underlyingImage() -> UIImage? {
-        return image
+    public func date() -> Date {
+        return message.messageDate
     }
     
-    public func loadUnderlyingImageAndNotify() {
-        self.loadUnderlyingImageAndNotify(callback: nil)
+    func releaseImages() {
+        thumbnailImage = nil
     }
- 
-    public func loadUnderlyingImageAndNotify(callback:((_ photo:ZomPhotoStreamImage) -> Void)?) {
-        if let buddyUniqueId = buddy?.uniqueId {
+    
+    public func loadImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
+        if let threadIdentifier = threadOwner?.threadIdentifier() {
             DispatchQueue.global().async {
                 do {
-                    let data = try OTRMediaFileManager.shared.data(for: self.mediaItem, buddyUniqueId: buddyUniqueId)
-                    self.image = UIImage(data: data)
+                    let data = try OTRMediaFileManager.shared.data(for: self.mediaItem, buddyUniqueId: threadIdentifier)
+                    let image = UIImage(data: data)
                     DispatchQueue.main.async {
-                        if let cb = callback {
-                            cb(self)
-                        } else {
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: IDMPhoto_LOADING_DID_END_NOTIFICATION), object: self)
-                        }
+                        completion(image, nil)
                     }
                 } catch {
                 }
@@ -53,25 +59,36 @@ open class ZomPhotoStreamImage: NSObject, IDMPhotoProtocol {
         }
     }
     
-    public func unloadUnderlyingImage() {
-        self.image = nil
+    public func loadThumbnailImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
+        completion(nil, nil)
     }
-    
-    public func caption() -> String? {
-        return nil
-    }
-    
-    public func attributedCaption() -> NSAttributedString? {
-        let caption = NSMutableAttributedString()
-        if let buddy = buddy {
-            caption.append(NSAttributedString(string: buddy.username))
-            caption.append(NSAttributedString(string: "\n"))
+
+    public func loadThumbnailImageWithSizeAndCompletionHandler(_ size:CGSize, completion: @escaping (UIImage?, Error?) -> ()) {
+        let doneLoading:(() -> Bool) = {() in
+            if let thumbnail = self.thumbnailImage {
+                DispatchQueue.main.async {
+                    completion(thumbnail, nil)
+                }
+                return true
+            }
+            return false
         }
-        caption.append(JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.messageDate))
-        return caption
+        if !doneLoading() {
+            loadImageWithCompletionHandler({ (image, error) in
+                if let image = image {
+                    self.thumbnailImage = UIImage.otr_image(with: image, scaledTo: size)
+                }
+                if !doneLoading() {
+                    DispatchQueue.main.async {
+                        completion(nil, nil)
+                    }
+                }
+            })
+        }
     }
     
-    public func placeholderImage() -> UIImage? {
-        return nil
+    public var isDeletable: Bool {
+        return false
     }
 }
+

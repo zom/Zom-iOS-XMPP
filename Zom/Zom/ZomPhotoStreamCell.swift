@@ -14,18 +14,13 @@ open class ZomPhotoStreamCell: UICollectionViewCell {
     
     override open func prepareForReuse() {
         super.prepareForReuse()
-        photo?.unloadUnderlyingImage()
+        photo?.releaseImages()
     }
     
     open func populateWithPhoto(_ photo: ZomPhotoStreamImage) {
         self.photo = photo
-        imageView.image = photo.underlyingImage()
-        if (imageView.image == nil) {
-            photo.loadUnderlyingImageAndNotify(callback: { (image) in
-                if (self.photo == image) {
-                    self.imageView.image = image.underlyingImage()
-                }
-            })
-        }
+        photo.loadThumbnailImageWithSizeAndCompletionHandler(imageView.bounds.size, completion: { (image, error) in
+            self.imageView.image = image
+        })
     }
 }

@@ -9,9 +9,9 @@
 import Foundation
 import XMPPFramework
 import OTRKit
-import IDMPhotoBrowser
+import INSPhotoGallery
 
-open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate, IDMPhotoBrowserDelegate {
+open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewControllerDelegate {
 
     @IBOutlet weak var pickStickerButton: UIButton!
     var shareStickerOnResume:String?
@@ -120,14 +120,5 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
                 popup.present(from: pickStickerButton.bounds, in: pickStickerButton, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
             }
         }
-    }
-    
-    public func photoBrowser(_ photoBrowser: IDMPhotoBrowser!, captionViewForPhotoAt index: UInt) -> IDMCaptionView? {
-        if let photo = photoBrowser.photo(at: index) as? ZomPhotoStreamImage {
-            let captionView = IDMCaptionView(photo: photo)
-            captionView?.label.attributedText = photo.attributedCaption()
-            return captionView
-        }
-        return nil
     }
 }

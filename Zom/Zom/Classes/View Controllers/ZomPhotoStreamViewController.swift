@@ -8,9 +8,9 @@
 
 import UIKit
 import ChatSecureCore
-import IDMPhotoBrowser
+import INSPhotoGallery
 
-open class ZomPhotoStreamViewController: UICollectionViewController, IDMPhotoBrowserDelegate {
+open class ZomPhotoStreamViewController: UICollectionViewController {
     
     public var photos:[ZomPhotoStreamImage] = []
     
@@ -23,17 +23,20 @@ open class ZomPhotoStreamViewController: UICollectionViewController, IDMPhotoBro
             let collection = OTRMediaItem.collection
             let allMediaItemKeys = transaction.allKeys(inCollection: collection)
             allMediaItemKeys.forEach({ (key) in
-                if let object = transaction.object(forKey: key, inCollection: collection) as? OTRMediaItem {
+                if let object = transaction.object(forKey: key, inCollection: collection) as? OTRImageItem {
                     array.append(object)
                 }
             })
             if array.count > 0 {
                 var photos:[ZomPhotoStreamImage] = [ZomPhotoStreamImage]()
                 array.forEach({ (mediaItem) in
-                    if let message = mediaItem.parentMessage(with: transaction) {
-                        let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message)
+                    if mediaItem is OTRImageItem, let message = mediaItem.parentMessage(with: transaction) {
+                        let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message, threadOwner:message.threadOwner(with: transaction))
                         photos.append(p)
                     }
+                })
+                photos.sort(by: { (item1, item2) -> Bool in
+                    return item1.date().compare(item2.date()) == .orderedAscending
                 })
                 self.photos = photos
                 DispatchQueue.main.async {
@@ -67,22 +70,15 @@ open class ZomPhotoStreamViewController: UICollectionViewController, IDMPhotoBro
     
     open override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = self.collectionView?.cellForItem(at: indexPath)  as! ZomPhotoStreamCell
-        if photos.count > 0, let browser = IDMPhotoBrowser(photos: photos, animatedFrom: cell.imageView)
-        {
-            browser.autoHideInterface = false
-            browser.useWhiteBackgroundColor = true
-            browser.delegate = self
-            browser.setInitialPageIndex(UInt(indexPath.item))
-            self.present(browser, animated: true, completion: nil)
+        let initialPhoto = photos[indexPath.row]
+        let browser = INSPhotosViewController(photos: photos, initialPhoto:initialPhoto, referenceView:cell.imageView)
+        browser.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
+            if let index = self?.photos.index(where: {$0 === photo}) {
+                let indexPath = IndexPath(item: index, section: 0)
+                return (collectionView.cellForItem(at: indexPath) as? ZomPhotoStreamCell)?.imageView
+            }
+            return nil
         }
-    }
-    
-    public func photoBrowser(_ photoBrowser: IDMPhotoBrowser!, captionViewForPhotoAt index: UInt) -> IDMCaptionView? {
-        if let photo = photoBrowser.photo(at: index) as? ZomPhotoStreamImage {
-            let captionView = IDMCaptionView(photo: photo)
-            captionView?.label.attributedText = photo.attributedCaption()
-            return captionView
-        }
-        return nil
+        self.present(browser, animated: true, completion: nil)
     }
 }

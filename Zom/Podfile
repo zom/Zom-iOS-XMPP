@@ -17,8 +17,7 @@ use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
 abstract_target 'ZomPods' do
-  pod 'IDMPhotoBrowser', '~> 1.11'
-
+  pod 'INSPhotoGallery'
   # User Interface
   pod "Appirater", '~> 2.0'
   pod 'OpenInChrome', '~> 0.0'
@@ -30,6 +29,9 @@ abstract_target 'ZomPods' do
   pod 'QRCodeReaderViewController', '~> 4.0'
   pod 'ParkedTextField', '~> 0.3.1'
   pod 'JSQMessagesViewController', :path => '../ChatSecure/Submodules/JSQMessagesViewController/JSQMessagesViewController.podspec'
+
+  # Debugging
+  pod 'Reveal-SDK', :configurations => ['Debug']
 
   # Utility
   pod 'CocoaLumberjack/Swift', '~> 3.3.0'
@@ -53,7 +55,7 @@ abstract_target 'ZomPods' do
   pod 'gtm-oauth2', :podspec => '../ChatSecure/Podspecs/gtm-oauth2.podspec'
 
   # Storage
-  pod 'YapDatabase/SQLCipher', '~> 3.0.1'
+  pod 'YapDatabase/SQLCipher', '~> 3.0.2'
   # pod 'YapDatabase/SQLCipher', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'd632658'
   pod 'libsqlfs/SQLCipher', :git => 'https://github.com/ChatSecure/libsqlfs.git', :branch => 'podspec-fix'
   pod 'IOCipher/GCDWebServer', :path => '../ChatSecure/Submodules/IOCipher/IOCipher.podspec'
@@ -80,8 +82,7 @@ abstract_target 'ZomPods' do
 
 
   target 'Zom'
-  pod 'IDMPhotoBrowser', '~> 1.11'
-
+  pod 'INSPhotoGallery'
   #target 'ChatSecureTests'
   #target 'ChatSecure'
 end
