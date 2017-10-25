@@ -56,6 +56,15 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         AFNetworkReachabilityManager.shared().stopMonitoring()
     }
     
+    open override func viewDidDisappear(_ animated: Bool) {
+        // Reset the pending approval view
+        if pendingApprovalView != nil {
+            pendingApprovalView?.removeFromSuperview()
+            pendingApprovalView = nil
+        }
+        super.viewDidDisappear(animated)
+    }
+    
     open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, addAdditionalOptions alertController: UIAlertController!) {
         
         let sendStickerAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Sticker", comment: "Label for button to open up sticker library and choose sticker"), style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
@@ -564,6 +573,31 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 //    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
 //        return nil
 //    }
+    
+    private func rotateRefreshView(_ button:UIButton, revolutions:Int) {
+        if let label = button.titleLabel {
+            UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear, animations: {
+                label.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            }, completion: { (done) in
+                UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear, animations: {
+                    label.transform = CGAffineTransform(rotationAngle: 2 * CGFloat.pi)
+                }, completion: { (done) in
+                    label.transform = CGAffineTransform(rotationAngle: 0)
+                    if (revolutions == 0) {
+                        // Done
+                        button.backgroundColor = UIColor.white
+                        let attributedString = NSMutableAttributedString(string: "")
+                        let range = NSRange(location: 0, length: attributedString.length)
+                        attributedString.addAttribute(NSForegroundColorAttributeName, value: ZomAppDelegate.appDelegate.theme.mainThemeColor, range: range)
+                        button.setAttributedTitle(attributedString, for: .normal)
+                    } else {
+                        self.rotateRefreshView(button, revolutions:revolutions - 1)
+                    }
+                })
+            })
+        }
+    }
+    
     @IBAction func didPressReinvite(_ sender: AnyObject) {
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
@@ -575,6 +609,11 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             return
         }
         manager.add(buddy)
+
+        // Rotate the refresh button 5 times, then show a check mark (as a progress indicator)
+        if let button = sender as? UIButton {
+            rotateRefreshView(button, revolutions:5)
+        }
     }
 }
 
