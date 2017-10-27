@@ -30,7 +30,7 @@ open class ZomPhotoStreamViewController: UICollectionViewController {
             if array.count > 0 {
                 var photos:[ZomPhotoStreamImage] = [ZomPhotoStreamImage]()
                 array.forEach({ (mediaItem) in
-                    if mediaItem is OTRImageItem, let message = mediaItem.parentMessage(with: transaction) {
+                    if mediaItem is OTRImageItem, let message = mediaItem.parentMessage(with: transaction), mediaItem.transferProgress == 1 {
                         let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message, threadOwner:message.threadOwner(with: transaction))
                         photos.append(p)
                     }
