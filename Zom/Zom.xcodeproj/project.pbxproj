@@ -128,6 +128,7 @@
 		92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3C91CEAFD3B00CB4CFF /* UITableView+Zom.m */; };
 		92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */; };
 		92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */; };
+		92EDA62D1FA35D0300D69228 /* ZomPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EDA62C1FA35D0300D69228 /* ZomPhotosViewController.swift */; };
 		92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F694451E04913800B0963C /* AddBuddy.storyboard */; };
 		92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F6947D1E04913E00B0963C /* Tabs.storyboard */; };
 		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
@@ -889,6 +890,7 @@
 		92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddyInfoCell.swift; path = Classes/Views/ZomBuddyInfoCell.swift; sourceTree = "<group>"; };
 		92ECE3CD1CEB130A00CB4CFF /* ZomOverrides.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZomOverrides.h; path = Classes/ZomOverrides.h; sourceTree = "<group>"; };
 		92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomInviteViewController.swift; path = "Classes/View Controllers/ZomInviteViewController.swift"; sourceTree = "<group>"; };
+		92EDA62C1FA35D0300D69228 /* ZomPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomPhotosViewController.swift; path = "Classes/View Controllers/ZomPhotosViewController.swift"; sourceTree = "<group>"; };
 		92F60BF21D018121008834AC /* Base */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92F60BF41D018C09008834AC /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		92F60BF51D018C0A008834AC /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1202,6 +1204,7 @@
 				92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */,
 				92CF0A7E1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift */,
 				92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */,
+				92EDA62C1FA35D0300D69228 /* ZomPhotosViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2132,6 +2135,7 @@
 				633CDA1F1E034AFE001A3ACF /* ZomPasswordCell.swift in Sources */,
 				6323C7091E3AB5CD00D0FB42 /* ZomProfileCells.swift in Sources */,
 				92CF0ABB1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift in Sources */,
+				92EDA62D1FA35D0300D69228 /* ZomPhotosViewController.swift in Sources */,
 				92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */,
 				92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */,
 				928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */,
