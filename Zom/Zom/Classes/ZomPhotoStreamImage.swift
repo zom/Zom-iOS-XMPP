@@ -45,7 +45,7 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
     }
     
     public func loadImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
-        if let threadIdentifier = threadOwner?.threadIdentifier() {
+        if let threadIdentifier = threadOwner?.threadIdentifier {
             DispatchQueue.global().async {
                 do {
                     let data = try OTRMediaFileManager.shared.data(for: self.mediaItem, buddyUniqueId: threadIdentifier)
@@ -60,7 +60,7 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
     }
     
     public func loadThumbnailImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
-        completion(nil, nil)
+            completion(nil, nil)
     }
 
     public func loadThumbnailImageWithSizeAndCompletionHandler(_ size:CGSize, completion: @escaping (UIImage?, Error?) -> ()) {

@@ -133,7 +133,7 @@ class ZomProfileViewObserver: NSObject {
         
         switch info.user {
         case .buddy(let buddy):
-            let userCell = UserCellInfo(avatarImage: buddy.avatarImage, title: buddy.threadName(), subtitle: buddy.username)
+            let userCell = UserCellInfo(avatarImage: buddy.avatarImage, title: buddy.threadName, subtitle: buddy.username)
             var allFingerprints = info.otrKit.fingerprints(forUsername: buddy.username, accountName: info.otrKitInfo.accountName, protocol: info.otrKitInfo.protocolString).map({ (fingerprint) -> Fingerprint in
                 return .OTR(fingerprint)
             })
