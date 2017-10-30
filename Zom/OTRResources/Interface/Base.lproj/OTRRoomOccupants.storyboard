@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Room Occupants View Controller-->
+        <!--Zom Room Occupants View Controller-->
         <scene sceneID="UGz-B7-uuj">
             <objects>
-                <viewController storyboardIdentifier="roomOccupants" automaticallyAdjustsScrollViewInsets="NO" id="SVh-J8-xWo" customClass="OTRRoomOccupantsViewController" customModule="ChatSecureCore" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="roomOccupants" automaticallyAdjustsScrollViewInsets="NO" id="SVh-J8-xWo" customClass="ZomRoomOccupantsViewController" customModule="Zom" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qbb-9k-hT4"/>
                         <viewControllerLayoutGuide type="bottom" id="1R0-2P-Vnk"/>

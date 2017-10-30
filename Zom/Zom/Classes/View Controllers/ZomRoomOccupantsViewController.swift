@@ -29,6 +29,29 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
         qrCodeButton?.isHidden = true
     }
     
+    open override func didSelectFooterCell(type: String) {
+        switch type {
+        case "cellGroupLeave":
+            let alert = UIAlertController(title: NSLocalizedString("Leave group?", comment: "Title for leave group prompt"), message: NSLocalizedString("Your group chat history will be wiped away. To keep these chats, archive the group instead.", comment: "Message for leave group prompt"), preferredStyle: .alert)
+            let archiveAction = UIAlertAction(title: ARCHIVE_STRING(), style: .default, handler: { (action: UIAlertAction) -> Void in
+                if let delegate = self.delegate {
+                    delegate.didArchiveRoom(self)
+                }
+            })
+            let leaveAction = UIAlertAction(title: NSLocalizedString("Leave", comment: "Option to leave a group chat"), style: .default, handler: { (action: UIAlertAction) -> Void in
+                super.didSelectFooterCell(type: "cellGroupLeave")
+            })
+            let cancelAction = UIAlertAction(title: CANCEL_STRING(), style: .cancel, handler: nil)
+            alert.addAction(archiveAction)
+            alert.addAction(leaveAction)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+            return
+        default: break
+        }
+        super.didSelectFooterCell(type: type)
+    }
+    
     override open func viewOccupantInfo(_ occupant: OTRXMPPRoomOccupant) {
         guard let realJid = occupant.realJID, let room = self.room, let accountUniqueId = room.accountUniqueId else { return }
         var _account: OTRAccount? = nil
