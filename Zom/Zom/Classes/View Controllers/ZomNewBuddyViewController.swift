@@ -200,7 +200,14 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
     }
     
     open func controller(_ viewController: OTRNewBuddyViewController!, didAdd buddy: OTRBuddy!) {
-       _ = self.navigationController?.popViewController(animated: true) // Pop back to friend list!
+        if let presenter = self.navigationController?.presentingViewController {
+            presenter.dismiss(animated: true, completion: nil)
+        } else {
+            _ = self.navigationController?.popViewController(animated: true) // Pop back to friend list!
+        }
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
+            appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
+        }
     }
     
     open override func populate(fromQRResult result: String!) {
