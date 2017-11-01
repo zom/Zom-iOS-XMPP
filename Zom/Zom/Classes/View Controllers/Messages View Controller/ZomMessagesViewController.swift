@@ -107,21 +107,6 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         }
     }
     
-    override open func setupDefaultSendButton() {
-        // Override this to always show Camera and Mic icons. We never get here
-        // in a "knock" scenario.
-        self.inputToolbar?.contentView?.leftBarButtonItem = self.cameraButton
-        self.inputToolbar?.contentView?.leftBarButtonItem.isEnabled = false
-        if (self.state.hasText) {
-            self.inputToolbar?.contentView?.rightBarButtonItem = self.sendButton
-            self.inputToolbar?.sendButtonLocation = JSQMessagesInputSendButtonLocation.right
-            self.inputToolbar?.contentView?.rightBarButtonItem.isEnabled = self.state.isThreadOnline
-        } else {
-            self.inputToolbar?.contentView?.rightBarButtonItem = self.microphoneButton
-            self.inputToolbar?.contentView?.rightBarButtonItem.isEnabled = false
-        }
-    }
-    
     override open func didPressAccessoryButton(_ sender: UIButton!) {
         if (sender == self.cameraButton) {
             let pickerView = getPickerView()
@@ -308,6 +293,17 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func didUpdateState() {
         super.didUpdateState()
+        
+        // If no buttons, show + and microphone, but disabled
+        if self.inputToolbar?.contentView?.leftBarButtonItem == nil {
+            self.inputToolbar?.contentView?.leftBarButtonItem = self.cameraButton
+            self.inputToolbar?.contentView?.leftBarButtonItem.isEnabled = false
+        }
+        if self.inputToolbar?.contentView?.rightBarButtonItem == nil {
+            self.inputToolbar?.contentView?.rightBarButtonItem = self.microphoneButton
+            self.inputToolbar?.contentView?.rightBarButtonItem.isEnabled = false
+        }
+        
         if isGroupChat() {
             self.pendingApprovalView?.removeFromSuperview()
             self.pendingApprovalView = nil

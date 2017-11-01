@@ -48,10 +48,6 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void)setupInfoButton;
 @end
 
-@interface OTRMessagesHoldTalkViewController (ZomOverride)
-- (void)setupDefaultSendButton;
-@end
-
 @interface OTRInviteViewController (ZomOverride)
 - (void)skipPressed:(id _Nullable)sender;
 - (void)qrButtonPressed:(id _Nullable)sender;
