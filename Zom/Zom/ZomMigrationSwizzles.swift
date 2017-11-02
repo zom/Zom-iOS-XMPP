@@ -11,11 +11,11 @@ import ChatSecureCore
 var OTRXMPPAccount_hasMigratedAssociatedObject: UInt8 = 0
 
 extension OTRXMPPAccount {
-    public static func swizzle() {
+    @objc public static func swizzle() {
         ZomUtil.swizzle(self, originalSelector: #selector(getter: OTRXMPPAccount.needsMigration), swizzledSelector:#selector(getter: OTRXMPPAccount.zom_needsMigration))
     }
     
-    public var zom_needsMigration: Bool {
+    @objc public var zom_needsMigration: Bool {
         if hasMigrated {
             return false
         }
@@ -33,11 +33,11 @@ extension OTRXMPPAccount {
 }
 
 extension OTRAccountMigrator {
-    public static func swizzle() {
+    @objc public static func swizzle() {
         ZomUtil.swizzle(self, originalSelector: #selector(OTRAccountMigrator.areBothAccountsAreOnline), swizzledSelector:#selector(OTRAccountMigrator.zom_areBothAccountAreOnline))
     }
     
-    public func zom_areBothAccountAreOnline() -> Bool {
+    @objc public func zom_areBothAccountAreOnline() -> Bool {
         return true
     }
 }

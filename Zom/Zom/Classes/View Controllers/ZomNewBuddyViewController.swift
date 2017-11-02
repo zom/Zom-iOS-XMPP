@@ -69,7 +69,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         self.showButton(shareSmsButtonItem, show:false)
 
         // Only show scan if we can actually scan QR codes
-        self.showButton(scanButtonItem, show:QRCodeReader.supportsMetadataObjectTypes([AVMetadataObjectTypeQRCode]))
+        self.showButton(scanButtonItem, show:QRCodeReader.supportsMetadataObjectTypes([AVMetadataObject.ObjectType.qr]))
         
         self.accountNameTextField.resignFirstResponder()
         
@@ -98,7 +98,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         super.viewWillDisappear(animated)
     }
     
-    func didShowKeyboard(_ notification: Notification) {
+    @objc func didShowKeyboard(_ notification: Notification) {
         
         if let userInfo = notification.userInfo, let sep = self.separator, let scroll = self.scrollView {
             let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
@@ -112,7 +112,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         }
     }
 
-    func didHideKeyboard(_ notification: Notification) {
+    @objc func didHideKeyboard(_ notification: Notification) {
         if let scroll = self.scrollView {
             scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         }
@@ -226,8 +226,8 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         
         // Setup the font attributes that will be later used to dictate how the text should be drawn
         let textFontAttributes = [
-            NSFontAttributeName: textFont,
-            NSForegroundColorAttributeName: textColor,
+            NSAttributedStringKey.font: textFont,
+            NSAttributedStringKey.foregroundColor: textColor,
             ]
         
         // Create a point within the space that is as big as the image

@@ -24,7 +24,7 @@ extension OTRBaseLoginViewController {
         ZomUtil.swizzle(self, originalSelector: #selector(OTRBaseLoginViewController.viewDidLoad), swizzledSelector:#selector(OTRBaseLoginViewController.zom_viewDidLoad))
     }
 
-    public func zom_viewDidLoad() {
+    @objc public func zom_viewDidLoad() {
         if object_getClass(self) === OTRBaseLoginViewController.self {
             object_setClass(self, ZomBaseLoginViewController.self)
             self.zom_viewDidLoad()
@@ -136,7 +136,7 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
         return cell
     }
     
-    func didPressEyeIcon(_ sender: UIControl!, withEvent: UIEvent!) {
+    @objc func didPressEyeIcon(_ sender: UIControl!, withEvent: UIEvent!) {
         let indexPath = self.tableView.indexPathForRow(at: (withEvent.touches(for: sender)?.first?.location(in: self.tableView))!)
         if (indexPath != nil) {
             self.tableView.delegate?.tableView!(self.tableView, accessoryButtonTappedForRowWith: indexPath!)

@@ -9,11 +9,11 @@
 import ChatSecureCore
 
 extension OTRXMPPRoomManager {
-    public static func swizzle() {
+    @objc public static func swizzle() {
         ZomUtil.swizzle(self, originalSelector: #selector(getter: OTRXMPPRoomManager.conferenceServicesJID), swizzledSelector:#selector(getter: OTRXMPPRoomManager.zom_conferenceServicesJID))
     }
     
-    public var zom_conferenceServicesJID: [String] {
+    @objc public var zom_conferenceServicesJID: [String] {
         let array = self.zom_conferenceServicesJID
         if array.count == 0 {
             return ["conference.zom.im"]

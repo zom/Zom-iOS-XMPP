@@ -31,8 +31,8 @@ public class ZomMigrationInfoHeaderView: MigrationInfoHeaderView {
                 let length = end - start
                 let mutableAttrString = NSMutableAttributedString(string: textCopy)
                 let range = NSRange(location: start, length: length)
-                mutableAttrString.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
-                mutableAttrString.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFont(ofSize: infoLabel.font.pointSize), range: range)
+                mutableAttrString.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+                mutableAttrString.addAttribute(NSAttributedStringKey.font, value: UIFont.boldSystemFont(ofSize: infoLabel.font.pointSize), range: range)
                 infoLabel.attributedText = mutableAttrString
             }
         }

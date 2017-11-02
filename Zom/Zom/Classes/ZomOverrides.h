@@ -46,6 +46,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void)showJIDForwardingHeaderWithNewJID:(XMPPJID * _Nonnull)newJid;
 - (BOOL)hasBubbleSizeForCellAtIndexPath:(NSIndexPath* _Nonnull)indexPath;
 - (void)setupInfoButton;
+- (OTRAttachmentPicker *)attachmentPicker;
 @end
 
 @interface OTRInviteViewController (ZomOverride)

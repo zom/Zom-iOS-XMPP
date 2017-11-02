@@ -25,7 +25,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         self.init(nibName:nil, bundle:nil)
     }
     
-    open func createTabs() {
+    @objc open func createTabs() {
         if let appDelegate = UIApplication.shared.delegate as? OTRAppDelegate {
             
             var newControllers:[UIViewController] = [];
@@ -63,8 +63,8 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
             item.selectedImage = item.image
             item.image = item.image!.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             
-            item.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.clear,
-                                         NSFontAttributeName:UIFont.systemFont(ofSize: 1)], for: .normal)
+            item.setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.clear,
+                                         NSAttributedStringKey.font:UIFont.systemFont(ofSize: 1)], for: .normal)
             item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
         }
         

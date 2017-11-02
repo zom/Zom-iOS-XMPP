@@ -91,6 +91,14 @@ extension ZomCongratsViewController: OTRYapViewHandlerDelegateProtocol {
     }
 }
 
+extension ZomCongratsViewController:UIPopoverPresentationControllerDelegate {
+    public func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        if popoverPresentationController.sourceView == nil {
+            popoverPresentationController.sourceView = self.avatarImageView
+        }
+    }
+}
+
 extension ZomCongratsViewController:OTRAttachmentPickerDelegate {
 
     public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotVideoURL videoURL: URL) {
@@ -112,7 +120,7 @@ extension ZomCongratsViewController:OTRAttachmentPickerDelegate {
         }
     }
     
-    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, preferredMediaTypesFor source: UIImagePickerControllerSourceType) -> [String]! {
+    public func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, preferredMediaTypesFor source: UIImagePickerControllerSourceType) -> [String] {
         return [kUTTypeImage as String]
     }
 }

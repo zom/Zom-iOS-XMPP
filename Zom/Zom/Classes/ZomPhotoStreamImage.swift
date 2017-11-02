@@ -30,7 +30,7 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
             let range = NSRange(location: 0, length: caption.length)
             let paragraph = NSMutableParagraphStyle()
             paragraph.alignment = .center
-            caption.addAttributes([NSForegroundColorAttributeName : UIColor.white, NSParagraphStyleAttributeName: paragraph], range: range)
+            caption.addAttributes([NSAttributedStringKey.foregroundColor : UIColor.white, NSAttributedStringKey.paragraphStyle: paragraph], range: range)
         }
         caption.append(JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.messageDate))
         self.attributedTitle = caption

@@ -9,8 +9,8 @@
 import ChatSecureCore
 import VTAcknowledgementsViewController
 
-open class ZomSettingsManager: OTRSettingsManager, OTRSettingDelegate {
-    open var viewController:UIViewController?
+@objc open class ZomSettingsManager: OTRSettingsManager, OTRSettingDelegate {
+    @objc open var viewController:UIViewController?
     
     override open var settingsGroups: [OTRSettingsGroup] {
         get {

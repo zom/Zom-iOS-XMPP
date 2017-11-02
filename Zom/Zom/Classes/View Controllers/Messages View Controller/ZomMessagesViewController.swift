@@ -145,7 +145,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         return self.attachmentPickerView!
     }
     
-    func onTap(_ sender: UIGestureRecognizer) {
+    @objc func onTap(_ sender: UIGestureRecognizer) {
         closePickerView()
     }
     
@@ -181,13 +181,6 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     @IBAction func attachmentPickerTakePhotoWithSender(_ sender: AnyObject) {
         closePickerView()
         attachmentPicker().showImagePicker(for: UIImagePickerControllerSourceType.camera)
-    }
-    
-    func attachmentPicker() -> OTRAttachmentPicker {
-        if self.attachmentPickerController == nil, let parentViewController = self.parent?.parent {
-            self.attachmentPickerController = OTRAttachmentPicker(parentViewController: parentViewController, delegate: (self as! OTRAttachmentPickerDelegate))
-        }
-        return self.attachmentPickerController!
     }
     
     @IBAction func attachmentPickerStickerWithSender(_ sender: AnyObject) {
@@ -584,7 +577,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                         button.backgroundColor = UIColor.white
                         let attributedString = NSMutableAttributedString(string: "")
                         let range = NSRange(location: 0, length: attributedString.length)
-                        attributedString.addAttribute(NSForegroundColorAttributeName, value: ZomAppDelegate.appDelegate.theme.mainThemeColor, range: range)
+                        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: ZomAppDelegate.appDelegate.theme.mainThemeColor, range: range)
                         button.setAttributedTitle(attributedString, for: .normal)
                     } else {
                         self.rotateRefreshView(button, revolutions:revolutions - 1)

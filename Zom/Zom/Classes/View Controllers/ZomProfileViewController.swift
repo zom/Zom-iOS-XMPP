@@ -346,7 +346,7 @@ open class ZomProfileViewController : UIViewController {
     class PasswordChangeTextFieldDelegate: NSObject, UITextFieldDelegate {
         var alert:UIAlertController
         
-        func textFieldDidChange(_ textField: UITextField){
+        @objc func textFieldDidChange(_ textField: UITextField){
             guard let tf1 = alert.textFields?[0] else {
                 return
             }
@@ -374,7 +374,7 @@ open class ZomProfileViewController : UIViewController {
             case .account(_):
                 // Keep strong reference
                 if let parentViewController = self.tabBarController?.navigationController {
-                    avatarPicker = OTRAttachmentPicker(parentViewController: parentViewController, delegate: self)
+                    avatarPicker = OTRAttachmentPicker(parentViewController: parentViewController as! UIViewController & UIPopoverPresentationControllerDelegate, delegate: self)
                     avatarPicker!.showAlertController(fromSourceView: sender, withCompletion: nil)
                 }
                 break

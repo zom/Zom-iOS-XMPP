@@ -86,11 +86,10 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tabs" bundle:[NSBundle mainBundle]];
     self.mainTabViewController = [storyboard instantiateInitialViewController];
     
-    UINavigationController *nav = (UINavigationController *)leadingViewController;
-    [nav setViewControllers:[NSArray arrayWithObject:self.mainTabViewController]];
+    UINavigationController *nav = [[ZomRootNavigationViewController alloc] initWithRootViewController:self.mainTabViewController];
     [self.mainTabViewController didMoveToParentViewController:nav];
     
-    UISplitViewController *ret = [super setupDefaultSplitViewControllerWithLeadingViewController:leadingViewController];
+    UISplitViewController *ret = [super setupDefaultSplitViewControllerWithLeadingViewController:nav];
     
     [self.mainTabViewController createTabs]; // Only do this once the split view controller is created, we need that as a delegate
     if (![ret isCollapsed]) {

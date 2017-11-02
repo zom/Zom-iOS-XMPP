@@ -100,16 +100,16 @@ open class ZomMyQRViewController: UIViewController, OTRAttachmentPickerDelegate 
         return nil
     }
     
-    func didTapAvatarImage(_ sender: UITapGestureRecognizer? = nil) {
+    @objc func didTapAvatarImage(_ sender: UITapGestureRecognizer? = nil) {
         if let parentViewController = self.tabBarController?.parent {
-            let photoPicker = OTRAttachmentPicker(parentViewController: parentViewController, delegate: self)
+            let photoPicker = OTRAttachmentPicker(parentViewController: parentViewController as! UIViewController & UIPopoverPresentationControllerDelegate, delegate: self)
             photoPicker.showAlertController(fromSourceView: self.avatarImageView, withCompletion: nil)
         }
     }
     
-    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotVideoURL videoURL: URL!) {
+    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotVideoURL videoURL: URL) {
     }
     
-    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker!, gotPhoto photo: UIImage!, withInfo info: [AnyHashable: Any]!) {
+    open func attachmentPicker(_ attachmentPicker: OTRAttachmentPicker, gotPhoto photo: UIImage, withInfo info: [AnyHashable: Any]) {
     }
 }

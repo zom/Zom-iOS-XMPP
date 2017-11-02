@@ -15,7 +15,7 @@ extension OTRBuddy {
         ZomUtil.swizzle(self, originalSelector: #selector(getter: OTRUserInfoProfile.displayName), swizzledSelector:#selector(OTRBuddy.zom_getDisplayName))
     }
     
-    func zom_getDisplayName() -> String? {
+    @objc func zom_getDisplayName() -> String? {
         let originalDisplayName = self.zom_getDisplayName()
         let account = self.username
         if (originalDisplayName == nil || account.compare(originalDisplayName!) == ComparisonResult.orderedSame) {
