@@ -13,6 +13,8 @@
 #import <ChatSecureCore/OTRAppDelegate.h>
 #import "OTRAssets+ZomLanguageHandling.h"
 #import "UITableView+Zom.h"
+#import "ZomOverrides.h"
+@import MobileCoreServices;
 
 @interface OTRAppDelegate (Zom)
 - (void)handleInvite:(NSString *)jidString fingerprint:(NSString *)fingerprint;
@@ -109,6 +111,18 @@
     BOOL ret = [super application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     if (ret == NO) {
         ret = ([self handleUniversalLink:url] == true);
+    }
+    if (ret == NO) {
+        // Shared audio file?
+        NSError *error;
+        if ([sourceApplication hasPrefix:@"com.apple"] && [url checkResourceIsReachableAndReturnError:&error]) {
+            NSString *type;
+            if ([url getResourceValue:&type forKey:NSURLTypeIdentifierKey error:&error]) {
+                if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio)) {
+                    return [ZomImportManager.shared handleImportWithUrl:url];
+                }
+            }
+        }
     }
     return ret;
 }

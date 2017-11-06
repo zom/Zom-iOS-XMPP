@@ -101,6 +101,7 @@
 		92A021971DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */; };
 		92A021CE1DF0133500EC4EE4 /* AttachmentPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */; };
 		92A114CF1FAB627D000766EC /* ZomRootNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A114CE1FAB627D000766EC /* ZomRootNavigationViewController.swift */; };
+		92A115011FAC77A0000766EC /* ZomImportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A115001FAC77A0000766EC /* ZomImportManager.swift */; };
 		92A567C61EDED3B900684E72 /* PitchInviteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A567C81EDED3B900684E72 /* PitchInviteView.xib */; };
 		92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */; };
 		92AA05E51E3774EF0054BEAD /* ZomOnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */; };
@@ -771,6 +772,7 @@
 		92A021961DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomCompactTraitViewController.swift; path = "Classes/View Controllers/ZomCompactTraitViewController.swift"; sourceTree = "<group>"; };
 		92A021CD1DF0133500EC4EE4 /* AttachmentPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachmentPicker.xib; sourceTree = "<group>"; };
 		92A114CE1FAB627D000766EC /* ZomRootNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomRootNavigationViewController.swift; path = "Classes/View Controllers/ZomRootNavigationViewController.swift"; sourceTree = "<group>"; };
+		92A115001FAC77A0000766EC /* ZomImportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomImportManager.swift; path = Classes/ZomImportManager.swift; sourceTree = "<group>"; };
 		92A567C71EDED3B900684E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PitchInviteView.xib; sourceTree = "<group>"; };
 		92A568041EDED3BD00684E72 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PitchInviteView.strings; sourceTree = "<group>"; };
 		92A568061EDED3BF00684E72 /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/PitchInviteView.strings; sourceTree = "<group>"; };
@@ -1265,6 +1267,7 @@
 				92CF0A3A1EF02DE300D1A4BA /* ZomPhotoStreamImage.swift */,
 				925434811F556B96007567B7 /* UIImage+Zom.swift */,
 				924A93631F67277300914C9D /* OTRXMPPRoomManager+Zom.swift */,
+				92A115001FAC77A0000766EC /* ZomImportManager.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2151,6 +2154,7 @@
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
 				9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */,
 				92CBA8FE1D12E05E001CDD3D /* ZomSettingsViewController.swift in Sources */,
+				92A115011FAC77A0000766EC /* ZomImportManager.swift in Sources */,
 				92256C511EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift in Sources */,
 				92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */,
 				92CF0A7F1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift in Sources */,
