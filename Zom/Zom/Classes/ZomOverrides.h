@@ -46,7 +46,8 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void)showJIDForwardingHeaderWithNewJID:(XMPPJID * _Nonnull)newJid;
 - (BOOL)hasBubbleSizeForCellAtIndexPath:(NSIndexPath* _Nonnull)indexPath;
 - (void)setupInfoButton;
-- (OTRAttachmentPicker *)attachmentPicker;
+- (OTRAttachmentPicker * _Nonnull)attachmentPicker;
+- (void)showImage:(OTRImageItem * _Nullable)imageItem fromCollectionView:(JSQMessagesCollectionView * _Nonnull)collectionView atIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
 @interface OTRInviteViewController (ZomOverride)

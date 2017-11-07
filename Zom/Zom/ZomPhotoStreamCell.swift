@@ -14,7 +14,9 @@ open class ZomPhotoStreamCell: UICollectionViewCell {
     
     override open func prepareForReuse() {
         super.prepareForReuse()
+        self.imageView.image = nil
         photo?.releaseImages()
+        self.photo = nil
     }
     
     open func populateWithPhoto(_ photo: ZomPhotoStreamImage) {

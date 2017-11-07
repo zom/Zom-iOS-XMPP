@@ -28,6 +28,11 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var doubleCheckIcon:UIImage?
     private var shieldIcon:UIImage?
     
+    // These are for swiping through all images in the thread
+    private var galleryLoadingIndicator:UIActivityIndicatorView?
+    private var galleryHandler:ZomGalleryHandler?
+    private var galleryReferenceView:UIView?
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
         let nibUnknown = UINib(nibName: ZomMessagesViewController.ZomUnknownSenderMessageCell, bundle: nil)
@@ -603,6 +608,39 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         if let button = sender as? UIButton {
             rotateRefreshView(button, revolutions:5)
         }
+    }
+    
+    open override func showImage(_ imageItem: OTRImageItem?, from collectionView: JSQMessagesCollectionView, at indexPath: IndexPath) {
+        guard let dbConnection = OTRDatabaseManager.shared.readOnlyDatabaseConnection, let threadIdentifier = self.threadKey else {return}
+        galleryHandler = ZomGalleryHandler(connection: dbConnection)
+        galleryReferenceView = self.view
+        if let cell = self.collectionView?.cellForItem(at: indexPath) as? JSQMessagesCollectionViewCell {
+            galleryReferenceView = cell.mediaView
+        }
+        galleryHandler?.fetchImagesAsync(for: threadIdentifier, initialPhoto: imageItem, delegate: self)
+    }
+}
+
+extension ZomMessagesViewController: ZomGalleryHandlerDelegate {
+    public func galleryHandlerDidStartFetching(_ galleryHandler: ZomGalleryHandler) {
+        galleryLoadingIndicator = UIActivityIndicatorView(frame: self.view.frame)
+        if let loadingIndicator = galleryLoadingIndicator {
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            loadingIndicator.startAnimating();
+            view.addSubview(loadingIndicator)
+        }
+    }
+    
+    public func galleryHandlerDidFinishFetching(_ galleryHandler: ZomGalleryHandler, images: [ZomPhotoStreamImage], initialImage: ZomPhotoStreamImage?) {
+        galleryLoadingIndicator?.stopAnimating()
+        galleryLoadingIndicator?.removeFromSuperview()
+        galleryLoadingIndicator = nil
+        if let referenceImageView = galleryReferenceView as? UIImageView, let initialImage = initialImage {
+            initialImage.thumbnailImage = referenceImageView.image
+        }
+        let browser = ZomPhotosViewController(photos: galleryHandler.images, initialPhoto:initialImage, referenceView:galleryReferenceView)
+        self.present(browser, animated: true, completion: nil)
     }
 }
 

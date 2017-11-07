@@ -10,16 +10,20 @@ import UIKit
 import ChatSecureCore
 import INSPhotoGallery
 
-open class ZomPhotoStreamViewController: UICollectionViewController {
-    
-    public var photos:[ZomPhotoStreamImage] = []
+open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryHandlerDelegate {
     
     fileprivate var assetGridThumbnailSize:CGSize = CGSize()
     private var loadingIndicator:UIActivityIndicatorView?
+    private var galleryHandler:ZomGalleryHandler?
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
+        guard let dbConnection = OTRDatabaseManager.shared.readOnlyDatabaseConnection else {return}
+        galleryHandler = ZomGalleryHandler(connection: dbConnection)
+        galleryHandler?.fetchImagesAsync(for: nil, initialPhoto: nil, delegate: self)
+    }
+    
+    public func galleryHandlerDidStartFetching(_ galleryHandler: ZomGalleryHandler) {
         loadingIndicator = UIActivityIndicatorView(frame: self.view.frame)
         if let loadingIndicator = loadingIndicator {
             loadingIndicator.hidesWhenStopped = true
@@ -27,45 +31,11 @@ open class ZomPhotoStreamViewController: UICollectionViewController {
             loadingIndicator.startAnimating();
             view.addSubview(loadingIndicator)
         }
-        
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.asyncRead({ (transaction) in
-            var array:[OTRMediaItem] = [OTRMediaItem]()
-            let collection = OTRMediaItem.collection
-            let allMediaItemKeys = transaction.allKeys(inCollection: collection)
-            allMediaItemKeys.forEach({ (key) in
-                if let object = transaction.object(forKey: key, inCollection: collection) as? OTRImageItem {
-                    array.append(object)
-                }
-            })
-            if array.count > 0 {
-                var photos:[ZomPhotoStreamImage] = [ZomPhotoStreamImage]()
-                array.forEach({ (mediaItem) in
-                    if mediaItem is OTRImageItem, let message = mediaItem.parentMessage(with: transaction), mediaItem.transferProgress == 1 {
-                        
-                        if let threadOwner = message.threadOwner(with: transaction) {
-                            // Check that we have a data length, can be 0 for some reason
-                            let threadIdentifier = threadOwner.threadIdentifier
-                            do {
-                                let dataLength = try OTRMediaFileManager.shared.dataLength(for: mediaItem, buddyUniqueId: threadIdentifier)
-                                if dataLength.intValue > 0 {
-                                    let p = ZomPhotoStreamImage(mediaItem: mediaItem, message: message, threadOwner:threadOwner)
-                                    photos.append(p)
-                                }
-                            } catch {
-                            }
-                        }
-                    }
-                })
-                photos.sort(by: { (item1, item2) -> Bool in
-                    return item1.date().compare(item2.date()) == .orderedAscending
-                })
-                self.photos = photos
-                DispatchQueue.main.async {
-                    self.collectionView?.reloadData()
-                    self.loadingIndicator?.stopAnimating()
-                }
-            }
-        });
+    }
+    
+    public func galleryHandlerDidFinishFetching(_ galleryHandler: ZomGalleryHandler, images: [ZomPhotoStreamImage], initialImage: ZomPhotoStreamImage?) {
+        collectionView?.reloadData()
+        loadingIndicator?.stopAnimating()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -80,27 +50,30 @@ open class ZomPhotoStreamViewController: UICollectionViewController {
     // Mark - UICollectionViewDataSource
     
     open override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return galleryHandler?.images.count ?? 0
     }
     
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let photo = photos[indexPath.item]
         let cell:ZomPhotoStreamCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ZomPhotoStreamCell
-        cell.populateWithPhoto(photo)
+        if let photo = galleryHandler?.images[indexPath.item] {
+            cell.populateWithPhoto(photo)
+        }
         return cell
     }
     
     open override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = self.collectionView?.cellForItem(at: indexPath)  as! ZomPhotoStreamCell
-        let initialPhoto = photos[indexPath.row]
-        let browser = ZomPhotosViewController(photos: photos, initialPhoto:initialPhoto, referenceView:cell.imageView)
-        browser.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
-            if let index = self?.photos.index(where: {$0 === photo}) {
+        if let galleryHandler = self.galleryHandler {
+            let initialPhoto = galleryHandler.images[indexPath.item]
+            let browser = ZomPhotosViewController(photos: galleryHandler.images, initialPhoto:initialPhoto, referenceView:cell.imageView)
+            browser.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
+            if let index = galleryHandler.images.index(where: {$0 === photo}) {
                 let indexPath = IndexPath(item: index, section: 0)
                 return (collectionView.cellForItem(at: indexPath) as? ZomPhotoStreamCell)?.imageView
             }
             return nil
         }
         self.present(browser, animated: true, completion: nil)
+        }
     }
 }

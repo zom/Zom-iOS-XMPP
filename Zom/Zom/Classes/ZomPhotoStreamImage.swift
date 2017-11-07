@@ -10,17 +10,30 @@ import UIKit
 import INSPhotoGallery
 
 open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
+    
+    
+    
     public var image: UIImage?
     public var thumbnailImage: UIImage?
     private let mediaItem:OTRMediaItem
     private let message:OTRMessageProtocol
     private var threadOwner:OTRThreadOwner?
+    private var operationQueue:OperationQueue?
+    private var loadOperation:Operation?
+    
     public var attributedTitle: NSAttributedString?
-
-    public init(mediaItem: OTRMediaItem, message: OTRMessageProtocol, threadOwner: OTRThreadOwner?) {
+    
+    private var thumbIdentifier:String {
+        get {
+            return String(format: "%@_thumb", self.mediaItem.uniqueId)
+        }
+    }
+    
+    public init(mediaItem: OTRMediaItem, message: OTRMessageProtocol, threadOwner: OTRThreadOwner?,operationQueue:OperationQueue) {
         self.mediaItem = mediaItem
         self.message = message
         self.threadOwner = threadOwner
+        self.operationQueue = operationQueue
         super.init()
         
         let caption = NSMutableAttributedString()
@@ -42,30 +55,55 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
     
     func releaseImages() {
         thumbnailImage = nil
+        loadOperation?.cancel()
+        loadOperation = nil
     }
     
-    public func loadImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
+    private func getCachedThumbnail() -> UIImage? {
+        return self.thumbnailImage ?? OTRImages.image(withIdentifier: thumbIdentifier)
+    }
+    
+    public func loadImage(withPriority priority: Operation.QueuePriority, completion: @escaping (UIImage?, Error?) -> ()) {
         if let threadIdentifier = threadOwner?.threadIdentifier {
-            DispatchQueue.global().async {
+            if let previousLoad = loadOperation, !previousLoad.isFinished {
+                previousLoad.cancel()
+            }
+            loadOperation = BlockOperation(block: {
                 do {
                     let data = try OTRMediaFileManager.shared.data(for: self.mediaItem, buddyUniqueId: threadIdentifier)
-                    let image = UIImage(data: data)
+                    
+                    // Check if we are cancelled
+                    guard !(self.loadOperation?.isCancelled ?? true) else {return}
+                    
+                    // TODO - if we know the image size, use UIImage(data:scale:)
+                    var image = UIImage(data: data)
+                    
+                    // Scale images for low memory devices
+                    guard !(self.loadOperation?.isCancelled ?? true) else {return}
+                    let memory = ProcessInfo.processInfo.physicalMemory
+                    if memory <= 1024 * 1024 * 512, let original = image {
+                        let screenWidth = UIScreen.main.bounds.width
+                        let screenHeight = UIScreen.main.bounds.height
+                        image = original.aspectFill(size: CGSize(width: screenWidth, height: screenHeight))
+                    }
+                    guard !(self.loadOperation?.isCancelled ?? true) else {return}
                     DispatchQueue.main.async {
                         completion(image, nil)
                     }
                 } catch {
                 }
+            })
+            if let loadOperation = loadOperation {
+                loadOperation.queuePriority = priority
+                operationQueue?.addOperation(loadOperation)
             }
         }
     }
     
-    public func loadThumbnailImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
-            completion(nil, nil)
-    }
-
     public func loadThumbnailImageWithSizeAndCompletionHandler(_ size:CGSize, completion: @escaping (UIImage?, Error?) -> ()) {
+        
         let doneLoading:(() -> Bool) = {() in
-            if let thumbnail = self.thumbnailImage {
+            if let thumbnail = self.getCachedThumbnail() {
                 DispatchQueue.main.async {
                     completion(thumbnail, nil)
                 }
@@ -74,9 +112,12 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
             return false
         }
         if !doneLoading() {
-            loadImageWithCompletionHandler({ (image, error) in
+            loadImage(withPriority: .normal, completion: { (image, error) in
                 if let image = image {
-                    self.thumbnailImage = UIImage.otr_image(with: image, scaledTo: size)
+                    self.thumbnailImage = image.aspectFill(size: size)
+                    if let thumbnail = self.thumbnailImage {
+                        OTRImages.setImage(thumbnail, forIdentifier: self.thumbIdentifier)
+                    }
                 }
                 if !doneLoading() {
                     DispatchQueue.main.async {
@@ -87,8 +128,26 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
         }
     }
     
+    // MARK: INSPhotoViewable
+    public func loadImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
+        loadImage(withPriority: .high, completion: completion)
+    }
+    
+    public func loadThumbnailImageWithCompletionHandler(_ completion: @escaping (UIImage?, Error?) -> ()) {
+        completion(getCachedThumbnail(), nil)
+    }
+    
     public var isDeletable: Bool {
         return false
     }
 }
 
+extension UIImage {
+    func aspectFill(size:CGSize) -> UIImage? {
+        if self.size.width > size.width || self.size.height > size.height {
+            let aspect = max(self.size.width / size.width, self.size.height / size.height)
+            return UIImage.otr_image(with: self, scaledTo: CGSize(width:self.size.width / aspect, height:self.size.height / aspect))
+        }
+        return self
+    }
+}
