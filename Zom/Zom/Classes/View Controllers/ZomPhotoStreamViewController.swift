@@ -9,11 +9,12 @@
 import UIKit
 import ChatSecureCore
 import INSPhotoGallery
+import MBProgressHUD
 
 open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryHandlerDelegate {
     
     fileprivate var assetGridThumbnailSize:CGSize = CGSize()
-    private var loadingIndicator:UIActivityIndicatorView?
+    private var galleryLoadingIndicator:MBProgressHUD?
     private var galleryHandler:ZomGalleryHandler?
     
     open override func viewDidLoad() {
@@ -24,18 +25,23 @@ open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryH
     }
     
     public func galleryHandlerDidStartFetching(_ galleryHandler: ZomGalleryHandler) {
-        loadingIndicator = UIActivityIndicatorView(frame: self.view.frame)
-        if let loadingIndicator = loadingIndicator {
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-            loadingIndicator.startAnimating();
-            view.addSubview(loadingIndicator)
-        }
+        self.galleryLoadingIndicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.galleryLoadingIndicator?.detailsLabel.text = NSLocalizedString("Cancel", comment: "Cancel loading gallery view")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cancelGalleryFetching))
+        self.galleryLoadingIndicator?.addGestureRecognizer(tap)
+    }
+    
+    @objc func cancelGalleryFetching() {
+        galleryHandler?.cancelFetching()
+        galleryLoadingIndicator?.hide(animated: true)
+        galleryLoadingIndicator = nil
+        self.navigationController?.popViewController(animated: true)
     }
     
     public func galleryHandlerDidFinishFetching(_ galleryHandler: ZomGalleryHandler, images: [ZomPhotoStreamImage], initialImage: ZomPhotoStreamImage?) {
+        galleryLoadingIndicator?.hide(animated: true)
+        galleryLoadingIndicator = nil
         collectionView?.reloadData()
-        loadingIndicator?.stopAnimating()
     }
     
     open override func viewWillAppear(_ animated: Bool) {

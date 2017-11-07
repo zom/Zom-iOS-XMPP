@@ -19,9 +19,9 @@ public class ZomGalleryHandler: NSObject {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
-    let callbackQueue = DispatchQueue.main
     
     public var images:[ZomPhotoStreamImage] = []
+    var isCanceled = false
     
     deinit {
         internalQueue.cancelAllOperations()
@@ -35,11 +35,17 @@ public class ZomGalleryHandler: NSObject {
         super.init()
     }
     
+    public func cancelFetching() {
+        isCanceled = true
+        internalQueue.cancelAllOperations()
+        images = []
+    }
+    
     public func fetchImagesAsync(for threadIdentifier:String?, initialPhoto:OTRImageItem?, delegate:ZomGalleryHandlerDelegate) {
 
         internalQueue.cancelAllOperations()
         images = []
-        
+        isCanceled = false
         delegate.galleryHandlerDidStartFetching(self)
         
         connection.asyncRead({ (transaction) in
@@ -75,7 +81,9 @@ public class ZomGalleryHandler: NSObject {
                     return item1.date().compare(item2.date()) == .orderedAscending
                 })
                 DispatchQueue.main.async {
-                    delegate.galleryHandlerDidFinishFetching(self, images: self.images, initialImage: initialPhotoObject)
+                    if !self.isCanceled {
+                        delegate.galleryHandlerDidFinishFetching(self, images: self.images, initialImage: initialPhotoObject)
+                    }
                 }
             }
         });

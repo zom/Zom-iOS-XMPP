@@ -12,6 +12,7 @@ import JSQMessagesViewController
 import OTRAssets
 import BButton
 import AFNetworking
+import MBProgressHUD
 
 open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate {
     
@@ -29,7 +30,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var shieldIcon:UIImage?
     
     // These are for swiping through all images in the thread
-    private var galleryLoadingIndicator:UIActivityIndicatorView?
+    private var galleryLoadingIndicator:MBProgressHUD?
     private var galleryHandler:ZomGalleryHandler?
     private var galleryReferenceView:UIView?
     
@@ -623,18 +624,20 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 
 extension ZomMessagesViewController: ZomGalleryHandlerDelegate {
     public func galleryHandlerDidStartFetching(_ galleryHandler: ZomGalleryHandler) {
-        galleryLoadingIndicator = UIActivityIndicatorView(frame: self.view.frame)
-        if let loadingIndicator = galleryLoadingIndicator {
-            loadingIndicator.hidesWhenStopped = true
-            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-            loadingIndicator.startAnimating();
-            view.addSubview(loadingIndicator)
-        }
+        self.galleryLoadingIndicator = MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.galleryLoadingIndicator?.detailsLabel.text = NSLocalizedString("Cancel", comment: "Cancel loading gallery view")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cancelGalleryFetching))
+        self.galleryLoadingIndicator?.addGestureRecognizer(tap)
+    }
+    
+    @objc func cancelGalleryFetching() {
+        galleryHandler?.cancelFetching()
+        galleryLoadingIndicator?.hide(animated: true)
+        galleryLoadingIndicator = nil
     }
     
     public func galleryHandlerDidFinishFetching(_ galleryHandler: ZomGalleryHandler, images: [ZomPhotoStreamImage], initialImage: ZomPhotoStreamImage?) {
-        galleryLoadingIndicator?.stopAnimating()
-        galleryLoadingIndicator?.removeFromSuperview()
+        galleryLoadingIndicator?.hide(animated: true)
         galleryLoadingIndicator = nil
         if let referenceImageView = galleryReferenceView as? UIImageView, let initialImage = initialImage {
             initialImage.thumbnailImage = referenceImageView.image
