@@ -14,20 +14,11 @@ open class ZomSettingsViewController : OTRSettingsViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let versionButton = self.tableView.tableFooterView as? UIButton {
+            versionButton.backgroundColor = UIColor.clear
+        }
+        
         // Remove the right bar info button
         self.navigationItem.rightBarButtonItem = nil
-    }
-    
-    public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == (tableView.numberOfSections - 1) {
-                return versionString()
-        }
-        return nil
-    }
-    
-    func versionString() -> String {
-        return String(format: "%@ %@ (%@)", VERSION_STRING(),
-                      (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "",
-                      (Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? "")
     }
 }
