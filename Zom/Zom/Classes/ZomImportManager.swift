@@ -141,8 +141,21 @@ import MobileCoreServices
     
     private func doSend(_ xmpp:OTRXMPPManager) {
         guard let threadOwner = self.threadOwner else {return}
-        if UTTypeConformsTo(type as CFString, kUTTypeImage), let image = self.image {
-            xmpp.fileTransferManager.send(image: image, thread: threadOwner)
+        if UTTypeConformsTo(type as CFString, kUTTypeImage) {
+            if let image = self.image {
+                xmpp.fileTransferManager.send(image: image, thread: threadOwner)
+            } else if let url = self.fileUrl {
+                DispatchQueue.global().async {
+                    do {
+                        let data = try Data(contentsOf: url)
+                        if let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                xmpp.fileTransferManager.send(image: image, thread: threadOwner)
+                            }
+                        }
+                    } catch {}
+                }
+            }
         } else if let url = self.fileUrl{
             xmpp.fileTransferManager.send(audioURL: url, thread: threadOwner)
         }

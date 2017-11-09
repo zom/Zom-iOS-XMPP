@@ -113,12 +113,12 @@
         ret = ([self handleUniversalLink:url] == true);
     }
     if (ret == NO) {
-        // Shared audio file?
+        // Shared audio/image file?
         NSError *error;
-        if ([sourceApplication hasPrefix:@"com.apple"] && [url checkResourceIsReachableAndReturnError:&error]) {
+        if ([url checkResourceIsReachableAndReturnError:&error]) {
             NSString *type;
             if ([url getResourceValue:&type forKey:NSURLTypeIdentifierKey error:&error]) {
-                if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio)) {
+                if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio) || UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeImage)) {
                     return [ZomImportManager.shared handleImportWithUrl:url type:type viewController:[[self splitViewCoordinator] splitViewController]];
                 }
             }
