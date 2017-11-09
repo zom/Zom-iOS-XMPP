@@ -422,13 +422,6 @@
 			remoteGlobalIDString = 281441E048E86B0E087BC1EF6DF84E84;
 			remoteInfo = "TUSafariActivity-TUSafariActivity";
 		};
-		928A38021CD209120095366C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E0220E05F64E43E49E3FBB34A7843579;
-			remoteInfo = VTAcknowledgementsViewController;
-		};
 		928A38061CD209120095366C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 928A37751CD209110095366C /* Pods.xcodeproj */;
@@ -1168,7 +1161,6 @@
 				928A37F51CD209120095366C /* SQLCipher.framework */,
 				928A37FB1CD209120095366C /* TUSafariActivity.framework */,
 				928A37FD1CD209120095366C /* TUSafariActivity.bundle */,
-				928A38031CD209120095366C /* VTAcknowledgementsViewController.framework */,
 				928A38071CD209120095366C /* XMPPFramework.framework */,
 				928A38091CD209120095366C /* YapDatabase.framework */,
 				929DEACA1E5B8B55008C3B77 /* YapTaskQueue.framework */,
@@ -1801,13 +1793,6 @@
 			fileType = wrapper.cfbundle;
 			path = TUSafariActivity.bundle;
 			remoteRef = 928A37FC1CD209120095366C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		928A38031CD209120095366C /* VTAcknowledgementsViewController.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = VTAcknowledgementsViewController.framework;
-			remoteRef = 928A38021CD209120095366C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		928A38071CD209120095366C /* XMPPFramework.framework */ = {
