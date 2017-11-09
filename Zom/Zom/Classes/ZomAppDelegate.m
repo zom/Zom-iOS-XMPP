@@ -119,7 +119,7 @@
             NSString *type;
             if ([url getResourceValue:&type forKey:NSURLTypeIdentifierKey error:&error]) {
                 if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio)) {
-                    return [ZomImportManager.shared handleImportWithUrl:url];
+                    return [ZomImportManager.shared handleImportWithUrl:url type:type viewController:[[self splitViewCoordinator] splitViewController]];
                 }
             }
         }
