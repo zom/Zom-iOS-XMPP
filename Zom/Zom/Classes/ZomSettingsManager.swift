@@ -7,7 +7,7 @@
 //
 
 import ChatSecureCore
-import VTAcknowledgementsViewController
+import AcknowList
 
 @objc open class ZomSettingsManager: OTRSettingsManager, OTRSettingDelegate {
     @objc open var viewController:UIViewController?
@@ -26,7 +26,7 @@ import VTAcknowledgementsViewController
             }
             
             // Add the acknoledgements link
-            let acknowledgements = OTRViewSetting(title: VTAcknowledgementsViewController.localizedTitle(), description: "", viewControllerClass: VTAcknowledgementsViewController.self)
+            let acknowledgements = OTRViewSetting(title: AcknowLocalization.localizedTitle(), description: "", viewControllerClass: AcknowListViewController.self)
             acknowledgements?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             acknowledgements?.delegate = self
             settings.append(acknowledgements!)
@@ -40,7 +40,9 @@ import VTAcknowledgementsViewController
     }
     
     public func otrSetting(_ setting: OTRSetting!, showDetailViewControllerClass viewControllerClass: AnyClass!) {
-        guard let vcAcknowledgements = OTRAcknowledgementsViewController.defaultAcknowledgement() else { return }
+        
+        let path = Bundle.main.path(forResource: "Pods-ZomPods-Zom-acknowledgements", ofType: "plist")
+        let vcAcknowledgements = AcknowListViewController(acknowledgementsPlistPath: path)
         self.viewController?.navigationController?.pushViewController(vcAcknowledgements, animated: true)
     }
     

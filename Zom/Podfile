@@ -18,11 +18,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 abstract_target 'ZomPods' do
   pod 'INSPhotoGallery'
+pod 'AcknowList'
+
   # User Interface
   pod "Appirater", '~> 2.0'
   pod 'OpenInChrome', '~> 0.0'
   pod 'JTSImageViewController', '~> 1.4'
-  pod 'VTAcknowledgementsViewController', '~> 1.2'
   pod 'BButton', '~> 4.0'
   pod 'TUSafariActivity', '~> 1.0'
   pod 'ARChromeActivity', '~> 1.0'
@@ -73,6 +74,8 @@ abstract_target 'ZomPods' do
 
   target 'Zom'
   pod 'INSPhotoGallery'
+pod 'AcknowList'
+
   #target 'ChatSecureTests'
   #target 'ChatSecure'
 end

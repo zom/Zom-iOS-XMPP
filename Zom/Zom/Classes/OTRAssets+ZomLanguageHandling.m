@@ -22,13 +22,6 @@ static const char _language=1;
     return bundle ? [bundle localizedStringForKey:key value:value table:tableName] : [super localizedStringForKey:key value:value table:tableName];
 }
 
-- (NSString *)pathForResource:(NSString *)name ofType:(NSString *)ext {
-    if ([@"plist" isEqualToString:ext] && [@"Pods-ChatSecureCorePods-ChatSecure-acknowledgements" isEqualToString:name]) {
-        name = @"Pods-ZomPods-Zom-acknowledgements";
-    }
-    return [super pathForResource:name ofType:ext];
-}
-
 - (NSString *)pathForResource:(NSString *)name ofType:(NSString *)ext inDirectory:(NSString *)subpath forLocalization:(NSString *)localizationName {
     // English resourcers are found under "Base" for Zom
     if ([localizationName isEqualToString:@"en"])
