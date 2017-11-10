@@ -1418,10 +1418,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */,
 				D99DEC381BABDF1A00875194 /* PBXTargetDependency */,
-				9206569B1D9C4C1E00EC7034 /* PBXTargetDependency */,
 				920656A01D9C4D1E00EC7034 /* PBXTargetDependency */,
+				D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */,
+				9206569B1D9C4C1E00EC7034 /* PBXTargetDependency */,
 			);
 			name = Zom;
 			productName = Zom;
