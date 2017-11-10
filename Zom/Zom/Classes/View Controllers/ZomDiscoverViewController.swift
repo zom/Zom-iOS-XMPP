@@ -71,13 +71,14 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
     
     fileprivate func getZombotBuddy() -> OTRBuddy? {
         var buddy:OTRBuddy? = nil
-        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
+        let botUser = "zombot@home.zom.im"
+        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate, let botJid = XMPPJID(string: botUser) {
             let account:OTRAccount = appDelegate.getDefaultAccount()
             OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWrite { (transaction) in
-                buddy = OTRXMPPBuddy.fetch(withUsername: "zombot@home.zom.im", withAccountUniqueId: account.uniqueId, transaction: transaction)
+                buddy = OTRXMPPBuddy.fetchBuddy(jid: botJid, accountUniqueId: account.uniqueId, transaction: transaction)
                 if (buddy == nil) {
                     if let newBuddy = OTRXMPPBuddy() {
-                        newBuddy.username = "zombot@home.zom.im"
+                        newBuddy.username = botUser
                         newBuddy.accountUniqueId = account.uniqueId
                         // hack to show buddy in conversations view
                         //buddy!.lastMessageDate = NSDate()

@@ -18,7 +18,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 abstract_target 'ZomPods' do
   pod 'INSPhotoGallery'
-pod 'AcknowList'
 
   # User Interface
   pod "Appirater", '~> 2.0'
@@ -74,7 +73,6 @@ pod 'AcknowList'
 
   target 'Zom'
   pod 'INSPhotoGallery'
-pod 'AcknowList'
 
   #target 'ChatSecureTests'
   #target 'ChatSecure'

@@ -91,6 +91,7 @@
 		927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */; };
 		9286A5281EBC6EEB0069F124 /* ZomGenericLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */; };
 		9286A5771EBC8D120069F124 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
+		9288D7EC1FB5BA5600D2E7D6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9288D7BE1FB5BA5600D2E7D6 /* Settings.bundle */; };
 		928C99191C047B4E009FF66A /* ZomComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C99181C047B4E009FF66A /* ZomComposeViewController.swift */; };
 		928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C992E1C049D18009FF66A /* ZomPickLanguageViewController.swift */; };
 		9294728D1F7EC43600E61DD6 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
@@ -755,6 +756,7 @@
 		9278C39F1BF4D2AE003AC533 /* Stickers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Stickers; sourceTree = "<group>"; };
 		927A14B91DDB63BF00EAEAB7 /* ZomPickColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPickColorViewController.swift; path = "Classes/View Controllers/ZomPickColorViewController.swift"; sourceTree = "<group>"; };
 		9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomGenericLabelView.swift; path = Classes/Views/ZomGenericLabelView.swift; sourceTree = "<group>"; };
+		9288D7BE1FB5BA5600D2E7D6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
 		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		928AB8131CF845880056AEC7 /* ZomImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZomImages.xcassets; sourceTree = "<group>"; };
 		928C99181C047B4E009FF66A /* ZomComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeViewController.swift; path = "Classes/View Controllers/ZomComposeViewController.swift"; sourceTree = "<group>"; };
@@ -1270,6 +1272,7 @@
 		D978BCA41BABE88C009246CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9288D7BE1FB5BA5600D2E7D6 /* Settings.bundle */,
 				9236484B1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist */,
 				9278C39F1BF4D2AE003AC533 /* Stickers */,
 				D99DEBB01BABD5DF00875194 /* OTRResources.bundle */,
@@ -1897,6 +1900,7 @@
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
 				924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */,
 				9236484C1D93FC7A000C0C5F /* Pods-ChatSecureCorePods-ChatSecureCore-acknowledgements.plist in Resources */,
+				9288D7EC1FB5BA5600D2E7D6 /* Settings.bundle in Resources */,
 				92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */,
 				925434871F556EED007567B7 /* ZomUnknownSenderMessageCell.xib in Resources */,
 				926AF4A51E847B3800463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
@@ -1956,7 +1960,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARChromeActivity/ARChromeActivity.framework",
-				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Appirater/Appirater.framework",
 				"${BUILT_PRODUCTS_DIR}/BBlock/BBlock.framework",
@@ -1997,7 +2000,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARChromeActivity.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Appirater.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BBlock.framework",

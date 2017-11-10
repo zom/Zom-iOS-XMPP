@@ -32,3 +32,6 @@ echo "Updated Zom/Podfile from upstream ChatSecure"
 # Copy Cartfile from ChatSecure to Zom
 cp $DIR/../ChatSecure/Cartfile $DIR/Cartfile
 echo "Updated Zom/Cartfile from upstream ChatSecure"
+
+echo "" | cat $DIR/../ChatSecure/license_plist.yml - $DIR/license_plist.zom >$DIR/license_plist.yml
+echo "Updated Zom/license_plist.yml from upstream ChatSecure"

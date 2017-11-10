@@ -20,7 +20,10 @@ You'll need the most recent version of Xcode, CocoaPods, Zom whitelabeling, Chat
      $ bundler install
      $ bundler exec pod install --project-directory=ChatSecure
      $ bundler exec pod install --project-directory=Zom
-     
+
+Update licesing information
+
+     $ bash Zom/update_licenses.sh    
      
 Copy over the `Secrets.plist` template:
 
