@@ -585,6 +585,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                         let range = NSRange(location: 0, length: attributedString.length)
                         attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: ZomAppDelegate.appDelegate.theme.mainThemeColor, range: range)
                         button.setAttributedTitle(attributedString, for: .normal)
+                        button.isUserInteractionEnabled = false
                     } else {
                         self.rotateRefreshView(button, revolutions:revolutions - 1)
                     }
