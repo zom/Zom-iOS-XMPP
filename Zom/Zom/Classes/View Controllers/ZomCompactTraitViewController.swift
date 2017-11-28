@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 class ZomCompactTraitViewController: UIViewController, UISplitViewControllerDelegate {
     
     override func viewDidLoad() {
@@ -14,6 +16,7 @@ class ZomCompactTraitViewController: UIViewController, UISplitViewControllerDele
     }
     
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         self.performOverrideTraitCollection()
     }
     
