@@ -163,7 +163,7 @@ class ZomProfileViewObserver: NSObject {
             if let fingerprint = info.otrKit.fingerprint(forAccountName: account.username, protocol: info.otrKitInfo.protocolString) {
                 
                 var allFingerprints = [Fingerprint.OTR(fingerprint)]
-                if let xmpp = OTRProtocolManager.sharedInstance().protocol(for: account) as? OTRXMPPManager, let myBundle = xmpp.omemoSignalCoordinator?.fetchMyBundle(), var devices = allOMEMODevices {
+                if let xmpp = OTRProtocolManager.sharedInstance().protocol(for: account) as? XMPPManager, let myBundle = xmpp.omemoSignalCoordinator?.fetchMyBundle(), var devices = allOMEMODevices {
                     let thisDevice = OTROMEMODevice(deviceId: NSNumber(value: myBundle.deviceId as UInt32), trustLevel: .trustedUser, parentKey: account.uniqueId, parentCollection: type(of: account).collection, publicIdentityKeyData: myBundle.identityKey, lastSeenDate: Date())
                     
                     devices = devices.filter({ (fingerprint) -> Bool in

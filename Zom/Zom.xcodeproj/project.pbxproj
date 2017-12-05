@@ -125,6 +125,7 @@
 		92DC0F781F4449A300318E49 /* ZomComposeGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC0F771F4449A300318E49 /* ZomComposeGroupViewController.swift */; };
 		92DD3E331BFB1278000811C1 /* ZomConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD3E321BFB1278000811C1 /* ZomConversationViewController.swift */; };
 		92DD3E351BFB1906000811C1 /* Zom.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 92DD3E341BFB188D000811C1 /* Zom.entitlements */; };
+		92DEE6CE1FCC70F600E52E60 /* OTRMessageUnknownSenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DEE69F1FCC70F300E52E60 /* OTRMessageUnknownSenderCell.xib */; };
 		92ECE3CA1CEAFD3B00CB4CFF /* UITableView+Zom.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3C91CEAFD3B00CB4CFF /* UITableView+Zom.m */; };
 		92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */; };
 		92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ECE3D01CEDBAC900CB4CFF /* ZomInviteViewController.swift */; };
@@ -882,6 +883,7 @@
 		92DC0F771F4449A300318E49 /* ZomComposeGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomComposeGroupViewController.swift; path = "Classes/View Controllers/ZomComposeGroupViewController.swift"; sourceTree = "<group>"; };
 		92DD3E321BFB1278000811C1 /* ZomConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomConversationViewController.swift; path = "Classes/View Controllers/ZomConversationViewController.swift"; sourceTree = "<group>"; };
 		92DD3E341BFB188D000811C1 /* Zom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Zom.entitlements; sourceTree = "<group>"; };
+		92DEE69F1FCC70F300E52E60 /* OTRMessageUnknownSenderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OTRMessageUnknownSenderCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/OTRMessageUnknownSenderCell.xib; sourceTree = "<group>"; };
 		92ECE3C81CEAFD3B00CB4CFF /* UITableView+Zom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Zom.h"; path = "Classes/UITableView+Zom.h"; sourceTree = "<group>"; };
 		92ECE3C91CEAFD3B00CB4CFF /* UITableView+Zom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+Zom.m"; path = "Classes/UITableView+Zom.m"; sourceTree = "<group>"; };
 		92ECE3CB1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddyInfoCell.swift; path = Classes/Views/ZomBuddyInfoCell.swift; sourceTree = "<group>"; };
@@ -1358,6 +1360,7 @@
 		D99DEC2D1BABDEF000875194 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				92DEE69F1FCC70F300E52E60 /* OTRMessageUnknownSenderCell.xib */,
 				921C4FAD1F58027D00FD76C7 /* OTRMessagesLoadingView.xib */,
 				92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */,
 				92F71F881F137EBE00C99690 /* MediaDownloadView.xib */,
@@ -1926,6 +1929,7 @@
 				9251C34B1F35C6AE003ACE4A /* MaterialIcons-Regular.ttf in Resources */,
 				926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				926AF4E91E847BB100463F54 /* UserInfoProfileCell.xib in Resources */,
+				92DEE6CE1FCC70F600E52E60 /* OTRMessageUnknownSenderCell.xib in Resources */,
 				9251C34A1F35C6A8003ACE4A /* ios-icon-font.ttf in Resources */,
 				926AF4EA1E847BB100463F54 /* XMPPAccountCell.xib in Resources */,
 				92BCD2F41F839B9D00272AC6 /* Images.xcassets in Resources */,
@@ -2756,7 +2760,7 @@
 					"$(SRCROOT)/../ChatSecure/Pods/JSQMessagesViewController/JSQMessagesViewController/Model/",
 				);
 				INFOPLIST_FILE = Zom/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2816,7 +2820,7 @@
 					"$(SRCROOT)/../ChatSecure/Pods/JSQMessagesViewController/JSQMessagesViewController/Model/",
 				);
 				INFOPLIST_FILE = Zom/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
@@ -2869,7 +2873,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = OTRResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2877,6 +2881,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -2914,13 +2919,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = OTRResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = org.chatsecure.OTRResources;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;

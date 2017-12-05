@@ -6,6 +6,8 @@ post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['ENABLE_BITCODE'] = 'NO'
+      config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+      config.build_settings['CLANG_WARN_STRICT_PROTOTYPES'] = 'NO'
     end
   end
 end
@@ -13,6 +15,7 @@ end
 platform :ios, "9.0"
 
 use_frameworks!
+# inhibit_all_warnings!
 
 source 'https://github.com/CocoaPods/Specs.git'
 
@@ -28,7 +31,7 @@ abstract_target 'ZomPods' do
   pod 'ARChromeActivity', '~> 1.0'
   pod 'QRCodeReaderViewController', '~> 4.0'
   # pod 'ParkedTextField', '~> 0.3.1'
-  pod 'ParkedTextField', :git => 'https://github.com/gmertk/ParkedTextField.git', :commit => '46df17a' # Swift 4
+  pod 'ParkedTextField', :git => 'https://github.com/gmertk/ParkedTextField.git', :commit => '43f1d3b' # Swift 4
 
 
   pod 'JSQMessagesViewController', :path => '../ChatSecure/Submodules/JSQMessagesViewController/JSQMessagesViewController.podspec'
@@ -50,7 +53,7 @@ abstract_target 'ZomPods' do
   pod 'GCDWebServer', '~> 3.4'
   # pod 'GCDWebServer/CocoaLumberjack', :git => 'https://github.com/ChatSecure/GCDWebServer.git', :branch => 'kdbertel-CocoaLumberjack3'
   pod 'CPAProxy', :path => '../ChatSecure/Submodules/CPAProxy/CPAProxy.podspec'
-  pod 'XMPPFramework', :path => '../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec'
+  pod 'XMPPFramework/Swift', :path => '../ChatSecure/Submodules/XMPPFramework/XMPPFramework.podspec'
   pod 'ChatSecure-Push-iOS', :path => '../ChatSecure/Submodules/ChatSecure-Push-iOS/ChatSecure-Push-iOS.podspec'
 
   # Google Auth
@@ -58,8 +61,8 @@ abstract_target 'ZomPods' do
   pod 'gtm-oauth2', :podspec => '../ChatSecure/Podspecs/gtm-oauth2.podspec'
 
   # Storage
-  pod 'YapDatabase/SQLCipher', '~> 3.0.2'
-  # pod 'YapDatabase/SQLCipher', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'd632658'
+  # pod 'YapDatabase/SQLCipher', '~> 3.0.2'
+  pod 'YapDatabase/SQLCipher', :git => 'https://github.com/yapstudios/YapDatabase.git', :commit => 'ce9c8db' # 865 fix
   pod 'libsqlfs/SQLCipher', :git => 'https://github.com/ChatSecure/libsqlfs.git', :branch => 'podspec-fix'
   pod 'IOCipher/GCDWebServer', :path => '../ChatSecure/Submodules/IOCipher/IOCipher.podspec'
   pod 'YapTaskQueue/SQLCipher', :git => 'https://github.com/ChatSecure/YapTaskQueue.git', :branch => 'swift4'

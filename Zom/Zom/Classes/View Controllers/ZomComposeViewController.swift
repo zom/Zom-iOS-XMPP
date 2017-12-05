@@ -14,7 +14,7 @@ open class ZomComposeViewController: OTRComposeViewController {
     typealias ObjcYapDatabaseViewSortingWithObjectBlock = @convention(block) (YapDatabaseReadTransaction, String, String, String, Any, String, String, Any) -> ComparisonResult
     
     static var extensionName:String = "Zom" + OTRAllBuddiesDatabaseViewExtensionName
-    static var filteredExtensionName:String = "Zom" + OTRFilteredBuddiesName
+    static var filteredExtensionName:String = "Zom" + OTRArchiveFilteredBuddiesName
     open static var openInGroupMode:Bool = false
     
     var wasOpenedInGroupMode = false
@@ -108,7 +108,7 @@ open class ZomComposeViewController: OTRComposeViewController {
             }
         }
         
-        if OTRDatabaseManager.shared.database?.registeredExtension(ZomComposeViewController.filteredExtensionName) == nil, OTRDatabaseManager.shared.database?.registeredExtension(OTRFilteredBuddiesName) != nil {
+        if OTRDatabaseManager.shared.database?.registeredExtension(ZomComposeViewController.filteredExtensionName) == nil, OTRDatabaseManager.shared.database?.registeredExtension(OTRArchiveFilteredBuddiesName) != nil {
             let options = YapDatabaseViewOptions()
             options.isPersistent = false
             let filtering = getFilteringBlock(false)

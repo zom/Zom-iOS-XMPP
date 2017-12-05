@@ -72,7 +72,7 @@ import MobileCoreServices
     }
     
     @objc open func didCancelImport(_ sender: Any) {
-        if let account = self.account, let xmpp = OTRProtocolManager.shared.protocol(for: account) as? OTRXMPPManager {
+        if let account = self.account, let xmpp = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager {
             xmpp.removeObserver(self, forKeyPath: "connectionStatus", context: &observerContext)
         }
         if let navController = modalNavigationController {
@@ -117,7 +117,7 @@ import MobileCoreServices
     
     func sendWhenOnline() {
         guard let account = self.account, self.viewController != nil else { return }
-        if let xmpp = OTRProtocolManager.shared.protocol(for: account) as? OTRXMPPManager {
+        if let xmpp = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager {
             if xmpp.connectionStatus == .connected {
                 doSend(xmpp)
             } else {
@@ -132,14 +132,14 @@ import MobileCoreServices
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
-        if let xmpp = object as? OTRXMPPManager, xmpp.connectionStatus == .connected {
+        if let xmpp = object as? XMPPManager, xmpp.connectionStatus == .connected {
             // Stop observing
             xmpp.removeObserver(self, forKeyPath: "connectionStatus", context: &observerContext)
             doSend(xmpp)
         }
     }
     
-    private func doSend(_ xmpp:OTRXMPPManager) {
+    private func doSend(_ xmpp:XMPPManager) {
         guard let threadOwner = self.threadOwner else {return}
         if UTTypeConformsTo(type as CFString, kUTTypeImage) {
             if let image = self.image {

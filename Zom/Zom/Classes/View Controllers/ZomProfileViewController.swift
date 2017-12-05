@@ -312,7 +312,7 @@ open class ZomProfileViewController : UIViewController {
             if let user = self.profileObserver?.info.user {
                 switch user {
                 case let .account(account):
-                    if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? OTRXMPPManager,
+                    if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? XMPPManager,
                         let newPassword = alert.textFields?.first?.text {
                         xmppManager.changePassword(newPassword, completion: { (success, error) in
                             DispatchQueue.main.async(execute: { 
@@ -394,7 +394,7 @@ extension ZomProfileViewController: OTRAttachmentPickerDelegate {
         if let user = self.profileObserver?.info.user {
             switch user {
             case let .account(account):
-                if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? OTRXMPPManager {
+                if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? XMPPManager {
                     xmppManager.setAvatar(photo, completion: { (success) in
                         })
                 }

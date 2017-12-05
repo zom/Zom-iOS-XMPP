@@ -256,7 +256,7 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(60)) {
             // Log out of old account after 1 minute
-            if let xmpp = OTRProtocolManager.shared.protocol(for: self.oldAccount) as? OTRXMPPManager,
+            if let xmpp = OTRProtocolManager.shared.protocol(for: self.oldAccount) as? XMPPManager,
             xmpp.connectionStatus != .disconnected {
                 xmpp.disconnect()
             }

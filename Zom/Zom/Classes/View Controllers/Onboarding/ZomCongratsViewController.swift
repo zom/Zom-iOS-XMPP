@@ -112,7 +112,7 @@ extension ZomCongratsViewController:OTRAttachmentPickerDelegate {
         }
         
         if (OTRProtocolManager.sharedInstance().protocol(for: account) != nil) {
-            if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? OTRXMPPManager {
+            if let xmppManager = OTRProtocolManager.sharedInstance().protocol(for: account) as? XMPPManager {
                 xmppManager.setAvatar(photo, completion: { (success) in
                     //We updated the avatar
                 })
