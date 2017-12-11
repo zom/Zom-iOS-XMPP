@@ -59,8 +59,8 @@ public class ZomGalleryHandler: NSObject {
                 }
                 }
             })
+            var initialPhotoObject:ZomPhotoStreamImage?
             if array.count > 0 {
-                var initialPhotoObject:ZomPhotoStreamImage?
                 self.images = [ZomPhotoStreamImage]()
                 array.forEach({ (mediaItem) in
                     if let message = mediaItem.parentMessage(with: transaction) {
@@ -80,10 +80,10 @@ public class ZomGalleryHandler: NSObject {
                 self.images.sort(by: { (item1, item2) -> Bool in
                     return item1.date().compare(item2.date()) == .orderedAscending
                 })
-                DispatchQueue.main.async {
-                    if !self.isCanceled {
-                        delegate.galleryHandlerDidFinishFetching(self, images: self.images, initialImage: initialPhotoObject)
-                    }
+            }
+            DispatchQueue.main.async {
+                if !self.isCanceled {
+                    delegate.galleryHandlerDidFinishFetching(self, images: self.images, initialImage: initialPhotoObject)
                 }
             }
         });

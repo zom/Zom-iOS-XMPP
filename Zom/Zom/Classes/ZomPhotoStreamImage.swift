@@ -15,9 +15,9 @@ open class ZomPhotoStreamImage: NSObject, INSPhotoViewable {
     
     public var image: UIImage?
     public var thumbnailImage: UIImage?
-    private let mediaItem:OTRMediaItem
-    private let message:OTRMessageProtocol
-    private var threadOwner:OTRThreadOwner?
+    public let mediaItem:OTRMediaItem
+    public let message:OTRMessageProtocol
+    public var threadOwner:OTRThreadOwner?
     private var operationQueue:OperationQueue?
     private var loadOperation:Operation?
     

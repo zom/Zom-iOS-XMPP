@@ -11,8 +11,7 @@ import ChatSecureCore
 import INSPhotoGallery
 import MBProgressHUD
 
-open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryHandlerDelegate {
-    
+open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryHandlerDelegate, ZomPhotosViewControllerDelegate {
     fileprivate var assetGridThumbnailSize:CGSize = CGSize()
     private var galleryLoadingIndicator:MBProgressHUD?
     private var galleryHandler:ZomGalleryHandler?
@@ -72,6 +71,7 @@ open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryH
         if let galleryHandler = self.galleryHandler {
             let initialPhoto = galleryHandler.images[indexPath.item]
             let browser = ZomPhotosViewController(photos: galleryHandler.images, initialPhoto:initialPhoto, referenceView:cell.imageView)
+            browser.delegate = self
             browser.referenceViewForPhotoWhenDismissingHandler = { [weak self] photo in
             if let index = galleryHandler.images.index(where: {$0 === photo}) {
                 let indexPath = IndexPath(item: index, section: 0)
@@ -82,4 +82,13 @@ open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryH
         self.present(browser, animated: true, completion: nil)
         }
     }
+    
+    public func didDeletePhoto(photo: ZomPhotoStreamImage) {
+        if let galleryHandler = self.galleryHandler, let index = galleryHandler.images.index(where: {$0 === photo}) {
+            galleryHandler.images.remove(at: index)
+            let indexPath = IndexPath(item: index, section: 0)
+            collectionView?.deleteItems(at: [indexPath])
+        }
+    }
+    
 }
