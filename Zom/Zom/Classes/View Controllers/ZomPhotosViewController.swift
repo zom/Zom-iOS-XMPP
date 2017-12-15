@@ -25,8 +25,14 @@ open class ZomPhotosViewController: INSPhotosViewController {
             if let currentPhoto = photo as? ZomPhotoStreamImage {
                 currentPhoto.releaseImages()
                 OTRMediaFileManager.shared.deleteData(for: currentPhoto.mediaItem, buddyUniqueId: currentPhoto.message.threadId, completion: { (success, error) in
-                    if success, let delegate = self.delegate {
-                        delegate.didDeletePhoto(photo: currentPhoto)
+                    if success {
+                        OTRDatabaseManager.shared.readWriteDatabaseConnection?.asyncReadWrite({ (transaction) in
+                            currentPhoto.mediaItem.transferProgress = 0
+                            currentPhoto.mediaItem.save(with: transaction)
+                        })
+                        if let delegate = self.delegate {
+                            delegate.didDeletePhoto(photo: currentPhoto)
+                        }
                     }
                 }, completionQueue: nil)
             }
