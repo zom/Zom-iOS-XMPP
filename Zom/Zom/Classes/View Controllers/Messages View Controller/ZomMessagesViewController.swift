@@ -413,30 +413,31 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     // If we find any incoming migration link messages, show the "your friend has migrated" header
     // to allow the user to start chatting with the new account instead.
     func checkRangeForMigrationMessage(range: NSRange) {
-        DispatchQueue.global().async {
-
-            let types: NSTextCheckingResult.CheckingType = [.link]
-            let detector = try? NSDataDetector(types: types.rawValue)
-                for i in range.location..<(range.location + range.length) {
-                    if let message = self.message(at: IndexPath(row: i, section: 0)), message.isMessageIncoming, let text = message.messageText {
-                        
-                        detector?.enumerateMatches(in: text, range: NSMakeRange(0, text.utf16.count)) {
-                            (result, _, _) in
-                            if let res = result, let url = res.url, let nsurl = NSURL(string: url.absoluteString) {
-                                if nsurl.otr_isInviteLink {
-                                    nsurl.otr_decodeShareLink({ (jid, queryItems:[URLQueryItem]?) in
-                                        if let jid = jid, let query = queryItems, NSURL.otr_queryItemsContainMigrationHint(query) {
-                                            DispatchQueue.main.async {
-                                                self.showJIDForwardingHeader(withNewJID: jid)
-                                            }
-                                        }
-                                    })
-                                }
-                            }
-                        }
-                    }
-                }
-        }
+        // Remove this for now, the async nature of it causes crashes with invalid indexpaths in the call to self.message below.
+//        DispatchQueue.global().async {
+//
+//            let types: NSTextCheckingResult.CheckingType = [.link]
+//            let detector = try? NSDataDetector(types: types.rawValue)
+//                for i in range.location..<(range.location + range.length) {
+//                    if let message = self.message(at: IndexPath(row: i, section: 0)), message.isMessageIncoming, let text = message.messageText {
+//
+//                        detector?.enumerateMatches(in: text, range: NSMakeRange(0, text.utf16.count)) {
+//                            (result, _, _) in
+//                            if let res = result, let url = res.url, let nsurl = NSURL(string: url.absoluteString) {
+//                                if nsurl.otr_isInviteLink {
+//                                    nsurl.otr_decodeShareLink({ (jid, queryItems:[URLQueryItem]?) in
+//                                        if let jid = jid, let query = queryItems, NSURL.otr_queryItemsContainMigrationHint(query) {
+//                                            DispatchQueue.main.async {
+//                                                self.showJIDForwardingHeader(withNewJID: jid)
+//                                            }
+//                                        }
+//                                    })
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//        }
     }
     
     func textAttachment(image: UIImage, fontSize: CGFloat) -> NSTextAttachment {
