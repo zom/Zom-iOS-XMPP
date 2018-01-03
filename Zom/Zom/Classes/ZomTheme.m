@@ -74,8 +74,8 @@
     [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomComposeGroupViewController.class, nil] setTintColor:UIColor.blackColor];
     
     // Buttons on photo overlay
-    [[UIBarButtonItem appearanceWhenContainedIn:UIToolbar.class, UIView.class, nil] setTintColor:UIColor.whiteColor];
-    [[UIButton appearanceWhenContainedIn:UIToolbar.class, UIView.class, nil] setTintColor:UIColor.whiteColor];
+    [[UIBarButtonItem appearanceWhenContainedIn:UIToolbar.class, UIView.class, ZomPhotosViewController.class, nil] setTintColor:UIColor.whiteColor];
+    [[UIButton appearanceWhenContainedIn:UIToolbar.class, UIView.class, ZomPhotosViewController.class, nil] setTintColor:UIColor.whiteColor];
 
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = self.mainThemeColor;
