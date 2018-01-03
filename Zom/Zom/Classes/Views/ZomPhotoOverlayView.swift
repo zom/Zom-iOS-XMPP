@@ -11,11 +11,17 @@ import MobileCoreServices
 
 public class ZomPhotoOverlayView : UIView, INSPhotosOverlayViewable {
     @IBOutlet public var toolbar: UIToolbar!
+    @IBOutlet public var label: UILabel!
     private var currentPhoto:INSPhotoViewable?
     public var photosViewController: INSPhotosViewController?
     
     public func populateWithPhoto(_ photo: INSPhotoViewable) {
         self.currentPhoto = photo
+        self.toolbar.setBackgroundImage(UIImage(),
+                                        forToolbarPosition: .any,
+                                        barMetrics: .default)
+        self.toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
+        self.label.attributedText = photo.attributedTitle
     }
     
     // Pass the touches down to other views
@@ -46,7 +52,7 @@ public class ZomPhotoOverlayView : UIView, INSPhotosOverlayViewable {
             self.isHidden = false
             self.alpha = hidden ? 1.0 : 0.0
             
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: [.allowAnimatedContent, .allowUserInteraction], animations: { () -> Void in
+            UIView.animate(withDuration: 0.4, delay: 0.0, options: [.allowAnimatedContent, .allowUserInteraction], animations: { () -> Void in
                 self.alpha = hidden ? 0.0 : 1.0
             }, completion: { result in
                 self.alpha = 1.0
