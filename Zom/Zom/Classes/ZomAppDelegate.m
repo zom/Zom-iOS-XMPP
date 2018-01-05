@@ -118,7 +118,7 @@
         if ([url checkResourceIsReachableAndReturnError:&error]) {
             NSString *type;
             if ([url getResourceValue:&type forKey:NSURLTypeIdentifierKey error:&error]) {
-                if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio) || UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeImage)) {
+                if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio) || UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeImage) || UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeMovie)) {
                     return [ZomImportManager.shared handleImportWithUrl:url type:type viewController:[[self splitViewCoordinator] splitViewController]];
                 }
             }
