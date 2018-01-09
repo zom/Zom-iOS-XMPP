@@ -16,6 +16,8 @@ open class ZomFingerprintCell: UITableViewCell {
     @IBOutlet weak var fingerprintLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var qrButton: UIButton!
+    @IBOutlet weak var lastSeenLabel: UILabel!
+    @IBOutlet weak var lastSeenLabelHeight: NSLayoutConstraint!
     
     var qrAction:CellAction?
     var shareAction:CellAction?

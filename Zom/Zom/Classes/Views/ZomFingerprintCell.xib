@@ -1,70 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Courier.ttc">
+            <string>Courier</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="KGk-i7-Jjw" customClass="ZomFingerprintCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="ZomFingerprintCell">
             <rect key="frame" x="0.0" y="0.0" width="365" height="121"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="365" height="120.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcz-gh-Z2L" userLabel="QRButton">
-                        <rect key="frame" x="16" y="16" width="89" height="89"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-v6-uyb">
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="100.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcz-gh-Z2L" userLabel="QRButton">
+                                <rect key="frame" x="18" y="18" width="64.5" height="64.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="7X1-YH-13W"/>
+                                    <constraint firstAttribute="width" secondItem="Lcz-gh-Z2L" secondAttribute="height" multiplier="1:1" id="Skb-y2-5s0"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="k4J-Lb-hMr"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="qrButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4Hj-EC-EuG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOb-Mj-uMJ" userLabel="ShareButton">
+                                <rect key="frame" x="293" y="28.5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SB7-kK-VEE"/>
+                                    <constraint firstAttribute="width" constant="44" id="jma-Vi-gag"/>
+                                </constraints>
+                                <state key="normal" image="OTRShareIcon"/>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="l6W-6u-MUe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39146e6b d685f4b2 79073f22 b97bdb5d e522d72e 7cda73b3 4a2ad564 88a9ab35" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-2g-6hr">
+                                <rect key="frame" x="90.5" y="20.5" width="194.5" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="e9d-1h-aum"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="7X1-YH-13W"/>
-                            <constraint firstAttribute="width" secondItem="Lcz-gh-Z2L" secondAttribute="height" multiplier="1:1" id="Skb-y2-5s0"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="k4J-Lb-hMr"/>
+                            <constraint firstItem="Lcz-gh-Z2L" firstAttribute="top" secondItem="KXo-v6-uyb" secondAttribute="topMargin" constant="10" id="0kU-vs-8xU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WOb-Mj-uMJ" secondAttribute="trailing" constant="20" id="2ZH-kh-keg"/>
+                            <constraint firstAttribute="centerY" secondItem="WOb-Mj-uMJ" secondAttribute="centerY" id="9sm-Rj-gfM"/>
+                            <constraint firstAttribute="centerY" secondItem="Pgs-2g-6hr" secondAttribute="centerY" id="btt-Yp-Cje"/>
+                            <constraint firstItem="WOb-Mj-uMJ" firstAttribute="leading" secondItem="Pgs-2g-6hr" secondAttribute="trailing" constant="8" id="dE1-6f-O4H"/>
+                            <constraint firstItem="Pgs-2g-6hr" firstAttribute="leading" secondItem="Lcz-gh-Z2L" secondAttribute="trailing" constant="8" id="hdO-pC-zwc"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Lcz-gh-Z2L" secondAttribute="bottom" constant="10" id="pLn-pa-EN9"/>
+                            <constraint firstItem="Lcz-gh-Z2L" firstAttribute="leading" secondItem="KXo-v6-uyb" secondAttribute="leadingMargin" constant="10" id="xdA-3Y-FWE"/>
                         </constraints>
-                        <connections>
-                            <action selector="qrButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4Hj-EC-EuG"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOb-Mj-uMJ" userLabel="ShareButton">
-                        <rect key="frame" x="301" y="38.5" width="44" height="44"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLC-52-fih">
+                        <rect key="frame" x="20" y="100.5" width="325" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="SB7-kK-VEE"/>
-                            <constraint firstAttribute="width" constant="44" id="jma-Vi-gag"/>
+                            <constraint firstAttribute="height" constant="20" id="RnG-fZ-e9M"/>
                         </constraints>
-                        <state key="normal" image="OTRShareIcon"/>
-                        <connections>
-                            <action selector="shareButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="l6W-6u-MUe"/>
-                        </connections>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39146e6b d685f4b2 79073f22 b97bdb5d e522d72e 7cda73b3 4a2ad564 88a9ab35" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-2g-6hr">
-                        <rect key="frame" x="113" y="30" width="180" height="60"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="e9d-1h-aum"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="Lcz-gh-Z2L" secondAttribute="bottom" constant="8" id="8uB-gL-1vj"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="WOb-Mj-uMJ" secondAttribute="trailing" constant="12" id="BbF-sc-ETi"/>
-                    <constraint firstItem="Pgs-2g-6hr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ehb-gx-Kf6"/>
-                    <constraint firstItem="WOb-Mj-uMJ" firstAttribute="leading" secondItem="Pgs-2g-6hr" secondAttribute="trailing" constant="8" id="FTF-Fb-cXf"/>
-                    <constraint firstItem="Pgs-2g-6hr" firstAttribute="leading" secondItem="Lcz-gh-Z2L" secondAttribute="trailing" constant="8" id="FsY-IF-h2y"/>
-                    <constraint firstItem="Lcz-gh-Z2L" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="elr-iZ-CAF"/>
-                    <constraint firstItem="Lcz-gh-Z2L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="hKl-HM-Fw1"/>
-                    <constraint firstItem="WOb-Mj-uMJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qkB-sf-P9e"/>
+                    <constraint firstItem="aLC-52-fih" firstAttribute="top" secondItem="KXo-v6-uyb" secondAttribute="bottom" id="EZz-bd-uAj"/>
+                    <constraint firstItem="aLC-52-fih" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="KiU-SF-dre"/>
+                    <constraint firstItem="KXo-v6-uyb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SpY-ap-dj8"/>
+                    <constraint firstItem="KXo-v6-uyb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yaw-MJ-Tmj"/>
+                    <constraint firstAttribute="trailing" secondItem="KXo-v6-uyb" secondAttribute="trailing" id="eee-4A-1KD"/>
+                    <constraint firstAttribute="bottom" secondItem="aLC-52-fih" secondAttribute="bottom" id="jpf-A3-qp3"/>
+                    <constraint firstAttribute="trailing" secondItem="aLC-52-fih" secondAttribute="trailing" constant="20" id="of4-GR-aqW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="fingerprintLabel" destination="Pgs-2g-6hr" id="jp8-9z-O6Z"/>
+                <outlet property="lastSeenLabel" destination="aLC-52-fih" id="VyL-0R-HbA"/>
+                <outlet property="lastSeenLabelHeight" destination="RnG-fZ-e9M" id="2nA-eN-bPU"/>
                 <outlet property="qrButton" destination="Lcz-gh-Z2L" id="M6C-y5-RdG"/>
                 <outlet property="shareButton" destination="WOb-Mj-uMJ" id="jXh-g0-msm"/>
             </connections>

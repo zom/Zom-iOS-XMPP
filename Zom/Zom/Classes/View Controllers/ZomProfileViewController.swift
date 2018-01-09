@@ -73,6 +73,15 @@ enum Fingerprint {
             return device.isTrusted()
         }
     }
+    
+    func lastSeen() -> Date {
+        switch self {
+        case .OTR:
+            return Date.distantPast
+        case .OMEMO(let device):
+            return device.lastSeenDate
+        }
+    }
 }
 
 struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
@@ -81,6 +90,7 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
     let qrAction:((_ info:FingerprintCellInfo)->Void)?
     let shareAction:((_ info:FingerprintCellInfo)->Void)?
     fileprivate let shareImage = UIImage(named: "OTRShareIcon", in: OTRAssets.resourcesBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+    let showLastSeen:Bool
     
     func configure(_ cell: UITableViewCell) {
         guard let fingerprintCell = cell as? ZomFingerprintCell else {
@@ -89,6 +99,16 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
         fingerprintCell.shareButton.setImage(self.shareImage, for: UIControlState())
         fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", in: Bundle.main, compatibleWith: nil), for: UIControlState())
         fingerprintCell.fingerprintLabel.text = fingerprint.fingerprintString()
+        if showLastSeen, fingerprint.lastSeen() != Date.distantPast {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            fingerprintCell.lastSeenLabel.text = "Last seen \(dateFormatter.string(from: fingerprint.lastSeen()))"
+            fingerprintCell.lastSeenLabelHeight.constant = 20
+        } else {
+            fingerprintCell.lastSeenLabel.text = ""
+            fingerprintCell.lastSeenLabelHeight.constant = 0
+        }
         fingerprintCell.qrAction = {cell in
             if let action = self.qrAction {
                 action(self)
@@ -106,7 +126,11 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
     }
     
     func cellHeight() -> CGFloat? {
-        return 90
+        var height:CGFloat = 90
+        if showLastSeen, fingerprint.lastSeen() != Date.distantPast {
+            height += 20
+        }
+        return height
     }
 }
 
@@ -127,10 +151,11 @@ enum ButtonCellType {
 class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDelegate {
     
     let tableSections:[TableSectionInfo]
-    let info:ZomProfileViewControllerInfo
+    var info:ZomProfileViewControllerInfo
     var controller:ZomProfileViewController
     var relaodData:(() -> Void)?
-    
+    var toggleShowAll:(() -> Void)?
+
     init(info:ZomProfileViewControllerInfo, tableSections:[TableSectionInfo], controller:ZomProfileViewController) {
         self.info = info
         self.tableSections = tableSections
@@ -216,6 +241,9 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
                 }
             }
             break
+        case .showMore(_):
+            self.toggleShowAll?()
+            break
         }
     }
 }
@@ -292,6 +320,13 @@ open class ZomProfileViewController : UIViewController {
         }
         self.tableViewSource = ZomProfileTableViewSource(info: info, tableSections: tableSections, controller: self)
         self.tableViewSource?.relaodData = { [weak self] in
+            self?.profileObserver?.reloadInfo()
+            self?.updateTableView()
+        }
+        self.tableViewSource?.toggleShowAll = { [weak self] in
+            if let observer = self?.profileObserver {
+                observer.showAllFingerprints = !observer.showAllFingerprints
+            }
             self?.profileObserver?.reloadInfo()
             self?.updateTableView()
         }
