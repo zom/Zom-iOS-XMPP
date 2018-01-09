@@ -124,7 +124,7 @@ class ZomProfileViewObserver: NSObject {
         var allOMEMODevices:[Fingerprint]? = nil
         self.readOnlyDatabaseConnection?.read({ (transaction) in
             allOMEMODevices = OTROMEMODevice.allDevices(forParentKey: info.user.yapKey(), collection: info.user.yapCollection(), transaction: transaction).filter({ (device) -> Bool in
-                return device.publicIdentityKeyData != nil
+                return device.publicIdentityKeyData != nil && device.trustLevel != .removed
             }).map({ (device) -> Fingerprint in
                 return .OMEMO(device)
             })
