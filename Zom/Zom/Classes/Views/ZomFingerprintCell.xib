@@ -26,21 +26,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-v6-uyb">
-                        <rect key="frame" x="0.0" y="0.0" width="365" height="100.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="365" height="86"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcz-gh-Z2L" userLabel="QRButton">
-                                <rect key="frame" x="18" y="18" width="64.5" height="64.5"/>
+                                <rect key="frame" x="18" y="18" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="7X1-YH-13W"/>
+                                    <constraint firstAttribute="width" constant="50" id="7X1-YH-13W"/>
                                     <constraint firstAttribute="width" secondItem="Lcz-gh-Z2L" secondAttribute="height" multiplier="1:1" id="Skb-y2-5s0"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="k4J-Lb-hMr"/>
+                                    <constraint firstAttribute="height" constant="50" id="k4J-Lb-hMr"/>
                                 </constraints>
                                 <connections>
                                     <action selector="qrButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4Hj-EC-EuG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOb-Mj-uMJ" userLabel="ShareButton">
-                                <rect key="frame" x="293" y="28.5" width="44" height="44"/>
+                                <rect key="frame" x="293" y="21" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SB7-kK-VEE"/>
                                     <constraint firstAttribute="width" constant="44" id="jma-Vi-gag"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39146e6b d685f4b2 79073f22 b97bdb5d e522d72e 7cda73b3 4a2ad564 88a9ab35" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-2g-6hr">
-                                <rect key="frame" x="90.5" y="20.5" width="194.5" height="60"/>
+                                <rect key="frame" x="76" y="13" width="209" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="e9d-1h-aum"/>
                                 </constraints>
@@ -73,7 +73,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLC-52-fih">
-                        <rect key="frame" x="20" y="100.5" width="325" height="20"/>
+                        <rect key="frame" x="20" y="86" width="325" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="RnG-fZ-e9M"/>
                         </constraints>

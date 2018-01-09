@@ -10,6 +10,8 @@ import Foundation
 import PureLayout
 import OTRAssets
 import MobileCoreServices
+import FormatterKit
+
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
@@ -82,6 +84,18 @@ enum Fingerprint {
             return device.lastSeenDate
         }
     }
+    
+    func lastSeenDisplayString() -> String {
+        switch self {
+        case .OTR:
+            return "OTR"
+        case .OMEMO(let device):
+            let intervalFormatter = TTTTimeIntervalFormatter()
+            let interval = -Date().timeIntervalSince(device.lastSeenDate)
+            let since = intervalFormatter.string(forTimeInterval: interval)
+            return "OMEMO: " + since!
+        }
+    }
 }
 
 struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
@@ -99,11 +113,8 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
         fingerprintCell.shareButton.setImage(self.shareImage, for: UIControlState())
         fingerprintCell.qrButton.setImage(UIImage(named: "zom_qrcode_placeholder", in: Bundle.main, compatibleWith: nil), for: UIControlState())
         fingerprintCell.fingerprintLabel.text = fingerprint.fingerprintString()
-        if showLastSeen, fingerprint.lastSeen() != Date.distantPast {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .short
-            dateFormatter.timeStyle = .short
-            fingerprintCell.lastSeenLabel.text = "Last seen \(dateFormatter.string(from: fingerprint.lastSeen()))"
+        if showLastSeen {
+            fingerprintCell.lastSeenLabel.text = fingerprint.lastSeenDisplayString()
             fingerprintCell.lastSeenLabelHeight.constant = 20
         } else {
             fingerprintCell.lastSeenLabel.text = ""
@@ -127,7 +138,7 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
     
     func cellHeight() -> CGFloat? {
         var height:CGFloat = 90
-        if showLastSeen, fingerprint.lastSeen() != Date.distantPast {
+        if showLastSeen {
             height += 20
         }
         return height

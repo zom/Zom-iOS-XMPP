@@ -130,7 +130,7 @@ class ZomProfileViewObserver: NSObject {
             })
         })
         allOMEMODevices?.sort(by: { (o1, o2) -> Bool in
-            return o1.lastSeen().compare(o2.lastSeen()) != ComparisonResult.orderedDescending
+            return o1.lastSeen().compare(o2.lastSeen()) != ComparisonResult.orderedAscending
         })
         
         var sections = [TableSectionInfo]()
