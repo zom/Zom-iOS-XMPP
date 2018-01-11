@@ -177,6 +177,7 @@ class ZomProfileViewObserver: NSObject {
             if let fingerprint = info.otrKit.fingerprint(forAccountName: account.username, protocol: info.otrKitInfo.protocolString) {
                 
                 var allFingerprints = [Fingerprint.OTR(fingerprint)]
+                var mostRecent = allFingerprints.first
                 if let xmpp = OTRProtocolManager.sharedInstance().protocol(for: account) as? XMPPManager, let myBundle = xmpp.omemoSignalCoordinator?.fetchMyBundle(), var devices = allOMEMODevices {
                     let thisDevice = OTROMEMODevice(deviceId: NSNumber(value: myBundle.deviceId as UInt32), trustLevel: .trustedUser, parentKey: account.uniqueId, parentCollection: type(of: account).collection, publicIdentityKeyData: myBundle.identityKey, lastSeenDate: Date())
                     
@@ -187,7 +188,9 @@ class ZomProfileViewObserver: NSObject {
                         default: return true
                         }
                     })
-                    allFingerprints.append(.OMEMO(thisDevice))
+                    let thisFingerprint = Fingerprint.OMEMO(thisDevice)
+                    mostRecent = thisFingerprint
+                    allFingerprints.append(thisFingerprint)
                     allFingerprints += devices
                 }
                 
@@ -195,7 +198,7 @@ class ZomProfileViewObserver: NSObject {
                 var shownFingerprints:[Fingerprint] = []
                 if info.showAllFingerprints {
                     shownFingerprints.append(contentsOf: allFingerprints)
-                } else if let mostRecent = allFingerprints.first {
+                } else if let mostRecent = mostRecent {
                     shownFingerprints.append(mostRecent)
                 }
                 
