@@ -329,7 +329,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                     strongSelf.updatePreparingView(false)
                 }
                 
-                if let xmppbuddy = buddy as? OTRXMPPBuddy, xmppbuddy.pendingApproval {
+                if let xmppbuddy = buddy as? OTRXMPPBuddy, xmppbuddy.pendingApproval || xmppbuddy.subscription != .both {
                     if strongSelf.pendingApprovalView == nil {
                         strongSelf.pendingApprovalView = UINib(nibName: "WaitingForApprovalView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
                         strongSelf.view.addSubview(strongSelf.pendingApprovalView!)
