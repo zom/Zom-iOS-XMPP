@@ -104,6 +104,11 @@ open class ZomComposeViewController: OTRComposeViewController {
                     } else if (!pendingApproval1 && pendingApproval2) {
                         return .orderedDescending
                     }
+                    if let buddy1 = (object1 as? OTRXMPPBuddy), let buddy2 = (object2 as? OTRXMPPBuddy) {
+                        let name1 = (buddy1.displayName.count > 0) ? buddy1.displayName : buddy1.username
+                        let name2 = (buddy2.displayName.count > 0) ? buddy2.displayName : buddy2.username
+                        return name1.caseInsensitiveCompare(name2)
+                    }
                     let blockObject:AnyObject = originalView.sorting.block as AnyObject
                     let originalBlock = unsafeBitCast(blockObject, to: ObjcYapDatabaseViewSortingWithObjectBlock.self)
                     return originalBlock(transaction, group, collection1, group1, object1, collection2, group2, object2)
