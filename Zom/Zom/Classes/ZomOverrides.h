@@ -24,6 +24,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 @property (nonatomic, strong) UISegmentedControl * _Nonnull inboxArchiveControl;
 - (void) groupButtonPressed:(id _Nullable)sender;
 - (void) groupSelectionCancelled:(OTRComposeGroupViewController * _Nullable)composeViewController;
+- (void) didSetupMappings:(OTRYapViewHandler * _Nonnull)handler;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)

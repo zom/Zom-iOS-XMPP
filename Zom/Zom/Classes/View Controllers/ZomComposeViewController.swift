@@ -25,9 +25,6 @@ open class ZomComposeViewController: OTRComposeViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
-            self.setupZomSortedView()
-        }
         if (ZomComposeViewController.openInGroupMode) {
             ZomComposeViewController.openInGroupMode = false
             self.wasOpenedInGroupMode = true
@@ -63,6 +60,16 @@ open class ZomComposeViewController: OTRComposeViewController {
             self.navigationItem.rightBarButtonItems = nil
         }
     }
+
+    override open func didSetupMappings(_ handler: OTRYapViewHandler) {
+        super.didSetupMappings(handler)
+        if (handler == self.viewHandler) {
+            // If we have not done so, register our extension and change the viewHandler to our own.
+            if registerZomSortedView() {
+                useZomSortedView()
+            }
+        }
+    }
     
     override open func viewDidLayoutSubviews() {
         // Hide the upstream add friends option
@@ -83,7 +90,7 @@ open class ZomComposeViewController: OTRComposeViewController {
         self.view.setNeedsLayout()
     }
     
-    func setupZomSortedView() {
+    func registerZomSortedView() -> Bool {
         // This sets up a database view that is identical to the original "OTRAllBuddiesDatabaseView" but
         // with the difference that  XMPPBuddies that are avaiting approval are ordered to the top of the list.
         //
@@ -103,7 +110,7 @@ open class ZomComposeViewController: OTRComposeViewController {
                 })
                 let options = YapDatabaseViewOptions()
                 options.isPersistent = false
-                let newView = YapDatabaseAutoView(grouping: originalView.grouping, sorting: sorting, versionTag: "1", options: options)
+                let newView = YapDatabaseAutoView(grouping: originalView.grouping, sorting: sorting, versionTag: NSUUID().uuidString, options: options)
                 OTRDatabaseManager.sharedInstance().database?.register(newView, withName: ZomComposeViewController.extensionName)
             }
         }
@@ -114,11 +121,17 @@ open class ZomComposeViewController: OTRComposeViewController {
             let filtering = getFilteringBlock(false)
             let filteredView = YapDatabaseFilteredView(parentViewName: ZomComposeViewController.extensionName, filtering: filtering, versionTag: NSUUID().uuidString, options: options)
             OTRDatabaseManager.sharedInstance().database?.register(filteredView, withName: ZomComposeViewController.filteredExtensionName)
+            return true
         }
-        
-        self.viewHandler = OTRYapViewHandler.init(databaseConnection: OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection!, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
-        self.viewHandler?.delegate = self as? OTRYapViewHandlerDelegateProtocol
-        self.viewHandler?.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
+        return false
+    }
+    
+    func useZomSortedView() {
+        self.viewHandler = OTRYapViewHandler(databaseConnection: OTRDatabaseManager.shared.longLivedReadOnlyConnection!, databaseChangeNotificationName: DatabaseNotificationName.LongLivedTransactionChanges)
+        if let viewHandler = self.viewHandler {
+            viewHandler.delegate = self as? OTRYapViewHandlerDelegateProtocol
+            viewHandler.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
+        }
     }
     
     open override func addBuddy(_ accountsAbleToAddBuddies: [OTRAccount]?) {
