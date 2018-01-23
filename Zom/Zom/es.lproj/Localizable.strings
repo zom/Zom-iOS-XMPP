@@ -52,3 +52,6 @@
 /* To let the user know the fingerprint as been checked */
 "Verified" = "Comprobado";
 
+/* Scan QR Code */
+"Scan" = "Escanear";
+

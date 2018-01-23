@@ -90,3 +90,9 @@
 /* To let the user know the fingerprint as been checked */
 "Verified" = "Verificato";
 
+/* Option to leave a group chat */
+"Leave" = "Esci";
+
+/* Scan QR Code */
+"Scan" = "Scansiona";
+

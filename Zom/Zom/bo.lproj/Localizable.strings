@@ -108,3 +108,12 @@
 /* To let the user know the fingerprint as been checked */
 "Verified" = "བརྟག་དཔྱད་ཟིན།";
 
+/* Option to leave a group chat */
+"Leave" = "ཕྱིར་འབུད།";
+
+/* Scan QR Code */
+"Scan" = "བཤེར།";
+
+/* Share invite via SMS */
+"SMS" = "འཕྲིན་ཐུང་།";
+

@@ -105,3 +105,12 @@
 /* To let the user know the fingerprint as been checked */
 "Verified" = "验证";
 
+/* Option to leave a group chat */
+"Leave" = "离线";
+
+/* Scan QR Code */
+"Scan" = "扫描";
+
+/* Share invite via SMS */
+"SMS" = "短信";
+

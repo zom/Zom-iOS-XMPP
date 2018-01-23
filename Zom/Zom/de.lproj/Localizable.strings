@@ -92,3 +92,6 @@
 /* To let the user know the fingerprint as been checked */
 "Verified" = "Überprüft";
 
+/* Scan QR Code */
+"Scan" = "Scannen";
+

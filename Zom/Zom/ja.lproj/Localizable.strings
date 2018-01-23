@@ -105,3 +105,9 @@
 /* This will be shown after your own JID in the group profile view */
 "you" = "自分";
 
+/* Option to leave a group chat */
+"Leave" = "離れる";
+
+/* Scan QR Code */
+"Scan" = "スキャン";
+

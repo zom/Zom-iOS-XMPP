@@ -19,3 +19,15 @@
 /* Class = "UILabel"; text = " "; ObjectID = "Rna-SJ-kqj"; */
 "Rna-SJ-kqj.text" = " ";
 
+/* Class = "UILabel"; text = "Members"; ObjectID = "Gs1-n0-fbA"; */
+"Gs1-n0-fbA.text" = "Leden";
+
+/* Class = "UILabel"; text = "Leave"; ObjectID = "Q9m-UX-pKh"; */
+"Q9m-UX-pKh.text" = "Verlaten";
+
+/* Class = "UILabel"; text = " "; ObjectID = "j5Q-2d-sDd"; */
+"j5Q-2d-sDd.text" = " ";
+
+/* Class = "UILabel"; text = "Share"; ObjectID = "wIX-Dc-EQX"; */
+"wIX-Dc-EQX.text" = "Delen";
+

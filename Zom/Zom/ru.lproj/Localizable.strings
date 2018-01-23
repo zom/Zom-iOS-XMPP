@@ -70,3 +70,9 @@
 /* To let the user know the fingerprint as been checked */
 "Verified" = "Проверено";
 
+/* Scan QR Code */
+"Scan" = "Сканировать";
+
+/* Share invite via SMS */
+"SMS" = "Короткое сообщение";
+
