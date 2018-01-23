@@ -49,6 +49,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void)setupInfoButton;
 - (OTRAttachmentPicker * _Nonnull)attachmentPicker;
 - (void)showImage:(OTRImageItem * _Nullable)imageItem fromCollectionView:(JSQMessagesCollectionView * _Nonnull)collectionView atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@property (nonatomic, strong) UIButton *keyboardButton;
 @end
 
 @interface OTRInviteViewController (ZomOverride)

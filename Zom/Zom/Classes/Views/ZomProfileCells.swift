@@ -166,10 +166,10 @@ struct PasswordCellInfo: ZomProfileViewCellInfoProtocol {
         }
         passwordCell.passwordTextField.text = self.password
         
-        passwordCell.changeButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
-        passwordCell.changeButton.setTitle(NSString.fa_string(forFontAwesomeIcon: .FAEdit), for: UIControlState.normal)
-        passwordCell.revealButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
-        passwordCell.revealButton.setTitle(NSString.fa_string(forFontAwesomeIcon: .FAEye), for: UIControlState.normal)
+        passwordCell.changeButton.titleLabel?.font = UIFont(name: "MaterialIcons-Regular", size: 30)
+        passwordCell.changeButton.setTitle("", for: UIControlState.normal)
+        passwordCell.revealButton.titleLabel?.font = UIFont(name: "MaterialIcons-Regular", size: 30)
+        passwordCell.revealButton.setTitle("", for: UIControlState.normal)
         passwordCell.selectionStyle = .none
     }
     

@@ -38,25 +38,13 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         }
         
         if let button = shareSmsButtonItem.customView as? UIButton {
-            let image = self.textToImage(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAPaperPlaneO) as NSString, size: 30)
-            button.setImage(image, for: UIControlState())
-            button.titleLabel!.numberOfLines = 0
-            button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+            setupShareButton(button: button, icon: "", fontName: "MaterialIcons-Regular", fontSize: 24, title: NSLocalizedString("SMS", bundle:OTRAssets.resourcesBundle, comment: "Share invite via SMS"))
         }
         if let button = shareButtonItem.customView as? UIButton {
-            let image = self.textToImage(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAShareSquareO) as NSString, size: 30)
-            button.setImage(image, for: UIControlState())
-            button.titleLabel!.numberOfLines = 0
-            button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+            setupShareButton(button: button, icon: "", fontName: "MaterialIcons-Regular", fontSize: 24, title: NSLocalizedString("Share", bundle:OTRAssets.resourcesBundle, comment: "Share invite via system share"))
         }
         if let button = scanButtonItem.customView as? UIButton {
-            let image = self.textToImage(NSString.fa_string(forFontAwesomeIcon: FAIcon.FACamera) as NSString, size: 30)
-            button.setImage(image, for: UIControlState())
-            button.titleLabel!.numberOfLines = 0
-            button.titleLabel!.adjustsFontSizeToFitWidth = true
-            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+            setupShareButton(button: button, icon: "", fontName: "MaterialIcons-Regular", fontSize: 24, title: NSLocalizedString("Scan", bundle:OTRAssets.resourcesBundle, comment: "Scan QR Code"))
         }
         
         adjustButtons()
@@ -84,6 +72,22 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
                 self.showButton(self.shareSmsButtonItem, show:false)
             }
         })
+    }
+    
+    func setupShareButton(button:UIButton, icon:String, fontName:String, fontSize:CGFloat, title:String) {
+        if let font = UIFont(name: fontName, size: fontSize) {
+            let compositeTitle = "\(icon) \(title)"
+            let attributedTitle = NSMutableAttributedString(string: compositeTitle)
+            let rangeIcon = NSRange(location: 0, length: 2)
+            let rangeText = NSRange(location: 2, length: attributedTitle.length - 2)
+            attributedTitle.addAttribute(NSAttributedStringKey.font, value: font, range: rangeIcon)
+            attributedTitle.addAttribute(NSAttributedStringKey.baselineOffset, value: 8, range: rangeText)
+            attributedTitle.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.black, range: rangeText)
+            button.setAttributedTitle(attributedTitle, for: .normal)
+            button.titleLabel!.numberOfLines = 1
+            button.titleLabel!.adjustsFontSizeToFitWidth = true
+            button.titleLabel!.lineBreakMode = NSLineBreakMode.byWordWrapping
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -120,20 +124,36 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
 
     private func adjustButtons() {
         let numButtons = self.addToolbar.items!.count - 2
+        let w = (self.view.frame.width - 20) / CGFloat(numButtons)
+
+        var totalWidth:CGFloat = 0
         for item:UIBarButtonItem in self.addToolbar.items! {
-            if (item.tag != 1) {
-                let w = (self.view.frame.width - 40) / CGFloat(numButtons)
-                item.width = w
-                if let button = item.customView as? UIButton {
-                    button.frame.size.width = w
+            if item.tag != 1, let button = item.customView as? UIButton {
+                let size = button.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+                totalWidth += size.width
+            }
+        }
+        let needsLineBreaks = (totalWidth > (self.view.frame.width - 20))
+        
+        for item:UIBarButtonItem in self.addToolbar.items! {
+            if item.tag != 1, let button = item.customView as? UIButton {
+                if needsLineBreaks {
+                    if let title = button.attributedTitle(for: .normal) {
+                        let attributedTitle = NSMutableAttributedString(attributedString: title)
+                        attributedTitle.replaceCharacters(in: NSRange(location:1, length:1), with: "\n")
+                        // Get range of the title after the icon
+                        let paragraph = NSMutableParagraphStyle()
+                        paragraph.alignment = .center
+                        let range = NSRange(location:2, length: attributedTitle.length - 2)
+                        attributedTitle.removeAttribute(.baselineOffset, range: range)
+                        attributedTitle.addAttribute(.foregroundColor, value: UIColor.black, range: range)
+                        attributedTitle.addAttribute(.paragraphStyle, value: paragraph, range: NSRange(location:0, length: attributedTitle.length))
+                        button.setAttributedTitle(attributedTitle, for: .normal)
+                    }
                 }
-//                if (w < 100) {
-//                    if let button = item.customView as? UIButton {
-//                        if let font = button.titleLabel?.font {
-//                            button.titleLabel?.font = font.fontWithSize(font.pointSize - 6)
-//                        }
-//                    }
-//                }
+                let size = button.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+                item.width = min(w, size.width)
+                button.frame.size.width = min(w, size.width)
             }
         }
         self.addToolbar.setNeedsUpdateConstraints()

@@ -38,7 +38,16 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         super.viewDidLoad()
         let nibUnknown = UINib(nibName: ZomMessagesViewController.ZomUnknownSenderMessageCell, bundle: nil)
         super.collectionView.register(nibUnknown, forCellWithReuseIdentifier: ZomMessagesViewController.ZomUnknownSenderMessageCell)
-        self.cameraButton?.setTitle(NSString.fa_string(forFontAwesomeIcon: FAIcon.FAPlusSquareO), for: .normal)
+        let materialFont = UIFont(name: "MaterialIcons-Regular", size: 30)
+        if let mic = self.microphoneButton {
+            mic.titleLabel?.font = materialFont
+            mic.setTitle("", for: .normal)
+            self.keyboardButton?.frame = mic.frame // Make same size as mic
+        }
+        self.cameraButton?.titleLabel?.font = materialFont
+        self.cameraButton?.setTitle("", for: .normal)
+        self.keyboardButton?.titleLabel?.font = materialFont
+        self.keyboardButton?.setTitle("", for: .normal)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
