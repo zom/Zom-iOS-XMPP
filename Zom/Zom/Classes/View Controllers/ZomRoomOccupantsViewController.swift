@@ -63,7 +63,7 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
         guard let account = _account, let buddy = _buddy else { return }
 
         let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-        let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+        let otrKit = OTRProtocolManager.encryptionManager.otrKit
         let info = ZomProfileViewControllerInfo.createInfo(buddy, accountName: account.username, protocolString: account.protocolTypeString(), otrKit: otrKit, hasSession: true, calledFromGroup: true, showAllFingerprints: false)
         profileVC.setupWithInfo(info: info)
         

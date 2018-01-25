@@ -118,7 +118,7 @@ import MobileCoreServices
     func sendWhenOnline() {
         guard let account = self.account, self.viewController != nil else { return }
         if let xmpp = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager {
-            if xmpp.connectionStatus == .connected {
+            if xmpp.loginStatus == OTRLoginStatus.connected {
                 doSend(xmpp)
             } else {
                 xmpp.addObserver(self, forKeyPath: "connectionStatus", options: [.new,.old], context: &observerContext)
@@ -132,7 +132,7 @@ import MobileCoreServices
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
             return
         }
-        if let xmpp = object as? XMPPManager, xmpp.connectionStatus == .connected {
+        if let xmpp = object as? XMPPManager, xmpp.loginStatus == .connected {
             // Stop observing
             xmpp.removeObserver(self, forKeyPath: "connectionStatus", context: &observerContext)
             doSend(xmpp)

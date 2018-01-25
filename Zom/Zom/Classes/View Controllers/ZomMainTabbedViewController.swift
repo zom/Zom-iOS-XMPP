@@ -203,7 +203,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
     private func populateMeTabController() {
         if (meViewController != nil) {
             if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate,let account = appDelegate.getDefaultAccount() {
-                let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+                let otrKit = OTRProtocolManager.encryptionManager.otrKit
                 let info = ZomProfileViewControllerInfo.createInfo(account, protocolString: account.protocolTypeString(), otrKit: otrKit)
                 self.meViewController?.setupWithInfo(info: info)
             }
@@ -226,7 +226,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
                 }
                 if let b = buddy, let a = account {
                     let profileVC = ZomProfileViewController(nibName: nil, bundle: nil)
-                    let otrKit = OTRProtocolManager.sharedInstance().encryptionManager.otrKit
+                    let otrKit = OTRProtocolManager.encryptionManager.otrKit
                     let info = ZomProfileViewControllerInfo.createInfo(b, accountName: a.username, protocolString: a.protocolTypeString(), otrKit: otrKit, hasSession: false, calledFromGroup: false, showAllFingerprints: false)
                     profileVC.setupWithInfo(info: info)
                     self.navigationController?.pushViewController(profileVC, animated: true)
