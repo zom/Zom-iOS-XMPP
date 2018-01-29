@@ -10,6 +10,7 @@ import INSPhotoGallery
 import MobileCoreServices
 
 public class ZomPhotoOverlayView : UIView, INSPhotosOverlayViewable {
+    @IBOutlet public var navigationBar: UINavigationBar!
     @IBOutlet public var toolbar: UIToolbar!
     @IBOutlet public var label: UILabel!
     private var currentPhoto:INSPhotoViewable?
@@ -21,6 +22,7 @@ public class ZomPhotoOverlayView : UIView, INSPhotosOverlayViewable {
                                         forToolbarPosition: .any,
                                         barMetrics: .default)
         self.toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.label.attributedText = photo.attributedTitle
     }
     
@@ -88,6 +90,12 @@ public class ZomPhotoOverlayView : UIView, INSPhotosOverlayViewable {
     @IBAction func deleteButtonTapped(_ sender: UIBarButtonItem) {
         if let viewController = self.photosViewController {
             viewController.handleDeleteButtonTapped()
+        }
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        if let viewController = self.photosViewController {
+            viewController.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -76,7 +76,13 @@
     // Buttons on photo overlay
     [[UIBarButtonItem appearanceWhenContainedIn:UIToolbar.class, UIView.class, ZomPhotosViewController.class, nil] setTintColor:UIColor.whiteColor];
     [[UIButton appearanceWhenContainedIn:UIToolbar.class, UIView.class, ZomPhotosViewController.class, nil] setTintColor:UIColor.whiteColor];
+    UIColor *photosBarColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setTranslucent:YES];
+    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setBarTintColor:photosBarColor];
+    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setBackgroundColor:photosBarColor];
 
+    
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = self.mainThemeColor;
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];

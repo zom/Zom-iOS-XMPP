@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <navigationBar opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fab-qV-6Q4">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <color key="backgroundColor" red="0.62690786649999997" green="0.95661484770000005" blue="0.26529245229999998" alpha="0.6991652397" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <navigationItem id="yIx-S1-cAc">
+                            <barButtonItem key="backBarButtonItem" title="Back" id="w1B-qe-Pvg"/>
+                            <barButtonItem key="rightBarButtonItem" systemItem="done" id="EKX-hM-FfY">
+                                <connections>
+                                    <action selector="doneButtonTapped:" destination="iN0-l3-epB" id="fSl-hK-m3i"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="ynE-Dg-RF6">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69651648116438358" colorSpace="custom" customColorSpace="sRGB"/>
@@ -50,24 +65,36 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U69-e6-Scq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69651648119999998" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <accessibility key="accessibilityConfiguration">
                 <accessibilityTraits key="traits" notEnabled="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JNT-ny-8wt" secondAttribute="trailing" id="7AA-Qw-Jg1"/>
-                <constraint firstItem="ynE-Dg-RF6" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="EMl-aJ-4Oh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ynE-Dg-RF6" secondAttribute="bottom" id="EkF-H2-2LY"/>
-                <constraint firstItem="ynE-Dg-RF6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Gxh-64-q1x"/>
+                <constraint firstItem="fab-qV-6Q4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="2ew-ZR-Uch"/>
+                <constraint firstAttribute="trailing" secondItem="JNT-ny-8wt" secondAttribute="trailing" id="7AA-Qw-Jg1"/>
+                <constraint firstItem="ynE-Dg-RF6" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="EMl-aJ-4Oh"/>
+                <constraint firstAttribute="bottom" secondItem="ynE-Dg-RF6" secondAttribute="bottom" id="EkF-H2-2LY"/>
+                <constraint firstItem="ynE-Dg-RF6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Gxh-64-q1x"/>
+                <constraint firstItem="U69-e6-Scq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Q5c-VD-b4b"/>
+                <constraint firstItem="fab-qV-6Q4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XRY-xL-QMO"/>
                 <constraint firstItem="ynE-Dg-RF6" firstAttribute="top" secondItem="JNT-ny-8wt" secondAttribute="bottom" id="mHf-qW-371"/>
-                <constraint firstItem="JNT-ny-8wt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rgZ-HQ-Tin"/>
+                <constraint firstItem="U69-e6-Scq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="phC-V9-BdT"/>
+                <constraint firstAttribute="trailing" secondItem="fab-qV-6Q4" secondAttribute="trailing" id="rF6-ea-sIs"/>
+                <constraint firstItem="JNT-ny-8wt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rgZ-HQ-Tin"/>
+                <constraint firstItem="fab-qV-6Q4" firstAttribute="top" secondItem="U69-e6-Scq" secondAttribute="bottom" id="w8a-zb-uX0"/>
+                <constraint firstAttribute="trailing" secondItem="U69-e6-Scq" secondAttribute="trailing" id="xqq-iL-r6F"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="label" destination="JNT-ny-8wt" id="hhC-Fq-flj"/>
+                <outlet property="navigationBar" destination="fab-qV-6Q4" id="0WW-vO-fOg"/>
                 <outlet property="toolbar" destination="ynE-Dg-RF6" id="SJw-3l-DLR"/>
             </connections>
+            <point key="canvasLocation" x="81.5" y="129.5"/>
         </view>
     </objects>
 </document>
