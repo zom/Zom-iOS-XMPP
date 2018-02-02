@@ -14,20 +14,22 @@ import ChatSecureCore
     override open var settingsGroups: [OTRSettingsGroup] {
         get {
             var settingsGroups: [OTRSettingsGroup] = super.settingsGroups
-            guard let groupOtherSettings = settingsGroups.last else { return [] }
-            var settings:[Any] = []
+            guard let groupOtherSettings = settingsGroups.filter({ (group) -> Bool in
+                return group.title == OTHER_STRING()
+            }).first,
+                let indexOtherSettings = settingsGroups.index(of: groupOtherSettings)
+                else { return settingsGroups }
+            var settings:[OTRSetting] = []
             
-            for index in stride(from: groupOtherSettings.settings.endIndex-1, to: groupOtherSettings.settings.startIndex, by: -1) {
-                let setting = groupOtherSettings.settings[index]
+            for setting in groupOtherSettings.settings.reversed() {
                 if (setting is OTRShareSetting || setting is OTRLanguageSetting) {
                     settings.append(setting)
                 }
             }
             
-            if let other = OTRSettingsGroup(title: groupOtherSettings.title, settings: settings) {
-                settingsGroups.removeLast()
-                settingsGroups.append(other)
-            }
+            let other = OTRSettingsGroup(title: groupOtherSettings.title, settings: settings)
+            settingsGroups.remove(at: indexOtherSettings)
+            settingsGroups.insert(other, at: indexOtherSettings)
             return settingsGroups
         }
     }
