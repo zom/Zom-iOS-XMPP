@@ -12,8 +12,8 @@
 
 @interface ZomAppDelegate : OTRAppDelegate
 
-- (OTRAccount *)getDefaultAccount;
-- (void) setDefaultAccount:(OTRAccount *)account;
+- (nullable OTRAccount *)getDefaultAccount;
+- (void) setDefaultAccount:(nullable OTRAccount *)account;
 @property (nonatomic, strong) ZomMainTabbedViewController *mainTabViewController;
 
 @end

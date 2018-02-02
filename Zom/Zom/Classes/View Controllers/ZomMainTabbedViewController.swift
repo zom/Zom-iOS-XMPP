@@ -77,6 +77,8 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         navigationItem.backBarButtonItem = backItem
         
         updateRightButtons()
+        
+        NetworkSnackBarManager.shared.addSnackViewContainer(self.view,bottomOffset:self.tabBar.frame.size.height)
     }
     
     private func registerObservers() {
@@ -96,13 +98,23 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
         updateTitle()
     }
     
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NetworkSnackBarManager.shared.addSnackViewContainer(self.view,bottomOffset:self.tabBar.frame.size.height)
+    }
+    
+    override open func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NetworkSnackBarManager.shared.removeSnackViewContainer(self.view)
+    }
+    
     override open func viewDidDisappear(_ animated: Bool) {
         if (observersRegistered) {
             observersRegistered = false
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectedProtocols", context: &observerContext)
             OTRProtocolManager.sharedInstance().removeObserver(self, forKeyPath: "numberOfConnectingProtocols", context: &observerContext)
-            super.viewDidDisappear(animated)
         }
+        super.viewDidDisappear(animated)
     }
     
     

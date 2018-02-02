@@ -68,6 +68,7 @@
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
 		92636B581F6FD56A002FFE07 /* ZomImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928AB8131CF845880056AEC7 /* ZomImages.xcassets */; };
 		926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */; };
+		926847F8202516270091371B /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926847F7202516270091371B /* SnackBar.swift */; };
 		9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */; };
 		926AF4A31E847B3800463F54 /* OMEMODeviceFingerprintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */; };
 		926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */; };
@@ -109,6 +110,8 @@
 		92A567C61EDED3B900684E72 /* PitchInviteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92A567C81EDED3B900684E72 /* PitchInviteView.xib */; };
 		92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */; };
 		92AA05E51E3774EF0054BEAD /* ZomOnboardingNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */; };
+		92AE3F67202507C1006984A4 /* SnackBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AE3F66202507C1006984A4 /* SnackBar.xib */; };
+		92AE3F6D2025155B006984A4 /* NetworkSnackBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE3F6C2025155B006984A4 /* NetworkSnackBarManager.swift */; };
 		92BCD2F41F839B9D00272AC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
 		92BCD3251F85797A00272AC6 /* OTRRoomOccupants.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCD3271F85797A00272AC6 /* OTRRoomOccupants.storyboard */; };
 		92BCD3681F8579F400272AC6 /* OTRComposeGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BCD36A1F8579F400272AC6 /* OTRComposeGroup.storyboard */; };
@@ -713,6 +716,7 @@
 		925434881F556F14007567B7 /* ZomUnknownSenderMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomUnknownSenderMessageCell.swift; path = Classes/Views/ZomUnknownSenderMessageCell.swift; sourceTree = "<group>"; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
 		926741DF1BFC869F0044C059 /* ZomChooseAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomChooseAccountViewController.swift; path = "Classes/View Controllers/ZomChooseAccountViewController.swift"; sourceTree = "<group>"; };
+		926847F7202516270091371B /* SnackBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnackBar.swift; path = Classes/Views/SnackBar.swift; sourceTree = "<group>"; };
 		9269F99A1C035DA500CB8D18 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		926AF49C1E847B3800463F54 /* OMEMODeviceFingerprintCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OMEMODeviceFingerprintCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/OMEMODeviceFingerprintCell.xib; sourceTree = "<group>"; };
 		926AF49D1E847B3800463F54 /* PushAccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PushAccountTableViewCell.xib; path = ../../../ChatSecure/ChatSecure/Classes/Views/Cells/PushAccountTableViewCell.xib; sourceTree = "<group>"; };
@@ -808,6 +812,8 @@
 		92A5683E1EDED3F300684E72 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PitchInviteView.strings; sourceTree = "<group>"; };
 		92AA05AD1E376EEC0054BEAD /* ZomCongratsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomCongratsViewController.swift; path = "Classes/View Controllers/Onboarding/ZomCongratsViewController.swift"; sourceTree = "<group>"; };
 		92AA05E41E3774EF0054BEAD /* ZomOnboardingNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomOnboardingNavigationController.swift; path = "Classes/View Controllers/Onboarding/ZomOnboardingNavigationController.swift"; sourceTree = "<group>"; };
+		92AE3F66202507C1006984A4 /* SnackBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SnackBar.xib; path = Classes/Views/SnackBar.xib; sourceTree = "<group>"; };
+		92AE3F6C2025155B006984A4 /* NetworkSnackBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSnackBarManager.swift; path = Classes/NetworkSnackBarManager.swift; sourceTree = "<group>"; };
 		92BCD3261F85797A00272AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OTRRoomOccupants.storyboard; sourceTree = "<group>"; };
 		92BCD3291F85798100272AC6 /* zh-Hant-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant-TW"; path = "zh-Hant-TW.lproj/OTRRoomOccupants.strings"; sourceTree = "<group>"; };
 		92BCD32B1F85798300272AC6 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/OTRRoomOccupants.strings"; sourceTree = "<group>"; };
@@ -1118,6 +1124,8 @@
 				92440F101F501D9C00365D89 /* ZomImageActionButtonCell.swift */,
 				92019C141FDE9564006D9931 /* ZomPhotoOverlayView.xib */,
 				92019C431FDE958D006D9931 /* ZomPhotoOverlayView.swift */,
+				92AE3F66202507C1006984A4 /* SnackBar.xib */,
+				926847F7202516270091371B /* SnackBar.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1273,6 +1281,7 @@
 				924A93631F67277300914C9D /* OTRXMPPRoomManager+Zom.swift */,
 				92A115001FAC77A0000766EC /* ZomImportManager.swift */,
 				923E60541FB1B74E00E8BAA7 /* ZomGalleryHandler.swift */,
+				92AE3F6C2025155B006984A4 /* NetworkSnackBarManager.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1887,6 +1896,7 @@
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
 				924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */,
+				92AE3F67202507C1006984A4 /* SnackBar.xib in Resources */,
 				926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				9251C30C1F3471E9003ACE4A /* Images.xcassets in Resources */,
 				92019C151FDE9564006D9931 /* ZomPhotoOverlayView.xib in Resources */,
@@ -2122,7 +2132,9 @@
 				928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */,
 				92949FA31ED46978004044A7 /* ZomMigrationSwizzles.swift in Sources */,
 				92CBA8BC1D119E14001CDD3D /* ZomStickerMessage.swift in Sources */,
+				92AE3F6D2025155B006984A4 /* NetworkSnackBarManager.swift in Sources */,
 				92DC0F781F4449A300318E49 /* ZomComposeGroupViewController.swift in Sources */,
+				926847F8202516270091371B /* SnackBar.swift in Sources */,
 				D99DEB731BABD1F300875194 /* main.m in Sources */,
 				925434891F556F14007567B7 /* ZomUnknownSenderMessageCell.swift in Sources */,
 				929545841BF5DC4E00A26FC2 /* ZomPickStickerCell.swift in Sources */,

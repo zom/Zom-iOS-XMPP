@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MaterialIcons-Regular.ttf">
+            <string>MaterialIcons-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UD2-bT-KDs" customClass="SnackBar" customModule="Zom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="489" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07J-S1-mYm">
+                    <rect key="frame" x="10" y="6" width="38" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="07J-S1-mYm" secondAttribute="height" multiplier="1:1" id="fQe-eZ-6iP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MaterialIcons-Regular" family="Material Icons" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ax-EJ-VLl">
+                    <rect key="frame" x="58" y="6" width="365" height="38"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqs-a0-U23">
+                    <rect key="frame" x="433" y="6" width="46" height="38"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="buttonPressed:" destination="UD2-bT-KDs" eventType="touchUpInside" id="YLW-aI-mzT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="oqs-a0-U23" secondAttribute="bottom" constant="6" id="0UJ-Gc-2tB"/>
+                <constraint firstItem="3ax-EJ-VLl" firstAttribute="top" secondItem="UD2-bT-KDs" secondAttribute="top" constant="6" id="7L0-FU-odX"/>
+                <constraint firstItem="3ax-EJ-VLl" firstAttribute="centerY" secondItem="UD2-bT-KDs" secondAttribute="centerY" id="92e-36-w1i"/>
+                <constraint firstItem="07J-S1-mYm" firstAttribute="top" secondItem="UD2-bT-KDs" secondAttribute="top" constant="6" id="Lln-HU-FtJ"/>
+                <constraint firstAttribute="bottom" secondItem="07J-S1-mYm" secondAttribute="bottom" constant="6" id="PRe-AD-zOH"/>
+                <constraint firstAttribute="trailing" secondItem="oqs-a0-U23" secondAttribute="trailing" constant="10" id="PX4-di-REx"/>
+                <constraint firstItem="3ax-EJ-VLl" firstAttribute="leading" secondItem="07J-S1-mYm" secondAttribute="trailing" constant="10" id="cop-J0-XYw"/>
+                <constraint firstItem="07J-S1-mYm" firstAttribute="leading" secondItem="UD2-bT-KDs" secondAttribute="leading" constant="10" id="fZq-nK-PpH"/>
+                <constraint firstAttribute="bottom" secondItem="3ax-EJ-VLl" secondAttribute="bottom" constant="6" id="keF-bz-3YW"/>
+                <constraint firstItem="oqs-a0-U23" firstAttribute="leading" secondItem="3ax-EJ-VLl" secondAttribute="trailing" constant="10" id="wof-J1-NJj"/>
+                <constraint firstItem="oqs-a0-U23" firstAttribute="top" secondItem="UD2-bT-KDs" secondAttribute="top" constant="6" id="x1k-Lg-xzJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="button" destination="oqs-a0-U23" id="c0i-jV-QgL"/>
+                <outlet property="icon" destination="07J-S1-mYm" id="KFi-kO-Mwa"/>
+                <outlet property="titleLabel" destination="3ax-EJ-VLl" id="t3s-yW-LAa"/>
+            </connections>
+            <point key="canvasLocation" x="266.5" y="-166"/>
+        </view>
+    </objects>
+</document>

@@ -73,25 +73,26 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
         var buddy:OTRBuddy? = nil
         let botUser = "zombot@home.zom.im"
         if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate, let botJid = XMPPJID(string: botUser) {
-            let account:OTRAccount = appDelegate.getDefaultAccount()
-            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWrite { (transaction) in
-                buddy = OTRXMPPBuddy.fetchBuddy(jid: botJid, accountUniqueId: account.uniqueId, transaction: transaction)
-                if (buddy == nil) {
-                    if let newBuddy = OTRXMPPBuddy() {
-                        newBuddy.username = botUser
-                        newBuddy.accountUniqueId = account.uniqueId
-                        // hack to show buddy in conversations view
-                        //buddy!.lastMessageDate = NSDate()
-                        //buddy!.setDisplayName("ZomBot")
-                        //(buddy as! OTRXMPPBuddy).pendingApproval = false
-                        newBuddy.save(with: transaction)
-                        
-                        if let proto = OTRProtocolManager.sharedInstance().protocol(for: account) {
-                            proto.add(newBuddy)
+            if let account:OTRAccount = appDelegate.getDefaultAccount() {
+                OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWrite { (transaction) in
+                    buddy = OTRXMPPBuddy.fetchBuddy(jid: botJid, accountUniqueId: account.uniqueId, transaction: transaction)
+                    if (buddy == nil) {
+                        if let newBuddy = OTRXMPPBuddy() {
+                            newBuddy.username = botUser
+                            newBuddy.accountUniqueId = account.uniqueId
+                            // hack to show buddy in conversations view
+                            //buddy!.lastMessageDate = NSDate()
+                            //buddy!.setDisplayName("ZomBot")
+                            //(buddy as! OTRXMPPBuddy).pendingApproval = false
+                            newBuddy.save(with: transaction)
+                            
+                            if let proto = OTRProtocolManager.sharedInstance().protocol(for: account) {
+                                proto.add(newBuddy)
+                            }
+                            buddy = newBuddy
                         }
-                        buddy = newBuddy
+                        
                     }
-                    
                 }
             }
         }
