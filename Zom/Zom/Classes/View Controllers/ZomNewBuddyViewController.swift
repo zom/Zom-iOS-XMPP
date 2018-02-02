@@ -177,7 +177,23 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
 
     @IBAction func shareSmsButtonPressedWithSender(_ sender: AnyObject) {
         if (self.shareLink != nil) {
+            
+            // Thanks to stupid apple bug we need to temporarily hack the appearance proxy for navigation bars to have the MFMessageComposeViewController use the right color for Navigation bar.
+            //  http://openradar.appspot.com/radar?id=6165359065300992
+            let attrs = UIBarButtonItem.appearance().titleTextAttributes(for: .normal)
+            UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: ZomAppDelegate.appDelegate.theme.mainThemeColor], for: .normal)
+
             let messageComposeViewController:MFMessageComposeViewController = MFMessageComposeViewController()
+
+            // Reset title attributes
+            if let attrs = attrs {
+                var oldAttrs:[NSAttributedStringKey:Any] = [:]
+                for attr in attrs.keys {
+                    oldAttrs[NSAttributedStringKey(attr)] = attrs[attr]
+                }
+                UIBarButtonItem.appearance().setTitleTextAttributes(oldAttrs, for: .normal)
+            }
+            
             messageComposeViewController.body = self.shareLink
             messageComposeViewController.messageComposeDelegate = self
             self.navigationController!.present(messageComposeViewController, animated: true, completion: nil)
