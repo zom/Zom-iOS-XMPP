@@ -324,14 +324,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" image="PitchInvite" translatesAutoresizingMaskIntoConstraints="NO" id="8bH-35-E93">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" image="PitchInvite" translatesAutoresizingMaskIntoConstraints="NO" id="8bH-35-E93">
+                                            <rect key="frame" x="10" y="10" width="355" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="Xzw-jM-8x7"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRd-V8-XnP">
-                                            <rect key="frame" x="16" y="120" width="343" height="93"/>
+                                            <rect key="frame" x="16" y="130" width="343" height="83"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -365,14 +370,14 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="PRd-V8-XnP" secondAttribute="trailing" id="J21-nL-sDm"/>
                                         <constraint firstItem="uvM-ZY-O8g" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" id="RD9-hp-Jfq"/>
                                         <constraint firstItem="pj7-rE-iED" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" constant="30" id="TpG-wA-ugy"/>
-                                        <constraint firstAttribute="trailing" secondItem="8bH-35-E93" secondAttribute="trailing" id="Vx0-BL-j7V"/>
+                                        <constraint firstAttribute="trailing" secondItem="8bH-35-E93" secondAttribute="trailing" constant="10" id="Vx0-BL-j7V"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="pj7-rE-iED" secondAttribute="bottom" constant="10" id="aPj-V6-0rB"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="pj7-rE-iED" secondAttribute="trailing" constant="30" id="fv1-lO-gub"/>
                                         <constraint firstItem="PRd-V8-XnP" firstAttribute="top" secondItem="8bH-35-E93" secondAttribute="bottom" constant="20" id="iIs-kC-fB5"/>
                                         <constraint firstItem="uvM-ZY-O8g" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="bottom" constant="10" id="mO6-dU-nos"/>
                                         <constraint firstItem="PRd-V8-XnP" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" id="o4M-eG-v6x"/>
-                                        <constraint firstItem="8bH-35-E93" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leading" id="sdL-1E-CIP"/>
-                                        <constraint firstItem="8bH-35-E93" firstAttribute="top" secondItem="87t-aa-EDb" secondAttribute="top" id="vxh-zM-v3w"/>
+                                        <constraint firstItem="8bH-35-E93" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leading" constant="10" id="sdL-1E-CIP"/>
+                                        <constraint firstItem="8bH-35-E93" firstAttribute="top" secondItem="87t-aa-EDb" secondAttribute="top" constant="10" id="vxh-zM-v3w"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

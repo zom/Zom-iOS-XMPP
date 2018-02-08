@@ -12,11 +12,35 @@ fileprivate struct ZomBot {
     let name:String
     let jid:String
     let description:String
+    let image:UIImage?
     
-    static let allBots:[ZomBot] = [
-        ZomBot(name: "Zomkyi", jid: "zombot@home.zom.im", description: NSLocalizedString("Ask me anything about Zom!", comment: "Bot description for Zomkyi")),
-        ZomBot(name: "Agu Denpa", jid: "zombot@home.zom.im", description: NSLocalizedString("Quiz me. Find out how smart I am.", comment: "Bot description for Agu Denpa"))
-    ]
+    static var allBots:[ZomBot] = {
+        // Parse the plist to get all bots!
+        var plistDictionary: NSDictionary?
+        if let path = Bundle.main.path(forResource: "ZomBots", ofType: "plist") {
+            plistDictionary = NSDictionary(contentsOfFile: path)
+        }
+        var bots:[ZomBot] = []
+        if let dict = plistDictionary {
+            for (key, bot) in dict {
+                if let bot = bot as? NSDictionary {
+                    let name = bot["name"] as? String
+                    let jid = bot["jid"] as? String
+                    let description = bot["description"] as? String
+                    
+                    // Get image
+                    var image:UIImage? = nil
+                    if let imageStringEncoded = bot["image"] as? String {
+                        let dataDecoded : Data = Data(base64Encoded: imageStringEncoded, options: .ignoreUnknownCharacters)!
+                        image = UIImage(data: dataDecoded)
+                    }
+                    let zomBot = ZomBot(name: name ?? "", jid: jid ?? "", description: description ?? "", image: image)
+                    bots.append(zomBot)
+                }
+            }
+        }
+        return bots
+    }()
 }
 
 open class ZomBotsViewController: UITableViewController {
@@ -33,6 +57,7 @@ open class ZomBotsViewController: UITableViewController {
         let cell:ZomBotCell? = tableView.dequeueReusableCell(withIdentifier: "cellZomBot", for: indexPath) as? ZomBotCell
         if let cell = cell {
             let bot = ZomBot.allBots[indexPath.row]
+            cell.botImageView.image = bot.image
             cell.titleLabel.text = bot.name
             cell.descriptionLabel.text = bot.description
             let title = String(format: NSLocalizedString("Chat with %@", comment:"Button label for starting chat with ZomBot"), bot.name)
