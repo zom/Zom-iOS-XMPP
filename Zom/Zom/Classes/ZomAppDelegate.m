@@ -14,6 +14,7 @@
 #import "OTRAssets+ZomLanguageHandling.h"
 #import "UITableView+Zom.h"
 #import "ZomOverrides.h"
+#import "SharedConstants.h"
 @import MobileCoreServices;
 
 @interface OTRAppDelegate (Zom)
@@ -115,7 +116,28 @@
     if (ret == NO) {
         // Shared audio/image file?
         NSError *error;
-        if ([url checkResourceIsReachableAndReturnError:&error]) {
+        NSFileManager *fm = NSFileManager.defaultManager;
+
+        // Check if this comes from the new Share Extension.
+        if ([[url absoluteString] isEqualToString:ZomShareUrl])
+        {
+            NSURL *sharePath = [[fm containerURLForSecurityApplicationGroupIdentifier:ZomAppGroupId]
+                                URLByAppendingPathComponent:ZomShareFolder];
+
+            NSArray *files = [fm contentsOfDirectoryAtURL:sharePath includingPropertiesForKeys:nil
+                                                  options:0 error:nil];
+
+            if (files && files.count > 0)
+            {
+                return [ZomImportManager.shared
+                        handleImportWithUrl:files[0]
+                        type:(__bridge NSString *)kUTTypeImage
+                        viewController:[[self splitViewCoordinator] splitViewController]];
+            }
+        }
+
+        // Check, if this comes from the e-mail attachment handler feature.
+        else if ([url checkResourceIsReachableAndReturnError:&error]) {
             NSString *type;
             if ([url getResourceValue:&type forKey:NSURLTypeIdentifierKey error:&error]) {
                 if (UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeAudio) || UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeImage) || UTTypeConformsTo((__bridge CFStringRef _Nonnull)(type), kUTTypeMovie)) {

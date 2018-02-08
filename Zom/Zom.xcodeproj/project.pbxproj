@@ -140,6 +140,17 @@
 		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
 		92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */; };
 		92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */; };
+		A065EDA6202C50640084D788 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065EDA5202C50640084D788 /* ShareViewController.swift */; };
+		A065EDA9202C50640084D788 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A065EDA7202C50640084D788 /* MainInterface.storyboard */; };
+		A065EDAD202C50640084D788 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A065EDA3202C50640084D788 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A065EDBB202C52330084D788 /* Config-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB6202C52320084D788 /* Config-debug.xcconfig */; };
+		A065EDBC202C52330084D788 /* Config-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB7202C52320084D788 /* Config-release.xcconfig */; };
+		A065EDBD202C52330084D788 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB8202C52320084D788 /* Config.xcconfig */; };
+		A065EDBE202C52330084D788 /* SharedConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A065EDBA202C52320084D788 /* SharedConstants.m */; };
+		A0DE2B08202C55F9005A9E4D /* SharedConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = A065EDB9202C52320084D788 /* SharedConstants.h */; };
+		A0DE2B09202C5622005A9E4D /* ShareExtension-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = A065EDB2202C50AF0084D788 /* ShareExtension-Bridging-Header.h */; };
+		A0DE2B0A202C6E50005A9E4D /* SharedConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A065EDBA202C52320084D788 /* SharedConstants.m */; };
+		A0DE2B16202C8631005A9E4D /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422B1F00EF7E00E34D65 /* MBProgressHUD.framework */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
 		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
 		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; };
@@ -464,6 +475,13 @@
 			remoteGlobalIDString = 6861A4195F72C665887DF462DB08DDD6;
 			remoteInfo = YapTaskQueue;
 		};
+		A065EDAB202C50640084D788 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D99DEB641BABCEF700875194 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A065EDA2202C50640084D788;
+			remoteInfo = ShareExtension;
+		};
 		D9315C9F1BB5DC190077D2EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D99DEB8E1BABD48E00875194 /* ChatSecure.xcodeproj */;
@@ -526,6 +544,17 @@
 				9206569E1D9C4D1E00EC7034 /* OTRAssets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A065EDB1202C50640084D788 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A065EDAD202C50640084D788 /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -998,6 +1027,18 @@
 		92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTMLPreviewView.xib; path = ../../../ChatSecure/OTRResources/Interface/HTMLPreviewView.xib; sourceTree = "<group>"; };
 		92F71F881F137EBE00C99690 /* MediaDownloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaDownloadView.xib; path = ../../../ChatSecure/OTRResources/Interface/MediaDownloadView.xib; sourceTree = "<group>"; };
 		92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomRoomOccupantsViewController.swift; path = "Classes/View Controllers/ZomRoomOccupantsViewController.swift"; sourceTree = "<group>"; };
+		A065EDA3202C50640084D788 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A065EDA5202C50640084D788 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		A065EDA8202C50640084D788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A065EDAA202C50640084D788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A065EDB2202C50AF0084D788 /* ShareExtension-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ShareExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		A065EDB3202C50AF0084D788 /* ShareExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		A065EDB6202C52320084D788 /* Config-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Config-debug.xcconfig"; sourceTree = "<group>"; };
+		A065EDB7202C52320084D788 /* Config-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Config-release.xcconfig"; sourceTree = "<group>"; };
+		A065EDB8202C52320084D788 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A065EDB9202C52320084D788 /* SharedConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedConstants.h; sourceTree = "<group>"; };
+		A065EDBA202C52320084D788 /* SharedConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedConstants.m; sourceTree = "<group>"; };
+		A0DE2B4A202C9A50005A9E4D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Carthage/Build/iOS/MBProgressHUD.framework/Headers/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
@@ -1023,6 +1064,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A065EDA0202C50640084D788 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0DE2B16202C8631005A9E4D /* MBProgressHUD.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D99DEB6B1BABD1F300875194 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1231,6 +1280,31 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		A065EDA4202C50640084D788 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A065EDA5202C50640084D788 /* ShareViewController.swift */,
+				A065EDA7202C50640084D788 /* MainInterface.storyboard */,
+				A065EDB2202C50AF0084D788 /* ShareExtension-Bridging-Header.h */,
+				A0DE2B4A202C9A50005A9E4D /* MBProgressHUD.h */,
+				A065EDB3202C50AF0084D788 /* ShareExtension.entitlements */,
+				A065EDAA202C50640084D788 /* Info.plist */,
+			);
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
+		A065EDB5202C52320084D788 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A065EDB6202C52320084D788 /* Config-debug.xcconfig */,
+				A065EDB7202C52320084D788 /* Config-release.xcconfig */,
+				A065EDB8202C52320084D788 /* Config.xcconfig */,
+				A065EDB9202C52320084D788 /* SharedConstants.h */,
+				A065EDBA202C52320084D788 /* SharedConstants.m */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D9315C981BB5DC190077D2EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1380,8 @@
 			isa = PBXGroup;
 			children = (
 				D99DEB701BABD1F300875194 /* Zom */,
+				A065EDB5202C52320084D788 /* Shared */,
+				A065EDA4202C50640084D788 /* ShareExtension */,
 				D99DEB6F1BABD1F300875194 /* Products */,
 				E6C4F2998CB86DBC0FDCD035 /* Frameworks */,
 				6927210B9065D98FE2546DF3 /* Pods */,
@@ -1317,6 +1393,7 @@
 			children = (
 				D99DEB6E1BABD1F300875194 /* Zom.app */,
 				D99DEBAF1BABD5DF00875194 /* OTRResources.bundle */,
+				A065EDA3202C50640084D788 /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1420,6 +1497,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A065EDA2202C50640084D788 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A065EDAE202C50640084D788 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				A065ED9F202C50640084D788 /* Sources */,
+				A065EDA0202C50640084D788 /* Frameworks */,
+				A065EDA1202C50640084D788 /* Resources */,
+				A0DE2B0C202C75C9005A9E4D /* [Carthage] Copy Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			productName = ShareExtension;
+			productReference = A065EDA3202C50640084D788 /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D99DEB6D1BABD1F300875194 /* Zom */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D99DEB831BABD1F300875194 /* Build configuration list for PBXNativeTarget "Zom" */;
@@ -1432,6 +1527,7 @@
 				9208301C1CD2943F00761E39 /* [CP] Embed Pods Frameworks */,
 				9206569C1D9C4C1F00EC7034 /* Embed Frameworks */,
 				9253AE0C1EFBAB8300100DFB /* [Carthage] Copy Frameworks */,
+				A065EDB1202C50640084D788 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1440,6 +1536,7 @@
 				920656A01D9C4D1E00EC7034 /* PBXTargetDependency */,
 				D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */,
 				9206569B1D9C4C1E00EC7034 /* PBXTargetDependency */,
+				A065EDAC202C50640084D788 /* PBXTargetDependency */,
 			);
 			name = Zom;
 			productName = Zom;
@@ -1469,15 +1566,27 @@
 		D99DEB641BABCEF700875194 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0910;
 				TargetAttributes = {
+					A065EDA2202C50640084D788 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 9SV9LPRC42;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 9SV9LPRC42;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.DataProtection = {
 								enabled = 1;
 							};
@@ -1552,6 +1661,7 @@
 			targets = (
 				D99DEB6D1BABD1F300875194 /* Zom */,
 				D99DEBAE1BABD5DF00875194 /* OTRResources */,
+				A065EDA2202C50640084D788 /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1889,6 +1999,17 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A065EDA1202C50640084D788 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A065EDBD202C52330084D788 /* Config.xcconfig in Resources */,
+				A065EDBC202C52330084D788 /* Config-release.xcconfig in Resources */,
+				A065EDBB202C52330084D788 /* Config-debug.xcconfig in Resources */,
+				A065EDA9202C50640084D788 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D99DEB6C1BABD1F300875194 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2102,6 +2223,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-resources.sh\"\n";
 		};
+		A0DE2B0C202C75C9005A9E4D /* [Carthage] Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
+			);
+			name = "[Carthage] Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		DA46D5D280F5A43DE216DD73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2123,10 +2259,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A065ED9F202C50640084D788 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0DE2B09202C5622005A9E4D /* ShareExtension-Bridging-Header.h in Sources */,
+				A0DE2B08202C55F9005A9E4D /* SharedConstants.h in Sources */,
+				A065EDBE202C52330084D788 /* SharedConstants.m in Sources */,
+				A065EDA6202C50640084D788 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D99DEB6A1BABD1F300875194 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DE2B0A202C6E50005A9E4D /* SharedConstants.m in Sources */,
 				92D6AE0F1CEDDF9E000090AB /* ZomShareController.swift in Sources */,
 				9278C3961BF36A59003AC533 /* ZomIntroViewController.swift in Sources */,
 				928C992F1C049D18009FF66A /* ZomPickLanguageViewController.swift in Sources */,
@@ -2212,6 +2360,11 @@
 			isa = PBXTargetDependency;
 			name = OTRAssets;
 			targetProxy = 9206569F1D9C4D1E00EC7034 /* PBXContainerItemProxy */;
+		};
+		A065EDAC202C50640084D788 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A065EDA2202C50640084D788 /* ShareExtension */;
+			targetProxy = A065EDAB202C50640084D788 /* PBXContainerItemProxy */;
 		};
 		D933EA3C1BB6170A00B5EE0F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2653,9 +2806,117 @@
 			name = Tabs.storyboard;
 			sourceTree = "<group>";
 		};
+		A065EDA7202C50640084D788 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A065EDA8202C50640084D788 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A065EDAF202C50640084D788 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A065EDB8202C52320084D788 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9SV9LPRC42;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"ZOM_APPLICATION_GROUP=$(ZOM_APPLICATION_GROUP)",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A065EDB0202C50640084D788 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A065EDB8202C52320084D788 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zom, Llc (9SV9LPRC42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ZOM_APPLICATION_GROUP=$(ZOM_APPLICATION_GROUP)",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "ShareExtension/ShareExtension-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D99DEB681BABCEF700875194 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2730,7 +2991,7 @@
 		};
 		D99DEB841BABD1F300875194 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A4C60759935205C548465BD /* Pods-ZomPods-Zom.debug.xcconfig */;
+			baseConfigurationReference = A065EDB6202C52320084D788 /* Config-debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2751,6 +3012,7 @@
 				CODE_SIGN_ENTITLEMENTS = Zom/Zom.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9SV9LPRC42;
@@ -2767,6 +3029,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"ZOM_APPLICATION_GROUP=$(ZOM_APPLICATION_GROUP)",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2796,7 +3059,7 @@
 		};
 		D99DEB851BABD1F300875194 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07BE2A4D88AB89627914021C /* Pods-ZomPods-Zom.release.xcconfig */;
+			baseConfigurationReference = A065EDB7202C52320084D788 /* Config-release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2817,6 +3080,7 @@
 				CODE_SIGN_ENTITLEMENTS = Zom/Zom.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zom, Llc (9SV9LPRC42)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9SV9LPRC42;
@@ -2829,6 +3093,10 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"ZOM_APPLICATION_GROUP=$(ZOM_APPLICATION_GROUP)",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2954,6 +3222,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A065EDAE202C50640084D788 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A065EDAF202C50640084D788 /* Debug */,
+				A065EDB0202C50640084D788 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D99DEB671BABCEF700875194 /* Build configuration list for PBXProject "Zom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
