@@ -335,24 +335,24 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRd-V8-XnP">
-                                            <rect key="frame" x="16" y="130" width="343" height="83"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRd-V8-XnP">
+                                            <rect key="frame" x="16" y="130" width="343" height="148"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvM-ZY-O8g">
-                                            <rect key="frame" x="16" y="223" width="343" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvM-ZY-O8g">
+                                            <rect key="frame" x="16" y="288" width="343" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj7-rE-iED">
-                                            <rect key="frame" x="46" y="251" width="283" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj7-rE-iED">
+                                            <rect key="frame" x="329" y="130" width="20" height="40"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="mjD-ww-acR"/>
+                                                <constraint firstAttribute="height" constant="40" id="mjD-ww-acR"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <state key="normal" image="ic_chat_bubble"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="18"/>
@@ -363,16 +363,15 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="pj7-rE-iED" firstAttribute="top" secondItem="uvM-ZY-O8g" secondAttribute="bottom" constant="10" id="7d7-Hq-Y2a"/>
-                                        <constraint firstItem="pj7-rE-iED" firstAttribute="centerX" secondItem="87t-aa-EDb" secondAttribute="centerX" id="C3g-ZT-Ufy"/>
+                                        <constraint firstAttribute="bottom" secondItem="uvM-ZY-O8g" secondAttribute="bottom" constant="10" id="4Y5-AL-imE"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="uvM-ZY-O8g" secondAttribute="trailing" id="Il2-x0-3ty"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PRd-V8-XnP" secondAttribute="trailing" id="J21-nL-sDm"/>
                                         <constraint firstItem="uvM-ZY-O8g" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" id="RD9-hp-Jfq"/>
-                                        <constraint firstItem="pj7-rE-iED" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" constant="30" id="TpG-wA-ugy"/>
+                                        <constraint firstItem="pj7-rE-iED" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="top" id="V7H-89-tGK"/>
                                         <constraint firstAttribute="trailing" secondItem="8bH-35-E93" secondAttribute="trailing" constant="10" id="Vx0-BL-j7V"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="pj7-rE-iED" secondAttribute="bottom" constant="10" id="aPj-V6-0rB"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pj7-rE-iED" secondAttribute="trailing" constant="30" id="fv1-lO-gub"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pj7-rE-iED" secondAttribute="trailing" constant="10" id="fv1-lO-gub"/>
                                         <constraint firstItem="PRd-V8-XnP" firstAttribute="top" secondItem="8bH-35-E93" secondAttribute="bottom" constant="20" id="iIs-kC-fB5"/>
                                         <constraint firstItem="uvM-ZY-O8g" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="bottom" constant="10" id="mO6-dU-nos"/>
                                         <constraint firstItem="PRd-V8-XnP" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" id="o4M-eG-v6x"/>
@@ -380,6 +379,7 @@
                                         <constraint firstItem="8bH-35-E93" firstAttribute="top" secondItem="87t-aa-EDb" secondAttribute="top" constant="10" id="vxh-zM-v3w"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="botImageView" destination="8bH-35-E93" id="HEZ-sQ-Ezs"/>
                                     <outlet property="descriptionLabel" destination="uvM-ZY-O8g" id="8ek-4p-m7U"/>
@@ -629,6 +629,7 @@
     </scenes>
     <resources>
         <image name="PitchInvite" width="776" height="482"/>
+        <image name="ic_chat_bubble" width="20" height="20"/>
         <image name="ic_explore_white" width="24" height="24"/>
         <image name="ic_face_white" width="24" height="24"/>
         <image name="ic_group_add_white" width="108" height="108"/>

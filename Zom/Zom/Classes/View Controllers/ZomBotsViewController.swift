@@ -13,6 +13,7 @@ fileprivate struct ZomBot {
     let jid:String
     let description:String
     let image:UIImage?
+    let avatar:Data?
     
     static var allBots:[ZomBot] = {
         // Parse the plist to get all bots!
@@ -34,7 +35,12 @@ fileprivate struct ZomBot {
                         let dataDecoded : Data = Data(base64Encoded: imageStringEncoded, options: .ignoreUnknownCharacters)!
                         image = UIImage(data: dataDecoded)
                     }
-                    let zomBot = ZomBot(name: name ?? "", jid: jid ?? "", description: description ?? "", image: image)
+                    
+                    var avatar:Data? = nil
+                    if let avatarStringEncoded = bot["avatar"] as? String {
+                        avatar = Data(base64Encoded: avatarStringEncoded, options: .ignoreUnknownCharacters)!
+                    }
+                    let zomBot = ZomBot(name: name ?? "", jid: jid ?? "", description: description ?? "", image: image, avatar: avatar)
                     bots.append(zomBot)
                 }
             }
@@ -60,8 +66,8 @@ open class ZomBotsViewController: UITableViewController {
             cell.botImageView.image = bot.image
             cell.titleLabel.text = bot.name
             cell.descriptionLabel.text = bot.description
-            let title = String(format: NSLocalizedString("Chat with %@", comment:"Button label for starting chat with ZomBot"), bot.name)
-            cell.startChatButton.setTitle(title, for: .normal)
+            //let title = String(format: NSLocalizedString("Chat with %@", comment:"Button label for starting chat with ZomBot"), bot.name)
+            //cell.startChatButton.setTitle(title, for: .normal)
             
             // Use tag to store index, used in didPressStartChatButton below
             cell.startChatButton.tag = indexPath.row
@@ -95,6 +101,7 @@ open class ZomBotsViewController: UITableViewController {
                             newBuddy.accountUniqueId = account.uniqueId
                             // hack to show buddy in conversations view
                             newBuddy.lastMessageId = ""
+                            newBuddy.avatarData = bot.avatar
                             newBuddy.save(with: transaction)
                             
                             if let proto = OTRProtocolManager.sharedInstance().protocol(for: account) {
