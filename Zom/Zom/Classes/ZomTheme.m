@@ -82,6 +82,9 @@
     [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setBarTintColor:photosBarColor];
     [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setBackgroundColor:photosBarColor];
 
+    // Zom bot view
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[ZomBotsViewController.class]] setBackgroundColor:self.mainThemeColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[ZomBotsViewController.class]] setTintColor:[UIColor whiteColor]];
     
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = self.mainThemeColor;

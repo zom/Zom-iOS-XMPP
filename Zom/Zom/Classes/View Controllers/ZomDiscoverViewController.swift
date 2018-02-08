@@ -25,11 +25,7 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
     }
     
     @IBAction func didPressZomServicesButtonWithSender(_ sender: AnyObject) {
-        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
-            if let buddy = getZombotBuddy() {
-                appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
-            }
-        }
+        self.performSegue(withIdentifier: "segueToZomBots", sender: self)
     }
     
     @IBAction func didPressCreateGroupButtonWithSender(_ sender: AnyObject) {
@@ -67,36 +63,6 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
                 self.tabBarController?.tabBar.barTintColor = appDelegate.theme.mainThemeColor
             }
         }
-    }
-    
-    fileprivate func getZombotBuddy() -> OTRBuddy? {
-        var buddy:OTRBuddy? = nil
-        let botUser = "zombot@home.zom.im"
-        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate, let botJid = XMPPJID(string: botUser) {
-            if let account:OTRAccount = appDelegate.getDefaultAccount() {
-                OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWrite { (transaction) in
-                    buddy = OTRXMPPBuddy.fetchBuddy(jid: botJid, accountUniqueId: account.uniqueId, transaction: transaction)
-                    if (buddy == nil) {
-                        if let newBuddy = OTRXMPPBuddy() {
-                            newBuddy.username = botUser
-                            newBuddy.accountUniqueId = account.uniqueId
-                            // hack to show buddy in conversations view
-                            //buddy!.lastMessageDate = NSDate()
-                            //buddy!.setDisplayName("ZomBot")
-                            //(buddy as! OTRXMPPBuddy).pendingApproval = false
-                            newBuddy.save(with: transaction)
-                            
-                            if let proto = OTRProtocolManager.sharedInstance().protocol(for: account) {
-                                proto.add(newBuddy)
-                            }
-                            buddy = newBuddy
-                        }
-                        
-                    }
-                }
-            }
-        }
-        return buddy;
     }
     
     @IBAction func unwindPickSticker(_ unwindSegue: UIStoryboardSegue) {
