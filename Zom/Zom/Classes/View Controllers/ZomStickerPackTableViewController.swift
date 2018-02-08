@@ -21,7 +21,10 @@ open class ZomStickerPackTableViewController: UIPageViewController, UIPageViewCo
         let docsPath = Bundle.main.resourcePath! + "/Stickers"
         let fileManager = FileManager.default
         do {
-            stickerPacks = try fileManager.contentsOfDirectory(atPath: docsPath)
+            // Sticker packs are sorted by a three character prefix of the file folders, like 00 losar
+            stickerPacks = try fileManager.contentsOfDirectory(atPath: docsPath).sorted { (s1, s2) -> Bool in
+                return s1.compare(s2) != .orderedDescending
+            }
         } catch {
             print(error)
         }
@@ -29,7 +32,9 @@ open class ZomStickerPackTableViewController: UIPageViewController, UIPageViewCo
         // Create view controllers
         for stickerPack in stickerPacks {
             let vc:ZomPickStickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "pickStickerViewController") as! ZomPickStickerViewController
-            vc.stickerPack = stickerPack
+            vc.stickerPackFileName = stickerPack
+            // Remove prefix
+            vc.stickerPack = String(stickerPack[stickerPack.index(stickerPack.startIndex, offsetBy: 3)...])
             orderedViewControllers.append(vc)
         }
         dataSource = self

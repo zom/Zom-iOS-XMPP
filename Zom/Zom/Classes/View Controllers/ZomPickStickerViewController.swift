@@ -15,6 +15,7 @@ public protocol ZomPickStickerViewControllerDelegate {
 
 open class ZomPickStickerViewController: UICollectionViewController {
     
+    open var stickerPackFileName: String = ""
     open var stickerPack: String = ""
     private var stickers: [String] = []
     private var stickerPaths: [String] = []
@@ -25,13 +26,16 @@ open class ZomPickStickerViewController: UICollectionViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        let docsPath = Bundle.main.resourcePath! + "/Stickers/" + stickerPack
+        let docsPath = Bundle.main.resourcePath! + "/Stickers/" + stickerPackFileName
         let fileManager = FileManager.default
         do {
             let stickerFiles = try fileManager.contentsOfDirectory(atPath: docsPath)
             for item in stickerFiles {
-                stickers.append((item as NSString).deletingPathExtension)
-                stickerPaths.append(docsPath + "/" + item)
+                // Hide "old" stickers with an starting "_"
+                if !item.hasPrefix("_") {
+                    stickers.append((item as NSString).deletingPathExtension)
+                    stickerPaths.append(docsPath + "/" + item)
+                }
             }
         } catch {
             print(error)

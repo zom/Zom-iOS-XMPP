@@ -58,8 +58,8 @@ open class ZomStickerMessage: NSObject, JSQMessageData {
         let components = stickerDescription.components(separatedBy: "-")
         if (components.count == 2) {
             let regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9_& ]+", options: [])
-            let messagePack = regex.stringByReplacingMatches(in: components[0], options: [], range: NSMakeRange(0, components[0].characters.count), withTemplate: "")
-            let messageSticker = regex.stringByReplacingMatches(in: components[1], options: [], range: NSMakeRange(0, components[1].characters.count), withTemplate: "")
+            let messagePack = regex.stringByReplacingMatches(in: components[0], options: [], range: NSMakeRange(0, components[0].count), withTemplate: "")
+            let messageSticker = regex.stringByReplacingMatches(in: components[1], options: [], range: NSMakeRange(0, components[1].count), withTemplate: "")
             return getFilenameForSticker(messageSticker, inPack: messagePack)
         }
         return nil
@@ -76,12 +76,17 @@ open class ZomStickerMessage: NSObject, JSQMessageData {
         do {
             let stickerPacks = try fileManager.contentsOfDirectory(atPath: docsPath)
             for stickerPack in stickerPacks {
-                if (stickerPack.caseInsensitiveCompare(pack) == ComparisonResult.orderedSame) {
+                let stickerPackName = String(stickerPack[stickerPack.index(stickerPack.startIndex, offsetBy: 3)...])
+                if (stickerPackName.caseInsensitiveCompare(pack) == ComparisonResult.orderedSame) {
                     foundPack = stickerPack
                     
                     let stickers = try fileManager.contentsOfDirectory(atPath: docsPath + "/" + foundPack!)
                     for s in stickers {
-                        if (s.caseInsensitiveCompare(sticker + ".png") == ComparisonResult.orderedSame) {
+                        var sName = s
+                        if s.hasPrefix("_") {
+                            sName = String(s[s.index(s.startIndex, offsetBy: 1)...])
+                        }
+                        if (sName.caseInsensitiveCompare(sticker + ".png") == ComparisonResult.orderedSame) {
                             foundSticker = s
                             break
                         }
