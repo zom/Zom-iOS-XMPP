@@ -102,6 +102,23 @@ open class ZomConversationViewController: OTRConversationViewController {
 
     override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
         super.updateInboxArchiveFilteringAndShowArchived(showArchived)
+        OTRDatabaseManager.shared.readWriteDatabaseConnection?.asyncReadWrite({ (transaction) in
+            if let fvt = transaction.ext(OTRArchiveFilteredConversationsName) as? YapDatabaseFilteredViewTransaction {
+                let filtering = YapDatabaseViewFiltering.withObjectBlock({ (transaction, group, collection, key, object) -> Bool in
+                    if let threadOwner = object as? OTRThreadOwner {
+                        if showArchived {
+                            return threadOwner.isArchived
+                        } else if let buddy = threadOwner as? OTRXMPPBuddy, buddy.askingForApproval {
+                            return false // Remove approval requests from this view
+                        } else {
+                            return !threadOwner.isArchived
+                        }
+                    }
+                    return !showArchived
+                })
+                fvt.setFiltering(filtering, versionTag: UUID().uuidString)
+            }
+        })
         self.view.setNeedsLayout()
     }
     
