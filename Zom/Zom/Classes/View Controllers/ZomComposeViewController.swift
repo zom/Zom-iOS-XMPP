@@ -12,6 +12,8 @@ import ChatSecureCore
 open class ZomComposeViewController: OTRComposeViewController {
 
     typealias ObjcYapDatabaseViewSortingWithObjectBlock = @convention(block) (YapDatabaseReadTransaction, String, String, String, Any, String, String, Any) -> ComparisonResult
+    typealias ObjcYapDatabaseViewGroupingWithObjectBlock = @convention(block)
+        (YapDatabaseReadTransaction, String, String, Any) -> String?
     
     static var extensionName:String = "Zom" + OTRAllBuddiesDatabaseViewExtensionName
     static var filteredExtensionName:String = "Zom" + OTRArchiveFilteredBuddiesName
@@ -25,6 +27,9 @@ open class ZomComposeViewController: OTRComposeViewController {
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(OTRBuddyApprovalCell.self, forCellReuseIdentifier: OTRBuddyApprovalCell.reuseIdentifier())
+        
         if (ZomComposeViewController.openInGroupMode) {
             ZomComposeViewController.openInGroupMode = false
             self.wasOpenedInGroupMode = true
@@ -97,6 +102,13 @@ open class ZomComposeViewController: OTRComposeViewController {
         if OTRDatabaseManager.shared.database?.registeredExtension(ZomComposeViewController.extensionName) == nil {
             if let originalView:YapDatabaseAutoView = OTRDatabaseManager.sharedInstance().database?.registeredExtension(OTRAllBuddiesDatabaseViewExtensionName) as? YapDatabaseAutoView {
                 let sorting = YapDatabaseViewSorting.withObjectBlock({ (transaction, group, collection1, group1, object1, collection2, group2, object2) -> ComparisonResult in
+                    let askingApproval1 = (object1 as? OTRXMPPBuddy)?.askingForApproval ?? false
+                    let askingApproval2 = (object2 as? OTRXMPPBuddy)?.askingForApproval ?? false
+                    if (askingApproval1 && !askingApproval2) {
+                        return .orderedAscending
+                    } else if (!askingApproval1 && askingApproval2) {
+                        return .orderedDescending
+                    }
                     let pendingApproval1 = (object1 as? OTRXMPPBuddy)?.pendingApproval ?? false
                     let pendingApproval2 = (object2 as? OTRXMPPBuddy)?.pendingApproval ?? false
                     if (pendingApproval1 && !pendingApproval2) {
@@ -113,9 +125,19 @@ open class ZomComposeViewController: OTRComposeViewController {
                     let originalBlock = unsafeBitCast(blockObject, to: ObjcYapDatabaseViewSortingWithObjectBlock.self)
                     return originalBlock(transaction, group, collection1, group1, object1, collection2, group2, object2)
                 })
+                let grouping = YapDatabaseViewGrouping.withObjectBlock({ (transaction, collection, key, object) -> String? in
+                    let blockObject:AnyObject = originalView.grouping.block as AnyObject
+                    let originalBlock = unsafeBitCast(blockObject, to: ObjcYapDatabaseViewGroupingWithObjectBlock.self)
+                    var group = originalBlock(transaction, collection, key, object)
+                    if group == nil, let buddy = object as? OTRXMPPBuddy, buddy.askingForApproval {
+                        group = OTRBuddyGroup
+                    }
+                    return group
+                })
+                
                 let options = YapDatabaseViewOptions()
                 options.isPersistent = false
-                let newView = YapDatabaseAutoView(grouping: originalView.grouping, sorting: sorting, versionTag: NSUUID().uuidString, options: options)
+                let newView = YapDatabaseAutoView(grouping: grouping, sorting: sorting, versionTag: NSUUID().uuidString, options: options)
                 OTRDatabaseManager.sharedInstance().database?.register(newView, withName: ZomComposeViewController.extensionName)
             }
         }
@@ -137,6 +159,27 @@ open class ZomComposeViewController: OTRComposeViewController {
             viewHandler.delegate = self as? OTRYapViewHandlerDelegateProtocol
             viewHandler.setup(ZomComposeViewController.filteredExtensionName, groups: [OTRBuddyGroup])
         }
+    }
+
+    open override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let threadOwner = super.threadOwner(at: indexPath, with: tableView) as? OTRXMPPBuddy, threadOwner.askingForApproval {
+            let cell = tableView.dequeueReusableCell(withIdentifier: OTRBuddyApprovalCell.reuseIdentifier(), for: indexPath)
+            if let cell = cell as? OTRBuddyApprovalCell {
+                cell.actionBlock = { (cell:OTRBuddyApprovalCell?, approved:Bool) -> Void in
+                    //TODO Fixme: quick hack to get going
+                    if let tabController = self.tabBarController as? ZomMainTabbedViewController {
+                        if let conversationController = tabController.viewControllers?[0] as? OTRConversationViewController {
+                            conversationController.handleSubscriptionRequest(threadOwner, approved: approved)
+                        }
+                    }
+                }
+                cell.selectionStyle = .none
+                cell.avatarImageView.layer.cornerRadius = (80.0-2.0*OTRBuddyImageCellPadding)/2.0
+                cell.setThread(threadOwner)
+            }
+            return cell
+        }
+        return super.tableView(tableView, cellForRowAt: indexPath)
     }
     
     open override func addBuddy(_ accountsAbleToAddBuddies: [OTRAccount]?) {

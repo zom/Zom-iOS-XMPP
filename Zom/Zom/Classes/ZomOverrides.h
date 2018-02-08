@@ -25,6 +25,8 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void) groupButtonPressed:(id _Nullable)sender;
 - (void) groupSelectionCancelled:(OTRComposeGroupViewController * _Nullable)composeViewController;
 - (void) didSetupMappings:(OTRYapViewHandler * _Nonnull)handler;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (id<OTRThreadOwner> _Nullable)threadOwnerAtIndexPath:(NSIndexPath * _Nonnull)indexPath withTableView:(UITableView * _Nonnull)tableView;
 @end
 
 @interface OTRNewBuddyViewController (ZomOverride)
@@ -66,6 +68,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
 @property (nonatomic, strong) MigrationInfoHeaderView * _Nullable migrationInfoHeaderView;
 @property (nonatomic, strong) UISegmentedControl * _Nonnull inboxArchiveControl;
+- (void) handleSubscriptionRequest:(OTRXMPPBuddy*)buddy approved:(BOOL)approved;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)
