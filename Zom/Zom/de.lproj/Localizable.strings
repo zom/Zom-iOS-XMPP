@@ -95,3 +95,24 @@
 /* Scan QR Code */
 "Scan" = "Scannen";
 
+/* default string to revert to normal language behaviour */
+"Default" = "Standard";
+
+/* Shown to confirm destructive actions */
+"Are you sure?" = "Bist du sicher?";
+
+/* Title for button to press when user is finished */
+"Done" = "Fertig";
+
+/* This will be shown after your own JID in the group profile view */
+"you" = "du";
+
+/* Option to leave a group chat */
+"Leave" = "Verlassen";
+
+/* Message for leave group prompt */
+"Your group chat history will be wiped away. To keep these chats, archive the group instead." = "Dein Gruppenchatverlauf wird gelöscht. Um diese Chats beizubehalten, archiviere stattdessen die Gruppe.";
+
+/* Label for notifications switch */
+"Notifications" = "Benachrichtigungen";
+

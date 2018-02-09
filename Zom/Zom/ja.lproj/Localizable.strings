@@ -111,3 +111,12 @@
 /* Scan QR Code */
 "Scan" = "スキャン";
 
+/* Shown to confirm destructive actions */
+"Are you sure?" = "よろしいですか?";
+
+/* Message for leave group prompt */
+"Your group chat history will be wiped away. To keep these chats, archive the group instead." = "グループチャットの履歴は消去されます。これらのチャットを残すには、代わりにグループをアーカイブしてください。";
+
+/* Label for notifications switch */
+"Notifications" = "通知";
+

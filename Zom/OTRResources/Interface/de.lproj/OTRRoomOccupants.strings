@@ -19,3 +19,9 @@
 /* Class = "UILabel"; text = "Share"; ObjectID = "wIX-Dc-EQX"; */
 "wIX-Dc-EQX.text" = "Teilen";
 
+/* Class = "UILabel"; text = "Leave"; ObjectID = "Q9m-UX-pKh"; */
+"Q9m-UX-pKh.text" = "Verlassen";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "lPI-TB-wHg"; */
+"lPI-TB-wHg.text" = "Benachrichtigungen";
+

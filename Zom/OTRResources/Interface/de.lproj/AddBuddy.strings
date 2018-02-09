@@ -5,7 +5,7 @@
 "AqM-V0-Y5G.text" = "EINLADUNG ERHALTEN?";
 
 /* Class = "UILabel"; text = "Enter your friend's full username (ie. zomisfun.4x3f5g@zom.im) here:"; ObjectID = "K32-OO-iFS"; */
-"K32-OO-iFS.text" = "Gebe den vollen Benutzernamen von deinem Kontakt hier ein (z.B. zomisfun.4x3f5g@zom.im):";
+"K32-OO-iFS.text" = "Geben Sie den vollständigen Nutzernamen Ihres Freundes (zB. Zomisfun.4x3f5g@zom.im) hier ein:";
 
 /* Class = "UILabel"; text = "Advanced"; ObjectID = "OfJ-vA-D7O"; */
 "OfJ-vA-D7O.text" = "erweitert";

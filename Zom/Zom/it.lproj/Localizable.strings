@@ -96,3 +96,15 @@
 /* Scan QR Code */
 "Scan" = "Scansiona";
 
+/* Shown to confirm destructive actions */
+"Are you sure?" = "Sei sicuro?";
+
+/* This will be shown after your own JID in the group profile view */
+"you" = "tu";
+
+/* Message for leave group prompt */
+"Your group chat history will be wiped away. To keep these chats, archive the group instead." = "La cronologia della chat di gruppo verrà eliminata. Per conservare queste chat, dovresti archiviare il gruppo.";
+
+/* Label for notifications switch */
+"Notifications" = "Notifiche";
+

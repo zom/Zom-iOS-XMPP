@@ -111,3 +111,15 @@
 /* Scan QR Code */
 "Scan" = "Scannen";
 
+/* Shown to confirm destructive actions */
+"Are you sure?" = "Weet je het zeker?";
+
+/* Label for button to resend message. */
+"Resend" = "Opnieuw verzenden";
+
+/* Message for leave group prompt */
+"Your group chat history will be wiped away. To keep these chats, archive the group instead." = "Je groepsgespreksgeschiedenis zal gewist worden. Archiveer de groep om de gespreksgeschiedenis te behouden.";
+
+/* Label for notifications switch */
+"Notifications" = "Meldingen";
+

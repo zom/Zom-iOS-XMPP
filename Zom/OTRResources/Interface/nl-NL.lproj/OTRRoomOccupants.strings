@@ -31,3 +31,6 @@
 /* Class = "UILabel"; text = "Share"; ObjectID = "wIX-Dc-EQX"; */
 "wIX-Dc-EQX.text" = "Delen";
 
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "lPI-TB-wHg"; */
+"lPI-TB-wHg.text" = "Meldingen";
+

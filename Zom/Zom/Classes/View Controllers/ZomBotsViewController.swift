@@ -70,8 +70,6 @@ open class ZomBotsViewController: UITableViewController {
             cell.botImageView.image = bot.image
             cell.titleLabel.text = bot.name
             cell.descriptionLabel.text = bot.description
-            //let title = String(format: NSLocalizedString("Chat with %@", comment:"Button label for starting chat with ZomBot"), bot.name)
-            //cell.startChatButton.setTitle(title, for: .normal)
             
             // Use tag to store index, used in didPressStartChatButton below
             cell.startChatButton.tag = indexPath.row

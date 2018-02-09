@@ -114,3 +114,6 @@
 /* Share invite via SMS */
 "SMS" = "短信";
 
+/* This will be shown after your own JID in the group profile view */
+"you" = "你";
+

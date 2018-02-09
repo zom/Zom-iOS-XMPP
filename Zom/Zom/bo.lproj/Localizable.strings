@@ -117,3 +117,9 @@
 /* Share invite via SMS */
 "SMS" = "འཕྲིན་ཐུང་།";
 
+/* This will be shown after your own JID in the group profile view */
+"you" = "ཁྱེད་རང་།";
+
+/* Label for notifications switch */
+"Notifications" = "བརྡ་ཁྱབ།";
+

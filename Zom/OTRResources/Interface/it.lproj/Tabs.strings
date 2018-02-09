@@ -37,3 +37,6 @@
 /* Class = "UILabel"; text = "We need to upgrade your Zom account to a new server. We can automatically upgrade you to provide the best performance. If you are an advanced user, you can also choose your own server."; ObjectID = "ifp-gM-dKk"; */
 "ifp-gM-dKk.text" = "Dobbiamo aggiornare il tuo account Zom su un server nuovo. Possiamo aggiornarlo automaticamente per offrire le massime prestazioni. Se sei un utente esperto, puoi anche scegliere un server proprio.";
 
+/* Class = "UITableViewController"; title = "Zom Services"; ObjectID = "30x-cP-fK3"; */
+"30x-cP-fK3.title" = "Servizi Zom";
+

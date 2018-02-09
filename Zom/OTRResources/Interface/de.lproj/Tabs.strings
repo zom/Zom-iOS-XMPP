@@ -20,7 +20,7 @@
 "iZ8-ah-hqP.normalTitle" = "Sticker teilen";
 
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "mMW-ze-V2Y"; */
-"mMW-ze-V2Y.title" = "Entdecke";
+"mMW-ze-V2Y.title" = "Entdecken";
 
 /* Class = "UITabBarItem"; title = "Me"; ObjectID = "pL4-Qt-LL4"; */
 "pL4-Qt-LL4.title" = "Ich";
@@ -36,4 +36,7 @@
 
 /* Class = "UILabel"; text = "We need to upgrade your Zom account to a new server. We can automatically upgrade you to provide the best performance. If you are an advanced user, you can also choose your own server."; ObjectID = "ifp-gM-dKk"; */
 "ifp-gM-dKk.text" = "Wir müssen ihren Zom Account auf einen neuen Server übertragen. Wir können dich automatisch übertragen um die beste Performance zu ermöglichen. Du kannst auch einen anderen Server aausswählen (Nur empfohlene für erfahrenere Benutzer).";
+
+/* Class = "UITableViewController"; title = "Zom Services"; ObjectID = "30x-cP-fK3"; */
+"30x-cP-fK3.title" = "Zom Dienst";
 
