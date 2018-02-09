@@ -55,11 +55,12 @@ open class ZomStickerMessage: NSObject, JSQMessageData {
     
     fileprivate static func getStickerFilenameFromMessage(_ message:String!) -> String? {
         let stickerDescription = message.trimmingCharacters(in: CharacterSet(charactersIn: ":"))
-        let components = stickerDescription.components(separatedBy: "-")
-        if (components.count == 2) {
-            let regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9_& ]+", options: [])
-            let messagePack = regex.stringByReplacingMatches(in: components[0], options: [], range: NSMakeRange(0, components[0].count), withTemplate: "")
-            let messageSticker = regex.stringByReplacingMatches(in: components[1], options: [], range: NSMakeRange(0, components[1].count), withTemplate: "")
+        if let firstDash = stickerDescription.index(of: "-") {
+            let packPart = String(stickerDescription[..<firstDash])
+            let stickerPart = String(stickerDescription[stickerDescription.index(firstDash, offsetBy: 1)...])
+            let regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9_& -]+", options: [])
+            let messagePack = regex.stringByReplacingMatches(in: packPart, options: [], range: NSMakeRange(0, packPart.count), withTemplate: "")
+            let messageSticker = regex.stringByReplacingMatches(in: stickerPart, options: [], range: NSMakeRange(0, stickerPart.count), withTemplate: "")
             return getFilenameForSticker(messageSticker, inPack: messagePack)
         }
         return nil
