@@ -266,8 +266,10 @@ open class ZomProfileViewController : UIViewController {
     
     let tableView = UITableView(frame: CGRect.zero, style: .grouped)
     fileprivate var tableViewSource:ZomProfileTableViewSource? = nil
+    fileprivate var tableViewNoAccountSource:ZomNoAccountTableViewSource? = nil
     var profileObserver:ZomProfileViewObserver? = nil
     var passwordChangeDelegate:PasswordChangeTextFieldDelegate? = nil
+    
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -459,5 +461,33 @@ extension ZomProfileViewController: OTRAttachmentPickerDelegate {
 extension ZomProfileViewController: ZomProfileViewObserverDelegate {
     func didUpdateTableSections(observer: ZomProfileViewObserver) {
         self.updateTableView()
+    }
+    
+    func didRemoveTableSections(observer: ZomProfileViewObserver) {
+        self.tableViewNoAccountSource = ZomNoAccountTableViewSource()
+        self.tableView.dataSource = tableViewNoAccountSource
+        self.tableView.delegate = tableViewNoAccountSource
+        self.tableView.reloadData()
+    }
+}
+
+fileprivate class ZomNoAccountTableViewSource: NSObject, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = NEW_ACCOUNT_STRING()
+        cell.imageView?.image = UIImage(named: "31-circle-plus-large.png", in: OTRAssets.resourcesBundle, compatibleWith: nil)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let app = ZomAppDelegate.appDelegate
+        app.conversationViewController.hasPresentedOnboarding = false
+        app.conversationViewController.showOnboardingIfNeeded()
+        app.conversationViewController.hasPresentedOnboarding = true
     }
 }

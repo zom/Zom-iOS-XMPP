@@ -54,6 +54,7 @@ struct ZomOTRKitInfo {
 
 protocol ZomProfileViewObserverDelegate:class {
     func didUpdateTableSections(observer:ZomProfileViewObserver) -> Void
+    func didRemoveTableSections(observer:ZomProfileViewObserver) -> Void
 }
 
 class ZomProfileViewObserver: NSObject {
@@ -110,6 +111,9 @@ class ZomProfileViewObserver: NSObject {
         }
         
         guard let user = usr else {
+            // Removed all accounts?
+            self.tableSections = nil
+            self.delegate?.didRemoveTableSections(observer: self)
             return
         }
         

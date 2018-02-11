@@ -61,6 +61,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 @end
 
 @interface OTRConversationViewController (ZomOverride)
+@property (nonatomic) BOOL hasPresentedOnboarding;
 - (void) showOnboardingIfNeeded;
 - (void)settingsButtonPressed:(id _Nullable)sender;
 - (void)composeButtonPressed:(id _Nullable)sender;
