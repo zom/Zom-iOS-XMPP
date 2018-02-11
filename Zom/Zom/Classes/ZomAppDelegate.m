@@ -22,10 +22,6 @@
 - (void) showSubscriptionRequestForBuddy:(NSDictionary*)userInfo;
 @end
 
-@interface OTRConversationViewController (Zom)
-- (void) showOnboardingIfNeeded;
-@end
-
 @implementation ZomAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

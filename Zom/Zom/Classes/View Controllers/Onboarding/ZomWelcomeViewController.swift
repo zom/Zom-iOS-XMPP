@@ -52,14 +52,10 @@ open class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguageVi
 
     open func dismissViewController(_ wasSaved: Bool) {
         if (wasSaved) {
-            let sb = UIStoryboard(name: "Onboarding", bundle: OTRAssets.resourcesBundle)
-            // Recreate the storyboard with the new language
-            let vc:UINavigationController = sb.instantiateInitialViewController() as! UINavigationController
-            vc.modalPresentationStyle = UIModalPresentationStyle.formSheet;
-            let presenting = self.navigationController!.presentingViewController
-            self.navigationController?.dismiss(animated: false, completion: nil)
-            presenting?.present(vc, animated: true, completion: nil)
-            vc.viewControllers.first!.performSegue(withIdentifier: "introSegue", sender: self)
+            self.navigationController?.dismiss(animated: false, completion: {
+                let app = ZomAppDelegate.appDelegate
+                app.conversationViewController.showOnboardingIfNeeded()
+            })
         } else {
             _ = self.navigationController?.popViewController(animated: true)
         }
