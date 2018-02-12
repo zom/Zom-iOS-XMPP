@@ -23,8 +23,8 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
     private var preparingView:UIView?
     private var pendingApprovalView:UIView?
-    private var singleCheckIcon:UIImage?
-    private var doubleCheckIcon:UIImage?
+    private var singleCheckIcon:UIImage? = UIImage(named: "ic_sent_grey")
+    private var doubleCheckIcon:UIImage? = UIImage(named: "ic_delivered_grey")
     private var shieldIcon:UIImage?
     
     // These are for swiping through all images in the thread
@@ -229,22 +229,20 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     override open func deliveryStatusString(forMessage message: OTRMessageProtocol) -> NSAttributedString? {
         let result = super.deliveryStatusString(forMessage: message)
         if let result = result {
-            if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FAClockO)) {
-                if self.singleCheckIcon == nil {
-                    self.singleCheckIcon = UIImage.init(named: "ic_sent_grey")
-                }
-                if let image = self.singleCheckIcon {
-                    let attachment = self.textAttachment(image: image, fontSize: 12)
+            if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FACheck)) {
+                if let doubleCheck = self.doubleCheckIcon {
+                    let attachment = self.textAttachment(image: doubleCheck, fontSize: 12)
                     return NSAttributedString(attachment: attachment)
                 }
-            } else if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FACheck)) {
-                if self.doubleCheckIcon == nil {
-                    self.doubleCheckIcon = UIImage.init(named: "ic_delivered_grey")
-                }
-                if let image = self.doubleCheckIcon {
-                    let attachment = self.textAttachment(image: image, fontSize: 12)
-                    return NSAttributedString(attachment: attachment)
-                }
+            }
+        }
+        // Upstream does not show single checks for send items, but we do.
+        if result == nil,
+            !message.isMessageIncoming,
+            message.isMessageSent {
+            if let singleCheck = self.singleCheckIcon {
+                let attachment = self.textAttachment(image: singleCheck, fontSize: 12)
+                return NSAttributedString(attachment: attachment)
             }
         }
         return result
