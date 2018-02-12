@@ -53,7 +53,7 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
     }
     
     override open func viewOccupantInfo(_ occupant: OTRXMPPRoomOccupant) {
-        guard let realJidString = occupant.realJID, let realJid = XMPPJID(string: realJidString), let room = self.room, let accountUniqueId = room.accountUniqueId else { return }
+        guard let realJid = occupant.realJID, let room = self.room, let accountUniqueId = room.accountUniqueId else { return }
         var _account: OTRAccount? = nil
         var _buddy: OTRBuddy? = nil
         OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
