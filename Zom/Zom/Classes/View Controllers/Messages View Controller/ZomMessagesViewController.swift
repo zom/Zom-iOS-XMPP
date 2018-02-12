@@ -25,6 +25,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var pendingApprovalView:UIView?
     private var singleCheckIcon:UIImage? = UIImage(named: "ic_sent_grey")
     private var doubleCheckIcon:UIImage? = UIImage(named: "ic_delivered_grey")
+    private var clockIcon:UIImage? = UIImage(named: "ic_message_wait_grey")
     private var shieldIcon:UIImage?
     
     // These are for swiping through all images in the thread
@@ -229,7 +230,12 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     override open func deliveryStatusString(forMessage message: OTRMessageProtocol) -> NSAttributedString? {
         let result = super.deliveryStatusString(forMessage: message)
         if let result = result {
-            if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FACheck)) {
+            if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FAClockO)) {
+                if let clock = self.clockIcon {
+                    let attachment = self.textAttachment(image: clock, fontSize: 12)
+                    return NSAttributedString(attachment: attachment)
+                }
+            } else if result.string.starts(with: NSString.fa_string(forFontAwesomeIcon: .FACheck)) {
                 if let doubleCheck = self.doubleCheckIcon {
                     let attachment = self.textAttachment(image: doubleCheck, fontSize: 12)
                     return NSAttributedString(attachment: attachment)
