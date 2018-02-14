@@ -32,5 +32,9 @@
 	<string>https://push-staging.zom.im/api/v1/</string>
 	<key>ShouldShowPushWarning</key>
 	<false/>
+	<key>AllowGroupOMEMO</key>
+	<true/>
+	<key>AllowDebugFileLogging</key>
+	<false/>
 </dict>
 </plist>
