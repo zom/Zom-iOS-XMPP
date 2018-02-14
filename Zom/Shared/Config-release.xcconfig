@@ -1,0 +1,9 @@
+//
+//  Config-release.xcconfig
+//  Zom
+//
+//  Created by Benjamin Erhart on 06.02.18.
+//
+
+#include "../Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom.release.xcconfig"
+#include "Config.xcconfig"

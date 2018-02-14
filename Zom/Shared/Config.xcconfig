@@ -1,0 +1,8 @@
+//
+//  Config.xcconfig
+//  Zom
+//
+//  Created by Benjamin Erhart on 06.02.18.
+//
+
+ZOM_APPLICATION_GROUP = group.im.zom.messenger
