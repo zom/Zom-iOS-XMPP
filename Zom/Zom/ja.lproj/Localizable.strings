@@ -120,3 +120,6 @@
 /* Label for notifications switch */
 "Notifications" = "通知";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "メッセージを送信";
+

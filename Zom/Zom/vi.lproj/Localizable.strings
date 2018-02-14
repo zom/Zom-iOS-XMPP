@@ -37,3 +37,6 @@
 /* Title for the Settings screen */
 "Settings" = "Điều chỉnh";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "Gửi một tin nhắn";
+

@@ -34,3 +34,6 @@
 /* Title for the Settings screen */
 "Settings" = "Ρυθμίσεις";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "Στείλτε ένα μήνυμα";
+

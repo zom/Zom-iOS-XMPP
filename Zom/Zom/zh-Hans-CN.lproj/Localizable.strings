@@ -117,3 +117,6 @@
 /* This will be shown after your own JID in the group profile view */
 "you" = "你";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "发送消息";
+

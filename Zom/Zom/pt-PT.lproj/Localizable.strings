@@ -19,3 +19,6 @@
 /* Title for the Settings screen */
 "Settings" = "Configurações";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "Envia uma mensagem.";
+

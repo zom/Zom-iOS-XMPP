@@ -123,3 +123,6 @@
 /* Label for notifications switch */
 "Notifications" = "བརྡ་ཁྱབ།";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "འཕྲིན་ཐུང་ཞིག་ཐོངས།";
+

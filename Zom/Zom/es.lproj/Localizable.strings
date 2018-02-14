@@ -55,3 +55,6 @@
 /* Scan QR Code */
 "Scan" = "Escanear";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "Escriba el texto aquí";
+

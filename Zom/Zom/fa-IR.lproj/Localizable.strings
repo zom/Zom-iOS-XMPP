@@ -46,3 +46,6 @@
 /* Title for the Settings screen */
 "Settings" = "تنظیمات";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "ارسال یک پیام";
+

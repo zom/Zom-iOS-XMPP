@@ -76,3 +76,6 @@
 /* Share invite via SMS */
 "SMS" = "Короткое сообщение";
 
+/* The placeholder text in the chat view where the message should go */
+"Send plaintext message" = "Отправить сообщение";
+
