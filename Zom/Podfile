@@ -38,6 +38,9 @@ abstract_target 'ZomPods' do
 
   # Debugging
   pod 'Reveal-SDK', :configurations => ['Debug']
+  # pod 'LumberjackConsole', '~> 3.3.0'
+  pod 'LumberjackConsole', :path => '../ChatSecure/Submodules/LumberjackConsole/LumberjackConsole.podspec'
+
 
   # Utility
   pod 'CocoaLumberjack/Swift', '~> 3.4.0'
