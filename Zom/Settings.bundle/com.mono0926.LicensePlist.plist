@@ -254,6 +254,14 @@
 		</dict>
 		<dict>
 			<key>File</key>
+			<string>com.mono0926.LicensePlist/LumberjackConsole</string>
+			<key>Title</key>
+			<string>LumberjackConsole (3.3.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.mono0926.LicensePlist/Mantle</string>
 			<key>Title</key>
 			<string>Mantle (4c1a09c)</string>
@@ -281,6 +289,14 @@
 			<string>com.mono0926.LicensePlist/Navajo</string>
 			<key>Title</key>
 			<string>Navajo (0.0.1)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/NBUCore</string>
+			<key>Title</key>
+			<string>NBUCore (2.1.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
