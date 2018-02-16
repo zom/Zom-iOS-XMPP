@@ -1538,7 +1538,6 @@
 				A065ED9F202C50640084D788 /* Sources */,
 				A065EDA0202C50640084D788 /* Frameworks */,
 				A065EDA1202C50640084D788 /* Resources */,
-				A0DE2B0C202C75C9005A9E4D /* [Carthage] Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1615,8 +1614,9 @@
 					};
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 9SV9LPRC42;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -2276,21 +2276,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-resources.sh\"\n";
 		};
-		A0DE2B0C202C75C9005A9E4D /* [Carthage] Copy Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/MBProgressHUD.framework",
-			);
-			name = "[Carthage] Copy Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		DA46D5D280F5A43DE216DD73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2887,6 +2872,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A065EDB8202C52320084D788 /* Config.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -2939,6 +2925,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A065EDB8202C52320084D788 /* Config.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -3079,7 +3066,7 @@
 				CODE_SIGN_ENTITLEMENTS = Zom/Zom.entitlements;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9SV9LPRC42;
@@ -3117,6 +3104,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Zom/Zom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -3147,7 +3135,7 @@
 				CODE_SIGN_ENTITLEMENTS = Zom/Zom.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zom, Llc (9SV9LPRC42)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9SV9LPRC42;
