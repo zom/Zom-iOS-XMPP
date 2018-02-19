@@ -106,6 +106,8 @@
 	<string>Access to the microphone is needed to send voice messages.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access to the photo library is needed to send photos.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Access to the photo library is needed to save images.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>
