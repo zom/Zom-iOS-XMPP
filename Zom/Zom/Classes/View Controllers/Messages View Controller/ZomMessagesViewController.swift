@@ -373,16 +373,16 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func didReceiveChanges(_ handler: OTRYapViewHandler, sectionChanges: [YapDatabaseViewSectionChange], rowChanges: [YapDatabaseViewRowChange]) {
-        var collectionViewNumberOfItems = 0
-        var numberMappingsItems = 0
-        if rowChanges.count > 0 {
-            collectionViewNumberOfItems = self.collectionView.numberOfItems(inSection: 0)
-            numberMappingsItems = Int(self.viewHandler.mappings?.numberOfItems(inSection: 0) ?? 0)
-        }
+//        var collectionViewNumberOfItems = 0
+//        var numberMappingsItems = 0
+//        if rowChanges.count > 0 {
+//            collectionViewNumberOfItems = self.collectionView.numberOfItems(inSection: 0)
+//            numberMappingsItems = Int(self.viewHandler.mappings?.numberOfItems(inSection: 0) ?? 0)
+//        }
         super.didReceiveChanges(handler, sectionChanges: sectionChanges, rowChanges: rowChanges)
-        if numberMappingsItems > collectionViewNumberOfItems, numberMappingsItems > 0 {
-                self.checkRangeForMigrationMessage(range: NSMakeRange(collectionViewNumberOfItems, numberMappingsItems - collectionViewNumberOfItems))
-        }
+//        if numberMappingsItems > collectionViewNumberOfItems, numberMappingsItems > 0 {
+//                self.checkRangeForMigrationMessage(range: NSMakeRange(collectionViewNumberOfItems, numberMappingsItems - collectionViewNumberOfItems))
+//        }
     }
     
     // If we find any incoming migration link messages, show the "your friend has migrated" header
