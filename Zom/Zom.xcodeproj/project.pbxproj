@@ -143,6 +143,8 @@
 		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
 		92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */; };
 		92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */; };
+		A04696BE203ED2D30097A677 /* ZomVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */; };
+		A04696BF203ED2D30097A677 /* ZomVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */; };
 		A065EDA6202C50640084D788 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065EDA5202C50640084D788 /* ShareViewController.swift */; };
 		A065EDA9202C50640084D788 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A065EDA7202C50640084D788 /* MainInterface.storyboard */; };
 		A065EDAD202C50640084D788 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A065EDA3202C50640084D788 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -1053,6 +1055,8 @@
 		92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTMLPreviewView.xib; path = ../../../ChatSecure/OTRResources/Interface/HTMLPreviewView.xib; sourceTree = "<group>"; };
 		92F71F881F137EBE00C99690 /* MediaDownloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaDownloadView.xib; path = ../../../ChatSecure/OTRResources/Interface/MediaDownloadView.xib; sourceTree = "<group>"; };
 		92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomRoomOccupantsViewController.swift; path = "Classes/View Controllers/ZomRoomOccupantsViewController.swift"; sourceTree = "<group>"; };
+		A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomVerificationViewController.swift; path = "Classes/View Controllers/ZomVerificationViewController.swift"; sourceTree = "<group>"; };
+		A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomVerificationViewController.xib; path = "Classes/View Controllers/ZomVerificationViewController.xib"; sourceTree = "<group>"; };
 		A065EDA3202C50640084D788 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065EDA5202C50640084D788 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A065EDA8202C50640084D788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -1293,6 +1297,8 @@
 				92EDA62C1FA35D0300D69228 /* ZomPhotosViewController.swift */,
 				92A114CE1FAB627D000766EC /* ZomRootNavigationViewController.swift */,
 				9276882D202C516000546415 /* ZomBotsViewController.swift */,
+				A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */,
+				A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1604,7 +1610,7 @@
 				TargetAttributes = {
 					A065EDA2202C50640084D788 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = 9SV9LPRC42;
+                        DevelopmentTeam = 9SV9LPRC42;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1614,7 +1620,7 @@
 					};
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 9SV9LPRC42;
+                        DevelopmentTeam = 9SV9LPRC42;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1628,7 +1634,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+                                enabled = 1;
 							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -2086,6 +2092,7 @@
 				92A567C61EDED3B900684E72 /* PitchInviteView.xib in Resources */,
 				924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */,
 				92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */,
+				A04696BF203ED2D30097A677 /* ZomVerificationViewController.xib in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
 				924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */,
@@ -2354,6 +2361,7 @@
 				6320C9041DFF6C410080F3BD /* ZomProfileViewController.swift in Sources */,
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
 				9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */,
+				A04696BE203ED2D30097A677 /* ZomVerificationViewController.swift in Sources */,
 				92CBA8FE1D12E05E001CDD3D /* ZomSettingsViewController.swift in Sources */,
 				923E60551FB1B74E00E8BAA7 /* ZomGalleryHandler.swift in Sources */,
 				92A115011FAC77A0000766EC /* ZomImportManager.swift in Sources */,
@@ -2890,7 +2898,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2909,7 +2917,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2943,7 +2951,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2960,7 +2968,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -3069,7 +3077,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				ENABLE_BITCODE = "$(inherited)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3101,7 +3109,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3138,7 +3146,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				ENABLE_BITCODE = "$(inherited)";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3166,7 +3174,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

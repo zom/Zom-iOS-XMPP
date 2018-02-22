@@ -75,6 +75,21 @@
             [self.conversationViewController showOnboardingIfNeeded];
         }
     }
+
+    // ViewController in development
+    YapDatabaseConnection *db = [OTRDatabaseManager sharedInstance].readOnlyDatabaseConnection;
+    __block OTRBuddy *buddy = nil;
+    [db readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
+        buddy = (OTRBuddy *)[[transaction ext:OTRAllBuddiesDatabaseViewExtensionName]
+                             objectAtIndex:3 inGroup:OTRBuddyGroup];
+    }];
+
+    ZomVerificationViewController *vc = [[ZomVerificationViewController alloc] init];
+    vc.buddy = buddy;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+    // END ViewController in development
+
     return ret;
 }
 

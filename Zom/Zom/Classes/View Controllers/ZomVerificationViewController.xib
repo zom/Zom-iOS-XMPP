@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZomVerificationViewController" customModule="Zom" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarImg" destination="o3C-hN-dGq" id="f2k-25-x0q"/>
+                <outlet property="codeLb" destination="15a-lX-bqI" id="eV2-Cf-6jP"/>
+                <outlet property="infoLb" destination="pQj-g6-Lix" id="a2V-Vm-6Y0"/>
+                <outlet property="matchBt" destination="sLb-YK-B9j" id="UBu-Tg-NqG"/>
+                <outlet property="noMatchBt" destination="qYY-tY-GBa" id="qh4-aS-TM4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure this code matches your friend's latest Zom code on their phone." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQj-g6-Lix">
+                    <rect key="frame" x="16" y="70" width="343" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="jph-QX-uLf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15a-lX-bqI">
+                    <rect key="frame" x="16" y="137" width="343" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="uGJ-Mp-Uxa"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="12345678 12345678 12345678 12345678 12345678">
+                            <attributes>
+                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-GN-Shv">
+                    <rect key="frame" x="106" y="214" width="163" height="86"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLb-YK-B9j">
+                            <rect key="frame" x="77" y="0.0" width="86" height="86"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="86" id="A0b-Z1-ITa"/>
+                                <constraint firstAttribute="width" constant="86" id="wok-4D-DVo"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="tashi_delek.png"/>
+                            <connections>
+                                <action selector="match" destination="-1" eventType="touchUpInside" id="cFI-ZU-lq3"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o3C-hN-dGq">
+                            <rect key="frame" x="0.0" y="0.0" width="86" height="86"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="86" id="L4I-vA-XG5"/>
+                                <constraint firstAttribute="width" constant="86" id="Rn2-aj-5JV"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="163" id="8Ls-FS-cEk"/>
+                        <constraint firstItem="o3C-hN-dGq" firstAttribute="leading" secondItem="3AC-GN-Shv" secondAttribute="leading" id="C8X-7h-eBM"/>
+                        <constraint firstItem="sLb-YK-B9j" firstAttribute="top" secondItem="3AC-GN-Shv" secondAttribute="top" id="NNU-RF-Cvo"/>
+                        <constraint firstAttribute="height" constant="86" id="SU2-RE-ESH"/>
+                        <constraint firstAttribute="trailing" secondItem="sLb-YK-B9j" secondAttribute="trailing" id="deI-2j-T6v"/>
+                        <constraint firstItem="o3C-hN-dGq" firstAttribute="top" secondItem="3AC-GN-Shv" secondAttribute="top" id="kWq-R6-EmM"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYY-tY-GBa">
+                    <rect key="frame" x="114.5" y="350" width="145" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Codes don't match">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="noMatch" destination="-1" eventType="touchUpInside" id="eoB-M9-59E"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="15a-lX-bqI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1i9-zy-xww"/>
+                <constraint firstItem="qYY-tY-GBa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BFG-rD-KJg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="15a-lX-bqI" secondAttribute="trailing" constant="16" id="LTw-G8-f6L"/>
+                <constraint firstItem="qYY-tY-GBa" firstAttribute="top" secondItem="3AC-GN-Shv" secondAttribute="bottom" constant="50" id="Sgq-mg-4JI"/>
+                <constraint firstItem="3AC-GN-Shv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VPg-6g-Yy7"/>
+                <constraint firstItem="pQj-g6-Lix" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="jQx-Iv-ueA"/>
+                <constraint firstItem="15a-lX-bqI" firstAttribute="top" secondItem="pQj-g6-Lix" secondAttribute="bottom" constant="25" id="kpe-GO-9f6"/>
+                <constraint firstItem="pQj-g6-Lix" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="rv8-9T-v8K"/>
+                <constraint firstItem="3AC-GN-Shv" firstAttribute="top" secondItem="15a-lX-bqI" secondAttribute="bottom" constant="25" id="sWI-YY-6DS"/>
+                <constraint firstAttribute="trailing" secondItem="pQj-g6-Lix" secondAttribute="trailing" constant="16" id="x8a-A3-t6A"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tashi_delek.png" width="339" height="308"/>
+    </resources>
+</document>
