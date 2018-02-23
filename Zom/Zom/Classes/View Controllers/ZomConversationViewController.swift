@@ -14,6 +14,8 @@ open class ZomConversationViewController: OTRConversationViewController {
     
     //Mark: Properties
     
+    let connections = OTRDatabaseManager.shared.connections
+    
     var pitchInviteView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
 
@@ -44,17 +46,19 @@ open class ZomConversationViewController: OTRConversationViewController {
     }
     
     func updatePitchView() {
-        OTRDatabaseManager.shared.readConnection?.read { (transaction) -> Void in
+        var numBuddies: UInt = 0
+        let numAccounts = OTRAccountsManager.allAccounts().count
+        connections?.ui.read { (transaction) -> Void in
             guard let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as?YapDatabaseViewTransaction else { return }
-            let numBuddies = view.numberOfItemsInAllGroups()
-            if (numBuddies == 0 && OTRAccountsManager.allAccounts().count > 0 && self.tableView.tableHeaderView == nil) {
-                self.tableView.tableHeaderView = self.getPitchInviteView()
-                //}
-                //else if (numBuddies > 1){
-                //    self.tableView.tableHeaderView = self.getPitchCreateGroupView()
-            } else if (self.tableView.tableHeaderView == self.pitchInviteView) {
-                self.tableView.tableHeaderView = nil;
-            }
+            numBuddies = view.numberOfItemsInAllGroups()
+        }
+        if (numBuddies == 0 && numAccounts > 0 && self.tableView.tableHeaderView == nil) {
+            self.tableView.tableHeaderView = self.getPitchInviteView()
+            //}
+            //else if (numBuddies > 1){
+            //    self.tableView.tableHeaderView = self.getPitchCreateGroupView()
+        } else if (self.tableView.tableHeaderView == self.pitchInviteView) {
+            self.tableView.tableHeaderView = nil;
         }
     }
     

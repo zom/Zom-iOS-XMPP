@@ -31,11 +31,9 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         super.delegate = self
         
         // Style
-        if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
-            addFriendsLabel?.textColor = appDelegate.theme.mainThemeColor
-            gotInviteLabel?.textColor = appDelegate.theme.mainThemeColor
-            separator?.backgroundColor = appDelegate.theme.mainThemeColor
-        }
+        addFriendsLabel?.textColor = GlobalTheme.shared.mainThemeColor
+        gotInviteLabel?.textColor = GlobalTheme.shared.mainThemeColor
+        separator?.backgroundColor = GlobalTheme.shared.mainThemeColor
         
         if let button = shareSmsButtonItem.customView as? UIButton {
             setupShareButton(button: button, icon: "", fontName: "MaterialIcons-Regular", fontSize: 24, title: NSLocalizedString("SMS", bundle:OTRAssets.resourcesBundle, comment: "Share invite via SMS"))
@@ -181,7 +179,7 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
             // Thanks to stupid apple bug we need to temporarily hack the appearance proxy for navigation bars to have the MFMessageComposeViewController use the right color for Navigation bar.
             //  http://openradar.appspot.com/radar?id=6165359065300992
             let attrs = UIBarButtonItem.appearance().titleTextAttributes(for: .normal)
-            UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: ZomAppDelegate.appDelegate.theme.mainThemeColor], for: .normal)
+            UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: GlobalTheme.shared.mainThemeColor], for: .normal)
 
             let messageComposeViewController:MFMessageComposeViewController = MFMessageComposeViewController()
 

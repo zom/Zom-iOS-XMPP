@@ -14,7 +14,7 @@ public class ZomMigratedBuddyHeaderView: MigratedBuddyHeaderView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        self.backgroundColor = OTRAppDelegate.appDelegate.theme.mainThemeColor
+        self.backgroundColor = GlobalTheme.shared.mainThemeColor
         switchButton.backgroundColor = UIColor.yellow
         if let text = infoLabel.text, text.contains("%@") {
             infoLabel.text = text.replacingOccurrences(of: "%@", with: self.forwardingJID?.bare ?? "")

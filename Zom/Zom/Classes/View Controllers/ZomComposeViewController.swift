@@ -52,7 +52,7 @@ open class ZomComposeViewController: OTRComposeViewController {
             if let cell = self.tableView.dequeueReusableCell(withIdentifier: ZomComposeViewController.imageActionButtonCellIdentifier) as? ZomImageActionButtonCell {
                 cell.actionLabel.text = ADD_BUDDY_STRING()
                 cell.iconLabel.text = ""
-                cell.iconLabel.backgroundColor = ZomAppDelegate.appDelegate.theme.mainThemeColor
+                cell.iconLabel.backgroundColor = GlobalTheme.shared.mainThemeColor
                 self.tableViewHeader.addStackedSubview(cell, identifier: ZomComposeViewController.imageActionAddFriendIdentifier, gravity: .bottom, height: OTRBuddyInfoCellHeight, callback: {
                     let accounts = OTRAccountsManager.allAccounts()
                     self.addBuddy(accounts)

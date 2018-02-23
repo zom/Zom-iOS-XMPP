@@ -13,6 +13,9 @@
 #define DEFAULT_ZOM_COLOR @"#FFE7275A"
 
 @implementation ZomTheme
+@synthesize lightThemeColor = _lightThemeColor;
+@synthesize mainThemeColor = _mainThemeColor;
+@synthesize buttonLabelColor = _buttonLabelColor;
 
 - (instancetype) init {
     if (self = [super init]) {
@@ -22,15 +25,15 @@
         if (themeColorString != nil) {
             themeColor = [ZomTheme colorWithHexString:themeColorString];
         }
-        self.lightThemeColor = [ZomTheme colorWithHexString:@"#fff1f2f3"];
-        self.mainThemeColor = themeColor;
-        self.buttonLabelColor = [UIColor whiteColor];
+        _lightThemeColor = [ZomTheme colorWithHexString:@"#fff1f2f3"];
+        _mainThemeColor = themeColor;
+        _buttonLabelColor = [UIColor whiteColor];
     }
     return self;
 }
 
 /** Set global app appearance via UIAppearance */
-- (void) setupGlobalTheme {
+- (void) setupAppearance {
     [[UIView appearance] setTintColor:self.mainThemeColor];
     
     [[UINavigationBar appearance] setTranslucent:NO];
@@ -127,10 +130,11 @@
 }
 
 -(void) selectMainThemeColor:(UIColor *)color {
-    self.mainThemeColor = color;
-    [self setupGlobalTheme];
+    _mainThemeColor = color;
+    [self setupAppearance];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:[ZomTheme hexStringWithColor:color] forKey:@"zom_ThemeColor"];
+    [defaults synchronize];
 }
 
 #pragma mark - Overrides
@@ -140,7 +144,7 @@
     return [[ZomConversationViewController alloc] init];
 }
 
-- (__kindof JSQMessagesViewController *) messagesViewController
+- (__kindof UIViewController *) messagesViewController
 {
     return [ZomMessagesViewController messagesViewController];
 }
@@ -155,8 +159,9 @@
     return [[ZomInviteViewController alloc] initWithAccount:account];
 }
 
-- (UIViewController *)accountDetailViewControllerForAccount:(OTRXMPPAccount *)account xmpp:(OTRXMPPManager *)xmpp longLivedReadConnection:(YapDatabaseConnection *)longLivedReadConnection writeConnection:(YapDatabaseConnection *)writeConnection {
-    return [[ZomAccountDetailViewController alloc] initWithAccount:account xmpp:xmpp longLivedReadConnection:longLivedReadConnection readConnection:longLivedReadConnection writeConnection:writeConnection];
+- (UIViewController *)accountDetailViewControllerForAccount:(OTRXMPPAccount *)account xmpp:(OTRXMPPManager *)xmpp {
+    DatabaseConnections *connections = OTRDatabaseManager.shared.connections;
+    return [[ZomAccountDetailViewController alloc] initWithAccount:account xmpp:xmpp longLivedReadConnection:connections.longLivedRead readConnection:connections.read writeConnection:connections.write];
 }
 
 /** Returns new instance. Override this in subclass to use a different settings view controller class */
@@ -168,9 +173,12 @@
     return svc;
 }
 
-- (BOOL) enableOMEMO
-{
-    return YES;
+- (nonnull __kindof UIViewController *)keyManagementViewControllerForAccount:(nonnull OTRXMPPAccount *)account buddies:(nonnull NSArray<OTRXMPPBuddy *> *)buddies {
+    // TODO: Return Zom's customized key management/verification screen
+    DatabaseConnections *connections = OTRDatabaseManager.shared.connections;
+    XLFormDescriptor *form = [KeyManagementViewController profileFormDescriptorForAccount:account buddies:buddies connection:connections.ui];
+    KeyManagementViewController *keyVC = [[KeyManagementViewController alloc] initWithAccountKey:account.uniqueId readConnection:connections.ui writeConnection:connections.write form:form];
+    return keyVC;
 }
 
 @end

@@ -27,6 +27,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    GlobalTheme.shared = [[ZomTheme alloc] init];
+    [GlobalTheme.shared setupAppearance];
     [OTRAssets setupLanguageHandling];
     [NSBundle setupLanguageHandling];
     [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kOTRSettingKeyLanguage options:NSKeyValueObservingOptionNew context:nil];
@@ -143,12 +145,6 @@
         }
     }
     return ret;
-}
-
-#pragma mark - Theming
-
-- (Class) themeClass {
-    return [ZomTheme class];
 }
 
 #pragma mark - Universal Links

@@ -8,12 +8,13 @@
 
 @import ChatSecureCore;
 
-@class ZomMainTabbedViewController;
+@class ZomMainTabbedViewController, ZomTheme;
 
+NS_ASSUME_NONNULL_BEGIN
 @interface ZomAppDelegate : OTRAppDelegate
 
 - (nullable OTRAccount *)getDefaultAccount;
 - (void) setDefaultAccount:(nullable OTRAccount *)account;
 @property (nonatomic, strong) ZomMainTabbedViewController *mainTabViewController;
-
 @end
+NS_ASSUME_NONNULL_END
