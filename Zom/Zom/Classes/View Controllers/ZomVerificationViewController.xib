@@ -18,6 +18,9 @@
                 <outlet property="infoLb" destination="pQj-g6-Lix" id="a2V-Vm-6Y0"/>
                 <outlet property="matchBt" destination="sLb-YK-B9j" id="UBu-Tg-NqG"/>
                 <outlet property="noMatchBt" destination="qYY-tY-GBa" id="qh4-aS-TM4"/>
+                <outlet property="overlayContainer" destination="JKb-VT-inw" id="ZFP-Gx-Q0V"/>
+                <outlet property="successCheckmarkImg" destination="O6d-IV-KEa" id="ih6-Ds-nRR"/>
+                <outlet property="trustedLb" destination="RGQ-iA-x0B" id="XEg-Hm-hPj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -111,22 +114,51 @@
                         <action selector="noMatch" destination="-1" eventType="touchUpInside" id="eoB-M9-59E"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-VT-inw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-IV-KEa">
+                            <rect key="frame" x="177.5" y="165" width="19" height="18"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGQ-iA-x0B">
+                            <rect key="frame" x="157.5" y="208" width="60.5" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="O6d-IV-KEa" firstAttribute="top" secondItem="JKb-VT-inw" secondAttribute="top" constant="165" id="1A3-ra-yAV"/>
+                        <constraint firstItem="RGQ-iA-x0B" firstAttribute="centerX" secondItem="JKb-VT-inw" secondAttribute="centerX" id="fpI-dn-Oxg"/>
+                        <constraint firstItem="RGQ-iA-x0B" firstAttribute="top" secondItem="O6d-IV-KEa" secondAttribute="bottom" constant="25" id="teP-wk-YYq"/>
+                        <constraint firstItem="O6d-IV-KEa" firstAttribute="centerX" secondItem="JKb-VT-inw" secondAttribute="centerX" id="uCd-Pi-NtD"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="15a-lX-bqI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="1i9-zy-xww"/>
+                <constraint firstItem="JKb-VT-inw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5yF-sO-QSJ"/>
                 <constraint firstItem="qYY-tY-GBa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BFG-rD-KJg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="15a-lX-bqI" secondAttribute="trailing" constant="32" id="LTw-G8-f6L"/>
                 <constraint firstItem="qYY-tY-GBa" firstAttribute="top" secondItem="3AC-GN-Shv" secondAttribute="bottom" constant="50" id="Sgq-mg-4JI"/>
                 <constraint firstItem="3AC-GN-Shv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VPg-6g-Yy7"/>
+                <constraint firstItem="JKb-VT-inw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cUs-kE-w8V"/>
                 <constraint firstItem="pQj-g6-Lix" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="jQx-Iv-ueA"/>
                 <constraint firstItem="15a-lX-bqI" firstAttribute="top" secondItem="pQj-g6-Lix" secondAttribute="bottom" constant="25" id="kpe-GO-9f6"/>
                 <constraint firstItem="pQj-g6-Lix" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="rv8-9T-v8K"/>
                 <constraint firstItem="3AC-GN-Shv" firstAttribute="top" secondItem="15a-lX-bqI" secondAttribute="bottom" constant="25" id="sWI-YY-6DS"/>
+                <constraint firstItem="JKb-VT-inw" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="ttJ-ad-31u"/>
+                <constraint firstItem="JKb-VT-inw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vHe-4U-lX9"/>
                 <constraint firstAttribute="trailing" secondItem="pQj-g6-Lix" secondAttribute="trailing" constant="32" id="x8a-A3-t6A"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="checkmark" width="19" height="18"/>
+    </resources>
 </document>
