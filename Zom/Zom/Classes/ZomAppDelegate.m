@@ -192,7 +192,7 @@
         NSString *accountUniqueId = [defaults objectForKey:@"zom_DefaultAccount"];
         
         __block OTRAccount *account = nil;
-        [[OTRDatabaseManager sharedInstance].readOnlyDatabaseConnection readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
+        [[OTRDatabaseManager sharedInstance].readConnection readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
             account = [OTRAccount fetchObjectWithUniqueID:accountUniqueId transaction:transaction];
         }];
         if (account != nil) {

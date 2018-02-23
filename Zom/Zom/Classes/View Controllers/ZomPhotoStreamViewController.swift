@@ -18,7 +18,7 @@ open class ZomPhotoStreamViewController: UICollectionViewController, ZomGalleryH
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        guard let dbConnection = OTRDatabaseManager.shared.readOnlyDatabaseConnection else {return}
+        guard let dbConnection = OTRDatabaseManager.shared.readConnection else {return}
         galleryHandler = ZomGalleryHandler(connection: dbConnection)
         galleryHandler?.fetchImagesAsync(for: nil, initialPhoto: nil, delegate: self)
     }

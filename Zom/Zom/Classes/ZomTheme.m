@@ -156,7 +156,7 @@
 }
 
 - (UIViewController *)accountDetailViewControllerForAccount:(OTRXMPPAccount *)account xmpp:(OTRXMPPManager *)xmpp longLivedReadConnection:(YapDatabaseConnection *)longLivedReadConnection writeConnection:(YapDatabaseConnection *)writeConnection {
-        return [[ZomAccountDetailViewController alloc] initWithAccount:account xmpp:xmpp longLivedReadConnection:longLivedReadConnection writeConnection:writeConnection];
+    return [[ZomAccountDetailViewController alloc] initWithAccount:account xmpp:xmpp longLivedReadConnection:longLivedReadConnection readConnection:longLivedReadConnection writeConnection:writeConnection];
 }
 
 /** Returns new instance. Override this in subclass to use a different settings view controller class */

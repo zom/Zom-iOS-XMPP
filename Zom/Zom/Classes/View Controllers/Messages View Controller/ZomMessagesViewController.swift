@@ -53,7 +53,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         super.viewWillAppear(animated)
         
         // Don't allow sending to archived
-        super.readOnlyDatabaseConnection.read { (transaction) in
+        super.readConnection?.read { (transaction) in
             if let threadOwner = self.threadObject(with: transaction), threadOwner.isArchived {
                 self.inputToolbar.isHidden = true
             } else {
@@ -212,7 +212,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readOnlyDatabaseConnection.read { (t) in
+        self.readConnection?.read { (t) in
             threadOwner = self.threadObject(with: t)
             _account = self.account(with: t)
         }
@@ -283,7 +283,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             self.pendingApprovalView = nil
             self.updatePreparingView(false)
         } else {
-        self.readOnlyDatabaseConnection.asyncRead { [weak self] (transaction) in
+        self.readConnection?.asyncRead { [weak self] (transaction) in
             guard let strongSelf = self else { return }
             guard let threadKey = strongSelf.threadKey else { return }
             guard let buddy = transaction.object(forKey: threadKey, inCollection: strongSelf.threadCollection) as? OTRBuddy else { return }
@@ -354,7 +354,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func didPressMigratedSwitch() {
         // Archive this convo
-        self.readWriteDatabaseConnection.readWrite { (transaction) in
+        self.writeConnection?.readWrite { (transaction) in
             let thread = self.threadObject(with: transaction)
             if let buddy = thread as? OTRXMPPBuddy {
                 buddy.isArchived = true
@@ -573,7 +573,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     @IBAction func didPressReinvite(_ sender: AnyObject) {
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readOnlyDatabaseConnection.read { (t) in
+        self.readConnection?.read { (t) in
             threadOwner = self.threadObject(with: t)
             _account = self.account(with: t)
         }
@@ -589,7 +589,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func showImage(_ imageItem: OTRImageItem?, from collectionView: JSQMessagesCollectionView, at indexPath: IndexPath) {
-        guard let dbConnection = OTRDatabaseManager.shared.readOnlyDatabaseConnection, let threadIdentifier = self.threadKey else {return}
+        guard let dbConnection = OTRDatabaseManager.shared.readConnection, let threadIdentifier = self.threadKey else {return}
         galleryHandler = ZomGalleryHandler(connection: dbConnection)
         galleryReferenceView = self.view
         if let cell = self.collectionView?.cellForItem(at: indexPath) as? JSQMessagesCollectionViewCell {

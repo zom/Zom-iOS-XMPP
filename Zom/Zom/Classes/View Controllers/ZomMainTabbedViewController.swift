@@ -232,7 +232,7 @@ open class ZomMainTabbedViewController: UITabBarController, OTRComposeViewContro
                 
                 var buddy:OTRBuddy? = nil
                 var account:OTRAccount? = nil
-                OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.read { (transaction) -> Void in
+                OTRDatabaseManager.shared.readConnection?.read { (transaction) -> Void in
                     buddy = OTRBuddy.fetchObject(withUniqueID: buddyKey, transaction: transaction)
                     account = OTRAccount.fetchObject(withUniqueID: accountKey, transaction: transaction)
                 }

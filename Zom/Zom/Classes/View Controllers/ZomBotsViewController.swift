@@ -94,7 +94,7 @@ open class ZomBotsViewController: UITableViewController {
         var buddy:OTRBuddy? = nil
         if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate, let botJid = XMPPJID(string: bot.jid) {
             if let account:OTRAccount = appDelegate.getDefaultAccount() {
-                OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.readWrite { (transaction) in
+                OTRDatabaseManager.shared.writeConnection?.readWrite { (transaction) in
                     buddy = OTRXMPPBuddy.fetchBuddy(jid: botJid, accountUniqueId: account.uniqueId, transaction: transaction)
                     if (buddy == nil) {
                         if let newBuddy = OTRXMPPBuddy() {

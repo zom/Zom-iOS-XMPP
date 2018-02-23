@@ -32,7 +32,7 @@ import MobileCoreServices
         } else {
             appDelegate.splitViewCoordinator.enterConversationWithBuddies(buddies, accountKey: accountId, name: name)
         }
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
+        OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
             self.account = OTRAccount.fetchObject(withUniqueID: accountId, transaction: transaction)
             self.threadOwner = self.viewController?.threadObject(with: transaction)
         })
@@ -49,7 +49,7 @@ import MobileCoreServices
         guard let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate else {
             return
         }
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
+        OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
             self.account = threadOwner.account(with: transaction)
         })
         self.threadOwner = threadOwner

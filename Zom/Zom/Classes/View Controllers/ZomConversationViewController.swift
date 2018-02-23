@@ -44,18 +44,16 @@ open class ZomConversationViewController: OTRConversationViewController {
     }
     
     func updatePitchView() {
-        if let dataBaseConnection:YapDatabaseConnection = OTRDatabaseManager.sharedInstance().newConnection() {
-            dataBaseConnection.read { (transaction) -> Void in
-                guard let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as?YapDatabaseViewTransaction else { return }
-                let numBuddies = view.numberOfItemsInAllGroups()
-                if (numBuddies == 0 && OTRAccountsManager.allAccounts().count > 0 && self.tableView.tableHeaderView == nil) {
-                    self.tableView.tableHeaderView = self.getPitchInviteView()
-                    //}
-                    //else if (numBuddies > 1){
-                    //    self.tableView.tableHeaderView = self.getPitchCreateGroupView()
-                } else if (self.tableView.tableHeaderView == self.pitchInviteView) {
-                    self.tableView.tableHeaderView = nil;
-                }
+        OTRDatabaseManager.shared.readConnection?.read { (transaction) -> Void in
+            guard let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as?YapDatabaseViewTransaction else { return }
+            let numBuddies = view.numberOfItemsInAllGroups()
+            if (numBuddies == 0 && OTRAccountsManager.allAccounts().count > 0 && self.tableView.tableHeaderView == nil) {
+                self.tableView.tableHeaderView = self.getPitchInviteView()
+                //}
+                //else if (numBuddies > 1){
+                //    self.tableView.tableHeaderView = self.getPitchCreateGroupView()
+            } else if (self.tableView.tableHeaderView == self.pitchInviteView) {
+                self.tableView.tableHeaderView = nil;
             }
         }
     }
@@ -102,7 +100,7 @@ open class ZomConversationViewController: OTRConversationViewController {
 
     override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
         super.updateInboxArchiveFilteringAndShowArchived(showArchived)
-        OTRDatabaseManager.shared.readWriteDatabaseConnection?.asyncReadWrite({ (transaction) in
+        OTRDatabaseManager.shared.writeConnection?.asyncReadWrite({ (transaction) in
             if let fvt = transaction.ext(OTRArchiveFilteredConversationsName) as? YapDatabaseFilteredViewTransaction {
                 let filtering = YapDatabaseViewFiltering.withObjectBlock({ (transaction, group, collection, key, object) -> Bool in
                     if let threadOwner = object as? OTRThreadOwner {

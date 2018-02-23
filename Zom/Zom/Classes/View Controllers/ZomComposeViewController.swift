@@ -87,7 +87,7 @@ open class ZomComposeViewController: OTRComposeViewController {
     
     override open func updateInboxArchiveFilteringAndShowArchived(_ showArchived: Bool) {
         super.updateInboxArchiveFilteringAndShowArchived(showArchived)
-        OTRDatabaseManager.shared.readWriteDatabaseConnection?.asyncReadWrite({ (transaction) in
+        OTRDatabaseManager.shared.writeConnection?.asyncReadWrite({ (transaction) in
             if let fvt = transaction.ext(ZomComposeViewController.filteredExtensionName) as? YapDatabaseFilteredViewTransaction {
                 fvt.setFiltering(self.getFilteringBlock(showArchived), versionTag:NSUUID().uuidString)
             }

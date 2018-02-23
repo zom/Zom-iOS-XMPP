@@ -236,7 +236,7 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
             }
             
             // Mute all old friends
-            OTRDatabaseManager.shared.readWriteDatabaseConnection?.readWrite({ (transaction) in
+            OTRDatabaseManager.shared.writeConnection?.readWrite({ (transaction) in
                 for buddy in self.oldAccount.allBuddies(with: transaction) {
                     buddy.muteExpiration = Date.distantFuture
                     buddy.save(with: transaction)
