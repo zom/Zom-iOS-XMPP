@@ -33,28 +33,36 @@ class ZomVerificationViewController: UIViewController {
 
         if let buddy = buddy, let db = OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection {
             db.asyncRead() { (transaction: YapDatabaseReadTransaction) in
-                if let account = buddy.account(with: transaction) {
+                let allOmemoDevices = OTROMEMODevice.allDevices(
+                    forParentKey: buddy.uniqueId,
+                    collection: type(of: buddy).collection,
+                    transaction: transaction
+                ).filter() { (device) -> Bool in
+                    return device.publicIdentityKeyData != nil && device.trustLevel != .removed
+                }
+
+                if let device = allOmemoDevices.first {
+                    self.setFingerprint(device.humanReadableFingerprint)
+                }
+                else if let account = buddy.account(with: transaction) {
                     let allFingerprints = OTRProtocolManager.encryptionManager.otrKit.fingerprints(
                         forUsername: buddy.username, accountName: account.username,
                         protocol: account.protocolTypeString())
 
                     if let fingerprint = allFingerprints.first {
-                        // TODO: This is not working, yet.
-                        // Also, it seems, OMEMO fingerprints have to be fetched seperately.
-                        
                         self.setFingerprint((fingerprint.fingerprint as NSData).humanReadableFingerprint())
                     }
                     else {
-                        self.setFingerprint(nil)
+                        self.setFingerprintError()
                     }
                 }
                 else {
-                    self.setFingerprint(nil)
+                    self.setFingerprintError()
                 }
             }
         }
         else {
-            setFingerprint(nil)
+            setFingerprintError()
         }
 
         avatarImg.image = buddy?.avatarImage
@@ -79,7 +87,12 @@ class ZomVerificationViewController: UIViewController {
 
         DispatchQueue.main.async {
             self.codeLb.attributedText = NSAttributedString(
-                string: string, attributes: [.kern: 3, .paragraphStyle: style])
+                string: string.localizedUppercase,
+                attributes: [.kern: 3, .paragraphStyle: style])
         }
+    }
+
+    private func setFingerprintError() {
+        setFingerprint(nil)
     }
 }
