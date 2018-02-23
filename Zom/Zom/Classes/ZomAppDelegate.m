@@ -81,11 +81,10 @@
     __block OTRBuddy *buddy = nil;
     [db readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
         buddy = (OTRBuddy *)[[transaction ext:OTRAllBuddiesDatabaseViewExtensionName]
-                             objectAtIndex:3 inGroup:OTRBuddyGroup];
+                             objectAtIndex:0 inGroup:OTRBuddyGroup];
     }];
 
-    ZomVerificationViewController *vc = [[ZomVerificationViewController alloc] init];
-    vc.buddy = buddy;
+    ZomVerificationViewController *vc = [[ZomVerificationViewController alloc] initWithBuddy:buddy];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = nav;
     // END ViewController in development
