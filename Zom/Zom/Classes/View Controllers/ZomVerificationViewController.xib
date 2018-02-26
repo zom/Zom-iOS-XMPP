@@ -19,7 +19,7 @@
                 <outlet property="matchBt" destination="sLb-YK-B9j" id="UBu-Tg-NqG"/>
                 <outlet property="noMatchBt" destination="qYY-tY-GBa" id="qh4-aS-TM4"/>
                 <outlet property="overlayContainer" destination="JKb-VT-inw" id="ZFP-Gx-Q0V"/>
-                <outlet property="successCheckmarkImg" destination="O6d-IV-KEa" id="ih6-Ds-nRR"/>
+                <outlet property="successCheckmarkLb" destination="xCk-je-cBK" id="PBo-Ug-xDE"/>
                 <outlet property="trustedLb" destination="RGQ-iA-x0B" id="XEg-Hm-hPj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -50,14 +50,37 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AC-GN-Shv">
                     <rect key="frame" x="106" y="214" width="163" height="86"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLb-YK-B9j">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLb-YK-B9j" customClass="HighlightableButton" customModule="Zom" customModuleProvider="target">
                             <rect key="frame" x="77" y="0.0" width="86" height="86"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="86" id="A0b-Z1-ITa"/>
                                 <constraint firstAttribute="width" constant="86" id="wok-4D-DVo"/>
                             </constraints>
+                            <state key="normal" title="">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="43"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                    <color key="value" red="0.49411764705882355" green="0.82745098039215681" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="normalBorderColor">
+                                    <color key="value" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="highlightedBorderColor">
+                                    <color key="value" red="0.49411764705882355" green="0.82745098039215681" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="match" destination="-1" eventType="touchUpInside" id="cFI-ZU-lq3"/>
+                                <action selector="match" destination="-1" eventType="touchUpInside" id="meI-qI-vAo"/>
                             </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o3C-hN-dGq">
@@ -117,12 +140,14 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-VT-inw">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="O6d-IV-KEa">
-                            <rect key="frame" x="177.5" y="165" width="19" height="18"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCk-je-cBK">
+                            <rect key="frame" x="164.5" y="165" width="46" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trusted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGQ-iA-x0B">
-                            <rect key="frame" x="157.5" y="208" width="60.5" height="21"/>
+                            <rect key="frame" x="157" y="238" width="60.5" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -130,10 +155,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="O6d-IV-KEa" firstAttribute="top" secondItem="JKb-VT-inw" secondAttribute="top" constant="165" id="1A3-ra-yAV"/>
+                        <constraint firstItem="xCk-je-cBK" firstAttribute="centerX" secondItem="JKb-VT-inw" secondAttribute="centerX" id="2EV-YL-J2o"/>
+                        <constraint firstItem="RGQ-iA-x0B" firstAttribute="top" secondItem="xCk-je-cBK" secondAttribute="bottom" constant="25" id="I6g-9y-IgL"/>
                         <constraint firstItem="RGQ-iA-x0B" firstAttribute="centerX" secondItem="JKb-VT-inw" secondAttribute="centerX" id="fpI-dn-Oxg"/>
-                        <constraint firstItem="RGQ-iA-x0B" firstAttribute="top" secondItem="O6d-IV-KEa" secondAttribute="bottom" constant="25" id="teP-wk-YYq"/>
-                        <constraint firstItem="O6d-IV-KEa" firstAttribute="centerX" secondItem="JKb-VT-inw" secondAttribute="centerX" id="uCd-Pi-NtD"/>
+                        <constraint firstItem="xCk-je-cBK" firstAttribute="top" secondItem="JKb-VT-inw" secondAttribute="top" constant="165" id="qUy-nk-iqF"/>
                     </constraints>
                 </view>
             </subviews>
@@ -158,7 +183,4 @@
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="checkmark" width="19" height="18"/>
-    </resources>
 </document>

@@ -26,7 +26,7 @@ class ZomVerificationViewController: UIViewController {
     @IBOutlet weak var matchBt: UIButton!
     @IBOutlet weak var noMatchBt: UIButton!
     @IBOutlet weak var overlayContainer: UIView!
-    @IBOutlet weak var successCheckmarkImg: UIImageView!
+    @IBOutlet weak var successCheckmarkLb: UILabel!
     @IBOutlet weak var trustedLb: UILabel!
 
     private var fingerprintContainer: NSObject?
@@ -103,15 +103,12 @@ class ZomVerificationViewController: UIViewController {
         //TODO: This is not the correct badge, yet.
         checkmarkImg.image = OTRImages.checkmark(with: UIColor.black).withRenderingMode(.alwaysTemplate)
 
-        //TODO: This is not the correct button, yet.
-        matchBt.setImage(OTRImages.checkmark(with: UIColor.darkGray),
-                         for: .normal)
+        matchBt.titleLabel?.font = UIFont(name: "Material Icons", size: 40)
 
         noMatchBt.titleLabel?.text = NSLocalizedString("Codes don't match",
                                                        comment: "Verification scene button text")
 
-        successCheckmarkImg.image = successCheckmarkImg.image?.withRenderingMode(.alwaysTemplate)
-        successCheckmarkImg.tintColor = UIColor.white
+        successCheckmarkLb.font = UIFont(name: "Material Icons", size: 40)
 
         trustedLb.text = NSLocalizedString("Trusted", comment: "Verification scene success text")
     }
@@ -127,6 +124,8 @@ class ZomVerificationViewController: UIViewController {
      When animation is finished, dismisses this view controller.
     */
     @IBAction func match() {
+        matchBt.isHighlighted = true
+
         if let device = fingerprintContainer as? OTROMEMODevice {
             device.trustLevel = .trustedUser
             store(device)
