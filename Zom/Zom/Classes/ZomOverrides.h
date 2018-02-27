@@ -51,7 +51,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void)setupInfoButton;
 - (OTRAttachmentPicker * _Nonnull)attachmentPicker;
 - (void)showImage:(OTRImageItem * _Nullable)imageItem fromCollectionView:(JSQMessagesCollectionView * _Nonnull)collectionView atIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@property (nonatomic, strong) UIButton *keyboardButton;
+@property (nonatomic, strong) UIButton * _Nullable keyboardButton;
 @end
 
 @interface OTRInviteViewController (ZomOverride)
@@ -70,7 +70,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void) updateInboxArchiveFilteringAndShowArchived:(BOOL)showArchived;
 @property (nonatomic, strong) MigrationInfoHeaderView * _Nullable migrationInfoHeaderView;
 @property (nonatomic, strong) UISegmentedControl * _Nonnull inboxArchiveControl;
-- (void) handleSubscriptionRequest:(OTRXMPPBuddy*)buddy approved:(BOOL)approved;
+- (void) handleSubscriptionRequest:(OTRXMPPBuddy * _Nonnull)buddy approved:(BOOL)approved;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)

@@ -41,7 +41,7 @@
     [[UINavigationBar appearance] setBarTintColor:self.mainThemeColor];
     [[UINavigationBar appearance] setBackgroundColor:self.mainThemeColor];
     // On iOS 11 bar button items are descendants of button...
-    [[UIButton appearanceWhenContainedIn:UINavigationBar.class, nil] setTintColor:[UIColor whiteColor]];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UINavigationBar.class]] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setBarTintColor:self.mainThemeColor];
     [[UITabBar appearance] setBackgroundColor:self.mainThemeColor];
@@ -54,36 +54,36 @@
     [[UITableView appearance] setBackgroundColor:self.lightThemeColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UISwitch appearance] setOnTintColor:self.mainThemeColor];
-    [[UILabel appearanceWhenContainedIn:ZomTableViewSectionHeader.class, nil] setTextColor:self.mainThemeColor];
+    [[UILabel appearanceWhenContainedInInstancesOfClasses:@[ZomTableViewSectionHeader.class]] setTextColor:self.mainThemeColor];
 
-    [[UIButton appearanceWhenContainedIn:UITableView.class, nil] setBackgroundColor:self.mainThemeColor];
-    [[UIButton appearanceWhenContainedIn:UITableView.class, nil] setTintColor:[UIColor whiteColor]];
-    [[UIButton appearanceWhenContainedIn:UITableViewCell.class, UITableView.class, nil] setBackgroundColor:nil];
-    [[UIButton appearanceWhenContainedIn:UITableViewCell.class, UITableView.class, nil] setTintColor:nil];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UITableView.class]] setBackgroundColor:self.mainThemeColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UITableView.class]] setTintColor:[UIColor whiteColor]];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UITableViewCell.class, UITableView.class]] setBackgroundColor:nil];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UITableViewCell.class, UITableView.class]] setTintColor:nil];
     
     // Migration button style
-    [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setBackgroundColor:UIColor.clearColor];
-    [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomConversationViewController.class, nil] setTintColor:self.mainThemeColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UIView.class, UITableView.class, ZomConversationViewController.class]] setBackgroundColor:UIColor.clearColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UIView.class, UITableView.class, ZomConversationViewController.class]] setTintColor:self.mainThemeColor];
 
     // Group compose cell button
-    [[UIButton appearanceWhenContainedIn:OTRComposeGroupBuddyCell.class, UICollectionView.class, UITableView.class, UIViewController.class, nil] setBackgroundColor:UIColor.clearColor];
-    [[UIButton appearanceWhenContainedIn:OTRComposeGroupBuddyCell.class, UICollectionView.class, UITableView.class, UIViewController.class, nil] setTintColor:UIColor.lightGrayColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[OTRComposeGroupBuddyCell.class, UICollectionView.class, UITableView.class, UIViewController.class]] setBackgroundColor:UIColor.clearColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[OTRComposeGroupBuddyCell.class, UICollectionView.class, UITableView.class, UIViewController.class]] setTintColor:UIColor.lightGrayColor];
     
     // Checkmark icon in group compose view
-    [[UIImageView appearanceWhenContainedIn: OTRBuddyInfoCheckableCell.class, UITableView.class, UIViewController.class, nil] setTintColor:self.mainThemeColor];
+    [[UIImageView appearanceWhenContainedInInstancesOfClasses:@[OTRBuddyInfoCheckableCell.class, UITableView.class, UIViewController.class]] setTintColor:self.mainThemeColor];
 
     // Group compose QR button
-   [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomComposeGroupViewController.class, nil] setBackgroundColor:UIColor.whiteColor];
-    [[UIButton appearanceWhenContainedIn:UIView.class, UITableView.class, ZomComposeGroupViewController.class, nil] setTintColor:UIColor.blackColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UIView.class, UITableView.class, ZomComposeGroupViewController.class]] setBackgroundColor:UIColor.whiteColor];
+     [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UIView.class, UITableView.class, ZomComposeGroupViewController.class]] setTintColor:UIColor.blackColor];
     
     // Buttons on photo overlay
-    [[UIBarButtonItem appearanceWhenContainedIn:UIToolbar.class, UIView.class, ZomPhotosViewController.class, nil] setTintColor:UIColor.whiteColor];
-    [[UIButton appearanceWhenContainedIn:UIToolbar.class, UIView.class, ZomPhotosViewController.class, nil] setTintColor:UIColor.whiteColor];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[UIToolbar.class, UIView.class, ZomPhotosViewController.class]] setTintColor:UIColor.whiteColor];
+    [[UIButton appearanceWhenContainedInInstancesOfClasses:@[UIToolbar.class, UIView.class, ZomPhotosViewController.class]] setTintColor:UIColor.whiteColor];
     UIColor *photosBarColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setTranslucent:YES];
-    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setBarTintColor:photosBarColor];
-    [[UINavigationBar appearanceWhenContainedIn:ZomPhotosViewController.class, nil] setBackgroundColor:photosBarColor];
+    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[ZomPhotosViewController.class]] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[ZomPhotosViewController.class]] setTranslucent:YES];
+    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[ZomPhotosViewController.class]] setBarTintColor:photosBarColor];
+    [[UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[ZomPhotosViewController.class]] setBackgroundColor:photosBarColor];
     
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = self.mainThemeColor;

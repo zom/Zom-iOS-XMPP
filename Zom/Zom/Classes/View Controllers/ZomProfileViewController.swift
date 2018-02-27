@@ -401,7 +401,7 @@ open class ZomProfileViewController : UIViewController {
             guard let tf2 = alert.textFields?[1] else {
                 return
             }
-            if (tf1.text?.characters.count > 0 && tf2.text?.characters.count > 0 &&
+            if (tf1.text?.count > 0 && tf2.text?.count > 0 &&
                 tf1.text!.compare(tf2.text!) == ComparisonResult.orderedSame) {
                 alert.actions[0].isEnabled = true
             } else {

@@ -147,7 +147,7 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
         if let usernameRow:XLFormRowDescriptor = self.form.formRow(withTag: kOTRXLFormNicknameTextFieldTag) {
             if let editCell = usernameRow.cell(forForm: self) as? XLFormTextFieldCell {
                 if (editCell.textField == textField) {
-                    if let text = textField.text?.characters.count {
+                    if let text = textField.text?.count {
                         if (text > 0) {
                             if let advancedRow:XLFormRowDescriptor = self.form.formRow(withTag: kOTRXLFormShowAdvancedTag) {
                                 if (advancedRow.value as? Bool == false) {

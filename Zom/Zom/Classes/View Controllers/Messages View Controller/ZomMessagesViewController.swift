@@ -208,7 +208,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readConnection?.read { (t) in
+        self.connections?.read.read { (t) in
             threadOwner = self.threadObject(with: t)
             _account = self.account(with: t)
         }
@@ -279,7 +279,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             self.pendingApprovalView = nil
             self.updatePreparingView(false)
         } else {
-        self.readConnection?.asyncRead { [weak self] (transaction) in
+        self.connections?.read.asyncRead { [weak self] (transaction) in
             guard let strongSelf = self else { return }
             guard let threadKey = strongSelf.threadKey else { return }
             guard let buddy = transaction.object(forKey: threadKey, inCollection: strongSelf.threadCollection) as? OTRBuddy else { return }
@@ -350,7 +350,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func didPressMigratedSwitch() {
         // Archive this convo
-        self.writeConnection?.readWrite { (transaction) in
+        self.connections?.write.readWrite { (transaction) in
             let thread = self.threadObject(with: transaction)
             if let buddy = thread as? OTRXMPPBuddy {
                 buddy.isArchived = true
@@ -470,7 +470,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     @IBAction func didPressReinvite(_ sender: AnyObject) {
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readConnection?.read { (t) in
+        self.connections?.read.read { (t) in
             threadOwner = self.threadObject(with: t)
             _account = self.account(with: t)
         }
