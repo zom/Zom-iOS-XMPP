@@ -23,7 +23,7 @@ open class ZomWelcomeViewController: OTRWelcomeViewController, ZomPickLanguageVi
         
         // If we already have an account, this is "Add account" and not initial onboarding. So, we need to allow the user to cancel out of this flow. Also, don't show this first welcome screen.
         var hasAccounts:Bool = false
-        OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection?.read { (transaction) in
+        OTRDatabaseManager.shared.readConnection?.read { (transaction) in
             if (transaction.numberOfKeys(inCollection: OTRAccount.collection) > 0) {
                 hasAccounts = true
             }

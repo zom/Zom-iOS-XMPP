@@ -27,6 +27,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    GlobalTheme.shared = [[ZomTheme alloc] init];
+    [GlobalTheme.shared setupAppearance];
     [OTRAssets setupLanguageHandling];
     [NSBundle setupLanguageHandling];
     [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:kOTRSettingKeyLanguage options:NSKeyValueObservingOptionNew context:nil];
@@ -159,12 +161,6 @@
     return ret;
 }
 
-#pragma mark - Theming
-
-- (Class) themeClass {
-    return [ZomTheme class];
-}
-
 #pragma mark - Universal Links
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
@@ -206,7 +202,7 @@
         NSString *accountUniqueId = [defaults objectForKey:@"zom_DefaultAccount"];
         
         __block OTRAccount *account = nil;
-        [[OTRDatabaseManager sharedInstance].readOnlyDatabaseConnection readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
+        [[OTRDatabaseManager sharedInstance].readConnection readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
             account = [OTRAccount fetchObjectWithUniqueID:accountUniqueId transaction:transaction];
         }];
         if (account != nil) {

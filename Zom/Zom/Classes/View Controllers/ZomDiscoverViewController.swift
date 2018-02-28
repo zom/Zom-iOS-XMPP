@@ -55,12 +55,12 @@ open class ZomDiscoverViewController: UIViewController, ZomPickStickerViewContro
     
     func selectThemeColor(_ color: UIColor?) {
         if (color != nil) {
-            if let appDelegate = UIApplication.shared.delegate as? OTRAppDelegate {
-                (appDelegate.theme as! ZomTheme).selectMainThemeColor(color)
-                self.navigationController?.navigationBar.barTintColor = appDelegate.theme.mainThemeColor
-                self.navigationController?.navigationBar.backgroundColor = appDelegate.theme.mainThemeColor
-                self.tabBarController?.tabBar.backgroundColor = appDelegate.theme.mainThemeColor
-                self.tabBarController?.tabBar.barTintColor = appDelegate.theme.mainThemeColor
+            if let theme = GlobalTheme.shared as? ZomTheme {
+                theme.selectMainThemeColor(color)
+                self.navigationController?.navigationBar.barTintColor = theme.mainThemeColor
+                self.navigationController?.navigationBar.backgroundColor = theme.mainThemeColor
+                self.tabBarController?.tabBar.backgroundColor = theme.mainThemeColor
+                self.tabBarController?.tabBar.barTintColor = theme.mainThemeColor
             }
         }
     }

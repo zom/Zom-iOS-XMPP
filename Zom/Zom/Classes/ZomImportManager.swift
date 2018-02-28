@@ -32,7 +32,7 @@ import MobileCoreServices
         } else {
             appDelegate.splitViewCoordinator.enterConversationWithBuddies(buddies, accountKey: accountId, name: name)
         }
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
+        OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
             self.account = OTRAccount.fetchObject(withUniqueID: accountId, transaction: transaction)
             self.threadOwner = self.viewController?.threadObject(with: transaction)
         })
@@ -49,7 +49,7 @@ import MobileCoreServices
         guard let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate else {
             return
         }
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
+        OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
             self.account = threadOwner.account(with: transaction)
         })
         self.threadOwner = threadOwner
@@ -59,11 +59,8 @@ import MobileCoreServices
     }
     
     public func conversationViewController(_ conversationViewController: OTRConversationViewController!, didSelectCompose sender: Any!) {
-        guard let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate else {
-            return
-        }
         if let nav = modalNavigationController {
-            let composeViewController = appDelegate.theme.composeViewController()
+            let composeViewController = GlobalTheme.shared.composeViewController()
             if let composeViewController = composeViewController as? OTRComposeViewController {
                 composeViewController.delegate = self
             }
@@ -98,7 +95,7 @@ import MobileCoreServices
         self.type = type
         self.viewController = appDelegate.messagesViewController
 
-        let vc = appDelegate.theme.conversationViewController()
+        let vc = GlobalTheme.shared.conversationViewController()
         if let conversationViewController = vc as? OTRConversationViewController {
             conversationViewController.delegate = self
             let _ = conversationViewController.view

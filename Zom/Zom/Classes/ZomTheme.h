@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Chris Ballinger. All rights reserved.
 //
 
-@import ChatSecureCore;
+#import <ChatSecureCore/ChatSecureCore.h>
+@import UIKit;
 
-@interface ZomTheme : OTRTheme
+@interface ZomTheme : NSObject <AppTheme>
 - (void) selectMainThemeColor:(UIColor*)color;
 @end

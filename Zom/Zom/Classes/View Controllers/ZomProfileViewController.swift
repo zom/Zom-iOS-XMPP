@@ -56,7 +56,7 @@ extension OTRBuddy {
 
 enum Fingerprint {
     case OTR(OTRFingerprint)
-    case OMEMO(OTROMEMODevice)
+    case OMEMO(OMEMODevice)
     
     func fingerprintString() -> String {
         switch self {
@@ -223,8 +223,8 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
             break
         case let .omemoVerify(dev):
             
-            OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection?.asyncReadWrite({ (transaction) in
-                let device = OTROMEMODevice.fetchObject(withUniqueID: dev.uniqueId, transaction: transaction)
+            OTRDatabaseManager.shared.writeConnection?.asyncReadWrite({ (transaction) in
+                let device = OMEMODevice.fetchObject(withUniqueID: dev.uniqueId, transaction: transaction)
                 device?.trustLevel = .trustedUser
                 device?.save(with: transaction)
             }, completionBlock: { 
@@ -401,7 +401,7 @@ open class ZomProfileViewController : UIViewController {
             guard let tf2 = alert.textFields?[1] else {
                 return
             }
-            if (tf1.text?.characters.count > 0 && tf2.text?.characters.count > 0 &&
+            if (tf1.text?.count > 0 && tf2.text?.count > 0 &&
                 tf1.text!.compare(tf2.text!) == ComparisonResult.orderedSame) {
                 alert.actions[0].isEnabled = true
             } else {

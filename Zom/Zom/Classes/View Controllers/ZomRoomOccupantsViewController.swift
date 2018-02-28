@@ -56,7 +56,7 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
         guard let realJid = occupant.realJID, let room = self.room, let accountUniqueId = room.accountUniqueId else { return }
         var _account: OTRAccount? = nil
         var _buddy: OTRBuddy? = nil
-        OTRDatabaseManager.shared.readOnlyDatabaseConnection?.read({ (transaction) in
+        OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
             _account = OTRAccount.fetchObject(withUniqueID: accountUniqueId, transaction: transaction)
             _buddy = OTRXMPPBuddy.fetchBuddy(jid: realJid, accountUniqueId: accountUniqueId, transaction: transaction)
         })

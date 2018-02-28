@@ -15,8 +15,6 @@ import MBProgressHUD
 
 open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate {
     
-    static let ZomUnknownSenderMessageCell = "ZomUnknownSenderMessageCell"
-    
     private var hasFixedTitleViewConstraints:Bool = false
     private var attachmentPickerController:OTRAttachmentPicker? = nil
     private var attachmentPickerView:AttachmentPicker? = nil
@@ -35,8 +33,6 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        let nibUnknown = UINib(nibName: ZomMessagesViewController.ZomUnknownSenderMessageCell, bundle: nil)
-        super.collectionView.register(nibUnknown, forCellWithReuseIdentifier: ZomMessagesViewController.ZomUnknownSenderMessageCell)
         let materialFont = UIFont(name: "MaterialIcons-Regular", size: 30)
         if let mic = self.microphoneButton {
             mic.titleLabel?.font = materialFont
@@ -53,7 +49,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         super.viewWillAppear(animated)
         
         // Don't allow sending to archived
-        super.readOnlyDatabaseConnection.read { (transaction) in
+        super.connections?.read.read { (transaction) in
             if let threadOwner = self.threadObject(with: transaction), threadOwner.isArchived {
                 self.inputToolbar.isHidden = true
             } else {
@@ -212,7 +208,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
 
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readOnlyDatabaseConnection.read { (t) in
+        self.connections?.read.read { (t) in
             threadOwner = self.threadObject(with: t)
             _account = self.account(with: t)
         }
@@ -283,7 +279,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
             self.pendingApprovalView = nil
             self.updatePreparingView(false)
         } else {
-        self.readOnlyDatabaseConnection.asyncRead { [weak self] (transaction) in
+        self.connections?.read.asyncRead { [weak self] (transaction) in
             guard let strongSelf = self else { return }
             guard let threadKey = strongSelf.threadKey else { return }
             guard let buddy = transaction.object(forKey: threadKey, inCollection: strongSelf.threadCollection) as? OTRBuddy else { return }
@@ -354,7 +350,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     
     override open func didPressMigratedSwitch() {
         // Archive this convo
-        self.readWriteDatabaseConnection.readWrite { (transaction) in
+        self.connections?.write.readWrite { (transaction) in
             let thread = self.threadObject(with: transaction)
             if let buddy = thread as? OTRXMPPBuddy {
                 buddy.isArchived = true
@@ -373,16 +369,16 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func didReceiveChanges(_ handler: OTRYapViewHandler, sectionChanges: [YapDatabaseViewSectionChange], rowChanges: [YapDatabaseViewRowChange]) {
-        var collectionViewNumberOfItems = 0
-        var numberMappingsItems = 0
-        if rowChanges.count > 0 {
-            collectionViewNumberOfItems = self.collectionView.numberOfItems(inSection: 0)
-            numberMappingsItems = Int(self.viewHandler.mappings?.numberOfItems(inSection: 0) ?? 0)
-        }
+//        var collectionViewNumberOfItems = 0
+//        var numberMappingsItems = 0
+//        if rowChanges.count > 0 {
+//            collectionViewNumberOfItems = self.collectionView.numberOfItems(inSection: 0)
+//            numberMappingsItems = Int(self.viewHandler.mappings?.numberOfItems(inSection: 0) ?? 0)
+//        }
         super.didReceiveChanges(handler, sectionChanges: sectionChanges, rowChanges: rowChanges)
-        if numberMappingsItems > collectionViewNumberOfItems, numberMappingsItems > 0 {
-                self.checkRangeForMigrationMessage(range: NSMakeRange(collectionViewNumberOfItems, numberMappingsItems - collectionViewNumberOfItems))
-        }
+//        if numberMappingsItems > collectionViewNumberOfItems, numberMappingsItems > 0 {
+//                self.checkRangeForMigrationMessage(range: NSMakeRange(collectionViewNumberOfItems, numberMappingsItems - collectionViewNumberOfItems))
+//        }
     }
     
     // If we find any incoming migration link messages, show the "your friend has migrated" header
@@ -436,46 +432,6 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         return shieldIcon!
     }
     
-    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //var incoming = false
-        if let jsqCollectionView = collectionView as? JSQMessagesCollectionView {
-            let messageData = self.collectionView(jsqCollectionView, messageDataForItemAt: indexPath)
-            if let messageData = messageData as? UnknownSenderGroupMessageData {
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZomMessagesViewController.ZomUnknownSenderMessageCell, for: indexPath)
-                if let cell = cell as? ZomUnknownSenderMessageCell {
-                    cell.nicknameView.text = messageData.senderDisplayName()
-                    cell.usernameView.text = messageData.senderUserName()
-                    cell.titleView.text = String(format: NSLocalizedString("%@ has things to say. Become friends to see upcoming chats.", comment: "Label for group message received from unknown sender"), arguments: [messageData.senderDisplayName()])
-                    if let avatar = self.collectionView(jsqCollectionView, avatarImageDataForItemAt: indexPath) {
-                        cell.imageView.image = avatar.avatarImage() ?? avatar.avatarPlaceholderImage()
-                    }
-                    cell.acceptAction = {(cell:ZomUnknownSenderMessageCell) -> Void
-                        in
-                        print("Accept")
-                    }
-                    cell.denyAction = {(cell:ZomUnknownSenderMessageCell) -> Void
-                        in
-                        print("Deny")
-                    }
-                }
-                return cell
-            //} else if let message = messageData as? OTRMessageProtocol & JSQMessageData {
-                //incoming = message.isMessageIncoming
-            }
-        }
-        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
-        // Style cells
-//        if let jsqCell = cell as? JSQMessagesCollectionViewCell {
-//            jsqCell.textView?.textColor = UIColor.black
-//            if incoming {
-//                jsqCell.contentView.backgroundColor = UIColor(netHex: 0xfff0f0f0);
-//            } else {
-//                jsqCell.contentView.backgroundColor = OTRAppDelegate.appDelegate.theme.mainThemeColor.bb_lighten(withValue: 0.8)
-//            }
-//        }
-        return cell
-    }
-    
     override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         let ret = super.collectionView(collectionView, messageDataForItemAt: indexPath)
         if let ret = ret, let text = ret.text?() {
@@ -483,67 +439,8 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                 return ZomStickerMessage(message: ret)
             }
         }
-        // Uncomment this block to show an "add friend view" for group messages from people you are not friends with. This below code is a very brute force way to do it - better would be to already have "message from unknown" as a separate entity in the db.
-//        if self.isGroupChat(), let message = ret as? OTRMessageProtocol & JSQMessageData, message.isMessageIncoming, let messageSender = message.senderId() {
-//            var buddy:OTRXMPPBuddy?
-//            var roomOccupant:OTRXMPPRoomOccupant?
-//            self.readOnlyDatabaseConnection.read { (transaction) in
-//                transaction.enumerateRoomOccupants(jid: messageSender, block: { (occupant:OTRXMPPRoomOccupant,
-//                    stop:UnsafeMutablePointer<ObjCBool>) in
-//                    roomOccupant = occupant
-//                    stop.pointee = true
-//                })
-//                if let occupant = roomOccupant, let realJid = occupant.realJID, let account = self.account(with: transaction) {
-//                    buddy = OTRXMPPBuddy.fetch(withUsername: realJid, withAccountUniqueId: account.uniqueId, transaction: transaction)
-//                }
-//            }
-//            if let buddy = buddy {
-//                if buddy.pendingApproval || buddy.hasIncomingSubscriptionRequest {
-//                    return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
-//                } else {
-//                    var preferredSecurity:OTRMessageTransportSecurity?
-//                    self.readOnlyDatabaseConnection.read { (transaction) in
-//                        preferredSecurity = buddy.preferredTransportSecurity(with: transaction)
-//                    }
-//                    if let sec = preferredSecurity {
-//                        switch sec {
-//                        case .plaintext, .plaintextWithOTR:
-//                            // No keys
-//                            return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
-//                        default: break
-//                        }
-//                    }
-//                }
-//            } else if let _ = roomOccupant, let message = ret {
-//                // Not someone we know
-//                return UnknownSenderGroupMessageData(message: message, nickName: roomOccupant?.roomName, userName: roomOccupant?.realJID)
-//            }
-//        }
         return ret
     }
-    
-    open override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = super.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: indexPath)
-        if let jsqCollectionView = collectionView as? JSQMessagesCollectionView {
-            let messageData = self.collectionView(jsqCollectionView, messageDataForItemAt: indexPath)
-            if let _ = messageData as? UnknownSenderGroupMessageData {
-                return CGSize(width: size.width, height: 110) //TODO
-            }
-        }
-        return size
-    }
-    
-    override open func hasBubbleSizeForCell(at indexPath: IndexPath) -> Bool {
-        if self.collectionView(collectionView, messageDataForItemAt: indexPath) is UnknownSenderGroupMessageData {
-            return false
-        }
-        return super.hasBubbleSizeForCell(at: indexPath)
-    }
-
-    // Uncomment this to remove bubbles
-//    override open func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-//        return nil
-//    }
     
     private func rotateRefreshView(_ button:UIButton, revolutions:Int) {
         if let label = button.titleLabel {
@@ -559,7 +456,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                         button.backgroundColor = UIColor.white
                         let attributedString = NSMutableAttributedString(string: "")
                         let range = NSRange(location: 0, length: attributedString.length)
-                        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: ZomAppDelegate.appDelegate.theme.mainThemeColor, range: range)
+                        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: GlobalTheme.shared.mainThemeColor, range: range)
                         button.setAttributedTitle(attributedString, for: .normal)
                         button.isUserInteractionEnabled = false
                     } else {
@@ -573,7 +470,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     @IBAction func didPressReinvite(_ sender: AnyObject) {
         var threadOwner: OTRThreadOwner? = nil
         var _account: OTRAccount? = nil
-        self.readOnlyDatabaseConnection.read { (t) in
+        self.connections?.read.read { (t) in
             threadOwner = self.threadObject(with: t)
             _account = self.account(with: t)
         }
@@ -589,13 +486,17 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func showImage(_ imageItem: OTRImageItem?, from collectionView: JSQMessagesCollectionView, at indexPath: IndexPath) {
-        guard let dbConnection = OTRDatabaseManager.shared.readOnlyDatabaseConnection, let threadIdentifier = self.threadKey else {return}
+        guard let dbConnection = OTRDatabaseManager.shared.readConnection, let threadIdentifier = self.threadKey else {return}
         galleryHandler = ZomGalleryHandler(connection: dbConnection)
         galleryReferenceView = self.view
         if let cell = self.collectionView?.cellForItem(at: indexPath) as? JSQMessagesCollectionViewCell {
             galleryReferenceView = cell.mediaView
         }
         galleryHandler?.fetchImagesAsync(for: threadIdentifier, initialPhoto: imageItem, delegate: self)
+    }
+    
+    override open func newDeviceButtonPressed(_ buddyUniqueId: String) {
+        super.newDeviceButtonPressed(buddyUniqueId)
     }
 }
 
@@ -623,45 +524,4 @@ extension ZomMessagesViewController: ZomGalleryHandlerDelegate {
         self.present(browser, animated: true, completion: nil)
     }
 }
-
-open class UnknownSenderGroupMessageData: NSObject, JSQMessageData {
-    private var nickName:String?
-    private var userName:String?
-    private var originalMessage:JSQMessageData
-
-    public init(message : JSQMessageData, nickName:String?, userName:String?) {
-        originalMessage = message
-        self.nickName = nickName
-        self.userName = userName
-    }
-    
-    open func senderUserName() -> String! {
-        return self.userName ?? senderDisplayName()
-    }
-    
-    open func senderDisplayName() -> String! {
-        return self.nickName ?? self.originalMessage.senderDisplayName()
-    }
-    
-    open func date() -> Date {
-        return originalMessage.date()
-    }
-    
-    open func messageHash() -> UInt {
-        return originalMessage.messageHash()
-    }
-    
-    open func senderId() -> String! {
-        return originalMessage.senderId()
-    }
-    
-    open func isMediaMessage() -> Bool {
-        return true
-    }
-    
-    open func media() -> JSQMessageMediaData! {
-        return nil
-    }
-}
-
 

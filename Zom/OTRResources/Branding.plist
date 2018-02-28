@@ -35,6 +35,6 @@
 	<key>AllowGroupOMEMO</key>
 	<true/>
 	<key>AllowDebugFileLogging</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

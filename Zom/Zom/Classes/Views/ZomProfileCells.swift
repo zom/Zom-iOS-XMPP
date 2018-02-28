@@ -126,7 +126,7 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
     
     enum ButtonCellType {
         case otrVerify(OTRFingerprint)
-        case omemoVerify(OTROMEMODevice)
+        case omemoVerify(OMEMODevice)
         case refresh
         case startChat
         case showMore(Int)
