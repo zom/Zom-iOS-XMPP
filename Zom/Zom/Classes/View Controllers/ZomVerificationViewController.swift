@@ -57,9 +57,9 @@ class ZomVerificationViewController: UIViewController {
             "Make sure this code matches your friend's latest Zom code on their phone.",
             comment: "Description for code verification scene")
 
-        if let buddy = buddy, let db = OTRDatabaseManager.sharedInstance().readOnlyDatabaseConnection {
+        if let buddy = buddy, let db = OTRDatabaseManager.sharedInstance().readConnection {
             db.asyncRead() { (transaction) in
-                let allOmemoDevices = OTROMEMODevice.allDevices(
+                let allOmemoDevices = OMEMODevice.allDevices(
                     forParentKey: buddy.uniqueId,
                     collection: type(of: buddy).collection,
                     transaction: transaction
@@ -126,7 +126,7 @@ class ZomVerificationViewController: UIViewController {
     @IBAction func match() {
         matchBt.isHighlighted = true
 
-        if let device = fingerprintContainer as? OTROMEMODevice {
+        if let device = fingerprintContainer as? OMEMODevice {
             device.trustLevel = .trustedUser
             store(device)
         }
@@ -165,7 +165,7 @@ class ZomVerificationViewController: UIViewController {
      Then dismisses this view controller.
     */
     @IBAction func noMatch() {
-        if let device = fingerprintContainer as? OTROMEMODevice {
+        if let device = fingerprintContainer as? OMEMODevice {
             device.trustLevel = .untrusted
             store(device)
         }
@@ -178,10 +178,10 @@ class ZomVerificationViewController: UIViewController {
     }
 
     /**
-     Store a given `OTROMEMODevice` to the database.
+     Store a given `OMEMODevice` to the database.
     */
-    private func store(_ device: OTROMEMODevice) {
-        if let db = OTRDatabaseManager.sharedInstance().readWriteDatabaseConnection {
+    private func store(_ device: OMEMODevice) {
+        if let db = OTRDatabaseManager.sharedInstance().writeConnection {
             db.asyncReadWrite() { (transaction) in
                 transaction.setObject(device, forKey: device.uniqueId,
                                       inCollection: type(of: device).collection)

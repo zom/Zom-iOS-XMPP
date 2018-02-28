@@ -79,7 +79,7 @@
     }
 
     // ViewController in development
-    YapDatabaseConnection *db = [OTRDatabaseManager sharedInstance].readOnlyDatabaseConnection;
+    YapDatabaseConnection *db = [OTRDatabaseManager sharedInstance].uiConnection;
     __block OTRBuddy *buddy = nil;
     [db readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
         buddy = (OTRBuddy *)[[transaction ext:OTRAllBuddiesDatabaseViewExtensionName]
