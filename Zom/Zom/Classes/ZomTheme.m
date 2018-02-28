@@ -177,7 +177,7 @@
     // TODO: Return Zom's customized key management/verification screen
     DatabaseConnections *connections = OTRDatabaseManager.shared.connections;
     XLFormDescriptor *form = [KeyManagementViewController profileFormDescriptorForAccount:account buddies:buddies connection:connections.ui];
-    KeyManagementViewController *keyVC = [[KeyManagementViewController alloc] initWithAccountKey:account.uniqueId readConnection:connections.ui writeConnection:connections.write form:form];
+    KeyManagementViewController *keyVC = [[KeyManagementViewController alloc] initWithAccountKey:account.uniqueId connections:connections form:form];
     return keyVC;
 }
 
