@@ -5,112 +5,75 @@
 //  Created by Benjamin Erhart on 22.02.18.
 //
 
-import UIKit
-
 /**
  Scene for verification of the latest fingerprint of a buddy.
 
  Use the `convenience init(buddy: OTRBuddy)` or set `self.buddy` immediately after init!
  
  The first OMEMO key exists, which has trust level `.untrustedNew`, will be used, otherwise the
- first OTR fingerprint with this trust level will be used.
- */
-class ZomVerificationViewController: UIViewController {
-
-    @objc public var buddy: OTRBuddy?
+ first OTR fingerprint with that trust level will be used.
+*/
+class ZomVerificationViewController: ZomFingerprintBaseViewController {
 
     @IBOutlet weak var infoLb: UILabel!
     @IBOutlet weak var fingerprintLb: UILabel!
-    @IBOutlet weak var avatarImg: UIImageView!
-    @IBOutlet weak var checkmarkImg: UIImageView!
     @IBOutlet weak var matchBt: UIButton!
     @IBOutlet weak var noMatchBt: UIButton!
+    @IBOutlet weak var viewAllBt: UIButton!
     @IBOutlet weak var overlayContainer: UIView!
     @IBOutlet weak var successCheckmarkLb: UILabel!
     @IBOutlet weak var trustedLb: UILabel!
 
     private var fingerprintContainer: NSObject?
 
-    /**
-     Convenience initializer which also sets `self.buddy` with the given argument.
-
-     You can do this yourself, since `self.buddy` is public, but you need to do this, before
-     `self.viewDidLoad()` was called!
-
-     - parameter buddy: a OTRBuddy with a new OMEMO or OTR fingerprint.
-    */
-    @objc convenience init(buddy: OTRBuddy) {
-        self.init()
-        self.buddy = buddy
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let titleView = OTRTitleSubtitleView(frame: CGRect(x: 0, y: 0, width: 200, height: 40))
-        titleView.titleLabel.text = NSLocalizedString("Compare Codes",
-                                                      comment: "Title for code verification scene")
-        titleView.subtitleLabel.text = buddy?.username
-        navigationItem.titleView = titleView
+        if let titleView = navigationItem.titleView as? OTRTitleSubtitleView {
+            titleView.titleLabel.text = NSLocalizedString("Compare Codes",
+                                                          comment: "Title for code verification scene")
+        }
 
         infoLb.text = NSLocalizedString(
             "Make sure this code matches your friend's latest Zom code on their phone.",
             comment: "Description for code verification scene")
 
-        if let buddy = buddy, let db = OTRDatabaseManager.sharedInstance().readConnection {
-            db.asyncRead() { (transaction) in
-                let allOmemoDevices = OMEMODevice.allDevices(
-                    forParentKey: buddy.uniqueId,
-                    collection: type(of: buddy).collection,
-                    transaction: transaction
-                ).filter() { (device) -> Bool in
-                    return device.publicIdentityKeyData != nil && device.trustLevel == .untrustedNew
-                }
-
-                if let device = allOmemoDevices.first {
-                    self.fingerprintContainer = device
-                    self.setFingerprint(device.humanReadableFingerprint)
-                }
-                else if let account = buddy.account(with: transaction) {
-                    let fingerprints = OTRProtocolManager.encryptionManager.otrKit.fingerprints(
-                        forUsername: buddy.username,
-                        accountName: account.username,
-                        protocol: account.protocolTypeString()
-                    ).filter() { (fingerprint) -> Bool in
-                        return fingerprint.trustLevel == .untrustedNew
-                    }
-
-                    if let fingerprint = fingerprints.first {
-                        self.fingerprintContainer = fingerprint
-                        self.setFingerprint(
-                            (fingerprint.fingerprint as NSData).humanReadableFingerprint())
-                    }
-                    else {
-                        self.setFingerprintError()
-                    }
-                }
-                else {
-                    self.setFingerprintError()
-                }
-            }
-        }
-        else {
-            setFingerprintError()
-        }
-
-        avatarImg.image = buddy?.avatarImage
-
-        //TODO: This is not the correct badge, yet.
-        checkmarkImg.image = OTRImages.checkmark(with: UIColor.black).withRenderingMode(.alwaysTemplate)
-
         matchBt.titleLabel?.font = UIFont(name: "Material Icons", size: 40)
 
-        noMatchBt.titleLabel?.text = NSLocalizedString("Codes don't match",
+        noMatchBt.titleLabel?.text = NSLocalizedString("Code Doesn't Match",
                                                        comment: "Verification scene button text")
+
+        viewAllBt.titleLabel?.text = NSLocalizedString("View All", comment: "Verification scene button text")
 
         successCheckmarkLb.font = UIFont(name: "Material Icons", size: 40)
 
         trustedLb.text = NSLocalizedString("Trusted", comment: "Verification scene success text")
+    }
+
+    /**
+     Callback, when all OMEMO devices and all OTR fingerprints of our buddy are loaded.
+
+     Show the first `.untrustedNew` OMEMO device key fingerprint or the first `.untrustedNew`
+     OTR fingerprint if no OMEMO device found.
+    */
+    override func fingerprintsLoaded() {
+        if let device = omemoDevices
+            .filter({ (device) -> Bool in return device.trustLevel == .untrustedNew })
+            .first
+        {
+            fingerprintContainer = device
+            setFingerprint(device.humanReadableFingerprint)
+        }
+        else if let fingerprint = otrFingerprints
+            .filter({ (fingerprint) -> Bool in return fingerprint.trustLevel == .untrustedNew })
+            .first
+        {
+            fingerprintContainer = fingerprint
+            setFingerprint((fingerprint.fingerprint as NSData).humanReadableFingerprint())
+        }
+        else {
+            setFingerprintError()
+        }
     }
 
     /**
@@ -128,11 +91,11 @@ class ZomVerificationViewController: UIViewController {
 
         if let device = fingerprintContainer as? OMEMODevice {
             device.trustLevel = .trustedUser
-            store(device)
+            ZomFingerprintBaseViewController.store(device)
         }
         else if let fingerprint = fingerprintContainer as? OTRFingerprint {
             fingerprint.trustLevel = .trustedUser
-            store(fingerprint)
+            ZomFingerprintBaseViewController.store(fingerprint)
         }
 
         if let window = view.window {
@@ -157,43 +120,49 @@ class ZomVerificationViewController: UIViewController {
     }
 
     /**
-     Callback, when user hits the "Codes don't match" button.
+     Callback, when user hits the "Code Doesn't Match" button.
 
-     Sets the trust level of the OMEMO device key resp. the OTR fingerprint to `.untrusted` resp.
-     `.untrustedUser` and stores it.
+     Shows an alert which explains, that there could be other fingerprints. Sends the user to
+     the `ZomVerificationDetailViewController` on user interaction.
 
-     Then dismisses this view controller.
+     Then remove this view controller from the view hirarchy.
     */
     @IBAction func noMatch() {
-        if let device = fingerprintContainer as? OMEMODevice {
-            device.trustLevel = .untrusted
-            store(device)
-        }
-        else if let fingerprint = fingerprintContainer as? OTRFingerprint {
-            fingerprint.trustLevel = .untrustedUser
-            store(fingerprint)
-        }
+        let message = NSLocalizedString("View all Zom codes for \(buddyName()) to find a match.",
+            comment: "Verification scene alert message")
 
-        self.dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(
+            title: NSLocalizedString("Code Doesn't Match", comment: "Verification scene alert title text"),
+            message: message,
+            preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("View All Codes", comment: "Verification scene alert title text"),
+            style: .default, handler: { (action) in
+                DispatchQueue.main.async {
+                    self.viewAll()
+                }
+            }))
+
+        present(alert, animated: true)
     }
 
     /**
-     Store a given `OMEMODevice` to the database.
-    */
-    private func store(_ device: OMEMODevice) {
-        if let db = OTRDatabaseManager.sharedInstance().writeConnection {
-            db.asyncReadWrite() { (transaction) in
-                transaction.setObject(device, forKey: device.uniqueId,
-                                      inCollection: type(of: device).collection)
-            }
-        }
-    }
+     Sends the user to the `ZomVerificationDetailViewController` on user interaction.
 
-    /**
-     Store a given `OTRFingerprint` to wherever OTRKit stores its fingerprints.
+     Then remove this view controller from the view hirarchy.
     */
-    private func store(_ fingerprint: OTRFingerprint) {
-        OTRProtocolManager.encryptionManager.otrKit.save(fingerprint)
+    @IBAction func viewAll() {
+        let vdvc = ZomVerificationDetailViewController(buddy: buddy, omemoDevices: omemoDevices,
+                                                       otrFingerprints: otrFingerprints)
+
+        if let nc = navigationController {
+            nc.pushViewController(vdvc, animated: true)
+            nc.viewControllers.remove(at: nc.viewControllers.count - 2)
+        }
+        else {
+            present(vdvc, animated: true)
+        }
     }
 
     /**
@@ -201,24 +170,11 @@ class ZomVerificationViewController: UIViewController {
 
      Copious amounts of letter and line spacing are used.
 
-     Thread-safe.
-
      - parameter text: Falls back to an error message, if nil.
     */
     private func setFingerprint(_ text: String?) {
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
-        style.alignment = .center
-
-        let string = text ?? NSLocalizedString(
-            "CODE ERROR",
-            comment: "Error message instead of key fingerprint which could not be read")
-
-        DispatchQueue.main.async {
-            self.fingerprintLb.attributedText = NSAttributedString(
-                string: string.localizedUppercase,
-                attributes: [.kern: 3, .paragraphStyle: style])
-        }
+        ZomFingerprintBaseViewController.setFingerprint(fingerprintLb, text: text,
+                                                        alignment: .center, bold: false)
     }
 
     /**
