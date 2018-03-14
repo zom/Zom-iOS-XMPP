@@ -112,7 +112,7 @@
 	<array>
 		<string>FontAwesome.ttf</string>
 		<string>OTRResources.bundle/MaterialIcons-Regular.ttf</string>
-		<string>OTRResources.bundle/ios-icon-font.ttf</string>
+		<string>OTRResources.bundle/icomoon.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

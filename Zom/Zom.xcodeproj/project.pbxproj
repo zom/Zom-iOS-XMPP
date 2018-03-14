@@ -57,7 +57,6 @@
 		924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC5AC1EBB3FE800CEA225 /* PreparingSessionView.xib */; };
 		924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924FC5AF1EBB3FF000CEA225 /* WaitingForApprovalView.xib */; };
 		9251C30C1F3471E9003ACE4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D978BC9C1BABE6DA009246CF /* Images.xcassets */; };
-		9251C34A1F35C6A8003ACE4A /* ios-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9251C3461F35C6A2003ACE4A /* ios-icon-font.ttf */; };
 		9251C34B1F35C6AE003ACE4A /* MaterialIcons-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9251C3471F35C6A2003ACE4A /* MaterialIcons-Regular.ttf */; };
 		925434821F556B96007567B7 /* UIImage+Zom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925434811F556B96007567B7 /* UIImage+Zom.swift */; };
 		9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */; };
@@ -124,6 +123,7 @@
 		92CF0A3B1EF02DE300D1A4BA /* ZomPhotoStreamImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CF0A3A1EF02DE300D1A4BA /* ZomPhotoStreamImage.swift */; };
 		92CF0A7F1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CF0A7E1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift */; };
 		92CF0ABB1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CF0ABA1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift */; };
+		92D18EC320595F5A00FAD36C /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92D18EC120595F5200FAD36C /* icomoon.ttf */; };
 		92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */; };
 		92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */; };
 		92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99DEC2C1BABDEF000875194 /* OTRImages.xcassets */; };
@@ -754,7 +754,6 @@
 		924FC6271EBB408900CEA225 /* zh-Hans-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans-CN"; path = "zh-Hans-CN.lproj/WaitingForApprovalView.strings"; sourceTree = "<group>"; };
 		924FC6291EBB408A00CEA225 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
 		924FC62B1EBB408C00CEA225 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/WaitingForApprovalView.strings; sourceTree = "<group>"; };
-		9251C3461F35C6A2003ACE4A /* ios-icon-font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ios-icon-font.ttf"; path = "../../ChatSecure/OTRResources/ios-icon-font.ttf"; sourceTree = "<group>"; };
 		9251C3471F35C6A2003ACE4A /* MaterialIcons-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MaterialIcons-Regular.ttf"; path = "../../ChatSecure/OTRResources/MaterialIcons-Regular.ttf"; sourceTree = "<group>"; };
 		925434811F556B96007567B7 /* UIImage+Zom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Zom.swift"; path = "Classes/UIImage+Zom.swift"; sourceTree = "<group>"; };
 		9254F1B01DF0B5CE0073F7A0 /* AttachmentPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttachmentPicker.swift; path = Classes/Views/AttachmentPicker.swift; sourceTree = "<group>"; };
@@ -938,6 +937,7 @@
 		92CF0A3A1EF02DE300D1A4BA /* ZomPhotoStreamImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPhotoStreamImage.swift; path = Classes/ZomPhotoStreamImage.swift; sourceTree = "<group>"; };
 		92CF0A7E1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomPhotoStreamViewController.swift; path = "Classes/View Controllers/ZomPhotoStreamViewController.swift"; sourceTree = "<group>"; };
 		92CF0ABA1EF13ECD00D1A4BA /* ZomPhotoStreamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZomPhotoStreamCell.swift; sourceTree = "<group>"; };
+		92D18EC120595F5200FAD36C /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 		92D378101BF1ECDE00E014EF /* ZomWelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomWelcomeViewController.swift; path = "Classes/View Controllers/Onboarding/ZomWelcomeViewController.swift"; sourceTree = "<group>"; };
 		92D55CEA1C0349FF00EECC76 /* ZomMyQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMyQRViewController.swift; path = "Classes/View Controllers/ZomMyQRViewController.swift"; sourceTree = "<group>"; };
 		92D688A41CC5653700B27EBC /* bo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bo; path = bo.lproj/Onboarding.strings; sourceTree = "<group>"; };
@@ -1454,7 +1454,7 @@
 		D99DEBB01BABD5DF00875194 /* OTRResources.bundle */ = {
 			isa = PBXGroup;
 			children = (
-				9251C3461F35C6A2003ACE4A /* ios-icon-font.ttf */,
+				92D18EC120595F5200FAD36C /* icomoon.ttf */,
 				9251C3471F35C6A2003ACE4A /* MaterialIcons-Regular.ttf */,
 				D99DEC2A1BABDEF000875194 /* Images */,
 				D99DEC2D1BABDEF000875194 /* Interface */,
@@ -2114,7 +2114,7 @@
 				926AF4E81E847BB100463F54 /* TwoButtonTableViewCell.xib in Resources */,
 				926AF4E91E847BB100463F54 /* UserInfoProfileCell.xib in Resources */,
 				92DEE6CE1FCC70F600E52E60 /* OTRMessageUnknownSenderCell.xib in Resources */,
-				9251C34A1F35C6A8003ACE4A /* ios-icon-font.ttf in Resources */,
+				92D18EC320595F5A00FAD36C /* icomoon.ttf in Resources */,
 				926AF4EA1E847BB100463F54 /* XMPPAccountCell.xib in Resources */,
 				92BCD2F41F839B9D00272AC6 /* Images.xcassets in Resources */,
 				924FC5691EBB3FAB00CEA225 /* MigrationInfoHeaderView.xib in Resources */,
