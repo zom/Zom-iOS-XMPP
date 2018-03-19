@@ -16,12 +16,15 @@ import UIKit
 */
 class ZomFingerprintBaseViewController: UIViewController {
 
+    public static let green = UIColor(a: 255, red: 63, green: 210, blue: 79)
+    public static let red = UIColor(a: 255, red: 231, green: 39, blue: 90)
+
     @objc var buddy: OTRBuddy?
     @objc var omemoDevices: [OMEMODevice] = []
     @objc var otrFingerprints : [OTRFingerprint] = []
 
     @IBOutlet weak var avatarImg: UIImageView!
-    @IBOutlet weak var checkmarkImg: UIImageView!
+    @IBOutlet weak var badgeLb: UILabel!
 
     /**
      Convenience initializer which also sets `self.buddy` with the given argument.
@@ -96,8 +99,7 @@ class ZomFingerprintBaseViewController: UIViewController {
 
         avatarImg.image = buddy?.avatarImage
 
-        //TODO: This is not the correct badge, yet.
-        checkmarkImg.image = OTRImages.checkmark(with: UIColor.black).withRenderingMode(.alwaysTemplate)
+        badgeLb.font = UIFont(name: "icomoon", size: badgeLb.font.pointSize)
     }
 
     /**
@@ -171,5 +173,44 @@ class ZomFingerprintBaseViewController: UIViewController {
         }
 
         return NSLocalizedString("your buddy", comment: "Verification scene default buddy name")
+    }
+
+    /**
+     - returns: the total number of `.untrustedNew` OMEMO and OTR keys aka. fingerprints.
+    */
+    func countUntrusted() -> Int {
+        var untrusted = 0
+
+        for device in omemoDevices {
+            if device.trustLevel == .untrustedNew {
+                untrusted += 1
+            }
+        }
+
+        for fingerprint in otrFingerprints {
+            if fingerprint.trustLevel == .untrustedNew {
+                untrusted += 1
+            }
+        }
+
+        return untrusted
+    }
+
+    /**
+     Sets the style of `self.badgeLb` - the little badge in the bottom right corner of a user's
+     avatar to either be read and display shield with an exclamation mark or be green and display
+     a shield with a check mark.
+
+     - parameter ok: Set true if all keys aka. fingerprints are ok (none are `.untrustedNew`)
+    */
+    func setBadge(ok: Bool) {
+        if ok {
+            badgeLb.backgroundColor = ZomFingerprintBaseViewController.green
+            badgeLb.text = "" // Shield with check mark
+        }
+        else {
+            badgeLb.backgroundColor = ZomFingerprintBaseViewController.red
+            badgeLb.text = "" // Shield with exclamation mark
+        }
     }
 }

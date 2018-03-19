@@ -57,6 +57,8 @@ class ZomVerificationViewController: ZomFingerprintBaseViewController {
      OTR fingerprint if no OMEMO device found.
     */
     override func fingerprintsLoaded() {
+        setBadge(ok: countUntrusted() < 1)
+
         if let device = omemoDevices
             .filter({ (device) -> Bool in return device.trustLevel == .untrustedNew })
             .first

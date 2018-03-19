@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZomVerificationDetailViewController" customModule="Zom" customModuleProvider="target">
             <connections>
                 <outlet property="avatarImg" destination="fnc-hI-hGn" id="jzq-aY-MMf"/>
-                <outlet property="checkmarkImg" destination="Bu5-Qk-2JJ" id="xpc-ce-YEo"/>
+                <outlet property="badgeLb" destination="NmT-HF-xfu" id="L58-4w-65q"/>
                 <outlet property="descriptionLb" destination="Me1-An-Lv2" id="ttL-Yl-Jes"/>
                 <outlet property="fingerprintTable" destination="7AU-VH-QPF" id="mSU-KF-st6"/>
                 <outlet property="subtitleLb" destination="hrq-Te-DwM" id="tJx-PT-F57"/>
@@ -37,25 +37,22 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bu5-Qk-2JJ">
-                    <rect key="frame" x="189" y="68" width="20" height="20"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmT-HF-xfu">
+                    <rect key="frame" x="188" y="67" width="21" height="21"/>
+                    <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="8tG-1M-U0B"/>
-                        <constraint firstAttribute="width" constant="20" id="YGg-Sj-bHU"/>
+                        <constraint firstAttribute="width" constant="21" id="Tj3-PG-SOW"/>
+                        <constraint firstAttribute="height" constant="21" id="k32-xt-vCS"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                            <integer key="value" value="3"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                </imageView>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;x&gt; Untrusted Codes for &lt;buddy&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrq-Te-DwM">
                     <rect key="frame" x="32" y="113" width="311" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -85,18 +82,18 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Me1-An-Lv2" firstAttribute="top" secondItem="hrq-Te-DwM" secondAttribute="bottom" constant="8" id="3DA-6d-KtY"/>
+                <constraint firstItem="NmT-HF-xfu" firstAttribute="trailing" secondItem="fnc-hI-hGn" secondAttribute="trailing" id="7BQ-9J-GNp"/>
                 <constraint firstItem="fnc-hI-hGn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EFo-LK-GGa"/>
                 <constraint firstItem="7AU-VH-QPF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JXD-GJ-DYL"/>
                 <constraint firstItem="7AU-VH-QPF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="M1L-ZE-t2u"/>
                 <constraint firstItem="7AU-VH-QPF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="OI4-gh-TGn"/>
-                <constraint firstItem="Bu5-Qk-2JJ" firstAttribute="trailing" secondItem="fnc-hI-hGn" secondAttribute="trailing" id="SBw-1e-Zy6"/>
                 <constraint firstItem="7AU-VH-QPF" firstAttribute="top" secondItem="Me1-An-Lv2" secondAttribute="bottom" constant="25" id="Wxf-CS-4qA"/>
-                <constraint firstItem="Bu5-Qk-2JJ" firstAttribute="bottom" secondItem="fnc-hI-hGn" secondAttribute="bottom" id="ZlA-hz-2es"/>
                 <constraint firstItem="Me1-An-Lv2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="f45-Oh-bJN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hrq-Te-DwM" secondAttribute="trailing" constant="32" id="f8t-dc-ciN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Me1-An-Lv2" secondAttribute="trailing" constant="32" id="fbM-Ey-Cv0"/>
                 <constraint firstItem="fnc-hI-hGn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="mTL-z7-AjV"/>
                 <constraint firstItem="hrq-Te-DwM" firstAttribute="top" secondItem="fnc-hI-hGn" secondAttribute="bottom" constant="25" id="scn-7C-rrC"/>
+                <constraint firstItem="NmT-HF-xfu" firstAttribute="bottom" secondItem="fnc-hI-hGn" secondAttribute="bottom" id="uOC-wq-DmR"/>
                 <constraint firstItem="hrq-Te-DwM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="vtE-Ad-VvF"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -89,19 +89,9 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
      information in the `subtitleLb` label.
     */
     private func updateUntrustedNewFingerprintsInfo() {
-        var untrusted = 0
+        let untrusted = countUntrusted()
 
-        for device in omemoDevices {
-            if device.trustLevel == .untrustedNew {
-                untrusted += 1
-            }
-        }
-
-        for fingerprint in otrFingerprints {
-            if fingerprint.trustLevel == .untrustedNew {
-                untrusted += 1
-            }
-        }
+        setBadge(ok: untrusted < 1)
 
         subtitleLb.text = NSLocalizedString("\(untrusted) Untrusted New Codes for \(buddyName())",
             comment: "Subtitle for code verification detail scene")
