@@ -157,12 +157,12 @@
 		A065EDBC202C52330084D788 /* Config-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB7202C52320084D788 /* Config-release.xcconfig */; };
 		A065EDBD202C52330084D788 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB8202C52320084D788 /* Config.xcconfig */; };
 		A065EDBE202C52330084D788 /* SharedConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A065EDBA202C52320084D788 /* SharedConstants.m */; };
+		A0AB3B5320627BD000C6D6F5 /* ZomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AB3B5220627BD000C6D6F5 /* ZomTheme.swift */; };
 		A0DE2B08202C55F9005A9E4D /* SharedConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = A065EDB9202C52320084D788 /* SharedConstants.h */; };
 		A0DE2B09202C5622005A9E4D /* ShareExtension-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = A065EDB2202C50AF0084D788 /* ShareExtension-Bridging-Header.h */; };
 		A0DE2B0A202C6E50005A9E4D /* SharedConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A065EDBA202C52320084D788 /* SharedConstants.m */; };
 		A0DE2B16202C8631005A9E4D /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422B1F00EF7E00E34D65 /* MBProgressHUD.framework */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
-		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
 		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; };
 		D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA71BABEB83009246CF /* xmpp-server-list */; };
 		D978BCAC1BABEC13009246CF /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = D978BCAB1BABEC13009246CF /* torrc */; };
@@ -1078,12 +1078,11 @@
 		A065EDB8202C52320084D788 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A065EDB9202C52320084D788 /* SharedConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedConstants.h; sourceTree = "<group>"; };
 		A065EDBA202C52320084D788 /* SharedConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedConstants.m; sourceTree = "<group>"; };
+		A0AB3B5220627BD000C6D6F5 /* ZomTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZomTheme.swift; sourceTree = "<group>"; };
 		A0DE2B4A202C9A50005A9E4D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Carthage/Build/iOS/MBProgressHUD.framework/Headers/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
-		D978BC961BABE200009246CF /* ZomTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomTheme.h; path = Classes/ZomTheme.h; sourceTree = "<group>"; };
-		D978BC971BABE200009246CF /* ZomTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomTheme.m; path = Classes/ZomTheme.m; sourceTree = "<group>"; };
 		D978BC9C1BABE6DA009246CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D978BCA51BABEB6F009246CF /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../../ChatSecure/ChatSecure/FontAwesome.ttf; sourceTree = "<group>"; };
 		D978BCA71BABEB83009246CF /* xmpp-server-list */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xmpp-server-list"; path = "../../Submodules/xmpp-server-list"; sourceTree = "<group>"; };
@@ -1385,8 +1384,7 @@
 				92D378161BF1EF9300E014EF /* View Controllers */,
 				D978BC941BABE200009246CF /* ZomAppDelegate.h */,
 				D978BC951BABE200009246CF /* ZomAppDelegate.m */,
-				D978BC961BABE200009246CF /* ZomTheme.h */,
-				D978BC971BABE200009246CF /* ZomTheme.m */,
+				A0AB3B5220627BD000C6D6F5 /* ZomTheme.swift */,
 				D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */,
 				92757B8A1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.h */,
 				92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */,
@@ -2369,7 +2367,6 @@
 				92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */,
 				92CF0A3B1EF02DE300D1A4BA /* ZomPhotoStreamImage.swift in Sources */,
 				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
-				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
 				A059464A204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift in Sources */,
 				92757B8C1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m in Sources */,
 				92DD3E331BFB1278000811C1 /* ZomConversationViewController.swift in Sources */,
@@ -2403,6 +2400,7 @@
 				92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */,
 				921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */,
 				9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */,
+				A0AB3B5320627BD000C6D6F5 /* ZomTheme.swift in Sources */,
 				6320C93B1DFF740C0080F3BD /* ZomUserInfoProfileCell.swift in Sources */,
 				927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */,
 				926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */,

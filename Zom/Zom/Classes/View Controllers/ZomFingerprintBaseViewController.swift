@@ -16,9 +16,6 @@ import UIKit
 */
 class ZomFingerprintBaseViewController: UIViewController {
 
-    public static let green = UIColor(a: 255, red: 63, green: 210, blue: 79)
-    public static let red = UIColor(a: 255, red: 231, green: 39, blue: 90)
-
     @objc var buddy: OTRBuddy?
     @objc var omemoDevices: [OMEMODevice] = []
     @objc var otrFingerprints : [OTRFingerprint] = []
@@ -205,11 +202,11 @@ class ZomFingerprintBaseViewController: UIViewController {
     */
     func setBadge(ok: Bool) {
         if ok {
-            badgeLb.backgroundColor = ZomFingerprintBaseViewController.green
+            badgeLb.backgroundColor = UIColor.zomGreen
             badgeLb.text = "" // Shield with check mark
         }
         else {
-            badgeLb.backgroundColor = ZomFingerprintBaseViewController.red
+            badgeLb.backgroundColor = UIColor.zomRed
             badgeLb.text = "" // Shield with exclamation mark
         }
     }

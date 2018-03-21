@@ -62,33 +62,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lg-hL-MXr">
-                        <rect key="frame" x="16" y="11" width="21" height="21"/>
-                        <color key="backgroundColor" red="0.2470588235" green="0.82500542529999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="21" id="2Pt-jc-5jl"/>
-                            <constraint firstAttribute="height" constant="21" id="kSe-Dx-wdY"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7W3-qe-ebe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="4WU-Hb-NWb"/>
-                    <constraint firstItem="1Lg-hL-MXr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="EQy-MA-JRC"/>
                     <constraint firstItem="Ff4-UQ-35G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="I8e-gQ-ldY"/>
                     <constraint firstItem="fKX-MG-LlA" firstAttribute="leading" secondItem="7W3-qe-ebe" secondAttribute="leading" id="S3s-m5-RyV"/>
                     <constraint firstItem="8BN-dn-6jX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WKM-LY-Xqv"/>
                     <constraint firstItem="8BN-dn-6jX" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="YFV-lW-7Av"/>
                     <constraint firstItem="Ff4-UQ-35G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ZzA-gw-jp7"/>
                     <constraint firstItem="7W3-qe-ebe" firstAttribute="leading" secondItem="Ff4-UQ-35G" secondAttribute="trailing" constant="8" id="gIT-dK-aYf"/>
-                    <constraint firstItem="1Lg-hL-MXr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="hWk-iC-wxI"/>
                     <constraint firstItem="8BN-dn-6jX" firstAttribute="leading" secondItem="7W3-qe-ebe" secondAttribute="trailing" constant="8" id="mdl-r2-q8X"/>
                     <constraint firstItem="fKX-MG-LlA" firstAttribute="trailing" secondItem="7W3-qe-ebe" secondAttribute="trailing" id="vuK-k8-IRN"/>
                     <constraint firstItem="fKX-MG-LlA" firstAttribute="top" secondItem="7W3-qe-ebe" secondAttribute="bottom" constant="8" id="zPF-L9-wDN"/>
@@ -98,9 +80,8 @@
             <connections>
                 <outlet property="fingerprintLb" destination="fKX-MG-LlA" id="PjM-eR-prT"/>
                 <outlet property="infoLb" destination="7W3-qe-ebe" id="Iex-uK-D9K"/>
+                <outlet property="trustBadge" destination="Ff4-UQ-35G" id="uFC-rG-UaT"/>
                 <outlet property="trustStatusSwitch" destination="8BN-dn-6jX" id="LDS-hZ-RZm"/>
-                <outlet property="trustedBadge" destination="1Lg-hL-MXr" id="bCD-hd-rKd"/>
-                <outlet property="untrustedBadge" destination="Ff4-UQ-35G" id="uFC-rG-UaT"/>
             </connections>
         </tableViewCell>
     </objects>

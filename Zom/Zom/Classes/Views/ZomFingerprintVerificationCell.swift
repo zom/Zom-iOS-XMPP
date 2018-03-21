@@ -18,8 +18,7 @@ import FormatterKit
 */
 class ZomFingerprintVerificationCell: UITableViewCell {
 
-    @IBOutlet weak var untrustedBadge: UILabel!
-    @IBOutlet weak var trustedBadge: UILabel!
+    @IBOutlet weak var trustBadge: UILabel!
     @IBOutlet weak var infoLb: UILabel!
     @IBOutlet weak var trustStatusSwitch: UISwitch!
     @IBOutlet weak var fingerprintLb: UILabel!
@@ -33,10 +32,9 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         super.awakeFromNib()
 
         // Enforce the color. It's not enough in the XIB, propably because of the themeing.
-        trustStatusSwitch.onTintColor = ZomFingerprintBaseViewController.green
+        trustStatusSwitch.onTintColor = UIColor.zomGreen
 
-        untrustedBadge.font = UIFont(name: "Material Icons", size: 17)
-        trustedBadge.font = UIFont(name: "Material Icons", size: 17)
+        trustBadge.font = UIFont(name: "Material Icons", size: trustBadge.font.pointSize)
     }
 
     /**
@@ -48,8 +46,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         omemoDevice = device
         let trusted = device.isTrusted()
 
-        untrustedBadge.isHidden = trusted
-        trustedBadge.isHidden = !trusted
+        trustBadge.backgroundColor = trusted ? UIColor.zomGreen : UIColor.zomRed
 
         var infos: [String] = []
 
@@ -80,8 +77,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         otrFingerprint = fingerprint
         let trusted = fingerprint.isTrusted()
 
-        untrustedBadge.isHidden = trusted
-        trustedBadge.isHidden = !trusted
+        trustBadge.backgroundColor = trusted ? UIColor.zomGreen : UIColor.zomRed
 
         infoLb.text = getTrustStateString(trusted)
 

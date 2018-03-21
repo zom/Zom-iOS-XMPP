@@ -8,7 +8,7 @@
 
 @import ChatSecureCore;
 
-@class ZomMainTabbedViewController, ZomTheme;
+@class ZomMainTabbedViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface ZomAppDelegate : OTRAppDelegate
