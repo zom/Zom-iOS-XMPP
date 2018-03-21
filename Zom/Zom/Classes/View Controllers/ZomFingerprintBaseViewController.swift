@@ -94,6 +94,9 @@ class ZomFingerprintBaseViewController: UIViewController {
         titleView.subtitleLabel.text = buddy?.username
         navigationItem.titleView = titleView
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(
+            title: CANCEL_STRING(), style: .done, target: self, action: #selector(cancel))
+
         avatarImg.image = buddy?.avatarImage
 
         badgeLb.font = UIFont(name: "icomoon", size: badgeLb.font.pointSize)
@@ -106,6 +109,10 @@ class ZomFingerprintBaseViewController: UIViewController {
     */
     func fingerprintsLoaded() {
         preconditionFailure("This method must be overridden")
+    }
+
+    @objc func cancel() {
+        dismiss(animated: true)
     }
 
     /**
