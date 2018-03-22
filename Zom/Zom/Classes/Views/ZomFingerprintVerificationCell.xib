@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="ZomFingerprintVerificationCell" customModule="Zom" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-UQ-35G">
+                        <rect key="frame" x="16" y="11" width="21" height="21"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="21" id="2Gk-hA-an6"/>
+                            <constraint firstAttribute="height" constant="21" id="MEz-dZ-Lfh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just now. Untrusted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7W3-qe-ebe">
+                        <rect key="frame" x="45" y="11" width="202" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="pur-QX-S9z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8BN-dn-6jX">
+                        <rect key="frame" x="255" y="11" width="51" height="31"/>
+                        <color key="onTintColor" red="0.2470588235" green="0.82500542529999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <action selector="trustChanged" destination="KGk-i7-Jjw" eventType="valueChanged" id="hz8-SW-QeD"/>
+                        </connections>
+                    </switch>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKX-MG-LlA">
+                        <rect key="frame" x="45" y="40" width="202" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="08D-Wp-Ncc"/>
+                            <constraint firstAttribute="height" constant="52" id="Vk8-8l-Doh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7W3-qe-ebe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="4WU-Hb-NWb"/>
+                    <constraint firstItem="Ff4-UQ-35G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="I8e-gQ-ldY"/>
+                    <constraint firstItem="fKX-MG-LlA" firstAttribute="leading" secondItem="7W3-qe-ebe" secondAttribute="leading" id="S3s-m5-RyV"/>
+                    <constraint firstItem="8BN-dn-6jX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="WKM-LY-Xqv"/>
+                    <constraint firstItem="8BN-dn-6jX" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="YFV-lW-7Av"/>
+                    <constraint firstItem="Ff4-UQ-35G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ZzA-gw-jp7"/>
+                    <constraint firstItem="7W3-qe-ebe" firstAttribute="leading" secondItem="Ff4-UQ-35G" secondAttribute="trailing" constant="8" id="gIT-dK-aYf"/>
+                    <constraint firstItem="8BN-dn-6jX" firstAttribute="leading" secondItem="7W3-qe-ebe" secondAttribute="trailing" constant="8" id="mdl-r2-q8X"/>
+                    <constraint firstItem="fKX-MG-LlA" firstAttribute="trailing" secondItem="7W3-qe-ebe" secondAttribute="trailing" id="vuK-k8-IRN"/>
+                    <constraint firstItem="fKX-MG-LlA" firstAttribute="top" secondItem="7W3-qe-ebe" secondAttribute="bottom" constant="8" id="zPF-L9-wDN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="fingerprintLb" destination="fKX-MG-LlA" id="PjM-eR-prT"/>
+                <outlet property="infoLb" destination="7W3-qe-ebe" id="Iex-uK-D9K"/>
+                <outlet property="trustBadge" destination="Ff4-UQ-35G" id="uFC-rG-UaT"/>
+                <outlet property="trustStatusSwitch" destination="8BN-dn-6jX" id="LDS-hZ-RZm"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

@@ -142,6 +142,14 @@
 		92F71FB61F137ECA00C99690 /* MediaDownloadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F881F137EBE00C99690 /* MediaDownloadView.xib */; };
 		92F71FB71F137ECE00C99690 /* HTMLPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */; };
 		92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */; };
+		A00D4F452044727F0034D4AD /* HighlightableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00D4F442044727F0034D4AD /* HighlightableButton.swift */; };
+		A02F0971204ED96000B7CD1A /* ZomVerificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F096F204ED96000B7CD1A /* ZomVerificationDetailViewController.swift */; };
+		A02F0972204ED96000B7CD1A /* ZomVerificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02F0970204ED96000B7CD1A /* ZomVerificationDetailViewController.xib */; };
+		A02F09A3204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F09A2204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift */; };
+		A04696BE203ED2D30097A677 /* ZomVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */; };
+		A04696BF203ED2D30097A677 /* ZomVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */; };
+		A059464A204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0594648204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift */; };
+		A059467C204FFCC7000DBBE4 /* ZomFingerprintVerificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0594649204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.xib */; };
 		A065EDA6202C50640084D788 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A065EDA5202C50640084D788 /* ShareViewController.swift */; };
 		A065EDA9202C50640084D788 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A065EDA7202C50640084D788 /* MainInterface.storyboard */; };
 		A065EDAD202C50640084D788 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A065EDA3202C50640084D788 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -149,12 +157,12 @@
 		A065EDBC202C52330084D788 /* Config-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB7202C52320084D788 /* Config-release.xcconfig */; };
 		A065EDBD202C52330084D788 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A065EDB8202C52320084D788 /* Config.xcconfig */; };
 		A065EDBE202C52330084D788 /* SharedConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A065EDBA202C52320084D788 /* SharedConstants.m */; };
+		A0AB3B5320627BD000C6D6F5 /* ZomTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AB3B5220627BD000C6D6F5 /* ZomTheme.swift */; };
 		A0DE2B08202C55F9005A9E4D /* SharedConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = A065EDB9202C52320084D788 /* SharedConstants.h */; };
 		A0DE2B09202C5622005A9E4D /* ShareExtension-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = A065EDB2202C50AF0084D788 /* ShareExtension-Bridging-Header.h */; };
 		A0DE2B0A202C6E50005A9E4D /* SharedConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A065EDBA202C52320084D788 /* SharedConstants.m */; };
 		A0DE2B16202C8631005A9E4D /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922F422B1F00EF7E00E34D65 /* MBProgressHUD.framework */; };
 		D978BC981BABE200009246CF /* ZomAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC951BABE200009246CF /* ZomAppDelegate.m */; };
-		D978BC991BABE200009246CF /* ZomTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D978BC971BABE200009246CF /* ZomTheme.m */; };
 		D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA51BABEB6F009246CF /* FontAwesome.ttf */; };
 		D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */ = {isa = PBXBuildFile; fileRef = D978BCA71BABEB83009246CF /* xmpp-server-list */; };
 		D978BCAC1BABEC13009246CF /* torrc in Resources */ = {isa = PBXBuildFile; fileRef = D978BCAB1BABEC13009246CF /* torrc */; };
@@ -1051,6 +1059,14 @@
 		92F71F871F137EBE00C99690 /* HTMLPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTMLPreviewView.xib; path = ../../../ChatSecure/OTRResources/Interface/HTMLPreviewView.xib; sourceTree = "<group>"; };
 		92F71F881F137EBE00C99690 /* MediaDownloadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MediaDownloadView.xib; path = ../../../ChatSecure/OTRResources/Interface/MediaDownloadView.xib; sourceTree = "<group>"; };
 		92F720181F2110AB00C99690 /* ZomRoomOccupantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomRoomOccupantsViewController.swift; path = "Classes/View Controllers/ZomRoomOccupantsViewController.swift"; sourceTree = "<group>"; };
+		A00D4F442044727F0034D4AD /* HighlightableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HighlightableButton.swift; path = Classes/Views/HighlightableButton.swift; sourceTree = "<group>"; };
+		A02F096F204ED96000B7CD1A /* ZomVerificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomVerificationDetailViewController.swift; path = "Classes/View Controllers/ZomVerificationDetailViewController.swift"; sourceTree = "<group>"; };
+		A02F0970204ED96000B7CD1A /* ZomVerificationDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomVerificationDetailViewController.xib; path = "Classes/View Controllers/ZomVerificationDetailViewController.xib"; sourceTree = "<group>"; };
+		A02F09A2204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomFingerprintBaseViewController.swift; path = "Classes/View Controllers/ZomFingerprintBaseViewController.swift"; sourceTree = "<group>"; };
+		A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomVerificationViewController.swift; path = "Classes/View Controllers/ZomVerificationViewController.swift"; sourceTree = "<group>"; };
+		A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomVerificationViewController.xib; path = "Classes/View Controllers/ZomVerificationViewController.xib"; sourceTree = "<group>"; };
+		A0594648204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomFingerprintVerificationCell.swift; path = Classes/Views/ZomFingerprintVerificationCell.swift; sourceTree = "<group>"; };
+		A0594649204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomFingerprintVerificationCell.xib; path = Classes/Views/ZomFingerprintVerificationCell.xib; sourceTree = "<group>"; };
 		A065EDA3202C50640084D788 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A065EDA5202C50640084D788 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		A065EDA8202C50640084D788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -1062,12 +1078,11 @@
 		A065EDB8202C52320084D788 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A065EDB9202C52320084D788 /* SharedConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedConstants.h; sourceTree = "<group>"; };
 		A065EDBA202C52320084D788 /* SharedConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedConstants.m; sourceTree = "<group>"; };
+		A0AB3B5220627BD000C6D6F5 /* ZomTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZomTheme.swift; sourceTree = "<group>"; };
 		A0DE2B4A202C9A50005A9E4D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Carthage/Build/iOS/MBProgressHUD.framework/Headers/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
 		C1B5F63F8FC6924BC02033C7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D978BC941BABE200009246CF /* ZomAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomAppDelegate.h; path = Classes/ZomAppDelegate.h; sourceTree = "<group>"; };
 		D978BC951BABE200009246CF /* ZomAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomAppDelegate.m; path = Classes/ZomAppDelegate.m; sourceTree = "<group>"; };
-		D978BC961BABE200009246CF /* ZomTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZomTheme.h; path = Classes/ZomTheme.h; sourceTree = "<group>"; };
-		D978BC971BABE200009246CF /* ZomTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZomTheme.m; path = Classes/ZomTheme.m; sourceTree = "<group>"; };
 		D978BC9C1BABE6DA009246CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D978BCA51BABEB6F009246CF /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../../ChatSecure/ChatSecure/FontAwesome.ttf; sourceTree = "<group>"; };
 		D978BCA71BABEB83009246CF /* xmpp-server-list */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "xmpp-server-list"; path = "../../Submodules/xmpp-server-list"; sourceTree = "<group>"; };
@@ -1198,6 +1213,9 @@
 				92AE3F66202507C1006984A4 /* SnackBar.xib */,
 				926847F7202516270091371B /* SnackBar.swift */,
 				9276882F202C5D4000546415 /* ZomBotCell.swift */,
+				A00D4F442044727F0034D4AD /* HighlightableButton.swift */,
+				A0594648204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift */,
+				A0594649204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1289,6 +1307,11 @@
 				92EDA62C1FA35D0300D69228 /* ZomPhotosViewController.swift */,
 				92A114CE1FAB627D000766EC /* ZomRootNavigationViewController.swift */,
 				9276882D202C516000546415 /* ZomBotsViewController.swift */,
+				A02F09A2204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift */,
+				A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */,
+				A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */,
+				A02F096F204ED96000B7CD1A /* ZomVerificationDetailViewController.swift */,
+				A02F0970204ED96000B7CD1A /* ZomVerificationDetailViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1361,8 +1384,7 @@
 				92D378161BF1EF9300E014EF /* View Controllers */,
 				D978BC941BABE200009246CF /* ZomAppDelegate.h */,
 				D978BC951BABE200009246CF /* ZomAppDelegate.m */,
-				D978BC961BABE200009246CF /* ZomTheme.h */,
-				D978BC971BABE200009246CF /* ZomTheme.m */,
+				A0AB3B5220627BD000C6D6F5 /* ZomTheme.swift */,
 				D9C93ACE1BACAF52006B0620 /* Zom-Bridging-Header.h */,
 				92757B8A1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.h */,
 				92757B8B1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m */,
@@ -1601,7 +1623,7 @@
 				TargetAttributes = {
 					A065EDA2202C50640084D788 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = 9SV9LPRC42;
+                        DevelopmentTeam = 9SV9LPRC42;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1611,7 +1633,7 @@
 					};
 					D99DEB6D1BABD1F300875194 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 9SV9LPRC42;
+                        DevelopmentTeam = 9SV9LPRC42;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1625,7 +1647,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+                                enabled = 1;
 							};
 							com.apple.SafariKeychain = {
 								enabled = 1;
@@ -2067,6 +2089,7 @@
 				9251C30C1F3471E9003ACE4A /* Images.xcassets in Resources */,
 				92019C151FDE9564006D9931 /* ZomPhotoOverlayView.xib in Resources */,
 				D9BA75331BABF35500B38AFD /* OTRResources.bundle in Resources */,
+				A059467C204FFCC7000DBBE4 /* ZomFingerprintVerificationCell.xib in Resources */,
 				926AF4A61E847B3800463F54 /* SingleButtonTableViewCell.xib in Resources */,
 				92D688A31CC52BAB00B27EBC /* OTRImages.xcassets in Resources */,
 				92636B581F6FD56A002FFE07 /* ZomImages.xcassets in Resources */,
@@ -2081,8 +2104,10 @@
 				9276882C202BB26900546415 /* 15biscuit.png in Resources */,
 				926AF4A81E847B3800463F54 /* UserInfoProfileCell.xib in Resources */,
 				92A567C61EDED3B900684E72 /* PitchInviteView.xib in Resources */,
+				A02F0972204ED96000B7CD1A /* ZomVerificationDetailViewController.xib in Resources */,
 				924FC5AD1EBB3FF000CEA225 /* WaitingForApprovalView.xib in Resources */,
 				92F694431E04913800B0963C /* AddBuddy.storyboard in Resources */,
+				A04696BF203ED2D30097A677 /* ZomVerificationViewController.xib in Resources */,
 				9269F99B1C035DA500CB8D18 /* LaunchScreen.xib in Resources */,
 				D978BCA81BABEB83009246CF /* xmpp-server-list in Resources */,
 				924345E91E9FB5420089E758 /* Pods-ZomPods-Zom-acknowledgements.plist in Resources */,
@@ -2337,11 +2362,12 @@
 				630A50001E78858100A79C85 /* ZomProfileViewControllerSource.swift in Sources */,
 				924A93641F67277300914C9D /* OTRXMPPRoomManager+Zom.swift in Sources */,
 				92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */,
+				A00D4F452044727F0034D4AD /* HighlightableButton.swift in Sources */,
 				924BC4481EB72A90001E9F42 /* ZomMigratedBuddyHeaderView.swift in Sources */,
 				92AA05AE1E376EEC0054BEAD /* ZomCongratsViewController.swift in Sources */,
 				92CF0A3B1EF02DE300D1A4BA /* ZomPhotoStreamImage.swift in Sources */,
 				929545861BF5F0AC00A26FC2 /* ZomTableViewSectionHeader.swift in Sources */,
-				D978BC991BABE200009246CF /* ZomTheme.m in Sources */,
+				A059464A204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift in Sources */,
 				92757B8C1CC57823000E3513 /* OTRAssets+ZomLanguageHandling.m in Sources */,
 				92DD3E331BFB1278000811C1 /* ZomConversationViewController.swift in Sources */,
 				9239491B1DDB472E00647E8B /* ZomDiscoverViewController.swift in Sources */,
@@ -2349,7 +2375,9 @@
 				92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */,
 				6320C9041DFF6C410080F3BD /* ZomProfileViewController.swift in Sources */,
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
+				A02F09A3204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift in Sources */,
 				9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */,
+				A04696BE203ED2D30097A677 /* ZomVerificationViewController.swift in Sources */,
 				92CBA8FE1D12E05E001CDD3D /* ZomSettingsViewController.swift in Sources */,
 				923E60551FB1B74E00E8BAA7 /* ZomGalleryHandler.swift in Sources */,
 				92A115011FAC77A0000766EC /* ZomImportManager.swift in Sources */,
@@ -2362,6 +2390,7 @@
 				92424CE01D6F92F3001256E4 /* ZomUtil.swift in Sources */,
 				9286A5281EBC6EEB0069F124 /* ZomGenericLabelView.swift in Sources */,
 				929545881BF5F1FF00A26FC2 /* ZomBaseLoginViewController.swift in Sources */,
+				A02F0971204ED96000B7CD1A /* ZomVerificationDetailViewController.swift in Sources */,
 				92A114CF1FAB627D000766EC /* ZomRootNavigationViewController.swift in Sources */,
 				92D378111BF1ECDE00E014EF /* ZomWelcomeViewController.swift in Sources */,
 				6329CE201E009E51001BC2C6 /* ZomFingerprintCell.swift in Sources */,
@@ -2371,6 +2400,7 @@
 				92F720191F2110AB00C99690 /* ZomRoomOccupantsViewController.swift in Sources */,
 				921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */,
 				9278C3991BF3F859003AC533 /* ZomMessagesViewController.swift in Sources */,
+				A0AB3B5320627BD000C6D6F5 /* ZomTheme.swift in Sources */,
 				6320C93B1DFF740C0080F3BD /* ZomUserInfoProfileCell.swift in Sources */,
 				927A14BA1DDB63BF00EAEAB7 /* ZomPickColorViewController.swift in Sources */,
 				926741E01BFC869F0044C059 /* ZomChooseAccountViewController.swift in Sources */,
@@ -2886,7 +2916,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -2905,7 +2935,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2939,7 +2969,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2956,7 +2986,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -3065,7 +3095,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				ENABLE_BITCODE = "$(inherited)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3097,7 +3127,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3134,7 +3164,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9SV9LPRC42;
+                DEVELOPMENT_TEAM = 9SV9LPRC42;
 				ENABLE_BITCODE = "$(inherited)";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3162,7 +3192,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
+                PRODUCT_BUNDLE_IDENTIFIER = im.zom.messenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

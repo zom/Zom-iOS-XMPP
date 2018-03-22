@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZomVerificationDetailViewController" customModule="Zom" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarImg" destination="fnc-hI-hGn" id="jzq-aY-MMf"/>
+                <outlet property="badgeLb" destination="NmT-HF-xfu" id="L58-4w-65q"/>
+                <outlet property="descriptionLb" destination="Me1-An-Lv2" id="ttL-Yl-Jes"/>
+                <outlet property="fingerprintTable" destination="7AU-VH-QPF" id="mSU-KF-st6"/>
+                <outlet property="subtitleLb" destination="hrq-Te-DwM" id="tJx-PT-F57"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fnc-hI-hGn">
+                    <rect key="frame" x="166" y="45" width="43" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="43" id="7lF-EW-Hs4"/>
+                        <constraint firstAttribute="height" constant="43" id="cLB-au-Mpx"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="21"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmT-HF-xfu">
+                    <rect key="frame" x="188" y="67" width="21" height="21"/>
+                    <color key="backgroundColor" red="0.90588235289999997" green="0.1529411765" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="Tj3-PG-SOW"/>
+                        <constraint firstAttribute="height" constant="21" id="k32-xt-vCS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;x&gt; Untrusted Codes for &lt;buddy&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrq-Te-DwM">
+                    <rect key="frame" x="32" y="113" width="311" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure the codes match your friend's latest Zom codes on his or her phone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Me1-An-Lv2">
+                    <rect key="frame" x="32" y="142" width="311" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7AU-VH-QPF">
+                    <rect key="frame" x="0.0" y="208" width="375" height="459"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dFv-P6-fdT"/>
+                        <outlet property="delegate" destination="-1" id="nQD-WO-STg"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Me1-An-Lv2" firstAttribute="top" secondItem="hrq-Te-DwM" secondAttribute="bottom" constant="8" id="3DA-6d-KtY"/>
+                <constraint firstItem="NmT-HF-xfu" firstAttribute="trailing" secondItem="fnc-hI-hGn" secondAttribute="trailing" id="7BQ-9J-GNp"/>
+                <constraint firstItem="fnc-hI-hGn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EFo-LK-GGa"/>
+                <constraint firstItem="7AU-VH-QPF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="JXD-GJ-DYL"/>
+                <constraint firstItem="7AU-VH-QPF" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="M1L-ZE-t2u"/>
+                <constraint firstItem="7AU-VH-QPF" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="OI4-gh-TGn"/>
+                <constraint firstItem="7AU-VH-QPF" firstAttribute="top" secondItem="Me1-An-Lv2" secondAttribute="bottom" constant="25" id="Wxf-CS-4qA"/>
+                <constraint firstItem="Me1-An-Lv2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="f45-Oh-bJN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hrq-Te-DwM" secondAttribute="trailing" constant="32" id="f8t-dc-ciN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Me1-An-Lv2" secondAttribute="trailing" constant="32" id="fbM-Ey-Cv0"/>
+                <constraint firstItem="fnc-hI-hGn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="mTL-z7-AjV"/>
+                <constraint firstItem="hrq-Te-DwM" firstAttribute="top" secondItem="fnc-hI-hGn" secondAttribute="bottom" constant="25" id="scn-7C-rrC"/>
+                <constraint firstItem="NmT-HF-xfu" firstAttribute="bottom" secondItem="fnc-hI-hGn" secondAttribute="bottom" id="uOC-wq-DmR"/>
+                <constraint firstItem="hrq-Te-DwM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="vtE-Ad-VvF"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+</document>

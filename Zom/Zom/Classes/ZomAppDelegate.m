@@ -7,7 +7,6 @@
 //
 
 #import "ZomAppDelegate.h"
-#import "ZomTheme.h"
 #import "Zom-Swift.h"
 #import <ChatSecureCore/NSURL+ChatSecure.h>
 #import <ChatSecureCore/OTRAppDelegate.h>
@@ -77,6 +76,20 @@
             [self.conversationViewController showOnboardingIfNeeded];
         }
     }
+
+    // ViewController in development
+//    YapDatabaseConnection *db = [OTRDatabaseManager sharedInstance].uiConnection;
+//    __block OTRBuddy *buddy = nil;
+//    [db readWithBlock:^(YapDatabaseReadTransaction * _Nonnull transaction) {
+//        buddy = (OTRBuddy *)[[transaction ext:OTRAllBuddiesDatabaseViewExtensionName]
+//                             objectAtIndex:0 inGroup:OTRBuddyGroup];
+//    }];
+//
+//    ZomVerificationViewController *vc = [[ZomVerificationViewController alloc] initWithBuddy:buddy];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//    self.window.rootViewController = nav;
+    // END ViewController in development
+
     return ret;
 }
 
