@@ -33,8 +33,6 @@ class ZomFingerprintVerificationCell: UITableViewCell {
 
         // Enforce the color. It's not enough in the XIB, propably because of the themeing.
         trustStatusSwitch.onTintColor = UIColor.zomGreen
-
-        trustBadge.font = UIFont(name: "Material Icons", size: trustBadge.font.pointSize)
     }
 
     /**

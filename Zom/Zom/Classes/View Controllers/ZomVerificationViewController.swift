@@ -38,14 +38,10 @@ class ZomVerificationViewController: ZomFingerprintBaseViewController {
             "Make sure this code matches your friend's latest Zom code on their phone.",
             comment: "Description for code verification scene")
 
-        matchBt.titleLabel?.font = UIFont(name: "Material Icons", size: 40)
-
         noMatchBt.titleLabel?.text = NSLocalizedString("Code Doesn't Match",
                                                        comment: "Verification scene button text")
 
         viewAllBt.titleLabel?.text = NSLocalizedString("View All", comment: "Verification scene button text")
-
-        successCheckmarkLb.font = UIFont(name: "Material Icons", size: 40)
 
         trustedLb.text = NSLocalizedString("Trusted", comment: "Verification scene success text")
     }
