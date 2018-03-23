@@ -98,8 +98,6 @@ class ZomFingerprintBaseViewController: UIViewController {
             title: CANCEL_STRING(), style: .done, target: self, action: #selector(cancel))
 
         avatarImg.image = buddy?.avatarImage
-
-        badgeLb.font = UIFont(name: "icomoon", size: badgeLb.font.pointSize)
     }
 
     /**
@@ -123,8 +121,7 @@ class ZomFingerprintBaseViewController: UIViewController {
     static func store(_ device: OMEMODevice) {
         if let db = OTRDatabaseManager.sharedInstance().writeConnection {
             db.asyncReadWrite() { (transaction) in
-                transaction.setObject(device, forKey: device.uniqueId,
-                                      inCollection: type(of: device).collection)
+                device.save(with: transaction)
             }
         }
     }
