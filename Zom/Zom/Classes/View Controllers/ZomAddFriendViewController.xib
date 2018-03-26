@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZomAddFriendViewController" customModule="Zom" customModuleProvider="target">
+            <connections>
+                <outlet property="avatarImageView" destination="MOF-Aa-h9x" id="TKi-ti-o8K"/>
+                <outlet property="titleLabel" destination="9yj-g8-DJj" id="kXv-C3-aLU"/>
+                <outlet property="view" destination="iN0-l3-epB" id="KSV-yv-Lgq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYI-e0-gsw">
+                    <rect key="frame" x="37.5" y="100" width="300" height="333.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add user as friend?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yj-g8-DJj">
+                            <rect key="frame" x="0.0" y="20" width="300" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kff-Df-so8">
+                            <rect key="frame" x="113" y="293.5" width="74" height="30"/>
+                            <state key="normal" title="No Thanks">
+                                <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didPressCancel:" destination="-1" eventType="touchUpInside" id="FuP-cE-IaW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-Km-0Cc">
+                            <rect key="frame" x="104.5" y="122" width="90" height="90"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="4FW-jF-1Hm"/>
+                                <constraint firstAttribute="height" constant="90" id="B9p-JZ-t4p"/>
+                            </constraints>
+                            <state key="normal" image="zom_add_friend_unselected_90"/>
+                            <state key="selected" image="zom_add_friend_selected_90"/>
+                            <connections>
+                                <action selector="didPressAdd:" destination="-1" eventType="touchUpInside" id="BOz-sO-AjP"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MOF-Aa-h9x">
+                            <rect key="frame" x="87.5" y="125" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="YSj-OG-xgx"/>
+                                <constraint firstAttribute="height" constant="44" id="qwQ-DV-zE4"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="EQs-Km-0Cc" firstAttribute="centerY" secondItem="MOF-Aa-h9x" secondAttribute="centerY" constant="20" id="3oN-lJ-RZA"/>
+                        <constraint firstItem="EQs-Km-0Cc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9yj-g8-DJj" secondAttribute="bottom" constant="10" id="6MD-56-wUX"/>
+                        <constraint firstAttribute="bottom" secondItem="kff-Df-so8" secondAttribute="bottom" constant="10" id="FpZ-dY-ly5"/>
+                        <constraint firstItem="9yj-g8-DJj" firstAttribute="centerX" secondItem="LYI-e0-gsw" secondAttribute="centerX" id="GSR-OR-2se"/>
+                        <constraint firstItem="EQs-Km-0Cc" firstAttribute="centerX" secondItem="LYI-e0-gsw" secondAttribute="centerX" id="K0w-2j-tvh"/>
+                        <constraint firstAttribute="trailing" secondItem="9yj-g8-DJj" secondAttribute="trailing" id="X2S-vD-lOD"/>
+                        <constraint firstItem="kff-Df-so8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EQs-Km-0Cc" secondAttribute="bottom" constant="10" id="inM-aP-Ef2"/>
+                        <constraint firstItem="9yj-g8-DJj" firstAttribute="top" secondItem="LYI-e0-gsw" secondAttribute="top" constant="20" id="oyU-Pt-AwL"/>
+                        <constraint firstItem="EQs-Km-0Cc" firstAttribute="centerY" secondItem="LYI-e0-gsw" secondAttribute="centerY" id="qjw-uD-aU7"/>
+                        <constraint firstItem="kff-Df-so8" firstAttribute="centerX" secondItem="LYI-e0-gsw" secondAttribute="centerX" id="uAS-Xd-uOl"/>
+                        <constraint firstItem="9yj-g8-DJj" firstAttribute="leading" secondItem="LYI-e0-gsw" secondAttribute="leading" id="w8Q-oF-qSl"/>
+                        <constraint firstItem="EQs-Km-0Cc" firstAttribute="centerX" secondItem="MOF-Aa-h9x" secondAttribute="centerX" constant="40" id="zZK-40-ZT7"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Sw0-nH-Spr"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="LYI-e0-gsw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="A6H-p7-5he"/>
+                <constraint firstItem="LYI-e0-gsw" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="LeF-kB-T0U"/>
+                <constraint firstItem="LYI-e0-gsw" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="gaJ-bq-hCX"/>
+                <constraint firstItem="LYI-e0-gsw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.8" id="x7s-zs-TxA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="zom_add_friend_selected_90" width="500" height="500"/>
+        <image name="zom_add_friend_unselected_90" width="500" height="500"/>
+    </resources>
+</document>
