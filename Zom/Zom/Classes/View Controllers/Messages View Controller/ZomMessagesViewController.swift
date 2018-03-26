@@ -572,7 +572,7 @@ extension ZomMessagesViewController: ZomGalleryHandlerDelegate {
     }
 }
 
-extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate {
+extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate, ZomAddFriendViewControllerDelegate {
     
     fileprivate func populateAddFriendsCell(cell:UICollectionReusableView?, indexPath:IndexPath, forSizingOnly:Bool) {
         guard let addFriendsCell = cell as? ZomAddFriendsCell else { return }
@@ -583,19 +583,32 @@ extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate {
         if !forSizingOnly {
             acceptButtonCallback = {[unowned self] (buddies) in
                 guard let buddies = buddies else { return }
-                let vc = ZomBatchAddFriendsViewController()
-                vc.setBuddies(buddies)
-                vc.delegate = self
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                self.present(vc, animated: true, completion: nil)
+                if buddies.count == 1 {
+                    let vc = ZomAddFriendViewController()
+                    vc.setBuddy(buddies[0])
+                    vc.delegate = self
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self.present(vc, animated: true, completion: nil)
+                } else {
+                    let vc = ZomBatchAddFriendsViewController()
+                    vc.setBuddies(buddies)
+                    vc.delegate = self
+                    vc.modalPresentationStyle = .overFullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self.present(vc, animated: true, completion: nil)
+                }
             }
         }
         
         addFriendsCell.populate(buddies: occupantsNotFriends, actionButtonCallback: acceptButtonCallback)
     }
     
-    func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController:ZomBatchAddFriendsViewController) {
+    func didSelectBuddy(_ buddy: OTRXMPPBuddy, from viewController: UIViewController) {
+        self.didSelectBuddies([buddy], from: viewController)
+    }
+
+    func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController:UIViewController) {
         var manager:XMPPManager? = nil
         connections?.ui.read { (transaction) in
             if let account = self.account(with: transaction) {

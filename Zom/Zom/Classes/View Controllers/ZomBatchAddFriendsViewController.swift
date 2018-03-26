@@ -12,7 +12,7 @@ fileprivate enum DynamicCellIdentifier: String {
 }
 
 protocol ZomBatchAddFriendsViewControllerDelegate {
-    func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController:ZomBatchAddFriendsViewController)
+    func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController:UIViewController)
 }
 
 class ZomBatchAddFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

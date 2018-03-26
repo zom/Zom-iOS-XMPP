@@ -37,10 +37,10 @@ open class ZomAddFriendsCell: UICollectionReusableView {
     @objc open func populate(buddies:[OTRXMPPBuddy], actionButtonCallback:(([OTRXMPPBuddy]?) -> Void)?) {
         self.buddies = buddies
         
-        if buddies.count > 0 {
+        if buddies.count > 1 {
             titleLabel.text = String(format:NSLocalizedString("%d people are not your friends.", comment: "Label for addFriends supplementary view when n > 1"), buddies.count)
         } else {
-            titleLabel.text = String(format:NSLocalizedString("%@ is not your friend.", comment: "Label for addFriends supplementary view when n = 1"), buddies[0].displayText())
+            titleLabel.text = String(format:NSLocalizedString("%@ is not your friend.", comment: "Label for addFriends supplementary view when n = 1"), buddies[0].displayName)
         }
         
         for buddy in buddies {
