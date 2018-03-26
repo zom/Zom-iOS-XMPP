@@ -31,7 +31,9 @@ class ZomBatchAddFriendsViewController: UIViewController, UITableViewDataSource,
         super.viewDidLoad()
         self.buddyTable.dataSource = self
         self.buddyTable.delegate = self
-        self.buddyTable.register(OTRBuddyInfoCell.self, forCellReuseIdentifier: DynamicCellIdentifier.buddy.rawValue)
+        let nib = UINib(nibName: "ZomAddFriendsTableCell", bundle: nil)
+        self.buddyTable.register(nib, forCellReuseIdentifier: DynamicCellIdentifier.buddy.rawValue)
+        //self.buddyTable.register(ZomUserInfoProfileCell.self, forCellReuseIdentifier: DynamicCellIdentifier.buddy.rawValue)
     }
 
     public func setBuddies(_ buddies:[OTRXMPPBuddy]) {
@@ -70,12 +72,13 @@ class ZomBatchAddFriendsViewController: UIViewController, UITableViewDataSource,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let buddy = self.buddies[indexPath.row]
         
-        let cell:OTRBuddyInfoCell = tableView.dequeueReusableCell(withIdentifier: DynamicCellIdentifier.buddy.rawValue, for: indexPath) as! OTRBuddyInfoCell
+        let cell:ZomAddFriendsTableCell = tableView.dequeueReusableCell(withIdentifier: DynamicCellIdentifier.buddy.rawValue, for: indexPath) as! ZomAddFriendsTableCell
         let isSelected = self.selectedBuddies.contains(buddy)
-        cell.avatarImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let imageView = UIImageView(image: isSelected ? self.imageChecked : self.imageUnchecked)
         imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-        cell.setThread(buddy, account: nil)
+        cell.displayNameLabel.text = buddy.displayName
+        cell.usernameLabel.text = buddy.username
+        cell.avatarImageView.image = buddy.avatarImage
         cell.accessoryView = imageView
         return cell
     }
@@ -93,10 +96,10 @@ class ZomBatchAddFriendsViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return OTRBuddyInfoCellHeight
+        return 48
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return OTRBuddyInfoCellHeight
+        return 48
     }
 }

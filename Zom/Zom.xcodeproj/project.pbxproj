@@ -30,6 +30,8 @@
 		920DFD1F206542C600B65AF5 /* ZomBatchAddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DFD1E206542C600B65AF5 /* ZomBatchAddFriendsViewController.swift */; };
 		920DFD212068E56A00B65AF5 /* ZomAddFriendRequestedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920DFD202068E56A00B65AF5 /* ZomAddFriendRequestedViewController.xib */; };
 		920DFD232068E5B300B65AF5 /* ZomAddFriendRequestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DFD222068E5B300B65AF5 /* ZomAddFriendRequestedViewController.swift */; };
+		920DFD252068F4BB00B65AF5 /* ZomAddFriendsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920DFD242068F4BB00B65AF5 /* ZomAddFriendsTableCell.xib */; };
+		920DFD272068F6FA00B65AF5 /* ZomAddFriendsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920DFD262068F6FA00B65AF5 /* ZomAddFriendsTableCell.swift */; };
 		921224691CF7124600A88DF6 /* ZomSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921224681CF7124600A88DF6 /* ZomSettingsManager.swift */; };
 		921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */; };
 		921C4FDD1F5802A100FD76C7 /* OTRMessagesLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921C4FAD1F58027D00FD76C7 /* OTRMessagesLoadingView.xib */; };
@@ -611,6 +613,8 @@
 		920DFD1E206542C600B65AF5 /* ZomBatchAddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomBatchAddFriendsViewController.swift; path = "Classes/View Controllers/ZomBatchAddFriendsViewController.swift"; sourceTree = "<group>"; };
 		920DFD202068E56A00B65AF5 /* ZomAddFriendRequestedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomAddFriendRequestedViewController.xib; path = "Classes/View Controllers/ZomAddFriendRequestedViewController.xib"; sourceTree = "<group>"; };
 		920DFD222068E5B300B65AF5 /* ZomAddFriendRequestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomAddFriendRequestedViewController.swift; path = "Classes/View Controllers/ZomAddFriendRequestedViewController.swift"; sourceTree = "<group>"; };
+		920DFD242068F4BB00B65AF5 /* ZomAddFriendsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomAddFriendsTableCell.xib; path = Classes/Views/ZomAddFriendsTableCell.xib; sourceTree = "<group>"; };
+		920DFD262068F6FA00B65AF5 /* ZomAddFriendsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomAddFriendsTableCell.swift; path = Classes/Views/ZomAddFriendsTableCell.swift; sourceTree = "<group>"; };
 		921224681CF7124600A88DF6 /* ZomSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomSettingsManager.swift; path = Classes/ZomSettingsManager.swift; sourceTree = "<group>"; };
 		921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMainTabbedViewController.swift; path = "Classes/View Controllers/ZomMainTabbedViewController.swift"; sourceTree = "<group>"; };
 		921C4FAD1F58027D00FD76C7 /* OTRMessagesLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OTRMessagesLoadingView.xib; path = ../../../ChatSecure/OTRResources/OTRMessagesLoadingView.xib; sourceTree = "<group>"; };
@@ -1230,6 +1234,8 @@
 				A0594649204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.xib */,
 				920DFD192064FAEF00B65AF5 /* ZomAddFriendsCell.swift */,
 				920DFD162064F9C700B65AF5 /* ZomAddFriendsCell.xib */,
+				920DFD262068F6FA00B65AF5 /* ZomAddFriendsTableCell.swift */,
+				920DFD242068F4BB00B65AF5 /* ZomAddFriendsTableCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2101,6 +2107,7 @@
 			files = (
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
+				920DFD252068F4BB00B65AF5 /* ZomAddFriendsTableCell.xib in Resources */,
 				924FC5AA1EBB3FE800CEA225 /* PreparingSessionView.xib in Resources */,
 				92AE3F67202507C1006984A4 /* SnackBar.xib in Resources */,
 				926AF4A71E847B3800463F54 /* TwoButtonTableViewCell.xib in Resources */,
@@ -2384,6 +2391,7 @@
 				921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */,
 				630A50001E78858100A79C85 /* ZomProfileViewControllerSource.swift in Sources */,
 				924A93641F67277300914C9D /* OTRXMPPRoomManager+Zom.swift in Sources */,
+				920DFD272068F6FA00B65AF5 /* ZomAddFriendsTableCell.swift in Sources */,
 				920DFD1F206542C600B65AF5 /* ZomBatchAddFriendsViewController.swift in Sources */,
 				92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */,
 				A00D4F452044727F0034D4AD /* HighlightableButton.swift in Sources */,
