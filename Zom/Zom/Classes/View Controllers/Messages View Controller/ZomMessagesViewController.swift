@@ -382,12 +382,12 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         if isGroupChat() {
             // Any people you are not friends with?
             self.connections?.ui.read({ (transaction) in
-                if let room = self.room(with: transaction) {
+                if let room = self.room(with: transaction), let account = self.account(with: transaction) {
                     let allOccupants = room.allOccupants(transaction)
                     ret = allOccupants.flatMap({ (occupant) -> OTRXMPPBuddy? in
                         return occupant.buddy(with: transaction)
                     }).filter({ (buddy) -> Bool in
-                        return buddy.trustLevel != .roster
+                        return buddy.username != account.username && buddy.trustLevel != .roster
                     })
                 }
             })
