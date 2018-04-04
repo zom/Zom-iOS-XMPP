@@ -9,6 +9,7 @@ import Foundation
 
 protocol ZomAddFriendViewControllerDelegate {
     func didSelectBuddy(_ buddy: OTRXMPPBuddy, from viewController:UIViewController)
+    func didNotSelectBuddy(from viewController:UIViewController)
 }
 
 class ZomAddFriendViewController: UIViewController {
@@ -16,6 +17,7 @@ class ZomAddFriendViewController: UIViewController {
     public var delegate:ZomAddFriendViewControllerDelegate?
     
     public var buddy:OTRXMPPBuddy?
+    public var userData:Any?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -33,6 +35,9 @@ class ZomAddFriendViewController: UIViewController {
     }
 
     @IBAction func didPressCancel(_ sender: UIButton) {
+        if let delegate = self.delegate {
+            delegate.didNotSelectBuddy(from:self)
+        }
         dismiss(animated: true, completion: nil)
     }
     

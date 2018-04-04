@@ -13,6 +13,7 @@ fileprivate enum DynamicCellIdentifier: String {
 
 protocol ZomBatchAddFriendsViewControllerDelegate {
     func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController:UIViewController)
+    func didNotSelectBuddies(from viewController:UIViewController)
 }
 
 class ZomBatchAddFriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -50,6 +51,9 @@ class ZomBatchAddFriendsViewController: UIViewController, UITableViewDataSource,
     }
 
     @IBAction func didPressCancel(_ sender: UIButton) {
+        if let delegate = self.delegate {
+            delegate.didNotSelectBuddies(from:self)
+        }
         dismiss(animated: true, completion: nil)
     }
     

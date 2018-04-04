@@ -13,7 +13,7 @@ import OTRAssets
 import BButton
 import MBProgressHUD
 
-open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate, SupplementaryViewHandlerDelegate {
+open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestureRecognizerDelegate, ZomPickStickerViewControllerDelegate, SupplementaryViewHandlerDelegate, OTRYapViewHandlerDelegateProtocol {
     
     private var hasFixedTitleViewConstraints:Bool = false
     private var attachmentPickerController:OTRAttachmentPicker? = nil
@@ -30,6 +30,9 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var galleryLoadingIndicator:MBProgressHUD?
     private var galleryHandler:ZomGalleryHandler?
     private var galleryReferenceView:UIView?
+   
+    private var groupOccupantsViewHandler:OTRYapViewHandler?
+    private let supplementaryViewKindOccupantAdded = ZomAddFriendsCell.reuseIdentifier + "_dynamic"
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +49,22 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         self.keyboardButton?.setTitle("", for: .normal)
         
         self.supplementaryViewHandler?.addSupplementaryViewKind(kind: ZomAddFriendsCell.reuseIdentifier, nibName: "ZomAddFriendsCell")
+        self.supplementaryViewHandler?.addSupplementaryViewKind(kind: supplementaryViewKindOccupantAdded, nibName: "ZomAddFriendsCell")
         self.supplementaryViewHandler?.delegate = self
+    }
+    
+    open override func setThreadKey(_ key: String?, collection: String?) {
+        super.setThreadKey(key, collection: collection)
+        if isGroupChat(), let connection = connections?.longLivedRead, let key = key {
+            self.groupOccupantsViewHandler = OTRYapViewHandler(databaseConnection: connection)
+            if let viewHandler = self.groupOccupantsViewHandler {
+                viewHandler.delegate = self
+                viewHandler.setup(DatabaseExtensionName.groupOccupantsViewName.name(), groups: [key])
+            }
+        } else {
+            self.groupOccupantsViewHandler?.delegate = nil
+            self.groupOccupantsViewHandler = nil
+        }
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -365,14 +383,18 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func didSetupMappings(_ handler: OTRYapViewHandler) {
+        if let groupHandler = self.groupOccupantsViewHandler, groupHandler == handler {
+            return
+        }
+        
         super.didSetupMappings(handler)
         let numberMappingsItems = handler.mappings?.numberOfItems(inSection: 0) ?? 0
         if numberMappingsItems > 0 {
             self.checkRangeForMigrationMessage(range: NSMakeRange(0, Int(numberMappingsItems)))
         }
         if let occupantsNotFriends = occupantsNotFriends(), occupantsNotFriends.count > 0 {
-            if let lastIndexPath = self.collectionView.lastIndexPath(), let message = self.message(at: lastIndexPath) {
-                self.supplementaryViewHandler?.addSupplementaryViewForMessage(message: message, supplementaryView: ZomAddFriendsCell.reuseIdentifier)
+            if let lastIndexPath = self.collectionView.lastIndexPath() {
+                self.supplementaryViewHandler?.addSupplementaryView(indexPath: lastIndexPath, supplementaryView: ZomAddFriendsCell.reuseIdentifier, userData: nil)
             }
         }
     }
@@ -396,6 +418,35 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     }
     
     open override func didReceiveChanges(_ handler: OTRYapViewHandler, sectionChanges: [YapDatabaseViewSectionChange], rowChanges: [YapDatabaseViewRowChange]) {
+        if let groupHandler = self.groupOccupantsViewHandler, groupHandler == handler {
+            if rowChanges.count > 0 {
+                var newOccupants:[OTRXMPPRoomOccupant] = []
+                for rowChange in rowChanges {
+                    if rowChange.type == .insert {
+                        if let indexPath = rowChange.newIndexPath, let occupant = groupHandler.object(indexPath) as? OTRXMPPRoomOccupant {
+                            newOccupants.append(occupant)
+                        }
+                    }
+                }
+                if newOccupants.count > 0 {
+                    var newNonBuddies:[OTRXMPPBuddy]? = nil
+                    self.connections?.read.read({ (transaction) in
+                        if let account = self.account(with: transaction) {
+                            newNonBuddies = newOccupants.flatMap({ (occupant) -> OTRXMPPBuddy? in
+                                return occupant.buddy(with: transaction)
+                            }).filter({ (buddy) -> Bool in
+                                return buddy.username != account.username && buddy.trustLevel != .roster
+                            })
+                        }
+                    })
+                    if let newNonBuddies = newNonBuddies, newNonBuddies.count > 0, let lastIndexPath = self.collectionView.lastIndexPath() {
+                        self.supplementaryViewHandler?.addSupplementaryView(indexPath: lastIndexPath, supplementaryView: supplementaryViewKindOccupantAdded, userData: newNonBuddies as AnyObject)
+                        self.collectionView.reloadItems(at: [lastIndexPath])
+                    }
+                }
+            }
+            return
+        }
 //        var collectionViewNumberOfItems = 0
 //        var numberMappingsItems = 0
 //        if rowChanges.count > 0 {
@@ -526,10 +577,10 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         super.newDeviceButtonPressed(buddyUniqueId)
     }
     
-    public func supplementaryViewInfo(kind: String, for collectionView: UICollectionView, at indexPath: IndexPath) -> OTRMessagesCollectionSupplementaryViewInfo? {
-        if kind == ZomAddFriendsCell.reuseIdentifier {
+    public func supplementaryViewInfo(kind: String, for collectionView: UICollectionView, at indexPath: IndexPath, userData:AnyObject?) -> OTRMessagesCollectionSupplementaryViewInfo? {
+        if kind == ZomAddFriendsCell.reuseIdentifier || kind == supplementaryViewKindOccupantAdded {
             if let supplementaryViewInfo = self.supplementaryViewHandler?.createSupplementaryViewInfo(collectionView, kind: kind, populationCallback: { (cell) in
-                self.populateAddFriendsCell(cell: cell, indexPath: indexPath, forSizingOnly: true)
+                self.populateAddFriendsCell(cell: cell, indexPath: indexPath, kind: kind, userData: userData, forSizingOnly: true)
             }, tag: nil, tagBehavior: .none) {
                 return supplementaryViewInfo
             }
@@ -537,10 +588,10 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         return nil
     }
     
-    public func supplementaryView(kind: String, for collectionView: UICollectionView, at indexPath: IndexPath) -> UICollectionReusableView? {
-        if kind == ZomAddFriendsCell.reuseIdentifier {
+    public func supplementaryView(kind: String, for collectionView: UICollectionView, at indexPath: IndexPath, userData:AnyObject?) -> UICollectionReusableView? {
+        if kind == ZomAddFriendsCell.reuseIdentifier || kind == supplementaryViewKindOccupantAdded {
             let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kind, for: indexPath)
-            populateAddFriendsCell(cell: cell, indexPath: indexPath, forSizingOnly: false)
+            populateAddFriendsCell(cell: cell, indexPath: indexPath, kind: kind, userData: userData, forSizingOnly: false)
             return cell
         }
         return nil
@@ -573,10 +624,10 @@ extension ZomMessagesViewController: ZomGalleryHandlerDelegate {
 }
 
 extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate, ZomAddFriendViewControllerDelegate {
-    
-    fileprivate func populateAddFriendsCell(cell:UICollectionReusableView?, indexPath:IndexPath, forSizingOnly:Bool) {
+    fileprivate func populateAddFriendsCell(cell:UICollectionReusableView?, indexPath:IndexPath, kind:String, userData:AnyObject?, forSizingOnly:Bool) {
         guard let addFriendsCell = cell as? ZomAddFriendsCell else { return }
-        guard let occupantsNotFriends = occupantsNotFriends(), occupantsNotFriends.count > 0 else { return }
+        let nonBuddies = userData as? [OTRXMPPBuddy] ?? occupantsNotFriends()
+        guard let occupantsNotFriends = nonBuddies, occupantsNotFriends.count > 0 else { return }
         
         // Set callback only for "real" cell, not when sizing
         var acceptButtonCallback:((_ buddies:[OTRXMPPBuddy]?) -> Void)? = nil
@@ -585,6 +636,7 @@ extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate, Z
                 guard let buddies = buddies else { return }
                 if buddies.count == 1 {
                     let vc = ZomAddFriendViewController()
+                    vc.userData = (kind, indexPath)
                     vc.setBuddy(buddies[0])
                     vc.delegate = self
                     vc.modalPresentationStyle = .overFullScreen
@@ -606,8 +658,23 @@ extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate, Z
     
     func didSelectBuddy(_ buddy: OTRXMPPBuddy, from viewController: UIViewController) {
         self.didSelectBuddies([buddy], from: viewController)
+        if let vc = viewController as? ZomAddFriendViewController, let (kind, indexPath) = vc.userData as? (String, IndexPath) {
+            DispatchQueue.main.async {
+                self.supplementaryViewHandler?.removeSupplementaryView(indexPath: indexPath, supplementaryView: kind)
+                self.collectionView.reloadData()
+            }
+        }
     }
 
+    func didNotSelectBuddy(from viewController: UIViewController) {
+        if let vc = viewController as? ZomAddFriendViewController, let (kind, indexPath) = vc.userData as? (String, IndexPath) {
+            DispatchQueue.main.async {
+                self.supplementaryViewHandler?.removeSupplementaryView(indexPath: indexPath, supplementaryView: kind)
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController:UIViewController) {
         var manager:XMPPManager? = nil
         connections?.ui.read { (transaction) in
@@ -630,4 +697,8 @@ extension ZomMessagesViewController: ZomBatchAddFriendsViewControllerDelegate, Z
             }
         } // else TODO handle error case
     }
+    
+    func didNotSelectBuddies(from viewController: UIViewController) {
+    }
+
 }
