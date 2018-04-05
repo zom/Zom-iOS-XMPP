@@ -79,42 +79,48 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController, ZomT
     }
     
     func transferOwnershipAndLeave() {
-        var buddies:[OTRXMPPBuddy] = []
+        let ownOccupant = self.ownOccupant()
+        var occupants:[OTRXMPPRoomOccupant] = []
         if let viewHandler = self.viewHandler,
             let mappings = viewHandler.mappings {
                     for section in 0..<mappings.numberOfSections() {
                         for row in 0..<mappings.numberOfItems(inSection: section) {
-                            var buddy:OTRXMPPBuddy? = nil
                             if let roomOccupant = viewHandler.object(IndexPath(row: Int(row), section: Int(section))) as? OTRXMPPRoomOccupant {
-                                OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
-                                    buddy = roomOccupant.buddy(with: transaction)
-                                })
-                                if let buddy = buddy {
-                                    buddies.append(buddy)
+                                
+                                var isYou = false
+                                if let ownOccupant = ownOccupant, ownOccupant.jid?.full == roomOccupant.jid?.full {
+                                    isYou = true
+                                }
+                                if !isYou {
+                                    occupants.append(roomOccupant)
                                 }
                             }
                         }
                     }
                 }
-        guard buddies.count > 0 else {
+        guard occupants.count > 0 else {
             doLeave()
             return
         }
         
         let vc = ZomTransferOwnershipViewController()
-        vc.setBuddies(buddies)
+        vc.setOccupants(occupants)
         vc.delegate = self
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         self.present(vc, animated: true, completion: nil)
     }
     
-    func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController: UIViewController) {
+    func didSelectOccupants(_ occupants: [OTRXMPPRoomOccupant], from viewController: UIViewController) {
         viewController.dismiss(animated: true) {
+            for occupant in occupants {
+                self.grantPrivileges(occupant, affiliation: .owner)
+            }
+            self.doLeave()
         }
     }
     
-    func didNotSelectBuddies(from viewController: UIViewController) {
+    func didNotSelectOccupants(from viewController: UIViewController) {
         // Do nothing
     }
 }
