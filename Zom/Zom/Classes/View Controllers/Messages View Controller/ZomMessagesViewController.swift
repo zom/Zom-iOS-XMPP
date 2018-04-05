@@ -414,17 +414,19 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                         }
                     }
                     joinGroupView.declineButtonCallback = {() -> Void in
-                        var roomJid:XMPPJID? = nil
+                        var room:OTRXMPPRoom? = nil
                         var xmpp:XMPPManager? = nil
                         self.connections?.read.read({ (transaction) in
-                            if let room = self.room(with: transaction),
-                                let account = room.account(with: transaction) {
-                                roomJid = room.roomJID
-                                xmpp = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager
+                            room = self.room(with: transaction)
+                            if let room = room {
+                                if let account = room.account(with: transaction) {
+                                    xmpp = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager
+                                }
                             }
                         })
-                        if let roomJid = roomJid, let xmpp = xmpp {
+                        if let room = room, let roomJid = room.roomJID, let xmpp = xmpp {
                             xmpp.roomManager.leaveRoom(roomJid)
+                            xmpp.roomManager.removeRoomsFromBookmarks([room])
                             self.didLeaveRoom(nil)
                         }
                     }
