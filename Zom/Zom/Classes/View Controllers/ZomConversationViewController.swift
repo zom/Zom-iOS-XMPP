@@ -14,8 +14,6 @@ open class ZomConversationViewController: OTRConversationViewController {
     
     //Mark: Properties
     
-    let connections = OTRDatabaseManager.shared.connections
-    
     var pitchInviteView:UIView? = nil
     var kvoobject:ZomConversationViewControllerKVOObject? = nil
 
@@ -48,15 +46,14 @@ open class ZomConversationViewController: OTRConversationViewController {
     func updatePitchView() {
         var numBuddies: UInt = 0
         let numAccounts = OTRAccountsManager.allAccounts().count
-        connections?.ui.read { (transaction) -> Void in
+        OTRDatabaseManager.shared.connections?.ui.read { (transaction) -> Void in
             guard let view:YapDatabaseViewTransaction = transaction.ext(OTRAllBuddiesDatabaseViewExtensionName) as?YapDatabaseViewTransaction else { return }
             numBuddies = view.numberOfItemsInAllGroups()
         }
-        if (numBuddies == 0 && numAccounts > 0 && self.tableView.tableHeaderView == nil) {
-            self.tableView.tableHeaderView = self.getPitchInviteView()
-            //}
-            //else if (numBuddies > 1){
-            //    self.tableView.tableHeaderView = self.getPitchCreateGroupView()
+        if (numBuddies == 0 && numAccounts > 0) {
+            if self.tableView.tableHeaderView == nil {
+                self.tableView.tableHeaderView = self.getPitchInviteView()
+            }
         } else if (self.tableView.tableHeaderView == self.pitchInviteView) {
             self.tableView.tableHeaderView = nil;
         }
@@ -65,17 +62,15 @@ open class ZomConversationViewController: OTRConversationViewController {
     func getPitchInviteView() -> UIView {
         if (self.pitchInviteView == nil) {
             self.pitchInviteView = UINib(nibName: "PitchInviteView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
+            // Kind of ugly, but avoid appearance override
+            for view in self.pitchInviteView?.subviews ?? [] {
+                if let button = view as? UIButton {
+                    button.backgroundColor = GlobalTheme.shared.mainThemeColor
+                }
+            }
         }
         return self.pitchInviteView!
     }
-
-//    func getPitchCreateGroupView() -> UIView {
-//        if (self.pitchCreateGroupView == nil) {
-//            self.pitchCreateGroupView = UINib(nibName: "PitchCreateGroupView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView
-//            self.pitchCreateGroupView!.frame.size.height = 180
-//        }
-//        return self.pitchCreateGroupView!
-//    }
     
     @IBAction func addFriendsButtonPressed(_ sender: AnyObject) {
         ZomNewBuddyViewController.addBuddyToDefaultAccount(self.navigationController)
