@@ -38,6 +38,7 @@
 		921B4BCF1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */; };
 		921C4FDD1F5802A100FD76C7 /* OTRMessagesLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921C4FAD1F58027D00FD76C7 /* OTRMessagesLoadingView.xib */; };
 		921D292E1CE9E26000337305 /* PitchCreateGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */; };
+		9221CA9C207645D2005684A8 /* ZomTransferOwnershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9221CA9B207645D2005684A8 /* ZomTransferOwnershipViewController.swift */; };
 		92256C511EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */; };
 		92256CD21EB3445500CE4B35 /* ZomMigrationInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */; };
 		92256CD61EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92256CD51EB3526E00CE4B35 /* ZomMigrationInfoHeaderView.swift */; };
@@ -106,6 +107,7 @@
 		92859950207526670079CBEA /* ZomJoinGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9285994F207526670079CBEA /* ZomJoinGroupView.xib */; };
 		92859952207526810079CBEA /* ZomJoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92859951207526810079CBEA /* ZomJoinGroupView.swift */; };
 		92859954207609830079CBEA /* OTRXMPPRoom+Zom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92859953207609830079CBEA /* OTRXMPPRoom+Zom.swift */; };
+		928599582076453A0079CBEA /* ZomTransferOwnershipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928599572076453A0079CBEA /* ZomTransferOwnershipViewController.xib */; };
 		9286A5281EBC6EEB0069F124 /* ZomGenericLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */; };
 		9286A5771EBC8D120069F124 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92F60BF31D018121008834AC /* Localizable.strings */; };
 		9288D7EC1FB5BA5600D2E7D6 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9288D7BE1FB5BA5600D2E7D6 /* Settings.bundle */; };
@@ -626,6 +628,7 @@
 		921B4BCE1DD9C5EB0089D509 /* ZomMainTabbedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMainTabbedViewController.swift; path = "Classes/View Controllers/ZomMainTabbedViewController.swift"; sourceTree = "<group>"; };
 		921C4FAD1F58027D00FD76C7 /* OTRMessagesLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OTRMessagesLoadingView.xib; path = ../../../ChatSecure/OTRResources/OTRMessagesLoadingView.xib; sourceTree = "<group>"; };
 		921D292D1CE9E26000337305 /* PitchCreateGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PitchCreateGroupView.xib; sourceTree = "<group>"; };
+		9221CA9B207645D2005684A8 /* ZomTransferOwnershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZomTransferOwnershipViewController.swift; sourceTree = "<group>"; };
 		92256C501EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomAccountDetailViewController.swift; path = "Classes/View Controllers/ZomAccountDetailViewController.swift"; sourceTree = "<group>"; };
 		92256CCB1EB2287C00CE4B35 /* 6yay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6yay.png; path = "../../Zom/Stickers/olo and shimi/6yay.png"; sourceTree = "<group>"; };
 		92256CD11EB3445500CE4B35 /* ZomMigrationInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomMigrationInfoViewController.swift; path = "Classes/View Controllers/ZomMigrationInfoViewController.swift"; sourceTree = "<group>"; };
@@ -850,6 +853,7 @@
 		9285994F207526670079CBEA /* ZomJoinGroupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomJoinGroupView.xib; path = Classes/Views/ZomJoinGroupView.xib; sourceTree = "<group>"; };
 		92859951207526810079CBEA /* ZomJoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZomJoinGroupView.swift; sourceTree = "<group>"; };
 		92859953207609830079CBEA /* OTRXMPPRoom+Zom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OTRXMPPRoom+Zom.swift"; sourceTree = "<group>"; };
+		928599572076453A0079CBEA /* ZomTransferOwnershipViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZomTransferOwnershipViewController.xib; sourceTree = "<group>"; };
 		9286A5271EBC6EEB0069F124 /* ZomGenericLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomGenericLabelView.swift; path = Classes/Views/ZomGenericLabelView.swift; sourceTree = "<group>"; };
 		9288D7BE1FB5BA5600D2E7D6 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
 		928A37751CD209110095366C /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = ../ChatSecure/Pods/Pods.xcodeproj; sourceTree = "<group>"; };
@@ -1350,6 +1354,8 @@
 				920DFD202068E56A00B65AF5 /* ZomAddFriendRequestedViewController.xib */,
 				920DFD2A2068F96500B65AF5 /* ZomAddFriendViewController.swift */,
 				920DFD282068F94F00B65AF5 /* ZomAddFriendViewController.xib */,
+				9221CA9B207645D2005684A8 /* ZomTransferOwnershipViewController.swift */,
+				928599572076453A0079CBEA /* ZomTransferOwnershipViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -2120,6 +2126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928599582076453A0079CBEA /* ZomTransferOwnershipViewController.xib in Resources */,
 				9278C3A01BF4D2AE003AC533 /* Stickers in Resources */,
 				926AF4A41E847B3800463F54 /* PushAccountTableViewCell.xib in Resources */,
 				920DFD252068F4BB00B65AF5 /* ZomAddFriendsTableCell.xib in Resources */,
@@ -2425,6 +2432,7 @@
 				92ECE3D11CEDBAC900CB4CFF /* ZomInviteViewController.swift in Sources */,
 				6320C9041DFF6C410080F3BD /* ZomProfileViewController.swift in Sources */,
 				92D55CEB1C0349FF00EECC76 /* ZomMyQRViewController.swift in Sources */,
+				9221CA9C207645D2005684A8 /* ZomTransferOwnershipViewController.swift in Sources */,
 				A02F09A3204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift in Sources */,
 				9254F1B11DF0B5CE0073F7A0 /* AttachmentPicker.swift in Sources */,
 				A04696BE203ED2D30097A677 /* ZomVerificationViewController.swift in Sources */,

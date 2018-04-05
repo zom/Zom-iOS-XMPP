@@ -9,8 +9,8 @@
 import UIKit
 import ChatSecureCore
 
-open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
-    
+open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController, ZomTransferOwnershipViewControllerDelegate {
+
     @IBOutlet weak var qrCodeButton:UIButton?
     
     public override init(databaseConnection:YapDatabaseConnection, roomKey:String) {
@@ -39,7 +39,11 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
                 }
             })
             let leaveAction = UIAlertAction(title: NSLocalizedString("Leave", comment: "Option to leave a group chat"), style: .default, handler: { (action: UIAlertAction) -> Void in
-                super.didSelectFooterCell(type: "cellGroupLeave")
+                if self.ownOccupant()?.affiliation == .owner {
+                    self.transferOwnershipAndLeave()
+                } else {
+                    self.doLeave()
+                }
             })
             let cancelAction = UIAlertAction(title: CANCEL_STRING(), style: .cancel, handler: nil)
             alert.addAction(archiveAction)
@@ -68,5 +72,49 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController {
         profileVC.setupWithInfo(info: info)
         
         self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    func doLeave() {
+        super.didSelectFooterCell(type: "cellGroupLeave")
+    }
+    
+    func transferOwnershipAndLeave() {
+        var buddies:[OTRXMPPBuddy] = []
+        if let viewHandler = self.viewHandler,
+            let mappings = viewHandler.mappings {
+                    for section in 0..<mappings.numberOfSections() {
+                        for row in 0..<mappings.numberOfItems(inSection: section) {
+                            var buddy:OTRXMPPBuddy? = nil
+                            if let roomOccupant = viewHandler.object(IndexPath(row: Int(row), section: Int(section))) as? OTRXMPPRoomOccupant {
+                                OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
+                                    buddy = roomOccupant.buddy(with: transaction)
+                                })
+                                if let buddy = buddy {
+                                    buddies.append(buddy)
+                                }
+                            }
+                        }
+                    }
+                }
+        guard buddies.count > 0 else {
+            doLeave()
+            return
+        }
+        
+        let vc = ZomTransferOwnershipViewController()
+        vc.setBuddies(buddies)
+        vc.delegate = self
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func didSelectBuddies(_ buddies: [OTRXMPPBuddy], from viewController: UIViewController) {
+        viewController.dismiss(animated: true) {
+        }
+    }
+    
+    func didNotSelectBuddies(from viewController: UIViewController) {
+        // Do nothing
     }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZomTransferOwnershipViewController" customModule="Zom" customModuleProvider="target">
+            <connections>
+                <outlet property="buddyTable" destination="djx-TV-cAm" id="Qyh-lQ-xx5"/>
+                <outlet property="leaveButton" destination="4Oz-Nk-nXW" id="KYE-YM-bg1"/>
+                <outlet property="view" destination="iN0-l3-epB" id="8DI-ra-oiL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1X-b1-yoH">
+                    <rect key="frame" x="40" y="40" width="295" height="587"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Pick a New Owner Before You Leave" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TtU-Ty-sj4">
+                            <rect key="frame" x="0.0" y="20" width="295" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="djx-TV-cAm">
+                            <rect key="frame" x="0.0" y="61" width="295" height="436"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-Nk-nXW">
+                            <rect key="frame" x="127.5" y="507" width="40" height="30"/>
+                            <state key="normal" title="Leave"/>
+                            <connections>
+                                <action selector="didPressLeave:" destination="-1" eventType="touchUpInside" id="1Ao-Lz-eQv"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5G3-5o-wWQ">
+                            <rect key="frame" x="123.5" y="547" width="48" height="30"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didPressCancel:" destination="-1" eventType="touchUpInside" id="WN1-D6-TlP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="djx-TV-cAm" firstAttribute="leading" secondItem="T1X-b1-yoH" secondAttribute="leading" id="4sQ-T3-4yV"/>
+                        <constraint firstItem="4Oz-Nk-nXW" firstAttribute="top" secondItem="djx-TV-cAm" secondAttribute="bottom" constant="10" id="5pM-cs-4HF"/>
+                        <constraint firstAttribute="trailing" secondItem="djx-TV-cAm" secondAttribute="trailing" id="DPl-iT-gWC"/>
+                        <constraint firstItem="5G3-5o-wWQ" firstAttribute="centerX" secondItem="T1X-b1-yoH" secondAttribute="centerX" id="LYV-hj-FqV"/>
+                        <constraint firstItem="5G3-5o-wWQ" firstAttribute="top" secondItem="4Oz-Nk-nXW" secondAttribute="bottom" constant="10" id="Nr3-In-wav"/>
+                        <constraint firstAttribute="trailing" secondItem="TtU-Ty-sj4" secondAttribute="trailing" id="OcA-vh-IzT"/>
+                        <constraint firstItem="TtU-Ty-sj4" firstAttribute="leading" secondItem="T1X-b1-yoH" secondAttribute="leading" id="kc7-FL-qlp"/>
+                        <constraint firstAttribute="bottom" secondItem="5G3-5o-wWQ" secondAttribute="bottom" constant="10" id="oWO-oZ-hOE"/>
+                        <constraint firstItem="TtU-Ty-sj4" firstAttribute="top" secondItem="T1X-b1-yoH" secondAttribute="top" constant="20" id="pN4-rr-gMt"/>
+                        <constraint firstItem="djx-TV-cAm" firstAttribute="top" secondItem="TtU-Ty-sj4" secondAttribute="bottom" constant="20" id="yAq-jE-xw1"/>
+                        <constraint firstItem="4Oz-Nk-nXW" firstAttribute="centerX" secondItem="T1X-b1-yoH" secondAttribute="centerX" id="zwL-gU-KU8"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="T1X-b1-yoH" secondAttribute="trailing" constant="40" id="76d-uh-o1y"/>
+                <constraint firstAttribute="bottom" secondItem="T1X-b1-yoH" secondAttribute="bottom" constant="40" id="ZsM-0J-PxH"/>
+                <constraint firstItem="T1X-b1-yoH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="c9r-5w-sf2"/>
+                <constraint firstItem="T1X-b1-yoH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="tje-9X-Qxp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="64.5" y="128.5"/>
+        </view>
+    </objects>
+</document>
