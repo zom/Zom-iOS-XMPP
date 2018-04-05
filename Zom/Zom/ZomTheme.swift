@@ -129,6 +129,7 @@ extension UIColor {
         UIApplication.shared.statusBarStyle = .lightContent
 
         UISwitch.appearance().tintColor = mainThemeColor
+        UISwitch.appearance().onTintColor = mainThemeColor
 
         UILabel.appearance(whenContainedInInstancesOf: [ZomTableViewSectionHeader.self]).textColor = mainThemeColor
 
