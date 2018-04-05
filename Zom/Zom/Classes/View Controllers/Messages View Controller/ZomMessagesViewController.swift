@@ -644,6 +644,18 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         super.newDeviceButtonPressed(buddyUniqueId)
     }
     
+    open override func setup(withBuddies buddies: [String], accountId: String, name: String?) {
+        super.setup(withBuddies: buddies, accountId: accountId, name: name)
+        
+        // New group we just created, mark as "seen" and prevent the "join" view from showing up
+        connections?.write.readWrite({ (transaction) in
+            if let room = self.room(with: transaction) {
+                room.setHasSeenGroup(hasSeen: true, transaction: transaction)
+            }
+        })
+        self.joinGroupView?.isHidden = true
+    }
+    
     public func supplementaryViewInfo(kind: String, for collectionView: UICollectionView, at indexPath: IndexPath, userData:AnyObject?) -> OTRMessagesCollectionSupplementaryViewInfo? {
         if kind == ZomAddFriendsCell.reuseIdentifier || kind == supplementaryViewKindOccupantAdded {
             if let supplementaryViewInfo = self.supplementaryViewHandler?.createSupplementaryViewInfo(collectionView, kind: kind, populationCallback: { (cell) in
