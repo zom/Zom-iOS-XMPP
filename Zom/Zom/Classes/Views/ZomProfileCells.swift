@@ -130,6 +130,7 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
         case refresh
         case startChat
         case showMore(Int)
+        case addFriend(String)
         
         func text() -> String {
             switch self {
@@ -139,6 +140,8 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
             case .startChat: return NSLocalizedString("Start Chat", comment: "Button label to start a chat")
             case .showMore(let num):
                 return String(format: NSLocalizedString("Show %d more", comment: "Button label to show all fingerprints"), num)
+            case .addFriend(let name):
+                return String(format: NSLocalizedString("Add %@ as Friend", comment: "Button label to add friend from profile view"), name)
             }
         }
     }

@@ -252,6 +252,19 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
                 }
             }
             break
+        case .addFriend(_):
+            switch self.info.user {
+            case .buddy(let buddy as OTRXMPPBuddy) :
+                let vc = ZomAddFriendViewController()
+                vc.setBuddy(buddy)
+                vc.delegate = controller
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                controller.present(vc, animated: true, completion: nil)
+                break
+            default: return
+            }
+            break
         case .showMore(_):
             self.toggleShowAll?()
             break
@@ -489,5 +502,35 @@ fileprivate class ZomNoAccountTableViewSource: NSObject, UITableViewDelegate, UI
         app.conversationViewController.hasPresentedOnboarding = false
         app.conversationViewController.showOnboardingIfNeeded()
         app.conversationViewController.hasPresentedOnboarding = true
+    }
+}
+
+extension ZomProfileViewController : ZomAddFriendViewControllerDelegate {
+    func didSelectBuddy(_ buddy: OTRXMPPBuddy, from viewController: UIViewController) {
+        var manager:XMPPManager? = nil
+        OTRDatabaseManager.shared.connections?.ui.read { (transaction) in
+            if let account = buddy.account(with: transaction) {
+                manager = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager
+            }
+        }
+        if let manager = manager {
+            manager.addBuddies([buddy])
+            DispatchQueue.main.async {
+                let vc = ZomAddFriendRequestedViewController()
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                viewController.dismiss(animated: true) {
+                    self.present(vc, animated: true, completion: {
+                        // Reload profile view
+                        if let reload = self.tableViewSource?.relaodData {
+                            reload()
+                        }
+                    })
+                }
+            }
+        } // else TODO handle error case
+    }
+    
+    func didNotSelectBuddy(from viewController: UIViewController) {
     }
 }

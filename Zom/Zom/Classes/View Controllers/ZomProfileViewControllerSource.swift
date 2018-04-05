@@ -173,6 +173,11 @@ class ZomProfileViewObserver: NSObject {
                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
             }
             
+            if let xmppBuddy = buddy as? OTRXMPPBuddy, xmppBuddy.trustLevel != .roster {
+                // Show add as friend section
+                sections.append(TableSectionInfo(title: nil, cells: [ButtonCellInfo(type:.addFriend(xmppBuddy.displayName))]))
+            }
+            
         case .account(let account):
             let displayName = account.displayName
             let userCell = UserCellInfo(avatarImage: account.avatarImage(), title: displayName, subtitle: account.username)
