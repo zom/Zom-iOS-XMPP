@@ -46,6 +46,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 @property (nonatomic, strong) OTRYapViewHandler * _Nonnull viewHandler;
 - (void)didSetupMappings:(OTRYapViewHandler * _Nonnull)handler;
 - (void)didReceiveChanges:(OTRYapViewHandler * _Nonnull)handler sectionChanges:(NSArray<YapDatabaseViewSectionChange *> * _Nonnull)sectionChanges rowChanges:(NSArray<YapDatabaseViewRowChange *> * _Nonnull)rowChanges;
+- (void)didLeaveRoom:(OTRRoomOccupantsViewController *)roomOccupantsViewController;
 - (void)showJIDForwardingHeaderWithNewJID:(XMPPJID * _Nonnull)newJid;
 - (BOOL)hasBubbleSizeForCellAtIndexPath:(NSIndexPath* _Nonnull)indexPath;
 - (void)setupInfoButton;

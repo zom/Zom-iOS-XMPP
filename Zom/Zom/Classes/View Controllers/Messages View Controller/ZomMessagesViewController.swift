@@ -19,6 +19,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
     private var attachmentPickerController:OTRAttachmentPicker? = nil
     private var attachmentPickerView:AttachmentPicker? = nil
     private var attachmentPickerTapRecognizer:UITapGestureRecognizer? = nil
+    private var joinGroupView:ZomJoinGroupView?
     private var preparingView:UIView?
     private var pendingApprovalView:UIView?
     private var singleCheckIcon:UIImage? = UIImage(named: "ic_sent_grey")
@@ -61,6 +62,15 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                 viewHandler.delegate = self
                 viewHandler.setup(DatabaseExtensionName.groupOccupantsViewName.name(), groups: [key])
             }
+            
+            // Shown this one before?
+            var hasSeenGroup = false
+            OTRDatabaseManager.shared.connections?.read.read({ (transaction) in
+                if let room = self.room(with: transaction) {
+                    hasSeenGroup = room.hasSeenGroup(transaction: transaction)
+                }
+            })
+            updateJoinGroupView(!hasSeenGroup)
         } else {
             self.groupOccupantsViewHandler?.delegate = nil
             self.groupOccupantsViewHandler = nil
@@ -98,7 +108,7 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
         })
         alertController.addAction(sendStickerAction)
     }
-    
+
     @IBAction func unwindPickSticker(_ unwindSegue: UIStoryboardSegue) {
     }
     
@@ -366,6 +376,61 @@ open class ZomMessagesViewController: OTRMessagesHoldTalkViewController, UIGestu
                     self.preparingView?.alpha = 1
                 }, completion: { (success) in
                 })
+            }
+        }
+    }
+    
+    func updateJoinGroupView(_ show:Bool) {
+        if (!show) {
+            if let view = self.joinGroupView {
+                UIView.animate(withDuration: 0.5, animations: {
+                    view.alpha = 0.0
+                }, completion: { (success) in
+                    view.isHidden = true
+                })
+                self.joinGroupView = nil
+            }
+        } else {
+            if (self.joinGroupView == nil) {
+                self.joinGroupView = UINib(nibName: "ZomJoinGroupView",
+                                           bundle: Bundle.main
+                    ).instantiate(withOwner: nil, options: nil)[0] as? ZomJoinGroupView
+                if let joinGroupView = self.joinGroupView {
+                    var roomName = ""
+                    connections?.read.read({ (transaction) in
+                        if let room = self.room(with: transaction) {
+                            roomName = room.subject ?? room.roomJID?.bare ?? ""
+                        }
+                    })
+                    joinGroupView.titleLabel.text = String(format: NSLocalizedString("Someone invited you to the ´%@´ group.", comment: "Title of screen for joining/not joining group"), roomName)
+                    joinGroupView.acceptButtonCallback = {() -> Void in
+                        self.connections?.write.readWrite({ (transaction) in
+                            if let room = self.room(with: transaction) {
+                                room.setHasSeenGroup(hasSeen: true, transaction: transaction)
+                            }
+                        })
+                        DispatchQueue.main.async {
+                            self.updateJoinGroupView(false)
+                        }
+                    }
+                    joinGroupView.declineButtonCallback = {() -> Void in
+                        var roomJid:XMPPJID? = nil
+                        var xmpp:XMPPManager? = nil
+                        self.connections?.read.read({ (transaction) in
+                            if let room = self.room(with: transaction),
+                                let account = room.account(with: transaction) {
+                                roomJid = room.roomJID
+                                xmpp = OTRProtocolManager.shared.protocol(for: account) as? XMPPManager
+                            }
+                        })
+                        if let roomJid = roomJid, let xmpp = xmpp {
+                            xmpp.roomManager.leaveRoom(roomJid)
+                            self.didLeaveRoom(nil)
+                        }
+                    }
+                    self.view.addSubview(joinGroupView)
+                    joinGroupView.autoPinEdgesToSuperviewEdges()
+                }
             }
         }
     }
