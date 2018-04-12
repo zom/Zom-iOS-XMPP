@@ -71,6 +71,9 @@ class ZomFingerprintBaseViewController: UIViewController {
                     .filter() { (device) -> Bool in
                         return device.publicIdentityKeyData != nil && device.trustLevel != .removed
                     }
+                    .sorted(by: { (device1, device2) -> Bool in
+                        return device1.lastSeenDate.compare(device2.lastSeenDate) == .orderedDescending
+                    })
 
                 if let account = buddy.account(with: transaction) {
                     self.otrFingerprints = OTRProtocolManager.encryptionManager.otrKit.fingerprints(
@@ -165,7 +168,7 @@ class ZomFingerprintBaseViewController: UIViewController {
     }
 
     /**
-     - returns: the buddy' `displayName` or "your buddy" as a default value, if no buddy or no
+     - returns: the buddy's `displayName` or "your buddy" as a default value, if no buddy or no
                 `displayName`.
     */
     func buddyName() -> String {
