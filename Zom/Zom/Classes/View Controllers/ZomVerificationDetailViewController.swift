@@ -24,8 +24,8 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
         super.viewDidLoad()
 
         if let titleView = navigationItem.titleView as? OTRTitleSubtitleView {
-            titleView.titleLabel.text = NSLocalizedString("Zom Codes",
-                                                          comment: "Title for code verification detail scene")
+            titleView.titleLabel.text = NSLocalizedString("Zom Codes", comment:
+                "Title for code verification detail scene")
         }
 
         descriptionLb.text = NSLocalizedString("Make sure the codes match your friend's latest Zom codes on his or her phone.",
