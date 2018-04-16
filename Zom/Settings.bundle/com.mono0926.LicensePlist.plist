@@ -8,7 +8,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/AFNetworking</string>
 			<key>Title</key>
-			<string>AFNetworking (3.1.0)</string>
+			<string>AFNetworking (3.2.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -16,7 +16,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/Alamofire</string>
 			<key>Title</key>
-			<string>Alamofire (4.5.1)</string>
+			<string>Alamofire (4.6.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -24,7 +24,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/Appirater</string>
 			<key>Title</key>
-			<string>Appirater (2.3.0)</string>
+			<string>Appirater (2.3.1)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -72,7 +72,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/CocoaAsyncSocket</string>
 			<key>Title</key>
-			<string>CocoaAsyncSocket (7.6.1)</string>
+			<string>CocoaAsyncSocket (7.6.2)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -80,7 +80,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/CocoaLumberjack</string>
 			<key>Title</key>
-			<string>CocoaLumberjack (3.4.0)</string>
+			<string>CocoaLumberjack (3.4.1)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -136,7 +136,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/HTMLReader</string>
 			<key>Title</key>
-			<string>HTMLReader (1d0dda3)</string>
+			<string>HTMLReader (v2.1.1)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -144,7 +144,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/INSPhotoGallery</string>
 			<key>Title</key>
-			<string>INSPhotoGallery (1.2.3)</string>
+			<string>INSPhotoGallery (1.2.5)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -176,7 +176,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/KissXML</string>
 			<key>Title</key>
-			<string>KissXML (5.2.0)</string>
+			<string>KissXML (5.2.2)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -184,7 +184,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/KSCrash</string>
 			<key>Title</key>
-			<string>KSCrash (1.15.12)</string>
+			<string>KSCrash (1.15.16)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -192,7 +192,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/Kvitto</string>
 			<key>Title</key>
-			<string>Kvitto (1.0.2)</string>
+			<string>Kvitto (1.0.3)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -352,7 +352,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/Reveal-SDK</string>
 			<key>Title</key>
-			<string>Reveal-SDK (11)</string>
+			<string>Reveal-SDK (13)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -384,7 +384,7 @@
 			<key>File</key>
 			<string>com.mono0926.LicensePlist/SQLCipher</string>
 			<key>Title</key>
-			<string>SQLCipher (3.4.1)</string>
+			<string>SQLCipher (3.4.2)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
