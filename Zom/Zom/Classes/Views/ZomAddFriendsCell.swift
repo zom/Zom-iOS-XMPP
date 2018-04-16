@@ -38,9 +38,9 @@ open class ZomAddFriendsCell: UICollectionReusableView {
         self.buddies = buddies
         
         if buddies.count > 1 {
-            titleLabel.text = String(format:NSLocalizedString("%d people are not your friends.", comment: "Label for addFriends supplementary view when n > 1"), buddies.count)
+            titleLabel.text = String(format:NSLocalizedString("%d people joined who are not your friends", comment: "Label for addFriends supplementary view when n > 1"), buddies.count)
         } else {
-            titleLabel.text = String(format:NSLocalizedString("%@ is not your friend.", comment: "Label for addFriends supplementary view when n = 1"), buddies[0].displayName)
+            titleLabel.text = String(format:NSLocalizedString("%@ person joined who is not your friend", comment: "Label for addFriends supplementary view when n = 1"), buddies[0].displayName)
         }
         
         for buddy in buddies {
