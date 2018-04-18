@@ -32,7 +32,7 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController, ZomT
     open override func didSelectFooterCell(type: String) {
         switch type {
         case "cellGroupLeave":
-            let alert = UIAlertController(title: NSLocalizedString("Leave group?", comment: "Title for leave group prompt"), message: NSLocalizedString("Your group chat history will be wiped away. To keep these chats, archive the group instead.", comment: "Message for leave group prompt"), preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Leave Group?", comment: "Title for leave group prompt"), message: NSLocalizedString("Your group chat history will be wiped away. To keep these chats, archive the group instead.", comment: "Message for leave group prompt"), preferredStyle: .alert)
             let archiveAction = UIAlertAction(title: ARCHIVE_STRING(), style: .default, handler: { (action: UIAlertAction) -> Void in
                 if let delegate = self.delegate {
                     delegate.didArchiveRoom(self)
