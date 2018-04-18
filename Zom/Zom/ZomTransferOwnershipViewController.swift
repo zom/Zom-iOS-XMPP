@@ -20,6 +20,7 @@ class ZomTransferOwnershipViewController: UIViewController, UITableViewDataSourc
     
     public var delegate:ZomTransferOwnershipViewControllerDelegate?
     
+    public var room:OTRXMPPRoom?
     public var occupants:[OTRXMPPRoomOccupant] = []
     private var selected:[OTRXMPPRoomOccupant] = []
     private var imageChecked:UIImage? = OTRImages.checkmark(with: GlobalTheme.shared.mainThemeColor)
@@ -27,6 +28,11 @@ class ZomTransferOwnershipViewController: UIViewController, UITableViewDataSourc
 
     @IBOutlet weak var buddyTable: UITableView!
     @IBOutlet weak var leaveButton: UIButton!
+    
+    @objc convenience init(room: OTRXMPPRoom?) {
+        self.init()
+        self.room = room
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

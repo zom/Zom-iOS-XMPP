@@ -72,6 +72,8 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 @property (nonatomic, strong) MigrationInfoHeaderView * _Nullable migrationInfoHeaderView;
 @property (nonatomic, strong) UISegmentedControl * _Nonnull inboxArchiveControl;
 - (void) handleSubscriptionRequest:(OTRXMPPBuddy * _Nonnull)buddy approved:(BOOL)approved;
+- (id <OTRThreadOwner>)threadForIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView * _Nonnull)tableView editActionsForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @end
 
 @interface OTRBaseLoginViewController (ZomOverride)

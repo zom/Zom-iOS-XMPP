@@ -10,7 +10,7 @@ import UIKit
 import ChatSecureCore
 import KVOController
 
-open class ZomConversationViewController: OTRConversationViewController {
+open class ZomConversationViewController: OTRConversationViewController, ZomTransferOwnershipViewControllerDelegate {
     
     //Mark: Properties
     
@@ -149,6 +149,83 @@ open class ZomConversationViewController: OTRConversationViewController {
         if let file = imageFile {
             view.imageView.image = UIImage(contentsOfFile: file)
         }
+    }
+    
+    override open func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let threadOwner = self.thread(for: indexPath)
+        let originalActions = super.tableView(tableView, editActionsForRowAt: indexPath)
+        guard var actions = originalActions else {return nil}
+        if threadOwner is OTRXMPPRoom {
+            for i in 0..<actions.count {
+                let action = actions[i]
+                if DELETE_STRING() == action.title {
+                    actions.remove(at: i)
+                    let newDeleteAction = UITableViewRowAction(style: .destructive, title: DELETE_STRING()) { (rowAction, indexPath) in
+                        self.transferOwnershipAndLeave(room: self.thread(for: indexPath) as? OTRXMPPRoom)
+                    }
+                    actions.insert(newDeleteAction, at: i)
+                    break
+                }
+            }
+        }
+        return actions
+    }
+    
+    func leaveGroupAndDelete(room:OTRXMPPRoom) {
+        if let roomJid = room.roomJID, let xmppRoomManager = room.xmppRoomManager() {
+            //Leave room
+            xmppRoomManager.leaveRoom(roomJid)
+            xmppRoomManager.removeRoomsFromBookmarks([room])
+            OTRDatabaseManager.shared.connections?.write.asyncReadWrite({ (transaction) in
+                room.remove(with: transaction)
+            })
+        }
+    }
+    
+    func transferOwnershipAndLeave(room:OTRXMPPRoom?) {
+        guard let room = room else {return}
+        var occupantsStillInRoom:[OTRXMPPRoomOccupant] = []
+        var isOwner = false
+        OTRDatabaseManager.shared.connections?.read.read({ (transaction) in
+            let occupants = room.allOccupants(transaction)
+            for occupant in occupants {
+                if let buddy = occupant.buddy(with: transaction) {
+                    if buddy.isYou(transaction: transaction) {
+                        if occupant.affiliation == .owner {
+                            isOwner = true
+                        }
+                    } else {
+                        occupantsStillInRoom.append(occupant)
+                    }
+                }
+            }
+        })
+        guard isOwner, occupantsStillInRoom.count > 0 else {
+            leaveGroupAndDelete(room: room)
+            return
+        }
+        
+        let vc = ZomTransferOwnershipViewController(room:room)
+        vc.setOccupants(occupantsStillInRoom)
+        vc.delegate = self
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    func didSelectOccupants(_ occupants: [OTRXMPPRoomOccupant], from viewController: UIViewController) {
+        viewController.dismiss(animated: true) {
+            if let vc = viewController as? ZomTransferOwnershipViewController, let room = vc.room {
+                for occupant in occupants {
+                    room.grantPrivileges(occupant, affiliation: .owner)
+                }
+                self.leaveGroupAndDelete(room: room)
+            }
+        }
+    }
+    
+    func didNotSelectOccupants(from viewController: UIViewController) {
+        // Do nothing
     }
 }
 
