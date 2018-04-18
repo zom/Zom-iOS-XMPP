@@ -18,7 +18,7 @@ open class ZomAddFriendsCell: UICollectionReusableView {
     
     @objc @IBOutlet open weak var titleLabel:UILabel!
     @objc @IBOutlet open weak var avatarImageStackView:UIStackView!
-    @objc @IBOutlet open weak var actionButton:UIButton!
+    @objc @IBOutlet open var actionButton:UIButton! // Hang on to this, don't make weak
     
     open var buddies:[OTRXMPPBuddy]?
     open var actionButtonCallback:((_ buddies:[OTRXMPPBuddy]?) -> Void)?
@@ -34,13 +34,22 @@ open class ZomAddFriendsCell: UICollectionReusableView {
         }
     }
     
-    @objc open func populate(buddies:[OTRXMPPBuddy], actionButtonCallback:(([OTRXMPPBuddy]?) -> Void)?) {
+    @objc open func populate(buddies:[OTRXMPPBuddy], actionButtonCallback:(([OTRXMPPBuddy]?) -> Void)?, friends:Bool) {
         self.buddies = buddies
         
-        if buddies.count > 1 {
-            titleLabel.text = String(format:NSLocalizedString("%d people joined who are not your friends", comment: "Label for addFriends supplementary view when n > 1"), buddies.count)
+        if friends {
+            hideAddButton()
+            if buddies.count > 1 {
+                titleLabel.text = String(format:NSLocalizedString("%d people joined the group", comment: "Label for addFriends supplementary view when n > 1 and they are friends"), buddies.count)
+            } else {
+                titleLabel.text = String(format:NSLocalizedString("%@ joined the group", comment: "Label for addFriends supplementary view when n = 1 and a friend"), buddies[0].displayName)
+            }
         } else {
-            titleLabel.text = String(format:NSLocalizedString("%@ person joined who is not your friend", comment: "Label for addFriends supplementary view when n = 1"), buddies[0].displayName)
+            if buddies.count > 1 {
+                titleLabel.text = String(format:NSLocalizedString("%d people joined who are not your friends", comment: "Label for addFriends supplementary view when n > 1 and they are not friends"), buddies.count)
+            } else {
+                titleLabel.text = String(format:NSLocalizedString("%@ joined who is not your friend", comment: "Label for addFriends supplementary view when n = 1 and not a friend"), buddies[0].displayName)
+            }
         }
         
         for buddy in buddies {
@@ -73,6 +82,16 @@ open class ZomAddFriendsCell: UICollectionReusableView {
                 view.removeFromSuperview()
             }
         }
+        showAddButton()
+    }
+    
+    open func showAddButton() {
+        avatarImageStackView.addArrangedSubview(actionButton)
+    }
+    
+    open func hideAddButton() {
+        avatarImageStackView.removeArrangedSubview(actionButton)
+        actionButton.removeFromSuperview()
     }
 }
 
