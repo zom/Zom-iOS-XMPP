@@ -131,7 +131,8 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
         case startChat
         case showMore(Int)
         case addFriend(String)
-        
+        case showCodes
+
         func text() -> String {
             switch self {
             case .omemoVerify: fallthrough
@@ -142,6 +143,7 @@ struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
                 return String(format: NSLocalizedString("Show %d more", comment: "Button label to show all fingerprints"), num)
             case .addFriend(let name):
                 return String(format: NSLocalizedString("Add %@ as Friend", comment: "Button label to add friend from profile view"), name)
+            case .showCodes: return NSLocalizedString("View Zom code(s)", comment: "Button label to view friend codes")
             }
         }
     }

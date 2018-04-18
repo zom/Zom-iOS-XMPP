@@ -141,6 +141,12 @@ class ZomProfileViewObserver: NSObject {
         
         switch info.user {
         case .buddy(let buddy):
+            
+            var isYou = false
+            self.readOnlyDatabaseConnection?.read { (transaction) in
+                isYou = buddy.isYou(transaction: transaction)
+            }
+            
             let userCell = UserCellInfo(avatarImage: buddy.avatarImage, title: buddy.threadName, subtitle: buddy.username)
             var allFingerprints = info.otrKit.fingerprints(forUsername: buddy.username, accountName: info.otrKitInfo.accountName, protocol: info.otrKitInfo.protocolString).map({ (fingerprint) -> Fingerprint in
                 return .OTR(fingerprint)
@@ -168,12 +174,14 @@ class ZomProfileViewObserver: NSObject {
             if !info.calledFromGroup {
                 cells.append((info.hasSession ? ButtonCellInfo(type:.refresh) : ButtonCellInfo(type:.startChat)))
             }
+            cells.append(ButtonCellInfo(type: .showCodes))
+            
             sections += [TableSectionInfo(title: nil, cells: cells)]
             if (fingerprintSectionCells.count > 0 ) {
                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
             }
             
-            if let xmppBuddy = buddy as? OTRXMPPBuddy, xmppBuddy.trustLevel != .roster {
+            if !isYou, let xmppBuddy = buddy as? OTRXMPPBuddy, xmppBuddy.trustLevel != .roster {
                 // Show add as friend section
                 sections.append(TableSectionInfo(title: nil, cells: [ButtonCellInfo(type:.addFriend(xmppBuddy.displayName))]))
             }

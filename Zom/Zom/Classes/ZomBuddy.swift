@@ -33,4 +33,11 @@ extension OTRBuddy {
         }
         return originalDisplayName
     }
+    
+    public func isYou(transaction:YapDatabaseReadTransaction) -> Bool {
+        if let account = self.account(with: transaction), account.username == self.username {
+            return true
+        }
+        return false
+    }
 }

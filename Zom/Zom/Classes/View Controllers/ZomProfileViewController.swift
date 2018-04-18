@@ -145,20 +145,6 @@ struct FingerprintCellInfo: ZomProfileViewCellInfoProtocol {
     }
 }
 
-enum ButtonCellType {
-    case verify(OTRFingerprint)
-    case refresh
-    case startChat
-    
-    func text() -> String {
-        switch self {
-        case .verify : return NSLocalizedString("Verify Contact", comment: "Button label to verify contact security")
-        case .refresh: return NSLocalizedString("Refresh Session", comment: "Button label to refresh an OTR session")
-        case .startChat: return NSLocalizedString("Start Chat", comment: "Button label to start a chat")
-        }
-    }
-}
-
 class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDelegate {
     
     let tableSections:[TableSectionInfo]
@@ -267,6 +253,29 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
             break
         case .showMore(_):
             self.toggleShowAll?()
+            break
+        case .showCodes:
+            switch self.info.user {
+            case .buddy(let buddy as OTRXMPPBuddy) :
+                var account:OTRAccount? = nil
+                OTRDatabaseManager.shared.readConnection?.read({ (transaction) in
+                    if buddy.isYou(transaction: transaction) {
+                        account = buddy.account(with: transaction)
+                    }
+                })
+                var vc:UIViewController? = nil
+                if let account = account as? OTRXMPPAccount {
+                    vc = GlobalTheme.shared.keyManagementViewController(account: account)
+                } else {
+                    vc = GlobalTheme.shared.keyManagementViewController(buddy: buddy)
+                }
+                if let vc = vc {
+                    let nav = UINavigationController(rootViewController: vc)
+                    controller.present(nav, animated: true, completion: nil)
+                }
+                break
+            default: break
+            }
             break
         }
     }
