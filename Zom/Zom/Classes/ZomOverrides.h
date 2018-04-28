@@ -85,6 +85,8 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 
 @interface OTRSettingsViewController (ZomOverride)
 - (void)logoutAccount:(OTRAccount * _Nonnull)account sender:(id _Nullable)sender;
+- (OTRXMPPAccount * _Nullable)accountAtIndexPath:(NSIndexPath  * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 @property (nonatomic, strong) UITableView * _Nonnull tableView;
 @end
 

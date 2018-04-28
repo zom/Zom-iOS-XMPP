@@ -12,6 +12,7 @@ extension UIColor {
     public static let zomRed = UIColor(hexString: "#FFE7275A")
     public static let zomGreen = UIColor(hexString: "#FF7ED321")
     public static let zomGray = UIColor(hexString: "#FFF1F2F3")
+    public static let zomDarkerGray = UIColor(hexString: "#FFCECECE")
 
     @objc convenience init(hexString: String) {
         let scanner = Scanner(string: hexString)
@@ -128,7 +129,7 @@ extension UIColor {
 
         UIApplication.shared.statusBarStyle = .lightContent
 
-        UISwitch.appearance().tintColor = mainThemeColor
+        UISwitch.appearance().tintColor = .zomDarkerGray
         UISwitch.appearance().onTintColor = mainThemeColor
 
         UILabel.appearance(whenContainedInInstancesOf: [ZomTableViewSectionHeader.self]).textColor = mainThemeColor

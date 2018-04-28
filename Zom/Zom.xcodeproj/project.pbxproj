@@ -19,6 +19,7 @@
 		633CDA221E0350BF001A3ACF /* ZomPasswordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633CDA201E034B05001A3ACF /* ZomPasswordCell.xib */; };
 		92019C151FDE9564006D9931 /* ZomPhotoOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92019C141FDE9564006D9931 /* ZomPhotoOverlayView.xib */; };
 		92019C441FDE958D006D9931 /* ZomPhotoOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92019C431FDE958D006D9931 /* ZomPhotoOverlayView.swift */; };
+		9203DE1020935DC700261026 /* XMPPAccountCellWithMove.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9203DDE020935DC700261026 /* XMPPAccountCellWithMove.xib */; };
 		920656981D9C4C1E00EC7034 /* ChatSecureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; };
 		920656991D9C4C1E00EC7034 /* ChatSecureCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA41BB5DC190077D2EE /* ChatSecureCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9206569D1D9C4D1E00EC7034 /* OTRAssets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9315CA61BB5DC190077D2EE /* OTRAssets.framework */; };
@@ -612,6 +613,7 @@
 		633CDA201E034B05001A3ACF /* ZomPasswordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ZomPasswordCell.xib; path = Classes/Views/ZomPasswordCell.xib; sourceTree = "<group>"; };
 		92019C141FDE9564006D9931 /* ZomPhotoOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomPhotoOverlayView.xib; path = Classes/Views/ZomPhotoOverlayView.xib; sourceTree = "<group>"; };
 		92019C431FDE958D006D9931 /* ZomPhotoOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomPhotoOverlayView.swift; path = Classes/Views/ZomPhotoOverlayView.swift; sourceTree = "<group>"; };
+		9203DDE020935DC700261026 /* XMPPAccountCellWithMove.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMPPAccountCellWithMove.xib; sourceTree = "<group>"; };
 		9208607E1D13DBE200CC31D0 /* ZomBuddy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZomBuddy.swift; path = Classes/ZomBuddy.swift; sourceTree = "<group>"; };
 		920DFD162064F9C700B65AF5 /* ZomAddFriendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomAddFriendsCell.xib; path = Classes/Views/ZomAddFriendsCell.xib; sourceTree = "<group>"; };
 		920DFD192064FAEF00B65AF5 /* ZomAddFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomAddFriendsCell.swift; path = Classes/Views/ZomAddFriendsCell.swift; sourceTree = "<group>"; };
@@ -1559,6 +1561,7 @@
 				926AF4A01E847B3800463F54 /* TwoButtonTableViewCell.xib */,
 				926AF4A11E847B3800463F54 /* UserInfoProfileCell.xib */,
 				926AF4A21E847B3800463F54 /* XMPPAccountCell.xib */,
+				9203DDE020935DC700261026 /* XMPPAccountCellWithMove.xib */,
 				924D01401CC4E5B400398A4F /* Onboarding.storyboard */,
 				D99DEC2F1BABDEF000875194 /* OTRUsernameCell.xib */,
 				D99DEC301BABDEF000875194 /* XMPPServerInfoCell.xib */,
@@ -2206,6 +2209,7 @@
 				D99DEC341BABDEF000875194 /* OTRUsernameCell.xib in Resources */,
 				9294728D1F7EC43600E61DD6 /* ZomImages.xcassets in Resources */,
 				D99DEC321BABDEF000875194 /* OTRImages.xcassets in Resources */,
+				9203DE1020935DC700261026 /* XMPPAccountCellWithMove.xib in Resources */,
 				D99DEC351BABDEF000875194 /* XMPPServerInfoCell.xib in Resources */,
 				924FC4EC1EBB3F3900CEA225 /* MigratedBuddyHeaderView.xib in Resources */,
 			);
