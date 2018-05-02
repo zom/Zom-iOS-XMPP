@@ -150,7 +150,7 @@ class ZomFingerprintBaseViewController: UIViewController {
     */
     static func setFingerprint(_ label: UILabel, text: String?, alignment: NSTextAlignment, bold: Bool) {
         let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
+        style.lineSpacing = 5
         style.alignment = alignment
 
         var attributes: [NSAttributedStringKey : Any] = [.kern: 3, .paragraphStyle: style]
