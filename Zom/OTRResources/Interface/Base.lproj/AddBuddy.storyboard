@@ -77,32 +77,35 @@
                                                 <rect key="frame" x="8" y="8" width="359" height="342"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find your friend on Zom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOG-lm-Mu7">
-                                                <rect key="frame" x="40" y="25" width="295" height="20"/>
+                                                <rect key="frame" x="40" y="25" width="295" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="zomkyi12@home.zom.im" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-H5-QuZ">
-                                                <rect key="frame" x="40" y="64" width="295" height="19"/>
+                                                <rect key="frame" x="40" y="64.5" width="295" height="19"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="CMs-zP-DTu" id="fcc-jX-Cmv"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBk-ML-YTd">
-                                                <rect key="frame" x="40" y="91" width="295" height="1"/>
+                                                <rect key="frame" x="40" y="91.5" width="295" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="f8w-XV-FKx"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your friend's Zom account. Yours is %@" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-bg-A2N">
-                                                <rect key="frame" x="40" y="100" width="295" height="14.5"/>
+                                                <rect key="frame" x="40" y="100.5" width="295" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-a0-Rpy">
-                                                <rect key="frame" x="97" y="128.5" width="181" height="33"/>
+                                                <rect key="frame" x="97" y="129" width="181" height="33"/>
                                                 <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="0Hy-rZ-3NY"/>
@@ -117,7 +120,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="addFriend" destination="CMs-zP-DTu" eventType="touchUpInside" id="iYk-g7-BoE"/>
+                                                    <action selector="addFriend:" destination="CMs-zP-DTu" eventType="touchUpInside" id="DLj-ev-8Ib"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send your invite link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXC-Kl-PG2">
@@ -126,87 +129,104 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4N-so-myH">
-                                                <rect key="frame" x="124" y="399" width="22" height="22"/>
-                                                <connections>
-                                                    <action selector="sendWhatsAppInvite" destination="CMs-zP-DTu" eventType="touchUpInside" id="dam-dq-tuT"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-0l-4yd">
-                                                <rect key="frame" x="176" y="399" width="22" height="22"/>
-                                                <connections>
-                                                    <action selector="sendSmsInvite" destination="CMs-zP-DTu" eventType="touchUpInside" id="9z2-gJ-EdA"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUH-KV-zf6">
-                                                <rect key="frame" x="228" y="399" width="22" height="22"/>
-                                                <connections>
-                                                    <action selector="showShareDialog:" destination="CMs-zP-DTu" eventType="touchUpInside" id="ZfT-Dm-gBn"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="NIO-RT-C3J">
+                                                <rect key="frame" x="88" y="393" width="199" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4N-so-myH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="OKc-OZ-vdr"/>
+                                                            <constraint firstAttribute="width" constant="45" id="kox-s6-mMu"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_whatsapp"/>
+                                                        <connections>
+                                                            <action selector="sendWhatsAppInvite" destination="CMs-zP-DTu" eventType="touchUpInside" id="dam-dq-tuT"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-0l-4yd">
+                                                        <rect key="frame" x="77" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="83G-88-dX4"/>
+                                                            <constraint firstAttribute="height" constant="45" id="uTx-Ip-lOE"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_imessage"/>
+                                                        <connections>
+                                                            <action selector="sendSmsInvite" destination="CMs-zP-DTu" eventType="touchUpInside" id="9z2-gJ-EdA"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUH-KV-zf6">
+                                                        <rect key="frame" x="154" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="FFb-6m-K1p"/>
+                                                            <constraint firstAttribute="width" constant="45" id="gdI-lA-YPf"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_more"/>
+                                                        <connections>
+                                                            <action selector="showShareDialog:" destination="CMs-zP-DTu" eventType="touchUpInside" id="ZfT-Dm-gBn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Standing next to them?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2De-1j-AiP">
-                                                <rect key="frame" x="40" y="457" width="295" height="18"/>
+                                                <rect key="frame" x="40" y="480" width="295" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIb-U8-eRh">
-                                                <rect key="frame" x="149" y="495" width="76" height="22"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="hiZ-k5-EZf">
+                                                <rect key="frame" x="126" y="506" width="122" height="45"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVe-aW-Egv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVe-aW-Egv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="A8I-Re-fRD"/>
+                                                            <constraint firstAttribute="width" constant="45" id="oBk-xI-fFC"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_qr_code"/>
                                                         <connections>
                                                             <action selector="scanQrCode:" destination="CMs-zP-DTu" eventType="touchUpInside" id="TAp-dw-U2C"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDD-VV-lL9">
-                                                        <rect key="frame" x="54" y="0.0" width="22" height="22"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDD-VV-lL9">
+                                                        <rect key="frame" x="77" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="SDm-N3-dQh"/>
+                                                            <constraint firstAttribute="width" constant="45" id="Z1d-ak-qoR"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_airdrop"/>
                                                         <connections>
                                                             <action selector="showShareDialog:" destination="CMs-zP-DTu" eventType="touchUpInside" id="Q8u-D6-gaw"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="tDD-VV-lL9" firstAttribute="leading" secondItem="uVe-aW-Egv" secondAttribute="trailing" constant="32" id="9uh-ld-2tU"/>
-                                                    <constraint firstItem="tDD-VV-lL9" firstAttribute="top" secondItem="aIb-U8-eRh" secondAttribute="top" id="Epa-2l-qvA"/>
-                                                    <constraint firstAttribute="height" constant="22" id="IQJ-pt-79m"/>
-                                                    <constraint firstItem="uVe-aW-Egv" firstAttribute="leading" secondItem="aIb-U8-eRh" secondAttribute="leading" id="f3x-uG-70c"/>
-                                                    <constraint firstItem="uVe-aW-Egv" firstAttribute="top" secondItem="aIb-U8-eRh" secondAttribute="top" id="iQs-a2-kzs"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="vwC-0l-4yd" firstAttribute="leading" secondItem="Y4N-so-myH" secondAttribute="trailing" constant="30" id="2bt-cR-6UR"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dXC-Kl-PG2" secondAttribute="trailing" constant="40" id="2jD-77-fqt"/>
-                                            <constraint firstItem="jUH-KV-zf6" firstAttribute="leading" secondItem="vwC-0l-4yd" secondAttribute="trailing" constant="30" id="3V4-JL-XiL"/>
-                                            <constraint firstItem="Y4N-so-myH" firstAttribute="top" secondItem="dXC-Kl-PG2" secondAttribute="bottom" constant="14" id="3zH-MY-Abp"/>
                                             <constraint firstItem="gHe-H5-QuZ" firstAttribute="top" secondItem="cOG-lm-Mu7" secondAttribute="bottom" constant="19" id="57j-Oc-IZ0"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="2De-1j-AiP" secondAttribute="trailing" constant="40" id="6ft-4e-aqK"/>
                                             <constraint firstItem="dXC-Kl-PG2" firstAttribute="top" secondItem="gE2-Eo-Nwq" secondAttribute="bottom" constant="17" id="AfG-TZ-yD6"/>
+                                            <constraint firstItem="NIO-RT-C3J" firstAttribute="top" secondItem="dXC-Kl-PG2" secondAttribute="bottom" constant="8" id="Ate-6e-I0Z"/>
                                             <constraint firstItem="gE2-Eo-Nwq" firstAttribute="top" secondItem="kph-yx-oL4" secondAttribute="top" constant="8" id="CC7-wf-7Oi"/>
-                                            <constraint firstItem="aIb-U8-eRh" firstAttribute="top" secondItem="2De-1j-AiP" secondAttribute="bottom" constant="20" id="DBi-yK-IrK"/>
-                                            <constraint firstItem="vwC-0l-4yd" firstAttribute="top" secondItem="dXC-Kl-PG2" secondAttribute="bottom" constant="14" id="FQA-v7-atG"/>
+                                            <constraint firstItem="hiZ-k5-EZf" firstAttribute="centerX" secondItem="kph-yx-oL4" secondAttribute="centerX" id="E9z-Er-IHK"/>
                                             <constraint firstItem="cOG-lm-Mu7" firstAttribute="top" secondItem="kph-yx-oL4" secondAttribute="top" constant="25" id="Ii4-hz-Tp6"/>
-                                            <constraint firstItem="2De-1j-AiP" firstAttribute="top" secondItem="vwC-0l-4yd" secondAttribute="bottom" constant="36" id="L4h-hi-KPA"/>
                                             <constraint firstItem="dXC-Kl-PG2" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kph-yx-oL4" secondAttribute="leading" constant="40" id="MYc-NI-t79"/>
+                                            <constraint firstItem="hiZ-k5-EZf" firstAttribute="top" secondItem="2De-1j-AiP" secondAttribute="bottom" constant="8" id="NA1-RI-1OE"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gHe-H5-QuZ" secondAttribute="trailing" constant="40" id="PzN-yl-DxO"/>
-                                            <constraint firstItem="jUH-KV-zf6" firstAttribute="top" secondItem="dXC-Kl-PG2" secondAttribute="bottom" constant="14" id="Sb2-CU-LLe"/>
+                                            <constraint firstItem="NIO-RT-C3J" firstAttribute="centerX" secondItem="kph-yx-oL4" secondAttribute="centerX" id="RDW-XU-7sV"/>
                                             <constraint firstItem="fz0-a0-Rpy" firstAttribute="centerX" secondItem="kph-yx-oL4" secondAttribute="centerX" id="YRz-jK-ToW"/>
-                                            <constraint firstItem="aIb-U8-eRh" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leading" constant="149" id="YUB-5x-0K1"/>
                                             <constraint firstItem="fz0-a0-Rpy" firstAttribute="top" secondItem="1JJ-bg-A2N" secondAttribute="bottom" constant="14" id="Z5d-Sz-xEp"/>
                                             <constraint firstItem="1JJ-bg-A2N" firstAttribute="top" secondItem="aBk-ML-YTd" secondAttribute="bottom" constant="8" id="aQZ-T4-M05"/>
-                                            <constraint firstAttribute="trailing" secondItem="aIb-U8-eRh" secondAttribute="trailing" constant="150" id="aiE-YG-fli"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cOG-lm-Mu7" secondAttribute="trailing" constant="40" id="bb4-jg-8A6"/>
                                             <constraint firstAttribute="trailing" secondItem="gE2-Eo-Nwq" secondAttribute="trailing" constant="8" id="bex-kc-rOn"/>
                                             <constraint firstItem="cOG-lm-Mu7" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kph-yx-oL4" secondAttribute="leading" constant="40" id="cDu-ji-TbD"/>
+                                            <constraint firstItem="2De-1j-AiP" firstAttribute="top" secondItem="NIO-RT-C3J" secondAttribute="bottom" constant="42" id="dNs-cZ-YnH"/>
                                             <constraint firstItem="2De-1j-AiP" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kph-yx-oL4" secondAttribute="leading" constant="40" id="mhH-0K-b1o"/>
                                             <constraint firstItem="1JJ-bg-A2N" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kph-yx-oL4" secondAttribute="leading" constant="40" id="n93-oj-xez"/>
                                             <constraint firstItem="aBk-ML-YTd" firstAttribute="top" secondItem="gHe-H5-QuZ" secondAttribute="bottom" constant="8" id="rcK-Pv-Jrh"/>
                                             <constraint firstItem="gHe-H5-QuZ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="kph-yx-oL4" secondAttribute="leading" constant="40" id="rco-ha-zQc"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1JJ-bg-A2N" secondAttribute="trailing" constant="40" id="vWe-sI-Uqi"/>
                                             <constraint firstItem="gE2-Eo-Nwq" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leading" constant="8" id="wcM-bf-357"/>
-                                            <constraint firstItem="vwC-0l-4yd" firstAttribute="centerX" secondItem="kph-yx-oL4" secondAttribute="centerX" id="y3w-SB-tjD"/>
                                             <constraint firstItem="aBk-ML-YTd" firstAttribute="leading" secondItem="kph-yx-oL4" secondAttribute="leading" constant="40" id="yUa-KE-VHw"/>
                                             <constraint firstAttribute="trailing" secondItem="aBk-ML-YTd" secondAttribute="trailing" constant="40" id="zdy-mj-s0z"/>
                                         </constraints>
@@ -231,9 +251,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="iMessageBt" destination="vwC-0l-4yd" id="W8N-Hr-k5s"/>
+                        <outlet property="qrCodeBt" destination="uVe-aW-Egv" id="EB9-oG-0sY"/>
                         <outlet property="scrollView" destination="Sjm-Hj-OyL" id="1Up-OM-rLu"/>
                         <outlet property="usersXmppAddressLb" destination="1JJ-bg-A2N" id="b70-UI-11B"/>
-                        <outlet property="xmppAddressTf" destination="gHe-H5-QuZ" id="HJA-Dc-kUh"/>
+                        <outlet property="whatsAppBt" destination="Y4N-so-myH" id="P2a-To-yG7"/>
+                        <outlet property="xmppAddressTf" destination="gHe-H5-QuZ" id="7Ac-u6-KKv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5q-16-XVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,6 +265,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_airdrop" width="32" height="32"/>
+        <image name="ic_imessage" width="42" height="40"/>
+        <image name="ic_more" width="27" height="7"/>
+        <image name="ic_qr_code" width="32" height="32"/>
+        <image name="ic_whatsapp" width="45" height="45"/>
         <image name="new_friends_bg" width="375" height="342"/>
     </resources>
 </document>

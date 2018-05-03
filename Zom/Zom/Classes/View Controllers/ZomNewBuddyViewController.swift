@@ -12,12 +12,18 @@ import BButton
 import QRCodeReaderViewController
 import AVFoundation
 
-open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
+open class ZomNewBuddyViewController: OTRNewBuddyViewController,
+MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
 
     @IBOutlet weak var xmppAddressTf: UITextField!
     @IBOutlet weak var usersXmppAddressLb: UILabel!
     @IBOutlet var scrollView: UIScrollView?
-
+    @IBOutlet weak var whatsAppBt: UIButton!
+    @IBOutlet weak var iMessageBt: UIButton!
+    @IBOutlet weak var qrCodeBt: UIButton!
+    
+    private static let whatsAppLink = "whatsapp://send?text=%@"
+    
     private var shareLink:String? = nil
     
     open static func addBuddyToDefaultAccount(_ navController: UINavigationController?) {
@@ -58,87 +64,73 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
 
     open override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Override base class fields, so we can reuse some code from there.
         super.delegate = self
-        
-        // Remove toolbar items
-        //
-        navigationItem.rightBarButtonItems = nil
+        super.accountNameTextField = xmppAddressTf
 
-        // Only show scan if we can actually scan QR codes
-//        self.showButton(scanButtonItem, show:QRCodeReader.supportsMetadataObjectTypes([AVMetadataObject.ObjectType.qr]))
-
-        accountNameTextField.resignFirstResponder()
-        
-        // Create the share link
+        // Create the share link.
         var types = Set<NSNumber>()
         types.insert(NSNumber(value: OTRFingerprintType.OTR.rawValue))
         account!.generateShareURL(withFingerprintTypes: types, completion: { (url, error) -> Void in
             if let url = url, error == nil {
                 self.shareLink = url.absoluteString
-//                self.showButton(self.shareSmsButtonItem, show:MFMessageComposeViewController.canSendText())
-            } else {
-//                self.showButton(self.shareSmsButtonItem, show:false)
             }
         })
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)),
-                                               name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)),
-                                               name: .UIKeyboardDidHide, object: nil)
-    }
+        // Add Gesture Recognizer so the user can hide the keyboard again by tapping somewhere else
+        // than the text field.
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+        
+        // Remove toolbar items. For an unkown reason, there would be a "+" there, otherwise.
+        navigationItem.rightBarButtonItems = nil
 
-    open override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+        // Only show WhatsApp button, if WhatsApp is installed.
+        if let whatsAppUrl = URL(string: String(format: ZomNewBuddyViewController.whatsAppLink, "test")) {
+            if !UIApplication.shared.canOpenURL(whatsAppUrl) {
+                whatsAppBt.isHidden = true
+            }
+        } else {
+            whatsAppBt.isHidden = true
+        }
 
-        super.viewWillDisappear(animated)
-    }
+        // Only show iMessage button, if we can send SMS/iMessages. (Happens on simulators and on
+        // iPads/iPods without iMessage configured.
+        if !MFMessageComposeViewController.canSendText() {
+            iMessageBt.isHidden = true
+        }
 
-    // MARK: UIKeyboardDidShow/-Hide
-    
-    @objc func didShowKeyboard(_ notification: Notification) {
-//        if let userInfo = notification.userInfo, let sep = self.separator, let scroll = scrollView {
-//            let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue.size
-//            // If the whole tableview is not visible, scroll up so that ADVANCED
-//            // view is at the top (i.e. the separator is just off screen!
-//            //
-//            if ((self.tableView.frame.origin.y + self.tableView.frame.height) > self.view.frame.height - keyboardSize.height) {
-//                let separatorY = sep.frame.origin.y + sep.frame.size.height
-//                scroll.setContentOffset(CGPoint(x: 0, y: separatorY), animated: true)
-//            }
-//        }
-    }
-
-    @objc func didHideKeyboard(_ notification: Notification) {
-        if let scroll = self.scrollView {
-            scroll.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        // Only show scan if we can actually scan QR codes.
+        if !QRCodeReader.supportsMetadataObjectTypes([AVMetadataObject.ObjectType.qr]) {
+            qrCodeBt.isHidden = true
         }
     }
-
+    
     // MARK: MFMessageComposeViewControllerDelegate
     
-    open func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    open func messageComposeViewController(_ controller: MFMessageComposeViewController,
+                                           didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
     }
 
     // MARK: OTRNewBuddyViewController
 
-    open override func updateReturnButtons(_ textField: UITextField) {
-        textField.returnKeyType = UIReturnKeyType.done
-    }
-    
     open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 // Dont show the display name field!
+        return 0 // We don't use the UITableView stuff from upstream.
     }
     
     open override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
-    
+
+    open override func populate(fromQRResult result: String!) {
+        super.populate(fromQRResult: result)
+        super.doneButtonPressed(self)
+    }
+
+    // MARK: OTRNewBuddyViewControllerDelegate
+
     open func controller(_ viewController: OTRNewBuddyViewController!, didAdd buddy: OTRBuddy!) {
         if let presenter = self.navigationController?.presentingViewController {
             presenter.dismiss(animated: true, completion: nil)
@@ -149,20 +141,38 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
             appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
         }
     }
-    
-    open override func populate(fromQRResult result: String!) {
-        super.populate(fromQRResult: result)
-        super.doneButtonPressed(self)
+
+    // MARK: Keyboard handling
+
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        xmppAddressTf.resignFirstResponder()
     }
-    
+
+    override open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        addFriend(textField)
+
+        return false;
+    }
+
     // MARK: Action callbacks
 
-    @IBAction func addFriend() {
+    /**
+     Add friend with XMPP ID from xmppAddressTf
+
+     - parameter sender: The button triggering this action.
+     */
+    @IBAction func addFriend(_ sender: Any) {
+        super.doneButtonPressed(sender)
     }
 
+    /**
+     Send invite link directly to WhatsApp.
+    */
     @IBAction func sendWhatsAppInvite() {
         if let shareLink = shareLink?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            let whatsAppUrl = URL(string: "whatsapp://send?text=\(shareLink)")
+            let whatsAppUrl = URL(string: String(format: ZomNewBuddyViewController.whatsAppLink, shareLink))
 
             if let whatsAppUrl = whatsAppUrl, UIApplication.shared.canOpenURL(whatsAppUrl) {
                 UIApplication.shared.openURL(whatsAppUrl)
@@ -170,6 +180,9 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         }
     }
 
+    /**
+     Send invite link via SMS or iMessage. Will show system's message compose scene.
+    */
     @IBAction func sendSmsInvite() {
         if let shareLink = shareLink {
             // Thanks to stupid apple bug we need to temporarily hack the appearance proxy for
@@ -199,10 +212,25 @@ open class ZomNewBuddyViewController: OTRNewBuddyViewController, MFMessageCompos
         }
     }
 
+    /**
+     Show QR code scan camera view.
+
+     - parameter sender: The button triggering this action.
+    */
     @IBAction func scanQrCode(_ sender: Any) {
         super.qrButtonPressed(sender)
     }
 
+    /**
+     Show system's modal share dialog. This is used from the three-dots button ("...") AND
+     the AirDrop button. There is no specific way to leverage AirDrop. It's all in the share
+     dialog.
+
+     Using two different buttons here for the same functionality, is just to get the user thinking
+     about AirDrop.
+
+     - parameter sender: The button triggering this action.
+    */
     @IBAction func showShareDialog(_ sender: Any) {
         ShareController.shareAccount(self.account, sender: sender, viewController: self)
     }
