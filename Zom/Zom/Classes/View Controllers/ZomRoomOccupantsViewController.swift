@@ -29,6 +29,14 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController, ZomT
         qrCodeButton?.isHidden = true
     }
     
+    // Dont show the i accessory view
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if cell is OTRBuddyInfoCheckableCell {
+            cell.accessoryView = nil
+            cell.accessoryType = .none
+        }
+    }
+    
     open override func didSelectFooterCell(type: String) {
         switch type {
         case "cellGroupLeave":
