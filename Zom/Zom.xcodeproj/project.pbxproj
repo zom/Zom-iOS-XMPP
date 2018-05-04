@@ -1620,7 +1620,6 @@
 				D99DEB6A1BABD1F300875194 /* Sources */,
 				D99DEB6B1BABD1F300875194 /* Frameworks */,
 				D99DEB6C1BABD1F300875194 /* Resources */,
-				928BC2111CD2AF80001C4BA6 /* [CP] Copy Pods Resources */,
 				9208301C1CD2943F00761E39 /* [CP] Embed Pods Frameworks */,
 				9206569C1D9C4C1F00EC7034 /* Embed Frameworks */,
 				9253AE0C1EFBAB8300100DFB /* [Carthage] Copy Frameworks */,
@@ -2252,7 +2251,6 @@
 				"${BUILT_PRODUCTS_DIR}/ParkedTextField/ParkedTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/ProxyKit/ProxyKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReaderViewController/QRCodeReaderViewController.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-13/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
 				"${BUILT_PRODUCTS_DIR}/SignalProtocolC/SignalProtocolC.framework",
 				"${BUILT_PRODUCTS_DIR}/SignalProtocolObjC/SignalProtocolObjC.framework",
@@ -2294,7 +2292,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParkedTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProxyKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReaderViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SignalProtocolC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SignalProtocolObjC.framework",
@@ -2336,20 +2333,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		928BC2111CD2AF80001C4BA6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZomPods-Zom/Pods-ZomPods-Zom-resources.sh\"\n";
 		};
 		DA46D5D280F5A43DE216DD73 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
