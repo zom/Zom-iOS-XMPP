@@ -79,7 +79,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 @interface OTRBaseLoginViewController (ZomOverride)
 + (instancetype _Nonnull)loginViewControllerForAccount:(OTRAccount * _Nonnull)account;
 - (IBAction)loginButtonPressed:(id _Nonnull)sender;
-- (void)pushInviteViewController;
+- (void)pushInviteViewController:(id _Nonnull)sender;
 -(void)configureCell:(XLFormBaseCell* _Nonnull) cell;
 @end
 

@@ -28,7 +28,11 @@ open class ZomSettingsViewController : OTRSettingsViewController {
     }
 
     open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return UITableViewAutomaticDimension
+        let height = super.tableView(tableView, heightForRowAt: indexPath)
+        if height == XMPPAccountCell.cellHeight() {
+            return 120
+        }
+        return height
     }
     
     @IBAction open func didTapMoveAccountButton(_ sender: Any) {
@@ -38,7 +42,7 @@ open class ZomSettingsViewController : OTRSettingsViewController {
         }
         if let cell = object as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell) {
             if let account = super.account(at: indexPath) {
-                let migrateVC = OTRAccountMigrationViewController(oldAccount: account)
+                let migrateVC = ZomAccountMigrationViewController(oldAccount: account)
                 self.navigationController?.pushViewController(migrateVC, animated: true)
             }
         }

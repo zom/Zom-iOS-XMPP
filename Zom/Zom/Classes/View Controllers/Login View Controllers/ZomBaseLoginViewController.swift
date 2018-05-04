@@ -191,11 +191,11 @@ open class ZomBaseLoginViewController: OTRBaseLoginViewController {
 
     }
     
-    override open func pushInvite() {
+    override open func pushInvite(_ sender: Any) {
         if (existingAccount) {
             dismiss(animated: true, completion: nil)
         } else {
-            super.pushInvite()
+            super.pushInvite(sender)
         }
     }
 }
@@ -260,6 +260,15 @@ open class ZomAccountMigrationViewController: OTRAccountMigrationViewController 
                 xmpp.loginStatus != OTRLoginStatus.disconnected {
                 xmpp.disconnect()
             }
+        }
+    }
+    
+    // Don't show invite controller after migration
+    override open func pushInvite(_ sender: Any) {
+        if self.isBeingPresented {
+            dismiss(animated: true, completion: nil)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }

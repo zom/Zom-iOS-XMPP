@@ -53,8 +53,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-qC-NM2">
-                        <rect key="frame" x="28" y="97" width="614" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBa-qC-NM2">
+                        <rect key="frame" x="28" y="97" width="98" height="30"/>
                         <state key="normal" title="Move Account"/>
                         <connections>
                             <action selector="didTapMoveAccountButton:" destination="-2" eventType="touchUpInside" id="5ob-d7-r1q"/>
@@ -67,7 +67,7 @@
                     <constraint firstItem="JMP-oL-wgG" firstAttribute="bottom" secondItem="fwT-Qx-m3a" secondAttribute="bottom" constant="8" id="CgN-9h-kVc"/>
                     <constraint firstItem="GSx-aB-5rE" firstAttribute="leading" secondItem="fwT-Qx-m3a" secondAttribute="trailing" constant="8" id="KOz-xX-ntg"/>
                     <constraint firstItem="fwT-Qx-m3a" firstAttribute="trailing" secondItem="kcN-Kc-vPc" secondAttribute="trailing" id="Tn9-fS-LhB"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="IBa-qC-NM2" secondAttribute="trailing" constant="4" id="ZpD-Vg-Trg"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="IBa-qC-NM2" secondAttribute="trailing" constant="4" id="ZpD-Vg-Trg"/>
                     <constraint firstItem="IBa-qC-NM2" firstAttribute="top" secondItem="JMP-oL-wgG" secondAttribute="bottom" constant="10" id="aN6-6h-Hht"/>
                     <constraint firstItem="kcN-Kc-vPc" firstAttribute="leading" secondItem="JMP-oL-wgG" secondAttribute="trailing" constant="10" id="gEE-yC-Gum"/>
                     <constraint firstItem="IBa-qC-NM2" firstAttribute="leading" secondItem="JMP-oL-wgG" secondAttribute="leading" id="gO3-lE-tNo"/>
