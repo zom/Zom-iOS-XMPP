@@ -125,25 +125,25 @@ struct UserCellInfo: ZomProfileViewCellInfoProtocol {
 struct ButtonCellInfo: ZomProfileViewCellInfoProtocol {
     
     enum ButtonCellType {
-        case otrVerify(OTRFingerprint)
-        case omemoVerify(OMEMODevice)
         case refresh
         case startChat
-        case showMore(Int)
         case addFriend(String)
-        case showCodes
+        case showCodes(Int)
 
         func text() -> String {
             switch self {
-            case .omemoVerify: fallthrough
-            case .otrVerify : return NSLocalizedString("Verify Contact", comment: "Button label to verify contact security")
             case .refresh: return NSLocalizedString("Refresh Session", comment: "Button label to refresh an OTR session")
             case .startChat: return NSLocalizedString("Start Chat", comment: "Button label to start a chat")
-            case .showMore(let num):
-                return String(format: NSLocalizedString("Show %d more", comment: "Button label to show all fingerprints"), num)
             case .addFriend(let name):
                 return String(format: NSLocalizedString("Add %@ as Friend", comment: "Button label to add friend from profile view"), name)
-            case .showCodes: return NSLocalizedString("View Zom code(s)", comment: "Button label to view friend codes")
+            case .showCodes(let number):
+                if number == 0 {
+                    return NSLocalizedString("View Zom codes", comment: "Button label to view friend codes when no code")
+                } else if number == 1 {
+                    return NSLocalizedString("View 1 Zom code", comment: "Button label to view friend codes when 1 code")
+                } else {
+                    return String(format: NSLocalizedString("View %d Zom Codes", comment: "Button label to view friend codes when more than 1 code"), number)
+                }
             }
         }
     }

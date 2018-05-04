@@ -69,7 +69,6 @@ class ZomProfileViewObserver: NSObject {
     
     fileprivate var readOnlyDatabaseConnection = OTRDatabaseManager.sharedInstance().longLivedReadOnlyConnection
     fileprivate var viewHandler:OTRYapViewHandler?
-    var showAllFingerprints = false
     
     init(info:ZomProfileViewControllerInfo ,qrAction:((FingerprintCellInfo)->Void)?,shareAction:((FingerprintCellInfo)->Void)?) {
         self.info = info
@@ -117,7 +116,7 @@ class ZomProfileViewObserver: NSObject {
             return
         }
         
-        self.info = ZomProfileViewControllerInfo(user: user, otrKit: self.info.otrKit, otrKitInfo: self.info.otrKitInfo, hasSession: self.info.hasSession, calledFromGroup: self.info.calledFromGroup, showAllFingerprints: self.showAllFingerprints)
+        self.info = ZomProfileViewControllerInfo(user: user, otrKit: self.info.otrKit, otrKitInfo: self.info.otrKitInfo, hasSession: self.info.hasSession, calledFromGroup: self.info.calledFromGroup)
         self.tableSections = self.generateSections(info: self.info, qrAction: self.qrAction, shareAction: self.shareAction)
         self.delegate?.didUpdateTableSections(observer: self)
     }
@@ -159,22 +158,20 @@ class ZomProfileViewObserver: NSObject {
             
             // Show all, or just most recent
             var shownFingerprints:[Fingerprint] = []
-            if info.showAllFingerprints {
-                shownFingerprints.append(contentsOf: allFingerprints)
-            } else if let mostRecent = mostRecent {
+            if let mostRecent = mostRecent {
                 shownFingerprints.append(mostRecent)
             }
             
             var fingerprintSectionCells = self.generateFingerprintCells(fingerprints: shownFingerprints)
-            if !info.showAllFingerprints, allFingerprints.count > 1 {
-                fingerprintSectionCells.append(ButtonCellInfo(type:.showMore(allFingerprints.count - 1)))
-            }
             
             var cells:[ZomProfileViewCellInfoProtocol] = [userCell]
-            if !info.calledFromGroup {
+            if info.calledFromGroup {
+                // Start chat with this occupant
+                cells.append(ButtonCellInfo(type:.startChat))
+            } else {
                 cells.append((info.hasSession ? ButtonCellInfo(type:.refresh) : ButtonCellInfo(type:.startChat)))
             }
-            cells.append(ButtonCellInfo(type: .showCodes))
+            cells.append(ButtonCellInfo(type: .showCodes(allFingerprints.count)))
             
             sections += [TableSectionInfo(title: nil, cells: cells)]
             if (fingerprintSectionCells.count > 0 ) {
@@ -213,16 +210,11 @@ class ZomProfileViewObserver: NSObject {
                 
                 // Show all, or just most recent
                 var shownFingerprints:[Fingerprint] = []
-                if info.showAllFingerprints {
-                    shownFingerprints.append(contentsOf: allFingerprints)
-                } else if let mostRecent = mostRecent {
+                if let mostRecent = mostRecent {
                     shownFingerprints.append(mostRecent)
                 }
                 
                 var fingerprintSectionCells = self.generateFingerprintCells(fingerprints: shownFingerprints)
-                if !info.showAllFingerprints, allFingerprints.count > 1 {
-                    fingerprintSectionCells.append(ButtonCellInfo(type:.showMore(allFingerprints.count - 1)))
-                }
 
                 sections.append(TableSectionInfo(title: NSLocalizedString("Secure Identity", comment: "Table view section header"), cells: fingerprintSectionCells))
                 
@@ -234,18 +226,7 @@ class ZomProfileViewObserver: NSObject {
     
     func generateFingerprintCells(fingerprints:[Fingerprint]) -> [ZomProfileViewCellInfoProtocol] {
         return fingerprints.flatMap { (fingerprint) -> [ZomProfileViewCellInfoProtocol] in
-            var result:[ZomProfileViewCellInfoProtocol] = [FingerprintCellInfo(fingerprint: fingerprint, qrAction: qrAction, shareAction: shareAction, showLastSeen: showAllFingerprints)]
-            if (!fingerprint.isTrusted()) {
-                switch fingerprint {
-                case.OMEMO(let device):
-                    result.append(ButtonCellInfo(type: ButtonCellInfo.ButtonCellType.omemoVerify(device)))
-                    break
-                case.OTR(let fingerprint):
-                    result.append(ButtonCellInfo(type: ButtonCellInfo.ButtonCellType.otrVerify(fingerprint)))
-                    break
-                }
-                
-            }
+            let result:[ZomProfileViewCellInfoProtocol] = [FingerprintCellInfo(fingerprint: fingerprint, qrAction: qrAction, shareAction: shareAction, showLastSeen: false)]
             return result
         }
     }
@@ -270,15 +251,14 @@ struct ZomProfileViewControllerInfo {
     let otrKitInfo:ZomOTRKitInfo
     let hasSession:Bool
     let calledFromGroup:Bool
-    var showAllFingerprints:Bool
     
     /** use this static function to create the info object for a buddy */
     static func createInfo(_ buddy:OTRBuddy,accountName:String,protocolString:String,otrKit:OTRKit,hasSession:Bool,calledFromGroup:Bool,showAllFingerprints:Bool) -> ZomProfileViewControllerInfo {
-        return ZomProfileViewControllerInfo(user: .buddy(buddy), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: buddy.username, accountName: accountName, protocolString: protocolString), hasSession: hasSession, calledFromGroup: calledFromGroup, showAllFingerprints: showAllFingerprints)
+        return ZomProfileViewControllerInfo(user: .buddy(buddy), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: buddy.username, accountName: accountName, protocolString: protocolString), hasSession: hasSession, calledFromGroup: calledFromGroup)
     }
     
     /** Use this static function to create the info object for the "ME" tab */
     static func createInfo(_ account:OTRAccount,protocolString:String,otrKit:OTRKit) -> ZomProfileViewControllerInfo {
-        return ZomProfileViewControllerInfo(user: .account(account), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: nil, accountName: account.username, protocolString: protocolString), hasSession: false, calledFromGroup: false, showAllFingerprints: false)
+        return ZomProfileViewControllerInfo(user: .account(account), otrKit: otrKit,otrKitInfo: ZomOTRKitInfo(username: nil, accountName: account.username, protocolString: protocolString), hasSession: false, calledFromGroup: false)
     }
 }

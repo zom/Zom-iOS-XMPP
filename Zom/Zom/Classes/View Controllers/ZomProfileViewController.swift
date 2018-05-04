@@ -151,7 +151,6 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
     var info:ZomProfileViewControllerInfo
     var controller:ZomProfileViewController
     var relaodData:(() -> Void)?
-    var toggleShowAll:(() -> Void)?
 
     init(info:ZomProfileViewControllerInfo, tableSections:[TableSectionInfo], controller:ZomProfileViewController) {
         self.info = info
@@ -201,22 +200,6 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
         }
         
         switch object.type {
-        case let .otrVerify(fingerprint):
-            // Set active fingerprint as trusted
-            fingerprint.trustLevel = .trustedUser
-            OTRProtocolManager.encryptionManager.save(fingerprint)
-            self.relaodData?()
-            break
-        case let .omemoVerify(dev):
-            
-            OTRDatabaseManager.shared.writeConnection?.asyncReadWrite({ (transaction) in
-                let device = OMEMODevice.fetchObject(withUniqueID: dev.uniqueId, transaction: transaction)
-                device?.trustLevel = .trustedUser
-                device?.save(with: transaction)
-            }, completionBlock: { 
-                self.relaodData?()
-            })
-            break
          case .refresh:
             
             //TODO: We should at some point listen for encryption change notification to refresh the table view with new fingerprint informatoin
@@ -231,7 +214,7 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
             if let appDelegate = UIApplication.shared.delegate as? ZomAppDelegate {
                 switch self.info.user {
                 case let .buddy(buddy) :
-                    _ = controller.navigationController?.popViewController(animated: true)
+                    _ = controller.navigationController?.popToRootViewController(animated: true)
                     appDelegate.splitViewCoordinator.enterConversationWithBuddy(buddy.uniqueId)
                 default:
                     return
@@ -251,10 +234,7 @@ class ZomProfileTableViewSource:NSObject, UITableViewDataSource, UITableViewDele
             default: return
             }
             break
-        case .showMore(_):
-            self.toggleShowAll?()
-            break
-        case .showCodes:
+        case .showCodes(_):
             switch self.info.user {
             case .buddy(let buddy as OTRXMPPBuddy) :
                 var account:OTRAccount? = nil
@@ -355,13 +335,6 @@ open class ZomProfileViewController : UIViewController {
         }
         self.tableViewSource = ZomProfileTableViewSource(info: info, tableSections: tableSections, controller: self)
         self.tableViewSource?.relaodData = { [weak self] in
-            self?.profileObserver?.reloadInfo()
-            self?.updateTableView()
-        }
-        self.tableViewSource?.toggleShowAll = { [weak self] in
-            if let observer = self?.profileObserver {
-                observer.showAllFingerprints = !observer.showAllFingerprints
-            }
             self?.profileObserver?.reloadInfo()
             self?.updateTableView()
         }
