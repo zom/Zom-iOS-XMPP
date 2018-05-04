@@ -23,6 +23,12 @@ open class ZomRoomOccupantsViewController : OTRRoomOccupantsViewController, ZomT
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Remove group condig option for now, issue #589
+        if let index = headerRows.index(of: "cellGroupOMEMOConfig") {
+            headerRows.remove(at: index)
+        }
+        
         qrCodeButton?.backgroundColor = UIColor.white //reset this, set by appearance proxy
         
         // Hide the QR for now
