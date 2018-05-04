@@ -69,6 +69,9 @@ MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
         super.delegate = self
         super.accountNameTextField = xmppAddressTf
 
+        // Set username to label, to help user understand, how a XMPP address looks like.
+        usersXmppAddressLb.text = account.username
+
         // Create the share link.
         var types = Set<NSNumber>()
         types.insert(NSNumber(value: OTRFingerprintType.OTR.rawValue))
@@ -107,6 +110,22 @@ MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
         }
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(didShowKeyboard(_:)),
+                                               name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didHideKeyboard(_:)),
+                                               name: .UIKeyboardDidHide, object: nil)
+    }
+
+    open override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidHide, object: nil)
+
+        super.viewWillDisappear(animated)
+    }
+
     // MARK: MFMessageComposeViewControllerDelegate
     
     open func messageComposeViewController(_ controller: MFMessageComposeViewController,
@@ -144,12 +163,46 @@ MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
 
     // MARK: Keyboard handling
 
+    /**
+     Callback for NotificationCenter .UIKeyboardDidShow observer.
+
+     Adjusts the bottom inset of the scrollView, so the user can always scroll the full scene.
+
+     - parameter notification: Provided by NotificationCenter.
+    */
+    @objc func didShowKeyboard(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+
+            let bottom = keyboardFrame.cgRectValue.height
+            scrollView?.contentInset.bottom = bottom
+            scrollView?.scrollIndicatorInsets.bottom = bottom
+        }
+    }
+
+    /**
+     Callback for NotificationCenter .UIKeyboardDidHide observer.
+
+     Adjusts the bottom inset of the scrollView, so the user can always scroll the full scene.
+
+     - parameter notification: Provided by NotificationCenter.
+     */
+    @objc func didHideKeyboard(_ notification: Notification) {
+        scrollView?.contentInset.bottom = 0
+        scrollView?.scrollIndicatorInsets.bottom = 0
+    }
+
+    /**
+     Dismisses the keyboard by ending editing on the only TextField we have here.
+
+     - parameter sender: The sending UITapGestureRecognizer.
+    */
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        xmppAddressTf.resignFirstResponder()
+        xmppAddressTf.endEditing(true)
     }
 
     override open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        textField.endEditing(true)
 
         addFriend(textField)
 
