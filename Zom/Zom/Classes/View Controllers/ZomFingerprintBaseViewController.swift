@@ -168,6 +168,25 @@ class ZomFingerprintBaseViewController: UIViewController {
     }
 
     /**
+     Sets the style of `self.badgeLb` - the little badge in the bottom right corner of a user's
+     avatar to either be read and display shield with an exclamation mark or be green and display
+     a shield with a check mark.
+
+     - parameter label: The badge label to change
+     - parameter ok: Set true if all keys aka. fingerprints are ok (none are `.untrustedNew`)
+     */
+    static func setBadge(_ label: UILabel, ok: Bool) {
+        if ok {
+            label.backgroundColor = UIColor.zomGreen
+            label.text = "" // Shield with check mark
+        }
+        else {
+            label.backgroundColor = UIColor.zomRed
+            label.text = "" // Shield with exclamation mark
+        }
+    }
+
+    /**
      - returns: the buddy's `displayName` or "your buddy" as a default value, if no buddy or no
                 `displayName`.
     */
@@ -198,23 +217,5 @@ class ZomFingerprintBaseViewController: UIViewController {
         }
 
         return untrusted
-    }
-
-    /**
-     Sets the style of `self.badgeLb` - the little badge in the bottom right corner of a user's
-     avatar to either be read and display shield with an exclamation mark or be green and display
-     a shield with a check mark.
-
-     - parameter ok: Set true if all keys aka. fingerprints are ok (none are `.untrustedNew`)
-    */
-    func setBadge(ok: Bool) {
-        if ok {
-            badgeLb.backgroundColor = UIColor.zomGreen
-            badgeLb.text = "" // Shield with check mark
-        }
-        else {
-            badgeLb.backgroundColor = UIColor.zomRed
-            badgeLb.text = "" // Shield with exclamation mark
-        }
     }
 }

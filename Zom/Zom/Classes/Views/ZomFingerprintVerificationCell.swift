@@ -44,7 +44,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         omemoDevice = device
         let trusted = device.isTrusted()
 
-        trustBadge.backgroundColor = trusted ? UIColor.zomGreen : UIColor.zomRed
+        ZomFingerprintBaseViewController.setBadge(trustBadge, ok: trusted)
 
         var infos: [String] = []
 
@@ -75,7 +75,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         otrFingerprint = fingerprint
         let trusted = fingerprint.isTrusted()
 
-        trustBadge.backgroundColor = trusted ? UIColor.zomGreen : UIColor.zomRed
+        ZomFingerprintBaseViewController.setBadge(trustBadge, ok: trusted)
 
         infoLb.text = getTrustStateString(trusted)
 
