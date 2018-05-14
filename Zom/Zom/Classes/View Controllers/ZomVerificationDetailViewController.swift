@@ -33,6 +33,8 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
 
         fingerprintTable.register(UINib(nibName: "ZomFingerprintVerificationCell", bundle: nil),
                                   forCellReuseIdentifier: "FingerprintCell")
+        fingerprintTable.register(UINib(nibName: "ZomFingerprintVerificationHeader", bundle: nil),
+                                  forCellReuseIdentifier: "FingerprintHeader")
         fingerprintTable.tableFooterView = UIView(frame: .zero)
     }
 
@@ -59,11 +61,37 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
 
     // MARK: UITableViewDataSource
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        var count = 0
+
+        if omemoDevices.count > 0 {
+            count += 1
+        }
+
+        if otrFingerprints.count > 0 {
+            count += 1
+        }
+
+        return count
+    }
+
     /**
-     Show OMEMO and OTR in one section.
+     Show two sections, one for OMEMO and one for OTR.
     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return omemoDevices.count + otrFingerprints.count
+        return section == 0 && omemoDevices.count > 0 ? omemoDevices.count : otrFingerprints.count
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableCell(withIdentifier: "FingerprintHeader") as! ZomFingerprintVerificationHeader
+
+        header.label.text = section == 0 && omemoDevices.count > 0 ? "OMEMO" : "OTR"
+
+        return header
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,11 +100,11 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
 
         cell.delegate = self
 
-        if indexPath.row < omemoDevices.count {
+        if indexPath.section == 0 && omemoDevices.count > 0 {
             cell.set(omemoDevices[indexPath.row])
         }
         else {
-            cell.set(otrFingerprints[indexPath.row - omemoDevices.count])
+            cell.set(otrFingerprints[indexPath.row])
         }
 
         return cell
@@ -98,7 +126,8 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
         if trusted > 0 || untrusted > 0 {
             subtitleLb.text = NSLocalizedString("\(untrusted) Untrusted New Codes for \(buddyName())",
                 comment: "Subtitle for code verification detail scene")
-        } else {
+        }
+        else {
             subtitleLb.text = NSLocalizedString("No Zom Codes for \(buddyName())",
                 comment: "Subtitle for code verification detail scene")
         }

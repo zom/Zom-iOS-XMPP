@@ -161,6 +161,8 @@
 		A02F0971204ED96000B7CD1A /* ZomVerificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F096F204ED96000B7CD1A /* ZomVerificationDetailViewController.swift */; };
 		A02F0972204ED96000B7CD1A /* ZomVerificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A02F0970204ED96000B7CD1A /* ZomVerificationDetailViewController.xib */; };
 		A02F09A3204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F09A2204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift */; };
+		A036E20120A9CD6000461E3E /* ZomFingerprintVerificationHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A036E1FF20A9CD6000461E3E /* ZomFingerprintVerificationHeader.xib */; };
+		A036E20220A9CD6000461E3E /* ZomFingerprintVerificationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A036E20020A9CD6000461E3E /* ZomFingerprintVerificationHeader.swift */; };
 		A04696BE203ED2D30097A677 /* ZomVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */; };
 		A04696BF203ED2D30097A677 /* ZomVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */; };
 		A059464A204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0594648204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift */; };
@@ -1093,6 +1095,8 @@
 		A02F096F204ED96000B7CD1A /* ZomVerificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomVerificationDetailViewController.swift; path = "Classes/View Controllers/ZomVerificationDetailViewController.swift"; sourceTree = "<group>"; };
 		A02F0970204ED96000B7CD1A /* ZomVerificationDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomVerificationDetailViewController.xib; path = "Classes/View Controllers/ZomVerificationDetailViewController.xib"; sourceTree = "<group>"; };
 		A02F09A2204EDD5F00B7CD1A /* ZomFingerprintBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomFingerprintBaseViewController.swift; path = "Classes/View Controllers/ZomFingerprintBaseViewController.swift"; sourceTree = "<group>"; };
+		A036E1FF20A9CD6000461E3E /* ZomFingerprintVerificationHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomFingerprintVerificationHeader.xib; path = Classes/Views/ZomFingerprintVerificationHeader.xib; sourceTree = "<group>"; };
+		A036E20020A9CD6000461E3E /* ZomFingerprintVerificationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomFingerprintVerificationHeader.swift; path = Classes/Views/ZomFingerprintVerificationHeader.swift; sourceTree = "<group>"; };
 		A04696BC203ED2D30097A677 /* ZomVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomVerificationViewController.swift; path = "Classes/View Controllers/ZomVerificationViewController.swift"; sourceTree = "<group>"; };
 		A04696BD203ED2D30097A677 /* ZomVerificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ZomVerificationViewController.xib; path = "Classes/View Controllers/ZomVerificationViewController.xib"; sourceTree = "<group>"; };
 		A0594648204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZomFingerprintVerificationCell.swift; path = Classes/Views/ZomFingerprintVerificationCell.swift; sourceTree = "<group>"; };
@@ -1246,6 +1250,8 @@
 				A00D4F442044727F0034D4AD /* HighlightableButton.swift */,
 				A0594648204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.swift */,
 				A0594649204FFA3C000DBBE4 /* ZomFingerprintVerificationCell.xib */,
+				A036E20020A9CD6000461E3E /* ZomFingerprintVerificationHeader.swift */,
+				A036E1FF20A9CD6000461E3E /* ZomFingerprintVerificationHeader.xib */,
 				920DFD192064FAEF00B65AF5 /* ZomAddFriendsCell.swift */,
 				920DFD162064F9C700B65AF5 /* ZomAddFriendsCell.xib */,
 				920DFD262068F6FA00B65AF5 /* ZomAddFriendsTableCell.swift */,
@@ -2166,6 +2172,7 @@
 				926AF4A51E847B3800463F54 /* ServerCapabilityTableViewCell.xib in Resources */,
 				D978BCA61BABEB6F009246CF /* FontAwesome.ttf in Resources */,
 				92F6947B1E04913E00B0963C /* Tabs.storyboard in Resources */,
+				A036E20120A9CD6000461E3E /* ZomFingerprintVerificationHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2425,6 +2432,7 @@
 				92A115011FAC77A0000766EC /* ZomImportManager.swift in Sources */,
 				92256C511EB0AA0400CE4B35 /* ZomAccountDetailViewController.swift in Sources */,
 				92ECE3CC1CEAFE6E00CB4CFF /* ZomBuddyInfoCell.swift in Sources */,
+				A036E20220A9CD6000461E3E /* ZomFingerprintVerificationHeader.swift in Sources */,
 				92CF0A7F1EF13D2600D1A4BA /* ZomPhotoStreamViewController.swift in Sources */,
 				92CBA8F21D11AFF8001CDD3D /* ZomStickerMessageMedia.swift in Sources */,
 				92A021971DEEEF4900EC4EE4 /* ZomCompactTraitViewController.swift in Sources */,
