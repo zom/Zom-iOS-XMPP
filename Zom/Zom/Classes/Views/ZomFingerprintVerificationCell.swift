@@ -61,7 +61,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         infoLb.text = infos.joined(separator: ". ")
 
         trustStatusSwitch.isOn = trusted
-        trustStatusSwitch.isEnabled = !device.isExpired()
+        trustStatusSwitch.isHidden = device.isExpired()
 
         setFingerprint(device.humanReadableFingerprint, isNew: device.trustLevel == .untrustedNew)
     }
