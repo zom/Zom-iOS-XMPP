@@ -202,9 +202,9 @@ class ZomFingerprintBaseViewController: UIViewController {
      Counts the number of trusted (`.trustedTofu` and `.trustedUser`) OMEMO keys resp. OTR
      fingerprints and the number of `.untrustedNew` OMEMO keys resp. OTR fingerprints.
 
-     - returns: An Array of size 2, first is number of .untrustedNew, second is number of trusted.
+     - returns: A named tuple with number of .untrustedNew and number of trusted.
     */
-    func countKeys() -> [Int] {
+    func countKeys() -> (trusted:Int, untrusted:Int) {
         var untrusted = 0
         var trusted = 0
 
@@ -225,6 +225,6 @@ class ZomFingerprintBaseViewController: UIViewController {
             }
         }
 
-        return [trusted, untrusted]
+        return (trusted, untrusted)
     }
 }

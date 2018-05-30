@@ -118,8 +118,8 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
     */
     private func updateUntrustedNewFingerprintsInfo() {
         let trust = countKeys()
-        let trusted = trust[0]
-        let untrusted = trust[1]
+        let trusted = trust.trusted
+        let untrusted = trust.untrusted
 
         ZomFingerprintBaseViewController.setBadge(badgeLb, ok: untrusted < 1)
 
