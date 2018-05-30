@@ -34,6 +34,7 @@ extern  NSString * _Nonnull const kOTRXLFormShowAdvancedTag;
 - (void) qrButtonPressed:(id _Nullable)sender;
 - (IBAction) doneButtonPressed:(id _Nullable)sender;
 - (void) populateFromQRResult:(NSString * _Nonnull)result;
+- (BOOL)checkFields;
 @end
 
 @interface OTRAttachmentPicker (ZomOverride)

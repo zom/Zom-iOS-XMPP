@@ -221,7 +221,7 @@ MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
      - parameter sender: The button triggering this action.
      */
     @IBAction func addFriend(_ sender: Any) {
-        if let friendId = xmppAddressTf.text,
+        if self.checkFields(), let friendId = xmppAddressTf.text,
             !friendId.contains("@") {
             xmppAddressTf.text = friendId + "@home.zom.im" // TODO: Hardcoded seems like a bad idea. How to fetch this from configuration?
         }
