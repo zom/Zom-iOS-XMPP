@@ -150,7 +150,7 @@ PODS:
   - XMPPFramework/default (4.0):
     - CocoaAsyncSocket (~> 7.6.0)
     - CocoaLumberjack
-    - KissXML (~> 5.2.0)
+    - KissXML (~> 5.2.2)
     - libidn (~> 1.33.0)
   - XMPPFramework/Swift (4.0):
     - CocoaLumberjack/Swift
@@ -362,7 +362,7 @@ SPEC CHECKSUMS:
   SignalProtocolObjC: cddb256f5d3015dd507e59f7175fa6c9154f8dc6
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
-  XMPPFramework: 0e1a2db1a9a2b05ea354b5b418f797462885f9d9
+  XMPPFramework: e609b679916b1a90db993ac521674fa8f43f0709
   YapDatabase: 299a32de9d350d37a9ac5b0532609d87d5d2a5de
   YapTaskQueue: f3b23875bead71a7ee57b65637ce9c0e98b68c34
 

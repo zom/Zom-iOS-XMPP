@@ -44,7 +44,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         omemoDevice = device
         let trusted = device.isTrusted()
 
-        trustBadge.backgroundColor = trusted ? UIColor.zomGreen : UIColor.zomRed
+        ZomFingerprintBaseViewController.setBadge(trustBadge, ok: trusted)
 
         var infos: [String] = []
 
@@ -61,7 +61,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         infoLb.text = infos.joined(separator: ". ")
 
         trustStatusSwitch.isOn = trusted
-        trustStatusSwitch.isEnabled = !device.isExpired()
+        trustStatusSwitch.isHidden = device.isExpired()
 
         setFingerprint(device.humanReadableFingerprint, isNew: device.trustLevel == .untrustedNew)
     }
@@ -75,7 +75,7 @@ class ZomFingerprintVerificationCell: UITableViewCell {
         otrFingerprint = fingerprint
         let trusted = fingerprint.isTrusted()
 
-        trustBadge.backgroundColor = trusted ? UIColor.zomGreen : UIColor.zomRed
+        ZomFingerprintBaseViewController.setBadge(trustBadge, ok: trusted)
 
         infoLb.text = getTrustStateString(trusted)
 

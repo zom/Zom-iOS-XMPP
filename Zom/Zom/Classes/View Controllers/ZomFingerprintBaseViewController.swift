@@ -168,6 +168,25 @@ class ZomFingerprintBaseViewController: UIViewController {
     }
 
     /**
+     Sets the style of `self.badgeLb` - the little badge in the bottom right corner of a user's
+     avatar to either be read and display shield with an exclamation mark or be green and display
+     a shield with a check mark.
+
+     - parameter label: The badge label to change
+     - parameter ok: Set true if all keys aka. fingerprints are ok (none are `.untrustedNew`)
+     */
+    static func setBadge(_ label: UILabel, ok: Bool) {
+        if ok {
+            label.backgroundColor = UIColor.zomGreen
+            label.text = "" // Shield with check mark
+        }
+        else {
+            label.backgroundColor = UIColor.zomRed
+            label.text = "" // Shield with exclamation mark
+        }
+    }
+
+    /**
      - returns: the buddy's `displayName` or "your buddy" as a default value, if no buddy or no
                 `displayName`.
     */
@@ -180,41 +199,32 @@ class ZomFingerprintBaseViewController: UIViewController {
     }
 
     /**
-     - returns: the total number of `.untrustedNew` OMEMO and OTR keys aka. fingerprints.
+     Counts the number of trusted (`.trustedTofu` and `.trustedUser`) OMEMO keys resp. OTR
+     fingerprints and the number of `.untrustedNew` OMEMO keys resp. OTR fingerprints.
+
+     - returns: An Array of size 2, first is number of .untrustedNew, second is number of trusted.
     */
-    func countUntrusted() -> Int {
+    func countKeys() -> [Int] {
         var untrusted = 0
+        var trusted = 0
 
         for device in omemoDevices {
             if device.trustLevel == .untrustedNew {
                 untrusted += 1
+            } else if device.trustLevel == .trustedTofu || device.trustLevel == .trustedUser {
+                trusted += 1
             }
         }
 
         for fingerprint in otrFingerprints {
             if fingerprint.trustLevel == .untrustedNew {
                 untrusted += 1
+            } else if fingerprint.trustLevel == .trustedTofu
+                || fingerprint.trustLevel == .trustedUser {
+                trusted += 1
             }
         }
 
-        return untrusted
-    }
-
-    /**
-     Sets the style of `self.badgeLb` - the little badge in the bottom right corner of a user's
-     avatar to either be read and display shield with an exclamation mark or be green and display
-     a shield with a check mark.
-
-     - parameter ok: Set true if all keys aka. fingerprints are ok (none are `.untrustedNew`)
-    */
-    func setBadge(ok: Bool) {
-        if ok {
-            badgeLb.backgroundColor = UIColor.zomGreen
-            badgeLb.text = "" // Shield with check mark
-        }
-        else {
-            badgeLb.backgroundColor = UIColor.zomRed
-            badgeLb.text = "" // Shield with exclamation mark
-        }
+        return [trusted, untrusted]
     }
 }

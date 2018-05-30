@@ -89,6 +89,10 @@ MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
         // Remove toolbar items. For an unkown reason, there would be a "+" there, otherwise.
         navigationItem.rightBarButtonItems = nil
 
+        // Remove the title from the back button. It's rather long and moves this scene's title
+        // to the right which the designers don't like.
+        navigationController?.navigationBar.topItem?.title = ""
+
         // Only show WhatsApp button, if WhatsApp is installed.
         if let whatsAppUrl = URL(string: String(format: ZomNewBuddyViewController.whatsAppLink, "test")) {
             if !UIApplication.shared.canOpenURL(whatsAppUrl) {
@@ -217,6 +221,11 @@ MFMessageComposeViewControllerDelegate, OTRNewBuddyViewControllerDelegate {
      - parameter sender: The button triggering this action.
      */
     @IBAction func addFriend(_ sender: Any) {
+        if let friendId = xmppAddressTf.text,
+            !friendId.contains("@") {
+            xmppAddressTf.text = friendId + "@home.zom.im" // TODO: Hardcoded seems like a bad idea. How to fetch this from configuration?
+        }
+
         super.doneButtonPressed(sender)
     }
 

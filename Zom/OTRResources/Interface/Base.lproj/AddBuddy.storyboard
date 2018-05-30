@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kph-yx-oL4">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_friends_bg" translatesAutoresizingMaskIntoConstraints="NO" id="gE2-Eo-Nwq">
                                                 <rect key="frame" x="8" y="8" width="359" height="342"/>
@@ -85,7 +85,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="zomkyi12@home.zom.im" textAlignment="center" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-H5-QuZ">
                                                 <rect key="frame" x="40" y="64.5" width="295" height="19"/>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="CMs-zP-DTu" id="fcc-jX-Cmv"/>
@@ -99,17 +99,36 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your friend's Zom account. Yours is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JJ-bg-A2N">
-                                                <rect key="frame" x="40" y="100.5" width="295" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="40" y="100.5" width="295" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="foobar@home.zom.im" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-VW-pFK">
-                                                <rect key="frame" x="40" y="123" width="295" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="40" y="124.5" width="295" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-a0-Rpy">
+                                                <rect key="frame" x="97" y="148" width="181" height="33"/>
+                                                <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="0Hy-rZ-3NY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <state key="normal" title="Add Friend">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addFriend:" destination="CMs-zP-DTu" eventType="touchUpInside" id="DLj-ev-8Ib"/>
+                                                </connections>
+                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send your invite link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXC-Kl-PG2">
                                                 <rect key="frame" x="40" y="367" width="295" height="18"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -187,25 +206,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-a0-Rpy">
-                                                <rect key="frame" x="97" y="145" width="181" height="33"/>
-                                                <color key="backgroundColor" red="0.90588235294117647" green="0.15294117647058825" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="0Hy-rZ-3NY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <state key="normal" title="Add Friend">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="16"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="addFriend:" destination="CMs-zP-DTu" eventType="touchUpInside" id="DLj-ev-8Ib"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="dXC-Kl-PG2" secondAttribute="trailing" constant="40" id="2jD-77-fqt"/>
@@ -214,7 +214,7 @@
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="2De-1j-AiP" secondAttribute="trailing" constant="40" id="6ft-4e-aqK"/>
                                             <constraint firstItem="dXC-Kl-PG2" firstAttribute="top" secondItem="gE2-Eo-Nwq" secondAttribute="bottom" constant="17" id="AfG-TZ-yD6"/>
                                             <constraint firstItem="NIO-RT-C3J" firstAttribute="top" secondItem="dXC-Kl-PG2" secondAttribute="bottom" constant="8" id="Ate-6e-I0Z"/>
-                                            <constraint firstAttribute="height" constant="551" id="BKE-VQ-FCF"/>
+                                            <constraint firstAttribute="height" constant="559" id="BKE-VQ-FCF"/>
                                             <constraint firstItem="gE2-Eo-Nwq" firstAttribute="top" secondItem="kph-yx-oL4" secondAttribute="top" constant="8" id="CC7-wf-7Oi"/>
                                             <constraint firstItem="hiZ-k5-EZf" firstAttribute="centerX" secondItem="kph-yx-oL4" secondAttribute="centerX" id="E9z-Er-IHK"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="YH3-VW-pFK" secondAttribute="trailing" constant="40" id="ITv-qT-QPc"/>
@@ -274,7 +274,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_airdrop" width="32" height="32"/>
+        <image name="ic_airdrop" width="30" height="29"/>
         <image name="ic_imessage" width="42" height="40"/>
         <image name="ic_more" width="27" height="7"/>
         <image name="ic_qr_code" width="32" height="32"/>
