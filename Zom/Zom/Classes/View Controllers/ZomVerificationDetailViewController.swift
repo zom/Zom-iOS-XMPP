@@ -117,14 +117,12 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
      information in the `subtitleLb` label.
     */
     private func updateUntrustedNewFingerprintsInfo() {
-        let trust = countKeys()
-        let trusted = trust.trusted
-        let untrusted = trust.untrusted
+        let keys = countKeys()
 
-        ZomFingerprintBaseViewController.setBadge(badgeLb, ok: untrusted < 1)
+        ZomFingerprintBaseViewController.setBadge(badgeLb, ok: keys.trusted > 0 && keys.untrustedNew < 1)
 
-        if trusted > 0 || untrusted > 0 {
-            subtitleLb.text = NSLocalizedString("\(untrusted) Untrusted New Codes for \(buddyName())",
+        if keys.trusted > 0 || keys.untrustedNew > 0 {
+            subtitleLb.text = NSLocalizedString("\(keys.untrustedNew) Untrusted New Codes for \(buddyName())",
                 comment: "Subtitle for code verification detail scene")
         }
         else {
