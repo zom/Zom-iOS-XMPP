@@ -124,10 +124,14 @@ class ZomVerificationDetailViewController: ZomFingerprintBaseViewController, UIT
         if keys.trusted > 0 || keys.untrustedNew > 0 {
             subtitleLb.text = NSLocalizedString("\(keys.untrustedNew) Untrusted New Codes for \(buddyName())",
                 comment: "Subtitle for code verification detail scene")
+
+            descriptionLb.isHidden = false
         }
         else {
             subtitleLb.text = NSLocalizedString("No Zom Codes for \(buddyName())",
                 comment: "Subtitle for code verification detail scene")
+
+            descriptionLb.isHidden = true
         }
     }
 }
