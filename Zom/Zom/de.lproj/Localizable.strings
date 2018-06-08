@@ -119,3 +119,6 @@
 /* The placeholder text in the chat view where the message should go */
 "Send plaintext message" = "Nachricht senden";
 
+/* Title for leave group prompt */
+"Leave Group?" = "Gruppe Verlassen?";
+
