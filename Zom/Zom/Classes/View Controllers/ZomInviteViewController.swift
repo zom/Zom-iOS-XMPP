@@ -33,8 +33,9 @@ open class ZomInviteViewController: OTRInviteViewController {
                 vc.restorationIdentifier = "congrats"
                 self.addChildViewController(vc)
                 vc.didMove(toParentViewController: self)
-                vc.view.frame = self.view.frame
+                vc.view.translatesAutoresizingMaskIntoConstraints = false
                 self.view.addSubview(vc.view)
+                vc.view.autoPinEdgesToSuperviewEdges()
             }
             self.view.isHidden = false
         } else {
