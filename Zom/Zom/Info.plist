@@ -16,9 +16,9 @@
 				<string>public.audio</string>
 				<string>public.mp3</string>
 				<string>public.mpeg-4-audio</string>
-				<string>com.apple.protected-​mpeg-4-audio</string>
+				<string>com.apple.protected-mpeg-4-audio</string>
 				<string>public.aifc-audio</string>
-				<string>com.apple.coreaudio-​format</string>
+				<string>com.apple.coreaudio-format</string>
 				<string>public.aiff-audio</string>
 			</array>
 		</dict>
@@ -76,7 +76,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>132</string>
+	<string>133</string>
 	<key>FacebookAppID</key>
 	<string>447241325394334</string>
 	<key>FacebookDisplayName</key>
