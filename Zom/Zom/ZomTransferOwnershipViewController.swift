@@ -40,12 +40,14 @@ class ZomTransferOwnershipViewController: UIViewController, UITableViewDataSourc
         self.buddyTable.delegate = self
         let nib = UINib(nibName: "ZomAddFriendsTableCell", bundle: nil)
         self.buddyTable.register(nib, forCellReuseIdentifier: DynamicCellIdentifier.buddy.rawValue)
+        self.leaveButton?.isEnabled = (self.occupants.count == 0)
     }
     
     public func setOccupants(_ occupants:[OTRXMPPRoomOccupant]) {
         self.occupants.removeAll()
         self.selected.removeAll()
         self.occupants.append(contentsOf: occupants)
+        self.leaveButton?.isEnabled = (self.occupants.count == 0)
     }
     
     @IBAction func didPressCancel(_ sender: UIButton) {
@@ -93,6 +95,7 @@ class ZomTransferOwnershipViewController: UIViewController, UITableViewDataSourc
         } else {
             selected.append(occupant)
         }
+        self.leaveButton.isEnabled = (self.occupants.count == 0 || selected.count > 0)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
