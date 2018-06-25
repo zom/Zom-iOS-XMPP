@@ -26,6 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [UIApplication swizzle];
     GlobalTheme.shared = [[ZomTheme alloc] init];
     [GlobalTheme.shared setupAppearance];
     [OTRAssets setupLanguageHandling];
