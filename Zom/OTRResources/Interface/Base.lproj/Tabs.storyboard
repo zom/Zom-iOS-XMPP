@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E1H-SC-6fK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E1H-SC-6fK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -325,7 +325,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" image="PitchInvite" translatesAutoresizingMaskIntoConstraints="NO" id="8bH-35-E93">
-                                            <rect key="frame" x="10" y="10" width="355" height="100"/>
+                                            <rect key="frame" x="40" y="10" width="295" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="Xzw-jM-8x7"/>
                                             </constraints>
@@ -336,19 +336,19 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRd-V8-XnP">
-                                            <rect key="frame" x="16" y="130" width="343" height="18"/>
+                                            <rect key="frame" x="40" y="130" width="319" height="18"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvM-ZY-O8g">
-                                            <rect key="frame" x="16" y="150" width="343" height="110"/>
+                                            <rect key="frame" x="40" y="152" width="319" height="108"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pj7-rE-iED">
-                                            <rect key="frame" x="10" y="130" width="339" height="130"/>
+                                            <rect key="frame" x="315" y="130" width="20" height="22"/>
                                             <state key="normal" image="ic_chat_bubble"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -365,17 +365,16 @@
                                         <constraint firstAttribute="bottom" secondItem="uvM-ZY-O8g" secondAttribute="bottom" constant="10" id="4Y5-AL-imE"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="uvM-ZY-O8g" secondAttribute="trailing" id="Il2-x0-3ty"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="PRd-V8-XnP" secondAttribute="trailing" id="J21-nL-sDm"/>
-                                        <constraint firstItem="pj7-rE-iED" firstAttribute="bottom" secondItem="uvM-ZY-O8g" secondAttribute="bottom" id="QaJ-Sa-cKA"/>
-                                        <constraint firstItem="uvM-ZY-O8g" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" id="RD9-hp-Jfq"/>
-                                        <constraint firstItem="pj7-rE-iED" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="top" id="V7H-89-tGK"/>
-                                        <constraint firstAttribute="trailing" secondItem="8bH-35-E93" secondAttribute="trailing" constant="10" id="Vx0-BL-j7V"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pj7-rE-iED" secondAttribute="trailing" constant="10" id="fv1-lO-gub"/>
+                                        <constraint firstItem="pj7-rE-iED" firstAttribute="bottom" secondItem="uvM-ZY-O8g" secondAttribute="bottom" priority="900" id="QaJ-Sa-cKA"/>
+                                        <constraint firstItem="pj7-rE-iED" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="top" priority="901" id="V7H-89-tGK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8bH-35-E93" secondAttribute="trailing" constant="24" id="Vx0-BL-j7V"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="pj7-rE-iED" secondAttribute="trailing" constant="24" id="fv1-lO-gub"/>
                                         <constraint firstItem="PRd-V8-XnP" firstAttribute="top" secondItem="8bH-35-E93" secondAttribute="bottom" constant="20" id="iIs-kC-fB5"/>
-                                        <constraint firstItem="uvM-ZY-O8g" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="bottom" constant="2" id="mO6-dU-nos"/>
-                                        <constraint firstItem="PRd-V8-XnP" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" id="o4M-eG-v6x"/>
-                                        <constraint firstItem="8bH-35-E93" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leading" constant="10" id="sdL-1E-CIP"/>
+                                        <constraint firstItem="uvM-ZY-O8g" firstAttribute="leading" secondItem="PRd-V8-XnP" secondAttribute="leading" id="jPr-Wt-HjP"/>
+                                        <constraint firstItem="uvM-ZY-O8g" firstAttribute="top" secondItem="PRd-V8-XnP" secondAttribute="bottom" constant="4" id="mO6-dU-nos"/>
+                                        <constraint firstItem="PRd-V8-XnP" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" constant="24" id="o4M-eG-v6x"/>
+                                        <constraint firstItem="8bH-35-E93" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leadingMargin" constant="24" id="sdL-1E-CIP"/>
                                         <constraint firstItem="8bH-35-E93" firstAttribute="top" secondItem="87t-aa-EDb" secondAttribute="top" constant="10" id="vxh-zM-v3w"/>
-                                        <constraint firstItem="pj7-rE-iED" firstAttribute="leading" secondItem="87t-aa-EDb" secondAttribute="leading" constant="10" id="x9S-Tm-oqW"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
