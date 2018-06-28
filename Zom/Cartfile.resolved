@@ -1,5 +1,5 @@
 github "AFNetworking/AFNetworking" "3.2.1"
-github "ChatSecure/Mantle" "4c1a09cb0c0811956cd35262340e42b940971cbb"
+github "Mantle/Mantle" "db043e35dfe820a5f49e6aa59364bb85029903ab"
 github "PureLayout/PureLayout" "v3.0.2"
 github "TTTAttributedLabel/TTTAttributedLabel" "2.0.0"
 github "TheLevelUp/ZXingObjC" "3.2.2"
