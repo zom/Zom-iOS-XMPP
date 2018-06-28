@@ -165,11 +165,9 @@ class ZomProfileViewObserver: NSObject {
             var fingerprintSectionCells = self.generateFingerprintCells(fingerprints: shownFingerprints)
             
             var cells:[ZomProfileViewCellInfoProtocol] = [userCell]
-            if info.calledFromGroup {
+            if info.calledFromGroup || !info.hasSession {
                 // Start chat with this occupant
                 cells.append(ButtonCellInfo(type:.startChat))
-            } else {
-                cells.append((info.hasSession ? ButtonCellInfo(type:.refresh) : ButtonCellInfo(type:.startChat)))
             }
             cells.append(ButtonCellInfo(type: .showCodes(allFingerprints.count)))
             
