@@ -255,7 +255,7 @@ DEPENDENCIES:
   - YapTaskQueue/SQLCipher (from `https://github.com/ChatSecure/YapTaskQueue.git`, branch `swift4`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - Appirater
     - ARChromeActivity
@@ -371,4 +371,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8c76ee8afc75bde4fa5f6a1bc917a10097ba08db
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
