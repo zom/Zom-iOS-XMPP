@@ -123,3 +123,5 @@
 /* The placeholder text in the chat view where the message should go */
 "Send plaintext message" = "メッセージを送信";
 
+/* Title for leave group prompt */
+"Leave Group?" = "グループを離れますか?";
