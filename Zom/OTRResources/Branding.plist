@@ -36,5 +36,7 @@
 	<true/>
 	<key>AllowDebugFileLogging</key>
 	<true/>
+    <key>DefaultGroupPlaintext</key>
+    <true/>
 </dict>
 </plist>
